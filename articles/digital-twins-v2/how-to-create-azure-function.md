@@ -61,11 +61,10 @@ using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
-namespace adtIngestFunctionSample
+namespace FunctionSample
 {
-    public static class Function1
-    {
-        [FunctionName("Function1")]
+    public static class FooFunction    {
+        [FunctionName("Foo")]
         public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.Data.ToString());
@@ -90,6 +89,11 @@ In order to use the .NET SDK, you need to include the following packages in your
 * Azure.DigitalTwins.Core
 * Azure.Identity
 
+For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need:
+* Azure.Net.Http
+* Azure.Core
+
+
 Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
 
 Add the following using statements to your Azure Function.
@@ -97,47 +101,78 @@ Add the following using statements to your Azure Function.
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using System.Net.Http;
+using Azure.Core.Pipeline;
 ```
 
 ## Add authentication code to the Azure function
 
 Next, add authentication code that will allow the function to access Azure Digital Twins.
 
-Add variables into your function for these values: 
+Add variables to your function class for these values: 
 * The Azure Digital Twins app ID
-* The URL of your Azure Digital Twins instance 
-* A variable to hold your Azure Digital Twins client instance to the function project
+* The URL of your Azure Digital Twins instance. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
+* A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
 
-Also, change the function signature to be asynchronous.
+Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this a static variable inside your class.
+
+Finally, change the function signature to be asynchronous.
 
 After these changes, your function code should be similar to the following:
 
 ```csharp
-namespace adtIngestFunctionSample
+namespace FunctionSample
 {
-    public static class Function1
+    public static class FooFunction
     {
-        const string AdtAppId = "https://digitaltwins.azure.net";
-        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
-        static AzureDigitalTwinsAPIClient client;
+        const string adtAppId = "https://digitaltwins.azure.net";
+        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static HttpClient httpClient = new HttpClient();
 
-        [FunctionName("Function1")]
+        [FunctionName("Foo")]
         public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
+            DigitalTwinsClient client = null;
             try
             {
                 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred);
+                DigitalTwinsClientOptions opts = 
+                    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
+                                                
+                log.LogInformation($"ADT service client connection created.");
             }
             catch (Exception e)
             {
-                Console.WriteLine($"ADT service client connection failed.");
+                log.LogError($"ADT service client connection failed. " + e.ToString());
                 return;
             }
             log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
+```
+
+For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your ADT instance.
+
+Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
+
+```bash
+az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+```
+
+Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
+
+```bash
+az dt rbac assign-role --assignee <principal-ID> --dt-name <your-Azure-Digital-Twins-instance> --role owner
+```
+
+For more information on managed identity, please see the [overiew](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet).
+
+Finally, you can make the URL of your ADT instance accessible to your function by setting an environment variable. See [Set an environment variable in the Azure Functions app](https://www.google.com/search?q=Azure+FUnctions+how+to+set+an+environment+variable&rlz=1C1GCEU_enUS861US861&oq=Azure+functions+&aqs=chrome.0.69i59j0l4j69i60j69i65l2.3626j0j4&sourceid=chrome&ie=UTF-8)
+
+```bash
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
 ```
 
 ## Publish the Azure function app

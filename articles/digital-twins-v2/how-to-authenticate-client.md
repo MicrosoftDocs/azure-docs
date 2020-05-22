@@ -75,27 +75,20 @@ try
 }
 ```
 
-Or the managed identity credentials, for example in an Azure Function:
+In an Azure Function, you will likely use the managed identity credentials:
 ```csharp
-const string adtAppId = "https://digitaltwins.azure.net";
-private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL"); 
-...
-DigitalTwinsClient client;
-try
-{
-    ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred);
-}
-catch (Exception e)
-{
-    Console.WriteLine($"ADT service client connection failed.");
-    return;
-}
+ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+DigitalTwinsClientOptions opts = 
+    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-To use authentication in a function make sure that you:
+See [how-to-create-azure-function.md](./how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+
+Also, to use authentication in a function make sure that you:
 * [Enable managed identity](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet)
 * [Set an environment variable in the Azure Functions app](https://www.google.com/search?q=Azure+FUnctions+how+to+set+an+environment+variable&rlz=1C1GCEU_enUS861US861&oq=Azure+functions+&aqs=chrome.0.69i59j0l4j69i60j69i65l2.3626j0j4&sourceid=chrome&ie=UTF-8)
+* Assign permissions to the functions app that enable it to access Digital Twins APIs. See [how-to-create-azure-function])./how-to-create-azure-function) for more information.
 
 ## Authentication in an Autorest-generated SDK
 
