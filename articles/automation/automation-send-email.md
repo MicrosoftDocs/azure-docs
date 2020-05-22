@@ -13,7 +13,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 
 ## Prerequisites
 
-* Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/ember-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [A SendGrid account](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
 * [Automation account](automation-offering-get-started.md) with **Az** modules.
 * [Run As account](automation-create-runas-account.md) to store and execute the runbook.
