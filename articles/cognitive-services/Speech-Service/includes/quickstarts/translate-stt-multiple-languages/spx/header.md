@@ -7,7 +7,7 @@ ms.date: 05/18/2020
 ms.author: v-demjoh
 ---
 
-In this quickstart, you use the SPX tool from the command line to convert speech from a microphone input
+In this quickstart, you use the Speech CLI from the command line to convert speech from a microphone input
 to text in multiple other languages.
-After a one-time configuration, the SPX tool lets you translate speech using commands from the command line.
+After a one-time configuration, the Speech CLI lets you translate speech using commands from the command line.
 

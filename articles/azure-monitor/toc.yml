@@ -98,6 +98,10 @@
       href: platform/data-security.md
     - name: Customer-managed keys
       href: platform/customer-managed-keys.md
+    - name: Private Link networking
+      href: platform/private-link-security.md
+    - name: Private storage 
+      href: platform/private-storage.md
     - name: Personal log data handling
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
@@ -238,7 +242,7 @@
         href: app/cloudservices.md
       - name: Azure Functions
         displayname: functions, monitor functions, automation
-        href: ../azure-functions/functions-monitoring.md
+        href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
       - name: Standalone - any environment

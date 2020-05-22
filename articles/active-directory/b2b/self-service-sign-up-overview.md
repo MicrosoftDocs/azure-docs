@@ -33,13 +33,13 @@ A self-service sign-up user flow creates a sign-up experience for your external 
 You can configure user flow settings to control how the user signs up for the application:
 
 - Account types used for sign-in, such as social accounts like Facebook, or Azure AD accounts
-- Attributes to be collected from the user signing up, such as first name, postal code, or country of residency
+- Attributes to be collected from the user signing up, such as first name, postal code, or country/region of residency
 
 When a user wants to sign in to your application, whether it's a web, mobile, desktop, or single-page application (SPA), the application initiates an authorization request to the user flow-provided endpoint. The user flow defines and controls the user's experience. When the user completes the sign-up user flow, Azure AD generates a token and redirects the user back to your application. Upon completion of sign-up, a guest account is provisioned for the user in the directory. Multiple applications can use the same user flow.
 
 ## Example of self-service sign-up
 
-The following example illustrates how we’re bringing social identity providers to Azure AD with self-service sign up capabilities for guest users.  
+The following example illustrates how we're bringing social identity providers to Azure AD with self-service sign up capabilities for guest users.  
 A partner of Woodgrove opens the Woodgrove app. They decide they want to sign up for a supplier account, so they select Request your supplier account, which initiates the self-service sign-up flow.
 
 ![Example of self-service sign-up starting page](media/self-service-sign-up-overview/example-start-sign-up-flow.png)

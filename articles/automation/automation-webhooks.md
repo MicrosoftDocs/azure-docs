@@ -1,22 +1,19 @@
 ---
-title: Starting an Azure Automation runbook with a webhook
-description: A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook.
+title: Start an Azure Automation runbook from a webhook
+description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
 ---
-# Starting an Azure Automation runbook with a webhook
+# Start a runbook from a webhook
 
-A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing a full solution using the Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
+A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing the full Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 
 > [!NOTE]
 > Using a webhook to start a Python runbook is not supported.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Webhook properties
 
@@ -234,4 +231,4 @@ The following image shows the request being sent from Windows PowerShell and the
 
 ## Next steps
 
-* To learn how to use Azure Automation to take action on Azure alerts, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
+* [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
