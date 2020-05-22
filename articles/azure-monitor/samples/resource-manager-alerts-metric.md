@@ -12,7 +12,7 @@ ms.subservice: alerts
 
 This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 

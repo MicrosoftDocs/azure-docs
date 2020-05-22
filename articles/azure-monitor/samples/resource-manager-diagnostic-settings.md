@@ -14,7 +14,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 To create a diagnostic setting, add a resource of type <resource namespace>/providers/diagnosticSettings to the template. This article provides examples for two different resource types, but the same pattern can be applied to other resource types. The collection of allowed logs and metrics will vary for each resource type.
 
-[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## Diagnostic setting for Azure key vault 
