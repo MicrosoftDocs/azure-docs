@@ -171,7 +171,7 @@ WHERE
 ```
 
 > [!NOTE]
-> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
 ## Tab-delimited files
 
@@ -205,7 +205,7 @@ WHERE
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 
-The following query returns the number of distinct country names in a file, specifying only the columns that are needed:
+The following query returns the number of distinct country/region names in a file, specifying only the columns that are needed:
 
 > [!NOTE]
 > Take a look at the WITH clause in the query below and note that there is "2" (without quotes) at the end of row where you define the *[country_name]* column. It means that the *[country_name]* column is the second column in the file. The query will ignore all columns in the file except the second one.

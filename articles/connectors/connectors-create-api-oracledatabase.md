@@ -3,9 +3,9 @@ title: Connect to Oracle Database
 description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
 ---
 
@@ -15,6 +15,13 @@ Using the Oracle Database connector, you create organizational workflows that us
 
 * Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
 * Use actions to get a row of data, insert a new row, and even delete. For example, when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Oracle Database (an action). 
+
+This connector doesn't support the following items:
+
+* Views 
+* Any table with composite keys
+* Nested object types in tables
+* Database functions with non-scalar values
 
 This article shows you how to use the Oracle Database connector in a logic app.
 
@@ -103,12 +110,6 @@ This article shows you how to use the Oracle Database connector in a logic app.
 **Cause**: The table does not have any primary key.  
 
 **Resolution**: The Oracle Database connector requires that a table with a primary key column be used.
-
-#### Currently not supported
-
-* Views 
-* Any table with composite keys
-* Nested object types in tables
  
 ## Connector-specific details
 

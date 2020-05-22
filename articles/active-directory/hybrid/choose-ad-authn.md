@@ -86,7 +86,7 @@ Details on decision questions:
 
 * **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) requires password hash synchronization to provision users with their corporate credentials in the managed domain.
 
-	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use third-party or on-premises multifactor authentication methods that rely on federation.
+	Organizations that require multifactor authentication with password hash synchronization must use Azure Multi-Factor Authentication or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use third-party or on-premises multifactor authentication methods that rely on federation.
 
 > [!NOTE]
 > Azure AD Conditional Access require [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenses.

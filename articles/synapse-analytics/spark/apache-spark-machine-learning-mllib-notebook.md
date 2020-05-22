@@ -49,7 +49,7 @@ In the following steps, you develop a model to predict whether a particular trip
     import matplotlib.pyplot as plt
     from datetime import datetime
     from dateutil import parser
-    from pyspark.sql.functions import unix_timestamp
+    from pyspark.sql.functions import unix_timestamp, date_format, col, when
     from pyspark.ml import Pipeline
     from pyspark.ml import PipelineModel
     from pyspark.ml.feature import RFormula
@@ -233,6 +233,9 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 ```
 
 Now that there are two DataFrames, the next task is to create the model formula and run it against the training DataFrame, then validate against the testing DataFrame. You should experiment with different versions of the model formula to see the impact of different combinations.
+
+> [!Note]
+> To save the model, you will need the Azure Storage Blob Data Contributor RBAC role. Under your storage account, navigate to Access Control (IAM), and select Add role assignment. Assign Storage Blob Data Contributor RBAC role to your SQL Database server. Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

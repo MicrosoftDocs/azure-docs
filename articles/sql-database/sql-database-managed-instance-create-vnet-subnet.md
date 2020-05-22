@@ -3,7 +3,7 @@ title: Create a virtual network for managed instance
 description: This article describes how to create a virtual network where you can deploy Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
