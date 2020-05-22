@@ -16,13 +16,6 @@ ms.custom: sqldbrb=2
 
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to your database in Azure. This article applies to Azure SQL Database, and Azure SQL Managed Instance
 
-<<<<<<< HEAD
-> [!TIP]
-> Look at the getting started guides for [Azure SQL Database](quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](../managed-instance/quickstart-content-reference-guide.md) if you need to set up your Azure SQL database.
->
-=======
->>>>>>> 54bd20292a4ec5267e2f225ce37674770070d0b5
-
 ## Language and platform
 
 You can use various [programming languages and platforms](connect-query-content-reference-guide.md) to connect and query Azure SQL Database. You can find [sample applications](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) that you can use to connect to the Azure SQL database.
@@ -31,11 +24,7 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 ## Authentication
 
-<<<<<<< HEAD
-Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory authentication](aad-authentication-overview.md) users and logins. Azure Active Directory (Azure AD) logins are available only in SQL Managed Instance. 
-=======
 Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](authentication-aad-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
->>>>>>> 54bd20292a4ec5267e2f225ce37674770070d0b5
 
 Learn more about [managing database access and login](logins-create-manage.md).
 
