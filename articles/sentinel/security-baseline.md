@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Sentinel
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
