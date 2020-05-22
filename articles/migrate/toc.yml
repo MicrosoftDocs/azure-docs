@@ -169,7 +169,7 @@
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
   - name: Microsoft Q&A question page
-    href: https://aka.ms/AzureMigrateForum
+    href: https://docs.microsoft.com/answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate
