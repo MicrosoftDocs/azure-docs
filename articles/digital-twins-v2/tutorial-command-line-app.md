@@ -40,9 +40,9 @@ To develop the app in this tutorial, you'll need an Azure Digital Twins service 
 
 If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
 
-Otherwise, you can either:
-* Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). Also, set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
-* Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
+Otherwise:
+1. Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). 
+2. Set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
 
 [!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
