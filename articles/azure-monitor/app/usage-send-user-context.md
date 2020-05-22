@@ -20,7 +20,7 @@ a set of product usage tools:
 - [Funnels](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - [Retention](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
   Cohorts
-- [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 In order to track what a user does over time, Application Insights needs
 an ID for each user or session. Include the following IDs in every
@@ -135,4 +135,4 @@ namespace MvcWebRole.Telemetry
     - [Users, Sessions, and Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)

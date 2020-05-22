@@ -1,7 +1,7 @@
 ---
 title: Azure Blueprints functions
 description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.topic: reference
 ---
 # Functions for use with Azure Blueprints
