@@ -13,6 +13,7 @@ ms.author: sstein
 ms.date: 03/12/2019
 ---
 # Use PowerShell to create elastic pools and move databases between elastic pools
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example creates two elastic pools and moves a database in SQL Database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database compute size.
 

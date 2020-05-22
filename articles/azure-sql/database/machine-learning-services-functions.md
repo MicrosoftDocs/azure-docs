@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
 

@@ -14,6 +14,7 @@ ms.date: 02/13/2019
 ---
 
 # Manage rolling upgrades of cloud applications by using SQL Database active geo-replication
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Learn how to use [active geo-replication](auto-failover-group-overview.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website that's connected to a single database as its data tier. Our goal is to upgrade version 1 (V1) of the application to version 2 (V2) without any significant impact on the user experience.
 
