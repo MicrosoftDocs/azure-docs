@@ -27,7 +27,7 @@ What you need to begin:
 * Any code editor
 * **.NET Core 3.1** on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-## Prepare an Azure Digital Twins instance
+### Prepare an Azure Digital Twins instance
 
 To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
 
