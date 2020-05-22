@@ -18,15 +18,16 @@ You’ll use Visual Studio 2019 to create a .NET core console app that uses the 
 
 Completing this Quickstart will incur USD $1 in your Azure account, when using the Free App Service tier.
 
-[Azure App Service](overview.md) | [WebJobs for .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) | [WebJobs SDK how to](webjobs-sdk-how-to.md)
+[Azure App Service](overview.md) | [WebJobs for .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) | [How to use the WebJobs SDK](webjobs-sdk-how-to.md)
 
-Note: This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. The WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
+**Note** 
+This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. This WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ## Prerequisites
 
 * Visual Studio 2019 with the **Azure development** workload. [Install Visual Studio 2019](/visualstudio/install/).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F). 
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## Install the Azure development workload 
 
