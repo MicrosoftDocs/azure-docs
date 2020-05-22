@@ -37,6 +37,11 @@ To set up a managed identity in the portal, you will first create an application
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
+
+> [!NOTE] 
+> To find the managed identity for your web or slot app in the Azure portal, go to the User settings section under Enterprise applications.
+
+
 ### Using the Azure CLI
 
 To set up a managed identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:

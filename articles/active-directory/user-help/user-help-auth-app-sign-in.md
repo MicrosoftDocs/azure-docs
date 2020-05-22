@@ -59,6 +59,9 @@ On an iOS device:
 - **If you’ve already been using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
 - **If you can't find your work or school account** on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your work or school account by following the steps in the Add your work or school account article.
 
+> [!NOTE]
+> We don’t support a combination of device registration and certificate-based authentication in Authenticator on iOS. The user must use a workaround by registering the device manually through Authenticator settings before signing in.
+
 After you turn on phone sign-in, you can sign in using just the Microsoft Authenticator app.
 
 1. Sign in to your work or school account.
