@@ -4,7 +4,7 @@ description: Learn how to enable soft delete on Azure file shares for data recov
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -92,7 +92,3 @@ You can use the following command to disable soft delete on your storage account
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
-
-## Monitoring soft deleted data
-
-To see the size of a soft-deleted file share, you must undelete the share, then view its properties.
