@@ -14,13 +14,18 @@ ms.date: 05/20/2020
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 
-Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. Partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a partition have the same partition key value. Azure Cosmos DB transparently and automatically manages the placement of partitions across physical resources to efficiently satisfy the scalability and performance needs of the table. As the throughput and storage requirements of an application increase, Azure Cosmos DB moves and balances the data across a greater number of physical machines. Apache Cassandra recommends a 100-MB limit on the size of a partition key. The Cassandra API for Azure Cosmos DB allows up to 20 GB per partition.
+Cassandra API uses partitioning to scale individual tables in a keyspace to meet the performance needs of your application. Partitions are formed based on the value of a partition key that is associated with each record in a table. All records in a partition have the same partition key value. Azure Cosmos DB transparently and automatically manages the placement of partitions across physical resources to efficiently satisfy the scalability and performance needs of the table. As the throughput and storage requirements of an application increase, Azure Cosmos DB moves and balances the data across a greater number of physical machines.
 
 From the developer perspective, partitioning behaves in the same way for Azure Cosmos DB Cassandra API as it does in native [Apache Cassandra](https://cassandra.apache.org/). However, there are some differences behind the scenes. 
 
-In Azure Cosmos DB, each machine on which partitions are stored is referred to as a [physical partition](partition-data.md#physical-partitions). This is akin to a Virtual Machine or `node` in an Apache Cassandra cluster, except it is a dedicated compute unit, or set of physical resources. Partitions that are stored on physical partitions are referred to as [logical partitions](partition-data.md#logical-partitions) in Azure Cosmos DB. If you are already familar with Apache Cassandra, you can think of logical partitions as just regular partitions.
 
-Each physical partition consists of a set of replicas, also known as replica sets. Each physical partition has at least 4 replicas. This is in contrast to Apache Cassandra, where setting a replication factor of 1 is possible. However, this leads to low availability if the only node with the data goes down. In Cassandra API there is always a replication factor of 4 (quorum of 3). Azure Cosmos DB automatically manages replica sets, while these need to be maintained using various tools in Apache Cassandra. 
+## Differences between Apache Cassandra and Azure Cosmos DB
+
+In Azure Cosmos DB, each machine on which partitions are stored is itself referred to as a [physical partition](partition-data.md#physical-partitions). The physical partition is akin to a Virtual Machine or `node` in an Apache Cassandra cluster, except it is a dedicated compute unit, or set of physical resources. Each partition stored on this compute unit is referred to as a [logical partition](partition-data.md#logical-partitions) in Azure Cosmos DB. If you are already familiar with Apache Cassandra, you can think of logical partitions as just regular partitions. 
+
+Apache Cassandra recommends a 100-MB limit on the size of a data that can be stored in a partition. The Cassandra API for Azure Cosmos DB allows up to 20 GB per logical partition, and up to 50GB of data per physical partition. In Azure Cosmos DB, unlike Apache Cassandra, compute capacity available in the physical partition is expressed using a single metric called [request units](request-units), which allows you to think of your workload in terms of requests (reads or writes) per second, rather than cores, memory, or IOPS. This can make capacity planning more straight forward, once you understand the cost of each request. Each physical partition can have up to 10000 RUs of compute available to it. You can learn more about scalability options by reading our article on [elastic scale](manage-scale-cassandra.md) in Cassandra API. 
+
+In Azure Cosmos DB, each physical partition consists of a set of replicas, also known as replica sets, with at least 4 replicas per partition. This is in contrast to Apache Cassandra, where setting a replication factor of 1 is possible. However, this leads to low availability if the only node with the data goes down. In Cassandra API there is always a replication factor of 4 (quorum of 3). Azure Cosmos DB automatically manages replica sets, while these need to be maintained using various tools in Apache Cassandra. 
 
 Apache Cassandra has a concept of tokens, which are hashes of partition keys. The tokens are based on a murmur3 64 byte hash, with values ranging from -2^63 to -2^63 - 1. This range is commonly referred to as the "token ring" in Apache Cassandra. The token ring is distributed into token ranges, and these ranges are divided amongst the nodes present in a native Apache Cassandra cluster. Partitioning for Azure Cosmos DB is implemented in a similar way, except it uses a different hash algorithm, and has a larger token ring. 
 
@@ -90,7 +95,7 @@ PRIMARY KEY (
    (partition_key_column_name[, ...]), 
     clustering_column_name [, ...]);
 ```
-For example, you can have the following, where the unique combination of `firstname` and `lastname` would form the partition key, and id is the clustering key:
+For example, you can have the following, where the unique combination of `firstname` and `lastname` would form the partition key, and `id` is the clustering key:
 
 ```shell
 CREATE TABLE uprofile.user ( 
