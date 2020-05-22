@@ -32,9 +32,9 @@ Use the [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/az
 
 You can also view example call bodies in the Swagger's accompanying [examples folder](https://github.com/Azure/azure-digital-twins/tree/private-preview/OpenApiSpec/examples).
 
-## Azure Digital Twins C# SDK
+## Azure Digital Twins .NET (C#) SDK
 
-The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
+The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 > [!NOTE]
 > For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
@@ -43,16 +43,20 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (Tools>NuGet Package Manager>Manage NuGet Packages for Solution). 
 * Using the .NET command-line tool, you can run:
-```bash
-dotnet add package Azure.DigitalTwins.Core
-dotnet add package Azure.identity
-```
+
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core
+    dotnet add package Azure.identity
+    ```
 
 For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
 
-Here a few code samples:
+### .NET SDK usage examples
+
+Here are a few code samples.
 
 Authenticate against the service:
+
 ```csharp
 // Authenticate against the service and create a client
 var credentials = new InteractiveBrowserCredential(tenantId, clientId);
@@ -60,6 +64,7 @@ DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred
 ```
 
 Upload a model and list models:
+
 ```csharp
 // Upload a model
 var typeList = new List<string>();
@@ -79,6 +84,7 @@ await foreach (ModelData md in modelDataList)
 ```
 
 Create and query twins:
+
 ```csharp
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
@@ -107,9 +113,11 @@ await foreach (string twin in result)
 }
 ```
 
-See the [Tutorial: Code a client app](tutorial-code.md) for a walkthrough of this sample app code. 
+See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
 
 ### General API usage
+
+This section contains general information about and guidelines for using the APIs and SDKs.
 
 * To use the SDK, instantiate the **DigitalTwinsClient** class. The constructor requires credentials that can be obtained with a variety of authentication methods in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) package. 
 * You may find the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) useful while getting started, but there are several other options, including credentials for [managed identity](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure Functions set up with MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins.

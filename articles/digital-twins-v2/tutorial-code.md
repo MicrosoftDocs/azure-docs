@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Code a client app
 titleSuffix: Azure Digital Twins
-description: Tutorial to write the minimal code for a client app, using the C# SDK.
+description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 05/05/2020

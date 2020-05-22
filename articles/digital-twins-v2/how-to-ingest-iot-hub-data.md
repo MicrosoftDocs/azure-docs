@@ -56,7 +56,7 @@ Before continuing with this example, you'll need to complete the following prere
 
 ## Create an Azure function in Visual Studio
 
-This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function for processing data](./how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton function is this:
 
@@ -123,9 +123,11 @@ await foreach (IncomingRelationship irel in res)
 }
 ```
 
-Depending on your model, you might need to pick from multiple incoming relationships. A common use case would be to pick by RelationshipName. In a model where a twin representing a device has just a single incoming relationship (which is fairly common) you might simply pick the first (and only) relationship returned. The parent of your twin is in the **SourceId** property of the relationship.  
+The parent of your twin is in the *SourceId* property of the relationship.
 
-Once you have the ID of the parent twin representing the *Room*, you can "patch" (make select updates to) that twin. To do this, use the following code:
+It is fairly common for a model of a twin representing a device to only have a single incoming relationship. In this case, you might pick the first (and only) relationship returned. If your models allow multiple types of relationships to this twin, you might need to specify further to choose from multiple incoming relationships. A common way to do this is to pick the relationship by `RelationshipName`. 
+
+Once you have the ID of the parent twin representing the *Room*, you can "patch" (make updates to) that twin. To do this, use the following code:
 
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
@@ -146,13 +148,13 @@ Using the code from the earlier samples, here is the entire Azure function in co
 [FunctionName("ProcessHubToDTEvents")]
 public async void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
 {
-    // After this is deployed, you need to turn the Managed Identity Status to "On", 
-    // Grab Object Id of the function and assigned "Azure Digital Twins Owner (Preview)" role to this function identity
-    // in order for this function to be authorized on ADT APIs.
+    // After this is deployed, in order for this function to be authorized on Azure Digital Twins APIs,
+    // you'll need to turn the Managed Identity Status to "On", 
+    // grab the Object ID of the function, and assign the "Azure Digital Twins Owner (Preview)" role to this function identity.
 
     DigitalTwinsClient client = null;
     //log.LogInformation(eventGridEvent.Data.ToString());
-    // Authenticate on ADT APIs
+    // Authenticate on Azure Digital Twins APIs
     try
     {
         

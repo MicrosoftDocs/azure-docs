@@ -29,7 +29,7 @@ Here is a overview of the steps it contains:
 2. Write an Azure function with an [Event Grid](../event-grid/overview.md) trigger
 3. Add authentication code to the function (to be able to access Azure Digital Twins)
 4. Publish the function app to Azure
-5. Set up [security](concepts-security.md) access. In order for the Azure function to receive an access token at runtime to access the service, you need to configure Managed Service Identity for the function app.
+5. Set up [security](concepts-security.md) access. In order for the Azure function to receive an access token at runtime to access the service, you'll need to configure Managed Service Identity for the function app.
 
 The remainder of this article walks through the Azure function setup steps, one at a time.
 
@@ -83,16 +83,13 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
-See [Authenticate a client application with Azure Digital Twins](./how-to-authenticate-client.md) for more detailed information.
-
-In order to use the .NET SDK, you need to include the following packages in your project:
-* Azure.DigitalTwins.Core
-* Azure.Identity
+In order to use the .NET SDK, you'll need to include the following packages in your project:
+* `Azure.DigitalTwins.Core`
+* `Azure.Identity`
 
 For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need:
-* Azure.Net.Http
-* Azure.Core
-
+* `Azure.Net.Http`
+* `Azure.Core`
 
 Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
 
@@ -116,7 +113,7 @@ Add variables to your function class for these values:
 
 Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this a static variable inside your class.
 
-Finally, change the function signature to be asynchronous.
+Lastly, change the function signature to be asynchronous.
 
 After these changes, your function code should be similar to the following:
 
@@ -153,26 +150,29 @@ namespace FunctionSample
 }
 ```
 
-For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your ADT instance.
+For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
-```bash
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
 Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
 
-```bash
+```azurecli
 az dt rbac assign-role --assignee <principal-ID> --dt-name <your-Azure-Digital-Twins-instance> --role owner
 ```
 
-For more information on managed identity, please see the [overiew](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet).
+For more information on managed identity, please see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
 
-Finally, you can make the URL of your ADT instance accessible to your function by setting an environment variable. See [Set an environment variable in the Azure Functions app](https://www.google.com/search?q=Azure+FUnctions+how+to+set+an+environment+variable&rlz=1C1GCEU_enUS861US861&oq=Azure+functions+&aqs=chrome.0.69i59j0l4j69i60j69i65l2.3626j0j4&sourceid=chrome&ie=UTF-8)
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
-```bash
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+> [!TIP]
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+
+```azurecli
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 ## Publish the Azure function app
@@ -194,7 +194,7 @@ On the following page, enter the desired name for the new function app, a resour
 
 ## Set up security access for the Azure function app
 
-The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
 To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate to your function app.
 

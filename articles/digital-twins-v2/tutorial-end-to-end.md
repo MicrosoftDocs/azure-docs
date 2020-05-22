@@ -51,7 +51,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* C# SDK usage examples (found in *CommandLoop.cs*)
+* .NET (C#) SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events

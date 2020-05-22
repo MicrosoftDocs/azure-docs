@@ -27,39 +27,42 @@ This is done in two steps:
 
 [!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
 
-## Write client app authentication code: .NET SDK
+## Write client app authentication code: .NET (C#) SDK
 
-This section describes the code you will need to include in your client application in order to complete the authentication process using the .NET SDK.
+This section describes the code you will need to include in your client application in order to complete the authentication process using the .NET (C#) SDK.
+The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 ### Prerequisites
 
-In order to use the .NET SDK, you need to include the following packages in your project:
-* Azure.DigitalTwins.Core
-* Azure.Identity
+In order to use the .NET SDK, you'll need to include the following packages in your project:
+* `Azure.DigitalTwins.Core`
+* `Azure.Identity`
 
-Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
+Depending on your tools of choice, you can do so with the Visual Studio package manager or the `dotnet` command line tool. 
 
-### Authentication and Client Creation: .NET
+### Authentication and client creation: .NET
 
-To authenticate with the .NET SDK, use one of the several methods to obtain credentials that are defined in the [Azure.Identity](https://docs.microsoft.com/en-us/dotnet/api/azure.identity?view=azure-dotnet) library.
+To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/en-us/dotnet/api/azure.identity?view=azure-dotnet) library.
 
-Most commonly, you will probably use one of these two: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). This method is intended for interactive applications and will bring up a web browser to authenticate with.
-* [ManagedIdentityCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). This method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview), for example when you want to work with Azure Functions. 
+Here are two that are commonly used: 
+* [InteractiveBrowserCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). This method is intended for interactive applications and will bring up a web browser for authentication.
+* [ManagedIdentityCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). This method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions. 
 
-You need the following using statements:
+You'll also need the following using statements:
+
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
 
-To use the interactive browser credentials to create an authenticated SDK client use:
+To use the interactive browser credentials to create an authenticated SDK client, add this code:
+
 ```csharp
-// Your client Id / app registration
+// Your client / app registration ID
 private static string clientId; 
-// Your tenant Id
+// Your tenant / directory ID
 private static string tenantId;
-// The URL of your instance including the protocol (https://)
+// The URL of your instance, including the protocol (https://)
 private static string adtInstanceUrl;
 ...
 
@@ -75,7 +78,8 @@ try
 }
 ```
 
-In an Azure Function, you will likely use the managed identity credentials:
+In an Azure Function, you can use the managed identity credentials like this:
+
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
 DigitalTwinsClientOptions opts = 
@@ -83,29 +87,33 @@ DigitalTwinsClientOptions opts =
 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-See [how-to-create-azure-function.md](./how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+See [[How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
 
-Also, to use authentication in a function make sure that you:
+Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet)
-* [Set an environment variable in the Azure Functions app](https://www.google.com/search?q=Azure+FUnctions+how+to+set+an+environment+variable&rlz=1C1GCEU_enUS861US861&oq=Azure+functions+&aqs=chrome.0.69i59j0l4j69i60j69i65l2.3626j0j4&sourceid=chrome&ie=UTF-8)
-* Assign permissions to the functions app that enable it to access Digital Twins APIs. See [how-to-create-azure-function])./how-to-create-azure-function) for more information.
+* [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
+* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for more information.
 
-## Authentication in an Autorest-generated SDK
+## Authentication in an AutoRest-generated SDK
+
+If you are not using .NET, you may opt to build an SDK library in a language of your choice, as described in [How-to: Create custom SDKs for Azure Digital Twins with AutoRest](how-to-create-custom-sdks.md).
+
+This section explains how to authenticate in that case.
 
 ### Prerequisites
 
-To follow the example in this section, you will first need to build the SDK library that is described in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
-
-This example uses a Typescript SDK generated with Autorest. It therefore also requires:
+This example uses a Typescript SDK generated with AutoRest. As a result, it also requires:
 * [msal-js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 * [ms-rest-js](https://github.com/Azure/ms-rest-js)
-
 
 ### Minimal authentication code sample
 
 To authenticate a .NET app with Azure services, you can use the following minimal code within your client app.
 
-You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier, as well as the URL of your Azure Digital Twins instance
+You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier, as well as the URL of your Azure Digital Twins instance.
+
+> [!TIP]
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```javascript
 import * as Msal from "msal";
@@ -113,11 +121,11 @@ import { TokenCredentials } from "@azure/ms-rest-js";
 // Autorest-generated SDK
 import { AzureDigitalTwinsAPI } from './azureDigitalTwinsAPI';
 
-// client id / app registration
+// Client / app registration ID
 var ClientId;
-// Azure tenant
+// Azure tenant / directory ID
 var TenantId;
-// URL of the ADT instance
+// URL of the Azure Digital Twins instance
 var AdtInstanceUrl; 
 
 var AdtAppId = "https://digitaltwins.azure.net";
@@ -166,7 +174,7 @@ export async function login() {
         {
             var tokenCredentials = new TokenCredentials(accessToken);
                 
-            // Add token and server url to service instance
+            // Add token and server URL to service instance
             const clientConfig = {
                 baseUri: AdtInstanceUrl
             };
@@ -179,7 +187,7 @@ export async function login() {
 }
 ```
 
-MSAL has many more options you can use, to implement for example caching and other authentication flows. For more information, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
+MSAL has many more options you can use, to implement things like caching and other authentication flows. For more information on this, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
 ## Next steps
 
