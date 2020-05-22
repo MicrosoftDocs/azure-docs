@@ -1,6 +1,6 @@
 ---
-title: Set up high availability for Azure Resource Manager VMs | Microsoft Docs
-description: This tutorial shows you how to create an Always On availability group with Azure virtual machines in Azure Resource Manager mode.
+title: Set up high availability for Azure Resource Manager virtual machines | Microsoft Docs
+description: This tutorial shows you how to create an Always On availability group with Azure Virtual Machines in Azure Resource Manager mode.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,9 +19,10 @@ ms.author: mikeray
 
 ---
 # Configure Always On availability groups in Azure Virtual Machines automatically: Resource Manager
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This tutorial shows you how to create a SQL Server availability group that uses Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
+This tutorial shows you how to create a SQL Server availability group that uses Azure Resource Manager virtual machines (VM). The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
 The complete tutorial creates a SQL Server availability group on Azure Virtual Machines that include the following elements:
 
@@ -46,7 +47,6 @@ Before you start this tutorial, confirm the following:
 > [!NOTE]
 > If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
 >
->
 
 In this tutorial, use the Azure portal to:
 
@@ -58,10 +58,11 @@ In this tutorial, use the Azure portal to:
 [!INCLUDE [availability-group-template](../../../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
 ## Provision the cluster from the gallery
+
 Azure provides a gallery image for the entire solution. To locate the template:
 
 1. Sign in to the Azure portal by using your account.
-2. In the Azure portal, click **Create a resource** to open the **New** pane.
+2. In the Azure portal, select **Create a resource** to open the **New** pane.
 3. On the **New** pane, search for **AlwaysOn**.
    ![Find AlwaysOn Template](./media/availability-group-azure-marketplace-template-configure/16-findalwayson.png)
 4. In the search results, locate **SQL Server AlwaysOn Cluster**.
@@ -69,7 +70,8 @@ Azure provides a gallery image for the entire solution. To locate the template:
 5. On **Select a deployment model**, choose **Resource Manager**.
 
 ### Basics
-Click **Basics** and configure the following settings:
+
+Select **Basics** and configure the following settings:
 
 * **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
@@ -81,10 +83,11 @@ The following screenshot is a completed **Basics** blade:
 
 ![Basics](./media/availability-group-azure-marketplace-template-configure/1-basics.png)
 
-Click **OK**.
+Select **OK**.
 
 ### Domain and network settings
-This Azure gallery template creates a domain and domain controllers. It also creates a network and two subnets. The template cannot create servers in an existing domain or virtual network. The next step configures the domain and network settings.
+
+This Azure gallery template creates a domain and domain controllers. It also creates a network and two subnets. The template can't create servers in an existing domain or virtual network. The next step configures the domain and network settings.
 
 On the **Domain and network settings** blade, review the preset values for the domain and network settings:
 
@@ -101,9 +104,10 @@ The **Domain and network settings** should look like the following screenshot:
 
 If necessary, you can change these values. For this tutorial, use the preset values.
 
-Review the settings, and then click **OK**.
+Review the settings, and then select **OK**.
 
 ### Availability group settings
+
 On **Availability group settings**, review the preset values for the availability group and the listener.
 
 * **Availability group name** is the clustered resource name for the availability group. For this tutorial, use **Contoso-ag**.
@@ -114,19 +118,21 @@ If necessary, you can change these values. For this tutorial, use the preset val
 
 ![availability group settings](./media/availability-group-azure-marketplace-template-configure/3-availabilitygroup.png)
 
-Click **OK**.
+Select **OK**.
 
 ### Virtual machine size, storage settings
+
 On **VM size, storage settings**, choose a SQL Server virtual machine size, and review the other settings.
 
-* **SQL Server virtual machine size** is the size for both virtual machines that run SQL Server. Choose an appropriate virtual machine size for your workload. If you are building this environment for the tutorial, use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../../../virtual-machines/windows/sizes.md).
+* **SQL Server virtual machine size** is the size for both virtual machines that run SQL Server. Choose an appropriate virtual machine size for your workload. 
+   * If you are building this environment for the tutorial, use **DS2**.
+   * For production workloads, choose a virtual machine size that can support the workload.
+   * Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one.
+   * For more information, see [Sizes for virtual machines](../../../virtual-machines/windows/sizes.md).
 
-?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-
-> [!NOTE]
-> Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
->
->
+   > [!NOTE]
+   > Azure installs the Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+   >
 
 * **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 * **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial, use **A1**.
@@ -143,18 +149,18 @@ For this tutorial, use **General workload**.
 
 ![VM size storage settings](./media/availability-group-azure-marketplace-template-configure/4-vm.png)
 
-Review the settings, and then click **OK**.
+Review the settings, and then select **OK**.
 
 #### A note about storage
+
 Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage. When a server requires 2 TB or more, the template creates a storage pool on each SQL Server virtual machine. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents a single data disk to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server by using the following settings:
 
 * Stripe size is the interleave setting for the virtual disk. Transactional workloads use 64 KB. Data warehousing workloads use 256 KB.
 * Resiliency is simple (no resiliency).
 
-> [!NOTE]
-> Azure premium storage is locally redundant and keeps three copies of the data within a single region, so additional resiliency at the storage pool is not required.
->
->
+   > [!NOTE]
+   > Azure premium storage is locally redundant and keeps three copies of the data within a single region, so additional resiliency at the storage pool is not required.
+   >
 
 * Column count equals the number of disks in the storage pool.
 
@@ -167,48 +173,52 @@ For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure virtual machines](performance-guidelines-best-practices.md).
 
 ### SQL Server settings
+
 On **SQL Server settings**, review and modify the SQL Server virtual machine name prefix, SQL Server version, SQL Server service account and password, and the SQL auto-patching maintenance schedule.
 
 * **SQL Server Name Prefix** is used to create a name for each SQL Server virtual machine. For this tutorial, use **sqlserver**. The template names the SQL Server virtual machines *sqlserver-0* and *sqlserver-1*.
 * **SQL Server version** is the version of SQL Server. For this tutorial use **SQL Server 2014**. You can also choose **SQL Server 2012** or **SQL Server 2016**.
 * **SQL Server service account user name** is the domain account name for the SQL Server service. For this tutorial, use **sqlservice**.
-* **Password** is the password for the SQL Server service account.  Use a complex password. Confirm the password.
+* **Password** is the password for the SQL Server service account. Use a complex password. Confirm the password.
 * **SQL Auto Patching maintenance schedule** identifies the day of the week that Azure automatically patches the SQL Servers. For this tutorial, type **Sunday**.
 * **SQL Auto Patching maintenance start hour** is the time of day for the Azure region when automatic patching begins.
 
 > [!NOTE]
 > The patching window for each virtual machine is staggered by one hour. Only one virtual machine is patched at a time to prevent disruption of services.
 >
->
 
 ![SQL Server settings](./media/availability-group-azure-marketplace-template-configure/5-sql.png)
 
-Review the settings, and then click **OK**.
+Review the settings, and then select **OK**.
 
 ### Summary
-On the summary page, Azure validates the settings. You can also download the template. Review the summary. Click **OK**.
+
+On the summary page, Azure validates the settings. You can also download the template. Review the summary. Select **OK**.
 
 ### Buy
-This final blade contains **terms of use**, and **privacy policy**. Review this information. When you are ready for Azure to start to create the virtual machines and all the other required resources for the availability group, click **Create**.
+
+This final blade contains **terms of use**, and **privacy policy**. Review this information. When you are ready for Azure to start to create the virtual machines and all the other required resources for the availability group, select **Create**.
 
 The Azure portal creates the resource group and all the resources.
 
 ## Monitor deployment
+
 Monitor the deployment progress from the Azure portal. An icon that represents the deployment is automatically pinned to the Azure portal dashboard.
 
 ![Azure Dashboard](./media/availability-group-azure-marketplace-template-configure/11-deploydashboard.png)
 
 ## Connect to SQL Server
-The new instances of SQL Server are running on virtual machines that have internet-connected IP addresses. You can remote desktop (RDP) directly to each SQL Server virtual machine.
 
-To RDP to a SQL Server, follow these steps:
+The new instances of SQL Server are running on virtual machines that have internet-connected IP addresses. You can connect directly to each SQL Server virtual machine with remote desktop (RDP).
+
+To use RDP to connect to a SQL Server VM, follow these steps:
 
 1. From the Azure portal dashboard, verify that the deployment has succeeded.
-2. Click **Resources**.
-3. In the **Resources** blade, click **sqlserver-0**, which is the computer name of one of the virtual machines that's running SQL Server.
-4. On the blade for **sqlserver-0**, click **Connect**. Your browser asks if you want to open or save the remote connection object. Click **Open**.
-5. **Remote desktop connection** might warn you that the publisher of this remote connection can’t be identified. Click **Connect**.
-6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Click **Use another account**. For **User name**, type **contoso\DomainAdmin**. You configured this account when you set the administrator user name in the template. Use the complex password that you chose when you configured the template.
-7. **Remote desktop** might warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial, the name is **sqlserver-0.contoso.com**. Click **Yes**.
+2. Select **Resources**.
+3. In the **Resources** blade, select **sqlserver-0**, which is the computer name of one of the virtual machines that's running SQL Server.
+4. On the blade for **sqlserver-0**, select **Connect**. Your browser asks if you want to open or save the remote connection object. Select **Open**.
+5. **Remote desktop connection** might warn you that the publisher of this remote connection can’t be identified. Select **Connect**.
+6. Windows security prompts you to enter your credentials to connect to the IP address of the primary domain controller. Select **Use another account**. For **User name**, type **contoso\DomainAdmin**. You configured this account when you set the administrator user name in the template. Use the complex password that you chose when you configured the template.
+7. **Remote desktop** might warn you that the remote computer could not be authenticated due to problems with its security certificate. It shows you the security certificate name. If you followed the tutorial, the name is **sqlserver-0.contoso.com**. Select **Yes**.
 
 You are now connected with RDP to the SQL Server virtual machine. You can open SQL Server Management Studio, connect to the default instance of SQL Server, and verify that the availability group is configured.
