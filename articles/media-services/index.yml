@@ -36,7 +36,7 @@ highlightedContent:
     - title: Compare Media Services v3 presets and Video Indexer
       itemType: concept
       url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
-    - title: Live Video Analytics on IoT Edge
+    - title: Live Video Analytics on IoT Edge (Preview)
       itemType: overview
       url: ./live-video-analytics-edge/overview.md
     - title: Azure Media Player
@@ -123,7 +123,7 @@ conceptualContent:
             itemType: concept
             text:  Smooth Streaming ingest protocol   
             
-    - title: Live Video Analytics on IoT Edge            
+    - title: Live Video Analytics on IoT Edge (Preview)         
       links:
           - url: ./live-video-analytics-edge/overview.md
             itemType: overview
