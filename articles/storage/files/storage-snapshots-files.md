@@ -25,7 +25,7 @@ Imagine that you're working on a text file in a file share. After the text file 
 
 ### General backup purposes
 
-After you create a file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery. The recommended way of taking and managing snapshots would be with [Azure file share backup](../../backup/azure-file-share-backup-overview.md), though you may also take and manage snapshots yourself, using either CLI or PowerShell.
+After you create a file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery. We recommend using [Azure file share backup](../../backup/azure-file-share-backup-overview.md) as a backup solution for taking and managing snapshots. You may also take and manage snapshots yourself, using either CLI or PowerShell.
 
 ## Capabilities
 
