@@ -225,7 +225,7 @@ You cannot pass any values to this, Image Builder will emit the VHD to the tempo
 
 ### Optional Settings
 
-* [VM Size](image-builder-json#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may override to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
+* [VM Size](image-builder-json.md#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may override to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
 
 ## How it works
 
