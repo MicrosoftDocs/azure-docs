@@ -45,4 +45,4 @@ A dynamic group for non-Azure machines uses saved searches, also called computer
 
 ## Next steps
 
-[Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
+To work with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).

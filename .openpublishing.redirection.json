@@ -40833,7 +40833,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-inventory.md",
-      "redirect_url": "/azure/azure-monitor/insights/solutions-inventory",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
       "redirect_document_id": false
     },
     {
@@ -41698,8 +41698,8 @@
     },
     {
       "source_path": "articles/log-analytics/powershell-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/alert-log.md",
@@ -41838,7 +41838,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-cli-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/cli-samples",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
       "redirect_document_id": true
     },
     {
@@ -43004,6 +43004,41 @@
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-settings-legacy.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-collect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/quick-create-workspace-posh.md",
+      "redirect_url": "/azure/azure-monitor/platform/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/powershell-quickstart-samples.md",
+      "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/cli-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/azure-management.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-inventory.md",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/policy-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/policy-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/powershell-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
       "redirect_document_id": false
     },
     {
