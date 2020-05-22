@@ -30,7 +30,7 @@ Metrics are enabled by default. You can view IoT Hub metrics from the Azure port
    
     ![Screenshot showing the metrics page for IoT Hub](./media/iot-hub-metrics/enable-metrics-2.png)
     
-4. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings**, then **Add diagnostic setting**
+4. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings**, then **Add diagnostic setting**.
 
    ![Screenshot showing where diagnostic settings button is](./media/iot-hub-metrics/enable-metrics-3.png)
 
@@ -110,7 +110,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |configurations|Configuration Metrics|Count|Total|Number of total CRUD operations performed for device configuration and IoT Edge deployment, on a set of target devices. This also includes the number of operations that modify the device twin or module twin because of these configurations.|None|
 
 ### Dimensions
-Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. Table below lists possible values for these dimensions
+Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. Table below lists possible values for these dimensions.
 
 |Dimension|Values|
 |---|---|
