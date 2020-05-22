@@ -34,26 +34,9 @@ You must have a valid and active Microsoft Azure account. This account is requir
 
 You can work with an internet service provider or internet exchange partner to obtain Peering Service to connect your network with the Microsoft network.
 
-Make sure the connectivity providers are partnered with Microsoft.
+Make sure the [connectivity providers](location-partners.md) are partnered with Microsoft.
 
-### Register your subscription with the resource provider and feature flag
 
-Before you proceed to the steps of registering the Peering Service, you need to register your subscription with the resource provider and feature flag either via Azure PowerShell or the Azure CLI. 
-
-**Azure PowerShell**
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
-
-```
-
-**Azure CLI**
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Peering --name AllowPeeringService
-```
 
 ## Sign in to the Azure portal
 
@@ -88,6 +71,9 @@ From a browser, go to the Azure portal and sign in with your Azure account.
     
 
 1. When you see the **Validation passed** message as shown, select **Create**.
+
+ > ![Register Peering Service configuration tab](./media/peering-service-portal/peering-service-prefix.png)
+
 
 1. After you register a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the resource name. If the validation fails, one of the following error messages is displayed:
 

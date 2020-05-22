@@ -53,12 +53,26 @@
     items:
     - name: Security baseline
       href: security-baseline.md
-  - name: Developer features
-    href: batch-api-basics.md
+  - name: Batch service workflow and resources
+    displayName: developer features
+    href: batch-service-workflow-features.md
+    items:
+    - name: Batch accounts
+      displayName: storage account
+      href: accounts.md
+    - name: Nodes and pools
+      displayName: compute node, application package, scaling, schedule, os
+      href: nodes-and-pools.md
+    - name: Jobs and tasks
+      displayName: Batch job
+      href: jobs-and-tasks.md
+    - name: Files and directories
+      displayName: Batch file
+      href: files-and-directories.md
   - name: APIs and tools
     href: batch-apis-tools.md
-  - name: Detecting and handling Batch service errors
-    href: batch-retry-after-errors.md
+  - name: Error handling and detection
+    href: error-handling.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
