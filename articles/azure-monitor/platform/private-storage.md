@@ -23,12 +23,12 @@ Data types that are ingested from a storage account include the following. See [
 
 | Type | Table information |
 |:-----|:------------------|
-| IIS logs | Blob: wad-iis-logfiles| 
-|Windows event logs | Table: WADWindowsEventLogsTable | 
-| Syslog | Table: LinuxsyslogVer2v0 | 
+| IIS logs | Blob: wad-iis-logfiles|
+|Windows event logs | Table: WADWindowsEventLogsTable |
+| Syslog | Table: LinuxsyslogVer2v0 |
 | Windows ETW logs | Table: WADETWEventTable|
 | Service fabric | Table: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Custom logs | n/a | 
+| Custom logs | n/a |
 | Azure Security Center Watson dump files | n/a|  
 
 ## Storage account requirements 
