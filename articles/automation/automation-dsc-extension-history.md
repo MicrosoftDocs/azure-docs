@@ -1,8 +1,8 @@
 ---
-description: Learn about the version history for the Desired State Configuration (DSC) extension in Azure.
+title: Work with Azure Desired State Configuration extension version history
+description: This article tells how to work with the version history for the Desired State Configuration (DSC) extension in Azure.
 ms.date:  06/21/2018
 keywords:  dsc, powershell, azure, extension
-title:  Azure DSC extension version history
 author: mgoedtel
 ms.author: magoedte
 services: automation
@@ -10,13 +10,13 @@ ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ---
-# Azure Desired State Configuration extension version history
+# Work with Azure Desired State Configuration extension version history
 
 The Azure Desired State Configuration (DSC) VM Extension is updated as-needed to support
 enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management
 Framework (WMF) that includes Windows PowerShell.
 
-This article will provide information about each version of the Azure DSC VM Extension, what
+This article provides information about each version of the Azure DSC VM Extension, what
 environments it supports, and comments and remarks on new features or changes.
 
 ## Latest version
@@ -24,7 +24,7 @@ environments it supports, and comments and remarks on new features or changes.
 ### Version 2.76
 
 - **Release date:**
-  - May 9, 2018 (Azure) | June 21, 2018 (Azure China, Azure Government)
+  - May 9, 2018 (Azure) | June 21, 2018 (Azure China Vianet 21, Azure Government)
 - **OS support:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -39,7 +39,7 @@ environments it supports, and comments and remarks on new features or changes.
   - WMF 4.0
 - **Environment:**
   - Azure
-  - Azure China
+  - Azure China Vianet 21
   - Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016; for other Windows OSes, it
   installs the
@@ -231,14 +231,14 @@ environments it supports, and comments and remarks on new features or changes.
 - **OS support:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server
   2012, Windows Server 2008 R2 SP1
 - **WMF support:** WMF 5.0 RTM, WMF 4.0 Update, WMF 4.0
-- **Environment:** Azure, Azure China, Azure Government
+- **Environment:** Azure, Azure China Vianet 21, Azure Government
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSes, it installs the
   [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/)
   (installing WMF requires a reboot).
 - **New features:**
-  - The DSC Extension is now onboarded to Azure China. This version primarily contains fixes for
-    running the Extension on Azure China.
+  - The DSC Extension is now onboarded to Azure China Vianet 21. This version primarily contains fixes for
+    running the Extension on Azure China Vianet 21.
 
 ### Version 2.18
 
@@ -347,11 +347,7 @@ environments it supports, and comments and remarks on new features or changes.
 
 ## Next steps
 
-- For more information about PowerShell DSC, go to the
-  [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
 - Examine the [Resource Manager template for the DSC extension](/azure/virtual-machines/extensions/dsc-template).
-- For more functionality that you can manage by using PowerShell DSC, and for more DSC resources,
-  browse the
-  [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- For details about passing sensitive parameters into configurations, see
-  [Manage credentials securely with the DSC extension handler](/azure/virtual-machines/extensions/dsc-credentials).
+- For more functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](/azure/virtual-machines/extensions/dsc-credentials).

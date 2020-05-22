@@ -112,25 +112,25 @@ Once you've trained your app, you can test it.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.984315455
+                    "score": 0.969448864
                 },
                 "HomeAutomation.QueryState": {
-                    "score": 0.009912962
-                },
-                "HomeAutomation.TurnDown": {
-                    "score": 0.00626645749
+                    "score": 0.0122336326
                 },
                 "HomeAutomation.TurnUp": {
-                    "score": 0.00572059769
+                    "score": 0.006547436
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.0050634006
                 },
                 "HomeAutomation.SetDevice": {
-                    "score": 0.00379381469
+                    "score": 0.004951761
                 },
                 "HomeAutomation.TurnOn": {
-                    "score": 0.00366983772
+                    "score": 0.00312553928
                 },
                 "None": {
-                    "score": 0.000623856
+                    "score": 0.000552945654
                 }
             },
             "entities": {
@@ -154,7 +154,7 @@ Once you've trained your app, you can test it.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.907323956,
+                            "score": 0.902181149,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

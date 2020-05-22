@@ -59,6 +59,8 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Request increase for CPU core quota
+      href: ./quota-increase-request.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
@@ -328,8 +330,20 @@
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
-      - name: Optimize Apache Spark jobs
-        href: ./spark/apache-spark-perf.md
+      - name: Optimization
+        items:
+        - name: Optimize Apache Spark jobs
+          href: ./spark/apache-spark-perf.md
+        - name: Optimize data processing
+          href: ./spark/optimize-data-processing.md
+        - name: Optimize data storage
+          href: ./spark/optimize-data-storage.md
+        - name: Optimize memory usage
+          href: ./spark/optimize-memory-usage.md
+        - name: Optimize cluster configuration
+          href: ./spark/optimize-cluster-configuration.md
+      - name: Migrate to Spark 2.3 or 2.4
+        href: ./spark/migrate-versions.md
   - name: How to
     items:
     - name: Use tools

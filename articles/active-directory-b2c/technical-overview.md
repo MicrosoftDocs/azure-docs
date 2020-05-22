@@ -59,7 +59,7 @@ A user with a consumer account can sign in with multiple identities, for example
 
 ![Consumer account identities](media/technical-overview/identities.png)<br/>*Figure: A single consumer account with multiple identities in Azure AD B2C*
 
-Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
+Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country/region or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
 Learn more about the user account types in Azure AD B2C in [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
 
@@ -96,7 +96,7 @@ To help you quickly set up the most common identity tasks, the Azure portal incl
 You can configure user flow settings like these to control identity experience behaviors in your applications:
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
-* Attributes to be collected from the consumer, such as first name, postal code, or country of residency
+* Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
 * Azure Multi-Factor Authentication (MFA)
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow

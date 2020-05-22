@@ -1092,7 +1092,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 **Guidance**: Validate backups by performing a test restore of the service and certificates from backups.
 
-* [How to call the API Management restore operation](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [How to call the API Management restore operation](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [How to restore Azure Key Vault certificates](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

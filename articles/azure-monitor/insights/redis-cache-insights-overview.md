@@ -4,7 +4,7 @@ description: This article describes the Azure Monitor for Azure Redis Cache feat
 ms.topic: conceptual
 author: mrbullwinkle    
 ms.author: mbullwin
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 
 ---
 
@@ -120,6 +120,38 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
 
+## View from an Azure Cache for Redis resource
+
+To access Azure Monitor for Azure Cache for Redis directly from an individual resource:
+
+1. In the Azure portal, select Azure Cache for Redis.
+
+2. From the list, choose an individual Azure Cache for Redis resource. In the monitoring section, choose Insights (preview).
+
+    ![Screenshot of Menu options with the words "Insights(preview)" highlighted in a red box](./media/redis-cache-insights-overview/insights.png)
+
+These views are also accessible by selecting the resource name of an Azure Cache for Redis resource from the Azure Monitor level workbook.
+
+### Resource-level overview
+
+On the **Overview** workbook for the Azure Redis Cache, it shows several performance metrics that give you access to:
+
+- Interactive performance charts showing the most essential details related to Azure Cache for Redis performance.
+
+- Metrics and status tiles highlighting shard performance, total number of connected clients, and overall latency.
+
+![Screenshot of overview dashboard displaying information on CPU performance, used memory, connected clients, errors, expired keys, and evicted keys](./media/redis-cache-insights-overview/resource-overview.png)
+
+Selecting any of the other tabs for **Performance** or **Operations** opens the respective workbooks.
+
+### Resource-level performance
+
+![Screenshot of resource performance graphs](./media/redis-cache-insights-overview/resource-performance.png)
+
+### Resource-level operations
+
+![Screenshot of resource operations graphs](./media/redis-cache-insights-overview/resource-operations.png)
+
 ## Pin, export, and expand
 
 To pin any metric section to an [Azure dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), select the pushpin symbol in the section's upper right.
@@ -150,4 +182,4 @@ After you save a custom workbook, go to the workbook gallery to open it.
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerts that aid in detecting problems.
 
-* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md).
+* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

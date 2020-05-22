@@ -1,6 +1,6 @@
 ---
-title: Create configurations from existing servers - Azure Automation
-description: Learn how to create configurations from existing servers for Azure Automation.
+title: Create configurations from existing servers for Azure Automation State Configuration
+description: This article tells how to create configurations from existing servers for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -63,6 +63,6 @@ to view the
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).
