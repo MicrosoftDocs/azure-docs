@@ -43,7 +43,7 @@ If you have problems connecting to an application, try the following general tro
   * [Redeploy Linux VM](redeploy-to-new-node-linux.md)
 * Recreate the virtual machine
 
-For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html).
+For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
 ## Detailed troubleshooting overview
 There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.

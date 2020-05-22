@@ -527,12 +527,12 @@ In situations where some of your tasks are failing, your Batch client applicatio
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 * Download and install [Batch Explorer][batch_labs] for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications. 
-* See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum][batch_forum] on MSDN. 
+* See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Microsoft Q&A question pager for Azure Batch][batch_forum] on MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_Microsoft_Q&A_question_page]: https://docs.microsoft.com/answers/topics/azure-batch.html
+[batch_forum]: https://docs.microsoft.com/answers/topics/azure-batch.html
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
