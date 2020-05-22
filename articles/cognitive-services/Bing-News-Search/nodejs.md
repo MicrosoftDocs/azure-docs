@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 # Quickstart: Perform a news search using Node.js and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing Image Search API. This simple JavaScript application sends a search query to the API and displays the JSON response.
+Use this quickstart to make your first call to the Bing News Search API. This simple JavaScript application sends a search query to the API and displays the JSON response.
 
 Although this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible with most programming languages.
 
@@ -36,7 +36,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+2. Create variables for the API endpoint, news API search path, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -57,7 +57,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     let response_handler = function (response) {
         let body = '';
     };
-        ```
+    ```
 
 3. Store the body of the response when the `data` flag is called.
 

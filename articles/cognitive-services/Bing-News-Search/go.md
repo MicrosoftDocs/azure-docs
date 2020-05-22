@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
@@ -25,7 +25,7 @@ This quickstart uses the Go language to call the Bing News Search API. The resul
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `encoding/json` to handle the JSON text of results, and the go-spew library to parse the JSON results. 
+Create a new Go project in your IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `encoding/json` to handle the JSON text of results, and the `go-spew` library to parse the JSON results. 
 
 ```go
 package main
@@ -116,9 +116,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## Get request
+## GET request
 
-Create the client and send the Get request. 
+Create the client and send the GET request. 
 
 ```go
 // Instantiate a client.  

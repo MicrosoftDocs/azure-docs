@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -25,7 +25,7 @@ The full code to this sample can be found on [GitHub](https://github.com/Azure-S
 
 * Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* If you're using Linux/MacOS, you can run this application by using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -51,7 +51,7 @@ The full code to this sample can be found on [GitHub](https://github.com/Azure-S
    
 ## Create a struct to format the Bing News Search response
 
-Define a `SearchResult` struct to contain the image search results and JSON header information.
+Define a `SearchResult` struct to contain the news search results and JSON header information.
 
 ```csharp
 struct SearchResult
@@ -63,7 +63,7 @@ struct SearchResult
 
 ## Create and handle a news search request
 
-1. Create a method named `BingNewsSearch()` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. 
+1. Create a method named `BingNewsSearch()` to call the API, and set the return type to the `SearchResult` struct created previously. 
 
    Add code to this method in the steps that follow.
 
@@ -108,12 +108,12 @@ struct SearchResult
 
 In the main method, call `BingNewsSearch()` and store the returned response. Then, deserialize the JSON into an object where you can view the values of the response.
 
-    ```csharp
-    SearchResult result = BingNewsSearch(searchTerm);
-    //deserialize the JSON response
-    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
-    Console.WriteLine(jsonObj["value"][0])
-    ```
+```csharp
+SearchResult result = BingNewsSearch(searchTerm);
+//deserialize the JSON response
+dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+Console.WriteLine(jsonObj["value"][0])
+```
 
 ## Example JSON response
 
