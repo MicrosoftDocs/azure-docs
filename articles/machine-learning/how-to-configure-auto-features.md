@@ -41,7 +41,7 @@ Featurization Configuration | Description
 ------------- | ------------- 
 `"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.
 `"featurization": 'off'`| Indicates featurization step should not be done automatically.
-`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-feature-engineering).|
+`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-featurization).|
 
 <a name="featurization"></a>
 
