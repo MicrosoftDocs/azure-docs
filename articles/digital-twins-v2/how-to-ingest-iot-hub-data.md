@@ -61,14 +61,34 @@ This section uses the same Visual Studio startup steps and Azure function skelet
 The heart of the skeleton function is this:
 
 ```csharp
-[FunctionName("Function1")]
-static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+namespace FunctionSample
 {
-    await Authenticate(log);
-    log.LogInformation(eventGridEvent.Data.ToString());
-    if (client != null)
+    public static class FooFunction
     {
-        // Add your code here
+        const string adtAppId = "https://digitaltwins.azure.net";
+        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static HttpClient httpClient = new HttpClient();
+
+        [FunctionName("Foo")]
+        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+        {
+            DigitalTwinsClient client = null;
+            try
+            {
+                ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+                DigitalTwinsClientOptions opts = 
+                    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
+                                                
+                log.LogInformation($"ADT service client connection created.");
+            }
+            catch (Exception e)
+            {
+                log.LogError($"ADT service client connection failed. " + e.ToString());
+                return;
+            }
+            log.LogInformation(eventGridEvent.Data.ToString());
+        }
     }
 }
 ```
@@ -93,76 +113,31 @@ Recall that the purpose of this exercise is to update the temperature of a *Room
 
 To do this, use the Azure Digital Twins APIs to access the incoming relationships to the device-representing twin (which in this case has the same ID as the device). From the incoming relationship, you can find the ID of the parent with the code snippet below.
 
-For simplicity, assume in the sample that there is only a single incoming relationship (in reality, there could more).
+The code snippet below shows how to retrieve incoming relationships of a twin:
 
 ```csharp
-IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(devid);
-// Just using the first page for this sample
-if (relPage != null) {
-    IncomingEdge ie = relPage.FirstOrDefault();
-    if (ie!=null) {
-        // ie.sourceId now is the ID of the parent
-    }
+AsyncPageable<IncomingRelationship> res = client.GetIncomingRelationshipsAsync(twin_id);
+await foreach (IncomingRelationship irel in res)
+{
+    Log.Ok($"Relationship: {irel.RelationshipName} from {irel.SourceId} | {irel.RelationshipId}");
 }
 ```
 
-Now that you have the ID of the parent twin representing the *Room*, you can "patch" (make select updates to) that twin. To do this, use the following code:
+The parent of your twin is in the *SourceId* property of the relationship.
+
+It is fairly common for a model of a twin representing a device to only have a single incoming relationship. In this case, you might pick the first (and only) relationship returned. If your models allow multiple types of relationships to this twin, you might need to specify further to choose from multiple incoming relationships. A common way to do this is to pick the relationship by `RelationshipName`. 
+
+Once you have the ID of the parent twin representing the *Room*, you can "patch" (make updates to) that twin. To do this, use the following code:
 
 ```csharp
-// See the utility class defined further down in this file
-JsonPatch jp = new JsonPatch();
-jp.AppendReplaceOp("/Temperature", 85);
-await client.DigitalTwins.UpdateAsync(id, jp.Document);
-```
-
-The example above uses a helper class to create a JSON Patch document. The `JsonPatch` helper class is defined below.
-
-```csharp
-public class JsonPatch
-    {
-        private List<Dictionary<string,object>> ops = new List<Dictionary<string, object>>();
-        public JsonPatch()
-        {
-            ops = new List<Dictionary<string, object>>();
-        }
-
-        public void AppendReplaceOp(string path, object value)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "replace");
-            op.Add("path", path);
-            op.Add("value", value);
-            ops.Add(op);
-        }
-
-        public void AppendAddOp(string path, object value)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "add");
-            op.Add("path", path);
-            op.Add("value", value);
-            ops.Add(op);
-        }
-
-        public void AppendRemoveOp(string path)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "remove");
-            op.Add("path", path);
-            ops.Add(op);
-        }
-
-        public string Serialize() 
-        {
-            string jpatch = JsonConvert.SerializeObject(ops);
-            return jpatch;
-        }
-
-        public object Document
-        {
-            get { return ops; }
-        }
-    }
+UpdateOperationsUtility uou = new UpdateOperationsUtility();
+uou.AppendAddOp("/Temperature", temp);
+try
+{
+    await client.UpdateDigitalTwinAsync(twin_id, uou.Serialize());
+    Log.Ok($"Twin '{twin_id}' updated successfully!");
+}
+...
 ```
 
 ### Full Azure function code
@@ -170,134 +145,122 @@ public class JsonPatch
 Using the code from the earlier samples, here is the entire Azure function in context:
 
 ```csharp
-// Default URL for triggering Event Grid function in the local environment
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using System.Net.Http.Headers;
-using Microsoft.Rest;
-using Newtonsoft.Json.Linq;
-using ADTApi;
-using ADTApi.Models;
-using Microsoft.Azure.Services.AppAuthentication;
-using System.Linq;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-
-namespace adtIngestFunctionSample
+[FunctionName("ProcessHubToDTEvents")]
+public async void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
 {
-    public static class Function1
+    // After this is deployed, in order for this function to be authorized on Azure Digital Twins APIs,
+    // you'll need to turn the Managed Identity Status to "On", 
+    // grab the Object ID of the function, and assign the "Azure Digital Twins Owner (Preview)" role to this function identity.
+
+    DigitalTwinsClient client = null;
+    //log.LogInformation(eventGridEvent.Data.ToString());
+    // Authenticate on Azure Digital Twins APIs
+    try
     {
-        const string AdtAppId = "https://digitaltwins.azure.net";
-        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
-        static AzureDigitalTwinsAPIClient client;
-
-        [FunctionName("Function1")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            await Authenticate(log);
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (client!=null)
-            {
-                try
-                {
-                    JObject job = eventGridEvent.Data as JObject;
-                    string devid = (string)job["systemProperties"].ToObject<JObject>().Property("<IoT-Hub-connection-device-ID>").Value;
-                    double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
-
-                    var relPage = await client.DigitalTwins.ListIncomingEdgesAsync(devid);
-                    // Just using the first page for this sample
-                    if (relPage != null)
-                    {
-                        IncomingEdge ie = relPage.FirstOrDefault();
-                        if (ie != null)
-                        {
-                            // See the utility class defined further down in this file
-                            JsonPatch jp = new JsonPatch();
-                            jp.AppendReplaceOp("/Temperature", 85);
-                            await client.DigitalTwins.UpdateAsync(ie.SourceId, jp.Document);
-                        }
-                    }
-
-                } catch (Exception e)
-                {
-                    log.LogError($"Error in ingest function: {e.Message}");
-                }
-            }
-        }
-
-        public async static Task Authenticate(ILogger log)
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AdtAppId);
-
-            var wc = new System.Net.Http.HttpClient();
-            wc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-            try
-            {
-                TokenCredentials tk = new TokenCredentials(accessToken);
-                client = new AzureDigitalTwinsAPIClient(tk)
-                {
-                    BaseUri = new Uri(AdtInstanceUrl)
-                };
-                log.LogInformation($"Azure Digital Twins client connection created.");
-            }
-            catch (Exception e)
-            {
-                log.LogError($"Azure Digital Twins client connection failed.");
-            }
-        }
+        
+        ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+        client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+        log.LogInformation($"ADT service client connection created.");
+    }
+    catch (Exception e)
+    {
+        log.LogError($"ADT service client connection failed. " + e.ToString());
+        return;
     }
 
-    public class JsonPatch
+    if (client != null)
     {
-        private List<Dictionary<string, object>> ops = new List<Dictionary<string, object>>();
-        public JsonPatch()
+        try
         {
-            ops = new List<Dictionary<string, object>>();
-        }
+            if (eventGridEvent != null && eventGridEvent.Data != null)
+            {
+                #region Open this region for message format information
+                // Telemetry message format
+                //{
+                //  "properties": { },
+                //  "systemProperties": 
+                // {
+                //    "iothub-connection-device-id": "thermostat1",
+                //    "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+                //    "iothub-connection-auth-generation-id": "637199981642612179",
+                //    "iothub-enqueuedtime": "2020-03-18T18:35:08.269Z",
+                //    "iothub-message-source": "Telemetry"
+                //  },
+                //  "body": "eyJUZW1wZXJhdHVyZSI6NzAuOTI3MjM0MDg3MTA1NDg5fQ=="
+                //}
+                #endregion
 
-        public void AppendReplaceOp(string path, object value)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "replace");
-            op.Add("path", path);
-            op.Add("value", value);
-            ops.Add(op);
-        }
+                // Reading deviceId from message headers
+                log.LogInformation(eventGridEvent.Data.ToString());
+                JObject job = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
+                string deviceId = (string)job["systemProperties"]["iothub-connection-device-id"];
+                log.LogInformation($"Found device: {deviceId}");
 
-        public void AppendAddOp(string path, object value)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "add");
-            op.Add("path", path);
-            op.Add("value", value);
-            ops.Add(op);
-        }
+                // Extracting temperature from device telemetry
+                byte[] body = System.Convert.FromBase64String(job["body"].ToString());
+                var value = System.Text.ASCIIEncoding.ASCII.GetString(body);
+                var bodyProperty = (JObject)JsonConvert.DeserializeObject(value);
+                var temperature = bodyProperty["Temperature"];
+                log.LogInformation($"Device Temperature is:{temperature}");
 
-        public void AppendRemoveOp(string path)
-        {
-            Dictionary<string, object> op = new Dictionary<string, object>();
-            op.Add("op", "remove");
-            op.Add("path", path);
-            ops.Add(op);
-        }
+                // Update device Temperature property
+                await AdtUtilities.UpdateTwinProperty(client, deviceId, "/Temperature", temperature, log);
 
-        public string Serialize()
-        {
-            string jpatch = JsonConvert.SerializeObject(ops);
-            return jpatch;
-        }
+                // Find parent using incoming relationships
+                string parentId = await AdtUtilities.FindParent(client, deviceId, "contains", log);
+                if (parentId != null)
+                {
+                    await AdtUtilities.UpdateTwinProperty(client, parentId, "/Temperature", temperature, log);
+                }
 
-        public object Document
-        {
-            get { return ops; }
+            }
         }
+        catch (Exception e)
+        {
+            log.LogError($"Error in ingest function: {e.Message}");
+        }
+    }
+}
+```
+
+The utility function to find incoming relationships:
+```csharp
+public static async Task<string> FindParent(DigitalTwinsClient client, string child, string relname, ILogger log)
+{
+    // Find parent using incoming relationships
+    try
+    {
+        AsyncPageable<IncomingRelationship> rels = client.GetIncomingRelationshipsAsync(child);
+
+        await foreach (IncomingRelationship ie in rels)
+        {
+            if (ie.RelationshipName == relname)
+                return (ie.SourceId);
+        }
+    }
+    catch (RequestFailedException exc)
+    {
+        log.LogInformation($"*** Error in retrieving parent:{exc.Status}:{exc.Message}");
+    }
+    return null;
+}
+```
+
+And the utility function to patch the twin:
+```csharp
+public static async Task UpdateTwinProperty(DigitalTwinsClient client, string twinId, string propertyPath, object value, ILogger log)
+{
+    // If the twin does not exist, this will log an error
+    try
+    {
+        // Update twin property
+        UpdateOperationsUtility uou = new UpdateOperationsUtility();
+        uou.AppendAddOp(propertyPath, value);
+        await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+    }
+    catch (RequestFailedException exc)
+    {
+        log.LogInformation($"*** Error:{exc.Status}/{exc.Message}");
     }
 }
 ```

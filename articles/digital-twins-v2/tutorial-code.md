@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Code a client app
 titleSuffix: Azure Digital Twins
-description: Tutorial to write the minimal code for a client app, using the C# SDK.
+description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 05/05/2020
@@ -53,7 +53,7 @@ dotnet new console
 
 This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
-Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
+Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core

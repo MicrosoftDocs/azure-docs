@@ -29,7 +29,7 @@ Here is a overview of the steps it contains:
 2. Write an Azure function with an [Event Grid](../event-grid/overview.md) trigger
 3. Add authentication code to the function (to be able to access Azure Digital Twins)
 4. Publish the function app to Azure
-5. Set up [security](concepts-security.md) access. In order for the Azure function to receive an access token at runtime to access the service, you need to configure Managed Service Identity for the function app.
+5. Set up [security](concepts-security.md) access. In order for the Azure function to receive an access token at runtime to access the service, you'll need to configure Managed Service Identity for the function app.
 
 The remainder of this article walks through the Azure function setup steps, one at a time.
 
@@ -61,11 +61,10 @@ using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 
-namespace adtIngestFunctionSample
+namespace FunctionSample
 {
-    public static class Function1
-    {
-        [FunctionName("Function1")]
+    public static class FooFunction    {
+        [FunctionName("Foo")]
         public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
             log.LogInformation(eventGridEvent.Data.ToString());
@@ -84,139 +83,97 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
-Visit [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
+In order to use the .NET SDK, you'll need to include the following packages in your project:
+* `Azure.DigitalTwins.Core`
+* `Azure.Identity`
 
-To access Azure Digital Twins from your Azure function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
+For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need:
+* `Azure.Net.Http`
+* `Azure.Core`
 
-Alternatively, you can also add the generated code from AutoRest directly to the function app project.
+Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
 
-Once you have added a reference to the project or added the classes, add the following line to your project to enable you to access the Azure Digital Twins API.
+Add the following using statements to your Azure Function.
 
 ```csharp
-using ADTApi;
+using Azure.Identity;
+using Azure.DigitalTwins.Core;
+using System.Net.Http;
+using Azure.Core.Pipeline;
 ```
 
 ## Add authentication code to the Azure function
 
 Next, add authentication code that will allow the function to access Azure Digital Twins.
 
-Add variables into your function for these values: 
+Add variables to your function class for these values: 
 * The Azure Digital Twins app ID
-* The URL of your Azure Digital Twins instance 
-* A variable to hold your Azure Digital Twins client instance to the function project
+* The URL of your Azure Digital Twins instance. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
+* A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
 
-Also, change the function signature to be asynchronous.
+Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this a static variable inside your class.
+
+Lastly, change the function signature to be asynchronous.
 
 After these changes, your function code should be similar to the following:
 
 ```csharp
-namespace adtIngestFunctionSample
+namespace FunctionSample
 {
-    public static class Function1
+    public static class FooFunction
     {
-        const string AdtAppId = "https://digitaltwins.azure.net";
-        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
-        static AzureDigitalTwinsAPIClient client;
+        const string adtAppId = "https://digitaltwins.azure.net";
+        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static HttpClient httpClient = new HttpClient();
 
-        [FunctionName("Function1")]
+        [FunctionName("Foo")]
         public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
-            log.LogInformation(eventGridEvent.Data.ToString());
-        }
-    }
-}
-```
-
-Next, add an authentication method. Use the following sample as a guide:
-
-```csharp
-public async static Task Authenticate(ILogger log)
-{
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AdtAppId);
-
-    var wc = new System.Net.Http.HttpClient();
-    wc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-    try
-    {
-        TokenCredentials tk = new TokenCredentials(accessToken);
-        client = new AzureDigitalTwinsAPIClient(tk)
-        {
-            BaseUri = new Uri(AdtInstanceUrl)
-        };
-        log.LogInformation($"Azure Digital Twins client connection created.");
-    }
-    catch (Exception e)
-    {
-        log.LogError($"Azure Digital Twins client connection failed.");
-    }
-}
-```
-
-Here is the complete function, with the authentication code integrated into the earlier code samples:
-
-```csharp
-// Default URL for triggering Event Grid function in the local environment
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using ADTApi;
-using System.Threading.Tasks;
-using Microsoft.Azure.Services.AppAuthentication;
-using System.Net.Http.Headers;
-using Microsoft.Rest;
-
-namespace adtIngestFunctionSample
-{
-    public static class Function1
-    {
-        const string AdtAppId = "https://digitaltwins.azure.net";
-        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
-        static AzureDigitalTwinsAPIClient client;
-
-        [FunctionName("Function1")]
-        static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            await Authenticate(log);
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (client!=null)
-            {
-                // Add your code here
-            }
-        }
-
-        public async static Task Authenticate(ILogger log)
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(AdtAppId);
-
-            var wc = new System.Net.Http.HttpClient();
-            wc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
+            DigitalTwinsClient client = null;
             try
             {
-                TokenCredentials tk = new TokenCredentials(accessToken);
-                client = new AzureDigitalTwinsAPIClient(tk)
-                {
-                    BaseUri = new Uri(AdtInstanceUrl)
-                };
-                log.LogInformation($"Azure Digital Twins client connection created.");
+                ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+                DigitalTwinsClientOptions opts = 
+                    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
+                                                
+                log.LogInformation($"ADT service client connection created.");
             }
             catch (Exception e)
             {
-                log.LogError($"Azure Digital Twins client connection failed.");
+                log.LogError($"ADT service client connection failed. " + e.ToString());
+                return;
             }
+            log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
 
-Now your Azure function is complete and ready to publish.
+For your Functions app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
+
+Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
+
+```azurecli
+az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+```
+
+Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
+
+```azurecli
+az dt rbac assign-role --assignee <principal-ID> --dt-name <your-Azure-Digital-Twins-instance> --role owner
+```
+
+For more information on managed identity, please see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+
+> [!TIP]
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+
+```azurecli
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-URL>"
+```
 
 ## Publish the Azure function app
 
@@ -237,7 +194,7 @@ On the following page, enter the desired name for the new function app, a resour
 
 ## Set up security access for the Azure function app
 
-The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
 To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate to your function app.
 

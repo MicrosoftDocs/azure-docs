@@ -67,7 +67,7 @@ To build the SDK successfully, your project will need these references:
 To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for Solution...*.
 
 1. In the panel, make sure the *Browse* tab is selected
-2. Search for "Microsoft.Rest"
+2. Search for *Microsoft.Rest*
 3. Select the *ClientRuntime* and *ClientRuntime.Azure* packages, and add them to your solution
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you write.
