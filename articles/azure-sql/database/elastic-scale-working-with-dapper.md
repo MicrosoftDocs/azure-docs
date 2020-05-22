@@ -1,6 +1,6 @@
 ---
-title: Using elastic database client library with Dapper
-description: Using elastic database client library with Dapper.
+title: Using the elastic database client library with Dapper
+description: Using the elastic database client library with Dapper.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 12/04/2018
 ---
-# Using elastic database client library with Dapper
+# Using the elastic database client library with Dapper
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](elastic-scale-introduction.md) to create applications that implement sharding to scale out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data-dependent routing with Dapper. 
