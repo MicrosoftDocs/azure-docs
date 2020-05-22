@@ -105,7 +105,7 @@ enable a system assigned managed identity, if one doesn't exist.
 ## Guest Configuration definition requirements
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
-definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** policies manage dependencies
+definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** policy definitions manage dependencies
 for performing audits on each machine.
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
