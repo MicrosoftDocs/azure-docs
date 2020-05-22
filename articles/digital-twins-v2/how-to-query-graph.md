@@ -62,32 +62,18 @@ Query calls support paging. Here is a complete example with error handling and p
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
 try
 {
-    // Repeat the query while there are pages
-    do
+    AsyncPageable<string> qresult = client.QueryAsync(query);
+    await foreach (string item in qresult) 
     {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
+        // Do something with each result
+    }
+}
+catch (RequestFailedException e)
 {
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
+    Log.Error($"Error {e.Status}: {e.Message}");
+    return null;
 }
 ```
 

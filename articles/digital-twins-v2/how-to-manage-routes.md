@@ -78,7 +78,7 @@ One route should allow multiple notifications and event types to be selected.
 Here is the call to the SDK that is used to add an event route:
 
 ```csharp
-await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointID"));
+await client.CreateEventRoute("routeName", new EventRoute("endpointID"));
 ```
 
 > [!TIP]
@@ -90,60 +90,29 @@ The following code sample shows how to create, list, and delete an event route:
 ```csharp
 try
 {
-    Log("Create a route: testRoute1");
-    EventRoute er = new EventRoute(<your-endpoint-name>,true);
-    await client.EventRoutes.AddAsync(<your-route-name>, er);
-    Log("Create route succeeded. Now listing routes:");
-    List<EventRoute> routes = await ListRoutes();
-    Log("Deleting routes:");
-    foreach (EventRoute r in routes)
+    Console.WriteLine("Create a route: testRoute1");
+    EventRoute er = new EventRoute("< your - endpoint - name >");
+    // Make a filter that passes everything
+    er.Filter = "true";
+    client.CreateEventRoute("< your - route - name >", er);
+    Console.WriteLine("Create route succeeded. Now listing routes:");
+    Pageable <EventRoute> result = client.GetEventRoutes();
+    foreach (EventRoute r in result)
     {
-        Log($"Deleting route {r.Id}:");
-        await client.EventRoutes.DeleteAsync(r.Id);
-        Log("Delete route succeeded."); 
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+    }
+    Console.WriteLine("Deleting routes:");
+    foreach (EventRoute r in result)
+    {
+        Console.WriteLine($"Deleting route {r.Id}:");
+        client.DeleteEventRoute(r.Id);
     }
 }
-catch (ErrorResponseException e)
+catch (RequestFailedException e)
 {
-    Console.WriteLine($"*** Error in event route creation ({e.Request.RequestUri}):\n${e.Response.StatusCode}\n${e.Response.ReasonPhrase}");
+    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
 }
 ```
-
-The `ListRoutes` routine used by the code above is defined as follows:
-
-```csharp
-static async Task<List<EventRoute>> ListRoutes()
-{
-    List<EventRoute> evList = new List<EventRoute>();
-    // Find the relationships for the twin
-    try
-    {
-        
-        // Enumerate the IPage object returned to get the results
-        // ListAsync will throw if an error occurs
-        IPage<EventRoute> evPage = await client.EventRoutes.ListAsync();
-        evList.AddRange(evPage);
-        // If there are more pages, the NextPageLink in the page is set
-        while (evPage.NextPageLink != null)
-        {
-            // Get more pages...
-            evPage = await client.EventRoutes.ListNextAsync(evPage.NextPageLink);
-            evList.AddRange(evPage);
-        }
-        Console.WriteLine($"Found {evList.Count} event routes");
-        // Let's delete the edges we found
-        foreach (EventRoute r in evList)
-        {
-            Log($"Found route {r.Id} to {r.EndpointId}");
-        }
-    }
-    catch (ErrorResponseException e)
-    {
-        Log($"*** Error retrieving event routes: {e.Response.StatusCode}", ConsoleColor.Red);
-    }
-    return evList;
-}
-``` 
 
 ### Filter events
 
