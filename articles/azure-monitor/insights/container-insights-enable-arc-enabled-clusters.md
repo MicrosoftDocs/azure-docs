@@ -13,7 +13,7 @@ Azure Monitor for containers can be enabled for one or more existing deployments
 
 ## Supported and unsupported features
 
-Azure Monitor for containers supports monitoring Kubernetes as described in the [Overview](container-insights-overview.md) article, except for the following features:
+Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
 
@@ -21,7 +21,7 @@ Azure Monitor for containers supports monitoring Kubernetes as described in the 
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-- Container Runtime: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+- Container Runtime supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
 
 - Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS).
 

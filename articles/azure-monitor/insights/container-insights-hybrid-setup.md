@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/22/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -23,9 +23,9 @@ The following is officially supported with Azure Monitor for containers.
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-- Container Runtime: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+- Container Runtime supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
 
-- Linux OS release for master and worker nodes: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat Enterprise Linux CoreOS 43.81.
+- Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat Enterprise Linux CoreOS 43.81.
 
 - Access control supported: Kubernetes RBAC and non-RBAC
 
