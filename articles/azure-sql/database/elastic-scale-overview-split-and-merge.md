@@ -27,13 +27,13 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 ## Documentation
 
-1. [Elastic database Split-Merge tool tutorial](elastic-scale-configure-deploy-split-and-merge.md)
-2. [Split-Merge security configuration](elastic-scale-split-merge-security-configuration.md)
+1. [Elastic database split-merge tool tutorial](elastic-scale-configure-deploy-split-and-merge.md)
+2. [Split-merge security configuration](elastic-scale-split-merge-security-configuration.md)
 3. [Split-merge security considerations](elastic-scale-split-merge-security-configuration.md)
 4. [Shard map management](elastic-scale-shard-map-management.md)
 5. [Migrate existing databases to scale-out](elastic-convert-to-use-elastic-tools.md)
 6. [Elastic database tools](elastic-scale-introduction.md)
-7. [Elastic Database tools glossary](elastic-scale-glossary.md)
+7. [Elastic database tools glossary](elastic-scale-glossary.md)
 
 ## Why use the split-merge tool
 
@@ -47,7 +47,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 - **Merge to shrink**
 
-  Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement.
+  Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale Split-Merge Service covers this requirement.
 
 - **Manage hotspots by moving shardlets**
 
@@ -89,7 +89,7 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
     For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
 
-  - **Other Tables**
+  - **Other tables**
 
     Other tables can be present on either the source or the target of a split and merge operation. The split-merge service disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
@@ -113,11 +113,11 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
     The tables ‘region’ and ‘nation’ are defined as reference tables and will be copied with split/merge/move operations. ‘customer’ and ‘orders’ in turn are defined as sharded tables. `C_CUSTKEY` and `O_CUSTKEY` serve as the sharding key.
 
-- **Referential Integrity**
+- **Referential integrity**
 
   The split-merge service analyzes dependencies between tables and uses foreign key-primary key relationships to stage the operations for moving reference tables and shardlets. In general, reference tables are copied first in dependency order, then shardlets are copied in order of their dependencies within each batch. This is necessary so that FK-PK constraints on the target shard are honored as the new data arrives.
 
-- **Shard Map Consistency and Eventual Completion**
+- **Shard map consistency and eventual completion**
 
   In the presence of failures, the split-merge service resumes operations after any outage and aims to complete any in progress requests. However, there may be unrecoverable situations, e.g., when the target shard is lost or compromised beyond repair. Under those circumstances, some shardlets that were supposed to be moved may continue to reside on the source shard. The service ensures that shardlet mappings are only updated after the necessary data has been successfully copied to the target. Shardlets are only deleted on the source once all their data has been copied to the target and the corresponding mappings have been updated successfully. The deletion operation happens in the background while the range is already online on the target shard. The split-merge service always ensures correctness of the mappings stored in the shard map.
 
@@ -125,43 +125,43 @@ The split-merge tool runs as an Azure web service. An administrator or developer
 
 The split-merge service package includes a worker role and a web role. The web role is used to submit split-merge requests in an interactive way. The main components of the user interface are as follows:
 
-- **Operation Type**
+- **Operation type**
 
   The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios. You can also cancel a previously submitted operation. You can use split, merge and move requests for range shard maps. List shard maps only support move operations.
 
-- **Shard Map**
+- **Shard map**
 
   The next section of request parameters covers information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
 
-- **Source Range (split and merge)**
+- **Source range (split and merge)**
 
   A split and merge operation processes a range using its low and high key. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. The range key values that you specify do not need to precisely match a mapping and its boundaries in your shard map. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
 
-- **Split Source Behavior (split)**
+- **Split source behavior (split)**
 
   For split operations, define the point to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button specify whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
 
-- **Source Shardlet (move)**
+- **Source shardlet (move)**
 
   Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
 
-- **Target Shard (split)**
+- **Target shard (split)**
 
   Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the server and database name for the target.
 
-- **Target Range (merge)**
+- **Target range (merge)**
 
   Merge operations move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
 
-- **Batch Size**
+- **Batch size**
 
   The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
 
-- **Operation ID (Cancel)**
+- **Operation ID (cancel)**
 
   If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
 
-## Requirements and Limitations
+## Requirements and limitations
 
 The current implementation of the split-merge service is subject to the following requirements and limitations:
 
