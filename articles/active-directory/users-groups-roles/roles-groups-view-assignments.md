@@ -51,6 +51,6 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 ## Next steps
 
-- [Create a role-eligible group](roles-groups-create-eligible.md)
+- [Create a role-assignable group](roles-groups-create-eligible.md)
 - [Assign a role to a group](roles-groups-assign-role.md)
 - [Remove a group role assignment](roles-groups-remove-assignment.md)

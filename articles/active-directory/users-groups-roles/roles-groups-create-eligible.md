@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Create a group for assigning roles in Azure Active Directory
 
-You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with "Eligible for role assignment". This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with "Azure AD roles can be assigned to the group". This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
 
 ## Using Azure AD admin center
 
@@ -28,13 +28,13 @@ You can only assign a role to a group that was created with the ‘isAssignableT
    ![Open Azure Active Directory and create a new group](./media/roles-groups-create-eligible/new-group.png)
 
 1. On the **New Group** tab, provide group type, name and description.
-1. Turn on **Eligible for role assignment**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
+1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
 
    ![Make the new group eligible for role assignment](./media/roles-groups-create-eligible/eligible-switch.png)
 
 1. Select the members and roles for the group. You don't have to assign roles when you create the group.
 
-   ![Add members at the role-eligible group and assign roles](./media/roles-groups-create-eligible/specify-members.png)
+   ![Add members at the role-assignable group and assign roles](./media/roles-groups-create-eligible/specify-members.png)
 
 1. After members and roles are selected, select **Create**.
 

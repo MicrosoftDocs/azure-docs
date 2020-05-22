@@ -34,7 +34,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
     ![Azure AD roles](./media/roles-groups-pim-eligible/roles-list.png)
 
-1. Select the group. Only groups that are eligible for role assignment (the cloud groups created with "Eligible for role assignment") are shown in the list, not all groups.
+1. Select the group. Only groups that are eligible for role assignment (the cloud groups created with "Azure AD roles can be assigned to the group") are shown in the list, not all groups.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Assign a role to a cloud group in Azure Active Directory | Microsoft Docs
-description: Assign an Azure AD role to a role-eligible group in the Azure portal, PowerShell, or Graph API.
+description: Assign an Azure AD role to a role-assignable group in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: daveba
@@ -22,7 +22,7 @@ This section describes how an IT admin can assign Azure Active Directory (Azure 
 
 ## Using Azure AD admin center
 
-Assigning a group to an Azure AD role is similar to assigning users and service principals with one difference: Only groups that are eligible (that is, created with "Eligible for role assignment" selected) for role assignment are shown in the menu.
+Assigning a group to an Azure AD role is similar to assigning users and service principals with one difference: Only groups that are assignable (that is, created with "Azure AD roles can be assigned to the group" selected) for role assignment are shown in the menu.
 
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
@@ -32,9 +32,9 @@ Assigning a group to an Azure AD role is similar to assigning users and service 
 
    ![Add the new role assignment](./media/roles-groups-assign-role/add-assignment.png)
 
-1. Select the group. Only groups that are eligible for role assignment are displayed.
+1. Select the group. Only groups that are assignable for role assignment are displayed.
 
-    [![Only groups that are eligible are shown for a new role assignment](./media/roles-groups-assign-role/eligible-groups.png "Select an eligible group and click Add")](media/roles-groups-assign-role/eligible-groups.png#lightbox)
+    :::image type="content" source="/media/roles-groups-assign-role/eligible-groups.png alt-text="Only groups that are assignable are shown for a new role assignment." roles-groups-assign-role/eligible-groups.png":::
 
 1. Select **Add**.
 
@@ -86,6 +86,6 @@ For more information on assigning role permissions, see [Assign administrator an
 
 ## Next steps
 
-- [Create a role-eligible group](roles-groups-create-eligible.md)
+- [Create a role-assignable group](roles-groups-create-eligible.md)
 - [View a group's role assignments](roles-groups-view-assignments.md)
 - [Remove a group role assignment](roles-groups-remove-assignment.md)
