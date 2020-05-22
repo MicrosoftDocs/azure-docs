@@ -36,9 +36,9 @@ In every automated machine learning experiment, [automatic scaling and normaliza
 > predictions, the same featurization steps applied during training are applied to
 > your input data automatically.
 
-For experiments configured with the SDK,  you can enable/disable the setting `featurization` and further specify the featurization steps that should be used for your experiment.
+For experiments configured with the SDK,  you can enable/disable the setting `featurization` and further specify the featurization steps that should be used for your experiment. [Learn how to enable featurization via the Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#customize-featurization) 
 
-The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+The following table shows the accepted settings for `featurization` in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 Featurization Configuration | Description 
 ------------- | ------------- 
@@ -110,7 +110,7 @@ Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series 
 
 You can customize your featurization settings to ensure that the data and features used to train your ML model result in relevant predictions. 
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you are using the Azure Machine Learning studio for your experiment, see [these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you are using the Azure Machine Learning studio for your experiment, see the [how-to](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customization includes:
 

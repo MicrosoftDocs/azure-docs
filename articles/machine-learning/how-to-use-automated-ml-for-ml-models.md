@@ -155,7 +155,7 @@ Kurtosis| Measure of how heavily tailed this column's data is compared to a norm
 
 ## Customize featurization
 
-In the **Featurization** form, you can enable/disable automatic featurization and customize the automatic featurization settings for your experiment. 
+In the **Featurization** form, you can enable/disable automatic featurization and customize the automatic featurization settings for your experiment. To open this form, see step 10 in the [Create and run experiment](#create-and-run-experiment) section. 
 
 The following table summarizes the customizations currently available via the studio. 
 
