@@ -75,7 +75,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | --- | --- |
 | Australia Central    | 20.36.105.0 |
 | Australia Central2   | 20.36.113.0 |
-| Australia East       | 13.75.149.87, 40.79.161.1 |
+| Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia South East | 191.239.192.109, 13.73.109.251 |
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canada Central       | 40.85.224.249      |
