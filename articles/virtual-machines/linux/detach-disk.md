@@ -104,7 +104,7 @@ The disk stays in storage but is no longer attached to a virtual machine.
 1. In the virtual machine pane, select **Disks**.
 1. At the top of the **Disks** pane, select **Edit**.
 1. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
-1. After the disk has been removed, click Save on the top of the pane.
+1. After the disk has been removed, click **Save** on the top of the pane.
 
 The disk stays in storage but is no longer attached to a virtual machine.
 
