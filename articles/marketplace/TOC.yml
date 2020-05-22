@@ -1,7 +1,7 @@
 - name: Commercial marketplace documentation
   href: index.yml
   items:
-  - name: Commercial marketplace roadmap
+  - name: Commercial marketplace updates
     href: ./marketplace-roadmap.md
   - name: Commercial marketplace policies and terms
     href: ./policies-terms.md
@@ -76,10 +76,6 @@
 - name: Cloud Partner Portal
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
-  - name: Cloud Partner Portal migration to Partner Center
-    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
-  - name: Migration FAQ
-    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
   - name: Portal tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
@@ -134,8 +130,6 @@
       items:
       - name: Getting Started
         href: ./cloud-partner-portal-orig/si-getting-started.md
-      - name: What's new
-        href: ./cloud-partner-portal-orig/si-changes.md
       - name: Web analytics
         href: ./cloud-partner-portal-orig/web-analytics.md
       - name: Definitions
@@ -300,6 +294,8 @@
   items: 
   - name: Overview of the commercial marketplace
     href: ./partner-center-portal/commercial-marketplace-overview.md
+  - name: Migration FAQ
+    href: ./cloud-partner-portal-migration-faq.md     
   - name: Account Management
     items:
     - name: Create a new Partner Center account
@@ -309,7 +305,7 @@
     - name: Find or create a company work account
       href: ./partner-center-portal/company-work-accounts.md
     - name: Account migration from CPP to Partner Center
-      href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
+      href: ./partner-center-portal/account-migration-from-cpp-to-pc.md 
   - name: Create a new offer
     items:
     - name: Azure application offers
@@ -328,17 +324,17 @@
           href: ./partner-center-portal/create-azure-container-technical-assets.md
         - name: Create an Azure Container offer
           href: ./partner-center-portal/create-azure-container-offer.md
-    - name: Virtual Machine offer
+    - name: Virtual machine offer
       items:
-        - name: Create an Azure Virtual Machine offer
+        - name: Create an Azure virtual machine offer
           href: ./partner-center-portal/azure-vm-create-offer.md
-        - name: Create Azure VM technical asset
+        - name: Create an Azure VM technical asset
           items:
-            - name: Create Azure VM technical asset
+            - name: Create an Azure VM technical asset
               href: ./partner-center-portal/create-azure-vm-technical-asset.md
             - name: Azure VM technical asset FAQ
               href: ./partner-center-portal/common-issues-during-vhd-creation.md
-            - name: Certify Azure VM image
+            - name: Certify an Azure VM image
               href: ./partner-center-portal/azure-vm-image-certification.md
             - name: SAS URI
               items:

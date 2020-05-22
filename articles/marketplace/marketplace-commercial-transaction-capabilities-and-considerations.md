@@ -160,7 +160,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (available in Partner Center).
 
-For help on billing questions, contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).
+For help on billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
 ## Transact requirements
 

@@ -32,8 +32,6 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
-        - name: Pronunciation assessment with reference input
-          href: rest-speech-to-text.md#pronunciation-assessment-parameters
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
@@ -63,6 +61,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
+        - name: Improve Custom Speech accuracy
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Train a model for Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Deploy a custom model
@@ -561,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Tools
   items:
-  - name: SPX
+  - name: Speech CLI
+    displayName: SPX
     items:
-      - name: What is SPX?
+      - name: What is the Speech CLI?
+        displayName: What is SPX?
         href: spx-overview.md
-      - name: SPX basics
+      - name: Speech CLI Basics
+        displayName: SPX basics
         href: spx-basics.md
   - name: Speech Studio
     items:

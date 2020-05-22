@@ -68,7 +68,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```python
 df_cosmos.head(10)
 
-    Action    ItemRevenue    Country    Item
+    Action    ItemRevenue    Country/Region    Item
 0    Viewed    9.00    Tunisia    Black Tee
 1    Viewed    19.99    Antigua and Barbuda    Flannel Shirt
 2    Added    3.75    Guinea-Bissau    Socks
@@ -78,7 +78,7 @@ df_cosmos.head(10)
 6    Added    19.99    Syrian Arab Republic    Button-Up Shirt
 7    Viewed    19.99    Syrian Arab Republic    Button-Up Shirt
 8    Viewed    33.00    Tuvalu    Red Top
-9    Viewed    14.00    Cape Verde    Flip Flop Shoes
+9    Viewed    14.00    Cabo Verde    Flip Flop Shoes
 ```
 ## Set default database for queries
 You can set the default database ```%%sql``` commands will use for the notebook. Replace ```{database_id}``` with the name of your database.
