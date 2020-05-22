@@ -45,5 +45,5 @@ If you want to use a specific Azure PowerShell module version instead of the lat
 
 ## Next steps
 
-* [Manage modules in Azure Automation](shared-resources/modules.md)
-* [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)
+* For details of using modules, see [Manage modules in Azure Automation](shared-resources/modules.md).
+* For information about the update runbook, see [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).

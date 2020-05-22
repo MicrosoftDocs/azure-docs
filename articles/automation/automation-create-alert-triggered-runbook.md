@@ -185,8 +185,8 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 ## Next steps
 
-* [Start a runbook from a webhook](automation-webhooks.md)
-* [Starting a runbook](automation-starting-a-runbook.md)
-* [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* To start a runbook using a webhook, see [Start a runbook from a webhook](automation-webhooks.md).
+* To discover different ways to start a runbook, see [Start a runbook](automation-starting-a-runbook.md).
+* To create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
