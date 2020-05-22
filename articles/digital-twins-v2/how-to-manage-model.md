@@ -66,38 +66,47 @@ This model defines a name and a unique ID for the patient room, and properties t
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
+> [!Tip]
+> Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
+
+> [!Tip] 
+> The examples below do not include error handling for brevity. In real world, it is strongly recommended to wrap service calls in a try/catch block.
+
+> [!Tip]
+> There is a client-side library that lets you parse and validate DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, for example to generate UI elements. 
+
 ## Upload models
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-Here is a code sample showing how to do this:
+Here is a code snippet showing how to do this:
 
 ```csharp
-DigitalTwinsClient client = new DigitalTwinsClient("...");
+// 'client' is an instance of DigitalTwinsClient
 // Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.json"));
-string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
-Task<Response> rUpload = client.UploadDTDLAsync(dtdl);
-Clients can also upload multiple files in one single transaction:
-DigitalTwinsClient client = new DigitalTwinsClient("connectionString");
+StreamReader r = new StreamReader("MyModelFile.json");
+string dtdl = r.ReadToEnd(); r.Close();
+string[] dtdls = new string[] { dtdl };
+client.CreateModels(dtdls);
+```
+
+As you can see, the `CreateModels` method accepts multiple files in one single transaction:
+
+```csharp
 var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
 
 List<string> dtdlStrings = new List<string>();
 foreach (string fileName in dtdlFiles)
 {
     // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader("MyModelFile.json"));
-    string dtdl = r.ReAzure Digital TwinsoEnd(); r.Close();
-    dtdlStrings.Add(dtdl); 
+    StreamReader r = new StreamReader(fileName);
+    string dtdl = r.ReadToEnd(); r.Close();
+    dtdlStrings.Add(dtdl);
 }
-
-Task<Response> rUpload client.UploadDTDLAsync(dtdlStrings.ToArray());
+client.CreateModels(dtdlStrings);
 ```
 
-> [!TIP]
-> All SDK functions come in synchronous and asynchronous versions.
-
-The DTDL upload API provides two overloads for loading DTDL. One overload lets you pass a single string containing DTDL models; the other lets you pass an array of DTDL models. Each string can either contain a single DTDL model, or multiple models as a JSON array:
+Model files can contain more than a single model. In this case, the models need to be placed in a JSON array. For example:
 
 ```json
 [
@@ -116,6 +125,8 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
  
 On upload, model files are validated.
 
+> [!Tip] Note that you can also use the [Parser client side library](./how-to-use-parser.md) to validate models on the client side.
+
 ## Retrieve models
 
 You can list and retrieve models stored on your Azure Digital Twins instance. 
@@ -129,19 +140,19 @@ Here are your options for this:
 Here are some example calls:
 
 ```csharp
-DigitalTwinsClient client = new DigitalTwinsClient("...");
+// 'client' is a valid DigitalTwinsClient object
 
-// Get just the names of available models
-IAsyncEnumerable<Response<ModelData>> modelData = RetrieveAllModelsAsync(IncludeModels.None);
+// Get just a single model, metadata and data
+ModelData md1 = client.GetModel(id);
 
-// Get the entire model schema
-IAsyncEnumerable<Response<ModelData>> modelData = client.RetrieveAllModelsAsync(IncludeModels.All);
+// Get a list of the metadata of all available models
+Pageable<ModelData> pmd2 = client.GetModels();
 
-// Get a single model
-Response<ModelData> oneModel = client.RetrieveModel(modelId, IncludeModels.All);
+// Get a list of metadata and full model definitions
+Pageable<ModelData> pmd3 = client.GetModels(null, true);
 
-// Get a single model with all referenced models, recursively
-IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
+// Get models and metadata for a model id including all dependencies (models inherited from, component references)
+Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
 The API calls to retrieve models all return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
@@ -150,124 +161,11 @@ The `RetrieveModelWithDependencies` call returns not only the requested model, b
 
 Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
-## Parse models
-
-As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides model access to the DTDL definitions—effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
-
-To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. 
-
-The overall workflow is as follows.
-1. You retrieve all (or, potentially, some) DTDL documents from the service.
-2. You pass the returned in-memory DTDL documents to the parser.
-3. The parser will validate the set of documents passed to it, and return detailed error information. This ability is useful in editor scenarios.
-4. You can use the parser APIs to analyze the models included in the document set. 
-
-The functionalities of the parser are:
-* Get all implemented model interfaces (the contents of the interface's `extends` section).
-* Get all properties, telemetry, commands, components, and relationships declared in the model. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account.
-* Get all complex model definitions.
-* Determine whether a model is assignable from another model.
-
-> [!NOTE]
-> [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both PnP and Azure Digital Twins syntax.
-
-### Use the validator tool
-
-There is a tool available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
-
-### Use the parser library in code
-
-You can also use the parser library directly to validate models yourself.
-
-To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
-
-> [!TIP] 
-> The `dtmi:com:contoso:coffeeMaker` model is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that model.
-
-```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
-```
-
-The following code shows an example of how to use the parser library to reflect on these definitions in C#:
-
-```csharp
-public void LogModel(DTInterface model)
-{
-    Log.WriteLine("Interface: "+model.id);
-    Log.WriteLine("**** Properties:");
-    foreach (DTProperty p in model.Properties)
-    {
-        Log.WriteLine("  name: "+p.Name);
-    }
-    Log.WriteLine("**** Telemetry:");
-    foreach (DTTelemetry t in model.Telemetries)
-    {
-        Log.WriteLine("  name: "+t.Name);
-    }
-    Log.WriteLine("**** Relationships:");
-    foreach (DTRelationship r in model.Relationships)
-    {
-        Log.WriteLine("  name: "+r.Name);
-    }
-    foreach (DTComponent c in model.Components)
-    {
-        Log.WriteLine("  name: "+c.Id);
-        Log.WriteLine(c.type); 
-    }
-}
-
-public void ParseModels()
-{
-    DigitalTwinsClient client = new DigitalTwinsClient("..."); 
-    // Get the entire model schema
-    IEnumerable<Response<ModelData>> modelResp = client.RetrieveAllModels();
-    IEnumerable<JsonDocument> models = Client.ExtractModels(modelResp);
-
-    ModelParser parser = new ModelParser(); 
-    IReadOnlyDictionary<Dtmi, DTEntityInfo> modelDict = Parse(models);
-
-    DTInterface ires = modelDict[coffeeMakerDTMI] as DTInterface;
-    if (ires!=null)
-    {
-        // Prints out coffeeMaker with the implements
-        // section from the CM expressed as components 
-        LogModel(ires); 
-    }
-    DTInterface ires = modelDict[coffeeBarDTMI] as DTInterface;
-    if (ires!=null)
-    {
-        // Prints out CoffeeBar with property and relationship
-        LogModel(ires); 
-    }
-}
-```
-
 ## Remove models
 
 Models can also be removed from the service, in one of two ways:
 * **Decommissioning** : Once a model is decommissioned, you can no longer use it to create new digital twins. Existing digital twins that already use this model aren't affected, so you can still update them with things like property changes and adding or deleting relationships.
-* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them.
+* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them, until you assign a different model to them.
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
@@ -276,25 +174,31 @@ These are separate features and they do not impact each other, although they may
 Here is the code to decommission a model:
 
 ```csharp
-DigitalTwinsClient client = new DigitalTwinsClient("...");  
+// 'client' is a valid DigitalTwinsClient  
 client.DecommissionModel(dtmiOfPlanetInterface);
 // Write some code that deletes or transitions digital twins
 //...
 ```
 
-`DecommissionModel()` can take one or more IDs, so developers can process one or multiple models in one statement. 
-
-A model's decommissioning status is also included in the `ModelData` records returned by the model retrieval APIs.
+A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
 ### Deletion
 
 #### Before deletion: Deletion requirements
+
+To delete a model, use:
+```csharp
+// 'client' is a valid DigitalTwinsClient
+await client.DeleteModelAsync(idToDelete);
+```
 
 Generally, models can be deleted at any time.
 
 The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a *ConferenceRoom* model extends a *Room* model, and has a *ACUnit* model as a component, you cannot delete *Room* or *ACUnit* until *ConferenceRoom* removes those respective references. 
 
 You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
+
+See the [`CommandDeleteAllModels` function](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) in the ADTSampleApp tutorial (CommandLoop.cs) for an example for how to delete all models.
 
 #### During deletion: Deletion process
 

@@ -56,11 +56,11 @@ using Azure.DigitalTwins.Core;
 To use the interactive browser credentials to create an authenticated SDK client use:
 ```csharp
 // Your client Id / app registration
-private static string clientId; 
+private static string clientId = <... your client id ...>; 
 // Your tenant Id
-private static string tenantId;
+private static string tenantId = <... your tenant id ...>;
 // The URL of your instance including the protocol (https://)
-private static string adtInstanceUrl;
+private static string adtInstanceUrl = <... your adt instance url ...>;
 ...
 
 DigitalTwinsClient client;
@@ -74,6 +74,8 @@ try
     Environment.Exit(0);
 }
 ```
+
+Note that while you of course can place the client id, tenant id and instance URL directly into the code, it is generally recommended to rather acquire these values via a configuration file or environment variable.
 
 In an Azure Function, you will likely use the managed identity credentials:
 ```csharp
@@ -114,11 +116,11 @@ import { TokenCredentials } from "@azure/ms-rest-js";
 import { AzureDigitalTwinsAPI } from './azureDigitalTwinsAPI';
 
 // client id / app registration
-var ClientId;
+var ClientId = <...your client id...>;
 // Azure tenant
-var TenantId;
+var TenantId = <...your tenant id...>;
 // URL of the ADT instance
-var AdtInstanceUrl; 
+var AdtInstanceUrl = <...your instance url...>; 
 
 var AdtAppId = "https://digitaltwins.azure.net";
 
@@ -178,6 +180,8 @@ export async function login() {
     }
 }
 ```
+
+As in the c# example above, it is generally recommended to not put the tenant/client ids and Digital Twins instance ID directly into your source code. It is better to acquire them from an external configuration mechanism.
 
 MSAL has many more options you can use, to implement for example caching and other authentication flows. For more information, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 

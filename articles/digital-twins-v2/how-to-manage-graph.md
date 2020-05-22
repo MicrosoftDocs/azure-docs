@@ -27,7 +27,7 @@ The samples in this article use the C# SDK, which can be found here: [Azure IoT 
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using `DigitalTwins.AddEdge`. 
+Relationships are created using the `CreateRelationship` call. 
 
 To create a relationship, you need to specify:
 * The source twin ID (the twin where the relationship originates)
@@ -35,75 +35,71 @@ To create a relationship, you need to specify:
 * A relationship name
 * A relationship ID
 
-The relationship ID must be unique within the given source twin and relationship name. It does not need to be globally unique.
-For example, within the twin *foo* and its *contains* relationships, each specific relationship ID must be unique.
+The relationship ID must be unique within the given source twin. It does not need to be globally unique.
+For example, for the twin *foo*, each specific relationship ID must be unique. but a twin *foo* and a twin *bar* can each have outgoing relationships with the same id. 
 
 The following code sample illustrates how to add a relationship to your Azure Digital Twins instance.
 
+For more information on the helper class BasicRelationship see [How to use the SDK](./how-to-use-apis-sdks).
+
 ```csharp
-static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
+public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
-    Dictionary<string, object> targetrec = new Dictionary<string, object>()
-        {
-            { "$targetId", target }
-        };
+    var relationship = new BasicRelationship
+    {
+        TargetId = targetId,
+        Name = "contains"
+    };
+
     try
     {
-        await client.DigitalTwins.AddEdgeAsync(source, relationship, id, targetrec);
-        return true;
-    } catch(ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-        return false;
+        string relId = $"{srcId}-contains->{targetId}";
+        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+        Console.WriteLine("Created relationship successfully");
+    }
+    catch (RequestFailedException rex) {
+        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
     }
 }
 ```
 
 ## List relationships
 
-To access the list of relationships in the twin graph, you can write:
+To access the list of relationships for a given twin in the graph, you can use:
 
 ```csharp
-await client.DigitalTwins.ListEdgesAsync(id)
+await client.GetRelationshipsAsync(id);
 ```
 
-Here is a more sophisticated example, that gets relationships in the context of a larger method and includes paging on the result.
+This returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on if you use the synchronous or asynchronous version of the call.
+
+Here is a full example that retrieves a list of relationships:
 
 ```csharp
-static async Task ListOutgoingRelationships(string id)
+public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string dtId)
 {
     // Find the relationships for the twin
     try
     {
-        List<object> relList = new List<object>();
-        // Enumerate the IPage object returned to get the results
-        // ListAsync will throw if an error occurs
-        IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-        relList.AddRange(relPage);
-        // If there are more pages, the NextPageLink in the page is set
-        while (relPage.NextPageLink != null)
+        // GetRelationshipsAsync will throw if an error occurs
+        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+        List<BasicRelationship> results = new List<BasicRelationship>();
+        await foreach (string relJson in relsJson)
         {
-            // Get more pages...
-            relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-            relList.AddRange(relPage);
+            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+            results.Add(rel);
         }
-        Console.WriteLine($"Found {relList.Count} relationships on {id}");
-        // Let's delete the edges we found
-        foreach (JObject r in relList)
-        {
-            string relId = r.Value<string>("$edgeId");
-            string relName = r.Value<string>("$relationship");
-            Console.WriteLine($"Found relationship {relId} from {id}");
-        }
+        return results;
     }
-    catch (ErrorResponseException e)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine($"*** Error retrieving relationships for {id}: {e.Response.StatusCode}");
+        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
+        return null;
     }
 }
 ```
 
-You can use retrieved relationships to navigate to other twins in your graph. To do this, retrieve the `target` field from the relationship that is returned, and use it as the ID for your next call to `DigitalTwins.GetById`. 
+You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`. 
 
 ### Find relationships to a digital twin
 
@@ -111,48 +107,33 @@ Azure Digital Twins also has an API to find all incoming relationships to a give
 
 The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
 
+Note that the IncomingRelationship calls do not return the full
+
 ```csharp
-static async Task FindAndDeleteIncomingRelationships(string id)
+async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
 {
-    // Find the incoming relationships for the twin
+    // Find the relationships for the twin
     try
     {
-        List<IncomingEdge> relList = new List<IncomingEdge>();
-        // Enumerate the IPage object returned to get the results
-        // ListAsync will throw if an error occurs
-        IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(id);
-        relList.AddRange(relPage);
-        // If there are more pages, the NextPageLink in the page is set
-        while (relPage.NextPageLink != null)
-        {
-            // Get more pages...
-            relPage = await client.DigitalTwins.ListIncomingEdgesNextAsync(relPage.NextPageLink);
-            relList.AddRange(relPage);
-        }
-        Console.WriteLine($"Found {relList.Count} relationships on {id}");
-        // Let's delete the edges we found
-        foreach (IncomingEdge r in relList)
-        {
-            string relId = r.EdgeId;
-            string relName = r.Relationship;
-            string source = r.SourceId;
-            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
-            await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
-            Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
-        }
+        // GetRelationshipssAsync will throw if an error occurs
+        AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+        List<IncomingRelationship> results = new List<IncomingRelationship>();
+        await foreach (IncomingRelationship incomingRel in incomingRels)
+            results.Add(incomingRel);
     }
-    catch (ErrorResponseException e)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine($"*** Error deleting incoming relationships for {id}: {e.Response.StatusCode}");
+        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving incoming relationships for {dtId} due to {ex.Message}");
     }
 }
 ```
 
 ## Delete relationships
 
-You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
+You can delete relationships using `DeleteRelationship(source, relId);`.
 
-The first parameter specifies the source twin (the twin where the relationship originates). The other parameters are the relationship's name and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin id and the relationship id, because relationship IDs are unique only within the scope of a twin.
 
 ## Create a twin graph 
 
@@ -173,40 +154,40 @@ static async Task CreateTwins()
 
 static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
 {
-    Dictionary<string, object> targetrec = new Dictionary<string, object>()
-        {
-            { "$targetId", target }
-        };
+    var relationship = new BasicRelationship
+    {
+        TargetId = target,
+        Name = relationship
+    };
+
     try
     {
-        await client.DigitalTwins.AddEdgeAsync(source, relationship, id, targetrec);
+        string relId = $"{source}-contains->{target}";
+        await client.CreateRelationshipAsync(source, relId, JsonSerializer.Serialize(relationship));
+        Console.WriteLine("Created relationship successfully");
         return true;
-    } catch(ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
+    }
+    catch (RequestFailedException rex) {
+        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
         return false;
     }
 }
 
 static async Task<bool> CreateRoom(string id, double temperature, double humidity)
 {
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-        {
-            { "$model", "dtmi:com:contoso:Room;2" }
-        };
-
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-        {
-            { "$metadata", meta },
-            { "Temperature", temperature},
-            { "Humidity", humidity},
-        };
+    BasicDigitalTwin twin = new BasicDigitalTwin();
+    twin.Metadata = new DigitalTwinMetadata();
+    twin.Metadata.ModelId = "dtmi:com:contoso:Room;2";
+    // Initialize properties
+    Dictionary<string, object> props = new Dictionary<string, object>();
+    props.Add("Temperature", temperature);
+    props.Add("Humidity", humidity);
+    twin.CustomProperties = props;
+    
     try
     {
-        await client.DigitalTwins.AddAsync(id, initData);
-        return true;
+        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin)); 
+        return true;       
     }
     catch (ErrorResponseException e)
     {
@@ -220,21 +201,18 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
     string type = "dtmi:com:contoso:Building;3";
     if (makeFloor==true)
         type = "dtmi:com:contoso:Floor;2";
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-        {
-            { "$model", type }
-        };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-        {
-            { "$metadata", meta },
-            { "AverageTemperature", 0},
-        };
+    BasicDigitalTwin twin = new BasicDigitalTwin();
+    twin.Metadata = new DigitalTwinMetadata();
+    twin.Metadata.ModelId = type;
+    // Initialize properties
+    Dictionary<string, object> props = new Dictionary<string, object>();
+    props.Add("AverageTemperature", 0);
+    twin.CustomProperties = props;
+    
     try
     {
-        await client.DigitalTwins.AddAsync(id, initData);
-        return true;
+        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));  
+        return true;      
     }
     catch (ErrorResponseException e)
     {
@@ -263,12 +241,9 @@ Consider the following data table, describing a set of digital twins and relatio
 The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
 ```csharp
-// Connect to MSFT graph and open spreadsheet from OnDrive
-// ...
-// Read excel spreadsheet using MSFT graph APIs
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
 JsonDocument data = JsonDocument.Parse(range.values);
-List<RelationshipRecord> RelationshipRecordList = new List<RelationshipRecord>();
+List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
 foreach (JsonElement row in data.RootElement.EnumerateArray())
 {
     string type = row[0].GetString();
@@ -277,53 +252,50 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     string relName = row[3].GetString();
     // Parse spreadsheet extra data into a JSON string to initialize the digital twin
     // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>(){...};
+    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
 
     if (relSource != null)
-        RelationshipRecordList.Add(new RelationshipRecord(relSource, id, relName));
+    {
+        BasicRelationship br = new BasicRelationship()
+        {
+            SourceId = relSource,
+            TargetId = id,
+            Name = relName
+        };
+        RelationshipRecordList.Add(br);
+    }
 
+    BasicDigitalTwin twin = new BasicDigitalTwin();
+    twin.CustomProperties = initData;
+    // Set the type of twin to be created
     switch (type)
     {
-         case "room":
-            Dictionary<string, object> meta = new Dictionary<string, object>()
-            {
-                { "$model", "dtmi:com:contoso:Room;2" }
-            }; 
-            initData.Add("$metadata", meta);
-            client.DigitalTwins.Add(id, initData);
+        case "room":
+            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Room;2" };
             break;
-         case "floor": 
-            Dictionary<string, object> meta = new Dictionary<string, object>()
-            {
-                { "$model", "dtmi:com:contoso:Floor;22" }
-            }; 
-            initData.Add("$metadata", meta);
-            client.DigitalTwins.CreateTwin(id, initData);
+        case "floor":
+            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Floor;2" };
             break;
+        ... handle additional types
     }
-    foreach (RelationshipRecord rec in RelationshipRecordList)
+    try
     {
-        Dictionary<string, object> targetrec = new Dictionary<string, object>()
+        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+    }
+    catch (RequestFailedException e)
+    {
+        Log.Error($"Error {e.Status}: {e.Message}");
+    }
+    foreach (BasicRelationship rec in RelationshipRecordList)
+    { 
+        try { 
+            client.CreateRelationship(rec.SourceId, Guid.NewGuid().ToString(), JsonSerializer.Serialize<BasicRelationship>(rec));
+        }
+        catch (RequestFailedException e)
         {
-            { "$targetId", rec.target }
-        };
-        client.DigitalTwins.AddEdge(rec.src, rec.relName, Guid.NewGuid().ToString(), targetrec);
+            Log.Error($"Error {e.Status}: {e.Message}");
+        }
     }
-}
-```
-
-`RelationshipRecord` in this sample is defined as:
-
-```csharp
-public class RelationshipRecord
-{
-    public RelationshipRecord (string src, string target, string name)
-    {
-        this.src = src; this.target = target; relName = name;
-    }
-    public string target;
-    public string src;
-    public string relName;
 }
 ```
 

@@ -121,7 +121,116 @@ See the [Tutorial: Code a client app](tutorial-code.md) for a walkthrough of thi
 * You can iterate over paged results using an [**await foreach** loop](https://docs.microsoft.com/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * See [Azure.Core](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview) for reference on the underlying SDK infrastructure and types.
 
-Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins mostly is based on models custom-configured by the user at run time (via DTDL files uploaded to the service), many service APIs take and return JSON.
+Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins mostly is based on models custom-configured by the user at run time (via DTDL models uploaded to the service), many service APIs take and return twin data in form of JSON data.
+
+### Serialization Helpers
+The SDK also contains a number of helper classes for serialization. As described in the previous section, the core SDK methods return twin data as JSON, but the helper functions let you quickly create or deserialize twin data for access to basic information.
+
+The helper classes available are:
+* `BasicDigitalTwin`: Represents the core data of a digital twin
+* `BasicRelationship`: Represents the core data of a relationship
+* `UpdateOperationUtility`: Represents JSON Patch information used in update calls
+* `WriteableProperty`: Represents property metadata
+
+#### Deserializing a Digital Twin
+You can always deserialize twin data using the JSON library of your choice, for example `System.Test.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes make things a bit more convenient.
+
+```csharp
+Response<string> res = client.GetDigitalTwin(twin_id);
+BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+```
+
+The `BasicDigitalTwin` helper class also gives you access to properties defined on the twin, via a `Dictionary<string, object>`. To list properties you could write:
+
+```csharp
+Response<string> res = client.GetDigitalTwin(twin_id);
+BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
+{
+    if (twin.CustomProperties.TryGetValue(prop, out object value))
+        Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+
+#### Creating a Digital Twin
+Using the `BasicDigitalTwin` class you can also prepare data for creating a twin instance:
+
+```csharp
+BasicDigitalTwin twin = new BasicDigitalTwin();
+twin.Metadata = new DigitalTwinMetadata();
+twin.Metadata.ModelId = "dtmi:example:Room;1";
+// Initialize properties
+Dictionary<string, object> props = new Dictionary<string, object>();
+props.Add("Temperature", 25.0);
+twin.CustomProperties = props;
+
+client.CreateDigitalTwin("myNewRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
+
+This code is equivalent to the "manual" variant:
+```csharp
+Dictionary<string, object> meta = new Dictionary<string, object>()
+{
+    { "$model", "dtmi:example: Room; 1"}
+};
+Dictionary<string, object> twin = new Dictionary<string, object>()
+{
+    { "$metadata", meta },
+    { "Temperature", 25.0 }
+};
+client.CreateDigitalTwin("myNewRoomId", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+```
+
+#### Deserializing a relationship
+You can always deserialize relationship data using the JSON library of your choice, for example `System.Test.Json` or `Newtonsoft.Json`. For basic access to a relationship, the helper classes make things a bit more convenient.
+
+```csharp
+Response<string> res = client.GetRelationship(twin_id, rel_id);
+BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+Console.WriteLine($"Relationship Name: {rel.Name}");
+```
+
+The `BasicRelationship` helper class also gives you access to properties defined on the relationship, via a `Dictionary<string, object>`. To list properties you could write:
+
+```csharp
+Response<string> res = client.GetRelationship(twin_id, rel_id);
+BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+Console.WriteLine($"Relationship Name: {rel.Name}");
+foreach (string prop in rel.CustomProperties.Keys)
+{
+    if (twin.CustomProperties.TryGetValue(prop, out object value))
+        Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+
+#### Creating a Relationship
+
+Using the `BasicDigitalTwin` class you can also prepare data for creating a twin instance:
+
+```csharp
+BasicRelationship rel = new BasicRelationship();
+rel.TargetId = "myTargetTwin";
+rel.Name = "contains"; // a relationship with this name must be defined in the model
+                                    // Initialize properties
+Dictionary<string, object> props = new Dictionary<string, object>();
+props.Add("active", true);
+rel.CustomProperties = props;
+client.CreateRelationship("mySourceTwin", "rel001", JsonSerializer.Serialize<BasicRelationship>(rel));
+```
+
+#### Creating a Patch for Update
+Update calls for twins and relationships use JSON Patch structure. To create JSON patch operations lists, you can use the `UpdateOperationsUtility` class.
+
+```csharp
+UpdateOperationsUtility uou = new UpdateOperationsUtility();
+uou.AppendAddOp("/Temperature", 25.0);
+uou.AppendAddOp("/myComponent/Property", "Hello");
+// unset a property
+uou.AppendRemoveOp("/Humidity");
+client.UpdateDigitalTwin("myTwin", uou.Serialize());
+```
 
 ## Monitor API metrics
 
