@@ -7,11 +7,14 @@ ms.custom: seodec18
 ---
 # Use Azure Batch CLI templates and file transfer
 
-Using an Azure Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
+Using a Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
 
 Create and use JSON template files with the Azure CLI to create Batch
 pools, jobs, and tasks. Use CLI extension commands to easily upload job input files to
 the storage account associated with the Batch account, and download job output files.
+
+> [!NOTE]
+> JSON files don't support the same functionality as [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). They are meant to be formatted like the raw REST request body. The CLI extension doesn't change any existing commands, but it does have a similar template option that adds partial Azure Resource Manager template functionality. See [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## Overview
 
