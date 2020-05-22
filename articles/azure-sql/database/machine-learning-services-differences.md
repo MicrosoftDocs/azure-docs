@@ -16,6 +16,7 @@ ROBOTS: NOINDEX
 ---
 
 # Key differences between Machine Learning Services in Azure SQL Database (preview) and SQL Server
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The functionality of Azure SQL Database Machine Learning Services (with R) in  (preview) is similar to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Below are some key differences.
 

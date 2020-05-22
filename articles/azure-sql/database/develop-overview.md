@@ -11,13 +11,17 @@ ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ---
-# SQL Database application development overview
+# Application development overview - SQL Database & SQL Managed Instance 
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database. This article applies to Azure SQL Database, Azure SQL Managed Instance and Elastic pools.
+This article walks through the basic considerations that a developer should be aware of when writing code to connect to your database in Azure. This article applies to Azure SQL Database, and Azure SQL Managed Instance
 
+<<<<<<< HEAD
 > [!TIP]
 > Look at the getting started guides for [Azure SQL Database](quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](../managed-instance/quickstart-content-reference-guide.md) if you need to set up your Azure SQL database.
 >
+=======
+>>>>>>> 54bd20292a4ec5267e2f225ce37674770070d0b5
 
 ## Language and platform
 
@@ -27,7 +31,11 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 ## Authentication
 
+<<<<<<< HEAD
 Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory authentication](aad-authentication-overview.md) users and logins. Azure Active Directory (Azure AD) logins are available only in SQL Managed Instance. 
+=======
+Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](authentication-aad-overview.md) users and logins. AAD logins are available only in SQL Managed Instance. 
+>>>>>>> 54bd20292a4ec5267e2f225ce37674770070d0b5
 
 Learn more about [managing database access and login](logins-create-manage.md).
 
@@ -54,4 +62,6 @@ For more information about how to prepare for planned maintenance events on your
 
 ## Next steps
 
-Explore all the [capabilities of SQL Database](sql-database-paas-overview.md).
+Explore all the capabilities of [SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
+
+To get started, see the guides for [Azure SQL Database](quickstart-content-reference-guide.md) and [Azure SQL Managed Instances](../managed-instance/quickstart-content-reference-guide.md).

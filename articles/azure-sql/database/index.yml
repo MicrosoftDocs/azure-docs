@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Find documentation about Azure SQL Database 
-summary: Find concepts, quickstarts, tutorials, and samples for singled and pooled databases in Azure SQL Database, and the logical SQL server that manages them. 
+title: Azure SQL Database documentation 
+summary: Find concepts, quickstarts, tutorials, and samples for singled and pooled databases in Azure SQL Database. 
 
 metadata:
   title: Azure SQL Database documentation
-  description: Find documentation about Azure SQL Database, a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server.
+  description: Find documentation about Azure SQL Database, a platform-as-a-service (PaaS) based on the latest stable version of Microsoft SQL Server.
   services: sql-database
   ms.service: sql-database
   ms.subservice: single-database
@@ -82,7 +82,7 @@ landingContent:
           - text: Logins, user accounts, roles, and permissions
             url: logins-create-manage.md
           - text: Azure Active Directory
-            url: aad-authentication-overview.md
+            url: authentication-aad-overview.md
           - text: Auditing
             url: auditing-overview.md 
           - text: Transparent Data Encryption (TDE)

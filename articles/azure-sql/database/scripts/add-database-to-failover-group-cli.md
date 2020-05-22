@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
 # Use CLI to add an Azure SQL Database into a failover group
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates an Azure SQL Database, creates a failover group, adds the database to it, and tests failover.
 

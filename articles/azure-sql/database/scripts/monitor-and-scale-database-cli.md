@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 06/25/2019
 ---
 # Use CLI to monitor and scale a single database in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example scales a single database in Azure SQL Database to a different compute size after querying the size information of the database.
 

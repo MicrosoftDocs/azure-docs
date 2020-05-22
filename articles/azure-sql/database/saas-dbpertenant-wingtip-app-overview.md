@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/24/2018
 ---
 # Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The Wingtip SaaS application is a sample multitenant app. The app uses the database-per-tenant SaaS application pattern to service multiple tenants. The app showcases features of Azure SQL Database that enable SaaS scenarios by using several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes.
 
