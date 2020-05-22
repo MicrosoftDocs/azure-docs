@@ -77,7 +77,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     ```azurecli
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
-    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
     Copy the value for **SubscriptionId**.
@@ -113,12 +113,12 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 4. Run the following command to enable monitoring, replacing the value for the `resourceIdOfAzureArcCluster` and `workspaceResourceId` parameter:
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> <workspaceResourceId>
+    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> -logAnalyticsWorkspaceResourceId <workspaceResourceId>
     ```
     Example:
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace
+    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster  -logAnalyticsWorkspaceResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup/providers/Microsoft.OperationalInsights/workspaces/TestLAWorkspace
     ```
 
 ### Integrate with default workspace
@@ -132,7 +132,7 @@ The following step enables monitoring of your Arc enabled Kubernetes cluster usi
 For example:
 
 ```powershell
-.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
+.\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
 ```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
@@ -159,7 +159,7 @@ Run the following command to enable monitoring, replacing the value for the `res
 
     Example:
 
-    `bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+    `bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup`
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
@@ -174,7 +174,7 @@ bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <k
 For example:
 
 ```bash
-bash onboarding_azuremonitor_for_containers.sh /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1MyK8sTestCluster
+bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
 ```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
