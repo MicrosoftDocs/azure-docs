@@ -16,15 +16,15 @@ ms.reviewer: scottsta
 ---
 # Sign-in to Azure using email as an alternate login ID (preview)
 
-Many organizations want to let users sign in to Azure using the same credentials as their on-premises directory environment. With this approach, hybrid authentication, users only need to remember one set of credentials.
+Many organizations want to let users sign in to Azure using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
 
 * By default, the Azure Active Directory (Azure AD) user principal name (UPN) is set to the same UPN as the on-premises directory.
-    * Changing the Azure AD UPN creates a mis-match between on-prem and Azure environments that could cause problems with certain applications and services.
+* Changing the Azure AD UPN creates a mis-match between on-prem and Azure environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure.
 
-To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in to Azure with email as an alternate login ID. Rather than using a legacy on-prem UPN such as `balas@contoso.com`, or a non-routable UPN such as `balas@contoso.local`, email as an alternate login ID can now be used. To access an application or services, users would sign in using their assigned email, such as `balas@fabrikam.com`.
+To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in to Azure with email as an alternate login ID. Rather than using a legacy on-prem UPN such as `balas@contoso.com`, or a non-routable UPN such as `balas@contoso.local`, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure using their assigned email, such as `balas@fabrikam.com`.
 
 |     |
 | --- |
