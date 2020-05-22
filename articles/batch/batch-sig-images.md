@@ -34,7 +34,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks. For more information, see [Prepare a managed image](#prepare-a-managed-image).
+- **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
 > Your Shared Image must be in the same subscription as the Batch account. The image can be in different regions as long as it has replicas in the same region as your Batch account.
