@@ -13,9 +13,9 @@ ms.author: baanders
 
 Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
 
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    ```
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
 
 > [!NOTE]
 > This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
