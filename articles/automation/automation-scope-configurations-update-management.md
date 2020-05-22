@@ -47,12 +47,7 @@ When a computer is added to Update Management, it's also added to a saved search
 
 ## Next steps
 
-* For general information about the feature, see [Update Management overview](automation-update-management.md).
 * To work with the feature, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* To use an Automation account to enable the feature, see [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md).
-* To browse the Azure portal to enable the feature, see [Enable Update Management from the Azure portal](automation-onboard-solutions-from-browse.md).
-* To use a runbook to enable the feature, see [Enable Update Management from a runbook](automation-onboard-solutions.md).
-* To use an Azure VM to enable the feature, see [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md).
 * To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
 * To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
