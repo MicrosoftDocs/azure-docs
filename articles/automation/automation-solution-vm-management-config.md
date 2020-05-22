@@ -172,6 +172,5 @@ Configuring the feature to just stop VMs at a certain time is supported. In this
 
 ## Next steps
 
-* [Enable Start/Stop VMs during off-hours](automation-solution-vm-management.md)
-* [Query logs from Start/Stop VMs during off-hours](automation-solution-vm-management-logs.md)
-* [Troubleshoot Start/Stop VMs during off-hours issues](troubleshoot/start-stop-vm.md)
+* To monitor the feature during operation, see [Query logs from Start/Stop VMs during off-hours](automation-solution-vm-management-logs.md).
+* To handle problems during VM management, see [Troubleshoot Start/Stop VMs during off-hours issues](troubleshoot/start-stop-vm.md).
