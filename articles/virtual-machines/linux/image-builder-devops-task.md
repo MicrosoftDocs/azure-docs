@@ -195,33 +195,45 @@ When the build starts, Image Builder will create a container called `imagebuilde
 
 ### Distribute
 
-There are 3 distribute types supported:
-* Managed Image
-    * ResourceID:
+There are 3 distribute types supported.
+
+#### Managed Image
+
+* ResourceID:
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
-    * Locations
-* Azure Shared Image Gallery - this MUST already exist!  
-    * ResourceID: 
+* Locations
+
+#### Azure Shared Image Gallery
+
+The Shared Image Gallery must already exist.
+
+* ResourceID: 
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>
     ```
-    * Regions: list of regions, comma separated, e.g. westus, eastus, centralus
-* VHD
-    * You cannot pass any values to this, Image Builder will emit the VHD to the temporary Image Builder resource group, ‘'IT_<DestinationResourceGroup>_<TemplateName>', in the 'vhds' container. When you start the release build, image builder will emit logs, and when it has finished, it will emit the VHD URL.
+* Regions: list of regions, comma separated, e.g. westus, eastus, centralus
+
+#### VHD
+
+You cannot pass any values to this, Image Builder will emit the VHD to the temporary Image Builder resource group, `IT_<DestinationResourceGroup>_<TemplateName>`, in the *vhds* container. When you start the release build, image builder emits logs. When it has finished, it will emit the VHD URL.
 
 ### Optional Settings
-* [VM Size](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may do this to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
+
+* [VM Size](image-builder-json#vmprofile) - You can override the VM size, from the default of *Standard_D1_v2*. You may do this to reduce total customization time, or because you want to create the images that depend on certain VM sizes, such as GPU / HPC etc.
 
 ## How it works
-When you create the release, the task will:
-1) Create a container in the storage account, named 'imagebuilder-vststask', it will zip and upload your build artifacts, and create a SAS Token on the that zip file.
-2) Use the properties passed to the task, to create the Image Builder Template artifact, this will in turn:
-    * Download the build artifact zip file, and any other associated scripts, and these are all saved in a storage account in the temporary Image Builder resource group, ‘'IT_<DestinationResourceGroup>_<TemplateName>'.
-    * Create a template prefixed 't_' 10 digit monotonic integer, this is saved to your Resource Group you selected, you will see it for the duration of the build in the resource group. 
-You can see the output in the 
-```bash
+
+When you create the release, the task creates a container in the storage account, named *imagebuilder-vststask*. It zips and uploads your build artifacts and creates a SAS Token for the zip file.
+
+The task uses the properties passed to the task to create the Image Builder Template artifact. The task does the following:
+* Downloads the build artifact zip file and any other associated scripts. The files are saved in a storage account in the temporary Image Builder resource group `IT_<DestinationResourceGroup>_<TemplateName>`.
+* Creates a template prefixed *t_* and a 10 digit monotonic integer. The template is saved to the resource group you selected. The template exists for the duration of the build in the resource group. 
+
+Example output:
+
+```text
 start reading task parameters...
 found build at:  /home/vsts/work/r1/a/_ImageBuilding/webapp
 end reading parameters
@@ -232,12 +244,16 @@ Source for image:  { type: 'SharedImageVersion',
 template name:  t_1556938436xxx
 starting put template...
 ```
-3) Start the image build, when this happens, you will see this in the release logs, whilst the build is running:
-```bash
+
+When the image build starts, the run status is reported in the release logs:
+
+```text
 starting run template...
 ```
-4) When the image build completes you will see the following:
-```bash
+
+When the image build completes you see output similar to following:
+
+```text
 2019-05-06T12:49:52.0558229Z starting run template...
 2019-05-06T13:36:33.8863094Z run template:  Succeeded
 2019-05-06T13:36:33.8867768Z getting runOutput for  SharedImage_distribute
@@ -250,31 +266,43 @@ starting run template...
 2019-05-06T13:36:34.9786039Z blob imagebuilder-vststask\webapp/18-1/webapp_1557146958741.zip is deleted
 2019-05-06T13:38:37.4884068Z delete template:  Succeeded
 ```
-The image template, and ‘'IT_<DestinationResourceGroup>_<TemplateName>' will be deleted.
 
-You can take the '$(imageUri)' VSTS variable and use this in the next task, or just take its value and build a VM.
+The image template and `IT_<DestinationResourceGroup>_<TemplateName>` is deleted.
+
+You can take the '$(imageUri)' VSTS variable and use it in the next task or just use the value and build a VM.
 
 ## Output DevOps Variables
-* Pub/offer/SKU/Version of the source marketplace image:
-    * $(pirPublisher)
-    * $(pirOffer)
-    * $(pirSku)
-    * $(pirVersion)
-* Image URI - The ResourceID of the distributed image:
-    * $(imageUri)
+
+Pub/offer/SKU/Version of the source marketplace image:
+* $(pirPublisher)
+* $(pirOffer)
+* $(pirSku)
+* $(pirVersion)
+
+Image URI - The ResourceID of the distributed image:
+* $(imageUri)
+
 ## FAQ
-1. Can i use an existing image template i have already created, outside of DevOps?
-No, but stay tuned!!
 
-2. Can i specifiy the image template name?
-No, we generate a unique template name, then destroy it after.
+### Can I use an existing image template I have already created, outside of DevOps?
 
-3. The image builder failed, how can i troubleshoot?
-* If there is a build failure the DevOps task will not delete the staging resource group, this is so you can access the staging resource group, that contains the build customization log.
-* You will see an error in the DevOps Log for the VM Image Builder task, and see the customization.log location, as per below:
-![alt text](./devOpsTaskError.png "devOps Error")
-* Review the [troubleshooting guide](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md) to see common issues and resolutions. 
-* After investigating the failure, to delete the staging resource group, delete the Image Template Resource artifact, this is prefixed with 't_', and can be found in the DevOps task build log:
+Currently, not at this time.
+
+### Can I specify the image template name?
+
+No. A unique template name is used and then deleted.
+
+### The image builder failed. How can I troubleshoot?
+
+If there is a build failure, the DevOps task does not delete the staging resource group. You can access the staging resource group that contains the build customization log.
+
+You will see an error in the DevOps log for the VM Image Builder task, and see the customization.log location. For example:
+
+![Example DevOps task error that shows failure waiting on packerizer](./media/image-builder-devops-task/devops-task-error.png)
+
+For more information on troubleshooting, see [Troubleshoot Azure Image Builder Service](image-builder-troubleshoot.md). 
+
+After investigating the failure, you can delete the staging resource group. First, delete the Image Template Resource artifact. The artifact is prefixed with *t_* and can be found in the DevOps task build log:
 
 ```text
 ...
@@ -284,5 +312,4 @@ Source for image:  { type: 'SharedImageVersion',
 template name:  t_1556938436xxx
 ...
 ```
-The Image Template Resource artifact will be in the resource group specified initially in the task, you just need to delete it. Note, if deleting via the Azure Portal, when in the resource group, select 'Show Hidden Types', to view the artifact.
-
+The Image Template resource artifact is in the resource group specified initially in the task. When you're done troubleshooting delete the artifact. If deleting using the Azure Portal, within the resource group, select **Show Hidden Types**, to view the artifact.
