@@ -3,45 +3,26 @@ title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 05/22/2020
 
 
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
-# Customize cluster egress with a User-Defined Route (Preview)
+# Customize cluster egress with a User-Defined Route
 
 Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be setup and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article walks through how to customize a cluster's egress route to support custom network scenarios, such as those which disallows public IPs and requires the cluster to sit behind a network virtual appliance (NVA).
 
-> [!IMPORTANT]
-> AKS preview features are self-service and are offered on an opt-in basis. Previews are provided *as is* and *as available* and are excluded from the service-level agreement (SLA) and limited warranty. AKS previews are partially covered by customer support on a *best effort* basis. Therefore, the features aren't meant for production use. For more information, see the following support articles:
->
-> * [AKS Support Policies](support-policies.md)
-> * [Azure Support FAQ](faq.md)
-
 ## Prerequisites
 * Azure CLI version 2.0.81 or greater
-* Azure CLI Preview extension version 0.4.28 or greater
 * API version of `2020-01-01` or greater
 
-## Install the latest Azure CLI AKS Preview extension
-To set the outbound type of a cluster, you need the Azure CLI AKS Preview extension version 0.4.18 or later. Install the Azure CLI AKS Preview extension by using the az extension add command, and then check for any available updates by using the following az extension update command:
-
-```azure-cli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## Limitations
-* During preview, `outboundType` can only be defined at cluster create time and cannot be updated afterward.
-* During preview, `outboundType` AKS clusters should use Azure CNI. Kubenet is configurable,  usage requires manual associations of the route table to the AKS subnet.
 * Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
-* Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster.
+* Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster. You can use your own [route table][byo-route-table].
 * Setting `outboundType` to a value of `UDR` implies the ingress source IP routed to the load-balancer may **not match** the cluster's outgoing egress destination address.
 
 ## Overview of outbound types in AKS
