@@ -67,7 +67,8 @@
       href: role-assignments-cli.md
     - name: REST API
       href: role-assignments-rest.md
-    - name: Template
+    - name: ARM template
+      displayName: Resource Manager
       href: role-assignments-template.md
   - name: List deny assignments
     items:
@@ -113,8 +114,8 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
-  - name: Resource Manager templates
-    displayName: ARM
+  - name: ARM templates
+    displayName: Resource Manager
     items:
     - name: Role Assignments
       href: /azure/templates/microsoft.authorization/roleassignments
