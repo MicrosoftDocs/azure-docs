@@ -19,44 +19,48 @@ This article shows you how to use an Azure DevOps task to inject build artifacts
 * You must have a VSTS DevOps account, and a Build Pipeline created
 * Create a Standard Azure Storage Account in the source image Resource Group, you can use other Resource Group/Storage accounts, but you must ensure the Image Builder has contributor permissions to the Storage account. The storage account is used transfer the build artifacts from the DevOps task to the image.
 * Register and enable requirements, as per below:
-```bash
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+    ```bash
+    az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
+    
+    az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+    
+    # register and enable for shared image gallery
+    az feature register --namespace Microsoft.Compute --name GalleryPreview
+    
+    # wait until it says registered
+    
+    # check you are registered for the providers
+    az provider show -n Microsoft.VirtualMachineImages | grep registrationState
+    az provider show -n Microsoft.Storage | grep registrationState
+    az provider show -n Microsoft.Compute | grep registrationState
+    az provider show -n Microsoft.KeyVault | grep registrationState
+    ```
+    
+    If they do not show registered, run the commented out code below.
 
-# register and enable for shared image gallery
-az feature register --namespace Microsoft.Compute --name GalleryPreview
+    ```bash
+    ## az provider register -n Microsoft.VirtualMachineImages
+    ## az provider register -n Microsoft.Storage
+    ## az provider register -n Microsoft.Compute
+    ## az provider register -n Microsoft.KeyVault
+    
+    ```
+    ```bash
+    # create storage account and blob in resource group
+    subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
+    z account set -s $subscriptionID
+    strResourceGroup=<ResourceGroupName>
+    location=westus
+    scriptStorageAcc=aibstordot$(date +'%s')
+    az storage account create -n $scriptStorageAcc -g $strResourceGroup -l $location --sku Standard_LRS
+    ```
 
-# wait until it says registered
-
-# check you are registered for the providers
-az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-az provider show -n Microsoft.Storage | grep registrationState
-az provider show -n Microsoft.Compute | grep registrationState
-az provider show -n Microsoft.KeyVault | grep registrationState
-```
-
-If they do not saw registered, run the commented out code below.
-```bash
-## az provider register -n Microsoft.VirtualMachineImages
-## az provider register -n Microsoft.Storage
-## az provider register -n Microsoft.Compute
-## az provider register -n Microsoft.KeyVault
-
-```
-```bash
-# create storage account and blob in resource group
-subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
-z account set -s $subscriptionID
-strResourceGroup=<ResourceGroupName>
-location=westus
-scriptStorageAcc=aibstordot$(date +'%s')
-az storage account create -n $scriptStorageAcc -g $strResourceGroup -l $location --sku Standard_LRS
-```
 ## Add Task to Release Pipeline
 
-1. Select **Release Pipeline** > **Edit**
-1. On the User Agent, select *+* to add then search for **Image Builder**. Select **Add**.
+Select **Release Pipeline** > **Edit**
+
+On the User Agent, select *+* to add then search for **Image Builder**. Select **Add**.
 
 Set the following task properties:
 
