@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add an Azure role assignment using Azure Resource Manager template - Azure RBAC"
+title: "Quickstart: Add an Azure role assignment using an Azure Resource Manager template - Azure RBAC"
 description: Learn how to grant access to Azure resources for a user at resource group scope using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -15,9 +15,9 @@ ms.author: rolyon
 
 ---
 
-# Quickstart: Add an Azure role assignment using Azure Resource Manager template
+# Quickstart: Add an Azure role assignment using an Azure Resource Manager template
 
-[Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this quickstart, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This quickstart focuses on the process of deploying a Resource Manager template to grant the access.
+[Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this quickstart, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This quickstart uses a Resource Manager template to grant the access.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,11 +31,13 @@ To add role assignments, you must have:
 
 ## Create a role assignment
 
+To add a role assignment, you must specify three elements: security principal, role definition, and scope. For this quickstart, the security principal is you or another user in your directory, the role definition is [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), and the scope is a resource group that you specify.
+
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). The template has three parameters and a resources section. In the resources section, notice that it has the three elements of a role assignment: security principal, role definition, and scope. 
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" range="1-40" highlight="30-33":::
 
 ### Deploy the template
 
@@ -61,17 +63,23 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
     ```
 
-1. Enter values for resource group name, email address, and location.
+1. Enter a resource group name such as ExampleGrouprg.
+
+1. Enter an email address for yourself or another user in your directory.
+
+1. Enter a location for the resource group such as centralus.
+
+    The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command creates a new resource group and the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) command deploys the template to add the role assignment.
 
 ## Review deployed resources
 
-1. Open the resource group you created.
+1. In the Azure portal, open the resource group you created.
 
 1. In the left menu, click **Access control (IAM)**.
 
 1. Click the **Role assignments** tab.
 
-1. Verify the **Virtual Machine Contributor** role was assigned to the specified user.
+1. Verify that the **Virtual Machine Contributor** role is assigned to the user you specified.
 
    ![New role assignment](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
