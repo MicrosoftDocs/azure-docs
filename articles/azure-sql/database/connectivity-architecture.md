@@ -13,9 +13,10 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ---
-# Azure SQL Database connectivity architecture
+# Azure SQL Database and Azure Synapse Analytics connectivity architecture
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article explains the architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse Analytics. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
+This article explains architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse Analytics. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
@@ -67,7 +68,7 @@ The table below lists the IP Addresses of Gateways by region. To connect to SQL 
 
 Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](gateway-migration.md)
 
-| Region Name          | Gateway IP Addresses |
+| Region name          | Gateway IP addresses |
 | --- | --- |
 | Australia Central    | 20.36.105.0 |
 | Australia Central2   | 20.36.113.0 |

@@ -41,7 +41,7 @@ To copy a database by using the Azure portal, open the page for your database, a
 
    ![Database copy](./media/database-copy/database-copy.png)
 
-## Copy using PowerShell or Azure CLI
+## Copy using PowerShell or the Azure CLI
 
 To copy a database, use the following examples.
 

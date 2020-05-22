@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
 ---
-# Azure SQL Auditing
+# Azure SQL auditing
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 

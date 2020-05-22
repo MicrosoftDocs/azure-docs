@@ -29,7 +29,7 @@ Automatic tuning can be enabled at the server or the database level through:
 > For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
 
 > [!NOTE]
-> Configuring Automatic tuning options through the ARM (Azure Resource Manager) template is not supported at this time.
+> Configuring automatic tuning options through the ARM (Azure Resource Manager) template is not supported at this time.
 
 ## Enable automatic tuning on server
 
@@ -57,7 +57,7 @@ Automatic tuning options on a server are applied to all databases on this server
 
 ### REST API
 
-To find out more about using a REST API to enable automatic tuning on a **server**, see [Server Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
+To find out more about using a REST API to enable automatic tuning on a **server**, see [Server automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
 
 ## Enable automatic tuning on an individual database
 
@@ -80,7 +80,7 @@ Once you have selected your desired configuration, click **Apply**.
 
 ### Rest API
 
-To find out more about using a REST API to enable Automatic tuning on a single database, see [Azure SQL Database Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/databaseautomatictuning).
+To find out more about using a REST API to enable automatic tuning on a single database, see [Azure SQL Database automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/databaseautomatictuning).
 
 ### T-SQL
 
@@ -104,7 +104,7 @@ Setting the individual tuning option to ON will override any setting that databa
 > In the case of [active geo-replication](auto-failover-group-overview.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such as for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
 >
 
-To find out more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+To find out more abut T-SQL options to configure automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## Disabled by the system
 
@@ -124,4 +124,4 @@ See the [automatic tuning e-mail notifications](automatic-tuning-email-notificat
 
 - Read the [Automatic tuning article](automatic-tuning-overview.md) to learn more about automatic tuning and how it can help you improve your performance.
 - See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
-- See [Query Performance Insights](query-performance-insight.md) to learn about viewing the performance impact of your top queries.
+- See [Query Performance Insights](query-performance-insight-use.md) to learn about viewing the performance impact of your top queries.

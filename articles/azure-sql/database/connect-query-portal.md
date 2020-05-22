@@ -13,7 +13,7 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ---
-# Quickstart: Use the Azure portal's query editor to query a Database
+# Quickstart: Use the Azure portal's query editor to query a database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 

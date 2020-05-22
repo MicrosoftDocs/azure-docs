@@ -12,6 +12,7 @@ ms.reviewer: sashan, moslake, carlrab
 ms.date: 03/09/2020
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes how to migrate your database in Azure SQL Database from the [DTU-based purchasing model](service-tiers-dtu.md) to the [vCore-based purchasing model](service-tiers-vcore.md). 
 
