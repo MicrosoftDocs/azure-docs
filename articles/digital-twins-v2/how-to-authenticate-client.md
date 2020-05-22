@@ -87,7 +87,7 @@ DigitalTwinsClientOptions opts =
 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-See [[How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
