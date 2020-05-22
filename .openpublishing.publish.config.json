@@ -440,6 +440,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cosmosdb-python-sdk",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "master"
