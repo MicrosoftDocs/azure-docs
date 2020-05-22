@@ -12,21 +12,25 @@ manager: lizross
 ---
 # Use Microsoft Teams on Windows Virtual desktop
 
-> Applies to: Windows 10, and Windows 10 IoT Enterprise
+>[!IMPORTANT]
+>Media optimization for Microsoft Teams is currently in public preview. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Known limitations](link).
 
-Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi).
+>[!NOTE]
+>Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 endpoints.
+
+Microsoft Teams on Windows Virtual Desktop supports chat and collaboration, and with media optimizations, calling and meeting functionality are also supported. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi).
 
 ## Prerequisites
 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
-- Install [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://docs.microsoft.com/microsoftteams/hardware-requirements-for-the-teams-app).
-- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 - [Prepare your network](https://docs.microsoft.com/microsoftteams/prepare-network) for Microsoft Teams.
+- Install [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://docs.microsoft.com/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc).
+- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 
-## Use unoptimized Microsoft Teams
+## Install the Teams desktop app
 
-You can use Microsoft Teams in your Windows Virtual Desktop environments to leverage the chat and collaboration features of Microsoft Teams. Windows Virtual Desktop does not support Teams on VDI audio/video (AV) optimizations. Calls and meetings are not supported. If your organization's policies allow, you can still make audio calls and join meetings with audio, but unoptimized audio quality in calls will vary based on your host configuration and may not be reliable. To learn more, check out [Teams on VDI performance consideration](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
+This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Teams on VDI performance consideration](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
 
 ### Prepare your image for Teams
 
@@ -37,6 +41,10 @@ To enable Teams per-machine installation, set the following registry key on the 
   Type: REG_DWORD
   Value: 1
 ```
+
+### Install the Teams WebSocket Service
+
+Install the [WebSocket Service](link) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 ### Install Microsoft Teams
 
