@@ -28,7 +28,7 @@ It is recommended that you read through the following documentation pages
 <!--* [Quickstart: Event-based recording based on motion events]()-->
 * Read [Tutorial: developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 * Read [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* Read the section on [how to declare routes in IoT Edge deployment manifest](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition#declare-routes)
+* Read the section on [how to declare routes in IoT Edge deployment manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
 
 ## Prerequisites
 
