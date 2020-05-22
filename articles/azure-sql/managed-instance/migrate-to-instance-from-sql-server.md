@@ -178,7 +178,7 @@ Make the change of the parameters or upgrade service tiers to converge to the op
 
 ### Monitor performance
 
-SQL Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that your would need to monitor are:
+SQL Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that you would need to monitor are:
 
 - CPU usage on the instance to determine if the number of vCores that you provisioned is the right match for your workload.
 - Page-life expectancy on your managed instance to determine [if you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
