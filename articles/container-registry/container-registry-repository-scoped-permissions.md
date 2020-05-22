@@ -2,7 +2,7 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 05/22/2020
 ---
 
 # Create a token with repository-scoped permissions
@@ -15,12 +15,13 @@ Scenarios for creating a token include:
 * Provide an external organization with permissions to a specific repository 
 * Limit repository access to different user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
 
+This feature is available in **Premium** container registries. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Preview limitations
 
-* This feature is available in **Premium** container registries. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
 * You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
@@ -145,13 +146,15 @@ The following example creates a token, and creates a scope map with the followin
 
 1. In the portal, navigate to your container registry.
 1. Under **Repository permissions**, select **Tokens (Preview) > +Add**.
-  ![Create token in portal](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+
+      :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Create token in portal":::
 1. Enter a token name.
 1. Under **Scope map**, select **Create new**.
 1. Configure the scope map:
     1. Enter a name and description for the scope map. 
     1. Under **Repositories**, enter `samples/hello-world`, and under **Permissions**, select  `content/read` and `content/write`. Then select **+Add**.  
-    ![Create scope map in portal](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
+
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Create scope map in portal":::
 
     1. After adding repositories and permissions, select **Add** to add the scope map.
 1. Accept the default token **Status** of **Enabled** and then select **Create**.
@@ -168,7 +171,7 @@ To use a token created in the portal, you must generate a password. You can gene
 1. In the password screen, optionally set an expiration date for the password, and select **Generate**. It's recommended to set an expiration date.
 1. After generating a password, copy and save it to a safe location. You can't retrieve a generated password after closing the screen, but you can generate a new one.
 
-    ![Create token password in portal](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Create token password in portal":::
 
 ## Authenticate with token
 
