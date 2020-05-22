@@ -45,7 +45,7 @@ If you have more than one Automation account or workspace in the output of the p
 
 1. In the Azure portal, select your Automation account from the **Automation Accounts** page. 
 2. On the page of the selected Automation account, under **Account Settings**, select **Properties**.  
-3. In the **Properties** page, note the properties shown below.
+3. In the **Properties** page, note the details shown below.
 
     ![Automation account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
