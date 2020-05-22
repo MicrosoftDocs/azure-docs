@@ -69,7 +69,34 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 1. Enter a location for the resource group such as centralus.
 
+1. If necessary, press Enter to run the New-AzResourceGroupDeployment command.
+
     The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command creates a new resource group and the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) command deploys the template to add the role assignment.
+
+    You should see output similar to the following:
+
+    ```azurepowershell
+    PS> New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
+    
+    DeploymentName          : azuredeploy
+    ResourceGroupName       : ExampleGrouprg
+    ProvisioningState       : Succeeded
+    Timestamp               : 5/22/2020 9:01:30 PM
+    Mode                    : Incremental
+    TemplateLink            :
+                              Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json
+                              ContentVersion : 1.0.0.0
+    
+    Parameters              :
+                              Name                  Type                       Value
+                              ====================  =========================  ==========
+                              roleAssignmentName    String                     {roleAssignmentName}
+                              roleDefinitionID      String                     9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+                              principalId           String                     {principalId}
+    
+    Outputs                 :
+    DeploymentDebugLogLevel :
+    ```
 
 ## Review deployed resources
 
