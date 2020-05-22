@@ -213,4 +213,4 @@ If you plan to create a pool with hundreds or thousands of VMs or more using a S
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

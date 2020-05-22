@@ -26,7 +26,7 @@
     "azure-docs-publish@microsoft.com"
   ],
   "sync_notification_subscribers": [
-    "tysonn@microsoft.com"
+    "angrobe_extended_dir@microsoft.com"
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
@@ -437,6 +437,11 @@
     {
       "path_to_root": "samples-cosmosdb-xamarin",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-python-sdk",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
     {

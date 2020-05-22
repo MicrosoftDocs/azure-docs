@@ -3,7 +3,7 @@ title: Managed instance - Point-in-time restore (PITR)
 description: Restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
