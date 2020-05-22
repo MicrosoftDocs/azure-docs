@@ -28,12 +28,12 @@ If you prefer, you can complete this guide by using [PowerShell](howto-exchange-
 ### <a name=create></a>Create an Exchange peering
 
 
-As an Internet Exchange Provider, you can create a exchange peering request by [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+As an Internet Exchange Provider, you can create an exchange peering request by [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
 1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
 
->    [!div class="mx-imgBorder"]
->   ![Register Peering Service](./media/setup-basics-tab.png)
+    > [!div class="mx-imgBorder"] 
+    > ![Register Peering Service](./media/setup-basics-tab.png)
 
 * Select your Azure Subscription.
 
@@ -49,7 +49,7 @@ As an Internet Exchange Provider, you can create a exchange peering request by [
 * Select your ASN in the **PeerASN** box.
 
 >[!IMPORTANT] 
-You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+    You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 * Select **Next: Configuration** to continue.
 
