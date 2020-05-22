@@ -41,7 +41,7 @@ To find the resource ID for your Log Analytics workspace, run the following Powe
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-If you have more than one Automation account or workspace in the output of the preceding commands, find the name that you need to configure and copy the resource ID value.
+If you have more than one Automation account or workspace in the output of the preceding commands, you can find the name and other related properties that are part of the full resource ID of your Automation account by performing the following:
 
 1. In the Azure portal, select your Automation account from the **Automation Accounts** page. 
 2. On the page of the selected Automation account, under **Account Settings**, select **Properties**.  
