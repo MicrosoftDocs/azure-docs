@@ -1,6 +1,6 @@
 ---
-title: Best practices for SQL on-demand Preview 
-description: Recommendations and best practices you should know when you work with SQL on-demand Preview. 
+title: Best practices for SQL on-demand (preview) 
+description: Recommendations and best practices you should know when you work with SQL on-demand (preview). 
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Best practices for SQL on-demand Preview in Azure Synapse Analytics
+# Best practices for SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll find a collection of best practices for using SQL on-demand Preview. SQL on-demand is a resource in Azure Synapse Analytics.
+In this article, you'll find a collection of best practices for using SQL on-demand (preview). SQL on-demand is a resource in Azure Synapse Analytics.
 
 ## General considerations
 
@@ -56,7 +56,7 @@ The data types you use in your query affect performance. You can get better perf
 - Use the smallest data size that will accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
-  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges [here](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
 - Use integer-based data types if possible. SORT, JOIN, and GROUP BY operations complete faster on integers than on character data.
 - If you're using schema inference, [check inferred data types](#check-inferred-data-types).
