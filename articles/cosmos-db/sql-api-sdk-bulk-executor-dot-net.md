@@ -1,14 +1,13 @@
 ---
 title: 'Azure Cosmos DB: Bulk executor .NET API, SDK & resources'
 description: Learn all about the bulk executor .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor .NET SDK.
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/16/2020
-ms.author: ramkris
-
+ms.date: 05/11/2020
+ms.author: anfeldma
 ---
 
 # .NET bulk executor library: Download information 
@@ -18,8 +17,9 @@ ms.author: ramkris
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -29,7 +29,7 @@ ms.author: ramkris
 
 | |  |
 |---|---|
-| **Description**| The .Net bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
+| **Description**| The .NET bulk executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. This  library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Bulk executor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API documentation**|[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
@@ -59,7 +59,7 @@ ms.author: ramkris
 
 ### <a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
+* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
 
 ### <a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -113,7 +113,7 @@ ms.author: ramkris
 
 ### <a name="1.4.0"/>1.4.0
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete.
+* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete.
 
 ### <a name="1.3.0"/>1.3.0
 
