@@ -15,10 +15,10 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 > [!NOTE]
 > Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
->  * **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
->  * **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
->  * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
+> - **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
+> - **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault. Enabling this setting is a one-time action, and you cannot disable these features after enabling them.

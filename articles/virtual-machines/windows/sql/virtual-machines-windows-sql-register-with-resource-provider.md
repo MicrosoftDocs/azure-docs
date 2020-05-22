@@ -47,11 +47,6 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-subscription-with-rp), which gives the  resource provider the ability to create resources within that specific subscription.
 
-For more information about the benefits of using the SQL VM resource provider, watch this [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) video: 
-
-<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Benefit from SQL VM Resource Provider when self-installing SQL Server on Azure - Microsoft Channel 9 Video"></iframe>
-
-
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need: 
@@ -173,9 +168,9 @@ To register your SQL Server VM directly in full mode (and possibly restart your 
 
 SQL Server 2008 and 2008 R2 installed on Windows Server 2008 (_not R2_) can be registered with the SQL VM resource provider in the [NoAgent mode](#management-modes). This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
 
-Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and either `SQL2008-WS2008` or `SQL2008R2-WS2008` as the **sqlImageOffer**. 
+Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and `SQL2008-WS2008` or `SQL2008R2-WS2008`as the **sqlImageOffer**. 
 
-To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 instance, use the following Az CLI or PowerShell code snippet: 
+To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Az CLI or PowerShell code snippet: 
 
 
 # [AZ CLI](#tab/bash)
@@ -185,7 +180,7 @@ Register your SQL Server 2008 VM in NoAgent mode with the Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -194,7 +189,7 @@ Register your SQL Server 2008 R2 VM in NoAgent mode with the Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
 # [PowerShell](#tab/powershell)

@@ -43,12 +43,17 @@ The detailed information includes:
 - **Deletion Time**: When was the app deleted  
 
 ## Restore deleted app
+>[!NOTE]
+> `Restore-AzDeletedWebApp` isn't supported for function apps.
 
 Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
+> [!NOTE]
+> Deployment slots are not restored as part of your app. If you need to restore a staging slot use the `-Slot <slot-name>`  flag.
+>
 
 The inputs for command are:
 

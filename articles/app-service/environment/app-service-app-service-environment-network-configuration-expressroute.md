@@ -35,7 +35,7 @@ App Service Environment requires the following network connectivity settings to 
 
 * Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.net and management.azure.com domains. 
 
-* Outbound network connectivity to the ocsp.msocsp.com, mscrl.microsoft.com, and crl.microsoft.com domains. Connectivity to these domains is needed to support SSL functionality.
+* Outbound network connectivity to the ocsp.msocsp.com, mscrl.microsoft.com, and crl.microsoft.com domains. Connectivity to these domains is needed to support TLS functionality.
 
 * The DNS configuration for the virtual network must be able to resolve all endpoints and domains mentioned in this article. If the endpoints can't be resolved, App Service Environment creation fails. Any existing App Service Environment is marked as unhealthy.
 

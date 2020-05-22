@@ -538,7 +538,7 @@ To explore specific ADAL errors, the source code in the [azure-activedirectory-l
 
 #### Operating system errors
 
-iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as SSL errors, timeouts, or network errors:
+iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as TLS errors, timeouts, or network errors:
 
 - For Entitlement Sharing, logins are not persistent and the cache appears empty. You can resolve by adding the following line of code to the keychain:
   `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`

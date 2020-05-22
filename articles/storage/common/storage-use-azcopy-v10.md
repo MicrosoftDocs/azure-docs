@@ -16,7 +16,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.
 >
-> If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+> If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy" />
 
@@ -69,7 +69,7 @@ Use this table as a guide:
 By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
 > [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you’ll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
@@ -79,7 +79,7 @@ If you just want to download files, then verify that the [Storage Blob Data Read
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
-- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 These roles can be assigned to your security principal in any of these scopes:
@@ -268,8 +268,8 @@ To obtain the link, run this command:
 
 | Operating system  | Command |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
@@ -303,11 +303,11 @@ Storage Explorer uses your account key to perform operations, so after you sign 
 
 ## Use the previous version of AzCopy
 
-If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy on Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Configure, optimize, and troubleshoot AzCopy
 

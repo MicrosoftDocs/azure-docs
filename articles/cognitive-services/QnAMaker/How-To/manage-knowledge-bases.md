@@ -102,5 +102,5 @@ If you share your knowledge base with collaborators,](collaborate-knowledge-base
 
 Learn about [managing the language](language-knowledge-base.md) of all knowledge bases in a resource.
 
-* Edit QnA sets
+* Edit QnA pairs
 * Manage Azure resources used by QnA Maker

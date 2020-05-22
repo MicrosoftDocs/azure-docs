@@ -6,14 +6,13 @@ services: active-directory
 author: jmprieur
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -48,7 +47,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 > 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information. 
+> 1. When the **Register an application** page appears, enter your application's registration information.
 > 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Daemon-console`, then select **Register** to create the application.
 > 1. Once registered, select the **Certificates & secrets** menu.
 > 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code.
@@ -58,7 +57,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Download and configure your quickstart app
-> 
+>
 > #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -80,14 +79,14 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-    
+
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
-> 
+>
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 > 1. Open the solution in Visual Studio - **1-Call-MSGraph\daemon-console.sln** (optional).
 > 1. Edit **appsettings.json** and replace the values of the fields `ClientId`, `Tenant` and `ClientSecret` with the following:
-> 
+>
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
 >    "ClientId": "Enter_the_Application_Id_Here",
@@ -194,7 +193,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientSecret(config.ClientSecret)
                                           .WithAuthority(new Uri(config.Authority))
                                           .Build();
-);
 ```
 
 > | Where: ||
@@ -216,7 +214,7 @@ result = await app.AcquireTokenForClient(scopes)
 
 > |Where:| |
 > |---------|---------|
-> | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom Web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
+> | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
@@ -243,8 +241,3 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

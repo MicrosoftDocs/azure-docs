@@ -2,7 +2,7 @@
 title: Create an Azure function app with Java and Eclipse 
 description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and Eclipse to Azure Functions.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter

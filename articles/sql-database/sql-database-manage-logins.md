@@ -19,7 +19,7 @@ In this article, you learn about:
 
 - Options for configuring Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
 - The access and authorization configuration after initially creating a new Azure SQL Database
-- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
+- How to add logins and user accounts in the master database and then grant these accounts administrative permissions
 - How to add user accounts in user databases, either associated with logins or as contained user accounts
 - Configure user accounts with permissions in user databases by using database roles and explicit permissions
 
@@ -33,7 +33,7 @@ When a user attempts to connect to a database, they provide a user account and a
 
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user account for user accounts not linked to a login.
+  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user accounts *not* linked to a login.
 - [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 
   With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.

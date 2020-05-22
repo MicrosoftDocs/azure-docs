@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -18,8 +18,6 @@ ms.custom: fasttrack-edit
 # Register a SAML application in Azure AD B2C
 
 In this article, you learn how to configure Azure Active Directory B2C (Azure AD B2C) to act as a Security Assertion Markup Language (SAML) identity provider (IdP) to your applications.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Scenario overview
 
@@ -125,7 +123,7 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
     <!-- SAML Token Issuer technical profile -->
     <TechnicalProfile Id="Saml2AssertionIssuer">
       <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="None"/>
+      <Protocol Name="SAML2"/>
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
@@ -138,11 +136,11 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml-sp">
+    <TechnicalProfile Id="SM-Saml-issuer">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>
@@ -367,7 +365,6 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Multiple logout URLs or POST binding for logout URL in application/service principal object.
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
-* Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 

@@ -96,24 +96,24 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
    You can create a UDR to send 0.0.0.0/0 traffic directly to the Internet. 
 
-  **Scenario 3**: UDR for Azure Kubernetes Service kubenet
+  **Scenario 3**: UDR for Azure Kubernetes Service with kubenet
 
-  If you're using kubenet with Azure Kubernetes Service (AKS) and Application Gateway Ingress Controller (AGIC), you need to set up a route table to allow traffic sent to the pods to be routed to the correct node. This won't be necessary if you use Azure CNI. 
+  If you're using kubenet with Azure Kubernetes Service (AKS) and Application Gateway Ingress Controller (AGIC), you'll need a route table to allow traffic sent to the pods from Application Gateway to be routed to the correct node. This won't be necessary if you use Azure CNI. 
 
-   To set up the route table to allow kubenet to work, use the following steps:
+  To use the route table to allow kubenet to work, follow the steps below:
 
-  1. Create a Route Table resource in Azure. 
-  2. Once it's created, go to the **Routes** page. 
-  3. Add a new route:
+  1. Go to the resource group created by AKS (the name of the resource group should begin with "MC_")
+  2. Find the route table created by AKS in that resource group. The route table should be populated with the following information:
      - Address prefix should be the IP range of the pods you want to reach in AKS. 
-     - Next hop type should be **Virtual Appliance**. 
-     - Next hop address should be the IP address of the node hosting the pods within the IP range defined in the address prefix field. 
+     - Next hop type should be Virtual Appliance. 
+     - Next hop address should be the IP address of the node hosting the pods.
+  3. Associate this route table to the Application Gateway subnet. 
     
   **v2 unsupported scenarios**
 
   **Scenario 1**: UDR for Virtual Appliances
 
-  Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) isn't supported for the v2 public preview. 
+  Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) isn't supported for V2.
 
 ## Front-end IP
 
@@ -162,8 +162,6 @@ Choose the front-end port. Select an existing port or create a new one. Choose a
 Choose HTTP or HTTPS:
 
 - If you choose HTTP, the traffic between the client and the application gateway is unencrypted.
-
-- Choose HTTPS if you want [TLS termination](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) or [end-to-end TLS encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). The traffic between the client and the application gateway is encrypted. And the TLS connection terminates at the application gateway. If you want end-to-end TLS encryption, you must choose HTTPS and configure the **back-end HTTP** setting. This ensures that traffic is re-encrypted when it travels from the application gateway to the back end.
 
 - Choose HTTPS if you want [TLS termination](features.md#secure-sockets-layer-ssltls-termination) or [end-to-end TLS encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). The traffic between the client and the application gateway is encrypted. And the TLS connection terminates at the application gateway. If you want end-to-end TLS encryption, you must choose HTTPS and configure the **back-end HTTP** setting. This ensures that traffic is re-encrypted when it travels from the application gateway to the back end.
 

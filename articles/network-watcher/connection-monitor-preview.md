@@ -151,7 +151,7 @@ Use the following code to create a connection monitor by using ARMClient.
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
 
-$ARM = "[https://](https://apac01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbrazilus.management.azure.com&amp;data=02%7C01%7CManasi.Sant%40microsoft.com%7Cd900da4ed7f24366842108d68022159b%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636837281231186904&amp;sdata=qHL8zWjkobY9MatRpAVbODwboKSQAqqEFOMnjmfyOnU%3D&amp;reserved=0)management.azure.com"
+$ARM = "https://management.azure.com"
 
 $SUB = "subscriptions/<subscription id 1>;"
 

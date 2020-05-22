@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
 

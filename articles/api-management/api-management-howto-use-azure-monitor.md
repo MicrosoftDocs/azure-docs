@@ -3,14 +3,11 @@
 title: Monitor published APIs in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to monitor your API in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
@@ -24,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * View activity logs
-> * View diagnostic logs
+> * View resource logs
 > * View metrics of your API 
 > * Set up an alert rule when your API gets unauthorized calls
 
@@ -116,20 +113,20 @@ To view activity logs:
 
 3. Select desired filtering scope and click **Apply**.
 
-## Diagnostic Logs
+## Resource Logs
 
-Diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed.
+Resource logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Resource logs differ from activity logs. The activity logs provides insights into the operations that were performed on your Azure resources. Resource logs provide insight into operations that your resource performed.
 
-To configure diagnostic logs:
+To configure resource logs:
 
 1. Select your APIM service instance.
 2. Click **Diagnostic settings**.
 
-    ![diagnostic logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![resource logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Click **Turn on diagnostics**. You can archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
+3. Click **Turn on diagnostics**. You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
 
-API Management currently provides diagnostics logs (batched hourly) about individual API request with each entry having the following schema:
+API Management currently provides resource logs (batched hourly) about individual API request with each entry having the following schema:
 
 ```json
 {  
@@ -223,7 +220,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * View activity logs
-> * View diagnostic logs
+> * View resource logs
 > * View metrics of your API
 > * Set up an alert rule when your API gets unauthorized calls
 

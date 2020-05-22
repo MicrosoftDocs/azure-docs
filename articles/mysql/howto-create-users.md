@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 4/2/2020
 ---
 
 # Create users in Azure Database for MySQL server
@@ -18,6 +18,9 @@ The server admin user gets certain privileges for your server as listed:
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Once the Azure Database for MySQL server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
+
+> [!NOTE]
+> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
 
 ## How to create additional admin users in Azure Database for MySQL
 
@@ -86,4 +89,4 @@ Once the Azure Database for MySQL server is created, you can use the first serve
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:
 [Create and manage Azure Database for MySQL firewall rules by using the Azure portal](howto-manage-firewall-using-portal.md) or [Azure CLI](howto-manage-firewall-using-cli.md).
 
-For more information regarding user account management, see MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+For more information regarding user account management, see MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

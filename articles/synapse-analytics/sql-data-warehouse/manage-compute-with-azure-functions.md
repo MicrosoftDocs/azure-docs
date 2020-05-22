@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 This tutorial uses Azure Functions to manage compute resources for a SQL pool in Azure Synapse Analytics.
 
-In order to use Azure Function App with SQL pool, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your SQL pool instance. 
+In order to use Azure Function App with SQL pool, you must create a [Service Principal Account](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) with contributor access under the same subscription as your SQL pool instance.
 
 ## Deploy timer-based scaling with an Azure Resource Manager template
 
@@ -27,7 +27,7 @@ To deploy the template, you need the following information:
 - Name of the logical server your SQL pool instance is in
 - Name of your SQL pool instance
 - Tenant ID (Directory ID) of your Azure Active Directory
-- Subscription ID 
+- Subscription ID
 - Service Principal Application ID
 - Service Principal Secret Key
 
@@ -41,7 +41,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 ## Change the compute level
 
-1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service. 
+1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service.
 
    ![Functions that are deployed with template](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -49,23 +49,23 @@ Once you've deployed the template, you should find three new resources: a free A
 
    ![Select Integrate for function](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
+3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
-4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up. 
+4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up.
 
    ![Change function schedule](./media/manage-compute-with-azure-functions/change-schedule.png)
 
-   The value of `schedule` is a [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+   The value of `schedule` is a [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields:
+
    ```json
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md#example).
-
+   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example).
 
 ## Change the time of the scale operation
 
-1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service. 
+1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service.
 
 2. Select either *DWScaleDownTrigger* or *DWScaleUpTrigger* depending on whether you would like to change the scale up or scale down compute value. Upon selecting the functions, your pane should show the *index.js* file.
 
@@ -73,7 +73,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 3. Change the value of *ServiceLevelObjective* to the level you would like and hit save. This value is the compute level that your data warehouse instance will scale to based on the schedule defined in the Integrate section.
 
-## Use pause or resume instead of scale 
+## Use pause or resume instead of scale
 
 Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTrigger*. If you would like to use pause and resume functionality instead, you can enable *DWPauseTrigger* or *DWResumeTrigger*.
 
@@ -81,15 +81,12 @@ Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTr
 
    ![Functions pane](./media/manage-compute-with-azure-functions/functions-pane.png)
 
-
-
 2. Click on the sliding toggle for the corresponding triggers you would like to enable.
 
 3. Navigate to the *Integrate* tabs for the respective triggers to change their schedule.
 
    > [!NOTE]
    > The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function](manage-compute-with-azure-functions.md#add-a-new-trigger-function).
-
 
 ## Add a new trigger function
 
@@ -131,12 +128,11 @@ Currently, there are only two scaling functions included within the template. Wi
    }
    ```
 
-
 ## Complex scheduling
 
 This section briefly demonstrates what is necessary to get more complex scheduling of pause, resume, and scaling capabilities.
 
-### Example 1:
+### Example 1
 
 Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
@@ -145,7 +141,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### Example 2: 
+### Example 2
 
 Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm, and scale down at 10pm to DW200.
 
@@ -155,7 +151,7 @@ Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm, and scale down
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### Example 3: 
+### Example 3
 
 Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
 
@@ -166,11 +162,8 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
 | Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
 
-
-
 ## Next steps
 
-Learn more about [timer trigger](../../azure-functions/functions-create-scheduled-function.md) Azure functions.
+Learn more about [timer trigger](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure functions.
 
 Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
-

@@ -16,7 +16,9 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For SQL API, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -31,7 +33,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -44,8 +46,11 @@ Container container = await createClient.GetDatabase(this.databaseName)
         }
     });
 ```
+---
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
+### <a id="create-custom-conflict-resolution-policy-lww-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -55,7 +60,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -64,6 +69,7 @@ ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWi
 lwwCollection.setConflictResolutionPolicy(lwwPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
 ```
+---
 
 ### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -166,7 +172,9 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK V2
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -189,7 +197,7 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
 });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -206,8 +214,11 @@ await container.Scripts.CreateStoredProcedureAsync(
     new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
 );
 ```
+---
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -219,7 +230,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 After your container is created, you must create the `resolver` stored procedure.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -229,6 +240,7 @@ ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy
 udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
+---
 
 After your container is created, you must create the `resolver` stored procedure.
 
@@ -271,7 +283,9 @@ After your container is created, you must create the `resolver` stored procedure
 
 These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK V2
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -285,7 +299,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -297,8 +311,11 @@ Container container = await createClient.GetDatabase(this.databaseName)
         }
     });
 ```
+---
 
-### <a id="create-custom-conflict-resolution-policy-java-async"></a>Java Async SDK
+### <a id="create-custom-conflict-resolution-policy-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -308,7 +325,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -317,6 +334,7 @@ ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPol
 manualCollection.setConflictResolutionPolicy(customPolicy);
 DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
 ```
+---
 
 ### <a id="create-custom-conflict-resolution-policy-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -349,13 +367,15 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically or if using a custom conflict policy.
 
-### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
+### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
@@ -376,8 +396,11 @@ while (conflictFeed.HasMoreResults)
     }
 }
 ```
+---
 
-### <a id="read-from-conflict-feed-java-async"></a>Java Async SDK
+### <a id="read-from-conflict-feed-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -386,8 +409,7 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-
-### <a id="read-from-conflict-feed-java-sync"></a>Java Sync SDK
+# [Java Async SDK](#tab/sync)
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -396,6 +418,7 @@ while (conflictsIterator.hasNext()) {
     /* Do something with conflict */
 }
 ```
+---
 
 ### <a id="read-from-conflict-feed-javascript"></a>Node.js/JavaScript/TypeScript SDK
 

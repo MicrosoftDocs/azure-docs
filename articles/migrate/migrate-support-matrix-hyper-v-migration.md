@@ -2,7 +2,7 @@
 title: Support for Hyper-V migration in Azure Migrate
 description: Learn about support for Hyper-V migration with Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 04/15/2020
 ---
 
 # Support matrix for Hyper-V migration
@@ -18,19 +18,45 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br/>Azure Migrate replication software (Hyper-V Replication provider) needs to be installed on the Hyper-V hosts.|
+| **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br/>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
 | **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2. |
-| **URL access** | The replication provider software on the Hyper-V hosts will need access to these URLS:<br/><br/> - login.microsoftonline.com: Access control and identity management using Active Directory.<br/><br/> - *.backup.windowsazure.com: Replication data transfer and coordination. Migrate service URLs.<br/><br/> - *.blob.core.windows.net: Upload data to storage accounts.<br/><br/> - dc.services.visualstudio.com: Upload app logs used for internal monitoring.<br/><br/> - time.windows.com: Verifies time synchronization between system and global time.
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
+
+### URL access (public cloud)
+
+The replication provider software on the Hyper-V hosts will need access to these URLs.
+
+**URL** | **Details**
+--- | ---
+login.microsoftonline.com | Access control and identity management using Active Directory.
+backup.windowsazure.com | Replication data transfer and coordination.
+*.hypervrecoverymanager.windowsazure.com | Used for migration.
+*.blob.core.windows.net | Upload data to storage accounts. 
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+time.windows.com | Verifies time synchronization between system and global time.
+
+### URL access (Azure Government)
+
+The replication provider software on the Hyper-V hosts will need access to these URLs.
+
+**URL** | **Details**
+--- | ---
+login.microsoftonline.us | Access control and identity management using Active Directory.
+backup.windowsazure.us | Replication data transfer and coordination.
+*.hypervrecoverymanager.windowsazure.us | Used for migration.
+*.blob.core.usgovcloudapi.net | Upload data to storage accounts.
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+time.nist.gov | Verifies time synchronization between system and global time.
+
 
 ## Hyper-V VMs
 
 | **Support**                  | **Details**               
 | :----------------------------- | :------------------- |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure. |
-| **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. You need to make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
-| **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks. |
+| **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
+| **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.
   |
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.

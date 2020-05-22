@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 04/15/2020
 
 ms.author: mimart
 author: msmimart
@@ -18,62 +18,65 @@ ms.collection: M365-identity-device-management
 
 # The elements of the B2B collaboration invitation email - Azure Active Directory
 
-Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. You can use them to increase the recipient's trust. you can add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This trust is a key means to reduce sharing friction. And you also want to make the email look great!
+Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. While it’s [not required that you send an email to invite someone using B2B collaboration](add-user-without-invite.md), doing so gives the user all the information they need to make a decision about whether to accept your invite. It also gives them a link they can always refer to in the future when they need to return to your resources.
 
 ![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 
+> [!NOTE]
+> This new email template is still being rolled out to all tenants, so some tenants are still using an older design. By the end of May 2020, invitations from all tenants will be using this template.
+
 ## Explaining the email
+
 Let's look at a few elements of the email so you know how best to use their capabilities.
 
 ### Subject
-The subject of the email follows the following pattern:
-You're invited to the &lt;tenantname&gt; organization
+
+The subject of the email follows this pattern:
+
+&lt;username&gt; invited you to access applications within their organization.
 
 ### From address
-We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is: Microsoft Invitations <invites@microsoft.com> or 
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
+
+We use a LinkedIn-like pattern for the From address. This pattern should make it clear that although the email comes from invites@microsoft.com, the invitation is from another organization. The format is: Microsoft Invitations <invites@microsoft.com> or Microsoft invitations on behalf of &lt;tenantname&gt; <invites@microsoft.com>. 
 
 ### Reply To
+
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
 
-### Branding
-The invitation emails from your tenant use the company branding that you may have set up for your tenant. If you want to take advantage of this capability, [here](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) are the details on how to configure it. The banner logo appears in the email. Follow the image size and quality instructions [here](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) for best results. In addition, the company name also shows up in the call to action.
+### Phishing warning
 
-### Call to action
-The call to action consists of two parts: explaining why the recipient has received the mail and what the recipient is being asked to do about it.
-- The "why" section can be addressed using the following pattern:
-  You've been invited to access applications in the &lt;tenantname&gt; organization
+The email starts with a brief warning to the user about phishing, alerting them that they should only accept invitations they're expecting. It’s good practice to make sure the partners you’re inviting will not be surprised by your invitation by mentioning it to them ahead of time.
 
-- And the "what you're being asked to do" section is indicated by the presence of the **Get Started** button. When the recipient has been added without the need for invitations, this button doesn't show up.
+![Image of the phishing warning in the email](media/invitation-email-elements/phishing-warning.png)
 
 ### Inviter's information
-The inviter's display name is included in the email. And in addition, if you've set up a profile picture for your Azure AD account, the inviting email will include that picture as well. Both are intended to increase your recipient's confidence in the email.
 
-If you haven't yet set up your profile picture, an icon with the inviter's initials in place of the picture is shown:
+The email includes information about the inviter and the organization they’re sending the invitation from. This includes the sender’s name and email address, as well as the name and primary domain associated with the organization. All of this information should help the invitee make an informed decision about accepting the invitation.
 
-  ![Screenshot showing the invitation with the inviter initials displayed](media/invitation-email-elements/inviters-initials.png)
+![Image of the inviter's information in the email](media/invitation-email-elements/inviters-information.png)
 
-### Body
-The body contains the message that the inviter composes when [inviting a guest user to the directory, group, or app](add-users-administrator.md) or [by using the invitation API](customize-invitation-api.md). It is a text area, so it does not process HTML tags for security reasons.
+### Invitation message
 
-  ![Screenshot showing the body of the invitation email](media/invitation-email-elements/invitation-email-body.png)
+If the inviter includes a message as part of their invitation when they [invite a guest user to the directory, group, or app](add-users-administrator.md) or when they [use the invitation API](customize-invitation-api.md), the message is highlighted in the main section of the email. Also included are the inviter’s name and profile image if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
+
+![Image of the invitation message in the email](media/invitation-email-elements/invitation-message.png)
+
+### Accept button and redirect URL
+
+The next section of the email contains information about where the invitee will be taken after they accept the invitation, as well as a button to do so.  In the future, the invitee can always use this link to return to your resources directly.
+
+![Image of the accept button and redirect URL in the email](media/invitation-email-elements/accept-button.png)
 
 ### Footer section
-The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. 
 
-Special cases:
+The footer contains more information about the invitation being sent. There is always an option for the invitee to block future invitations. If the organization has [set a privacy statement](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), the link to the statement is displayed here.  Otherwise, a note indicates the organization hasn't set a privacy statement.
 
-- The inviter doesn't have an email address in the inviting tenancy
-
-  ![Screenshot when an inviter doesn't have email in the inviting tenancy](media/invitation-email-elements/inviter-no-email.png)
-
-
-- The recipient doesn't need to redeem the invitation
-
-  ![Screenshot when the recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
-
+![Image of the footer section in the email](media/invitation-email-elements/footer-section.png)
+ 
 ## How the language is determined
-The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language. 
+
+The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language.
+
 - The **messageLanguage** property of the [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
 -	The **preferredLanguage** property specified in the guest's [user object](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
 -	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -207,11 +207,19 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city bearerToken to the **ClaimsSchema** element.  
+1. Add the following claims to the **ClaimsSchema** element.  
 
 ```xml
 <ClaimType Id="bearerToken">
-  <DisplayName>bearer token</DisplayName>
+  <DisplayName>Bearer token</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="grant_type">
+  <DisplayName>Grant type</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="scope">
+  <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
 ```
@@ -268,7 +276,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 1. Ensure you add the claim used above as an input claim:
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 After you add the above snippets, your technical profile should look like the following XML code:
@@ -288,7 +296,7 @@ After you add the above snippets, your technical profile should look like the fo
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

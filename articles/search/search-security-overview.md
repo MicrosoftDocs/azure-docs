@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/25/2020
 ---
 
 # Security and data privacy in Azure Cognitive Search
@@ -27,7 +27,6 @@ Azure Cognitive Search is certified for the following standards, as [announced i
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Standards compliance applies to generally available features. Preview features are certified when they transition to general availability, and must not be used in solutions having strict standards requirements. Compliance certification is documented in [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) and the [Trust Center](https://www.microsoft.com/en-us/trustcenter). 
 
@@ -37,7 +36,7 @@ Encryption extends throughout the entire indexing pipeline: from connections, th
 
 | Security layer | Description |
 |----------------|-------------|
-| Encryption in transit <br>(HTTPS/SSL/TLS) | Azure Cognitive Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. <br/><br/>All client-to-service Azure Cognitive Search interactions are SSL/TLS 1.2 capable.  Be sure to use TLSv1.2 for SSL connections to your service.|
+| Encryption in transit <br>(HTTPS/TLS) | Azure Cognitive Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. <br/><br/>All client-to-service Azure Cognitive Search interactions use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.|
 | Encryption at rest <br>Microsoft managed keys | Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).<br><br>Internally, encryption is based on [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Encryption is internal to Azure Cognitive Search, with certificates and encryption keys managed internally by Microsoft, and universally applied. You cannot turn encryption on or off, manage or substitute your own keys, or view encryption settings in the portal or programmatically.<br><br>Encryption at rest was announced in January 24, 2018 and applies to all service tiers, including the free tier, in all regions. For full encryption, indexes created prior to that date must be dropped and rebuilt in order for encryption to occur. Otherwise, only new data added after January 24 is encrypted.|
 | Encryption at rest <br>Customer managed keys | Encryption with customer managed keys is now generally available for search services created on or after January 2019. It is not supported on Free (shared) services.<br><br>Azure Cognitive Search indexes and synonym maps can now be encrypted at rest with customer managed keys in Azure Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>This feature is not replacing the default encryption at rest, but rather applied in addition to it.<br><br>Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
 
@@ -71,7 +70,7 @@ Authentication is required on each request, where each request is composed of a 
 
 ### Restricted access
 
-When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2020-03-13/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
+When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
 
 ### Private access
 

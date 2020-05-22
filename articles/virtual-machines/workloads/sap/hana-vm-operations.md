@@ -25,7 +25,7 @@ This document provides guidance for configuring Azure infrastructure and operati
 
 - [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
-- [SAP notes](https://sservice.sap.com/notes)
+- [SAP notes](https://service.sap.com/notes)
 
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:

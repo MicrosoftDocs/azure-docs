@@ -131,7 +131,7 @@ For more information about optimizing your network, see [Network topology consid
 
 Connectors can run on a machine that is not domain-joined. However, if you want single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), you need a domain-joined machine. In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the users for the published applications.
 
-Connectors can also be joined to domains or forests that have a partial trust, or to read-only domain controllers.
+Connectors can also be joined to domains in forests that have a partial trust, or to read-only domain controllers.
 
 ## Connector deployments on hardened environments
 
@@ -148,12 +148,17 @@ To provide a secure service, connectors have to authenticate toward the service,
 
 The certificates used are specific to the Application Proxy service. They get created during the initial registration and are automatically renewed by the connectors every couple of months.
 
+After the first successful certificate renewal the Azure AD Application Proxy Connector service (Network Service) has no permission to remove the old certificate from the local machine store. If the certificate has expired or it won't be used by the service anymore, you can delete it safely.
+
+To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) is enabled.
+
 If a connector is not connected to the service for several months, its certificates may be outdated. In this case, uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## Under the hood
 

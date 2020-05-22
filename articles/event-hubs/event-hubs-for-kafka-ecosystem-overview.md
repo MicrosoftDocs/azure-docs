@@ -16,6 +16,8 @@ ms.author: shvija
 # Use Azure Event Hubs from Apache Kafka applications
 Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka protocol 1.0 and later](https://kafka.apache.org/documentation/), and works with your existing Kafka applications, including MirrorMaker.  
 
+> [!VIDEO https://www.youtube.com/embed/UE1WgB96_fc]
+
 ## What does Event Hubs for Kafka provide?
 
 The Event Hubs for Kafka feature provides a protocol head on top of Azure Event Hubs that is binary compatible with Kafka versions 1.0 and later for both reading from and writing to Kafka topics. You may start using the Kafka endpoint from your applications with no code change but a minimal configuration change. You update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to your Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into Event Hubs. This integration also supports frameworks like [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), which is currently in preview. 
@@ -90,16 +92,6 @@ Here is the list of Kafka features that are not yet supported:
 *	Kafka Streams
 
 ## Next steps
-
-This article provided an introduction to Event Hubs for Kafka. To learn more, see the following links:
-
-- [How to create an event hub](event-hubs-create.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
-- [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
 
 

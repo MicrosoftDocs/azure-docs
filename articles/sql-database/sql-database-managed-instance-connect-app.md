@@ -3,7 +3,7 @@ title: Managed instance connect application
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -128,6 +128,8 @@ For troubleshooting connectivity issues, review the following:
    ```
 
 - If using VNet peering, ensure that you have followed the instructions for setting [Allow Gateway Transit and Use Remote Gateways](#connect-from-on-premises-with-vnet-peering).
+
+- If using VNet peering to connect an Azure App Service hosted application, and the Managed Instance VNet has a public IP address range, make sure that your hosted application settings allow your outbound traffic to be routed to public IP networks. Follow the instructions in [Regional VNet Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## Required versions of drivers and tools
 

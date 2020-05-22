@@ -29,8 +29,9 @@ New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
 
 # Add C:\Istio to PATH. 
-# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
-[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
-[environment]::SetEnvironmentVariable("PATH", $PATH)
+# Make the new PATH permanently available for the current User
+$USER_PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $USER_PATH, "User")
+# Make the new PATH immediately available in the current shell
+$env:PATH += ";C:\Istio\"
 ```

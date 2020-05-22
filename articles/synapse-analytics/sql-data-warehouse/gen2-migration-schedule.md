@@ -54,8 +54,8 @@ There are two options when conducting a self-upgrade.  You can either upgrade yo
 - [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 SQL pool to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
 - [Upgrade from restore point](sql-data-warehouse-restore-points.md) - Create a user-defined restore point on your current Gen1 SQL pool and then restore directly to a Gen2 instance. The existing Gen1 SQL pool will stay in place. Once the restore has been completed, your Gen2 SQL pool will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
-   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore-active-paused-dw.md).
-   - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
+  - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore-active-paused-dw.md).
+  - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
@@ -76,13 +76,14 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 **Q: How will the upgrades affect my automation scripts?**
 
-- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
 **Q: How long does a self-upgrade normally take?**
 
-- A: You can upgrade in place or upgrade from a restore point.  
-   - Upgrading in place will cause your SQL pool to momentarily pause and resume.  A background process will continue while the SQL pool is online.  
-   - It takes longer if you are upgrading through a restore point, because the upgrade will go through the full restore process.
+- A: You can upgrade in place or upgrade from a restore point.
+
+  - Upgrading in place will cause your SQL pool to momentarily pause and resume.  A background process will continue while the SQL pool is online.  
+  - It takes longer if you are upgrading through a restore point, because the upgrade will go through the full restore process.
 
 **Q: How long will the auto upgrade take?**
 
@@ -94,12 +95,14 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 **Q: What should I do if my background upgrade process seems to be stuck?**
 
- - A: Kick off a reindex of your Columnstore tables. Note that reindexing of the table will be offline during this operation.
+- A: Kick off a reindex of your Columnstore tables. Note that reindexing of the table will be offline during this operation.
 
 **Q: What if Gen2 does not have the Service Level Objective I have on Gen1?**
+
 - A: If you are running a DW600 or DW1200 on Gen1, it is advised to use DW500c or DW1000c respectively since Gen2 provides more memory, resources, and higher performance than Gen1.
 
 **Q: Can I disable geo-backup?**
+
 - A: No. Geo-backup is an enterprise feature to preserve your SQL pool availability in the event a region becomes unavailable. Open a [support request](sql-data-warehouse-get-started-create-support-ticket.md) if you have further concerns.
 
 **Q: Is there a difference in T-SQL syntax between Gen1 and Gen2?**
@@ -118,7 +121,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 - [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](maintenance-scheduling.md)
-- [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Resource health monitor](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore-points.md)

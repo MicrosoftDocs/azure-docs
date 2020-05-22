@@ -2,7 +2,7 @@
 title: 'Working remotely using Bastion: Azure Bastion'
 description: This page describes how you can leverage Azure Bastion to enable working remotely due to the COVID-19 pandemic.
 services: bastion
-author: cherylmc
+author: mialdrid
 
 ms.service: bastion
 ms.topic: conceptual

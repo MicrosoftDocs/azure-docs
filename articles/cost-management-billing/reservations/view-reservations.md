@@ -19,9 +19,9 @@ To view or manage a reservation, you need to have reader or owner permission on 
 
 For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## View a reservation in Azure portal
+## View reservation and utilization in Azure portal
 
-To view a reservation as an Owner or Reader,
+To view a reservation as an Owner or Reader
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).

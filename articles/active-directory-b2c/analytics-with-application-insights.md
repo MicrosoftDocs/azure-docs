@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 
@@ -128,6 +128,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+      </InputClaims>
     </TechnicalProfile>
 
     <TechnicalProfile Id="AppInsights-SignInRequest">

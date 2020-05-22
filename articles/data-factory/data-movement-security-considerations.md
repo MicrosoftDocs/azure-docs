@@ -19,6 +19,8 @@ ms.date: 03/11/2020
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Current version](data-movement-security-considerations.md)
 
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 

@@ -4,11 +4,9 @@ description: This article provides information on how to use Apache Spark with A
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
-manager: timlt
 ms.service: event-hubs
-ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
 
 ---
@@ -155,14 +153,11 @@ Kafka Connect creates Event Hub topics to store configurations, offsets, and sta
 
 ## Next steps
 
-To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
+To learn more about Event Hubs for Kafka, see the following articles:  
 
-- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create an event hub](event-hubs-create.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
 - [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)

@@ -63,14 +63,13 @@ Protect your network resources: https://docs.microsoft.com/azure/security-center
 
 You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.​ Also , use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.​
 
-How to configure DDoS protection:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection​
-​
+How to configure DDoS protection:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 How to deploy Azure Firewall:​ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 Understand Azure Security Center Integrated Threat Intelligence:​ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Understand Azure Security Center Adaptive Network Hardening​: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening​
+Understand Azure Security Center Adaptive Network Hardening​: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
 Azure Security Center Just In Time Network Access Control​: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -791,7 +790,7 @@ Azure Automation:  https://docs.microsoft.com/azure/automation/automation-intro
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage​
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 How to deny a specific resource type with Azure Policy:  https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -879,7 +878,7 @@ How to remediate Azure Security Center recommendations:​  https://docs.microso
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -903,7 +902,7 @@ Understand Azure Policy effects:  https://docs.microsoft.com/azure/governance/po
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops​
 
