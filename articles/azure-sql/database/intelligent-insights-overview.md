@@ -13,7 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (Preview)
-[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance  lets you know what is happening with your database performance.
 
@@ -88,7 +88,7 @@ For more information on how to enable Intelligent Insights logging and to config
 
 Azure SQL Analytics solution provides graphical user interface, reporting and alerting capabilities on database performance, using the Intelligent Insights resource log data.
 
-Add Azure SQL Analytics to your Azure portal dashboard from the marketplace and to create a workspace, see [configure Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
+Add Azure SQL Analytics to your Azure portal dashboard from the marketplace and to create a workspace, see [configure Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md#configuration)
 
 To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics workspace you've created in the previous step, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -98,7 +98,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
@@ -178,5 +178,5 @@ If any of the monitored critical exceptions cross the absolute thresholds manage
 
 ## Next steps
 
-- Learn how to [Monitor databases by using SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Learn how to [Monitor databases by using SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Learn how to [Troubleshoot performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
