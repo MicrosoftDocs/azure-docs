@@ -96,7 +96,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Identify query performance issues
-            url: identify-query-performance-issues.md
+            url: ../identify-query-performance-issues.md
       - linkListType: concept
         links:
           - text: Monitoring using DMVs
