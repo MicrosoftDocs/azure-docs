@@ -71,7 +71,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
    ![select create](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. On the toolbar, select **Notifications** to monitor the deployment process.
+7. On the toolbar, select **Notifications** to monitor the deployment process.
 
    ![notification](./media/create-data-warehouse-portal/notification.png)
 
