@@ -47,7 +47,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     data = {'text': example_text}
     ```
 
-2. Add the parameters for your request. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
+2. Add the parameters for your request. Append your market code after `mkt=`. The market code is the country/region you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
 
     ```python
     params = {
