@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/11/2020
+ms.date: 05/11/2020
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
