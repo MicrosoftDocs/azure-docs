@@ -18,7 +18,10 @@ Because of intricacies in the Azure Monitor backend, not all metrics are exporta
 
 ## Change to behavior for NULLs and Zero values 
  
-For the platform metrics that can be exported via diagnostic settings, there are a few metrics for which Azure Monitor interprets '0s' as 'Nulls'. This has caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls). Soon a change will occur and platform metrics exported via diagnostic settings will no longer export '0s' unless they have truly been emitted by the underlying resource. The change was scheduled for April 1, 2020, but has been delayed due to priority shifts due to COVID-19. 
+For the platform metrics that can be exported via diagnostic settings, there are a few metrics for which Azure Monitor interprets '0s' as 'Nulls'. This has caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls). Soon a change will occur and platform metrics exported via diagnostic settings will no longer export '0s' unless they have truly been emitted by the underlying resource. 
+
+> [!CAUTION]
+> The change in behavior described above is scheduled to occur on June 1, 2020.
 
 Please note:
 

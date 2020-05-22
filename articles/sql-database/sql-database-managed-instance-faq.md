@@ -3,7 +3,7 @@ title: Managed instance FAQ
 description: SQL Database managed instance frequently asked questions (FAQ)
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

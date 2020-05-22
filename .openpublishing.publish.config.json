@@ -26,10 +26,10 @@
     "azure-docs-publish@microsoft.com"
   ],
   "sync_notification_subscribers": [
-    "tysonn@microsoft.com"
+    "angrobe_extended_dir@microsoft.com"
   ],
   "branches_to_filter": [],
-  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "master",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
@@ -417,6 +417,11 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-v2",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-java-v4-web-app",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
       "branch": "master"
     },
     {
