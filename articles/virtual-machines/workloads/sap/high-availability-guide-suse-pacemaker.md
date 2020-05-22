@@ -598,7 +598,7 @@ sudo crm configure property stonith-enabled=true
 </code></pre>
 
 > [!TIP]
->Azure Fence Agent requires outbound connectivity to public end points as documented in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections), along with possible solutions for outbound connectivity to public end points.  
+>Azure Fence Agent requires outbound connectivity to public end points as documented along with possible solutions in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## Default Pacemaker configuration for SBD
 
