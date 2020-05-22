@@ -235,8 +235,8 @@ Get-AzStorageAccount
 
 ## Next steps
 
-* [Azure Resource Manager overview](../azure-resource-manager/management/overview.md)
-* [Introduction to Azure Storage](../storage/common/storage-introduction.md)
-* [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md)
-* [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+* To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
+* To find other useful Azure Automation runbooks, see [Use runbooks and modules in Azure Automation](automation-runbook-gallery.md).
+* To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
