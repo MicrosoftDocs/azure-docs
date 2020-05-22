@@ -1,5 +1,5 @@
 ---
-title: Feature engineering for auto ML experiments
+title: Feature engineering for AutoML experiments
 titleSuffix: Azure Machine Learning
 description: Learn what feature engineering options Azure Machine Learning offers with automated ml experiments.
 author: nibaccam
@@ -13,15 +13,18 @@ ms.date: 05/25/2020
 ms.custom: seodec18
 ---
 
-# Feature engineering with automated machine learning
+# Featurization with automated machine learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this guide, learn what featurization settings are offered, and how to customize them for your [automated machine learning](concept-automated-ml.md) experiments with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py).
+In this guide, learn what featurization settings are offered, and how to customize them for your [automated machine learning experiments](concept-automated-ml.md).
 
-Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, data scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization in automated machine learning experiments
+Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, data scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization in automated machine learning experiments.
 
-This article assumes you are already familiar with [how to configure an automated machine learning experiment](how-to-configure-auto-train.md). 
+This article assumes you are already familiar with how to configure an automated machine learning experiment. See the following articles for details,
+
+* For a code first experience: [Configure automated ML experiments with the Python SDK](how-to-configure-auto-train.md).
+* For a low/no code experience: [Create, review, and deploy automated machine learning models with the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md)
 
 ## Configure featurization
 
@@ -33,28 +36,28 @@ In every automated machine learning experiment, [automatic scaling and normaliza
 > predictions, the same featurization steps applied during training are applied to
 > your input data automatically.
 
-In your `AutoMLConfig` object, you can enable/disable the setting `featurization` and further specify the featurization steps that should be used for your experiment.
+For experiments configured with the SDK,  you can enable/disable the setting `featurization` and further specify the featurization steps that should be used for your experiment.
 
 The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Featurization Configuration | Description 
 ------------- | ------------- 
 `"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.
-`"featurization": 'off'`| Indicates featurization step should not be done automatically.
+`"featurization": 'off'`| Indicates featurization steps shouldn't be done automatically.
 `"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-featurization).|
 
 <a name="featurization"></a>
 
 ## Automatic featurization
 
-The following table summarizes the techniques that are automatically applied to your data by default or when `"featurization": 'auto'` is specified in your `AutoMLConfig` object.
+Whether you configure your experiment via the SDK or the studio, the following table summarizes the techniques that are automatically applied to your data by default. The same techniques are applied  if `"featurization": 'auto'` is specified in your `AutoMLConfig` object.
 
 > [!NOTE]
 > If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an * are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). 
 
 |Featurization&nbsp;steps| Description |
 | ------------- | ------------- |
-|Drop high cardinality or no variance features* |Drop these from training and validation sets, including features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).|
+|Drop high cardinality or no variance features* |Drop these from training and validation sets, including features with all values missing, same value across all rows or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |Impute missing values* |For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
 |Generate additional features* |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|
 |Transform and encode *|Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
@@ -66,11 +69,18 @@ The following table summarizes the techniques that are automatically applied to 
 
 ## Data guardrails
 
-Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
+Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)) and help take corrective actions for improved results. 
 
-Users can review data guardrails
-* In the studio on the **Data guardrails** tab of an automated ML run.
-* By setting ```show_output=True``` when submitting an experiment with the Python SDK.
+Data guardrails are applied 
+
+* **For SDK experiments**, when either the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object.
+* **For studio experiments**, when *Automatic featurization* is enabled.  
+
+You can review the data guardrails pertaining to your experiment
+
+* By setting `show_output=True` when submitting an experiment with the Python SDK.
+
+* In the studio on the **Data guardrails** tab of you automated ML run.
 
 ### Data guardrail states
 
@@ -92,7 +102,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 Missing feature values imputation |**Passed** <br><br><br> **Done**| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and imputed.
 High cardinality feature handling |**Passed** <br><br><br> **Done**| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high cardinality feature detection.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> High cardinality features were detected in your inputs and were handled.
 Validation split handling |**Done**| *The validation configuration was set to 'auto' and the training data contained **less** than 20,000 rows.* <br> Each iteration of the trained model was validated through cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *The validation configuration was set to 'auto' and the training data contained **more** than 20,000 rows.* <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
-Class balancing detection |**Passed** <br><br><br><br> **Alerted** | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias fix the balancing problem. Learn more about [imbalanced data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
+Class balancing detection |**Passed** <br><br><br><br> **Alerted** | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
 Memory issues detection |**Passed** <br><br><br><br> **Done** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
 Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series was analyzed and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
 
@@ -129,7 +139,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 * Learn how to set up your automated ML experiments,
 
     * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-configure-auto-train.md).
-    * For limited/no code experience customers: [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+    * For low/no code experience customers: [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
