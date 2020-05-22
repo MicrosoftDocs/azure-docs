@@ -13,6 +13,7 @@ ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ---
 # Manage file space for databases in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes different types of storage space for databases in Azure SQL Database, and steps that can be taken when the file space allocated needs to be explicitly managed.
 

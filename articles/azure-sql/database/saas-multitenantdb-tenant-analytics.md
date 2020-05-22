@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/19/2018
 ---
 # Cross-tenant analytics using extracted data - multi-tenant app
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
  
 In this tutorial, you walk through a complete analytics scenario for a multitenant implementation. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
