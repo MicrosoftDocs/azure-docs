@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/14/2020
+ms.date: 05/21/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -36,7 +36,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data. ADF Data Flows utilizes Spark for the compute engine. The Spark environment works very well on memory-optimized resources.
 * Try a **Compute Optimized** cluster if you want your processing rate to be higher than your input rate.
-* Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds.
+* Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds. If you experience out of memory errors when execution your data flows, switch to a memory optimized Azure IR configuration.
 
 ![New IR](media/data-flow/ir-new.png "New IR")
 
@@ -136,6 +136,10 @@ For example, if you have a list of data files from July 2019 that you wish to pr
 
 By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
 
+The pipeline For Each in parallel mode will spawn multiple clusters by spinning-up job clusters for every executed data flow activity. This can cause Azure service throttling with high numbers of concurrent executions. However, use of Execute Data Flow inside of a For Each with Sequential set in the pipeline will avoid throttling and resource exhaustion. This will force Data Factory to execute each of your files against a data flow sequentially.
+
+It is recommended that if you use For Each with a data flow in sequence, that you utilize the TTL setting in the Azure Integration Runtime. This is because each file will incur a full 5 minute cluster startup time inside of your iterator.
+
 ### Optimizing for CosmosDB
 
 Setting throughput and batch properties on CosmosDB sinks only take effect during the execution of that data flow from a pipeline data flow activity. The original collection settings will be honored by CosmosDB after your data flow execution.
@@ -146,7 +150,13 @@ Setting throughput and batch properties on CosmosDB sinks only take effect durin
 
 ## Join performance
 
-Managing the performance of joins in your data flow is a very common operation that you will perform throughout the lifecycle of your data transformations. In ADF, data flows do not require data to be sorted prior to joins as these operations are performed as hash joins in Spark. However, you can benefit from improved performance with the "Broadcast" Join optimization. This will avoid shuffles by pushing down the contents of either side of your join relationship into the Spark node. This works well for smaller tables that are used for reference lookups. Larger tables that may not fit into the node's memory are not good candidates for broadcast optimization.
+Managing the performance of joins in your data flow is a very common operation that you will perform throughout the lifecycle of your data transformations. In ADF, data flows do not require data to be sorted prior to joins as these operations are performed as hash joins in Spark. However, you can benefit from improved performance with the "Broadcast" Join optimization that applies to Joins, Exists, and Lookup transformations.
+
+This will avoid on-the-fly shuffles by pushing down the contents of either side of your join relationship into the Spark node. This works well for smaller tables that are used for reference lookups. Larger tables that may not fit into the node's memory are not good candidates for broadcast optimization.
+
+The recommended configuration for data flows with many join operations is to keep the optimization set to "Auto" for "Broadcast" and use a Memory Optimized Azure Integration Runtime configuration. If you are experiencing out of memory errors or broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows. Optionally, you can instruct data flow to pushdown only the left or right side of the join, or both.
+
+![Broadcast Settings](media/data-flow/newbroad.png "Broadcast Settings")
 
 Another Join optimization is to build your joins in such a way that it avoids Spark's tendency to implement cross joins. For example, when you include literal values in your join conditions, Spark may see that as a requirement to perform a full cartesian product first, then filter out the joined values. But if you ensure that you have column values on both sides of your join condition, you can avoid this Spark-induced cartesian product and improve the performance of your joins and data flows.
 

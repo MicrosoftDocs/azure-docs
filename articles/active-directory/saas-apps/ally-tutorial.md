@@ -34,7 +34,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Ally single sign-on (SSO) enabled subscription.
+* An Ally single sign-on (SSO) enabled subscription. If you don't have a subscription, [start your free trial](https://www.ally.io/?utm_source=azure&utm_medium=mktgplace&utm_term=tutorial).
 
 ## Scenario description
 
@@ -81,15 +81,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    `https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    `https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    `https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Ally Client support team](mailto:contact@ally.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

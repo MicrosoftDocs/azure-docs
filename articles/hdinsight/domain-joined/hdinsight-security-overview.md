@@ -6,6 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
+ms.custom: seoapr2020
 ms.date: 04/20/2020
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
@@ -82,7 +83,7 @@ The following table provides links to resources for each type of security soluti
 | Operating system security | Create clusters with most recent secure base image | Customer |
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configure [Inbound network security group (NSG) rules](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
+|  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |

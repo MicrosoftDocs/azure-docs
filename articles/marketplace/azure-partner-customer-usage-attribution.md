@@ -281,7 +281,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 
 ### How to submit a technical consultation request
 
-1. Visit [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Visit [Partner Technical Services](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
 1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your sign-in credentials, an online request form will open:
@@ -290,7 +290,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
     * Enter a title and the description of the problem (provide as much detail as possible).
 1. Click Submit
 
-View step-by-step instructions with screenshots at [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
 ### What's next
 

@@ -1,19 +1,8 @@
 ---
-title: Manage your account- Azure Batch | Microsoft Docs
+title: Manage your account
 description: Learn what comprises an Azure Batch account 
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 
 ---

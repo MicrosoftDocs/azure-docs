@@ -59,7 +59,6 @@ This section contains the following examples:
 > |---|---|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
@@ -154,7 +153,7 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> |Automatically decompress files.|**--decompress**|
 > |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > |Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
 > 

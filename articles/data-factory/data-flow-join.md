@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
+ms.date:  05/15/2020
 ---
 
 # Join transformation in mapping data flow
@@ -58,13 +58,21 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 ![Join Transformation](media/data-flow/join.png "Join")
 
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your join conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi join](media/data-flow/non-equi-join.png "Non-equi join")
+
 ## Optimizing join performance
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If one or both of the data streams fit into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
 ## Self-Join
 
@@ -85,7 +93,7 @@ When testing the join transformations with data preview in debug mode, use a sma
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 

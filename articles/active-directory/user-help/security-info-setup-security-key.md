@@ -9,7 +9,7 @@ ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ---
@@ -59,7 +59,7 @@ Before you are able to register your security key, the following must be true:
 
 You must create your security key and give it a unique PIN before you can sign in to your work or school account using the key. You may have up to 10 keys registered with your account. 
 
-1. Go to the **My Profile** page at https://myprofile.microsoft.com and sign in if you haven't already done so.
+1. Go to the **My Profile** page at https://myaccount.microsoft.com and sign in if you haven't already done so.
 
 2. Select **Security Info**, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 

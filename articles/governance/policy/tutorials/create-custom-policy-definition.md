@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -89,7 +89,7 @@ already configured with the setting you want to enforce also provide the value t
 Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Export template page on existing resource" border="false":::
 
 Doing so for a storage account reveals a template similar to this example:
 
@@ -379,7 +379,7 @@ evaluate in the first place. Each possible response to a non-compliant resource 
 blocked, has data appended, or has a deployment associated to it for putting the resource back into
 a compliant state.
 
-For our example, Deny is the effect we want as we do not want non-compliant resources created in our
+For our example, Deny is the effect we want as we don't want non-compliant resources created in our
 Azure environment. Audit is a good first choice for a policy effect to determine what the impact of
 a policy is before setting it to Deny. One way to make changing the effect per assignment easier is
 to parameterize the effect. See [parameters](#parameters) below for the details on how.

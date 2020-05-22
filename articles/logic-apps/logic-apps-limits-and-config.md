@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 05/23/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -32,7 +32,6 @@ Here are the limits for a single logic app definition:
 | Length of `description` | 256 characters | |
 | Maximum `parameters` | 50 | |
 | Maximum `outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -141,7 +140,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by HTTP triggers. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by HTTP triggers. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another logic app that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
 | Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by request triggers and webhook triggers. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -151,8 +150,8 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Message size | 100 MB | 200 MB | ISE-labeled connectors use the ISE limit, not their non-ISE connector limits. <p><p>To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
-| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>For the integration service environment, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](https://docs.microsoft.com/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Message size | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. <p><p>- Connectors such as AS2, X12, and EDIFACT have their own [B2B message limits](#b2b-protocol-limits). <br>- ISE connectors use the ISE limit, not their non-ISE connector limits. |
+| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <p><p>If you're using an ISE, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](https://docs.microsoft.com/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### Character limits
@@ -174,6 +173,18 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
+<a name="authentication-limits"></a>
+
+### Authentication limits
+
+Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+
+| Name | Limit | Notes |
+| ---- | ----- | ----- |
+| Azure AD authorization policies | 5 | |
+| Claims per authorization policy | 10 | |
+||||
+
 <a name="custom-connector-limits"></a>
 
 ## Custom connector limits
@@ -193,7 +204,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 | Name | Limit |
 |------|-------|
 | Managed identities per logic app | Either the system-assigned identity or 1 user-assigned identity |
-| Number of logic apps that have a managed identity in an Azure subscription per region | 250 |
+| Number of logic apps that have a managed identity in an Azure subscription per region | 500 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -355,7 +366,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | West Central US | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
-| West Europe | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| West Europe | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
 | West India | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | West US | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | West US 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |

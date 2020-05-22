@@ -58,7 +58,7 @@ Use Azure Security Center recommendations to maintain security configurations on
 |--|--|--|
 | 7.3 | 5.2 | Customer |
 
-Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
 - [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 

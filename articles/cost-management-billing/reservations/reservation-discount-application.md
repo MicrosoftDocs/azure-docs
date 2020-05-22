@@ -56,7 +56,7 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Software plans](understand-suse-reservation-charges.md)
 - [Storage](understand-storage-charges.md)
 - [SQL Database](understand-reservation-charges.md)
-- [SQL Data Warehouse](reservation-discount-azure-sql-dw.md)
+- [Azure Synapse Analytics](reservation-discount-azure-sql-dw.md)
 - [Virtual machines](../manage/understand-vm-reservation-charges.md)
 
 

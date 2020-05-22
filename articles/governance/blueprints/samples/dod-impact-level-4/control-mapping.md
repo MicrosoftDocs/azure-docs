@@ -28,7 +28,7 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 > in Azure Policy is only a partial view of your overall compliance status. The associations between
 > controls and Azure Policy definitions for this compliance blueprint sample may change over time.
 > To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## AC-2 Account Management
 

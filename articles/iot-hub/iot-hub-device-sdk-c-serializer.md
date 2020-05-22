@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
+---
 
 # Azure IoT device SDK for C – more about serializer
 

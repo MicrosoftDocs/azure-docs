@@ -120,7 +120,7 @@ Now, you can access your secrets in code. The next steps are different depending
    1. Add the configuration variable.
 
       ```csharp
-      private static readonly IConfiguration _configuration;
+      private static IConfiguration _configuration;
       ```
 
    1. Add this constructor or replace the existing constructor with this:

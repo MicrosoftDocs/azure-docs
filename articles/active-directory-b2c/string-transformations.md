@@ -512,7 +512,7 @@ The following example looks up the domain name in one of the inputParameters col
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: false
 - Output claims:
-    - **outputClaim**:	c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 When `errorOnFailedLookup` input parameter is set to `true`, the **LookupValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `LookupNotFound` metadata of a self-asserted technical profile controls the error message that is presented to the user.
 
@@ -821,7 +821,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputParameter | length | int | The number of characters in the substring. |
 | OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
-For example, get the phone number country prefix.
+For example, get the phone number country/region prefix.
 
 
 ```XML

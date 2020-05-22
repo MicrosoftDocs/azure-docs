@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ This article describes updates to data storage and ingress for Azure Time Series
 
 ## Data ingress
 
-Your Azure Time Series Insights environment contains an *ingestion engine* to collect, process, and store time-series data. 
+Your Azure Time Series Insights environment contains an *ingestion engine* to collect, process, and store time-series data.
 
 There are some considerations to be mindful of to ensure all incoming data is processed, to achieve high ingress scale, and minimize *ingestion latency* (the time taken by Time Series Insights to read and process data from the event source) when [planning your environment](time-series-insights-update-plan.md).
 
@@ -26,7 +26,7 @@ Time Series Insights Preview data ingress policies determine where data can be s
 
 ### Ingress policies
 
-*Data ingress* involves how data is sent to an Azure Time Series Insights Preview environment. 
+*Data ingress* involves how data is sent to an Azure Time Series Insights Preview environment.
 
 Key configuration, formatting, and best practices are summarized below.
 
@@ -37,10 +37,11 @@ Azure Time Series Insights Preview supports the following event sources:
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Azure Time Series Insights Preview supports a maximum of two event sources per instance. When you connect an event source, your TSI environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event. 
+Azure Time Series Insights Preview supports a maximum of two event sources per instance. When you connect an event source, your TSI environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event.
 
-> [!IMPORTANT] 
-> * You may experience high initial latency when attaching an event source to your Preview environment. 
+> [!IMPORTANT]
+>
+> * You may experience high initial latency when attaching an event source to your Preview environment.
 > Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
 > * High latency will subside after event source data is first ingested. Submit a support ticket through the Azure portal if you experience ongoing high latency.
 
@@ -59,7 +60,7 @@ The supported data types are:
 
 #### Objects and arrays
 
-You may send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored. 
+You may send complex types such as objects and arrays as part of your event payload, but your data will undergo a flattening process when stored.
 
 Detailed information describing how to shape your JSON events, send complex type, and nested object flattening is available in [How to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md) to assist with planning and optimization.
 
@@ -73,7 +74,18 @@ We recommend that you employ the following best practices:
 
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
-### Ingress scale and Preview limitations 
+* Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
+
+#### Historical Data Ingestion
+
+Using the streaming pipeline to import historical data is not currently supported in Azure Time Series Insights Preview. If you need to import past data into your environment, follow the guidelines below:
+
+* Do not stream live and historical data in parallel. Ingesting out of order data will result in degraded query performance.
+* Ingest historical data in time-ordered fashion for best performance.
+* Stay within the ingestion throughput rate limits below.
+* Disable Warm Store if the data is older than your Warm Store retention period.
+
+### Ingress scale and Preview limitations
 
 Azure Time Series Insights Preview ingress limitations are described below.
 
@@ -88,13 +100,14 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 By default, Time Series Insights preview can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Time Series Insights environment**. There are additional limitations [per hub partition](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
-> [!TIP] 
+> [!TIP]
+>
 > * Environment support for ingesting speeds up to 16 MBps can be provided by request.
 > * Contact us if you require higher throughput by submitting a support ticket through Azure portal.
  
 * **Example 1:**
 
-    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Iot Hub with four partitions as the Time Series Insights event source.
+    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an IoT Hub with four partitions as the Time Series Insights event source.
 
     * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.
@@ -112,7 +125,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
 
 When planning your Time Series Insights environment, it's important to consider the configuration of the event source(s) that you'll be connecting to Time Series Insights. Both Azure IoT Hub and Event Hubs utilize partitions to enable horizontal scale for event processing. 
 
-A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed. 
+A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed.
 
 For Event Hubs partitioning best practices, review [How many partitions do I need?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
@@ -127,7 +140,7 @@ Azure Time Series Insights Preview currently has a general **per partition limit
 
 When a device is created in IoT Hub, it's permanently assigned to a partition. In doing so, IoT Hub is able to guarantee event ordering (since the assignment never changes).
 
-A fixed partition assignment also impacts Time Series Insights instances that are ingesting data sent from IoT Hub downstream. When messages from multiple devices are forwarded to the hub using the same gateway device ID, they may arrive in the same partition at the same time potentially exceeding the per partition scale limits. 
+A fixed partition assignment also impacts Time Series Insights instances that are ingesting data sent from IoT Hub downstream. When messages from multiple devices are forwarded to the hub using the same gateway device ID, they may arrive in the same partition at the same time potentially exceeding the per partition scale limits.
 
 **Impact**:
 
@@ -140,6 +153,7 @@ To mitigate that circumstance, we recommend the following best practices:
 
 > [!IMPORTANT]
 > For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub devices in use to be sure that the rate falls below the 0.5 MBps per partition limitation in preview.
+>
 > * Even if several events arrive simultaneously, the Preview limit will not be exceeded.
 
   ![IoT Hub Partition Diagram](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
@@ -181,7 +195,7 @@ For a thorough description of Azure Blob storage, read the [Storage blobs introd
 
 When you create an Azure Time Series Insights Preview PAYG environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
 
-Azure Time Series Insights Preview retains up to two copies of each event in your Azure Storage account. One copy stores events ordered by ingestion time, always allowing access to events in a time-ordered sequence. Over time, Time Series Insights Preview also creates a repartitioned copy of the data to optimize for performant Time Series Insights query. 
+Azure Time Series Insights Preview retains up to two copies of each event in your Azure Storage account. One copy stores events ordered by ingestion time, always allowing access to events in a time-ordered sequence. Over time, Time Series Insights Preview also creates a repartitioned copy of the data to optimize for performant Time Series Insights query.
 
 During public Preview, data is stored indefinitely in your Azure Storage account.
 
@@ -189,7 +203,7 @@ During public Preview, data is stored indefinitely in your Azure Storage account
 
 To ensure query performance and data availability, don't edit or delete any blobs that Time Series Insights Preview creates.
 
-#### Accessing Time Series Insights Preview cold store data 
+#### Accessing Time Series Insights Preview cold store data
 
 In addition to accessing your data from the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) and [Time Series Query](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
@@ -218,6 +232,7 @@ Time Series Insights Preview stores copies of your data as follows:
 In both cases, the time property of the Parquet file corresponds to blob creation time. Data in the `PT=Time` folder is preserved with no changes once it's written to the file. Data in the `PT=TsId` folder will be optimized for query over time and is not static.
 
 > [!NOTE]
+>
 > * `<YYYY>` maps to a four-digit year representation.
 > * `<MM>` maps to a two-digit month representation.
 > * `<YYYYMMDDHHMMSSfff>` maps to a time-stamp representation with four-digit year (`YYYY`), two-digit month (`MM`), two-digit day (`DD`), two-digit hour (`HH`), two-digit minute (`MM`), two-digit second (`SS`), and three-digit millisecond (`fff`).
