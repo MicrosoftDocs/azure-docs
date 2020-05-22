@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 # Use PowerShell to update the sync schema in an existing sync group
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell example updates the sync schema in an existing SQL Data Sync sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently. This example demonstrates the use of the **UpdateSyncSchema** script, which is available on GitHub as [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 

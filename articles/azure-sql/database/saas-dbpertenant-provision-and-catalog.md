@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/24/2018
 ---
 # Learn how to provision new tenants and register them in the catalog
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you learn how to provision and catalog SaaS patterns. You also learn how they're implemented in the Wingtip Tickets SaaS database-per-tenant application. You create and initialize new tenant databases and register them in the application's tenant catalog. The catalog is a database that maintains the mapping between the SaaS application's many tenants and their data. The catalog plays an important role in directing application and management requests to the correct database.
 

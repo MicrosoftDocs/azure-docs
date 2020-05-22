@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/27/2019
 ---
 # Use PowerShell to restore an Azure SQL Database to an earlier point in time
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example restores a database in SQL Database to a specific point in time.  
 

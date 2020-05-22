@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article covers the provisioning and cataloging of new tenants, in a *multi-tenant sharded database* model or pattern.
 
