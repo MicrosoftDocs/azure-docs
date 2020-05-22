@@ -27,7 +27,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest preview version of the Text Analytics API is `3.1-preview`, which includes a public preview for Opinion Mining [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining) and new [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`). The latest stable version is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
