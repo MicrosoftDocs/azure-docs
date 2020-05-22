@@ -19,6 +19,8 @@ The supported payment methods for Microsoft Azure are credit cards and check/wir
 
 If you have a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account). If you have an MCA, skip to [manage credit cards for a Microsoft Customer Agreement](#manage-credit-cards-for-a-microsoft-customer-agreement).
 
+<a id="addcard"></a>
+
 ## Manage credit cards for an Azure subscription
 
 The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
