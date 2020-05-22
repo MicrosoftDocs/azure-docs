@@ -18,7 +18,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# [REHL / CentOS](#tab/centos)
+# [RHEL/CentOS 7/8](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \
@@ -29,6 +29,10 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> On RHEL / CentOS, follow the instructions on [how to configure OpenSSL for Linux](../../../../how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
+> [!IMPORTANT]
+> The Opus audio coding format is not supported by the Speech SDK on RHEL/CentOS 7.
 
 ---
