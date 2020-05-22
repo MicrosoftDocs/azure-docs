@@ -42163,7 +42163,7 @@
     },
     {
       "source_path": "articles/application-insights/app-insights-alerts.md",
-      "redirect_url": "/azure/azure-monitor/app/alerts",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-log",
       "redirect_document_id": true
     },
     {
