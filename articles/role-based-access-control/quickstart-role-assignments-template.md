@@ -121,6 +121,7 @@ To remove the role assignment and resource group you created, follow these steps
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name to remove (i.e. ExampleGrouprg)"
     
     $principalId = (Get-AzAdUser -Mail $emailAddress).id
+    
     Remove-AzRoleAssignment -ObjectId $principalId -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName $resourceGroupName
     Remove-AzResourceGroup -Name $resourceGroupName
     ```
