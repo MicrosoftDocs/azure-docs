@@ -236,10 +236,9 @@ It is important to understand the following configuration details if you are new
 
 ## Next steps
 
-Now that you have Update Management enabled, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
-
-- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines
-
-- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs
-
-- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal 
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
+* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

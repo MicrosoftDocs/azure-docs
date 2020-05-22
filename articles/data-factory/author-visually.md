@@ -26,7 +26,7 @@ To open the **authoring canvas**, click on the pencil icon.
 
 ![Authoring Canvas](media/author-visually/authoring-canvas.png)
 
-Here, you will author the pipelines, activities, datasets, linked services, data flows, triggers, and integration runtimes that comprise your factory. To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
+Here, you author the pipelines, activities, datasets, linked services, data flows, triggers, and integration runtimes that comprise your factory. To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
 
 The default visual authoring experience is directly working with the Data Factory service. Azure Repos Git or GitHub integration is also supported to allow source control and collaboration for work on your data factory pipelines. To learn more about the differences between these authoring experiences, see [Source control in Azure Data Factory](source-control.md).
 
@@ -36,7 +36,7 @@ For top-level resources such as pipelines, datasets, and data flows, high-level 
 
 ![Authoring Canvas](media/author-visually/properties-pane.png)
 
-The properties pane will only be open by default on resource creation. To edit it, click on the properties pane icon located in the top-right corner of the canvas.
+The properties pane only opens by default on resource creation. To edit it, click on the properties pane icon located in the top-right corner of the canvas.
 
 ## Expressions and functions
 

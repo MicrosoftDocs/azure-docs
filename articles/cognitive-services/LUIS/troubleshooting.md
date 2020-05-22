@@ -327,4 +327,4 @@ Videos:
 
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Microsoft Q&A question page for MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
