@@ -66,9 +66,9 @@ When you're ready to configure the lead management information for your offer in
 
 1. Select your offer, and go to the **Offer setup** tab.
 
-1. Under the **Lead management** section, select **Connect**. 
+1. Under the **Customer leads** section, select **Connect**.
 
-    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png)
 
 1. On the **Connection details** pop-up window, select **Marketo** for the **Lead destination**.
 
