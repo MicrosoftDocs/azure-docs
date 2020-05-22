@@ -173,7 +173,6 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 
 ## Next steps
 
-* [Manage runbooks in Azure Automation](manage-runbooks.md)
-* [Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md)
-* [Create modular runbooks](automation-child-runbooks.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* For details of runbook management, see [Manage runbooks in Azure Automation](manage-runbooks.md).
+* For PowerShell details, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).
