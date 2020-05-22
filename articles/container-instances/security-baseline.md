@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -141,7 +141,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
 
-* [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) * [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal) 
+* [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+
+* [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal) 
 
 * [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)
 
@@ -241,7 +243,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21776).
 
-**Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources. For example, run a time synchronization command in a running container instance.
+**Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources. For example, run a time synchronization command in a running container.
 
 * [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
@@ -341,7 +343,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21783).
 
-**Guidance**: Provide your own anti-malware solution and event collection if needed to run in container instances. 
+**Guidance**: Provide your own anti-malware solution and event collection if needed to run in a container. 
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -353,7 +355,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21784).
 
-**Guidance**: Provide your own solution if needed to query DNS logs in container instances.
+**Guidance**: Provide your own solution if needed to query DNS logs in a container.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -601,7 +603,7 @@ Tag and version container images, to assist in tracking images that store or pro
 
 **Guidance**: Implement separate subscriptions, and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated.
 
-Resources should be separated by virtual network or subnet, tagged appropriately, and secured by an network security group (NSG) or Azure Firewall.
+* [Execute a command in a running Azure container instance](https://docs.microsoft.com/azure/container-instances/container-instances-exec)
 
 * [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -742,7 +744,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Implement solutions to scan container images in a private registry and identify potential vulnerabilities. Follow recommendations from Azure Security Center on performing vulnerability assessments on container images stored in Azure Container Registry. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
 
-* [Container monitoring and scanning security recommendations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
 * [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
@@ -759,7 +761,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Use a custom or third party solution to patch container images. If you store container images in Azure Container Registry, run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base OS images.
 
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
+
 * [About base image updates for Azure Container Registry tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -771,6 +776,8 @@ Use a custom or third party solution to patch container images. If you store con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21810).
 
 **Guidance**: Use a custom or third party solution to patch container images. If you store container images in Azure Container Registry, run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base OS images.
+
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
 * [About base image updates for ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
@@ -785,6 +792,8 @@ Use a custom or third party solution to patch container images. If you store con
 
 **Guidance**: Export image scanning results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. If you store container images in Azure Container Registry, integrate your registry with Azure Security Center to enable periodic scanning of container images for vulnerabilities. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans.
 
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
+
 * [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Yes
@@ -797,6 +806,8 @@ Use a custom or third party solution to patch container images. If you store con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21812).
 
 **Guidance**:  If you store container images in Azure Container Registry, integrate your registry with Azure Security Center to enable periodic scanning of container images for vulnerabilities and to classify risks. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans and risk classification.
+
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
 * [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
@@ -895,6 +906,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21818).
 
 **Guidance**: Implement your own solution, or a third-party solution, to inventory software for approved containerized applications. 
+
+Implement solutions to scan container images in a private registry and identify potential vulnerabilities. Follow recommendations from Azure Security Center to perform vulnerability assessments on container images stored in Azure Container Registry. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
+
 Monitor Azure Container Instances logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
 * [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
@@ -902,6 +916,11 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 * [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
 * [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+
+* [Security considerations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
+* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -925,7 +944,8 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21820).
 
-**Guidance**: Not applicable; this recommendation is designed for IaaS compute resources.
+**Guidance**: Tag and version container images, to assist in tracking images that run approved applications.
+* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -952,7 +972,8 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21822).
 
-**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
+**Guidance**: Tag and version container images, to assist in tracking images that run approved applications.
+* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -977,11 +998,19 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21824).
 
-**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
+**Guidance**: All users with access to Azure Container Instances can execute scripts within containers.
+
+Manage and review access to Azure Container Instances resources by using different Azure subscriptions or management groups, or isolate resources using virtual networks and NSGs or Azure Firewall.
+
+* [Execute a command in a running Azure container instance](https://docs.microsoft.com/azure/container-instances/container-instances-exec)
+
+* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) * [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -1053,11 +1082,13 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21829).
 
-**Guidance**: Implement solutions to scan container images in a private registry and identify potential vulnerabilities in OS configurations. Follow recommendations from Azure Security Center on performing vulnerability assessments on container images stored in Azure Container Registry. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
+**Guidance**: Implement solutions to scan container images in a private registry and identify potential vulnerabilities in OS configurations. Follow recommendations from Azure Security Center to perform vulnerability assessments on container images stored in Azure Container Registry. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
 
 Use a custom or third party solution to patch container images. If you store container images in Azure Container Registry, run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base OS images. 
 
-* [Container monitoring and scanning security recommendations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+* [Container monitoring and scanning security recommendations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
+
+* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 * [About base image updates for Azure Container Registry tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 
@@ -1086,7 +1117,11 @@ Use a custom or third party solution to patch container images. If you store con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21831).
 
-**Guidance**: Store container images in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images. * [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)* [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+**Guidance**: Store container images in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+
+* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+
+* [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
 * [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
@@ -1142,7 +1177,9 @@ Use Azure Policy to put restrictions on the type of resources that can be create
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21835).
 
-**Guidance**: If you use Azure Container Registry to store container images, use Azure Security Center to perform baseline scans for OS and Docker settings for containers. * [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+**Guidance**: If you use Azure Container Registry to store container images, use Azure Security Center to perform baseline scans for OS and Docker settings for containers.
+
+* [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
 
 
 **Azure Security Center monitoring**: Yes
