@@ -51,8 +51,8 @@ The SharePoint List Online connector uses service principal authentication to co
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace tenant and site name).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
-        - App Domain: localhost.com
-        - Redirect URL: https://www.localhost.com
+        - App Domain: `localhost.com`
+        - Redirect URL: `https://www.localhost.com`
         - Permission Request XML:
 
         ```xml

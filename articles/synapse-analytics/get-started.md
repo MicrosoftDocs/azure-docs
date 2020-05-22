@@ -167,7 +167,7 @@ We have data available in a SQL pool database. Now we load it into a Spark datab
 * Select **Add code** to add a notebook code cell and paste the text below:
 
     ```scala
-    %% spark
+    %%spark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")

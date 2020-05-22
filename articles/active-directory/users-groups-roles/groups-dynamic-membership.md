@@ -113,7 +113,7 @@ The following are the user properties that you can use to create a single expres
 | streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
 | surname |Any string value or *null* |(user.surname -eq "value") |
 | telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
+| usageLocation |Two lettered country/region code |(user.usageLocation -eq "US") |
 | userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
