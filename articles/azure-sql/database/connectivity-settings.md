@@ -30,7 +30,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 In the Azure portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
 
-Customers can connect to SQL Database using  public endpoints (IP-based firewall rules, VNET based firewall rules) or private endpoints (using Private Link) as outlined in the [network access overview](sql-database-networkaccess-overview.md). 
+Customers can connect to SQL Database using  public endpoints (IP-based firewall rules, VNET based firewall rules) or private endpoints (using Private Link) as outlined in the [network access overview](network-access-controls-overview.md). 
 
 When **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed and all connections via public endpoints are denied with an error message similar to:  
 
@@ -85,7 +85,7 @@ At present we support TLS 1.0, 1.1 and 1.2. Setting a Minimal TLS Version ensure
 
 For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
 
-For more information, see [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+For more information, see [TLS considerations for SQL Database connectivity](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
 
 After setting the Minimal TLS Version, login attempts from clients that are using a TLS version lower than the Minimal TLS Version of the server will fail with following error:
 
