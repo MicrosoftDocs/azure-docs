@@ -151,6 +151,8 @@ First, you can connect this Application Insights resource to Azure Monitor Priva
 
 Second, you can control how this resource can be reached from outside of the private link scopes listed previously. If you set **Allow public network access for ingestion** to **No** , then machines or SDKs outside of the connected scopes cannot upload data to this component. If you set **Allow public network access for queries** to **No** , then machines outside of the scopes cannot access data in this Application Insights resource. That data includes access to APM logs, metrics, and live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Note that non-portal consumption experiences have to be running within the private linked VNET that includes the monitored workloads.
 
+You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](https://docs.microsoft.com/en-us/azure/app-service/networking/private-endpoint) for how to do this for App Services.
+
 Restricting access in this manner only applies to data in the Application Insights resource. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. You should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
 > [!NOTE]
@@ -200,7 +202,7 @@ To use Azure Monitor portal experiences such as Application Insights and Log Ana
 
 To use the REST API, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) or PowerShell with Azure Monitor on private networks,  add the [service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)  **AzureActiveDirectory** and **AzureResourceManager** to your firewall.
 
-Adding these tags allows you to perform actions such as quering log data, create and manage Log Analytics workspaces and AI components. 
+Adding these tags allows you to perform actions such as quering log data, create and manage Log Analytics workspaces and AI components.
 
 ### Application Insights SDK downloads from a content delivery network
 
