@@ -16,7 +16,7 @@ This topic describes how you can set up your machines for management with Azure 
 
 ## Enable Azure VMs
 
-Azure Automation State Configuration lets you easily enable Azure VMs for configuration management, using the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into a VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation State Configuration. Since the Azure extension runs asynchronously, steps to track its progress or troubleshoot it are provided in [Troubleshoot VM setup for State Configuration](#troubleshoot-vm-setup-for-state-configuration).
+Azure Automation State Configuration lets you easily enable Azure VMs for configuration management, using the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into a VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation State Configuration. Since the Azure extension runs asynchronously, steps to track its progress are provided in [Check status of VM setup](#check-status-of-vm-setup).
 
 > [!NOTE]
 >Deploying DSC to a Linux node uses the **/tmp** folder. Modules such as `nxautomation` are temporarily downloaded for verification before installing them in their appropriate locations. To ensure that modules install correctly, the Log Analytics agent for Linux needs read/write permissions on the **/tmp** folder.<br><br>
@@ -305,7 +305,7 @@ After registering a machine as a DSC node in Azure Automation State Configuratio
 
 You can re-register a node just as you registered the node initially, using any of the methods described in this document. You do not need to unregister a node from Azure Automation State Configuration before re-registering it.
 
-## Check the status of the VM setup for State Configuration
+## Check status of VM setup
 
 State Configuration lets you easily enable Azure Windows VMs for configuration management. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation State Configuration. Since the Azure VM Desired State Configuration extension runs asynchronously, tracking its progress and troubleshooting its execution can be important.
 
