@@ -1,13 +1,13 @@
 ---
-title: Getting paid in Microsoft commercial marketplace 
-description: Learn about receiving payments for your earnings in the Microsoft commercial marketplace.
+title: Getting paid in the commercial marketplace 
+description: Learn about receiving payments for your earnings in the commercial marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---
-# Getting paid in commercial marketplace
+# Getting paid in the commercial marketplace
 
 Here's some important info about receiving payment for your offers, add-ons, and advertising earnings.
 
@@ -37,11 +37,9 @@ You also have the option to enter a free-form price of your choosing in a specif
 
 Keep in mind that the price you select may include sales or value-added tax that your customers must pay. For details, see [Tax details for paid offer](tax-details-paid-transactions.md).
 
-
 ## Payout reporting
 
 You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For details on the info shown here and how we categorize the money you earn, see [Payout summary overview](payout-summary-overview.md).
-
 
 ## Payout time frame
 
