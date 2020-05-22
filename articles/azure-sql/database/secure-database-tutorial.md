@@ -12,6 +12,7 @@ ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
 ---
 # Tutorial: Secure an Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial you learn how to:
 
@@ -119,7 +120,7 @@ To set the Azure AD administrator:
     > [!IMPORTANT]
     > You need to be either a "Company Administrator" or "Global Administrator" to perform this task.
 
-1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](aad-authentication-overview.md#azure-ad-features-and-limitations).
+1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
     ![select admin](./media/secure-database-tutorial/admin-select.png)
 
@@ -144,7 +145,7 @@ For information about configuring Azure AD, see:
 
 ## Manage database access
 
-Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](logins-create-manage.md) and [AD authentication](aad-authentication-overview.md).
+Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](logins-create-manage.md) and [AD authentication](authentication-aad-overview.md).
 
 To add users, choose the database authentication type:
 
@@ -180,7 +181,7 @@ To add a user with SQL authentication:
 
 ### Azure AD authentication
 
-Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](aad-authentication-configure.md) on how to authenticate using Azure AD.
+Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](authentication-aad-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
 > Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.

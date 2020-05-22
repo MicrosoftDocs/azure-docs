@@ -19,7 +19,7 @@ With an elastic pool, you determine the amount of resources that the elastic poo
 
 ## Azure portal
 
-All pool settings can be found in one place: the **Configure pool** blade. To get here, find an elastic pool in the portal and click **Configure pool** either from the top of the blade or from the resource menu on the left.
+All pool settings can be found in one place: the **Configure pool** blade. To get here, find an elastic pool in the Azure portal and click **Configure pool** either from the top of the blade or from the resource menu on the left.
 
 From here you can make any combination of the following changes and save them all in one batch:
 
