@@ -25,7 +25,7 @@ For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic
 You can set the service tier, compute size, and storage amount using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), the [Azure CLI](elastic-pool-manage.md#azure-cli), or the [REST API](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
-> For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md)
+> For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md).
 
 ## General purpose - provisioned compute - Gen4
 
@@ -365,7 +365,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 <sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
+If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. Azure SQL Database provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
 ## Database properties for pooled databases
 
