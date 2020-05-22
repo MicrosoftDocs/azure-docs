@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [Elastic database tools](elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
 

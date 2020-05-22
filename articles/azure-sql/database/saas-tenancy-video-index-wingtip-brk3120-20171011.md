@@ -12,6 +12,7 @@ ms.date: 12/18/2018
 ms.topic: conceptual
 ---
 # Video indexed and annotated for multi-tenant SaaS app using Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article is an annotated index into the time locations of an 81 minute video about SaaS tenancy models or patterns. This article enables you to skip backward or forward in the video to which portion interests you. The video explains the major design options for a multi-tenant database application on Azure SQL Database. The video includes demos, walkthroughs of management code, and at times more detail informed by experience than might be in our written documentation.
 

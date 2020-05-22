@@ -14,6 +14,7 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # The Wingtip Tickets SaaS application
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The same *Wingtip Tickets* SaaS application is implemented in each of three samples. The app is a simple event listing and ticketing SaaS app targeting small venues - theaters, clubs, etc. Each venue is a tenant of the app, and has its own data: venue details, lists of events, customers, ticket orders, etc.  The app, together with the management scripts and tutorials, showcases an end-to-end SaaS scenario. This includes provisioning tenants, monitoring and managing performance, schema management, and cross-tenant reporting and analytics.
 

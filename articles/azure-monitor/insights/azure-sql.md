@@ -109,7 +109,7 @@ Selecting the managed instance view, shows details on the managed instance utili
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../../azure-sql/intelligent-insights.md) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/azure-sql/azure-sql-sol-insights.png)
 
