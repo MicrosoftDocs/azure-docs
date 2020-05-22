@@ -3,7 +3,7 @@ title: Discover managed instance management endpoint
 description: Learn how to get Azure SQL Database Managed Instance management endpoint public IP address and verify its built-in firewall protection
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

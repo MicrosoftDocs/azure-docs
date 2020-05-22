@@ -233,4 +233,4 @@ Instrument your search application to get powerful and insightful data about you
 
 You can find more information on [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and visit the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
 
-Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) for details.
+Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) for details.

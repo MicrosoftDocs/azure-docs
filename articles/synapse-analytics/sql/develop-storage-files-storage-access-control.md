@@ -21,11 +21,7 @@ This article describes the types of credentials you can use and how credential l
 
 ## Supported storage authorization types
 
-A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. Three authorization types are supported:
-
-- [User Identity](?tabs=user-identity)
-- [Shared access signature](?tabs=shared-access-signature)
-- [Managed Identity](?tabs=managed-identity)
+A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. You can use three authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), and [Managed Identity](?tabs=managed-identity).
 
 > [!NOTE]
 > [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
@@ -96,7 +92,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ### [Anonymous access](#tab/public-access)
 
-You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources.md).
+You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

@@ -20,8 +20,8 @@ When you import and export the app, choose either `.json` or `.lu`.
 
 ## Version 7.x
 
-* Moving to version 7.x, the entities are represented as nested machine-learned entities.
-* Support for authoring nested machine-learned entities with `enableNestedChildren` property on the following authoring APIs:
+* Moving to version 7.x, the entities are represented as nested machine-learning entities.
+* Support for authoring nested machine-learning entities with `enableNestedChildren` property on the following authoring APIs:
     * [Add label](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
     * [Add batch label](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09)
     * [Review labels](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c0a)
@@ -59,7 +59,7 @@ When you import and export the app, choose either `.json` or `.lu`.
 
 ## Version 6.x
 
-* Moving to version 6.x, use the new [machine-learned entity](reference-entity-machine-learned-entity.md) to represent your entities.
+* Moving to version 6.x, use the new [machine-learning entity](reference-entity-machine-learned-entity.md) to represent your entities.
 
 ```json
 {

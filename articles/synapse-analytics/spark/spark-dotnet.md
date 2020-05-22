@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 
 It provides .NET bindings for Spark which allow you to access Spark APIs through C# and F#. With .NET for Apache Spark, you also have the ability to write and execute user-defined functions for Spark written in .NET. The .NET APIs for Spark enable you to access all aspects of Spark DataFrames that help you analyze your data, including Spark SQL, Delta Lake, and Structured Streaming.
 
-You can analyze data with .NET for Apache Spark through Spark batch job definitions or with interactive Azure Synapse Analytics notebooks. In this article, you learn how to use .NET for Apache Spark with Azure Synapse using both techniques. 
+You can analyze data with .NET for Apache Spark through Spark batch job definitions or with interactive Azure Synapse Analytics notebooks. In this article, you learn how to use .NET for Apache Spark with Azure Synapse using both techniques.
 
 ## Submit batch jobs using the Spark job definition
 
@@ -44,13 +44,13 @@ Notebooks are a great option for prototyping your .NET for Apache Spark pipeline
 
 ### How to use .NET for Apache Spark notebooks
 
-When you create a new notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#. 
+When you create a new notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#.
 
-To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool. 
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool.
 
 The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
 
-### Spark.NET C# kernel features
+### .NET for Apache Spark C# kernel features
 
 The following features are available when you use .NET for Apache Spark in the Azure Synapse Analytics notebook:
 

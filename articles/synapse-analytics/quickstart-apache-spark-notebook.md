@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Apache Spark notebook'
+title: 'Quickstart: Create an Apache Spark for Azure Synapse Analytics notebook'
 description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
 services: synapse-analytics
 author: euangMS

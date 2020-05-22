@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting  
+title: Troubleshooting Synapse SQL
 description: Troubleshooting Synapse SQL in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
