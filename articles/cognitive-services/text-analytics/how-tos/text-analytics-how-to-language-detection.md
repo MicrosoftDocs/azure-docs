@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Example: Detect language with Text Analytics
 
-The [Language Detection](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) feature of the Azure Text Analytics REST API evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis.
+The [Language Detection](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) feature of the Azure Text Analytics REST API evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis.
 
 This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language is used in the input document. The response also returns a score that reflects the confidence of the model. The score value is between 0 and 1.
 
@@ -62,7 +62,7 @@ The document size must be under 5,120 characters per document. You can have up t
 
 For more information on request definition, see [Call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a POST request. To review the API documentation for this request, see the [Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
++ Create a POST request. To review the API documentation for this request, see the [Language Detection API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages).
 
 + Set the HTTP endpoint for language detection. Use either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v3.0/languages` in the URL. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`.
 
@@ -71,7 +71,7 @@ For more information on request definition, see [Call the Text Analytics API](te
 + In the request body, provide the JSON documents collection you prepared for this analysis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) to structure a request and POST it to the service.
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) to structure a request and POST it to the service.
 
 ## Step 2: POST the request
 
@@ -181,7 +181,7 @@ The service now has additional context to make a better judgment:
                     {
                         "name": "English",
                         "iso6391Name": "en",
-                        "ConfidenceScore": 1
+                        "confidenceScore": 1
                     }
                 ]
             },
@@ -191,7 +191,7 @@ The service now has additional context to make a better judgment:
                     {
                         "name": "French",
                         "iso6391Name": "fr",
-                        "ConfidenceScore": 1
+                        "confidenceScore": 1
                     }
                 ]
             }
@@ -209,7 +209,7 @@ If the analyzer can't parse the input, it returns `(Unknown)`. An example is if 
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
-                "ConfidenceScore": "NaN"
+                "confidenceScore": "NaN"
             }
         ]
     }
@@ -245,7 +245,7 @@ The resulting output consists of the predominant language, with a score of less 
             {
               "name": "Spanish",
               "iso6391Name": "es",
-              "Confidencescore": 0.9375
+              "confidencescore": 0.94
             }
           ]
         }
@@ -258,7 +258,7 @@ The resulting output consists of the predominant language, with a score of less 
 
 In this article, you learned concepts and workflow for language detection by using Text Analytics in Azure Cognitive Services. The following points were explained and demonstrated:
 
-+ [Language detection](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is available for a wide range of languages, variants, dialects, and some regional or cultural languages.
++ [Language detection](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) is available for a wide range of languages, variants, dialects, and some regional or cultural languages.
 + JSON documents in the request body include an ID and text.
 + The POST request is to a `/languages` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
 + Response output consists of language identifiers for each document ID. The output can be streamed to any app that accepts JSON. Example apps include Excel and Power BI, to name a few.
