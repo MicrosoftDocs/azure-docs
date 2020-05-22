@@ -73,7 +73,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 > The examples below do not include error handling for brevity. In real world, it is strongly recommended to wrap service calls in a try/catch block.
 
 > [!Tip]
-> There is a client-side library that lets you parse and validate DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, for example to generate UI elements. 
+> There is a [client-side library that lets you parse and validate DTDL](./how-to-use-parser.md). It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, for example to generate UI elements. 
 
 ## Upload models
 
