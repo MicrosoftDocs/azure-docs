@@ -11,11 +11,11 @@ This article covers all necessary resource creation and configuration steps.
 
 ## Create an Azure Media Service account
 
-In order to use Live Video Analytics, you will need to have a Media Services account. Following are the regions where Live Video Analytics is supported: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
+In order to use Live Video Analytics, you will need to have a Media Services account. <!--Following are the regions where Live Video Analytics is supported: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.-->
 
 You can use the Azure CLI to create an account using the instructions provided here. You are recommended to use General-purpose v2 (GPv2) Storage accounts.
 
-Alternatively, you can make use of ARM templates at <TODO: add link to the setupLVAresources script and template JSON when it is public>.
+<!--Alternatively, you can make use of ARM templates at <TODO: add link to the setupLVAresources script and template JSON when it is public-->.
 
 ### Set up a Premium streaming endpoint
 
@@ -36,7 +36,7 @@ For more information, see [Get credentials to access Media Services API](../late
 
 Live Video Analytics will run on a Linux VM with Ubuntu 18.04 LTS (recommended), or Ubuntu 16.04. 
 
-<!--Note: We are working on support for other architectures. TODO: add link to UserVoice to get votes for ARM or Raspberry Pi or …-->
+<!-- TODO: add link to UserVoice to get votes for Azure Resource Manager or Raspberry Pi or …-->
 
 ### Prerequisites
 
