@@ -71,10 +71,10 @@ landingContent:
         links:
           - text: Get started
             url: get-started-how-to.md
-          - text: Manage recording policy
-            url: manage-recording-policy-how-to.md
+          - text: Manage retention policy
+            url: manage-retention-policy-how-to.md
           - text: Playback a recording 
-            url: playback-recording-how-to.md
+            url: playback-recordings-how-to.md
       - linkListType: reference
         links:
           - text: Direct methods
