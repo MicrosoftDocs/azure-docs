@@ -81,8 +81,8 @@
   items:
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates
