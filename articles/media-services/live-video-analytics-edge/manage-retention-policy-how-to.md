@@ -40,13 +40,13 @@ The above rule:
 * Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 * And when blobs age beyond 90 days, they are to be deleted.
 
-Since Live Video Analytics archives your video in specified units of time <!--(see segmentLengthSeconds in the [Direct Method](direct-methods.md) article)-->, your asset will contain a series of blobs, one blob per segment. When Lifecycle management policy kicks in and deletes older blobs, you will continue to be able to access and playback the remaining blobs via Media Service APIs. For more information, see [playback recordings](playback-recordings-how-to.md). 
+Since Live Video Analytics archives your video in specified units of time, <!--(see segmentLengthSeconds in the [Direct Method](direct-methods.md) article)--> your asset will contain a series of blobs, one blob per segment. When Lifecycle management policy kicks in and deletes older blobs, you will continue to be able to access and playback the remaining blobs via Media Service APIs. For more information, see [playback recordings](playback-recordings-how-to.md). 
 
 ## Limitations
 
 Following are some known limitations with lifecycle management:
 
-* You can have at most 100 rules within the policy, and each rule can specify up to 10 containers. So if you needed to have different retention policies (eg. 3-day archive for the camera facing the parking lot, 30 days for the camera in the loading dock, and 180 days for the camera behind the checkout counter), then with one Media Service account you can customize the rules for at most 1000 cameras.
+* You can have at most 100 rules within the policy, and each rule can specify up to 10 containers. So if you needed to have different retention policies (for example, 3-day archive for the camera facing the parking lot, 30 days for the camera in the loading dock, and 180 days for the camera behind the checkout counter), then with one Media Service account you can customize the rules for at most 1000 cameras.
 * Lifecycle management policy updates are not immediate. See [this FAQ section](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal#faq) for more details.
 * If you choose to apply a policy where blobs get moved to the cool tier, then playback of that portion of the archive may be affected. You may see additional latencies, or sporadic errors. Media Services does not support playback of content in the archive tier.
 
