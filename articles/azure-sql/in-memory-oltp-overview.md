@@ -105,7 +105,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### Data size and storage cap for In-Memory OLTP
 
-In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
+In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in SQL Database, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
 
 Each supported single database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage.
 
@@ -143,7 +143,7 @@ But downgrading the tier can negatively impact your database. The impact is espe
 
 Before you downgrade the database to General Purpose, Standard, or Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
 
-*Scaling-down resources in Business Critical tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the tier of the database or Managed Instance, or it is available in the elastic pool. If you try to scale-down the tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation fails.
+*Scaling-down resources in Business Critical tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the tier of the database or the managed instance, or it is available in the elastic pool. If you try to scale-down the tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation fails.
 
 ## In-memory columnstore
 
@@ -177,7 +177,7 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
 > [!Note]
-> Managed Instance supports ColumnStore indexes in all tiers.
+> SQL Managed Instance supports ColumnStore indexes in all tiers.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
