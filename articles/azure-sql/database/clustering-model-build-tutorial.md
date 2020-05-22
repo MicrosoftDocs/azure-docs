@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Tutorial: Build a clustering model in R with Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In part two of this three-part tutorial series, you'll build a K-Means model in R to perform clustering. In the next part of this series, you'll deploy this model in a SQL database with Azure SQL Database Machine Learning Services (preview).
 

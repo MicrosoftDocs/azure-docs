@@ -52,7 +52,7 @@ To build the JAR files and get started with the sample project, do the following
 
     ![Progress-java][5]
 
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 To add the client library to your own Maven project, add the following dependency in your POM file:
 
@@ -89,7 +89,7 @@ To download and run the sample, follow these steps:
 
    ![Progress][4]
 
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
 > We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

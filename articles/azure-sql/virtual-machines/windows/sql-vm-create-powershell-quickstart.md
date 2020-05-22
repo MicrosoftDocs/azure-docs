@@ -1,6 +1,6 @@
 ---
-title: Create a SQL Server Windows VM with Azure PowerShell | Microsoft Docs
-description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine with Azure PowerShell.
+title: Create SQL Server on a Windows virtual machine with Azure PowerShell | Microsoft Docs
+description: This tutorial shows how to use Azure PowerShell to create a Windows virtual machine running SQL Server 2017.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,10 +16,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 
-# Quickstart: Create a SQL Server Windows virtual machine with Azure PowerShell
+# Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This quickstart steps through creating a SQL Server virtual machine with Azure PowerShell.
+This quickstart steps through creating a SQL Server virtual machine (VM) with Azure PowerShell.
 
 > [!TIP]
 > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](create-sql-vm-powershell.md).
@@ -42,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    Connect-AzAccount
    ```
 
-1. You should see a screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
+1. When you see the sign-in window, enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 ## Create a resource group
 
@@ -173,7 +174,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 1. In the **Connect to Server** dialog box, keep the defaults. The server name is the name of the VM. Authentication is set to **Windows Authentication**. Select **Connect**.
 
-You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](ways-to-connect-to-sql.md) from the portal or manually.
+You're now connected to SQL Server locally. If you want to connect remotely, you must [configure connectivity](ways-to-connect-to-sql.md) from the Azure portal or manually.
 
 ## Clean up resources
 

@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add an Azure SQL Database to a failover group
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example creates a single database, creates a failover group, adds the database to it, and tests failover.
 

@@ -12,6 +12,7 @@ ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ---
 # Tutorial: Design a relational database in Azure SQL Database using SSMS
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
 Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to:
