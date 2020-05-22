@@ -196,10 +196,10 @@ When the Media Graph is instantiated, the RTSP Source node attempts to connect t
 
 Note the following:
 
-1. The "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the RTSP Source node.
-1. "eventType" in applicationProperties indicates that this is a Diagnostics event
-1. "eventTime" indicates the time when the event occurred.
-1. "body" contains data about the diagnostic event - it's the SDP message
+* The "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the RTSP Source node.
+* "eventType" in applicationProperties indicates that this is a Diagnostics event
+* "eventTime" indicates the time when the event occurred.
+* "body" contains data about the diagnostic event - it's the SDP message
 
 Write down the eventTime – this is the time that the traffic video (MKV file) started to arrive into the module as a live stream.
 
