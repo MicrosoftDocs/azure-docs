@@ -76,7 +76,7 @@
         href: samples/resource-manager-action-groups.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
-    - name: Log Anaytics workspaces
+    - name: Log Analytics workspaces
       href: samples/resource-manager-workspace.md
     - name: Log queries
       href: samples/resource-manager-log-queries.md
