@@ -160,7 +160,7 @@ In the media graph ([shown in the overview](#overview)), the results from the Ht
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. For more information, see [telemetry](telemetry-schema.md).
+In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. For more information, see [Monitoring and logging](monitoring-logging.md).
 
 ### Connection Established event
 
