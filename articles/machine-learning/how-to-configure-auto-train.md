@@ -199,7 +199,7 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**|
 |`"featurization": 'off'`| Indicates featurization step should not be done automatically.|
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-feature-engineering).|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,

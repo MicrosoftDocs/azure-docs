@@ -19,13 +19,13 @@ ms.custom: seodec18
 
 In this guide, learn what featurization settings are offered, and how to customize them for your [automated machine learning](concept-automated-ml.md) experiments with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py).
 
-Featurization is the process used to determine which features in your data are the most relevant and important for training your ML models. In automated machine learning, this process includes feature engineering to create features that improve the prediction power of your ML model.  
+Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, data scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization in automated machine learning experiments
 
-This article assumes you are already familiar with [how to configure an automated machine learning experiment](how-to-configure-auto-train.md) 
+This article assumes you are already familiar with [how to configure an automated machine learning experiment](how-to-configure-auto-train.md). 
 
 ## Configure featurization
 
-In every automated machine learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These scaling and normalization techniques are types of featurization that help *certain* algorithms that are sensitive to features  on different scales. However, you can also enable additional featurization, such as missing values imputation, encoding, and transforms.
+In every automated machine learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These scaling and normalization techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as missing values imputation, encoding, and transforms.
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -68,7 +68,9 @@ The following table summarizes the techniques that are automatically applied to 
 
 Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
 
-Users can review data guardrails in the studio within the **Data guardrails** tab of an automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK.
+Users can review data guardrails
+* In the studio on the **Data guardrails** tab of an automated ML run.
+* By setting ```show_output=True``` when submitting an experiment with the Python SDK.
 
 ### Data guardrail states
 
@@ -94,11 +96,11 @@ Class balancing detection |**Passed** <br><br><br><br> **Alerted** | Your inputs
 Memory issues detection |**Passed** <br><br><br><br> **Done** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
 Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series was analyzed and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
 
-## Customize feature engineering
+## Customize featurization
 
-You can customize your feature engineering,  and therefore featurization, settings to ensure that the data and features used to train your ML model results in relevant predictions. 
+You can customize your featurization settings to ensure that the data and features used to train your ML model result in relevant predictions. 
 
-To customize feature engineering, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you are using the Azure Machine Learning studio for your experiment, see [these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you are using the Azure Machine Learning studio for your experiment, see [these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customization includes:
 
