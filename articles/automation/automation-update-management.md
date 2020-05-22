@@ -248,4 +248,14 @@ Here are the ways that you can enable Update Management and select machines to b
 
 ## Next steps
 
-[Azure Automation frequently asked questions](automation-faq.md)
+* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* If you need to target a dynamic VM group for updates, see [Use dynamic groups with Update Management](automation-update-management-groups.md).
+* To enable the feature using an Azure Resource Manager template, see [Enable Update Management using Azure Resource Manager template](automation-update-management-deploy-template.md).
+* To enable the feature from a runbook, see [Enable Update Management from a runbook](automation-onboard-solutions.md).
+* To enable the feature from an Automation account, see [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md).
+* To enable the feature by browsing the Azure portal, see [Enable Update Management from Azure portal](automation-onboard-solutions-from-browse.md).
+* To enable the feature from an Azure VM, see [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Query Update Management logs](automation-update-management-query-logs.md).
+* To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
