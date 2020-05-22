@@ -33,11 +33,15 @@ Also before you start, install [Visual Studio 2019](https://visualstudio.microso
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
-[!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
+## Prepare an Azure Digital Twins instance
 
-#### Register your application
+To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
 
-[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
+
+Otherwise, you can either:
+* Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). Also, set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
 
 [!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
