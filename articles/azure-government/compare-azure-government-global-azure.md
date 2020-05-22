@@ -98,7 +98,7 @@ For the most current list of services, see the [Products available by region](ht
 * [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs)
 * [Azure Notification Hubs](documentation-government-services-iot-hub.md#azure-notification-hubs) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us)).
 
-## Enterprise Integration
+## Integration Services
 
 * [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)
 * [Service Bus](documentation-government-networking.md#support-for-service-bus)

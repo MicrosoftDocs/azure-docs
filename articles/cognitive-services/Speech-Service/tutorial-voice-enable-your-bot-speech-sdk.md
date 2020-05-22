@@ -174,7 +174,7 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
 The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy a bot, but in this tutorial we'll focus on publishing directly from Visual Studio.
 
 > [!NOTE]
-> Alternatively, you can deploy a bot using the [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
+> Alternatively, you can deploy a bot using the [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
 1. From Visual Studio, open the Echo Bot that's been configured for use with Direct Line Speech channel:
 
@@ -385,7 +385,7 @@ In the Windows Voice Assistant Client source code, take a look at these files to
 
 ## (Optional) Change the language and bot voice
 
-The bot that you've created will listen for and respond in English, with a default American English text-to-speech voice. However, you're not limited to using English, or a default voice. In this section, you'll learn how to change the language that your bot will listen for and respond in. You will also learn how to select a different voice for that language.
+The bot that you've created will listen for and respond in English, with a default US English text-to-speech voice. However, you're not limited to using English, or a default voice. In this section, you'll learn how to change the language that your bot will listen for and respond in. You will also learn how to select a different voice for that language.
 
 ### Change the language
 
