@@ -19,21 +19,13 @@ This tutorial will guide you through all the basic steps needed to setup and use
 
 * Open the [Azure portal](https://portal.azure.com)
 * Create a new storage account with the following settings:
-    * In the **Basics** tab
-
-    |Setting | Suggested value | Description |
-    |---|---|---|
-    |**Storage account name**| You can give it any name.|In this document, we'll refer to it as `contosolake`.
-    |**Account kind**|Must be set to `StorageV2`||
-    |**Location**|You can pick any location| We recommend your Synapse workspace and Azure Data Lake Storage (ADLS) Gen2 account are in the same region.|
-    ||||
-
-    * In the **Advanced** tab
-
-    |Setting | Suggested value | Description |
-    |---|---|---|
-    |**Data Lake Storage Gen2**|`Enabled`| Azure Synapse only works with storage accounts where this setting is enabled.|
-    ||||
+    |Tab|Setting | Suggested value | Description |
+    |---|---|---|---|
+    |Basics|**Storage account name**| You can give it any name.|In this document, we'll refer to it as `contosolake`.|
+    |Basics|**Account kind**|Must be set to `StorageV2`||
+    |Basics|**Location**|You can pick any location| We recommend your Synapse workspace and Azure Data Lake Storage (ADLS) Gen2 account are in the same region.|
+    |Advanced|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse only works with storage accounts where this setting is enabled.|
+    |||||
 
 * Once the storage account is created, make these role assignments or ensure they are already assigned. While in the storage account, select **Access control (IAM)** from the left navigation.
     * Assign yourself to the **Owner** role on the storage account
@@ -44,14 +36,13 @@ This tutorial will guide you through all the basic steps needed to setup and use
 
 * Open the [Azure portal](https://portal.azure.com) and at the top search for `Synapse`.
 * In the search results under **Services**, select **Azure Synapse Analytics (workspaces preview)**
-* Select **+ Add**
-* **Basics** tab:
+* Select **+ Add** to create a new workspace with these settings
 
-    |Setting | Suggested value | Description |
-    |---|---|---|
-    |**Workspace name**|You can call it anything.| In this document, we will use `myworkspace`
-    |**Region**|Match the region of the storage account||
-    |||
+    |Tab|Setting | Suggested value | Description |
+    |---|---|---|---|
+    |Basics|**Workspace name**|You can call it anything.| In this document, we will use `myworkspace`|
+    |Basics|**Region**|Match the region of the storage account|
+    ||||
 
 * Under **Select Data Lake Storage Gen 2** select the account and container you previously created
 
@@ -85,6 +76,7 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
     |---|---|---|
     |**SQL pool name**| `SQLDB1`|
     |**Performance level**|`DW100C`|
+    |||
 * Select **Review+create** and then select **Create**.
 * Your pool will be ready in a few minutes.
 
