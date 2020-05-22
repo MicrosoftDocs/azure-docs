@@ -178,7 +178,8 @@ When you're ready to configure the lead management information for your offer in
 1. Go to the **Offer setup** page for your offer.
 
 1. Under the **Customer leads** section, select **Connect**.
-     ![Lead management](./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png)
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Customer leads":::
 
 1. In the **Connection details** pop-up window, select **Azure Table** for the **Lead destination**. 
      ![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -67,7 +67,7 @@ When you're ready to configure the lead management information for your offer in
 
 1. Under the **Customer leads** section, select **Connect**.
 
-    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Customer leads":::
 
 1. On the **Connection details** pop-up window, select **Salesforce** for the **Lead destination** and paste the `oid` value from the Web-to-Lead Form you created into the **Organization identifier** field.
 
