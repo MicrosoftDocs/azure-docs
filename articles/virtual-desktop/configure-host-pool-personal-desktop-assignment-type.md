@@ -6,7 +6,7 @@ author: HeidiLohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -66,6 +66,18 @@ To assign a user to a specific session host, run the following PowerShell cmdlet
 ```powershell
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
+
+## Remove a user assignment
+
+You may want to remove a user assignment either because the user no longer needs the personal desktop, the user has left the company, or you want to reuse the desktop for someone else.
+
+Currently the only way you can remove the user assignment for a personal desktop is to fully remove the session host. To remove the session host, run this cmdlet:
+
+```powershell
+Remove-AzWvdSessionHost
+```
+
+If you need to add the session host back into the personal desktop host pool, uninstall Windows Virtual Desktop on that machine, then follow the steps in [Create a host pool with PowerShell](create-host-pools-powershell.md) to re-register the session host.
 
 ## Next steps
 
