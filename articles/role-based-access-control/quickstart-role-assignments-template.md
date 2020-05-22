@@ -117,16 +117,19 @@ To remove the role assignment and resource group you created, follow these steps
 1. Copy and paste the following script into Cloud Shell.
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter a resource group name (i.e. ExampleGrouprg)"
-    $emailAddress = Read-Host -Prompt "Enter an email address for a user in your directory"
+    $emailAddress = Read-Host -Prompt "Enter the email address of the user with the role assignment to remove"
+    $resourceGroupName = Read-Host -Prompt "Enter the resource group name to remove (i.e. ExampleGrouprg)"
     
     $principalId = (Get-AzAdUser -Mail $emailAddress).id
     Remove-AzRoleAssignment -ObjectId $principalId -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName $resourceGroupName
-    
     Remove-AzResourceGroup -Name $resourceGroupName
     ```
     
-1. Enter the resource group name.
+1. Enter the email address of the user with the role assignment to remove.
+
+1. Enter the resource group name to remove such as ExampleGrouprg.
+
+1. If necessary, press Enter to run the Remove-AzResourceGroup command.
 
 1. Enter **Y** to confirm that you want to remove the resource group.
 
