@@ -75,7 +75,7 @@ Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -Assigned
 
 You may want to remove a user assignment either because the user no longer needs the personal desktop, the user has left the company, or you want to reuse the desktop for someone else.
 
-Currently the only way you can remove the user assignment for a personal desktop is to fully remove the session host. To remove the session host, run this cmdlet:
+Currently, the only way you can remove the user assignment for a personal desktop is to fully remove the session host. To remove the session host, run this cmdlet:
 
 ```powershell
 Remove-RdsSessionHost
