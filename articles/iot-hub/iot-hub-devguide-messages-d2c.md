@@ -35,6 +35,11 @@ If your custom endpoint has firewall configurations, consider using the Microsof
 
 IoT Hub currently supports the following endpoints:
 
+ - Built-in endpoint
+ - Azure Storage
+ - Service Bus Queues and Service Bus Topics
+ - Event Hubs
+
 ### Built-in endpoint
 
 You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint.
