@@ -1,7 +1,7 @@
 ---
-title: Customize features for auto ML experiments
+title: Feature engineering for auto ML experiments
 titleSuffix: Azure Machine Learning
-description: Customize and define advanced featurization options for your automated ml experiments with the Azure Machine Learning SDK.
+description: Learn what feature engineering options Azure Machine Learning offers with automated ml experiments.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -17,20 +17,11 @@ ms.custom: seodec18
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this guide, learn what feature engineering settings are offered and how to customize them for your automated machine learning experiments with the Azure Machine Learning Python SDK.
+In this guide, learn what featurization settings are offered, and how to customize them for your [automated machine learning](concept-automated-ml.md) experiments with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py).
 
-Featurization, or feature engineering, 
+Featurization is the process used to determine which features in your data are the most relevant and important for training your ML models. In automated machine learning, this process includes feature engineering to create features that improve the prediction power of your ML model.  
 
-## Prerequisites
-
-This article assumes you are already familiar with how to configure an automated machine learning experiment with the default featurization settings.
-
-   * For code experience customers: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-configure-auto-train.md).
-    * For low/no code experience customers: [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
-
-See these introductory examples of automated machine learning experiments,
-* [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md)
-* [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
+This article assumes you are already familiar with [how to configure an automated machine learning experiment](how-to-configure-auto-train.md) 
 
 ## Configure featurization
 
@@ -47,7 +38,7 @@ In your `AutoMLConfig` object, you can enable/disable the setting `featurization
 The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Featurization Configuration | Description 
- ------------- | ------------- 
+------------- | ------------- 
 `"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.
 `"featurization": 'off'`| Indicates featurization step should not be done automatically.
 `"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-feature-engineering).|
@@ -56,7 +47,7 @@ Featurization Configuration | Description
 
 ## Automatic featurization
 
-The following table summarizes the techniques that are automatically applied to your data, that is by default or when `"featurization": 'auto'` is specified in your `AutoMLConfig` object.
+The following table summarizes the techniques that are automatically applied to your data by default or when `"featurization": 'auto'` is specified in your `AutoMLConfig` object.
 
 > [!NOTE]
 > If you plan to export your auto ML created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an * are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). 
@@ -75,7 +66,7 @@ The following table summarizes the techniques that are automatically applied to 
 
 ## Data guardrails
 
- Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
+Data guardrails help you identify potential issues with your data (e.g., missing values, [class imbalance](concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)) and help take corrective actions for improved results. Data guardrails are applied when `"featurization": 'auto'` is specified or validation is set to `auto` in your `AutoMLConfig` object.
 
 Users can review data guardrails in the studio within the **Data guardrails** tab of an automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK.
 
@@ -105,9 +96,9 @@ Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series 
 
 ## Customize feature engineering
 
-Custom feature engineering gives you the flexibility to identify features from raw data that help facilitate the machine learning process. Allowing you to increase the predictive power of machine learning algorithms with transparency and flexibility. 
+You can customize your feature engineering,  and therefore featurization, settings to ensure that the data and features used to train your ML model results in relevant predictions. 
 
-To customize feature engineering, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object
+To customize feature engineering, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you are using the Azure Machine Learning studio for your experiment, see [these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customization includes:
 

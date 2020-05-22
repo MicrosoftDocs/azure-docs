@@ -226,7 +226,7 @@ See this article for steps on how to create a Power BI supported schema to facil
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
-+ Learn more about [featurization](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
 + Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
