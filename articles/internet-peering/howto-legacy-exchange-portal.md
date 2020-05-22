@@ -21,7 +21,7 @@ If you prefer, you can complete this guide by using [PowerShell](howto-legacy-ex
 
 ## Convert a legacy Exchange peering to an Azure resource
 
-As an Internet Exchange Provider, you can create a direct peering request by [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
+As an Internet Exchange Provider, you can create a exchange peering request by [Creating a Peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
 1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
 
