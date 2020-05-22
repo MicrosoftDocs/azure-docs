@@ -37,7 +37,7 @@ To add a role assignment, you must specify three elements: security principal, r
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). The template has three parameters and a resources section. In the resources section, notice that it has the three elements of a role assignment: security principal, role definition, and scope. 
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" range="1-40" highlight="30-33":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-33":::
 
 ### Deploy the template
 
