@@ -54,7 +54,7 @@ Pool allocation failures can happen at any point during first allocation or subs
 
 It's possible for Batch pools to experience downtime events in Azure. Keep this in mind when planning and developing your scenario or workflow for Batch.
 
-In the case that a node fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger rescheduling any running task on the node that is recovered. See [Designing for retries](#designing-for-retries-and-re-execution) to learn more about interrupted tasks.
+In the case that a node fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger rescheduling any running task on the node that is recovered. See [Designing for retries](#design-for-retries-and-re-execution) to learn more about interrupted tasks.
 
 ### Azure region dependency
 
@@ -64,13 +64,13 @@ It's advised to not depend on a single Azure region if you have a time-sensitive
 
 A [job](jobs-and-tasks.md#jobs) is a container designed to contain hundreds, thousands, or even millions of tasks. Follow these guidelines when creating jobs.
 
-## Fewer jobs, more tasks
+### Fewer jobs, more tasks
 
 Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. Running 1000 jobs, each with a single task, would be the least efficient, slowest, and most expensive approach to take.
 
 Because of this, make sure not to design a Batch solution that requires thousands of simultaneously active jobs. There is no quota for tasks, so executing many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
 
-## Job lifetime
+### Job lifetime
 
 A Batch job has an indefinite lifetime until it's deleted from the system. Its state designates whether it can accept more tasks for scheduling or not.
 
@@ -135,11 +135,11 @@ Sometimes there is a need to run another agent alongside the Batch agent in the 
 
 When running these services, they must not take file locks on any files in Batch-managed directories on the node, because otherwise Batch will be unable to delete those directories due to the file locks. For example, if installing a Windows service in a start task, instead of launching the service directly from the start task working directory, copy the files elsewhere (or if the files exist just skip the copy). Then install the service from that location. When Batch reruns your start task, it will delete the start task working directory and create it again. This works because the service has file locks on the other directory, not the start task working directory.
 
-## Avoid creating directory junctions in Windows
+### Avoid creating directory junctions in Windows
 
 Directory junctions, sometimes called directory hard-links, are difficult to deal with during task and job cleanup. Use symlinks (soft-links) rather than hard-links.
 
-## Collect the Batch agent logs
+### Collect the Batch agent logs
 
 If you notice a problem involving the behavior of a node or tasks running on a node, collect the Batch agent logs prior to deallocating the nodes in question. The Batch agent logs can be collected using the Upload Batch service logs API. These logs can be supplied as part of a support ticket to Microsoft and will help with issue troubleshooting and resolution.
 
