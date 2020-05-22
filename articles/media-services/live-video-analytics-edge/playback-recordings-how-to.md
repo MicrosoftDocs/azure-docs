@@ -234,8 +234,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 As mentioned above, these filters help you select portions of your recording (for example, from 9AM to 11AM on New Years Day) for playback. When streaming via HLS, the streaming URL would look like `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8`. In order to select a portion of your recording, you would add a startTime and an endTime parameter, such as: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8`. Thus, the time range filters are URL modifiers used to describe the portion of the recording’s timeline that is included in the streaming manifest:
 
-* starttime is an ISO 8601 DateTime stamp that describes the desired start time of the video timeline in the returned manifest.
-* endtime is an ISO 8601 DateTime stamp that describes the desired end time of the video timeline returned in the manifest.
+* `starttime` is an ISO 8601 DateTime stamp that describes the desired start time of the video timeline in the returned manifest.
+* `endtime` is an ISO 8601 DateTime stamp that describes the desired end time of the video timeline returned in the manifest.
 
 The maximum length (in time) of such a manifest cannot exceed 24 hours.
 

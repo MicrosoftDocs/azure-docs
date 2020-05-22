@@ -56,13 +56,13 @@ landingContent:
           - text: Detect motion, record video clips to Azure Media Services
             url: detect-motion-record-video-clips-media-services-quickstart.md
           - text: Detect motion, record video to edge devices
-            url: detect-motion-record-video-edge-device-quickstart.md
+            url: detect-motion-record-video-clips-edge-devices-quickstart.md
       - linkListType: tutorial
         links:
           - text: Continuous video recording  
             url: continuous-video-recording-tutorial.md
-          - text: Event-based video recording  
-            url: event-based-video-recording-tutorial.md  
+      #    - text: Event-based video recording  
+       #     url: event-based-video-recording-tutorial.md  
 
   # Card
   - title: Develop 
