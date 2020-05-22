@@ -191,7 +191,7 @@ interval of at least 5 minutes. Automatic retry capabilities are provided with v
 
 Consider the following dependenices and restrictions when designing your Batch solutions.
 
-### Maintain system-created resources
+### System-created resources
 
 Azure Batch creates and manages a set of users and groups on the VM, which should not be altered. They are as follows:
 
@@ -206,6 +206,6 @@ Azure Batch creates and manages a set of users and groups on the VM, which shoul
 
 ### File cleanup
 
-Batch actively tries to clean up the working directory that tasks are run in, once their retention time expires. Any files written outside of this directory are [your responsibility to clean up](#manage-task-lifetime to avoid filling up diesk space. 
+Batch actively tries to clean up the working directory that tasks are run in, once their retention time expires. Any files written outside of this directory are [your responsibility to clean up](#manage-task-lifetime) to avoid filling up disk space. 
 
 The automated cleanup for the working directory will be blocked if you run a service on Windows from the startTask working directory, due to the folder still being in use. This will result in degraded performance. To fix this, change the directory for that service to a separate directory that isn't managed by Batch.
