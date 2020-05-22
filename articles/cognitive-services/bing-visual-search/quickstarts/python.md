@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 05/22/2020
 ms.author: scottwhi
 ---
 
@@ -40,7 +40,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     imagePath = 'your-image-path'
     ```
     
-3. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+3. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to the file name of your image. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -51,13 +51,13 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     --boundary_1234-abcd--
     ```
 
-4. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`:
+4. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`.
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-5. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
+5. Create another dictionary to contain your image, which is opened and uploaded when you send the request.
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -65,7 +65,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
 
 ## Parse the JSON response
 
-Create a method called `print_json()` to accept the API response, and print the JSON:
+Create a method called `print_json()` to accept the API response, and print the JSON.
 
 ```python
 def print_json(obj):
@@ -75,7 +75,7 @@ def print_json(obj):
 
 ## Send the request
 
-Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
+Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`.
 
 ```python
 try:

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
@@ -232,7 +232,7 @@ resp, err := client.Do(req)
 
 ## Handle the response
 
-The `Unmarshall` function extracts information from the JSON text returned by the Visual Search API. The `go-spew` pretty printer displays the results:
+The `Unmarshall` function extracts information from the JSON text returned by the Visual Search API. The `go-spew` pretty printer displays the results.
 
 ```go
 	// Create a new answer.  
@@ -255,7 +255,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 
 ## Results
 
-The results identify images similar to the image contained in the POST body. The useful fields are `WebSearchUrl` and `Name`:
+The results identify images similar to the image contained in the POST body. The useful fields are `WebSearchUrl` and `Name`.
 
 ```go
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {

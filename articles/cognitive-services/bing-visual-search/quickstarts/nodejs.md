@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 05/22/2020
 ms.author: scottwhi
 ---
 
@@ -35,7 +35,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -43,7 +43,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     var imagePath = "path-to-your-image";
     ```
 
-3. Create a function named `requestCallback()` to print the response from the API:
+3. Create a function named `requestCallback()` to print the response from the API.
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -53,7 +53,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
 
 ## Construct and send the search request
 
-1. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+1. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to the file name of your image. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
 
    ```
    --boundary_1234-abcd
@@ -64,14 +64,14 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
    --boundary_1234-abcd--
    ```
 
-2. Create a new `FormData` object with `FormData()`, and append your image path to it by using `fs.createReadStream()`:
+2. Create a new `FormData` object with `FormData()`, and append your image path to it by using `fs.createReadStream()`.
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-3. Use the request library to upload the image, and call `requestCallback()` to print the response. Add your subscription key to the request header:
+3. Use the request library to upload the image, and call `requestCallback()` to print the response. Add your subscription key to the request header.
 
     ```javascript
     form.getLength(function(err, length){

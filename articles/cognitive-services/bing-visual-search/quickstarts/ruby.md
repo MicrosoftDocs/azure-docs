@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
@@ -26,9 +26,9 @@ Use this quickstart to make your first call to the Bing Visual Search API using 
 
 ## Project and required modules
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which encodes the file name string: 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. Import the `base64` library, which encodes the file name string. 
 
-```
+```ruby
 require 'net/https'
 require 'uri'
 require 'json'
@@ -44,7 +44,7 @@ The following code declares the main function and assigns the required variables
 3. For `fileName`, assign the image file to use for the POST. 
 4. Use an `if` block to test for a valid subscription key.
 
-```
+```ruby
 accessKey = "ACCESS-KEY"
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/images/visualsearch"
@@ -63,7 +63,7 @@ end
 
 1. Enclose the image data to POST by leading and trailing boundaries. The following functions set the boundaries:
 
-   ```
+   ```ruby
    def BuildFormDataStart(batNum, fileName)
        startBoundary = "--batch_" + batNum
        return startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + "\"" + fileName + "\"" + "\r\n\r\n"	
@@ -74,9 +74,9 @@ end
    end
    ```
 
-2. Construct the endpoint URI and an array to contain the POST body. Use the previous function to load the start boundary into the array. Read the image file into the array, and then read the end boundary into the array:
+2. Construct the endpoint URI and an array to contain the POST body. Use the previous function to load the start boundary into the array. Read the image file into the array, and then read the end boundary into the array.
 
-   ```
+   ```ruby
    uri = URI(uri + path)
    print uri
    print "\r\n\r\n"
@@ -92,9 +92,9 @@ end
 
 ## Create the HTTP request
 
-Set the `Ocp-Apim-Subscription-Key` header. Create the request, and then assign the header and content type. Join the POST body you created previously to the request:
+Set the `Ocp-Apim-Subscription-Key` header. Create the request, and then assign the header and content type. Join the POST body you created previously to the request.
 
-```
+```ruby
 header = {'Ocp-Apim-Subscription-Key': accessKey}
 request = Net::HTTP::Post.new(uri)  # , 'ImageKnowledge' => 'ImageKnowledge'
 
@@ -108,7 +108,7 @@ request.body = post_body.join
 
 Ruby sends the request and gets the response with the following code:
 
-```
+```ruby
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
    http.request(request)
 end
@@ -117,9 +117,9 @@ end
 
 ## Print the results
 
-Print the headers of the response, and use the JSON library to format output:
+Print the headers of the response, and use the JSON library to format the output:
 
-```
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
@@ -136,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 The following JSON is a segment of the output:
 
-```
+```JSON
 Relevant Headers:
 
 bingapis-traceid: 6E19E78D4FEC4A61AB4F85977EEDB8E6
