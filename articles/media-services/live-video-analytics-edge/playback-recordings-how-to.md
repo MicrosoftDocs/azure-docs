@@ -9,15 +9,15 @@ ms.date: 04/27/2020
 
 ## Pre-read  
 
-* Concept link on video playback
-* Continuous video recording
-* Event-based video recording
+* [Video playback](video-playback-concept.md)
+* [Continuous video recording](continuous-video-recording-concept.md)
+* [Event-based video recording](event-based-video-recording-concept.md)
 
 ## Background  
 
 You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
-Your Media Service  account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service Asset. Media Services allows you to stream that content, either after the recording is complete, or while the recording is ongoing. Media Services provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Media Service APIs to generate the requisite streaming URLs – used by clients to play back the video & audio. To construct the streaming URL for an Asset, see this article. Once the streaming URL has been created for an Asset, you can and should store the association of the URL with the video source (that is, camera) in your content management system.
+Your Media Service  account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [Media Service asset](terminology.md#asset). Media Services allows you to [stream that content](terminology.md#streaming), either after the recording is complete, or while the recording is ongoing. Media Services provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). <!-- (TODO: here, link to the concept page on playback-->You would use Media Service APIs to generate the requisite streaming URLs – used by clients to play back the video & audio. To construct the streaming URL for an asset, see [Create a streaming locator and build URLs](../latest/create-streaming-locator-build-url.md). Once the streaming URL has been created for an asset, you can and should store the association of the URL with the video source (that is, camera) in your content management system.
 
 For example, when streaming via HLS, the streaming URL would look like `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8`. For MPEG-DASH, it would look like `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=mpd-time-cmaf).mpd`.
 
