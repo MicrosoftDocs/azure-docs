@@ -1,5 +1,5 @@
 ---
-title: Getting Started with temporal tables
+title: Getting started with temporal tables
 description: Learn how to get started with using temporal tables in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ---
-# Getting Started with temporal tables in Azure SQL Database and Azure SQL Managed Instance
+# Getting started with temporal tables in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Temporal tables are a programmability feature of Azure SQL Database and Azure SQL Managed Instance that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of temporal tables allows for efficient time-based analysis and getting insights from data evolution.
