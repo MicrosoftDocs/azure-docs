@@ -170,9 +170,9 @@ and Windows performance counters.
 
 ![Add counters to the connector with the Performance Monitor](./media/application-proxy-connectors/performance-monitor.png)
 
-The connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details.
+The connectors have both **Admin** and **Session** logs. The **Admin** log includes key events and their errors. The **Session** log includes all the transactions and their processing details.
 
-To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
+To see the logs, go to the **Event Viewer** and go down the path *Applications and Services logs*, *Microsoft*, *AadApplicationProxy* and *Connector*. To make the **Session** log visible, open the **View** menu and enable **Show analytic and debug logs**. The **Session** log is mainly for troubleshooting purposes and it's disabled by default. Enable it to start collecting events and disable it, if you don't need it. 
 
 You can examine the state of the service in the Services window. The connector is made up of two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 
