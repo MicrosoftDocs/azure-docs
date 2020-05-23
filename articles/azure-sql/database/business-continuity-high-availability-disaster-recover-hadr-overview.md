@@ -148,4 +148,4 @@ Sometimes an application must be taken offline because of planned maintenance su
 
 ## Next steps
 
-For a discussion of application design considerations for standalone databases and for elastic pools, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+For a discussion of application design considerations for single databases and for elastic pools, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
