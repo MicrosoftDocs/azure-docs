@@ -1,7 +1,7 @@
 ---
-title: Feature engineering for AutoML experiments
+title: Featurization in autoML experiments
 titleSuffix: Azure Machine Learning
-description: Learn what feature engineering options Azure Machine Learning offers with automated ml experiments.
+description: Learn what featurization  options Azure Machine Learning offers with automated ml experiments.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
