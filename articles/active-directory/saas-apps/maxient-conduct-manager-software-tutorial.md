@@ -66,7 +66,7 @@ Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO t
 To configure and test Azure AD SSO with Maxient Conduct Manager Software, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software
-    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** - to allow everyone at your institution to be able to authenticate.
+    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - to allow everyone at your institution to be able to authenticate.
 1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released
 
 ## Configure Azure AD SSO
