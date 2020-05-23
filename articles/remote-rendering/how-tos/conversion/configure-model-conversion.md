@@ -127,7 +127,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 It is possible to adjust the :::no-loc text="vertex"::: format for a mesh, to trade precision for memory savings. A lower memory footprint allows you to load larger models or achieve better performance. However, depending on your data, the wrong format can significantly impact rendering quality.
 
 > [!CAUTION]
-> Changing the :::no-loc text="Vertex"::: format should be a last resort when models don't fit into memory anymore, or when optimizing for the best possible performance. Changes can easily introduce rendering artifacts, both obvious ones and subtle ones. Unless you know what to look out for, you should not change the default.
+> Changing the :::no-loc text="vertex"::: format should be a last resort when models don't fit into memory anymore, or when optimizing for the best possible performance. Changes can easily introduce rendering artifacts, both obvious ones and subtle ones. Unless you know what to look out for, you should not change the default.
 
 These adjustments are possible:
 
