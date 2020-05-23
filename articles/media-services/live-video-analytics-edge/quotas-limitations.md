@@ -46,11 +46,11 @@ With the Preview release, there are limitations on different nodes can be connec
       * If an asset sink is used, then a file sink cannot be present, or vice versa.
    * Must be immediately downstream from RTSP source or signal gate processor.
 * File sink
-    * Only one file sink is supported per graph (see above note regarding asset sink).
-    * Must be immediately downstream from signal gate processor.
-    * Cannot be immediately downstream of HTTP extension processor, or motion detection processor.
+   * There can be at most one such node per graph topology (see above note regarding asset sink)
+   * Must be immediately downstream from signal gate processor
+   * Cannot be immediately downstream of HTTP extension processor, or motion detection processor
 * IoT Hub Sink
-    * Cannot be immediately downstream of an IoT Hub source.
+   * Cannot be immediately downstream of an IoT Hub Source.
 
 ## Next steps
 
