@@ -48,7 +48,7 @@ The following table includes links to Azure CLI script examples to manage single
 | **Back up, restore, copy, and import a database**||
 | [Back up a database](../../sql-database/scripts/sql-database-backup-database-cli.md)| Backs up a database in SQL Database to an Azure storage backup. |
 | [Restore a database](../../sql-database/scripts/sql-database-restore-database-cli.md)| Restores a database in SQL Database from a geo-redundant backup and restores a deleted database to the latest backup. |
-| [Copy a database to new server](../../sql-database/scripts/sql-database-copy-database-to-new-server-cli.md) | Creates a copy of an existing database in SQL Database in a new server. |
+| [Copy a database to a new server](../../sql-database/scripts/sql-database-copy-database-to-new-server-cli.md) | Creates a copy of an existing database in SQL Database in a new server. |
 | [Import a database from a BACPAC file](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Imports a database to SQL Database from a BACPAC file. |
 |||
 
