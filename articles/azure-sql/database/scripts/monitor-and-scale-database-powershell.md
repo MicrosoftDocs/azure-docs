@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to monitor and scale a database in Azure SQL Database 
+title: Use PowerShell to monitor and scale a single database in Azure SQL Database 
 description: Use an Azure PowerShell example script to monitor and scale a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 
-# Use PowerShell to monitor and scale a database in Azure SQL Database
+# Use PowerShell to monitor and scale a single database in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This PowerShell script example monitors the performance metrics of a database, scales it to a higher compute size, and creates an alert rule on one of the performance metrics.
+This PowerShell script example monitors the performance metrics of a single database, scales it to a higher compute size, and creates an alert rule on one of the performance metrics.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
