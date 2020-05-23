@@ -52,6 +52,12 @@ With the Preview release, there are limitations on different nodes can be connec
 * IoT Hub Sink
    * Cannot be immediately downstream of an IoT Hub Source.
 
+If both motion detection and filter rate processor nodes are used, they should be in the same chain of nodes leading to the RTSP source node.
+
+## Limitations on Media Service operations at preview
+
+At the time of the preview release, the Live Video Analytics on IoT Edge does not support the following:
+
 ## Next steps
 
 [Overview](overview.md)
