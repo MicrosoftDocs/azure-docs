@@ -61,7 +61,7 @@ The rows in a downloaded CSV template are as follows:
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that imports the new users.
 1. When the import operation completes, you'll see a notification of the bulk operation job status.
 
-If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
+If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error. The file submission must match the provided template and include the exact column names.
 
 ## Check status
 

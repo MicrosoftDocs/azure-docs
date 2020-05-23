@@ -33928,6 +33928,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/role-based-access-control/tutorial-role-assignments-user-template.md",
+      "redirect_url": "/azure/role-based-access-control/quickstart-role-assignments-template",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
       "redirect_document_id": false
