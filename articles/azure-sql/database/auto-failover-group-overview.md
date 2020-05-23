@@ -84,7 +84,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group read-write listener**
 
-  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write SQL Database workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
+  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
@@ -176,7 +176,7 @@ A typical Azure application uses multiple Azure services and consists of multipl
 
 ### Preparing for data loss
 
-If an outage is detected, Azure SQL waits for the period you specified by `GracePeriodWithDataLossHours`. The default value is 1 hour. If you cannot afford data loss, make sure to set `GracePeriodWithDataLossHours` to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
+If an outage is detected, Azure waits for the period you specified by `GracePeriodWithDataLossHours`. The default value is 1 hour. If you cannot afford data loss, make sure to set `GracePeriodWithDataLossHours` to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
 
 > [!IMPORTANT]
 > Elastic pools with 800 or fewer DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
@@ -186,7 +186,7 @@ If an outage is detected, Azure SQL waits for the period you specified by `Grace
 To illustrate the change sequence, we will assume that server A is the primary server, server B is the existing secondary server, and server C is the new secondary in the third region.  To make the transition, follow these steps:
 
 1. Create additional secondaries of each database on server A to server C using [active geo-replication](active-geo-replication-overview.md). Each database on server A will have two secondaries, one on server B and one on server C. This will guarantee that the primary databases remain protected during the transition.
-2. Delete the failover group. At this point the logins will be failing. This is because the Azure SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
+2. Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
 3. Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
 4. Add all primary databases on server A to the new failover group.
 5. Drop server B. All databases on B will be deleted automatically.
@@ -197,7 +197,7 @@ To illustrate the change sequence, we will assume server A is the primary server
 
 1. Perform a planned failover to switch the primary server to B. Server A will become the new secondary server. The failover may result in several minutes of downtime. The actual time will depend on the size of failover group.
 2. Create additional secondaries of each database on server B to server C using [active geo-replication](active-geo-replication-overview.md). Each database on server B will have two secondaries, one on server A and one on server C. This will guarantee that the primary databases remain protected during the transition.
-3. Delete the failover group. At this point the logins will be failing. This is because the Azure SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
+3. Delete the failover group. At this point the logins will be failing. This is because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name.
 4. Re-create the failover group with the same name between servers A and C. At this point the logins will stop failing.
 5. Add all primary databases on B to the new failover group.
 6. Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C. As in step 1, the failover may result in several minutes of downtime.
@@ -266,7 +266,7 @@ A typical Azure application uses multiple Azure services and consists of multipl
 
 ### Preparing for data loss
 
-If an outage is detected, Azure SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
+If an outage is detected, a read-write failover is triggered if there is zero data loss, to the best of our knowledge. Otherwise there is a wait for the period you specified by. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
 
 The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell, the entire operation is synchronous. If it is initiated using the Azure portal, the UI will indicate completion status. If it is initiated using the REST API, use standard Azure Resource Manager’s polling mechanism to monitor for completion.
 
@@ -278,7 +278,7 @@ The DNS update of the read-write listener will happen immediately after the fail
 Let's assume that instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new secondary instance in the third region.  To make the transition, follow these steps:
 
 1. Create instance C with same size as A and in the same DNS zone.
-2. Delete the failover group between instances A and B. At this point the logins will be failing because the Azure SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
+2. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
 3. Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with SQL Managed Instance tutorial](../managed-instance/failover-group-add-instance-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 4. Delete instance B if not needed to avoid unnecessary charges.
 
@@ -291,7 +291,7 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 
 1. Create instance C with same size as B and in the same DNS zone.
 2. Connect to instance B and manually failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
-3. Delete the failover group between instances A and B. At this point the logins will be failing because the Azure SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
+3. Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases.
 4. Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](../managed-instance/failover-group-add-instance-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 5. Delete instance A if not needed to avoid unnecessary charges.
 
@@ -317,9 +317,9 @@ If you are using [Virtual Network service endpoints and rules](vnet-service-endp
 > [!NOTE]
 > If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resource in the secondary region so it can connect to the secondary database.
 
-### Using failover groups and SQL Database firewall rules
+### Use failover groups and firewall rules
 
-If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your database in SQL Database or SQL Managed Instance by using the traditional firewall rules. To support automatic failover, follow these steps:
+If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your database in SQL Database by using the traditional firewall rules. To support automatic failover, follow these steps:
 
 1. [Create a public IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Create a public load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) and assign the public IP to it.
