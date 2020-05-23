@@ -49,37 +49,7 @@ The client can call the Locator URL for a camera like this:
 
 Where the precision value can be one of: year, month, day, or full.
 
-<!--
 The following rules apply:
-
-Precision value:	year	month	day	full
-Example query	/availableMedia?precision=year&startTime=2018&endTime=2019
-	/availableMedia?precision=month& startTime=2018-01& endTime=2019-02	/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02	/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123
-Example response (times are in UTC)	{
-  "timeRanges":[{ "start":"2018", "end":"2019" }]
-}	{
-  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]
-}	{
-  "timeRanges":[
-    { "start":"2018-03-01", "end":"2018-03-07" },
-    { "start":"2018-03-09", "end":"2018-03-31" }
-  ]
-}
-
-Above assumes we lost data for the entire day, 2018-03-08.	Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
-Constraints	startTime <= endTime
-Both should be in YYYY format, otherwise return error
-Values can be any number of years apart
-Values are inclusive	startTime <= endTime
-Both should be in YYYY-MM format, otherwise return error
-Values can be at most 12 months apart
-Values are inclusive	startTime <= endTime
-Both should be in YYYY-MM-DD format, otherwise return error
-Values can be at most 31 days apart
-Values are inclusive	startTime < endTime
-Values can be at most 25 hours apart
-Values are inclusive
--->
 
 * All times are in UTC
 * The precision query string parameter is required.  
