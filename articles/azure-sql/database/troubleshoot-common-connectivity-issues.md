@@ -14,12 +14,8 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ---
-<<<<<<< HEAD
-# Troubleshoot transient connection errors
-=======
 
-# Troubleshoot transient connection errors in Azure SQL
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
+# Troubleshoot transient connection errors in SQL Database and SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
@@ -37,13 +33,13 @@ If your client program uses ADO.NET, your program is told about the transient er
 
 ### Connection vs. command
 
-Retry the Azure SQL connection or establish it again, depending on the following:
+Retry the SQL Database and SQL Managed Instance connection or establish it again, depending on the following:
 
 - **A transient error occurs during a connection try**
 
 After a delay of several seconds, retry the connection.
 
-- **A transient error occurs during an Azure SQL query command**
+- **A transient error occurs during a SQL Database and SQL Managed Instance query command**
 
 Do not immediately retry the command. Instead, after a delay, freshly establish the connection. Then retry the command.
 
@@ -58,8 +54,8 @@ Client programs that occasionally encounter a transient error are more robust wh
 ### Principles for retry
 
 - If the error is transient, retry to open a connection.
-- Do not directly retry an Azure SQL `SELECT` statement that failed with a transient error. Instead, establish a fresh connection, and then retry the `SELECT`.
-- When an Azure SQL `UPDATE` statement fails with a transient error, establish a fresh connection before you retry the UPDATE. The retry logic must ensure that either the entire database transaction finished or that the entire transaction is rolled back.
+- Do not directly retry a SQL Database or SQL Managed Instance `SELECT` statement that failed with a transient error. Instead, establish a fresh connection, and then retry the `SELECT`.
+- When a SQL Database or SQL Managed Instance `UPDATE` statement fails with a transient error, establish a fresh connection before you retry the UPDATE. The retry logic must ensure that either the entire database transaction finished or that the entire transaction is rolled back.
 
 ### Other considerations for retry
 
