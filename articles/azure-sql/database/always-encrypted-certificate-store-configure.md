@@ -1,5 +1,5 @@
 ---
-title: Configure Always Encrypted by using Windows certificate store
+title: Configure Always Encrypted by using the Windows certificate store
 description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
@@ -13,19 +13,12 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 04/23/2020
 ---
-<<<<<<< HEAD
-# Configure Always Encrypted by using Windows certificate store
 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
-
-This article shows you how to secure sensitive data in Azure SQL Database or Azure SQL Managed Instance with database encryption by using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
-=======
-# Configure Always Encrypted using Windows certificate store
+# Configure Always Encrypted by using the Windows certificate store
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
+This article shows you how to secure sensitive data in Azure SQL Database or Azure SQL Managed Instance with database encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -49,11 +42,7 @@ For this tutorial, you'll need:
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-<<<<<<< HEAD
-## Create a blank database in Azure SQL Database
-=======
 ## Enable client application access
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
 
 You must enable your client application to access SQL Database or SQL Managed Instance by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
@@ -66,11 +55,7 @@ To get the *Application ID* and *key*, follow the steps in [create an Azure Acti
 Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
-<<<<<<< HEAD
-2. Enter your server name and credentials. The server name can be found on the **SQL database** pane and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
-=======
 2. Enter your server name and credentials.
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
 
     ![Copy the connection string](./media/always-encrypted-certificate-store-configure/ssms-connect.png)
 
