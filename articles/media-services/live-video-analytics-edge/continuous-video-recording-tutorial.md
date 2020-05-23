@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Tutorial: Continuous video recording to cloud and playback from cloud  
 
-In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud, and stream any portion of that video using Media Services. This is useful for safety scenarios, where there is a need to maintain an archive of the footage from a camera for multiple days (or weeks).
+In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud, and stream any portion of that video using Media Services. This is useful for scenarios such as safety, compliance, and others, where there is a need to maintain an archive of the footage from a camera for multiple days (or weeks).
 
 > [!div class="checklist"]
 > * Setup the relevant resources
@@ -36,7 +36,7 @@ Prerequisites for this tutorial are as follows
     > You might be prompted to install docker. You may ignore this prompt.
 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
-Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
+* Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
 At the end of the above steps, you will have certain Azure resources deployed in the Azure subscription, including:
 
@@ -55,9 +55,7 @@ In this tutorial, we will use one Edge module built using the [Live555 Media Ser
 
 ## Examine the sample 
 
-During Setup the environment, you will have launched Visual Studio Code and opened the folder containing the sample code.
-
-In Visual Studio Code, browse to "src/edge". You will see the .env file that you created, as well as a few deployment template files. These templates define which Edge modules you will be deploying to the Linux VM. The .env file has the values for the variables used in these templates, such as the IoT Hub connection string that lets you send commands to the Edge modules via Azure IoT Hub.
+Launch Visual Studio Code and open the folder containing the sample code. Browse to "src/edge". You will see the .env file that you created, as well as a few deployment template files. These templates define which Edge modules you will be deploying to the Linux VM. The .env file has the values for the variables used in these templates, such as the IoT Hub connection string that lets you send commands to the Edge modules via Azure IoT Hub.
 
 Open “src/edge/deployment.template.json”. Note that there are two entries under the “modules” section – one for Live Video Analytics on IoT Edge, and one for the RTSP simulator. Also note the names for the modules:
 
