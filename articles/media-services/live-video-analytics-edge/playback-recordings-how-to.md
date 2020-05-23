@@ -239,18 +239,14 @@ As mentioned above, these filters help you select portions of your recording (fo
 
 The maximum length (in time) of such a manifest cannot exceed 24 hours.
 
-<!--
 Here are the constraints on the filters.
-startTime	endTime	Result
-Absent	Absent	Returns the most recent portion of the video in the Asset, up to a maximum length of 4 hours
-If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned
-Present	Absent	Return a manifest with whatever video is available that is newer than startTime, if such a manifest would be shorter than 24 hours
-If the length of the manifest would exceed 24 hours, then return an error
-If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned
-Absent	Present	Error – if startTime is present, then endTime is mandatory
-Present	Present	Return a VoD manifest with whatever video is available between startTime and endTime
-The span (startTime, endTime) cannot exceed 24 hours
--->
+
+|startTime|	endTime	|Result|
+|---|---|---|
+|Absent	|Absent	|Returns the most recent portion of the video in the Asset, up to a maximum length of 4 hours.<br/><br/>If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.|
+|Present|Absent|	Return a manifest with whatever video is available that is newer than startTime, if such a manifest would be shorter than 24 hours.<br/>If the length of the manifest would exceed 24 hours, then return an error.<br/>If the Asset has not been written to (no new video data coming in) recently, an on-demand (VoD) manifest is returned. Else, a live manifest is returned.
+|Absent|Present	|Error – if startTime is present, then endTime is mandatory.|
+|Present|Present|Return a VoD manifest with whatever video is available between startTime and endTime.<br/>The span (startTime, endTime) cannot exceed 24 hours.|
 
 ### Response examples  
 
@@ -336,7 +332,7 @@ When using Live Video Analytics on IoT Edge to record to an Asset, you will spec
 
 Consequently, streaming of the video from Media Services will be delayed by at least that much time. 
 
-Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the GOP duration. As this article explains, longer the GOP duration, longer the latency. It’s common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
+Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the GOP <!--TODO valid link for [GOP]()--> duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It’s common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
 
 ## Next steps
 
