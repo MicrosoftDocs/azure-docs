@@ -14,6 +14,8 @@ ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
 # Advanced data security
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+
 
 Advanced data security (ADS) is a unified package for advanced Azure SQL security capabilities. ADS is available for for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse. It includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 

@@ -14,6 +14,7 @@ ms.reviewer: carlrab
 ms.date: 04/19/2020
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Microsoft Azure SQL Database and Azure SQL Managed Instance enable a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
 
@@ -514,7 +515,7 @@ WHERE c.session_id = @@SPID;
 
 ## Monitor resource use
 
-You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight-use.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
 You can also monitor usage using these views:
 

@@ -13,6 +13,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ---
 # Tutorial: Add an Azure SQL Database elastic pool to a failover group
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Configure a failover group for an Azure SQL Database elastic pool and test failover using the Azure portal.  In this tutorial, you will learn how to:
 
@@ -33,7 +34,7 @@ To complete this tutorial, make sure you have:
 
 [!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
 
-## 2 - Add database to an elastic pool
+## 2 - Add the database to an elastic pool
 
 In this step, you will create an elastic pool and add your database to it.
 

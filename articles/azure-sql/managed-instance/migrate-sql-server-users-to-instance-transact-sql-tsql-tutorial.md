@@ -1,5 +1,5 @@
 ---
-title: Migrate SQL ServerWindows users and groups to SQL Managed Instance using T-SQL
+title: Migrate SQL Server Windows users and groups to SQL Managed Instance using T-SQL
 description: Learn about how to migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -13,6 +13,7 @@ ms.date: 10/30/2019
 ---
 
 # Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance using T-SQL DDL syntax
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
 > The syntax used to migrate users and groups to SQL Managed Instance in this article is in **public preview**.
@@ -39,7 +40,7 @@ To complete this tutorial, the following prerequisites apply:
 - An existing SQL Server in your on-premises environment.
 - An existing SQL Managed Instance. See [Quickstart: Create a SQL Managed Instance](instance-create-quickstart.md).
   - A `sysadmin` in the SQL Managed Instance must be used to create Azure AD logins.
-- [Create an Azure AD admin for SQL Managed Instance](../database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+- [Create an Azure AD admin for SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 - You can connect to your SQL Managed Instance within your network. See the following articles for additional information:
   - [Connect your application to Azure SQL Managed Instance](connect-application-instance.md)
   - [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](point-to-site-p2s-configure.md)

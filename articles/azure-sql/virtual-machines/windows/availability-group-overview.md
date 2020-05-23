@@ -21,6 +21,7 @@ ms.custom: "seo-lt-2019"
 ---
 
 # Introducing SQL Server availability groups on Azure virtual machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article introduces SQL Server availability groups on Azure Virtual Machines. 
 

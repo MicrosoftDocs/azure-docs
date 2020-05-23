@@ -15,6 +15,7 @@ ms.date: 03/09/2020
 ---
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 When you create a logical SQL server from the [Azure portal](single-database-create-quickstart.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 

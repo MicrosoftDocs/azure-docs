@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 01/03/2019
 ---
 # Reporting across scaled-out cloud databases (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ![Query across shards][1]
 

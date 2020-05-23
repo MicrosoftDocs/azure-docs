@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping
+[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Browse this list of public data sets for data that you can use to prototype and test storage and analytics services and solutions.
 

@@ -12,6 +12,8 @@ ms.date: 03/19/2020
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+
 
 Auditing for [Azure SQL Database](sql-database-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../../storage/common/storage-account-overview.md) behind a virtual network and firewall.
 
@@ -132,6 +134,11 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
      }
    }
    ```
+
+## Using Azure PowerShell
+
+- [Create or Update Database Auditing Policy (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Create or Update Server Auditing Policy (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
 
 ## Next steps
 

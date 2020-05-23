@@ -1,5 +1,5 @@
 ---
-title: Use R with Machine Learning Services to query a database (preview)
+title: Use R with Azure SQL Database Machine Learning Services (preview) to query a database 
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: This article shows you how to use an R script with Azure SQL Database Machine Learning Services to connect to a database in Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
@@ -16,9 +16,11 @@ ms.date: 05/29/2019
 ROBOTS: NOINDEX
 ---
 
-# Quickstart: Use R with Machine Learning Services to query an Azure SQL Database (preview)
+# Quickstart: Use R with Azure SQL Database Machine Learning Services (preview) to query a database 
 
-In this quickstart, you use R with Machine Learning Services to connect to an Azure SQL Database and use T-SQL statements to query data.
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+In this quickstart, you use R with Azure SQL Database Machine Learning Services to connect to a database in Azure SQL Database and use T-SQL statements to query data.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -34,21 +36,21 @@ In this quickstart, you use R with Machine Learning Services to connect to an Az
 
 Machine Learning Services with R is a feature of Azure SQL Database used for executing in-database R scripts. For more information, see the [R Project](https://www.r-project.org/).
 
-## Get SQL server connection information
+## Get the SQL Server connection information
 
-Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Navigate to the **SQL Databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a database in Azure SQL Database or the fully qualified server name next to **Host** for a managed instance in Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon.
 
-## Create code to query your SQL Database
+## Create code to query your database
 
-1. Open **SQL Server Management Studio** and connect to your SQL Database.
+1. Open **SQL Server Management Studio** and connect to your database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL Database](connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query a database in Azure SQL Database](connect-query-ssms.md).
 
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
@@ -65,7 +67,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
     ```
 
    > [!NOTE]
-   > If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL Database. See [Prerequisites](#prerequisites) above.
+   > If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your database. See [Prerequisites](#prerequisites) above.
 
 ## Run the code
 
@@ -75,7 +77,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 ## Next steps
 
-- [Design your first Azure SQL Database](design-first-database-tutorial.md)
+- [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (with R)](machine-learning-services-overview.md)
 - [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](r-script-create-quickstart.md)
 - [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](machine-learning-services-functions.md)

@@ -11,6 +11,7 @@ ms.author: sstein
 ms.date: 01/25/2019
 ---
 # Multi-shard querying using elastic database tools
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ## Overview
 

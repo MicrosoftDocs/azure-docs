@@ -13,12 +13,13 @@ ms.reviewer: carlrab
 ms.date: 01/25/2019
 ---
 # Disaster recovery strategies for applications using Azure SQL Database elastic pools
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database provides several capabilities to provide for the business continuity of your application when catastrophic incidents occur. [Elastic pools](elastic-pool-overview.md) and single databases support the same kind of disaster recovery (DR) capabilities. This article describes several DR strategies for elastic pools that leverage these Azure SQL Database business continuity features.
 
 This article uses the following canonical SaaS ISV application pattern:
 
-A modern cloud-based web application provisions one SQL database for each end user. The ISV has many customers and therefore uses many databases, known as tenant databases. Because the tenant databases typically have unpredictable activity patterns, the ISV uses an elastic pool to make the database cost very predictable over extended periods of time. The elastic pool also simplifies the performance management when the user activity spikes. In addition to the tenant databases the application also uses several databases to manage user profiles, security, collect usage patterns etc. Availability of the individual tenants does not impact the application’s availability as whole. However, the availability and performance of management databases is critical for the application’s function and if the management databases are offline the entire application is offline.
+A modern cloud-based web application provisions one database for each end user. The ISV has many customers and therefore uses many databases, known as tenant databases. Because the tenant databases typically have unpredictable activity patterns, the ISV uses an elastic pool to make the database cost very predictable over extended periods of time. The elastic pool also simplifies the performance management when the user activity spikes. In addition to the tenant databases the application also uses several databases to manage user profiles, security, collect usage patterns etc. Availability of the individual tenants does not impact the application’s availability as whole. However, the availability and performance of management databases is critical for the application’s function and if the management databases are offline the entire application is offline.
 
 This article discusses DR strategies covering a range of scenarios from cost sensitive startup applications to ones with stringent availability requirements.
 

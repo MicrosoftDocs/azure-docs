@@ -13,10 +13,12 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Managed Instance using the Azure portal
-
-## Overview
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email, call a web hook, execute Azure Function, runbook, call an external ITSM compatible ticketing system, call you on the phone or send a text message when some metric, such is for example instance storage size, or CPU usage, reaches a predefined threshold. This article also provides best practices for setting alert periods.
+
+
+## Overview
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 

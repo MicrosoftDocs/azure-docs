@@ -10,9 +10,10 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 4/3/2020
+ms.date: 5/13/2020
 ---
 # Azure SQL Database serverless
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Serverless is a compute tier for single Azure SQL Databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
@@ -126,6 +127,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
 |Transparent data encryption|View state or status of transparent data encryption|
+|Vulnerability assessment|Ad hoc scans and periodic scans if enabled|
 |Query (performance) data store|Modifying or viewing query store settings|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|

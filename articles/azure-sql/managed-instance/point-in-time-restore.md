@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: Restore a database on an Azure SQL Managed Instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
+ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ---
 # Restore an Azure SQL Managed Instance database to a previous point in time
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Use point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in an Azure SQL Managed Instance.
 

@@ -14,6 +14,7 @@ ms.date: 04/28/2020
 tags: azure-synpase
 ---
 # Dynamic data masking 
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support dynamic data masking. Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 
@@ -23,7 +24,7 @@ For example, a service representative at a call center may identify callers by s
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL database configuration pane. This feature cannot be set using portal for Azure Synapse (use PowerShell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL Database configuration pane. This feature cannot be set using portal for Azure Synapse (use PowerShell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### Dynamic data masking permissions
 
@@ -35,7 +36,7 @@ Dynamic data masking can be configured by the Azure SQL Database admin, server a
 * **Masking rules** - A set of rules that define the designated fields to be masked and the masking function that is used. The designated fields can be defined using a database schema name, table name, and column name.
 * **Masking functions** - A set of methods that control the exposure of data for different scenarios.
 
-| Masking Function | Masking Logic |
+| Masking function | Masking logic |
 | --- | --- |
 | **Default** |**Full masking according to the data types of the designated fields**<br/><br/>• Use XXXX or fewer Xs if the size of the field is less than 4 characters for string data types (nchar, ntext, nvarchar).<br/>• Use a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 for date/time data types (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• For SQL variant, the default value of the current type is used.<br/>• For XML the document \<masked/> is used.<br/>• Use an empty value for special data types (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Credit card** |**Masking method, which exposes the last four digits of the designated fields** and adds a constant string as a prefix in the form of a credit card.<br/><br/>XXXX-XXXX-XXXX-1234 |
@@ -51,28 +52,28 @@ The DDM recommendations engine, flags certain fields from your database as poten
 
 ## Set up dynamic data masking for your database using PowerShell cmdlets
 
-### Data Masking Policy
+### Data masking policies
 
 - [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
 - [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
-### Data Masking Rules
+### Data masking rules
 
 - [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
 - [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
 - [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
 - [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
-## Set up dynamic data masking for your database using REST API
+## Set up dynamic data masking for your database using the REST API
 
 You can use the REST API to programmatically manage data masking policy and rules. The published REST API supports the following operations:
 
-### Data Masking Policies
+### Data masking policies
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates the sensitivity label of the specified column.
 - [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 
 
-### Data Masking Rules
+### Data masking rules
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
 - [List By Database](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Gets a list of database data masking rules.

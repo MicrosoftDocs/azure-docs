@@ -19,6 +19,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 # Move SQL Server VM to another region within Azure with Azure Site Recovery services
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article teaches you how to use Azure Site Recovery to migrate your SQL Server virtual machine (VM) from one region to another within Azure. 
 

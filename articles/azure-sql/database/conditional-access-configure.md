@@ -12,7 +12,10 @@ ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
 ---
+
 # Conditional Access with Azure SQL Database and Azure Synapse Analytics
+
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access.
 
@@ -20,8 +23,8 @@ The following steps show how to configure Azure SQL Database, SQL Managed Instan
 
 ## Prerequisites
 
-- You must configure your database in SQL Database, SQL Managed Instance, or Azure SQL pool in Azure Synapse to support Azure Active Directory (Azure AD) authentication. For specific steps, see [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](aad-authentication-configure.md).  
-- When multi-factor authentication is enabled, you must connect with at supported tool, such as the latest SQL Server Management Studio (SSMS). For more information, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](../mfa-authentication-ssms-configure.md).  
+- You must configure Azure SQL Database, Azure SQL Managed Instance, or Azure SQL pool in Azure Synapse to support Azure Active Directory (Azure AD) authentication. For specific steps, see [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse](authentication-aad-configure.md).  
+- When Multi-Factor Authentication is enabled, you must connect with a supported tool, such as the latest SQL Server Management Studio (SSMS). For more information, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](authentication-mfa-ssms-configure.md).  
 
 ## Configure conditional access
 

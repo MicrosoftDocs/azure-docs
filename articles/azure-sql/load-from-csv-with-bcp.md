@@ -12,9 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ---
-# Load data from CSV into Azure SQL Database (flat files)
+# Load data from CSV into Azure SQL Database or SQL Managed Instance (flat files)
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
+You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database or Azure SQL Managed Instance.
 
 ## Before you begin
 

@@ -13,6 +13,7 @@ ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
 # Connect to Azure SQL Database with Azure Multi-Factor Authentication
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -34,7 +35,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
-For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](../mfa-authentication-ssms-configure.md).
+For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!TIP]
 > You can search .NET Framework APIs with the [.NET API Browser tool page](https://docs.microsoft.com/dotnet/api/).
@@ -79,7 +80,7 @@ For your C# program to run, a [logical SQL server](logical-servers.md) admin nee
 
 On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 
@@ -87,7 +88,7 @@ An Azure AD admin for a [logical SQL server](logical-servers.md) can run the C# 
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
-For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](aad-authentication-overview.md).
+For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](authentication-aad-overview.md).
 
 ## New authentication enum value
 
@@ -133,7 +134,7 @@ Run SSMS from the same computer, in the same building, where you plan to run the
 
 Run SSMS again, this time with **Authentication** set to **Azure Active Directory - Universal with MFA**. This option requires SSMS version 17.5 or later.
 
-For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](../mfa-authentication-ssms-configure.md).
+For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!NOTE]
 > If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.

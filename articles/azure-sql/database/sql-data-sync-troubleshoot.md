@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes how to troubleshoot known issues with SQL Data Sync in Azure. If there is a resolution for an issue, it's provided here.
 
@@ -72,7 +73,7 @@ Any of the following conditions might result in a sync group being stuck in the 
     1. If the service status is **Stopped**, right-click the service name, and then select **Start**.
 
 > [!NOTE]
-> If the preceding information doesn't move your sync group out of the processing state, Microsoft Support can reset the status of your sync group. To have your sync group status reset, in the [Azure SQL Database forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), create a post. In the post, include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft Support engineer will respond to your post, and will let you know when the status has been reset.
+> If the preceding information doesn't move your sync group out of the processing state, Microsoft Support can reset the status of your sync group. To have your sync group status reset, in the [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html), create a post. In the post, include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft Support engineer will respond to your post, and will let you know when the status has been reset.
 
 ### <a name="sync-baddata"></a> I see erroneous data in my tables
 

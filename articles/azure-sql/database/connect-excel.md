@@ -12,9 +12,12 @@ ms.author: craigg
 ms.reviewer: 
 ms.date: 02/12/2019
 ---
+
 # Connect Excel to a database in Azure SQL Database and create a report
 
-Connect Excel to a database in Azure SQL Database and import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+You can connect Excel to a database in Azure SQL Database and then import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 
 You'll need to create a database in SQL Database before you get started. If you don't have one, see [Create a database in Azure SQL Database](single-database-create-quickstart.md) and [Create server-level IP firewall](firewall-create-server-level-portal-quickstart.md) to get a database with sample data up and running in a few minutes.
 

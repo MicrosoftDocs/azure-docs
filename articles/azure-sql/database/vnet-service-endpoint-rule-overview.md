@@ -13,8 +13,9 @@ ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ---
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
+*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL database and SQL Data Warehouse.
 
 > [!NOTE]
 > This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
@@ -57,7 +58,7 @@ The roles of Network Admin and Database Admin have more capabilities than are ne
 You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
-> In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> In some cases the database in Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 >
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
@@ -67,7 +68,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
-- In the firewall for your Azure SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure SQL Database.
+- In the firewall for your database in Azure SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure SQL database.
 
 - Each server can have up to 128 ACL entries for any given virtual network.
 
@@ -175,7 +176,7 @@ Blob auditing pushes audit logs to your own storage account. If this storage acc
 
 ## Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
 
-Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingVNetServiceEndpoint** flag.
+Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to a database in Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingVNetServiceEndpoint** flag.
 
 Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingVNetServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 
@@ -205,7 +206,7 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 
 ## Portal can create a virtual network rule
 
-This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
+This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your database in Azure SQL Database. The rule tells your database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
 > [!NOTE]
 > If you intend to add a service endpoint to the VNet firewall rules of your server, first ensure that service endpoints are turned On for the subnet.

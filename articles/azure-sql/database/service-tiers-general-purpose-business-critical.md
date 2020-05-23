@@ -14,6 +14,7 @@ ms.reviewer: sashan, moslake, carlrab
 ms.date: 01/30/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance are based on SQL Server database engine architecture that's adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Two service tiers are used by Azure SQL Database and Azure SQL Managed Instance, each with a different architectural model. These service tiers are:
 

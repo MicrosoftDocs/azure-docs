@@ -19,6 +19,12 @@ ms.author: mathoma
 
 ---
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+
+
+
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Summary:

@@ -15,6 +15,7 @@ ms.date: 06/25/2019
 ---
 
 # Move resources to new region - Azure SQL Database & Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article teaches you a generic workflow for how to move your Azure SQL Database or Azure SQL Managed Instance to a new region.
 
