@@ -17,7 +17,7 @@ ms.date: 03/12/2019
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This Azure PowerShell example configures Data Sync to sync between Azure SQL Database and SQL Server on-premises. 
+This Azure PowerShell example configures Data Sync to sync data between Azure SQL Database and SQL Server. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -34,7 +34,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 - Create a database in Azure SQL Database from an AdventureWorksLT sample database as a hub database.
 - Create a database in Azure SQL Database in the same region as sync database.
-- Create a SQL Server on-premises database as a member database.
+- Create a database in a SQL Server instance as a member database.
 - Update the parameter placeholders before running the example.
 
 ## Example
