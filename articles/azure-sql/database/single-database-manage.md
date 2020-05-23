@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Create and manage servers and single databases in Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can create and manage servers and single databases in Azure SQL Database using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 

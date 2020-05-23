@@ -1,6 +1,6 @@
 ---
-title: Run runbooks on Azure Automation Hybrid Runbook Worker
-description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker.
+title: Run Azure Automation runbooks on a Hybrid Runbook Worker
+description: This article tells how to run runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
@@ -11,9 +11,6 @@ ms.topic: conceptual
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
 
 When you author a runbook to run on a Hybrid Runbook Worker, you should edit and test the runbook on the machine that hosts the worker. The host machine has all the PowerShell modules and network access required to manage the local resources. Once you test the runbook on the Hybrid Runbook Worker machine, you can then upload it to the Azure Automation environment, where it can be run on the worker. 
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Plan runbook job behavior
 
@@ -40,7 +37,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-You can also use an [InlineScript](automation-powershell-workflow.md#inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials.
+You can also use an [InlineScript](automation-powershell-workflow.md#use-inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials.
 
 ## <a name="runbook-auth-managed-identities"></a>Use runbook authentication with managed identities
 
@@ -306,5 +303,4 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 
 * If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

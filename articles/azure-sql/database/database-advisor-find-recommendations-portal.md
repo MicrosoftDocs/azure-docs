@@ -1,6 +1,6 @@
 ---
 title: Apply performance recommendations
-description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
+description: Use the Azure portal to find performance recommendations that can optimize performance of your database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -13,14 +13,15 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload. **Performance recommendation** page in Azure portal enables you to find the top recommendations based on their potential impact.
+You can use the Azure portal to find performance recommendations that can optimize performance of your database in Azure SQL Database or to correct some issue identified in your workload. The **Performance recommendation** page in the Azure portal enables you to find the top recommendations based on their potential impact.
 
 ## Viewing recommendations
 
 To view and apply performance recommendations, you need the correct [role-based access control](../../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
-Use the following steps to find performance recommendations on Azure portal:
+Use the following steps to find performance recommendations on the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **All services** > **SQL databases**, and select your database.
@@ -43,7 +44,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 
 You can also view the status of the historical operations. Select a recommendation or status to see more information.
 
-Here is an example of "Create index" recommendation in the Azure portal.
+Here is an example of the "Create index" recommendation in the Azure portal.
 
 ![Create index](./media/database-advisor-find-recommendations-portal/sql-database-performance-recommendation.png)
 
@@ -64,11 +65,11 @@ The database remains online while the recommendation is applied -- using perform
 You can review and accept recommendations one at a time.
 
 1. On the **Recommendations** page, select a recommendation.
-2. On the **Details** page, click **Apply** button.
+2. On the **Details** page, click the **Apply** button.
 
    ![Apply recommendation](./media/database-advisor-find-recommendations-portal/apply.png)
 
-Selected recommendation are applied on the database.
+Selected recommendations are applied on the database.
 
 ### Removing recommendations from the list
 
@@ -89,7 +90,7 @@ If desired, you can add discarded items back to the **Recommendations** list:
 
 ### Enable automatic tuning
 
-You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
+You can set your database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
 
 1. On the **Recommendations** page, click **Automate**:
 
@@ -145,13 +146,13 @@ If you used the performance recommendations to apply the recommendation (meaning
 
 ## Monitoring performance impact of index recommendations
 
-After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only), you can click **Query Insights** on the recommendation details page to open [Query Performance Insights](query-performance-insight.md) and see the performance impact of your top queries.
+After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only), you can click **Query Insights** on the recommendation details page to open [Query Performance Insights](query-performance-insight-use.md) and see the performance impact of your top queries.
 
 ![Monitor performance impact](./media/database-advisor-find-recommendations-portal/query-insights.png)
 
 ## Summary
 
-Azure SQL Database provides recommendations for improving SQL database performance. By providing T-SQL scripts, you get assistance in optimizing your database and ultimately improving query performance.
+Azure SQL Database provides recommendations for improving database performance. By providing T-SQL scripts, you get assistance in optimizing your database and ultimately improving query performance.
 
 ## Next steps
 
@@ -159,7 +160,7 @@ Monitor your recommendations and continue to apply them to refine performance. D
 
 * See [Automatic tuning](automatic-tuning-overview.md) to learn more about the automatic tuning in Azure SQL Database.
 * See [Performance recommendations](database-advisor-implement-performance-recommendations.md) for an overview of Azure SQL Database performance recommendations.
-* See [Query Performance Insights](query-performance-insight.md) to learn about viewing the performance impact of your top queries.
+* See [Query Performance Insights](query-performance-insight-use.md) to learn about viewing the performance impact of your top queries.
 
 ## Additional resources
 

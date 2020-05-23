@@ -14,6 +14,7 @@ ms.reviewer: sstein
 ms.date: 12/04/2018
 ---
 # Business Critical tier - Azure SQL Database & SQL Managed Instance 
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
 > Business Critical tier is called Premium in the DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](purchasing-models.md).

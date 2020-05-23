@@ -4,8 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance connection types
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
@@ -14,6 +13,7 @@ ms.date: 10/07/2019
 ---
 
 # Azure SQL Managed Instance connection types
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article explains how clients connect to Azure SQL Managed Instance depending on the connection type. Script samples to change connection types are provided below, along with considerations related to changing the default connectivity settings.
 

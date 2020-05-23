@@ -13,6 +13,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
 ---
 # Quickstart: Create an Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This quickstart teaches you to create an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) in the Azure portal.
 

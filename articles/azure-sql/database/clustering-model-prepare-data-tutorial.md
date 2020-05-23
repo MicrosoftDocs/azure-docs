@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Tutorial: Prepare data to perform clustering in R with Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In part one of this three-part tutorial series, you'll import and prepare the data from an Azure SQL database using R. Later in this series, you'll use this data to train and deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
 

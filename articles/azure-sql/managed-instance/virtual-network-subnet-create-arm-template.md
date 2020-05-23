@@ -14,6 +14,7 @@ ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ---
 # Create a virtual network for Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article explains how to create a valid virtual network and subnet where you can deploy Azure SQL Managed Instance.
 

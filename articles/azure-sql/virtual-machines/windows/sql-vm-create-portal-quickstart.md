@@ -1,6 +1,6 @@
 ---
-title: Create a SQL Server Windows VM in the portal | Microsoft Docs
-description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
+title: Create SQL Server on a Windows virtual machine in the Azure portal | Microsoft Docs
+description: This tutorial shows how to create a Windows virtual machine with SQL Server 2017 in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,17 +16,20 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 
-# Quickstart: Create a SQL Server 2017 Windows virtual machine in the Azure portal
+# Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal
+
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-vm-create-portal-quickstart.md)
-> * [Linux](../linux/provision-virtual-machine.md)
+> * [Linux](../linux/sql-vm-create-portal-quickstart.md)
 
-This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
+This quickstart steps through creating a SQL Server virtual machine (VM) in the Azure portal.
 
 
   > [!TIP]
-  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](create-sql-vm-portal.md).
+  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for SQL Server on Windows VM in the Azure portal](create-sql-vm-portal.md).
   > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
@@ -77,7 +80,7 @@ On the **Basics** tab, provide the following information:
 On the **SQL Server settings** tab, configure the following options:
 
 1. Under **Security & Networking**, select _Public (Internet_) for **SQL Connectivity** and change the port to `1401` to avoid using a well-known port number in the public scenario. 
-1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default setting for [**Azure Key Vault integration**](azure-key-vault-integration-configure.md). **Storage configuration** is not available for the basic SQL Server VM image but you can find more information about available options for other images at [storage configuration](storage-configuration.md#new-vms).  
+1. Under **SQL Authentication**, select **Enable**. The SQL login credentials are set to the same user name and password that you configured for the VM. Use the default setting for [**Azure Key Vault integration**](azure-key-vault-integration-configure.md). **Storage configuration** is not available for the basic SQL Server VM image, but you can find more information about available options for other images at [storage configuration](storage-configuration.md#new-vms).  
 
    ![SQL server security settings](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
 
@@ -100,7 +103,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 1. On a different computer connected to the Internet, open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma, and add the custom port, **1401**, that we specified when you configured the new VM. For example, `11.22.33.444,1401`.
+1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma and add the custom port (**1401**) that you specified when you configured the new VM. For example, `11.22.33.444,1401`.
 
 1. In the **Authentication** box, select **SQL Server Authentication**.
 

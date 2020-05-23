@@ -1,6 +1,6 @@
 ---
-title: "PowerShell: Add database to auto-failover group"  
-description: Azure PowerShell example script to create an Azure SQL Database, add it to an auto-failover group, and test failover. 
+title: "PowerShell: Add a database to an auto-failover group"  
+description: Use an Azure PowerShell example script to create a database in Azure SQL Database, add it to an auto-failover group, and test failover. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,7 +12,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
+
 # Use PowerShell to add a database to a failover group
+
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example creates a single database in Azure SQL Database, creates a failover group, adds the database to it, and tests failover.
 

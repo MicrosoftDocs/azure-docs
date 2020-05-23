@@ -15,14 +15,15 @@ ms.reviewer: carlrab
 ms.date: 03/23/2020
 ---
 # Authorizing database access to SQL Database, SQL Managed Instance and Azure Synapse Analytics
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In this article, you learn about:
 
 - Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
-- The access and authorization configuration after initially creating a new server in Azure SQL
-- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
-- How to add user accounts in user databases, either associated with logins or as contained user accounts
-- Configure user accounts with permissions in user databases by using database roles and explicit permissions
+- The access and authorization configuration after initially creating a new server. 
+- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions.
+- How to add user accounts in user databases, either associated with logins or as contained user accounts.
+- Configure user accounts with permissions in user databases by using database roles and explicit permissions.
 
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
@@ -35,7 +36,7 @@ When a user attempts to connect to a database, they provide a user account and a
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user accounts *not* linked to a login.
-- [Azure Active Directory Authentication](aad-authentication-overview.md)
+- [Azure Active Directory Authentication](authentication-aad-overview.md)
 
   With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.
 
@@ -71,14 +72,14 @@ At this point, your server or managed instance is only configured for access usi
 
   Enable Azure Active Directory authentication and create an Azure AD administrator login. One Azure Active Directory account can be configured as an administrator of the SQL deployment with full administrative permissions. This account can be either an individual or security group account. An Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database, SQL Managed Instance, or Azure Synapse. For detailed information on enabling Azure AD authentication for all SQL deployment types, see the following articles:
 
-  - [Use Azure Active Directory Authentication for authentication with SQL](aad-authentication-overview.md)
-  - [Configure and manage Azure Active Directory authentication with SQL](aad-authentication-configure.md)
+  - [Use Azure Active Directory Authentication for authentication with SQL](authentication-aad-overview.md)
+  - [Configure and manage Azure Active Directory authentication with SQL](authentication-aad-configure.md)
 
 - **In SQL Managed Instance, create SQL logins having full administrative permissions**
 
   - Create an additional SQL login in the master database
   - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](aad-authentication-configure.md)#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
+  - Alternatively, create an [Azure AD login](authentication-aad-configure.md)#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
 
 - **In SQL Database, create SQL logins having limited administrative permissions**
 
@@ -106,7 +107,7 @@ You can create accounts for non-administrative users using one of two methods:
   Create a user account in the database to which a user needs access (also called a [contained user](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
   - With a SQL Database, you can always create this type of user account.
-  - With SQL Managed Instance supporting [Azure AD server principals](aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the SQL Managed Instance without requiring database users to be created as a contained database user.
+  - With SQL Managed Instance supporting [Azure AD server principals](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the SQL Managed Instance without requiring database users to be created as a contained database user.
 
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
@@ -119,7 +120,7 @@ For examples showing how to create logins and users, see:
 - [Create login for Azure SQL Managed Instance](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Create login for Azure Synapse](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
-- [Creating Azure AD contained users](aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)
+- [Creating Azure AD contained users](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
 > For a security tutorial that includes creating users in Azure SQL Database, see [Tutorial: Secure Azure SQL Database](secure-database-tutorial.md).

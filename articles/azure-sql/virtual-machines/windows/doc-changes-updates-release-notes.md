@@ -15,6 +15,7 @@ ms.workload: iaas-sql-server
 ms.date: 01/06/2020
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
@@ -74,6 +75,6 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 **Linux VMs**:
 
 * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Provision a SQL Server Linux virtual machine](../linux/provision-virtual-machine.md)
+* [Provision a SQL Server Linux virtual machine](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

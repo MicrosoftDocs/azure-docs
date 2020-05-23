@@ -15,6 +15,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
@@ -75,7 +76,7 @@ When you configure SQL Server on Linux, you install the database engine package 
 
 Get started with SQL Server on Azure Linux virtual machines:
 
-* [Create a SQL Server VM in the Azure portal](provision-virtual-machine.md)
+* [Create a SQL Server VM in the Azure portal](sql-vm-create-portal-quickstart.md)
 
 Get answers to commonly asked questions about SQL VMs on Linux:
 

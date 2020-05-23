@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 # Use PowerShell to copy a database to a new server
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure PowerShell script example creates a copy of an existing database in Azure SQL Database in a new server.
 

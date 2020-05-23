@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/03/2018
 ---
 # Resolving Transact-SQL differences during migration to SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
@@ -39,7 +40,7 @@ The core DDL (data definition language) statements are available, but some DDL s
 In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database feature comparison](features-comparison.md), the following statements and groups of statements, are not supported. As such, if your database to be migrated is using any of the following features, re-engineer your T-SQL to eliminate these T-SQL features and statements.
 
 - Collation of system objects
-- Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](aad-authentication-overview.md).
+- Connection related: Endpoint statements. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](authentication-aad-overview.md).
 - Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](elastic-query-overview.md).)
 - Cross database ownership chaining, `TRUSTWORTHY` setting
 - `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.

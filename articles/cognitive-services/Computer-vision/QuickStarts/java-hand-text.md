@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Computer Vision 2.0 and 2.1 - Extract printed and handwritten text - REST, Java"
+title: "Quickstart:  Computer Vision 2.1 and 3.0 - Extract printed and handwritten text - REST, Java"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with Java.
 services: cognitive-services
@@ -80,14 +80,10 @@ To create and run the sample, do the following steps:
 
 ```java
 public class Main {
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
     private static final String uriBase = endpoint + 
             "vision/v2.1/read/core/asyncBatchAnalyze";
@@ -224,9 +220,6 @@ To create and run the sample, do the following steps:
 ```java
 
 public class Main {
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
@@ -234,10 +227,10 @@ public class Main {
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
     // Set the language that you want to recognize
-    private static String language = "en";  // Accepted values are "en" for English, or "es" for Spanish
+    // Accepted values are "en" for English, or "es" for Spanish
+    private static String language = "en";  
 
-    private static String uriBase = endpoint +
-            "/vision/v3.0-preview/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
 
     private static String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +

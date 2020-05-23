@@ -18,6 +18,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 # In-place change of SQL Server edition on Azure VM
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to change the edition of SQL Server on a Windows virtual machine in Azure. 
 

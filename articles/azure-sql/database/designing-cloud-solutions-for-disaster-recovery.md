@@ -14,6 +14,7 @@ ms.reviewer: carlrab
 ms.date: 12/04/2018
 ---
 # Designing globally available services using Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 When building and deploying cloud services with Azure SQL Database, you use [active geo-replication](active-geo-replication-overview.md) or [auto-failover groups](auto-failover-group-overview.md) to provide resilience to regional outages and catastrophic failures. The same feature allows you to create globally distributed applications optimized for local access to the data. This article discusses common application patterns, including the benefits and trade-offs of each option.
 

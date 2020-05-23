@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 12/18/2018
 ---
 # Split-merge security configuration
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](elastic-scale-configure-deploy-split-and-merge.md).
 

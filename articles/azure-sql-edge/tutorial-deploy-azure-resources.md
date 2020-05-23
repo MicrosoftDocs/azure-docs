@@ -37,9 +37,12 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Declare the variables required by the PowerShell script.
 

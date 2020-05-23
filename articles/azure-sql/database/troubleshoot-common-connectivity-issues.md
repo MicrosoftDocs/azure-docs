@@ -1,6 +1,6 @@
 ---
 title: Working with transient errors
-description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Microsoft Azure SQL.
+description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error when connecting to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. 
 keywords: sql connection,connection string,connectivity issues,transient error,connection error
 services: sql-database
 ms.service: sql-database
@@ -14,9 +14,10 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ---
-# Troubleshooting transient connection errors to Microsoft Azure SQL
+# Troubleshooting transient connection errors
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
+This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 

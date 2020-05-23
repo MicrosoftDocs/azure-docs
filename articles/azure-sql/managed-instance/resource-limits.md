@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: This article provides an overview of the resource limits for Azure SQL Managed Instances. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
+ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
@@ -14,6 +14,7 @@ ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
 ---
 # Overview Azure SQL Managed Instance resource limits
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
@@ -76,6 +77,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
+| Compute isolation | Gen5:<br/>-supported for 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 60, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
 
 
 A few additional considerations: 

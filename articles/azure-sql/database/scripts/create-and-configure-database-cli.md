@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI: Create a database"
-description: Use this Azure CLI example script to create a single Azure SQL database.
+title: "The Azure CLI: Create a database"
+description: Use this Azure CLI example script to create a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,7 +12,10 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 06/25/2019
 ---
+
 # Use the Azure CLI to create a database and configure a firewall rule
+
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates a database in Azure SQL Database and configures a server-level firewall rule. After the script has been successfully run, the database can be accessed from all Azure services and the configured IP address.
 

@@ -15,6 +15,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 # Frequently asked questions for SQL Server on Linux Azure Virtual Machines
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/frequently-asked-questions-faq.md)
@@ -46,7 +47,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I create a Linux Azure virtual machine with SQL Server?**
 
-   The easiest solution is to create a Linux Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a Linux SQL Server virtual machine in the Azure portal](provision-virtual-machine.md). You also have the option of manually installing SQL Server on a VM with either a freely licensed edition (Developer or Express) or by reusing an on-premises license. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility).
+   The easiest solution is to create a Linux Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a Linux SQL Server virtual machine in the Azure portal](sql-vm-create-portal-quickstart.md). You also have the option of manually installing SQL Server on a VM with either a freely licensed edition (Developer or Express) or by reusing an on-premises license. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility).
 
 1. **Why can’t I provision an RHEL or SLES SQL Server VM with an Azure subscription that has a spending limit?**
 
@@ -93,11 +94,11 @@ This article provides answers to some of the most common questions about running
 **Linux VMs**:
 
 * [Overview of SQL Server on a Linux VM](sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Provision a SQL Server Linux VM](provision-virtual-machine.md)
+* [Provision a SQL Server Linux VM](sql-vm-create-portal-quickstart.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **Windows VMs**:
 
 * [Overview of SQL Server on a Windows VM](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Provision a SQL Server Windows VM](../windows/create-sql-vm-portal.md)
+* [Provision a SQL Server Windows VM](../windows/sql-vm-create-portal-quickstart.md)
 * [FAQ (Windows)](../windows/frequently-asked-questions-faq.md)

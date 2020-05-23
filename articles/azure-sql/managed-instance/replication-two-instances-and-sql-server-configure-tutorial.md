@@ -12,6 +12,7 @@ ms.reviewer: carlrab
 ms.date: 11/21/2019
 ---
 # Tutorial: Configure transactional replication between Azure SQL Managed Instance and SQL Server
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 In this tutorial, you learn how to:
 

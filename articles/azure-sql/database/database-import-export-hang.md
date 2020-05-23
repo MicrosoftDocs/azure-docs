@@ -13,6 +13,7 @@ manager: dcscontentpm
 ---
 
 # Azure SQL Database and Managed Instance Import/Export service takes a long time to import or export a database
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 When you use the Import/Export service, the process might take longer than expected. This article describes the potential causes for this delay and alternative workaround methods.
 

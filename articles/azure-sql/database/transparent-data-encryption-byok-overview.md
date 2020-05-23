@@ -13,6 +13,7 @@ ms.reviewer: vanto
 ms.date: 03/18/2020
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) with customer-managed key enables Bring Your Own Key (BYOK) scenario for data protection at rest, and allows organizations to implement separation of duties in the management of keys and data. With customer-managed transparent data encryption, customer is responsible for and in a full control of a key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing of operations on keys.
 
@@ -160,7 +161,7 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with managed instance, see [Quickstart: Restore a database to a Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to a SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 

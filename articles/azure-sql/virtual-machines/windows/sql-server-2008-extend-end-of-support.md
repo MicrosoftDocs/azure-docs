@@ -17,6 +17,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
 # Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 SQL Server 2008 and SQL Server 2008 R2 have both reached the [end of their support (EOS) life cycle](https://www.microsoft.com/sql-server/sql-server-2008). Because many customers are still using both versions, we're providing several options to continue getting support. You can migrate your on-premises SQL Server instances to Azure virtual machines (VMs), migrate to Azure SQL Database, or stay on-premises and purchase extended security updates.
 
