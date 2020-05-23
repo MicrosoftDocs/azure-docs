@@ -217,7 +217,7 @@ Like with other IoT Edge modules, you can also [examine the container logs](http
 
 In certain cases, you may need to generate more detailed logs than the ones described above, to help Azure support resolve an issue. There are two steps to accomplish this.
 
-First, you [link the module storage to the device storage](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) via createOptions. If you examine a deployment manifest <!-- link didn't work -->template from the quick-starts, you will see:
+First, you [link the module storage to the device storage](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) via createOptions. If you examine a [deployment manifest template](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) from the quick-starts, you will see:
 
 ```
 "createOptions": {
