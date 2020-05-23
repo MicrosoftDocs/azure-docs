@@ -53,8 +53,8 @@
     href: /rest/api/datashare
 - name: Resources
   items:
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-share.html
   - name: Stack Overflow 
     href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog
