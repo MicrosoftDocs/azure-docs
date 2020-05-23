@@ -203,60 +203,157 @@ A successful response is returned in JSON. The sample application parses and dis
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-02-11T16:44:36Z",
-  "lastUpdatedDateTime": "2020-02-11T16:44:36Z",
+  "createdDateTime": "2020-05-23T23:01:26Z",
+  "lastUpdatedDateTime": "2020-05-23T23:01:27Z",
   "analyzeResult": {
     "version": "3.0.0",
     "readResults": [
       {
         "page": 1,
-        "language": "es",
-        "angle": -0.8011,
-        "width": 401,
-        "height": 119,
+        "language": "",
+        "angle": 0.1108,
+        "width": 634,
+        "height": 228,
         "unit": "pixel",
         "lines": [
           {
-            "language": "es",
             "boundingBox": [
-              15,
-              42,
-              372,
-              38,
-              373,
-              91,
-              15,
-              97
+              64,
+              96,
+              581,
+              97,
+              581,
+              124,
+              64,
+              123
             ],
-            "text": "¡Buenos días!",
+            "text": "A quick brown fox jumps over the lazy dog",
             "words": [
               {
                 "boundingBox": [
-                  15,
-                  43,
-                  243,
-                  40,
-                  244,
-                  93,
-                  17,
-                  98
+                  65,
+                  97,
+                  82,
+                  97,
+                  82,
+                  123,
+                  65,
+                  123
                 ],
-                "text": "¡Buenos",
-                "confidence": 0.56
+                "text": "A",
+                "confidence": 0.987
               },
               {
                 "boundingBox": [
-                  254,
-                  40,
-                  370,
-                  38,
-                  371,
-                  91,
-                  255,
-                  93
+                  88,
+                  97,
+                  155,
+                  97,
+                  154,
+                  124,
+                  87,
+                  123
                 ],
-                "text": "días!",
-                "confidence": 0.872
+                "text": "quick",
+                "confidence": 0.986
+              },
+              {
+                "boundingBox": [
+                  160,
+                  97,
+                  238,
+                  97,
+                  237,
+                  124,
+                  160,
+                  124
+                ],
+                "text": "brown",
+                "confidence": 0.986
+              },
+              {
+                "boundingBox": [
+                  243,
+                  97,
+                  281,
+                  97,
+                  280,
+                  124,
+                  242,
+                  124
+                ],
+                "text": "fox",
+                "confidence": 0.987
+              },
+              {
+                "boundingBox": [
+                  286,
+                  97,
+                  366,
+                  97,
+                  365,
+                  124,
+                  285,
+                  124
+                ],
+                "text": "jumps",
+                "confidence": 0.986
+              },
+              {
+                "boundingBox": [
+                  371,
+                  97,
+                  424,
+                  98,
+                  423,
+                  124,
+                  370,
+                  124
+                ],
+                "text": "over",
+                "confidence": 0.983
+              },
+              {
+                "boundingBox": [
+                  430,
+                  98,
+                  469,
+                  98,
+                  468,
+                  124,
+                  429,
+                  124
+                ],
+                "text": "the",
+                "confidence": 0.987
+              },
+              {
+                "boundingBox": [
+                  475,
+                  98,
+                  525,
+                  98,
+                  524,
+                  124,
+                  474,
+                  124
+                ],
+                "text": "lazy",
+                "confidence": 0.983
+              },
+              {
+                "boundingBox": [
+                  530,
+                  98,
+                  580,
+                  98,
+                  579,
+                  124,
+                  529,
+                  124
+                ],
+                "text": "dog",
+                "confidence": 0.987
               }
             ]
           }
