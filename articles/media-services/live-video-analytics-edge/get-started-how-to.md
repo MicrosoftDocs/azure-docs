@@ -15,7 +15,7 @@ In order to use Live Video Analytics, you will need to have a Media Services acc
 
 You can use the Azure CLI to create an account using the instructions provided here. You are recommended to use General-purpose v2 (GPv2) Storage accounts.
 
-<!--Alternatively, you can make use of ARM templates at <TODO: add link to the setupLVAresources script and template JSON when it is public-->.
+<!--Alternatively, you can make use of ARM templates at <TODO: add link to the setupLVAresources script and template JSON when it is public-->
 
 ### Set up a Premium streaming endpoint
 
@@ -171,6 +171,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * IoT Edge Module Name: `lvaEdge`
     * Image URI: `mcr.microsoft.com/THIS_IS_TBD_AFTER_PREVIEW:latest`
    
+   ![Module settings](./media/get-started-how-to/add.png)
+   
     > [!TIP]
     > Don't select Add until you've specified values on the Module Settings, Container Create Options, and Module Twin Settings tabs as described in this procedure.
     
@@ -181,7 +183,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     Set “EnableDiagnosticLogging” as True if you are trying to use the module for the first time. You should set this to False when going to production. 
 1. Open the Container Create Options tab.
     
-    Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
+   ![Container Create Options](./media/get-started-how-to/container-create-options.png)
+   
+   Copy and paste the following JSON into the box, to limit the size of the log files produced by the module.
 
     ```json
     {
@@ -197,8 +201,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     }
     ```
 1. On the Module Twin Settings tab, copy the following JSON and paste it into the box.
-        
-    Configure each property with an appropriate value. See Module Twin configuration schema for more details.
+    
+   ![Module Twin Settings](./media/get-started-how-to/twin-settings.png)
+ 
+   Configure each property with an appropriate value. See Module Twin configuration schema for more details.
 
     ```json    
     {
