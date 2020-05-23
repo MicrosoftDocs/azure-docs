@@ -120,6 +120,5 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
 
 > [!NOTE]
-> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
 > * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
 > 
