@@ -108,7 +108,7 @@ Where the precision value can be one of: year, month, day, or full.
 }
 ```
 
-Above assumes we lost data for the entire day, 2018-03-08.
+The above response assumes we lost data for the entire day, 2018-03-08.
 
 ##### Constrains
 
