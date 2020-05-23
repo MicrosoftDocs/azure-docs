@@ -53,13 +53,13 @@ Where the precision value can be one of: year, month, day, or full.
 
 The following section shows query examples, responses, and constrains:
 
-##### Precision value/year
+##### Precision value - year
 
-Query:
+###### Query
 
 `/availableMedia?precision=year&startTime=2018&endTime=2019`
 
-Response:
+###### Response
 
 ```
 {
@@ -67,20 +67,20 @@ Response:
 }
 ```
 
-Constrains:
+###### Constrains
 
-* startTime <= endTime
-* Both should be in YYYY format, otherwise return error
-* Values can be any number of years apart
-* Values are inclusive
+* startTime <= endTime.
+* Both should be in YYYY format, otherwise return error.
+* Values can be any number of years apart.
+* Values are inclusive.
 
-##### Precision value/month 
+##### Precision value - month 
 
-Query:
+###### Query
 
 `/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
 
-Response:
+###### Response
 
 ```
 {
@@ -88,20 +88,55 @@ Response:
 }
 ```
 
-Constrains:
+###### Constrains
 
 * startTime <= endTime
 * Both should be in YYYY-MM format, otherwise return error
 * Values can be at most 12 months apart
 * Values are inclusive
 
-##### Precision value/day
+##### Precision value - day
 
-`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02` 
+##### Query
 
-##### Precision value/full
+`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
+
+###### Response
+
+```
+{
+  "timeRanges":[
+    { "start":"2018-03-01", "end":"2018-03-07" },
+    { "start":"2018-03-09", "end":"2018-03-31" }
+  ]
+}
+```
+Above assumes we lost data for the entire day, 2018-03-08.
+
+###### Constrains
+
+* startTime <= endTime.
+* Both should be in YYYY-MM-DD format, otherwise return error.
+* Values can be at most 31 days apart.
+* Values are inclusive.
+
+##### Precision value - full
+
+##### Query
 
 `/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
+
+###### Response
+
+Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
+
+###### Constrains
+
+* startTime < endTime.
+* Values can be at most 25 hours apart.
+* Values are inclusive.
+
+#### Additional considerations
 
 * All times are in UTC
 * The precision query string parameter is required.  
