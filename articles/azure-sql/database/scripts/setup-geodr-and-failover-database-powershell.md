@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 
-# Use PowerShell to configure active geo-replication for Azure SQL Database
+# Use PowerShell to configure active geo-replication for a database in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
