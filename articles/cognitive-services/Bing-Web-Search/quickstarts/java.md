@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
@@ -45,7 +45,7 @@ import com.google.gson.JsonParser;
 
 ### Declare Gson in the Maven POM file
 
-If you're using Maven, declare Gson in the `POM.xml`. Skip this step if you've installed Gson locally.
+If you're using Maven, declare Gson in POM.xml. Skip this step if you've installed Gson locally.
 
 ```xml
 <dependency>
@@ -93,7 +93,7 @@ static String searchTerm = "Microsoft Cognitive Services";
 
 ## Construct a request
 
-The `SsearchWeb()` method, which is included in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
+The `SearchWeb()` method, which is included in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
 
 ```java
 public static SearchResults SearchWeb (String searchQuery) throws Exception {
@@ -139,7 +139,7 @@ public static String prettify(String json_text) {
 
 ## Declare the main method
 
-The `main()` method is required and is the first method invoked when you start the program. In this application, it includes code that validates the `subscriptionKey`, makes a request, and prints the JSON response.
+The `main()` method is required and is the first method invoked when you start the program. In this application, it includes code that validates the `subscriptionKey`, makes a request, and then prints the JSON response.
 
 ```java
 public static void main (String[] args) {

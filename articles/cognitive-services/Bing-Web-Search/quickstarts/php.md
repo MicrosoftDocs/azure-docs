@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
@@ -29,7 +29,7 @@ Here are a few things that you'll need before running this quickstart:
 
 ## Enable secure HTTP support
 
-Before we get started, locate `php.ini` and uncomment this line:
+Before we get started, locate php.ini and uncomment this line:
 
 ```php
 ; extension=php_openssl.dll

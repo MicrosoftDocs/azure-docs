@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
@@ -82,7 +82,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 The `Main()` method is required and is the first method invoked when you start the program. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
 
-Keep in mind that `main()` is dependent on methods that you create in the next sections.
+The `main()` method is dependent on methods that you create in the next sections.
 
 ```csharp
 static void Main()
@@ -160,7 +160,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## Format the response
 
-This method formats the JSON response, by primarily indenting and adding line breaks.
+This method formats the JSON response, primarily by indenting and adding line breaks.
 
 ```csharp
 /// <summary>

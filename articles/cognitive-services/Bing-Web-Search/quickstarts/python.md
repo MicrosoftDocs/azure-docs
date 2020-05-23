@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
@@ -18,7 +18,7 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing Web Search API. This Python application sends a search request to the API, and shows the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Select the launch binder badge:
+This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). To run it, select the launch binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
@@ -67,7 +67,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
+The `search_results` object includes the search results, and such metadata as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML

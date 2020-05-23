@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
@@ -60,7 +60,7 @@ This function makes a secure GET request and saves the search query as a query p
 
 3. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. 
 
-4. When the app is complete, it prints the interesting headers and message body. You can adjust the colors and set the depth to suit your preference. A depth of `1` gives a nice summary of the response.
+4. When the app is complete, it prints the relevant headers and message body. You can adjust the colors and set the depth to suit your preference. A depth of `1` gives a nice summary of the response.
 
 ```javascript
 function bingWebSearch(query) {
@@ -98,7 +98,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 
 ## Make a request and print the response
 
-And now that everything is defined, let's call our function.
+Now that everything is defined, let's call our function.
 
 ```javascript
 bingWebSearch(query)
