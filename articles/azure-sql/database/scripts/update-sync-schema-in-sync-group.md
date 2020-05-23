@@ -86,12 +86,12 @@ Additional SQL Database PowerShell script samples can be found in [Azure SQL Dat
 
 For more information about SQL Data Sync, see:
 
-- Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../sql-data-sync-data-sql-server-sql-database.md)
+- Overview - [Sync data between Azure SQL Database and SQL Server with SQL Data Sync in Azure](../sql-data-sync-data-sql-server-sql-database.md)
 - Set up Data Sync
-    - Use the Azure portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-data-sync-sql-server-configure.md)
+    - Use the Azure portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](../sql-data-sync-sql-server-configure.md)
     - Use PowerShell
-        -  [Use PowerShell to sync between multiple databases in Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
-        -  [Use PowerShell to sync between a database in Azure SQL Database and a SQL Server database instance](sql-data-sync-sync-data-between-azure-onprem.md)
+        -  [Use PowerShell to sync data between multiple databases in Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync data between Azure SQL Database and SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
 - Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md)
