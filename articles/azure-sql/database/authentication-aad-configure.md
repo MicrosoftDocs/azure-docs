@@ -13,12 +13,8 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
 ---
-<<<<<<< HEAD:articles/azure-sql/database/authentication-aad-configure.md
-# Configure and manage Azure Active Directory authentication with SQL
-=======
 
 # Configure and manage Azure AD authentication with Azure SQL
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c:articles/azure-sql/database/aad-authentication-configure.md
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
@@ -463,11 +459,7 @@ Use this method to authenticate to the database in SQL Database or the SQL Manag
 
 Use this method for interactive authentication with or without Multi-Factor Authentication (MFA), with password being requested interactively. This method can be used to authenticate to the database in SQL Database, the SQL Managed Instance, and Azure Synapse for Azure AD cloud-only identity users, or those who use Azure AD hybrid identities.
 
-<<<<<<< HEAD:articles/azure-sql/database/aad-authentication-configure.md
-For more information, see [Using multi-factor Azure AD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](../mfa-authentication-ssms-overview.md).
-=======
-For more information, see [Using Multi-factor AAD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](authentication-mfa-ssms-overview.md).
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560:articles/azure-sql/database/authentication-aad-configure.md
+For more information, see [Using multi-factor Azure AD authentication with SQL Database and Azure Synapse (SSMS support for MFA)](authentication-mfa-ssms-overview.md).
 
 ## Using an Azure AD identity to connect from a client application
 
