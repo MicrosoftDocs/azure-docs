@@ -17,7 +17,7 @@ ms.date: 03/12/2019
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This PowerShell script example creates two elastic pools, moves a database in SQL Database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a database compute size.
+This PowerShell script example creates two elastic pools, moves a pooled database in SQL Database from one SQL elastic pool into another SQL elastic pool, and then moves the pooled database out of the SQL elastic pool to be a single database in Azure SQL Database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
