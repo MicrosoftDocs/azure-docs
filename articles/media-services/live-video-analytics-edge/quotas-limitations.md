@@ -28,18 +28,14 @@ You can have at most 50 graph topologies per module (created via GraphTopologySe
 With the Preview release, there are limitations on different nodes can be connected together in a media graph topology.
 
 * RTSP source
-
    * Only one RTSP source is allowed per graph topology.
 * Frame rate filter processor
-
    * Must be immediately downstream from RTSP source or motion detection processor.
    * Cannot be used downstream of a HTTP extension processor.
    * Cannot be upstream from a motion detection processor.
 * HTTP extension processor
-
    * There can be at most one such processor per graph topology
 * Motion detection processor
-
    * Must be immediately downstream from RTSP source.
    * There can be at most one such processor per graph topology.
    * Cannot be used downstream of a HTTP extension processor.
