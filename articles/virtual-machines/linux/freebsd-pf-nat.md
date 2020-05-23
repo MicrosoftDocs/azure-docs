@@ -30,7 +30,7 @@ You need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged
 az group create --name myResourceGroup --location westus
 ```
 
-Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](/cli/azure/group/deployment). Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
+Next, deploy the template pf-freebsd-setup with [az group deployment create](/cli/azure/group/deployment). Download azuredeploy.parameters.json under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -45,7 +45,7 @@ az network public-ip list --resource-group myResourceGroup
 ```
     
 ## Next steps
-Do you want to set up your own NAT in Azure? Open Source, free but powerful? Then PF is a good choice. By using the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you only need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario. 
+Do you want to set up your own NAT in Azure? Open Source, free but powerful? Then PF is a good choice. By using the template pf-freebsd-setup, you only need five minutes to set up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario. 
 
 If you want to learn the offering of FreeBSD in Azure, refer to [introduction to FreeBSD on Azure](freebsd-intro-on-azure.md).
 

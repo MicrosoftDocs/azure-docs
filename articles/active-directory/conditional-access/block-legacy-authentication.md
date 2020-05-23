@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/13/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -151,3 +151,4 @@ If you block legacy authentication using the **Other clients** condition, you ca
 - [Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 - If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) for an example.
 - For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

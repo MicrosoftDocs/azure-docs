@@ -188,4 +188,4 @@ node index.js
 
 ## Next steps
 
-[!INCLUDE [footer](footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]

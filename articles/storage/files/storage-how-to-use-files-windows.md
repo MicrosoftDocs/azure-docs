@@ -75,7 +75,7 @@ You can use Azure file shares on a Windows installation that is running either i
 ## Using an Azure file share with Windows
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Unlike other SMB shares you may have interacted with, such as those hosted on a Windows Server, Linux Samba server, or NAS device, Azure file shares do not currently support Kerberos authentication with your Active Directory (AD) or Azure Active Directory (AAD) identity, although this is a feature we are [working on](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). Instead, you must access your Azure file share with the storage account key for the storage account containing your Azure file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-sync-files-planning.md) may address the lack of Kerberos authentication and ACL support in the interim until AAD-based Kerberos authentication and ACL support is publicly available.
+This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-sync-files-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
@@ -181,7 +181,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Select the drive letter and enter the UNC path, the UNC path format is `<storageAccountName>.file.core.windows.net/<fileShareName>`. For example: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Select the drive letter and enter the UNC path, the UNC path format is `\\<storageAccountName>.file.core.windows.net\<fileShareName>`. For example: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![A screenshot of the "Map Network Drive" dialog](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

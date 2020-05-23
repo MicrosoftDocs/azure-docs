@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/21/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -33,19 +33,19 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher-level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
 
 In all pricing tiers, the data volume is calculated from a string representation of the data as it is prepared to be stored. Several [properties common to all data types](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) are not included in the calculation of the event size, including `_ResourceId`, `_ItemId`, `_IsBillable` and `_BilledSize`.
 
 Also, note that some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
-### Log Analytics Clusters
+### Log Analytics Dedicated Clusters
 
-Log Analytics Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Log Analytics Clusters](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) and [associating workspaces to it](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics Dedicated Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Log Analytics Clusters](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) and [associating workspaces to it](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
 The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed [here](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Because the billing for ingested data is done at the cluster level, workspaces associated to a cluster no longer have a pricing tier. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. Data retention is still billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. 
+Because the billing for ingested data is done at the cluster level, workspaces associated to a cluster no longer have a pricing tier. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. Data retention is still billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. 
 
 ## Estimating the costs to manage your environment 
 
@@ -88,14 +88,20 @@ You can also [set the pricing tier via Azure Resource Manager](https://docs.micr
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/)) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is aggregated at the workspace level. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. 
 
 > [!TIP]
 > If your workspace has access to the **Per Node** pricing tier, but you're wondering whether it would be cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
 
-Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. 
+Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back.
+
+There are also some behaviors between the use of legacy Log Analytics tiers and how usage is billed for [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+
+1. If the workspace is in the legacy Standard or Premium tier, Azure Security Center will be billed only for Log Analytics data ingestion, not per node.
+2. If the workspace is in the legacy Per Node tier, Azure Security Center will be billed using the current [Azure Security Center node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
+3. In other pricing tiers (including Capacity Reservations), if Azure Security Center was enabled before June 19, 2017, Azure Security Center will be billed only for Log Analytics data ingestion. Otherwise Azure Security Center will be billed using the current Azure Security Center node-based pricing model.
 
 More details of pricing tier limitations are available [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
@@ -121,9 +127,9 @@ When the retention is lowered, there is a several day grace period before the ol
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
 
-Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for this 90-day retention. These data types are also free from data ingestion charges. 
+Two data types -- `Usage` and `AzureActivity` -- are retained for a minimum of 90 days by default, and there is no charge for for this 90 day retention. If the workspace retention is increased above 90 days, the retention of these data types will also be increased.  These data types are also free from data ingestion charges. 
 
-Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` and `AppTraces`) are also retained for 90 days by default, and there is no charge for this 90-day retention. Their retention can be adjusted using the retention by data type functionality. 
+Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` and `AppTraces`) are also retained for 90 days by default, and there is no charge for for this 90 day retention. Their retention can be adjust using the retention by data type functionality. 
 
 
 ### Retention by data type
@@ -134,7 +140,7 @@ It is also possible to specify different retention settings for individual data 
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the data type (table) is case-sensitive.  To get the current per data type retention settings of a particular data type (in this example SecurityEvent), use:
+Note that the data type (table) is case sensitive.  To get the current per data type retention settings of a particular data type (in this example SecurityEvent), use:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
@@ -162,7 +168,7 @@ Valid values for `retentionInDays` are from 30 through 730.
 
 The `Usage` and `AzureActivity` data types cannot be set with custom retention. They will take on the maximum of the default workspace retention or 90 days. 
 
-A great tool to connect directly to Azure Resource Manager to set retention by data type is the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Here's an example using ARMClient, setting SecurityEvent data to a 730-day retention:
+A great tool to connect directly to Azure Resource Manager to set retention by data type is the OSS tool [ARMclient](https://github.com/projectkudu/ARMClient).  Learn more about ARMclient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Here's an example using ARMClient, setting SecurityEvent data to a 730 day retention:
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -190,9 +196,9 @@ The following steps describe how to configure a limit to manage the volume of da
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-3. Daily cap is **OFF** by default > click **ON** to enable it, and then set the data volume limit in GB/day.
+3. Daily cap is **OFF** by default ? click **ON** to enable it, and then set the data volume limit in GB/day.
 
-    ![Log Analytics configured data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
+    ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when Daily Cap reached
 
@@ -560,7 +566,7 @@ When creating the alert for the first query -- when there is more than 100 GB of
 
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
-   - **Signal Name** > select **Custom log search**
+   - **Signal Name** select **Custom log search**
    - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
    - **Time period** of *1440* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
@@ -574,7 +580,7 @@ When creating the alert for the second query -- when it is predicted that there 
 
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
-   - **Signal Name** > select **Custom log search**
+   - **Signal Name** select **Custom log search**
    - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
    - **Time period** of *180* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
@@ -599,7 +605,7 @@ If you are on the legacy Free pricing tier and have sent more than 500 MB of dat
 Operation | where OperationCategory == 'Data Collection Status'
 ```
 
-When data collection stops, the `OperationStatus` is **Warning**. When data collection starts, the `OperationStatus` is **Succeeded**. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
+When data collection stops, the OperationStatus is **Warning**. When data collection starts, the OperationStatus is **Succeeded**. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
 
 |Reason collection stops| Solution| 
 |-----------------------|---------|
