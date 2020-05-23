@@ -47,19 +47,15 @@ The client can call the Locator URL for a camera like this:
 
 `https://hostname/locatorId/content.ism/availableMedia?precision= [value]&startTime={ISO-8601}&endTime={ISO-8601}`
 
-Where the precision value can be one of: year, month, day, or full.
+Where the precision value can be one of: year, month, day, or full. 
 
-#### Query examples, responses, and constrains
+#### Query example/responses/constrains - year
 
-The following section shows query examples, responses, and constrains:
-
-##### Precision value - year
-
-###### Query
+##### Query
 
 `/availableMedia?precision=year&startTime=2018&endTime=2019`
 
-###### Response
+##### Response
 
 ```
 {
@@ -67,20 +63,20 @@ The following section shows query examples, responses, and constrains:
 }
 ```
 
-###### Constrains
+##### Constrains
 
 * startTime <= endTime.
 * Both should be in YYYY format, otherwise return error.
 * Values can be any number of years apart.
 * Values are inclusive.
 
-##### Precision value - month 
+#### Query example/responses/constrains - month
 
-###### Query
+##### Query
 
 `/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
 
-###### Response
+##### Response
 
 ```
 {
@@ -88,20 +84,20 @@ The following section shows query examples, responses, and constrains:
 }
 ```
 
-###### Constrains
+##### Constrains
 
 * startTime <= endTime
 * Both should be in YYYY-MM format, otherwise return error
 * Values can be at most 12 months apart
 * Values are inclusive
 
-##### Precision value - day
+#### Query example/responses/constrains - day
 
 ##### Query
 
 `/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
 
-###### Response
+##### Response
 
 ```
 {
@@ -111,26 +107,27 @@ The following section shows query examples, responses, and constrains:
   ]
 }
 ```
-Above assumes we lost data for the entire day, 2018-03-08.
 
-###### Constrains
+The above response assumes we lost data for the entire day, 2018-03-08.
+
+##### Constrains
 
 * startTime <= endTime.
 * Both should be in YYYY-MM-DD format, otherwise return error.
 * Values can be at most 31 days apart.
 * Values are inclusive.
 
-##### Precision value - full
+#### Query example/responses/constrains - full
 
 ##### Query
 
 `/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
 
-###### Response
+##### Response
 
 Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
 
-###### Constrains
+##### Constrains
 
 * startTime < endTime.
 * Values can be at most 25 hours apart.
