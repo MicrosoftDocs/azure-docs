@@ -41,7 +41,7 @@ The following steps show how to configure Azure SQL Database, SQL Managed Instan
 4. Select **Cloud apps**, click **Select apps**. You see all apps available for Conditional Access. Select **Azure SQL Database**, at the bottom click **Select**, and then click **Done**.  
    ![select SQL Database](./media/conditional-access-configure/select-sql-database.png)  
    If you can't find **Azure SQL Database** listed in the following third screenshot, complete the following steps:
-   - Sign in to your database in Azure SQL Database using SSMS with an Azure AD admin account.  
+   - Connect to your database in Azure SQL Database by using SSMS with an Azure AD admin account.  
    - Execute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Sign into Azure AD and verify that Azure SQL Database, SQL Managed Instance, or Azure Synapse are listed in the applications in your Azure AD instance.  
 
