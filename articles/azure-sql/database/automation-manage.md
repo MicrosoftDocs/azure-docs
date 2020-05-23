@@ -15,11 +15,7 @@ ms.date: 03/12/2019
 
 # Manage databases in Azure SQL Database by using Azure Automation
 
-<<<<<<< HEAD
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
-=======
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify the management of databases in Azure SQL Database.
 
