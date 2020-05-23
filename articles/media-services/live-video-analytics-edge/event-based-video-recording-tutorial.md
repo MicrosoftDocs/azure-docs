@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Tutorial: Event-based video recording to cloud and playback from cloud
 
-In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to selectively record certain periods of a live video feed to the cloud, otherwise called am [event based video recording](event-based-video-recording-concept.md) (EVR). You will look for objects in the feed, and record clips only when the desired object is detected. You can later stream the video using Media Services. This is useful for security scenarios, where there is a need to keep a permanent archive of certain periods of a camera footage if specific events occurred in those periods.
+In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to selectively record portions of a live video source to Media Services in the cloud. This usecase is referred as [event based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To accomplish this, you will use an object detection AI model to look for objects in the video, and record video clips only when a certain type of object is detected. You will also learn about how to playback the recorded video clips using Media Services. This is useful for a variety of scenarios, where there is a need to keep an archive of video clips of interest.
 
 > [!div class="checklist"]
 > * Setup the relevant resources
@@ -26,9 +26,9 @@ It is recommended that you read through the following documentation pages
 * [Media graph concepts](media-graph-concept.md) 
 * [Event-based video recording](event-based-video-recording-concept.md)
 <!--* [Quickstart: Event-based recording based on motion events]()-->
-* Read [Tutorial: developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
-* Read [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* Read the section on [how to declare routes in IoT Edge deployment manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
+* [Tutorial: developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
+* Section on [how to declare routes in IoT Edge deployment manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
 
 ## Prerequisites
 
@@ -54,24 +54,19 @@ At the end of the above steps, you will have certain Azure resources deployed in
 
 ![Media graph](./media/event-based-video-recording-tutorial/overview.png)
 
-Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question, could originate due to processing of the video signal itself (for example, upon detecting a moving object in the video) or could be from an independent source (for example, opening of a door). Alternatively, you can trigger recording only when an external inferencing service detects that a specific event has occurred.  In this tutorial will help you go through a sample that will enable you to realize this scenario. You will use a video of traffic on a highway, and record clips when a truck is detected.
+Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question, could originate due to processing of the video signal itself (for example, upon detecting a moving object in the video) or could be from an independent source (for example, opening of a door). Alternatively, you can trigger recording only when an external inferencing service detects that a specific event has occurred.  In this tutorial you will use a video of vehicales moving on a freeway, and record video clips whenever a truck is detected.
 
-The diagram above is a pictorial representation of a [media graph](media-graph-concept.md) that accomplishes the desired scenario. There are four IoT Edge modules involved:
+The diagram above is a pictorial representation of a [media graph](media-graph-concept.md) and additional modules that accomplish the desired scenario. There are four IoT Edge modules involved:
 
-* The [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) Edge module, used to simulate an RTSP camera. 
+* Live Video Analytics on IoT Edge module
+* An AI module built using the [YOLO v3 model](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx)
+* A custom module to count and filter objects (referred to as Object Counter in the diagram above) that you will build and deploy in this tutorial
+* A [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera
+    
+As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the live video, and send that video to two paths.
 
-    The module uses this MKV file as the source. You can install an application like VLC Player, launch it, hit Control+N, and paste the link to the MKV file to watch the video. Note that it is of traffic on a highway, and the vehicles are mostly cars with an occasional truck.
-* An external inference module built using the YOLO v3 model
-* An Object Counter module that you will build and deploy in this tutorial
-* The Live Video Analytics on Edge module
-
-As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed, and send that video to two paths.
-
-* First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that drops down the frame rate of its output that goes into an HTTP Extension node.
-
-    The HTTP Extension node sends frames (as images) to the external inference module (YOLO v3 – which is an object detector) and receives results – which will be the vehicles it detects. The HTTP Extension node then publishes the results via the IoT Hub Message Sink to the IoT Edge Hub
-* The Object Counter is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It will examine these, and when it detects a specific object (a truck), it will send a specific message to the IoT Edge Hub, for routing to the media graph.
-* The IoT Hub Source node in the Media Graph receives the message from the Object Counter and triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, causing the latter to open. Video then flows through the gate to the Asset Sink node for a configured period. A desired portion of the live stream, containing footage of a truck, will be recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
+* First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified frame rate. Those video frames sever as input to an HTTP extension node.The HTTP extension node sends frames (as images) to the AI module (YOLO v3 – which is an object detector) and receives results – which will be the objects detected by the model. The HTTP extension node then publishes the results via the IoT Hub Message Sink to the IoT Edge Hub
+* The object counter module is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It checks the messages looking for objects of a certain type (configured via a twin property) and outputs a message to IoT Edge Hub. Those messages are then routed back to the IoT Hub source node of the media graph. Upon receiving a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node to open the gate for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream,  is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
 
 ## Examine the template file 
 
