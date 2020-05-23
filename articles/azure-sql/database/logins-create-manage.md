@@ -20,10 +20,10 @@ ms.date: 03/23/2020
 In this article, you learn about:
 
 - Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
-- The access and authorization configuration after initially creating a new server in Azure SQL
-- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
-- How to add user accounts in user databases, either associated with logins or as contained user accounts
-- Configure user accounts with permissions in user databases by using database roles and explicit permissions
+- The access and authorization configuration after initially creating a new server. 
+- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions.
+- How to add user accounts in user databases, either associated with logins or as contained user accounts.
+- Configure user accounts with permissions in user databases by using database roles and explicit permissions.
 
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.

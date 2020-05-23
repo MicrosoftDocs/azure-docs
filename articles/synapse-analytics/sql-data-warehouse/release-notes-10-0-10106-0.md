@@ -37,7 +37,20 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## May 2020
 
+| Service improvements | Details |
+| --- | --- |
+|**Workload Isolation (GA)**|[Workload isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) is now generally available.  Through [workload groups](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) you can reserve and contain resources.  The ability to configure query timeouts to cancel runaway queries is also possible.|
+|**Workload Management Portal experience (Preview)**| Users can configure and manage their workload management settings via the Azure portal.  The ability to configure [workload groups](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) and [workload classifiers](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) with importance is possible.|
+|**Alter workload group**|The ability to use the [ALTER WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) command is now available.  Use alter to change the configuration of an existing [workload group](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation).|
+|**Auto-schema detection for Parquet files with COPY command**|The [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) now supports auto-schema detection when loading Parquet files. The command will automatically detect the Parquet file schema and create the table prior to the load.|
+|**Load complex Parquet data types with COPY command**|The [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) now supports loading complex Parquet types. You can load complex types such as Maps and Lists into string columns.|
+|**Auto-compression detection of Parquet files with COPY command**|The [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) now supports auto-detection of the compression method for the Parquet file(s).|
+|**Additional load recommendations**|[Load recommendations](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) are now available for Synapse SQL. Get proactive notifications when you should split your files for maximum throughput, co-locate your storage account with your SQL pool, or increase the batch size when using loading utilities such as the SQLBulkCopy API or BCP|
+|**T-SQL Updatable distribution column (GA)**|Users can now update data stored in the distribution column. Check out [guidance for designing distributed tables in Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) for details.|
+|**T-SQL Update/Delete from...Join (GA)**|Update and Delete based on results from joining with another table is now available. See [Update](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) and [Delete](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) documentation for details.|
+|**T-SQL PREDICT (Preview)**|You can now predict machine learning models within your data warehouse avoiding the need for large and complex data movement. The T-SQL PREDICT function relies on open model framework and takes data and machine learning model as input to generate predictions. For more information, see [documentation](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## April 2020
 

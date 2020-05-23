@@ -8,9 +8,9 @@ ms.date: 09/28/2019
 ms.author: mjbrown
 ---
 
-# Provision throughput on a database in Azure Cosmos DB
+# Provision standard (manual) throughput on a database in Azure Cosmos DB
 
-This article explains how to provision throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
+This article explains how to provision standard (manual) throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
 ## Provision throughput using Azure portal
 
@@ -34,7 +34,7 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 To create a database with shared throughput see,
 
 * [Create a database using Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
-* [Create a database using Powershell](manage-with-powershell.md#create-db-ru)
+* [Create a database using PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## Provision throughput using .NET SDK
 
@@ -79,5 +79,6 @@ See the following articles to learn about provisioned throughput in Azure Cosmos
 
 * [Globally scale provisioned throughput](scaling-throughput.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [How to provision throughput for a container](how-to-provision-container-throughput.md)
+* [How to provision standard (manual) throughput for a container](how-to-provision-container-throughput.md)
+* [How to provision autoscale throughput for a container](how-to-provision-autoscale-throughput.md)
 * [Request units and throughput in Azure Cosmos DB](request-units.md)

@@ -10,9 +10,7 @@ ms.date: 04/30/2020
 
 # Quickstart: Deploy a container instance in Azure using a Resource Manager template
 
-Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service.
-
-In this quickstart, you use an Azure Resource Manager template to deploy an isolated Docker container and make its web application available with a public IP address. 
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service. In this quickstart, you use an Azure Resource Manager template to deploy an isolated Docker container and make its web application available with a public IP address.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,9 +24,9 @@ None.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
 The following resource is defined in the template:
 

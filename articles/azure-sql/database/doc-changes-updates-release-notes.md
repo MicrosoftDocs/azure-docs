@@ -9,7 +9,7 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
@@ -23,7 +23,7 @@ Documentation for Azure SQL Database and Azure SQL Managed Instance has been spl
 
 We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Managed Instance in individual 'shared' articles.
 
-This clarification between the different Azure SQL products should simplify and streamline the process of working with SQL in Azure, whether that be a single managed database in Azure SQL Database, a fully-fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
+This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully-fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
 
 Consider that this is a work in progress and not every document has been updated yet. For example, Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so please bear with us!
 
@@ -86,6 +86,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Has Workaround| |
 |[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Automatically mitigated| |
 |[Permissions on resource group not applied to SQL Managed Instance](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
@@ -112,6 +113,12 @@ The following features are enabled in SQL Managed Instance deployment model in H
 |Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
 
+
+### Restoring manual backup without CHECKSUM might fail
+
+In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored. In such case please retry restoring the backup until successful.
+
+**Workaround**: Take manual backups of databases on managed instance with CHECKSUM enabled.
 
 ### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
 

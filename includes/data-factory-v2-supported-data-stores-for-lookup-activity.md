@@ -85,6 +85,7 @@ ms.custom: include file
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (Preview)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[SharePoint Online List](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (Preview)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |
