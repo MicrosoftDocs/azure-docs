@@ -37,8 +37,8 @@ To create the sample in Visual Studio:
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     2. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     3. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
-3. Run the program.
-4. At the prompt, enter the path to a local image and the language to recognize.
+3. Copy and paste the code below into the Program.cs file in your solution.
+4. Run the program.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -65,15 +65,13 @@ namespace CSHttpClientSample
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
-        // Add a language, either "en" or "es"
-        static string language = "en";
 
 
         static void Main(string[] args)
         {
             // Call the REST API method.
             Console.WriteLine("\nExtracting text...\n");
-            ReadText(imageFilePath, language).Wait();
+            ReadText(imageFilePath).Wait();
 
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
@@ -84,7 +82,7 @@ namespace CSHttpClientSample
         /// the Computer Vision REST API.
         /// </summary>
         /// <param name="imageFilePath">The image file with text.</param>
-        static async Task ReadText(string imageFilePath, string language)
+        static async Task ReadText(string imageFilePath)
         {
             try
             {
@@ -94,12 +92,7 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                var builder = new UriBuilder(uriBase);
-                builder.Port = -1;
-                var query = HttpUtility.ParseQueryString(builder.Query);
-                query["language"] = language;
-                builder.Query = query.ToString();
-                string url = builder.ToString();
+                string url = uriBase;
 
                 HttpResponseMessage response;
 
