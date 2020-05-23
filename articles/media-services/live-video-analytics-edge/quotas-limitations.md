@@ -44,12 +44,11 @@ With the Preview release, there are limitations on different nodes can be connec
    * There can be at most one such processor per graph topology.
    * Cannot be used downstream of a HTTP extension processor.
 * Signal gate processor
-    * Must be immediately downstream from RTSP source.
+   * Must be immediately downstream from RTSP source.
 * Asset sink 
-    * Only one Asset sink is supported per graph.
-    
-        * If an Asset sink is used, then a file sink cannot be present, or vice versa.
-    * Must be immediately downstream from RTSP source or signal gate processor.
+   * There can be at most one such node per graph topology.
+      * If an asset sink is used, then a file sink cannot be present, or vice versa.
+   * Must be immediately downstream from RTSP source or signal gate processor.
 * File sink
     * Only one file sink is supported per graph (see above note regarding asset sink).
     * Must be immediately downstream from signal gate processor.
