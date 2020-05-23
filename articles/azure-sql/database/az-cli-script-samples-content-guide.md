@@ -14,18 +14,9 @@ ms.reviewer:
 ms.date: 02/03/2019
 ---
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Azure CLI samples for Azure SQL Database and SQL Managed Instance 
-=======
-# Azure CLI samples for Azure SQL Database & SQL Managed Instance 
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
-=======
 # Azure CLI samples for Azure SQL Database and SQL Managed Instance 
  
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 You can configure Azure SQL Database and SQL Managed Instance by using the <a href="/cli/azure">Azure CLI</a>.
 
