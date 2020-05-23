@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 ms.date: 06/25/2019
 ---
 
-# Use the Azure CLI to monitor and scale a database in Azure SQL Database
+# Use the Azure CLI to monitor and scale a single database in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This Azure CLI script example scales a database in Azure SQL Database to a different compute size after querying the size information of the database.
+This Azure CLI script example scales a single database in Azure SQL Database to a different compute size after querying the size information of the database.
 
 If you choose to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
