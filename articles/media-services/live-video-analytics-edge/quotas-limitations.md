@@ -35,12 +35,14 @@ With the Preview release, there are limitations on different nodes can be connec
    * Must be immediately downstream from RTSP source or motion detection processor.
    * Cannot be used downstream of a HTTP extension processor.
    * Cannot be upstream from a motion detection processor.
-
 * HTTP extension processor
-    * Only one HTTP extension processor per graph topology.
+
+   * There can be at most one such processor per graph topology
 * Motion detection processor
-    * Must be immediately downstream from RTSP source.
-    * There can be at most one such processor per topology.
+
+   * Must be immediately downstream from RTSP source.
+   * There can be at most one such processor per graph topology.
+   * Cannot be used downstream of a HTTP extension processor.
 * Signal gate processor
     * Must be immediately downstream from RTSP source.
 * Asset sink 
