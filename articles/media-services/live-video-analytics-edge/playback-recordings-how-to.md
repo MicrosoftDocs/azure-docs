@@ -97,7 +97,7 @@ The following section shows query examples, responses, and constrains:
 
 ##### Precision value - day
 
-##### Query
+###### Query
 
 `/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
 
@@ -120,9 +120,26 @@ Above assumes we lost data for the entire day, 2018-03-08.
 * Values can be at most 31 days apart.
 * Values are inclusive.
 
+
+
+|test|xxx|
+|---|---|
+|```
+{
+  "timeRanges":[
+    { "start":"2018-03-01", "end":"2018-03-07" },
+    { "start":"2018-03-09", "end":"2018-03-31" }
+  ]
+}
+```
+|* startTime <= endTime.
+* Both should be in YYYY-MM-DD format, otherwise return error.
+* Values can be at most 31 days apart.
+* Values are inclusive.|
+
 ##### Precision value - full
 
-##### Query
+###### Query
 
 `/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
 
