@@ -1,10 +1,6 @@
 ---
 title: "Configure Always Encrypted by using Azure Key Vault"
-<<<<<<< HEAD
-description: This tutorial shows you how to secure sensitive data for your database in Azure SQL Database with data encryption by using the Always Encrypted wizard in SQL Server Management Studio. 
-=======
 description: This tutorial shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the Always Encrypted wizard in SQL Server Management Studio. 
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
@@ -19,13 +15,9 @@ ms.date: 04/23/2020
 ---
 # Configure Always Encrypted by using Azure Key Vault 
 
-<<<<<<< HEAD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article shows you how to secure sensitive data for your database in Azure SQL Database with data encryption by using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
-=======
 This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -49,21 +41,9 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 - [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Enable your client application to access SQL Database
-
-You must enable your client application to access SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
-=======
-## Enable client application access
-
-You must enable your client application to access SQL Database or SQL Managed Instance by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
-=======
 ## Enable your client application to access your database in SQL Database
 
 You must enable your client application to access your database in SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
->>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -118,24 +98,13 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
-* * *
-
-<<<<<<< HEAD
-## Create a blank database in Azure SQL Database
-=======
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
-
 ## Connect with SSMS
 
 Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
 
-<<<<<<< HEAD
-2. Enter your server name and credentials. The server name can be found on the SQL database pane and in the connection string you copied earlier. Type the complete server name, including *database.windows.net*.
-=======
 2. Enter your server name  or instance name and credentials. 
->>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
 
     ![Copy the connection string](./media/always-encrypted-azure-key-vault-configure/ssms-connect.png)
 
