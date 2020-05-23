@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Restore a backup for a database in SQL Database" 
+title: "PowerShell: Restore an automatic backup of a database in SQL Database" 
 description: Use an Azure PowerShell example script to restore a database in SQL Database to an earlier point in time from automatic backups.
 services: sql-database
 ms.service: sql-database
