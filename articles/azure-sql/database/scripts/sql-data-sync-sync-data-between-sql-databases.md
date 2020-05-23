@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
 
-# Use PowerShell to sync between multiple databases in Azure SQL Database
+# Use PowerShell to sync data between multiple databases in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This Azure PowerShell example configures SQL Data Sync to sync between multiple databases in Azure SQL Database.
+This Azure PowerShell example configures SQL Data Sync to sync data between multiple databases in Azure SQL Database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -33,7 +33,6 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 ## Prerequisites
 
 - Create a database in Azure SQL Database from an AdventureWorksLT sample database as a hub database.
-- Create a database in Azure SQL Database in the same region as the sync database.
 - Create a SQL Server on-premises database as a member database.
 - Update the parameter placeholders before running the example.
 
@@ -293,8 +292,8 @@ For more information about SQL Data Sync, see:
 
 - Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../sql-data-sync-data-sql-server-sql-database.md)
 - Set up Data Sync
-    - Use the Azure portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-data-sync-sql-server-configure.md)
-    - Use PowerShell - [Use PowerShell to sync between a database in Azure SQL Database and a SQL Server on-premises database](sql-data-sync-sync-data-between-azure-onprem.md)
+    - Use the Azure portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](../sql-data-sync-sql-server-configure.md)
+    - Use PowerShell - [Use PowerShell to sync data between a database in Azure SQL Database and SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
 - Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md)
