@@ -25,7 +25,7 @@ In this article, you'll import sample data into Excel from that article, but you
 
 You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/).
 
-## Connect Excel to a database in SQL Database and load data
+## Connect Excel and load data
 
 1. To connect Excel to a database in SQL Database, open Excel and then create a new workbook or open an existing Excel workbook.
 2. In the menu bar at the top of the page, select the **Data** tab, select **Get Data**, select From Azure, and then select **From Azure SQL Database**.
