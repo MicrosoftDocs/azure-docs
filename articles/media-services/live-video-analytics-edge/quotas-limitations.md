@@ -58,6 +58,10 @@ If both motion detection and filter rate processor nodes are used, they should b
 
 At the time of the preview release, the Live Video Analytics on IoT Edge does not support the following:
 
+* The ability to migrate the Media Service account from one subscription to another without an interruption.
+* The ability to use more than one Storage account with the Media Service account.
+* The ability to change the service principal information in the desired properties of the module dynamically, without a restart.
+
 ## Next steps
 
 [Overview](overview.md)
