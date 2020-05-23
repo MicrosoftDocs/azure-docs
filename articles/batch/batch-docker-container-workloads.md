@@ -1,12 +1,10 @@
 ---
 title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
-ms.topic: article
-ms.date: 03/02/2020
+ms.topic: how-to
+ms.date: 05/20/2020
 ms.custom: seodec18
-
 ---
-
 # Run container applications on Azure Batch
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
@@ -155,32 +153,40 @@ new_pool = batch.models.PoolAddParameter(
 The following C# example assumes that you want to prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com). This example includes a start task that runs in the VM host on the pool nodes. You might run a start task in the host, for example, to mount a file server that can be accessed from the containers.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
@@ -191,22 +197,22 @@ You can also prefetch container images by authenticating to a private container 
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
-	registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -281,7 +287,6 @@ The following C# example shows basic container settings for a cloud task:
 
 ```csharp
 // Simple container task command
-
 string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
@@ -291,10 +296,9 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine);
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
-
 
 ## Next steps
 

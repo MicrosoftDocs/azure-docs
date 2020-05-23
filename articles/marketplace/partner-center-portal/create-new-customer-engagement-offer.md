@@ -62,7 +62,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 Select **Save draft** before continuing.
 
@@ -91,7 +91,7 @@ Select from the following options:
 - [Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
 
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -253,9 +253,14 @@ Provide the URL for the configuration web page that enables the customer to conf
 
 ### CRM package
 
-In the **URL of your package location** field, enter the URL of an Azure Storage account that contains the uploaded CRM package .zip file. This URL should include a read-only SAS key to allow Microsoft to pick up your package for verification.
+In the **URL of your package location** field, enter the URL of an Azure Blob Storage account that contains the uploaded CRM package .zip file. Include a read-only SAS key in the URL so Microsoft can pick up your package for verification.
 
-Check the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+> [!IMPORTANT]
+> To avoid a publishing block, make sure that the expiration date in the URL of your Blob storage hasn’t expired. You can revise the date by accessing your policy. We recommend the **Expiry time** be at least one month in the future.
+
+Select the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+
+For detailed information on how to build your package and update its structure, see [Step 3: Create an AppSource package for your app](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### CRM package availability
 

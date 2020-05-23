@@ -44,8 +44,8 @@
     href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
-  # - name: Get started
-  #   href: get-started.md
+  - name: Get started
+    href: get-started.md
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
@@ -880,10 +880,10 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
   - name: Feature requests
     href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/synapse-analytics/
   - name: Pricing calculator

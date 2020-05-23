@@ -1,6 +1,6 @@
 ---
 title: Azure Automation Update Management overview
-description: Overview of the Update Management feature that manages updates for your Windows and Linux machines
+description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
-You can enable Update Management for virtual machines (VMs) using the following methods:
+You can enable Update Management for VMs in the following ways:
 
 * From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
 * Manually for non-Azure machines.
@@ -25,7 +25,7 @@ An [Azure Resource Manager template](automation-update-management-deploy-templat
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script. 
 
-## Update Management overview
+## About Update Management
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
 
@@ -38,7 +38,7 @@ The following diagram illustrates how Update Management assesses and applies sec
 
 ![Update Management workflow](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
+Update Management can be used to natively deploy machines in multiple subscriptions in the same tenant.
 
 After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released.
 
@@ -83,8 +83,7 @@ The following table lists the supported operating systems for update assessments
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
-> Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once.
-> You can add nodes for virtual machine scale sets by following the steps under [Onboard a non-Azure machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once. You can add nodes for virtual machine scale sets by following the steps under [Add a non-Azure machine to Change Tracking and Inventory](automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
 ### Unsupported client types
 
@@ -104,7 +103,7 @@ The following information describes operating system-specific client requirement
 
 Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md#configuration). The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
+You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](updatemgmt-mecmintegration.md). The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 
@@ -231,7 +230,7 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md).
+Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Endpoint Configuration Manager](updatemgmt-mecmintegration.md).
 
 ## Third-party updates on Windows
 
@@ -243,10 +242,20 @@ An Azure [Resource Manager template](automation-update-management-deploy-templat
 
 Here are the ways that you can enable Update Management and select machines to be managed:
 
-* [From a virtual machine](automation-onboard-solutions-from-vm.md).
-* [From browsing multiple machines](automation-onboard-solutions-from-browse.md).
-* [From an Azure Automation account](automation-onboard-solutions.md).
+* [From a virtual machine](automation-onboard-solutions-from-vm.md)
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+* [From an Azure Automation account](automation-onboard-solutions.md)
 
 ## Next steps
 
-Review the Azure Automation [FAQ](automation-faq.md) to review common questions about Update Management.
+* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* If you need to target a dynamic VM group for updates, see [Use dynamic groups with Update Management](automation-update-management-groups.md).
+* To enable the feature using an Azure Resource Manager template, see [Enable Update Management using Azure Resource Manager template](automation-update-management-deploy-template.md).
+* To enable the feature from a runbook, see [Enable Update Management from a runbook](automation-onboard-solutions.md).
+* To enable the feature from an Automation account, see [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md).
+* To enable the feature by browsing the Azure portal, see [Enable Update Management from Azure portal](automation-onboard-solutions-from-browse.md).
+* To enable the feature from an Azure VM, see [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Query Update Management logs](automation-update-management-query-logs.md).
+* To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
