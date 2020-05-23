@@ -14,7 +14,12 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ---
+<<<<<<< HEAD
 # Troubleshoot transient connection errors
+=======
+
+# Troubleshoot transient connection errors in Azure SQL
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 

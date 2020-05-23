@@ -13,7 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
 ---
+<<<<<<< HEAD:articles/azure-sql/database/authentication-aad-configure.md
 # Configure and manage Azure Active Directory authentication with SQL
+=======
+
+# Configure and manage Azure AD authentication with Azure SQL
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c:articles/azure-sql/database/aad-authentication-configure.md
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 

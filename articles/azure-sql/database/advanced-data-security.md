@@ -31,7 +31,7 @@ Enable Azure SQL ADS once to enable all of these included features. With one cli
 
 ADS pricing aligns with Azure Security Center standard tier, where each protected server or managed instance is counted as one node. Newly protected resources qualify for a free trial of Security Center standard tier. For more information, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-## Get started with ADS
+## Getting started with ADS
 
 The following steps get you started with ADS.
 

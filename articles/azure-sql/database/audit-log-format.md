@@ -12,12 +12,19 @@ ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 ---
 <<<<<<< HEAD
+<<<<<<< HEAD
 # SQL Database audit log format
 =======
 # SQL Database Audit Log Format
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 >>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
+=======
+
+# SQL Database audit log format
+
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 [Azure SQL Database auditing](auditing-overview.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
 

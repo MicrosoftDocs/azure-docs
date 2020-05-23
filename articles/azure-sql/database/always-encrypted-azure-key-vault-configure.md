@@ -1,6 +1,10 @@
 ---
 title: "Configure Always Encrypted by using Azure Key Vault"
+<<<<<<< HEAD
 description: This tutorial shows you how to secure sensitive data for your database in Azure SQL Database with data encryption by using the Always Encrypted wizard in SQL Server Management Studio. 
+=======
+description: This tutorial shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the Always Encrypted wizard in SQL Server Management Studio. 
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
@@ -15,9 +19,13 @@ ms.date: 04/23/2020
 ---
 # Configure Always Encrypted by using Azure Key Vault 
 
+<<<<<<< HEAD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article shows you how to secure sensitive data for your database in Azure SQL Database with data encryption by using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+=======
+This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -42,6 +50,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 - [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Enable your client application to access SQL Database
 
 You must enable your client application to access SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
@@ -50,6 +59,11 @@ You must enable your client application to access SQL Database by setting up an 
 
 You must enable your client application to access SQL Database or SQL Managed Instance by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 >>>>>>> 6e86723e6fc9f096e5e49f356bab46ef8264c560
+=======
+## Enable your client application to access your database in SQL Database
+
+You must enable your client application to access your database in SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
+>>>>>>> 6e871a2f68983e1a861a856259d1afa8461e360c
 
 To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
