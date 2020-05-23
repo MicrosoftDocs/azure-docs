@@ -54,7 +54,7 @@ This page includes links to perform operations on this offer based on the select
 
 Follow these steps to set up your offer.
 
-### Connect lead management
+### Customer leads
 
 When publishing your offer to the marketplace with Partner Center, you can optionally connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 

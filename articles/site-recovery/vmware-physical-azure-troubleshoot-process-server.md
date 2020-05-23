@@ -243,7 +243,7 @@ Increase the bandwidth between the process server and Azure, and then check whet
 
 ## Next steps
 
-If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png
