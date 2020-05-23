@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants using the  application per tenant SaaS pattern
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article covers the provisioning and cataloging of new tenants using the standalone app per tenant SaaS pattern.
 This article has two major parts:

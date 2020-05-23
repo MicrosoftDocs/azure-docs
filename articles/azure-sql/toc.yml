@@ -1,246 +1,128 @@
-- name: Azure SQL Documentation 
+- name: Azure SQL Documentation
   href: index.yml
 
-- name: Azure SQL
-  items: 
-  - name: Overview
-    items: 
-    - name: What is Azure SQL? 
-      href: azure-sql-iaas-vs-paas-what-is-overview.md
-    - name: Doc updates & release notes
-
-  - name: Concepts
-    items: 
-    - name: Azure Hybrid Benefit
-      href: azure-hybrid-benefit.md
-    - name: Multi-model features
-      href: multi-model-features.md
-    - name: Accelerated database recovery
-      href: accelerated-database-recovery.md
-    - name: Temporal tables
-      href: temporal-tables.md
-    - name: In-memory
-      href: in-memory-oltp-overview.md
-
-  - name: How to guides
-    items:
-    - name: Identify query performance issues
-      href: identify-query-performance-issues.md
-    - name: Batching for performance
-      href: performance-improve-use-batching.md
-    - name: Load data with BCP
-      href: load-from-csv-with-bcp.md
-    - name: In-memory OLTP
-      items:
-      - name: Configure In-Memory OLTP
-        href: in-memory-oltp-migration.md
-      - name: Try in-memory features
-        href: in-memory-sample.md
-      - name: Monitor In-memory OLTP space
-        href: in-memory-oltp-monitoring.md
+- name: What is Azure SQL? 
+  href: azure-sql-iaas-vs-paas-what-is-overview.md
 
 - name: Shared SQL DB & SQL MI docs 
   items:
+  - name: Purchasing models
+    items:
+    - name: Overview
+      href: database/purchasing-models.md
+    - name: vCore model overview
+      href: database/service-tiers-vcore.md
+    - name: Azure Hybrid Benefit
+      href: azure-hybrid-benefit.md
+    - name: Reserved capacity
+      href: database/reserved-capacity-overview.md
+  - name: Compute & storage
+    items:
+    - name: Overview
+      href: database/service-tiers-general-purpose-business-critical.md
+      displayName: provisioned compute tier
+    - name: General purpose / Standard
+      href: database/service-tier-general-purpose.md
+    - name: Business critical / Premium
+      href: database/service-tier-business-critical.md
+
   - name: Shared concepts 
     itemS: 
     - name: Feature comparison
       href: database/features-comparison.md
+    - name: Multi-model features
+      href: multi-model-features.md
 
+    - name: In-memory OLTP
+      href: in-memory-oltp-overview.md
+    - name: Temporal tables
+      href: temporal-tables.md
+    - name: Scale up / down
+      href: database/scale-resources.md
 
-    - name: Purchasing models
-      items:
-      - name: Overview
-        href: database/purchasing-models.md
-      - name: vCore model
-        items:
-        - name: vCore model overview
-          href: database/service-tiers-vcore.md
-        - name: Serverless
-          href: database/serverless-tier-overview.md
-        - name: Reserved capacity
-          href: database/reserved-capacity-overview.md
-      - name: DTU model overview
-        href: database/service-tiers-dtu.md
-      - name: Migrate from DTU to vCore
-        href: database/migrate-dtu-to-vcore.md
-    - name: Compute & storage
-      items:
-      - name: Overview
-        href: database/service-tiers-general-purpose-business-critical.md
-        displayName: provisioned compute tier
-      - name: General purpose / Standard
-        href: database/service-tier-general-purpose.md
-      - name: Business critical / Premium
-        href: database/service-tier-business-critical.md
-      - name: Hyperscale
-        href: database/service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md
     - name: Security
       items:
-      - name: Security overview
+      - name: Overview
         href: database/security-overview.md
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
-      - name: Security best practices
+      - name: Best practices
         href: database/security-best-practice.md
+      - name: Security baseline
+        href: database/security-baseline.md
+      - name: Security attributes
+        href: database/security-controls.md
+      - name: Advanced Data Security
+        href: database/advanced-data-security.md
+      - name: Advanced Threat Protection
+        href: database/threat-detection-overview.md
+      - name: Dynamic data masking
+        href: database/dynamic-data-masking-overview.md
+      - name: SQL Vulnerability Assessment
+        href: database/sql-vulnerability-assessment.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
-
       - name: Azure AD Authentication
-        href: database/aad-authentication-overview.md
+        href: database/authentication-aad-overview.md
         items:
         - name: Configure Azure AD auth
-          href: database/aad-authentication-configure.md
+          href: database/authentication-aad-configure.md
         - name: Multi-factor AAD auth
-          href: mfa-authentication-ssms-overview.md
+          href: database/authentication-mfa-ssms-overview.md
         - name: Configure multi-factor auth
-          href: mfa-authentication-ssms-configure.md
+          href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
-
-      - name: Data protection
+      - name: Transparent Data Encryption (TDE)
         items:
-        - name: Dynamic data masking
-          href: database/dynamic-data-masking-overview.md
-        - name: Transparent Data Encryption (TDE)
-          items:
-          - name: TDE with Azure SQL
-            href: database/transparent-data-encryption-tde-overview.md
-          - name: TDE with Bring Your Own Key
-            href: database/transparent-data-encryption-byok-overview.md
-          - name: Configure TDE with BYOK
-            href: database/transparent-data-encryption-byok-configure.md
-          - name: Rotate TDE BYOK keys
-            href: database/transparent-data-encryption-byok-key-rotation.md
-          - name: Remove TDE protector
-            href: database/transparent-data-encryption-byok-remove-tde-protector.md
-        - name: Always encrypted
-          items:
-          - name: Use the certificate store
-            href: database/always-encrypted-certificate-store-configure.md
-          - name: Use the Azure key vault
-            href: database/always-encrypted-azure-key-vault-configure.md
-
-      - name: Auditing
-        items:
-        - name: Azure SQL Auditing
-          href: database/auditing-overview.md
-        - name: Audit to storage account behind VNet or firewall
-          href: database/audit-write-storage-account-behind-vnet-firewall.md
-        - name: Audit log format
-          href: database/audit-log-format.md
-
-      - name: Security management
-        items:
-        - name: Advanced data security
-          href: database/advanced-data-security.md
+        - name: Overview
+          href: database/transparent-data-encryption-tde-overview.md
+        - name: Bring Your Own Key (BYOK)
+          href: database/transparent-data-encryption-byok-overview.md
         - name: Data discovery and classification
           href: database/data-discovery-and-classification-overview.md
-        - name: Vulnerability assessment
-          items:
-          - name: Vulnerability assessment  
-            href: /database/sql-vulnerability-assessment.md
-          - name: Storing VA scans behind firewalls and VNets
-            href: database/sql-database-vulnerability-assessment-storage.md
-        - name: Advanced Threat Protection
-          href: database/threat-detection-overview.md
-        - name: Security attributes
-          href: database/security-controls.md
-    - name: Backup, restore, high availability (BCDR)
+        
+    - name: Business continuity
+      displayName: Backup, back up, restore, recovery
       items:
-        - name: Business continuity
+        - name: Overview
           href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
         - name: High availability
           href: database/high-availability-sla.md
-        - name: Backups
+        - name: Auto-failover groups
+          href: database/auto-failover-group-overview.md
+        - name: Backup and recovery 
           items:
           - name: Automated backups
             href: database/automated-backups-overview.md
+          - name: Accelerated database recovery
+            href: accelerated-database-recovery.md 
           - name: Recovery using backups
             href: database/recovery-using-backups.md
           - name: Long-term backup retention
             href: database/long-term-retention-overview.md
 
-    - name: Failover groups and geo-replication
-      items:
-      - name: Active geo-replication
-        href: database/active-geo-replication-overview.md
-      - name: Auto-failover groups
-        href: database/auto-failover-group-overview.md
-      - name: Configure security for replicas
-        href: database/active-geo-replication-security-configure.md
-      - name: Outage recovery guidance
-        href: database/disaster-recovery-guidance.md
-      - name: Recovery drills
-        href: database/disaster-recovery-drills.md
-      - name: Configure failover group
-        href: database/auto-failover-group-configure.md
-
     - name: Monitor and tune
       items:
-      - name: Documentation index
+      - name: Documentation
         href: database/monitoring-tuning-index.yml
       - name: Overview
         href: database/monitor-tune-overview.md
       - name: Intelligent Insights
-        href: intelligent-insights.md
+        href: database/intelligent-insights-overview.md
+      - name: SQL Analytics
+        href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
       - name: Automatic tuning
         href: database/automatic-tuning-overview.md
-      - name: Intelligent Insights and SQL Analytics
+      - name: In-memory OLTP
+        href: in-memory-oltp-overview.md
+      - name: Extended events
         items:
-        - name: Diagnostic telemetry logging
-          href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
-        - name: SQL Analytics
-          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
-      - name: Manual monitoring and tuning
-        items:
-        - name: Application and database tuning guidance
-          href: database/performance-guidance.md
-        - name: Use DMVs to monitor performance
-          href: database/monitoring-with-dmvs.md
-        - name: Hyperscale performance diagnostics
-          href: database/hyperscale-performance-diagnostics.md
-        - name: Resource management in dense elastic pools
-          href: database/elastic-pool-resource-management.md
         - name: Extended events
-          items:
-          - name: Extended events
-            href: database/xevent-db-diff-from-svr.md
-          - name: Extended events - event file
-            href: database/xevent-code-event-file.md
-          - name: Extended events - ring buffer
-            href: database/xevent-code-ring-buffer.md
-
-    - name: Scalability
-      items:
-      - name: Scale Up/Down
-        href: database/scale-resources.md
-      - name: Read Scale-Out
-        href: database/read-scale-out.md
-      - name: Database sharding
-        items:
-        - name: Database sharding
-          href: database/elastic-scale-introduction.md
-        - name: Glossary
-          href: database/elastic-scale-glossary.md
-        - name: Elastic client library
-          href: database/elastic-database-client-library.md
-        - name: Shard maps
-          href: database/elastic-scale-shard-map-management.md
-        - name: Query routing
-          href: database/elastic-scale-data-dependent-routing.md
-        - name: Manage credentials
-          href: database/elastic-scale-manage-credentials.md
-        - name: Move sharded data
-          href: database/elastic-scale-overview-split-and-merge.md
-        - name: Elastic tools FAQ
-          href: database/elastic-scale-faq.md
-      - name: Elastic queries
-        href: database/elastic-query-overview.md
-      - name: Elastic transactions
-        href: database/elastic-transactions-overview.md
+          href: database/xevent-db-diff-from-svr.md
+        - name: Extended events - event file
+          href: database/xevent-code-event-file.md
+        - name: Extended events - ring buffer
+          href: database/xevent-code-ring-buffer.md
 
   - name: Shared how-to's
     items:
@@ -248,6 +130,303 @@
       href: database/quota-increase-request.md
     - name: Job automation
       href: database/job-automation-overview.md
+
+    - name: Business continuity  
+      items: 
+      - name: Configure failover group
+        href: database/auto-failover-group-configure.md
+      - name: Configure temporal retention policy
+        href: database/temporal-tables-retention-policy.md
+      - name: Configure backup retention using Azure Blob storage
+        href: database/long-term-backup-retention-configure.md
+
+    - name: Security  
+      items: 
+      - name: Configure TDE with BYOK
+        href: database/transparent-data-encryption-byok-configure.md 
+      - name: Store vulnerability scans in storage
+        href: database/sql-database-vulnerability-assessment-storage.md
+      - name: Always Encrypted
+        items: 
+        - name: Use the Azure key vault
+          href: database/always-encrypted-azure-key-vault-configure.md
+        - name: Use the certificate store
+          href: database/always-encrypted-certificate-store-configure.md
+
+  
+    - name: Monitor & tune
+      items: 
+      - name: Identify query performance issues
+        href: identify-query-performance-issues.md
+      - name: Batching for performance
+        href: performance-improve-use-batching.md
+      - name: Load data with BCP
+        href: load-from-csv-with-bcp.md
+      - name: Application and database tuning guidance
+        href: database/performance-guidance.md
+      - name: Use DMVs to monitor performance
+        href: database/monitoring-with-dmvs.md 
+      - name: Log diagnostic telemetry
+        href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+      - name: In-memory OLTP
+        items:
+        - name: Configure In-Memory OLTP
+          href: in-memory-oltp-configure.md
+        - name: Try in-memory features
+          href: in-memory-sample.md
+        - name: Monitor In-memory OLTP space
+          href: in-memory-oltp-monitor-space.md
+
+    - name: Load and move data
+      items:
+      - name: Import a database from a BACPAC file
+        href: database/database-import.md
+      - name: Export a database to a BACPAC file
+        href: database/database-export.md
+      - name: Move resources to a new region
+        href: database/move-resources-across-regions.md
+      - name: Load data with ADF
+        href: ../data-factory/connector-azure-sql-database.md?toc=/azure/azure-sql/toc.json
+    - name: Develop data applications
+      items:
+      - name: Overview
+        href: database/develop-overview.md
+      - name: Working with JSON data
+        href: database/json-features.md
+      - name: Use Spark Connector
+        href: database/spark-connector.md
+      - name: Use ASP.NET App Service
+        href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/azure-sql/toc.json
+      - name: Use Azure Functions
+        href: /azure/azure-functions/functions-scenario-database-table-cleanup?toc=/azure/azure-sql/toc.json
+      - name: Use Azure Logic Apps
+        href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/azure-sql/toc.json
+      - name: Index with Azure Cognitive Search
+        href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/azure-sql/toc.json
+      - name: Server-side CLR/.NET integration
+        href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json
+      - name: Java
+        items:
+        - name: Use Spring Data JDBC
+          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+        - name: Use Spring Data JPA
+          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+
+- name: SQL Database (SQL DB)
+  items:
+  - name: Documentation
+    href: database/index.yml
+  - name: Overview
+    items:
+    - name: What is SQL Database? 
+      href: database/sql-database-paas-overview.md
+    - name: Single databases
+      href: database/single-database-overview.md
+    - name: Elastic pools
+      href: database/elastic-pool-overview.md
+    - name: Logical SQL servers
+      href: database/logical-servers.md
+    - name: Release notes
+      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+    - name: Service Tiers
+      items: 
+      - name: Serverless
+        href: database/serverless-tier-overview.md
+      - name: DTU model overview
+        href: database/service-tiers-dtu.md
+      - name: Hyperscale
+        href: database/service-tier-hyperscale.md
+      - name: Hyperscale FAQ
+        href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+      - name: Migrate from Premium RS
+        href: database/service-tiers-prs.md     
+
+  - name: Quickstarts
+    href: database/quickstart-content-reference-guide.md
+    items:
+    - name: Create database
+      items:
+      - name: Azure portal
+        href: database/single-database-create-quickstart.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: database/single-database-create-arm-template-quickstart.md
+    - name: Configure
+      items:
+      - name: Server-level IP firewall rules
+        href: database/firewall-create-server-level-portal-quickstart.md
+
+  - name: Tutorials
+    items:
+    - name: Design a database
+      items:
+      - name: Design database using SSMS
+        href: database/design-first-database-tutorial.md
+      - name: Design database using .NET
+        href: database/design-first-database-csharp-tutorial.md    
+    - name: Business continuity
+      items: 
+        - name: Add db to failover group 
+          href: database/failover-group-add-single-database-tutorial.md
+        - name: Add pool to failover group
+          href: database/failover-group-add-elastic-pool-tutorial.md
+        - name: Configure security for replicas
+          href: database/active-geo-replication-security-configure.md          
+        - name: Geo-distributed application
+          href: database/geo-distributed-application-configure-tutorial.md
+        - name: Active geo-replication
+          href: database/active-geo-replication-configure-portal.md         
+    - name: Security
+      items:
+      - name: Configure security
+        href: database/secure-database-tutorial.md
+      - name: Rotate TDE BYOK keys
+        href: database/transparent-data-encryption-byok-key-rotation.md
+      - name: Remove TDE protector
+        href: database/transparent-data-encryption-byok-remove-tde-protector.md
+    - name: Move data
+      items: 
+      - name: Migrate using DMS
+        href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json 
+      - name: Set up SQL Data Sync
+        href: database/sql-data-sync-sql-server-configure.md
+      - name: Migrate SQLite to serverless
+        href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
+
+  - name: Concepts
+    items:
+    - name: Connectivity architecture
+      href: database/connectivity-architecture.md
+    - name: Connectivity settings
+      href: database/connectivity-settings.md
+    - name: Read Scale-Out
+      href: database/read-scale-out.md      
+    - name: T-SQL differences
+      href: database/transact-sql-tsql-differences-sql-server.md
+    - name: Azure Automation
+      href: database/automation-manage.md
+    - name: Elastic queries
+      href: database/elastic-query-overview.md
+    - name: Elastic transactions
+      href: database/elastic-transactions-overview.md
+
+    - name: Resource management 
+      items: 
+      - name: Single database resources
+        items:
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-single-databases.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-single-databases.md
+
+      - name: Elastic pool resources
+        items:
+        - name: vCore resource limits
+          href: database/resource-limits-vcore-elastic-pools.md
+        - name: DTU resource limits
+          href: database/resource-limits-dtu-elastic-pools.md
+      - name: Logical SQL server resources
+        items:
+        - name: Database resource limits
+          href: database/resource-limits-logical-server.md
+
+    - name: Business continuity
+      items: 
+      - name: Active geo-replication
+        href: database/active-geo-replication-overview.md  
+      - name: Outage recovery guidance
+        href: database/disaster-recovery-guidance.md
+      - name: Recovery drills
+        href: database/disaster-recovery-drills.md
+
+    - name: SQL Data Sync
+      items:
+      - name: Overview
+        href: database/sql-data-sync-data-sql-server-sql-database.md
+      - name: Data Sync Agent
+        href: database/sql-data-sync-agent-overview.md
+      - name: Best practices for Data Sync
+        href: database/sql-data-sync-best-practices.md
+      - name: Troubleshoot Data Sync
+        href: database/sql-data-sync-troubleshoot.md
+
+    - name: Security
+      items: 
+        - name: Azure SQL Auditing
+          href: database/auditing-overview.md
+        - name: Audit log format
+          href: database/audit-log-format.md
+        - name: Network access controls
+          href: database/network-access-controls-overview.md
+        - name: DNS aliases
+          href: database/dns-alias-overview.md
+        - name: vNet endpoints
+          href: database/vnet-service-endpoint-rule-overview.md
+        - name: Private Link
+          href: database/private-endpoint-overview.md
+
+    - name: Machine Learning Services
+      items:
+      - name: Overview
+        href: database/machine-learning-services-overview.md
+      - name: Key differences
+        href: database/machine-learning-services-differences.md
+      - name: Quickstarts
+        items:
+        - name: Create R scripts
+          href: database/r-script-create-quickstart.md
+        - name: Train and score a model
+          href: database/r-train-score-model-create-quickstart.md
+      - name: Tutorials
+        items:
+        - name: Build a predictive model in R
+          items:
+          - name: 1 - Prepare the data
+            href: database/predictive-model-prepare-data-tutorial.md
+          - name: 2 - Create the model
+            href: database/predictive-model-build-compare-tutorial.md
+          - name: 3 - Deploy the model
+            href: database/predictive-model-deploy-tutorial.md
+        - name: Build a clustering model in R
+          items:
+          - name: 1 - Prepare the data
+            href: database/clustering-model-prepare-data-tutorial.md
+          - name: 2 - Create the model
+            href: database/clustering-model-build-tutorial.md
+          - name: 3 - Deploy the model
+            href: database/clustering-model-deploy-tutorial.md
+      - name: How to
+        items:
+          - name: Write advanced R functions
+            href: database/machine-learning-services-functions.md
+          - name: Work with R and SQL data
+            href: database/machine-learning-services-data-issues.md
+          - name: Add R packages
+            href: database/machine-learning-services-add-r-packages.md
+
+
+    - name: Database sharding
+      items:
+      - name: Database sharding
+        href: database/elastic-scale-introduction.md
+      - name: Glossary
+        href: database/elastic-scale-glossary.md
+      - name: Elastic client library
+        href: database/elastic-database-client-library.md
+      - name: Shard maps
+        href: database/elastic-scale-shard-map-management.md
+      - name: Query routing
+        href: database/elastic-scale-data-dependent-routing.md
+      - name: Manage credentials
+        href: database/elastic-scale-manage-credentials.md
+      - name: Move sharded data
+        href: database/elastic-scale-overview-split-and-merge.md
+      - name: Elastic tools FAQ
+        href: database/elastic-scale-faq.md
+
+  - name: How to
+    href: database/how-to-content-reference-guide.md
+    items:
     - name: Connect and query
       href: database/connect-query-content-reference-guide.md
       items:
@@ -283,92 +462,152 @@
           href: database/connect-query-ruby.md
         - name: R
           href: database/connect-query-r.md
-        - name: SQL Server drivers
-          href: /sql/connect/sql-server-drivers
-          items:
-          - name: ADO.NET
-            href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
-          - name: JDBC
-            href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
-          - name: Node.js
-            href: /sql/connect/node-js/node-js-driver-for-sql-server
-          - name: ODBC
-            href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
-          - name: PHP
-            href: /sql/connect/php/microsoft-php-driver-for-sql-server
-          - name: Python
-            href: /sql/connect/python/python-driver-for-sql-server
-          - name: Ruby
-            href: /sql/connect/ruby/ruby-driver-for-sql-server
-    - name: Design a database
+
+    - name: Manage
+      items:         
+      - name: Management API reference
+        href: database/single-database-manage.md
+      - name: DNS alias PowerShell
+        href: database/dns-alias-powershell-create.md
+      - name: Manage file space
+        href: database/file-space-manage.md
+      - name: Use Resource Health for connectivity issues
+        href: database/resource-health-to-troubleshoot-connectivity.md
+      - name: Migrate DTU to vCore
+        href: database/resource-health-to-troubleshoot-connectivity.md        
+      - name: Scale database resources
+        href: database/single-database-scale.md
+      - name: Scale pool resources
+        href: database/elastic-pool-scale.md
+      - name: Manage pool resources
+        href: database/elastic-pool-manage.md
+      - name: Resource management in dense elastic pools
+        href: database/elastic-pool-resource-management.md        
+      - name: Hyperscale performance diagnostics
+        href: database/hyperscale-performance-diagnostics.md
+
+    - name: Secure 
+      items: 
+      - name: Audit to storage account behind VNet or firewall
+        href: database/audit-write-storage-account-behind-vnet-firewall.md
+      - name: Configure threat detection
+        href: database/threat-detection-configure.md      
+      - name: Configure dynamic data masking
+        href: database/dynamic-data-masking-configure-portal.md
+      - name: IP-based firewall
+        href: database/firewall-configure.md
+      - name: vNet endpoints - PowerShell
+        href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
+
+    - name: Business continuity
+      items: 
+      - name: Configure backup retention using Azure Blob storage
+        href: database/long-term-backup-retention-configure.md
+      - name: Configure geo-replication - Portal
+        href: database/active-geo-replication-configure-portal.md
+      - name: Configure security for geo-replicas
+        href: database/active-geo-replication-security-configure.md
+
+    - name: Performance
       items:
-      - name: Design database using SSMS
-        href: database/design-first-database-tutorial.md
-      - name: Design database using .NET
-        href: database/design-first-database-csharp-tutorial.md
-    - name: Load and move data
-      items:
+      - name: Use Query Performance Insights
+        href: database/query-performance-insight-use.md
+      - name: Enable automatic tuning
+        href: database/automatic-tuning-enable.md
+      - name: Enable e-mail notifications for automatic tuning
+        href: database/automatic-tuning-email-notifications-configure.md
+      - name: Apply performance recommendations
+        href: database/database-advisor-find-recommendations-portal.md
+      - name: Create alerts
+        href: database/alerts-insights-configure-portal.md
+      - name: Implement database advisor recommendations
+        href: database/database-advisor-implement-performance-recommendations.md
+      - name: Stream data with Stream Analytics
+        href: database/stream-data-stream-analytics-integration.md 
+
+
+    - name: Load and move data 
+      items: 
+      - name: Migrate to SQL Database
+        href: database/migrate-to-database-from-sql-server.md
+      - name: Manage SQL database after migration
+        href: database/manage-data-after-migrating-to-database.md
       - name: Import/export (allow Azure services disabled)
         href: database/database-import-export-azure-services-off.md
       - name: Import a database from a BACPAC file
         href: database/database-import.md
-      - name: Export a database to a BACPAC file
-        href: database/database-export.md
       - name: Copy a database within Azure
         href: database/database-copy.md
-      - name: Move resources to a new region
-        href: database/move-resources-across-regions.md
+      - name: Replicate to SQL Database
+        href: database/replication-to-sql-database.md
+      - name: SQL Data Sync
+        items: 
+        - name: Replicate schema changes
+          href: database/sql-data-sync-update-sync-schema.md
+        - name: Monitor with OMS
+          href: database/sql-data-sync-monitor-sync.md
 
-      - name: Load data with ADF
-        href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-    - name: Develop data applications
+    - name: Database sharding
       items:
-      - name: Overview
-        href: database/develop-overview.md
-      - name: Working with JSON data
-        href: database/json-features.md
-      - name: Use ASP.NET App Service
-        href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
-      - name: Use Azure Functions
-        href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
-      - name: Use Azure Logic Apps
-        href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
-      - name: Use Spark Connector
-        href: database/spark-connector.md
-      - name: Index with Azure Cognitive Search
-        href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
-      - name: Configure temporal retention policy
-        href: database/temporal-tables-retention-policy.md
-      - name: Authenticate app
-        href: database/application-authentication-get-client-id-keys.md
-      - name: Connectivity guidance
-        href: database/troubleshoot-common-connectivity-issues.md
-      - name: DNS aliases
-        href: database/dns-alias-overview.md
-      - name: DNS alias PowerShell
-        href: database/dns-alias-powershell-create.md
-      - name: Ports - ADO.NET
-        href: database/adonet-v12-develop-direct-route-ports.md
-      - name: C and C ++
-        href: database/develop-cplusplus-simple.md
-      - name: Excel
-        href: database/connect-excel.md
-      - name: Server-side CLR/.NET integration
-        href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json
-      - name: Java
-        items:
-        - name: Use Spring Data JDBC
-          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
-        - name: Use Spring Data JPA
-          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
+      - name: Upgrade client library
+        href: database/elastic-scale-upgrade-client-library.md
+      - name: Create sharded app
+        href: database/elastic-scale-get-started.md
+      - name: Query horizontally-sharded data
+        href: database/elastic-query-getting-started.md
+      - name: Multi-shard queries
+        href: database/elastic-scale-multishard-querying.md
+      - name: Move sharded data
+        href: database/elastic-scale-configure-deploy-split-and-merge.md
+      - name: Security configuration
+        href: database/elastic-scale-split-merge-security-configuration.md
+      - name: Add a shard
+        href: database/elastic-scale-add-a-shard.md
+      - name: Fix shard map problems
+        href: database/elastic-database-recovery-manager.md
+      - name: Migrate sharded database
+        href: database/elastic-convert-to-use-elastic-tools.md
+      - name: Create counters
+        href: database/elastic-database-perf-counters.md
+      - name: Use entity framework
+        href: database/elastic-scale-use-entity-framework-applications-visual-studio.md
+      - name: Use Dapper framework
+        href: database/elastic-scale-working-with-dapper.md
+    - name: Query distributed data
+      items:
+      - name: Query vertically partitioned data
+        href: database/elastic-query-getting-started-vertical.md
+      - name: Report across scaled-out data tier
+        href: database/elastic-query-horizontal-partitioning.md
+      - name: Query across tables with different schemas
+        href: database/elastic-query-vertical-partitioning.md
+    - name: Elastic jobs
+      items:
+      - name: Configure jobs
+        href: database/elastic-jobs-overview.md 
+      - name: Create and manage (PowerShell)
+        href: database/elastic-jobs-powershell-create.md
+      - name: Create and manage (T-SQL)
+        href: database/elastic-jobs-tsql-create-manage.md
+      - name: Migrate (from old Elastic jobs)
+        href: database/elastic-jobs-migrate.md
+
     - name: Design data applications
       items:
+      - name: Authenticate app
+        href: database/application-authentication-get-client-id-keys.md    
       - name: Design for disaster recovery
         href: database/designing-cloud-solutions-for-disaster-recovery.md
       - name: Design for elastic pools
         href: database/disaster-recovery-strategies-for-applications-with-elastic-pool.md
       - name: Design for app upgrades
         href: database/manage-application-rolling-upgrade.md
+      - name: C and C ++
+        href: database/develop-cplusplus-simple.md
+      - name: Excel
+        href: database/connect-excel.md
+      - name: Ports - ADO.NET
+        href: database/adonet-v12-develop-direct-route-ports.md
       - name: Multi-tenant SaaS
         items:
         - name: SaaS design patterns
@@ -432,250 +671,6 @@
           - name: ETL for analytics
             href: database/saas-multitenantdb-tenant-analytics.md
 
-- name: SQL Database (SQL DB)
-  items:
-  - name: Documentation index
-    href: database/index.yml
-  - name: Overview
-    items:
-    - name: Overview
-      href: database/sql-database-paas-overview.md
-    - name: Single databases <- can cut? 
-      href: database/single-database-overview.md
-    - name: Elastic pools
-      href: database/elastic-pool-overview.md
-    - name: Logical SQL servers
-      href: database/logical-servers.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
-
-  - name: Quickstarts
-    items:
-    - name: Create
-      items:
-      - name: Using Azure portal
-        href: database/single-database-create-quickstart.md
-      - name: Using ARM template
-        displayName: Resource Manager
-        href: database/single-database-create-arm-template-quickstart.md
-    - name: Configure
-      items:
-      - name: Server-level IP firewall rules
-        href: database/firewall-create-server-level-portal-quickstart.md
-
-  - name: Tutorials
-    items:
-    - name: Migrate to a single/pooled database using DMS
-      href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Add to a failover group
-      href: database/failover-group-add-single-database-tutorial.md
-    - name: Implement a geo-distributed database
-      href: database/geo-distributed-application-configure-tutorial.md
-    - name: Configure active geo-replication
-      href: database/active-geo-replication-configure-portal.md
-    - name: Set up Azure SQL Data Sync
-      href: database/sql-data-sync-sql-server-configure.md
-    - name: Add elastic pool to failover group
-      href: database/failover-group-add-elastic-pool-tutorial.md
-    - name: Configure security
-      href: database/secure-database-tutorial.md
-    - name: Stream data with Stream Analytics
-      href: database/stream-data-stream-analytics-integration.md
-    - name: Migrate a SQLite database to Azure SQL Database Serverless
-      href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
-
-  - name: Concepts
-    items:
-
-      - name: Single database resources
-        items:
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-single-databases.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-single-databases.md
-        - name: Scale resources
-          href: database/single-database-scale.md
-
-      - name: Elastic pool resources
-        items:
-        - name: vCore resource limits
-          href: database/resource-limits-vcore-elastic-pools.md
-        - name: DTU resource limits
-          href: database/resource-limits-dtu-elastic-pools.md
-        - name: Scale resources
-          href: database/elastic-pool-scale.md
-        - name: Manage pool resources
-          href: database/elastic-pool-manage.md
-
-      - name: Logical SQL server resources
-        items:
-        - name: Database resource limits
-          href: database/resource-limits-logical-server.md
-        - name: Connectivity architecture
-          href: database/connectivity-architecture.md
-        - name: Connectivity settings
-          href: database/connectivity-settings.md
-      - name: Data sync
-        items:
-        - name: Data Sync Agent
-          href: database/sql-data-sync-agent-overview.md
-        - name: Replicate schema changes
-          href: database/sql-data-sync-update-sync-schema.md
-        - name: Monitor with OMS
-          href: database/sql-data-sync-monitor-sync.md
-        - name: Best practices for Data Sync
-          href: database/sql-data-sync-best-practices.md
-        - name: Troubleshoot Data Sync
-          href: database/sql-data-sync-troubleshoot.md
-      - name: T-SQL differences
-        href: database/transact-sql-tsql-differences-sql-server.md
-      - name: Features
-        items:
-        - name: SQL Data Sync
-          href: database/sql-data-sync-data-sql-server-sql-database.md
-        - name: Azure Automation
-          href: database/automation-manage.md
-
-  - name: Security
-    items: 
-      - name: Network access controls
-        href: database/network-access-controls-overview.md
-      - name: IP-based firewall
-        href: database/firewall-configure.md
-      - name: vNet firewall rules
-        items:
-        - name: vNet endpoints
-          href: database/vnet-service-endpoint-rule-overview.md
-        - name: vNet endpoints - PowerShell
-          href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
-      - name: Private Link
-        href: database/private-endpoint-overview.md
-
-
-      - name: Management API reference
-        href: database/single-database-manage.md
-
-      - name: Machine Learning Services
-        items:
-        - name: Overview
-          href: database/machine-learning-services-overview.md
-        - name: Key differences
-          href: database/machine-learning-services-differences.md
-        - name: Quickstarts
-          items:
-          - name: Create R scripts
-            href: database/r-script-create-quickstart.md
-          - name: Train and score a model
-            href: database/r-train-score-model-create-quickstart.md
-        - name: Tutorials
-          items:
-          - name: Build a predictive model in R
-            items:
-            - name: 1 - Prepare the data
-              href: database/predictive-model-prepare-data-tutorial.md
-            - name: 2 - Create the model
-              href: database/predictive-model-build-compare-tutorial.md
-            - name: 3 - Deploy the model
-              href: database/predictive-model-deploy-tutorial.md
-          - name: Build a clustering model in R
-            items:
-            - name: 1 - Prepare the data
-              href: database/clustering-model-prepare-data-tutorial.md
-            - name: 2 - Create the model
-              href: database/clustering-model-build-tutorial.md
-            - name: 3 - Deploy the model
-              href: database/clustering-model-deploy-tutorial.md
-        - name: How to
-          items:
-            - name: Write advanced R functions
-              href: database/machine-learning-services-functions.md
-            - name: Work with R and SQL data
-              href: database/machine-learning-services-data-issues.md
-            - name: Add R packages
-              href: database/machine-learning-services-add-r-packages.md
-
-
-  - name: How to
-    items:
-    - name: Documentation index
-      href: database/how-to-content-reference-guide.md
-    - name: Database recommendations
-      href: database/database-advisor-implement-performance-recommendations.md
-    - name: Query Performance Insights
-      href: database/query-performance-insight.md
-    - name: Migrate to a single/pooled database
-      href: database/migrate-to-database-from-sql-server.md
-    - name: Manage SQL database after migration
-      href: database/manage-data-after-migrating-to-database.md
-    - name: Configure replication
-      href: database/replication-to-sql-database.md
-    - name: Configure threat detection
-      href: database/threat-detection-configure.md
-    - name: Configure backup retention using Azure Blob storage
-      href: database/long-term-backup-retention-configure.md
-    - name: Configure Elastic Database jobs
-      href: database/elastic-jobs-overview.md
-    - name: Configure dynamic data masking
-      href: database/dynamic-data-masking-configure-portal.md
-    - name: Configure geo-replication - Portal
-      href: database/active-geo-replication-configure-portal.md
-    - name: Configure security for geo-replicas
-      href: database/active-geo-replication-security-configure.md
-    - name: Enable automatic tuning
-      href: database/automatic-tuning-enable.md
-    - name: Enable e-mail notifications for automatic tuning
-      href: database/automatic-tuning-email-notifications-configure.md
-    - name: Apply performance recommendations
-      href: database/database-advisor-find-recommendations-portal.md
-    - name: Create alerts
-      href: database/alerts-insights-configure-portal.md
-    - name: Manage file space
-      href: database/file-space-manage.md
-    - name: Use Resource Health for connectivity issues
-      href: database/resource-health-to-troubleshoot-connectivity.md
-    - name: Database sharding
-      items:
-      - name: Upgrade elastic database client library
-        href: database/elastic-scale-upgrade-client-library.md
-      - name: Create sharded app
-        href: database/elastic-scale-get-started.md
-      - name: Query horizontally-sharded data
-        href: database/elastic-query-getting-started.md
-      - name: Multi-shard queries
-        href: database/elastic-scale-multishard-querying.md
-      - name: Move sharded data
-        href: database/elastic-scale-configure-deploy-split-and-merge.md
-      - name: Security configuration
-        href: database/elastic-scale-split-merge-security-configuration.md
-      - name: Add a shard
-        href: database/elastic-scale-add-a-shard.md
-      - name: Fix shard map problems
-        href: database/elastic-database-recovery-manager.md
-      - name: Migrate sharded database
-        href: database/elastic-convert-to-use-elastic-tools.md
-      - name: Create counters
-        href: database/elastic-database-perf-counters.md
-      - name: Use entity framework
-        href: database/elastic-scale-use-entity-framework-applications-visual-studio.md
-      - name: Use Dapper framework
-        href: database/elastic-scale-working-with-dapper.md
-    - name: Query distributed data
-      items:
-      - name: Query vertically partitioned data
-        href: database/elastic-query-getting-started-vertical.md
-      - name: Report across scaled-out data tier
-        href: database/elastic-query-horizontal-partitioning.md
-      - name: Query across tables with different schemas
-        href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs
-      items:
-      - name: Create and manage (PowerShell)
-        href: database/elastic-jobs-powershell-create.md
-      - name: Create and manage (T-SQL)
-        href: database/elastic-jobs-tsql-create-manage.md
-      - name: Migrate (from old Elastic jobs)
-        href: database/elastic-jobs-migrate.md
-
   - name: Samples
     items:
     - name: Azure CLI
@@ -689,11 +684,11 @@
 
 - name: SQL Managed Instance (SQL MI)
   items:
-  - name: Documentation index
+  - name: Documentation
     href: managed-instance/index.yml  
   - name: Overview
     items:
-    - name: Overview
+    - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
@@ -703,8 +698,9 @@
     - name: Release notes
       href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
   - name: Quickstarts
+    href: managed-instance/quickstart-content-reference-guide.md
     items:
-    - name: Create
+    - name: Create 
       items:
       - name: Using Azure portal
         href: managed-instance/instance-create-quickstart.md
@@ -732,10 +728,10 @@
   - name: Tutorials
     items:
     - name: Migrate using DMS
-      href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+      href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/azure-sql/toc.json
     - name: Configure security
       href: managed-instance/aad-security-configure-tutorial.md
-    - name: Add managed instance to a failover group
+    - name: Add instance to failover group
       href: managed-instance/failover-group-add-instance-tutorial.md
     - name: Migrate on-premises users and groups
       href: managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md
@@ -758,16 +754,14 @@
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
-    - name: Security baseline
-      href: database/security-baseline.md
     - name: Features
       items:
       - name: Linked servers
-        href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
+        href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json
       - name: Service Broker
-        href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
+        href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json
       - name: Database mail
-        href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
+        href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json
     - name: Security
       items: 
       - name: Secure public endpoints
@@ -825,7 +819,7 @@
 
 - name: SQL Server on Azure VM
   items:
-  - name: Documentation index
+  - name: Documentation
     href: virtual-machines/index.yml
   - name: Windows
     items: 
@@ -1005,7 +999,6 @@
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
 
-
 - name: Reference
   items:
   - name: T-SQL language reference
@@ -1034,11 +1027,28 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
+    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/azure-sql/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
-  - name: SQL Server Drivers
+  - name: SQL connection  drivers
     href: /sql/connect/sql-connection-libraries
+  - name: SQL Server drivers
+    href: /sql/connect/sql-server-drivers
+    items:
+    - name: ADO.NET
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+    - name: JDBC
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+    - name: Node.js
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
+    - name: ODBC
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+    - name: PHP
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
+    - name: Python
+      href: /sql/connect/python/python-driver-for-sql-server
+    - name: Ruby
+      href: /sql/connect/ruby/ruby-driver-for-sql-server 
 
 - name: Resources
   items:
@@ -1062,12 +1072,12 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
-    - name: Connectivity issues
+    - name: Connectivity errors
       href: database/troubleshoot-common-errors-issues.md
-    - name: Problem resolution
-      items:
-      - name: Import/Export service hangs
-        href: database/database-import-export-hang.md
+    - name: Common connection issues
+      href: database/troubleshoot-common-connectivity-issues.md
+    - name: Import/Export service hangs
+      href: database/database-import-export-hang.md
   - name: Service updates
     items:
     - name: Gateway IP address updates

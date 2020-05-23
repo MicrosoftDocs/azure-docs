@@ -17,6 +17,17 @@ ms.author: sstein
 
 This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
+## What's new?
+
+Documentation for Azure SQL Database and Azure SQL Managed Instance has been split into separate sections. We've also updated how we refer to a managed instance from *Azure SQL Database managed instance* to *Azure SQL Managed Instance*.
+
+We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Managed Instance in individual 'shared' articles.
+
+This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully-fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
+
+Consider that this is a work in progress and not every document has been updated yet. For example, Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so please bear with us!
+
+
 ## Features in public preview
 
 ### [Azure SQL Database](#tab/single-database)
@@ -142,7 +153,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](../managed-instance/resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
+**Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitor-space) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
  
 ### Wrong error returned while trying to remove a file that is not empty
 

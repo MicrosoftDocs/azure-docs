@@ -241,7 +241,7 @@
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Managed instance
-      href: connector-azure-sql-database-managed-instance.md
+      href: connector-azure-sql-managed-instance.md
     - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage

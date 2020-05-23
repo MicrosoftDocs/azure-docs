@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The database-per-tenant model makes it easy to restore a single tenant to a prior point in time without affecting other tenants.
 

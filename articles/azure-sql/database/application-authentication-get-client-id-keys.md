@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Get the required values for authenticating an application to access Azure SQL Database from code
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 To create and manage Azure SQL Database from code you must register your app in the Azure Active Directory (Azure AD) domain in the subscription where your Azure resources have been created.
 
@@ -96,4 +97,4 @@ Write-Output "_applicationSecret:" $secret
 ## See also
 
 [Create an Azure SQL Database with C#](design-first-database-csharp-tutorial.md)  
-[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](aad-authentication-overview.md)
+[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](authentication-aad-overview.md)

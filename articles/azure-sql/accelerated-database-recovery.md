@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 ms.date: 03/24/2020
 ---
 # Accelerated Database Recovery in Azure SQL 
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VM, and databases in Azure Synapse Analytics (currently in preview). The primary benefits of ADR are:
 
@@ -89,11 +89,11 @@ The ADR recovery process has the same three phases as the current recovery proce
 
 The four key components of ADR are:
 
-- **Persisted Version Store (PVS)**
+- **Persisted version store (PVS)**
 
   The persisted version store is a new SQL Server database engine mechanism for persisting the row versions generated in the database itself instead of the traditional `tempdb` version store. PVS enables resource isolation as well as improves availability of readable secondaries.
 
-- **Logical Revert**
+- **Logical revert**
 
   Logical revert is the asynchronous process responsible for performing row-level version-based Undo - providing instant transaction rollback and undo for all versioned operations. Logical revert is accomplished by:
 
