@@ -47,15 +47,13 @@ The client can call the Locator URL for a camera like this:
 
 `https://hostname/locatorId/content.ism/availableMedia?precision= [value]&startTime={ISO-8601}&endTime={ISO-8601}`
 
-Where the precision value can be one of: year, month, day, or full. 
+Where the precision value can be one of: year, month, day, or full (as shown below). 
 
-#### Query example/responses/constrains - year
-
-##### Query
+#### Query - year 
 
 `/availableMedia?precision=year&startTime=2018&endTime=2019`
 
-##### Response
+#### Response - year
 
 ```
 {
@@ -63,20 +61,18 @@ Where the precision value can be one of: year, month, day, or full.
 }
 ```
 
-##### Constrains
+#### Constrains - year
 
 * startTime <= endTime.
 * Both should be in YYYY format, otherwise return error.
 * Values can be any number of years apart.
 * Values are inclusive.
 
-#### Query example/responses/constrains - month
-
-##### Query
+#### Query - month
 
 `/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
 
-##### Response
+#### Response - month
 
 ```
 {
@@ -84,20 +80,18 @@ Where the precision value can be one of: year, month, day, or full.
 }
 ```
 
-##### Constrains
+#### Constrains - month
 
 * startTime <= endTime
 * Both should be in YYYY-MM format, otherwise return error
 * Values can be at most 12 months apart
 * Values are inclusive
 
-#### Query example/responses/constrains - day
-
-##### Query
+#### Query - day
 
 `/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
 
-##### Response
+#### Response - day
 
 ```
 {
@@ -110,30 +104,28 @@ Where the precision value can be one of: year, month, day, or full.
 
 The above response assumes we lost data for the entire day, 2018-03-08.
 
-##### Constrains
+#### Constrains - day
 
 * startTime <= endTime.
 * Both should be in YYYY-MM-DD format, otherwise return error.
 * Values can be at most 31 days apart.
 * Values are inclusive.
 
-#### Query example/responses/constrains - full
-
-##### Query
+#### Query - full
 
 `/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
 
-##### Response
+#### Response - full
 
 Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
 
-##### Constrains
+#### Constrains - full
 
 * startTime < endTime.
 * Values can be at most 25 hours apart.
 * Values are inclusive.
 
-#### Additional considerations
+#### Additional request format considerations
 
 * All times are in UTC
 * The precision query string parameter is required.  
