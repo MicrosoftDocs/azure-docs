@@ -1,6 +1,6 @@
 ---
 title: Runbook execution in Azure Automation
-description: Describes the details of how a runbook in Azure Automation is processed.
+description: This article tells provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
@@ -24,9 +24,6 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Runbook execution environment
 
@@ -99,7 +96,7 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation worker log
 
 >[!NOTE]
->The **nxautomation** user onboarded as part of Update Management executes only signed runbooks.
+>The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
 
 ## Runbook permissions
 
@@ -213,7 +210,7 @@ Runbook jobs in Azure sandboxes can't access any device or application character
 
 ## Webhooks
 
-External services, for example, Azure DevOps Services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation solution. 
+External services, for example, Azure DevOps Services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation feature. 
 
 ## <a name="fair-share"></a>Shared resources
 
@@ -227,7 +224,8 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 
 ## Next steps
 
-* To get started working with a runbook, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
+* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

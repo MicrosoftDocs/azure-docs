@@ -1,6 +1,6 @@
 ---
-title: Configuration data at scale - Azure Automation
-description: Learn how to configure data at scale for state configuration in Azure Automation.
+title: Configure data at scale for Azure Automation State Configuration
+description: This article tells how to configure data at scale for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -12,7 +12,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Configuration data at scale
+# Configure data at scale for Azure Automation State Configuration
 
 > Applies To: Windows PowerShell 5.1
 
@@ -66,6 +66,6 @@ to view the
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).

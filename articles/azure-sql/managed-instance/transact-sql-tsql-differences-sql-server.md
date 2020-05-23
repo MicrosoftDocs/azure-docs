@@ -3,7 +3,7 @@ title: T-SQL differences between SQL Server & Azure SQL Managed Instance
 description: This article discusses the Transact-SQL (T-SQL) differences between an Azure SQL Managed Instance and SQL Server. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
@@ -330,8 +330,7 @@ A SQL Managed Instance can't access file shares and Windows folders, so the file
 
 A SQL Managed Instance can't access file shares and Windows folders, so the following constraints apply:
 
-- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEM
-BLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
+- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](/sql/t-sql/statements/alter-assembly-transact-sql).
 
