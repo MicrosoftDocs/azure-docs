@@ -41,7 +41,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 - [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
 
-## Enable your client application to access your database in SQL Database
+## Enable client application access
 
 You must enable your client application to access your database in SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
