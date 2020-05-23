@@ -13,7 +13,7 @@ Good rendering performance on the server is critical for stable frame rates and 
 
 Most impactful for the rendering performance is the model input data. You can tweak the input data as described in [Configuring the model conversion](../../how-tos/conversion/configure-model-conversion.md).
 
-Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it's recommended to take a [performance trace](../../how-tos/performance-tracing.md).
+Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it's recommended to take a [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md).
 
 ## Client/server timeline
 

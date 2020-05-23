@@ -6,7 +6,7 @@
   href: override-hierarchical-state.md
 - name: Late stage reprojection
   href: late-stage-reprojection.md
-- name: Lights
+- name: Scene lighting
   href: lights.md
 - name: PBR materials
   href: pbr-materials.md
@@ -14,7 +14,7 @@
   href: color-materials.md
 - name: Outline rendering
   href: outlines.md
-- name: Single-sided rendering
+- name: :::no-loc text="Single-sided"::: rendering
   href: single-sided-rendering.md
 - name: Spatial queries
   href: spatial-queries.md
