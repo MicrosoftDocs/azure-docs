@@ -34,7 +34,7 @@ The following steps show how to connect using the latest SSMS.
 
 1. To connect using Universal Authentication, on the **Connect to Server** dialog box in SQL Server Management Studio (SSMS), select **Active Directory - Universal with MFA support**. (If you see **Active Directory Universal Authentication** you are not on the latest version of SSMS.)
 
-   ![1mfa-universal-connect](1)  
+   ![1mfa-universal-connect](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Complete the **User name** box with the Azure Active Directory credentials, in the format `user_name@domain.com`.
 
    ![1mfa-universal-connect-user](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
@@ -49,7 +49,7 @@ The following steps show how to connect using the latest SSMS.
 4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md). Then click **Connect**.  
 5. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity. No password is required if a user is part of a domain federated with Azure AD.
 
-   ![2mfa-sign-in](2)  
+   ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 
    > [!NOTE]
    > For Universal Authentication with an account that does not require MFA, you connect at this point. For users requiring MFA, continue with the following steps:
@@ -57,13 +57,13 @@ The following steps show how to connect using the latest SSMS.
 
 6. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).
 
-   ![3mfa-setup](3)  
+   ![3mfa-setup](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 7. The second possible one time dialog box allows you to select the details of your authentication method. The possible options are configured by your administrator.
 
-   ![4mfa-verify-1](4)  
+   ![4mfa-verify-1](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 8. The Azure Active Directory sends the confirming information to you. When you receive the verification code, enter it into the **Enter verification code** box, and click **Sign in**.
 
-   ![5mfa-verify-2](5)  
+   ![5mfa-verify-2](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 
 When verification is complete, SSMS connects normally presuming valid credentials and firewall access.
 
