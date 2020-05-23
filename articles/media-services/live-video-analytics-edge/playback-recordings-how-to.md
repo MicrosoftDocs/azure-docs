@@ -49,7 +49,59 @@ The client can call the Locator URL for a camera like this:
 
 Where the precision value can be one of: year, month, day, or full.
 
-The following rules apply:
+#### Query examples, responses, and constrains
+
+The following section shows query examples, responses, and constrains:
+
+##### Precision value/year
+
+Query:
+
+`/availableMedia?precision=year&startTime=2018&endTime=2019`
+
+Response:
+
+```
+{
+  "timeRanges":[{ "start":"2018", "end":"2019" }]
+}
+```
+
+Constrains:
+
+* startTime <= endTime
+* Both should be in YYYY format, otherwise return error
+* Values can be any number of years apart
+* Values are inclusive
+
+##### Precision value/month 
+
+Query:
+
+`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
+
+Response:
+
+```
+{
+  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]
+}
+```
+
+Constrains:
+
+* startTime <= endTime
+* Both should be in YYYY-MM format, otherwise return error
+* Values can be at most 12 months apart
+* Values are inclusive
+
+##### Precision value/day
+
+`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02` 
+
+##### Precision value/full
+
+`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
 
 * All times are in UTC
 * The precision query string parameter is required.  
