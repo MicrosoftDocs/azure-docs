@@ -28,12 +28,12 @@ This article provides general guidance about how to detect dependencies on these
 
 The dates when these changes take effect are:
 
-| Cloud               | Phase 1 Start Date | Phase 2 Start Date      |
-|---------------------|--------------------|-------------------------|
-| Azure (global)      |  January 13, 2020  | May 11, 2020            |
-| Azure Government    |  March 13, 2020    | May 11, 2020            |
-| Azure Germany       |  March 13, 2020    | May 11, 2020            |
-| Azure China         |  March 13, 2020    | May 11, 2020            |
+| Cloud                | Phase 1 Start Date | Phase 2 Start Date      |
+|----------------------|--------------------|-------------------------|
+| Azure (global)       |  January 13, 2020  | May 11, 2020            |
+| Azure Government     |  March 13, 2020    | May 11, 2020            |
+| Azure Germany        |  March 13, 2020    | May 11, 2020            |
+| Azure China 21Vianet |  March 13, 2020    | May 11, 2020            |
 
 ## Check whether your application is already compliant
 
@@ -52,7 +52,12 @@ Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5
 
 ### .NET Core
 
-Redis .NET Core clients use the latest TLS version by default.
+Redis .NET Core clients default to the OS default TLS version which obviously depends on the OS itself. 
+
+Depending on when the OS was released and if any other patches changed the default TLS version, the OS TLS version could be quite varied. While there is no complete information about this, for Windows OS specifically you can find more information [here](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+
+However, if you are using a old OS or just wanted to be sure we recommend to configure the preferred TLS version manually through the client.
+
 
 ### Java
 

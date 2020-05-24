@@ -107,7 +107,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](https://stackoverflow.com/).
+In addition to searching the Internet and using these resources, use the [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) or [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Managed Instance](sql-database-managed-instance.md).
