@@ -1,5 +1,5 @@
 ---
-title: Add confirmations in Custom Commands Preview
+title: 'Add confirmations in a Custom Commands Preview app - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to add confirmations to commands in a Custom Commands Preview application.
 services: cognitive-services
@@ -12,16 +12,16 @@ ms.date: 12/05/2019
 ms.author: encorona
 ---
 
-# How To: Add a confirmation to a command in Custom Commands Preview
+# How To: Add a confirmation to a command in a Custom Commands Preview application
 
-In this article, you'll learn how to add completion and interaction rules to create confirmations for a command in Custom Commands Preview.
+In this article, you'll learn how to add completion and interaction rules to create a confirmation for a command in a Custom Commands Preview app.
 
 ## Prerequisites
 
 Complete the steps in the following articles:
 > [!div class="checklist"]
-> * [Quickstart: Create a Custom Commands Preview application](./quickstart-custom-speech-commands-create-new.md)
-> * [Quickstart: Create a Custom Commands Preview application with parameters](./quickstart-custom-speech-commands-create-parameters.md)
+> * [Quickstart: Create a Custom Commands Preview app](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Commands Preview app with parameters](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## Create a SetAlarm command
 
@@ -29,7 +29,7 @@ To demonstrate confirmations, create a new command that lets the user set an ala
 
 1. In [Speech Studio](https://speech.microsoft.com/), open the Custom Commands Preview application that you created.
 1. Create a new **SetAlarm** command.
-1. Add a **DateTime** parameter with the following configuration:
+1. Add a **DateTime** parameter that has the following configuration:
 
    | Setting                           | Suggested value                     |  Description                 |
    | --------------------------------- | -----------------------------------------------------| ------------|
@@ -48,7 +48,7 @@ To demonstrate confirmations, create a new command that lets the user set an ala
     alarm for {DateTime}
    ```
 
-1. Add a completion rule to confirm the result.
+1. Add a completion rule to confirm result. Use the following configuration:
 
    | Setting    | Suggested value                               |Description                                     |
    | ---------- | ------------------------------------------------------- |-----|
@@ -59,7 +59,7 @@ To demonstrate confirmations, create a new command that lets the user set an ala
 
 1. Select **Train** at the top of the right pane.
 
-1. After training is done, select **Test**, and then follow the script:
+1. After training is done, select **Test**, and then try the following interactions:
     - Input: Set alarm for tomorrow at noon
     - Output: OK, alarm set for 2020-05-02 12:00:00
     - Input: Set an alarm
@@ -73,7 +73,7 @@ Create confirmations by adding interaction rules.
 
 1. In your **SetAlarm** command, select **Add** in the middle pane, and then select  **Interaction rules** > **Confirm command**.
 
-    This rule asks the user to confirm the date and time of the alarm. The expectation for the next turn is a yes/no confirmation.
+    This rule asks the user to confirm the date and time of the alarm. Use these settings:
 
    | Setting               | Suggested value                                                                  | Description                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -86,7 +86,7 @@ Create confirmations by adding interaction rules.
       > [!div class="mx-imgBorder"]
       > ![Create required parameter response](media/custom-speech-commands/add-validation-set-temperature.png)
 
-1. Add another interaction rule to handle an accepted confirmation for when "yes" is the user's response.
+1. Add an interaction rule for an accepted confirmation (user said "yes"). Use the following configuration:
 
    | Setting               | Suggested value                                                                  | Description                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ Create confirmations by adding interaction rules.
    | **Conditions**            | **Confirmation was successful & Required Parameter -> DateTime**                      | Conditions that determine when the rule can run    |   
    | **Post-execution state** | **Execute completion rules**                                                          | State of the user after the turn                   |
 
-1. Add an advanced rule to handle a denied confirmation for when "no" is the user's response.
+1. Add an interaction rule for a denied confirmation (user said "no"). Use the following configuration:
 
    | Setting               | Suggested value                                                                  | Description                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -108,7 +108,7 @@ Create confirmations by adding interaction rules.
 
 1. Select **Train**.
 
-1. After the training is done, select **Test**, and then follow the script:
+1. After the training is done, select **Test**, and then try some interactions:
 
     - Input: Set alarm for tomorrow at noon
     - Output: Are you sure you want to set an alarm for 2020-05-02 12:00:00?
@@ -122,4 +122,4 @@ Create confirmations by adding interaction rules.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add a one-step correction to a Custom Commands Preview application](./how-to-custom-speech-commands-one-step-correction.md)
+> [How To: Add a one-step correction to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-one-step-correction.md)
