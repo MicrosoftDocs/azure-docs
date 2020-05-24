@@ -30,9 +30,9 @@ The [Office 365](https://docs.microsoft.com/office/) log connector provides insi
 - Your Office 365 deployment must be on the same tenant as your Azure Sentinel workspace.
 
 > [!IMPORTANT]
-> - In order to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled on your Office 365 deployment. Depending on the type of Office 365 / Microsoft 365 license you have, it may or may not be enabled by default. Consult the [**Office 365 Security and Compliance Center**](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) to check the status of unified audit logging according to your license type.
-> - You can also manually enable, disable, and check the current status of Office 365 unified audit logging. For instructions, see [**Turn Office 365 audit log search on or off**](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-> - See [**Office 365 management Activity API reference**](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference) for more information.
+> - In order to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled on your Office 365 deployment. Depending on the type of Office 365 / Microsoft 365 license you have, it may or may not be enabled by default. Consult the [Office 365 Security and Compliance Center](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) to check the status of unified audit logging according to your license type.
+> - You can also manually enable, disable, and check the current status of Office 365 unified audit logging. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - See [Office 365 management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference) for more information.
 
 
    > [!NOTE]
