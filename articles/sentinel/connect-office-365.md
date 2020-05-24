@@ -10,21 +10,22 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 05/21/2020
 ms.author: yelevin
 
 ---
 # Connect data from Office 365 Logs
 
+The [Office 365](https://docs.microsoft.com/office/) log connector provides insight into ongoing user and admin activities in Exchange and SharePoint (including OneDrive). This includes details of actions such as file downloads, access requests sent, changes to group events, and mailbox operations, as well as the details of the user who performed the actions. By connecting Office 365 logs to Azure Sentinel, you can view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process.
 
-
-You can stream audit logs from [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) into Azure Sentinel with a single click. You can stream audit logs from your Office 365 into your Azure Sentinel workspace on the same tenant. The Office 365 activity log connector provides insight into ongoing user activities. You will get information about various user, admin, system, and policy actions and events from Office 365. By connecting Office 365 logs into Azure Sentinel you can use this data to view dashboards, create custom alerts, and improve your investigation process.
+> [!NOTE]
+> - Office 365 logs can only be streamed into an Azure Sentinel workspace on the same tenant.
 
 > [!IMPORTANT]
-> If you have an E3 license, before you can access data through the Office 365 Management Activity API, you must enable unified audit logging for your Office 365 organization. You do this by turning on the Office 365 audit log. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). See [Office 365 management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference), for more information.
+> In order to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled for your Office 365 deployment. Depending on the type of license you have, it may or may not be enabled by default. You do this by turning on the Office 365 audit log. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). See [Office 365 management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference), for more information.
 
 ## Prerequisites
 
