@@ -33,7 +33,7 @@ In the context of a video management system for security cameras, video recordin
 
 [Media graph](media-graph-concept.md) lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. Media graph is covered in detail in the Media Graph concept page.
 
-## RSTP
+## RTSP
 
 [RTSP](https://tools.ietf.org/html/rfc2326) refers to Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. 
 
