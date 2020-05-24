@@ -139,9 +139,10 @@ Some of the benefits of this transition:
 
 - **Enriched alerts** - The security alerts from fileless attack detection include enrichments that aren't available from CDA, such as the active network connections information. 
 
-- **Alert aggregation** - All the attack patterns detected within the memory of an infected process are now aggregated into a single alert. This means that analysts no longer need to correlate multiple alerts for the same infected process.
+- **Alert aggregation** - When CDA detected multiple attack patterns within a single crash dump, it triggered multiple security alerts. Fileless attack detection combines all of the identified attack patterns from the same process into a single alert, removing the need to correlate multiple alerts.
 
 - **Reduced requirements on your Log Analytics workspace** - Crash dumps containing potentially sensitive data will no longer be uploaded to your Log Analytics workspace.
+
 
 
 ## April 2020
