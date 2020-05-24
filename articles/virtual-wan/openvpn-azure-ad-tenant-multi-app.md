@@ -6,18 +6,18 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 03/19/2020
 ms.author: alzam
 
 ---
 # Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
-When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways.
+When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different gateways, you can register multiple apps in AD and link them to different gateways.
 
 This article helps you set up an Azure AD tenant for P2S OpenVPN authentication, and create and register multiple apps in Azure AD to allow different access for different users and groups.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
@@ -41,7 +41,7 @@ A P2S configuration defines the parameters for connecting remote clients.
    ```
 
    > [!NOTE]
-   > Do not use the Azure VPN client's application ID in the commands above: It will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.
+   > Do not use the Azure VPN client's application ID in the commands above: It will grant all users access to the gateway. Use the ID of the application(s) you registered.
 
 ## <a name="hub"></a>7. Edit hub assignment
 
@@ -77,7 +77,7 @@ Use the VPN profile to configure your clients.
 
 5. Extract the downloaded zip file.
 
-6. Browse to the unzipped “AzureVPN” folder.
+6. Browse to the unzipped "AzureVPN" folder.
 
 7. Make a note of the location of the "azurevpnconfig.xml" file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
 
@@ -86,7 +86,7 @@ Use the VPN profile to configure your clients.
 To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 #### To download the Azure VPN client
@@ -147,15 +147,9 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 1. Navigate to the virtual WAN.
 
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
+2. On the Overview page, each point on the map represents a hub.
 
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>11. View your resource health
-
-1. Navigate to your WAN.
-
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
 ## <a name="cleanup"></a>Clean up resources
 

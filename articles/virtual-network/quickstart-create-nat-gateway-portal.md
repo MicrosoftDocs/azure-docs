@@ -20,6 +20,8 @@ ms.author: allensu
 
 This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
+If you prefer, you can do these steps using the [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md), or deploy a [ARM Template](quickstart-create-nat-gateway-powershell.md) instead of the portal.
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).

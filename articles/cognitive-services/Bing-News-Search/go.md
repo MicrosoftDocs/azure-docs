@@ -69,13 +69,13 @@ type NewsAnswer struct {
 				Width   int  `json: "width"`
 				Height  int   `json: "height"`
 			} `json: "thumbnail"` 
+		    } `json: "image"` 
 			Description  string  `json: "description"`
 			Provider  []struct   {
 			    Type   string    `json: "_type"`
 				Name  string     `json: "name"`
 			} `json: "provider"` 
 			DatePublished   string   `json: "datePublished"`
- 		} `json: "image"` 
 	} `json: "value"` 
 }
 

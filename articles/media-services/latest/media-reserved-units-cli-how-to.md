@@ -69,5 +69,5 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## See also
 
-* [Quotas and limitations](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints.md)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

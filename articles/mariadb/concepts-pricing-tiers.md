@@ -1,11 +1,11 @@
 ---
 title: Pricing tiers - Azure Database for MariaDB
 description: Learn about the various pricing tiers for Azure Database for MariaDB including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: jan-eng
-ms.author: janeng
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/18/2020
 ---
 
 # Azure Database for MariaDB pricing tiers

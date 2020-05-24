@@ -26,13 +26,15 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a Functions app
 
@@ -83,7 +85,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

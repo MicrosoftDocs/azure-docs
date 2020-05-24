@@ -37,11 +37,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/csharp-sdk.md
+            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts/python-sdk.md
+            url: quickstarts/client-libraries.md?pivots=programming-language-python
           - text: Using the Go SDK
-            url: quickstarts/go-sdk.md
+            url: quickstarts/client-libraries.md?pivots=programming-language-go
       - linkListType: how-to-guide
         links:
           - text: Specify a face detection model

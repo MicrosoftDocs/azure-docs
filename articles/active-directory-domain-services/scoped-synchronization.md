@@ -9,8 +9,8 @@ ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 11/26/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
@@ -43,13 +43,15 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 | Disable scoped synchronization | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Changing the scope of synchronization causes the Azure AD DS managed domain to resynchronize all data.
+> Changing the scope of synchronization causes the Azure AD DS managed domain to resynchronize all data. The following considerations apply:
 > 
 >  * When you change the synchronization scope for an Azure AD DS managed domain, a full resynchronization occurs.
 >  * Objects that are no longer required in the Azure AD DS managed domain are deleted. New objects are created in the managed domain.
 >  * Resynchronization may take a long time to complete. The synchronization time depends on the number of objects such as users, groups, and group memberships in the Azure AD DS managed domain and Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
 
 ## Enable scoped synchronization using the Azure portal
+
+To enable scoped synchronization in the Azure portal, complete the the following steps:
 
 1. Follow the [tutorial to create and configure an Azure AD DS instance](tutorial-create-instance-advanced.md). Complete all prerequisites and deployment steps other than for synchronization scope.
 1. Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS instance.
@@ -169,7 +171,7 @@ Write-Output "******************************************************************
 
 ## Enable scoped synchronization using PowerShell
 
-Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
+Use PowerShell to complete the following set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](powershell-create-instance.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
 
 1. Complete the following tasks from the article to enable Azure AD DS using PowerShell. Stop at the step to actually create the managed domain. You configure the scoped synchronization you create the Azure AD DS managed domain.
 

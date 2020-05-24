@@ -175,9 +175,9 @@ The three-tier templates in Azure Resource Manager also support high-availabilit
 
 Here's where you can get Azure Resource Manager templates for the example scenario we describe in this article:
 
-* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace image by using Azure Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/)
 * [Custom image by using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 To prepare the infrastructure for Architectural Template 1:
@@ -268,9 +268,9 @@ You can use this Azure Resource Manager template for SAP to help simplify the de
 
 Here's where you can get Azure Resource Manager templates for this deployment scenario:
 
-* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace image by using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/)
 * [Custom image by using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 

@@ -38,7 +38,7 @@ Use the seamless migration flow if plaintext passwords in the old identity provi
 - The password is stored in a one-way encrypted format, such as with a hash function.
 - The password is stored by the legacy identity provider in a way that you can't access. For example, when the identity provider validates credentials by calling a web service.
 
-The seamless migration flow still requires bulk migration of user accounts, but then uses a [custom policy](restful-technical-profile.md) to query a [REST API](rest-api-claims-exchange-dotnet.md) (which you create) to set each users' password at first sign-in.
+The seamless migration flow still requires bulk migration of user accounts, but then uses a [custom policy](custom-policy-get-started.md) to query a [REST API](custom-policy-rest-api-intro.md) (which you create) to set each users' password at first sign-in.
 
 The seamless migration flow thus has two phases: *bulk import* and *set credentials*.
 
@@ -68,7 +68,7 @@ To see an example custom policy and REST API, see the [seamless user migration s
 
 The seamless migration approach uses your own custom REST API to validate a user's credentials against the legacy identity provider.
 
-**You must protect your REST API against brute-force attacks.** An attacker can submit several passwords in the hope of eventually guessing a user's credentials. To help defeat such attacks, stop serving requests to your REST API when the number of sign-in attempts passes a certain threshold. Also, secure the communication between Azure AD B2C and your REST API by using a [client certificate](secure-rest-api-dotnet-certificate-auth.md).
+**You must protect your REST API against brute-force attacks.** An attacker can submit several passwords in the hope of eventually guessing a user's credentials. To help defeat such attacks, stop serving requests to your REST API when the number of sign-in attempts passes a certain threshold. Also, secure the communication between Azure AD B2C and your REST API. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
 ### User attributes
 

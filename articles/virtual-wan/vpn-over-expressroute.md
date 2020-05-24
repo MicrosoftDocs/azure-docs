@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/19/2020
 ms.author: cherylmc
 
 ---
@@ -218,13 +218,8 @@ If you need instructions to configure your device, you can use the instructions 
 ## <a name="viewwan"></a>5. View your virtual WAN
 
 1. Go to the virtual WAN.
-1. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub's health summary.
+1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub, site, region, and VPN connection status. You can also view bytes in and out.
-
-## <a name="viewhealth"></a>6. View your resource health
-
-1. Go to your WAN.
-1. In the **SUPPORT + Troubleshooting** section, select **Health** and view your resource.
 
 ## <a name="connectmon"></a>7. Monitor a connection
 

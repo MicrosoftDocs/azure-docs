@@ -2,11 +2,11 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 05/21/2020
 ---
-# Resource functions for Azure Resource Manager templates
+# Resource functions for ARM templates
 
-Resource Manager provides the following functions for getting resource values:
+Resource Manager provides the following functions for getting resource values in your Azure Resource Manager (ARM) template:
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
@@ -22,9 +22,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 ## extensionResourceId
 
-```json
-extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
-```
+`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
@@ -102,11 +100,9 @@ The following example returns the resource ID for a resource group lock.
 
 ## list*
 
-```json
-list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
-```
+`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys` and `listSecrets`.
+The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys`, `listKeyValue` and `listSecrets`.
 
 ### Parameters
 
@@ -127,6 +123,7 @@ The possible uses of list* are shown in the following table.
 | Resource type | Function name |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -164,11 +161,11 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
-| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
 | Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
@@ -199,7 +196,7 @@ The possible uses of list* are shown in the following table.
 | Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft.OperationalInsights/workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
@@ -348,11 +345,11 @@ To get the SAS token, pass an object for the expiry time. The expiry time must b
 }
 ```
 
+For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
 ## providers
 
-```json
-providers(providerNamespace, [resourceType])
-```
+`providers(providerNamespace, [resourceType])`
 
 Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
 
@@ -427,9 +424,7 @@ For the **Microsoft.Web** resource provider and **sites** resource type, the pre
 
 ## reference
 
-```json
-reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
-```
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
 
@@ -438,12 +433,12 @@ Returns an object representing a resource's runtime state.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. |
-| apiVersion |No |string |API version of the specified resource. Include this parameter when the resource isn't provisioned within same template. Typically, in the format, **yyyy-mm-dd**. For valid API versions for your resource, see [template reference](/azure/templates/). |
+| apiVersion |No |string |API version of the specified resource. **This parameter is required when the resource isn't provisioned within same template.** Typically, in the format, **yyyy-mm-dd**. For valid API versions for your resource, see [template reference](/azure/templates/). |
 | 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
-Every resource type returns different properties for the reference function. The function doesn't return a single, predefined format. Also, the returned value differs based on whether you specified the full object. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+Every resource type returns different properties for the reference function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
 ### Remarks
 
@@ -490,7 +485,9 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property.
+
+You can't use the reference function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the reference function is resolved.
 
 You can't use the reference function in the outputs of a [nested template](linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](linked-templates.md#linked-template).
 
@@ -508,7 +505,7 @@ When referencing a resource that is deployed in the same template, provide the n
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-When referencing a resource that isn't deployed in the same template, provide the resource ID.
+When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -663,9 +660,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## resourceGroup
 
-```json
-resourceGroup()
-```
+`resourceGroup()`
 
 Returns an object that represents the current resource group.
 
@@ -743,9 +738,7 @@ The preceding example returns an object in the following format:
 
 ## resourceId
 
-```json
-resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
-```
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
@@ -900,9 +893,7 @@ The output from the preceding example with the default values is:
 
 ## subscription
 
-```json
-subscription()
-```
+`subscription()`
 
 Returns details about the subscription for the current deployment.
 
@@ -943,9 +934,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## subscriptionResourceId
 
-```json
-subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
-```
+`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the subscription level.
 
@@ -1027,9 +1016,7 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 ## tenantResourceId
 
-```json
-tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
-```
+`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the tenant level.
 

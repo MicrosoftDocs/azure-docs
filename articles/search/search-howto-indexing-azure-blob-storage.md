@@ -263,7 +263,7 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
-	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -278,26 +278,69 @@ For some blobs, Azure Cognitive Search is unable to determine the content type, 
 
 Azure Cognitive Search limits the size of blobs that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Oversized blobs are treated as errors by default. However, you can still index storage metadata of oversized blobs if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true: 
 
-	"parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 You can also continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. To ignore a specific number of errors, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to the desired values. For example:
 
-	{
-	  ... other parts of indexer definition
-	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-	}
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## Incremental indexing and deletion detection
+
 When you set up a blob indexer to run on a schedule, it reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
 
 > [!NOTE]
 > You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
 
-To support deleting documents, use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index. Instead, use the following steps:  
+To support deleting documents, use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index.
 
-1. Add a custom metadata property to the blob to indicate to Azure Cognitive Search that it is logically deleted
-2. Configure a soft deletion detection policy on the data source
-3. Once the indexer has processed the blob (as shown by the indexer status API), you can physically delete the blob
+There are two ways to implement the soft delete approach. Both are described below.
+
+### Native blob soft delete (preview)
+
+> [!IMPORTANT]
+> Support for native blob soft delete is in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) provides this feature. There is currently no portal or .NET SDK support.
+
+> [!NOTE]
+> When using the native blob soft delete policy the document keys for the documents in your index must either be a blob property or blob metadata.
+
+In this method you will use the [native blob soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature offered by Azure Blob storage. If native blob soft delete is enabled on your storage account, your data source has a native soft delete policy set, and the indexer finds a blob that has been transitioned to a soft deleted state, the indexer will remove that document from the index. The native blob soft delete policy is not supported when indexing blobs from Azure Data Lake Storage Gen2.
+
+Use the following steps:
+1. Enable [native soft delete for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). We recommend setting the retention policy to a value that's much higher than your indexer interval schedule. This way if there's an issue running the indexer or if you have a large number of documents to index, there's plenty of time for the indexer to eventually process the soft deleted blobs. Azure Cognitive Search indexers will only delete a document from the index if it processes the blob while it's in a soft deleted state.
+1. Configure a native blob soft deletion detection policy on the data source. An example is shown below. Since this feature is in preview, you must use the preview REST API.
+1. Run the indexer or set the indexer to run on a schedule. When the indexer runs and processes the blob the document will be removed from the index.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### Reindexing undeleted blobs
+
+If you delete a blob from Azure Blob storage with native soft delete enabled on your storage account the blob will transition to a soft deleted state giving you the option to undelete that blob within the retention period. When an Azure Cognitive Search data source has a native blob soft delete policy and the indexer processes a soft deleted blob it will remove that document from the index. If that blob is later undeleted the indexer will not always reindex that blob. This is because the indexer determines which blobs to index based on the blob's `LastModified` timestamp. When a soft deleted blob is undeleted its `LastModified` timestamp does not get updated, so if the indexer has already processed blobs with `LastModified` timestamps more recent than the undeleted blob it won't reindex the undeleted blob. To make sure that an undeleted blob is reindexed, you will need to update the blob's `LastModified` timestamp. One way to do this is by resaving the metadata of that blob. You don't need to change the metadata but resaving the metadata will update the blob's `LastModified` timestamp so that the indexer knows that it needs to reindex this blob.
+
+### Soft delete using custom metadata
+
+In this method you will use a blob's metadata to indicate when a document should be removed from the search index.
+
+Use the following steps:
+
+1. Add a custom metadata key-value pair to the blob to indicate to Azure Cognitive Search that it is logically deleted.
+1. Configure a soft deletion column detection policy on the data source. An example is shown below.
+1. Once the indexer has processed the blob and deleted the document from the index, you can delete the blob for Azure Blob storage.
 
 For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
@@ -309,13 +352,17 @@ For example, the following policy considers a blob to be deleted if it has a met
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### Reindexing undeleted blobs
+
+If you set a soft delete column detection policy on your data source, then add the custom metadata to a blob with the marker value, then run the indexer, the indexer will remove that document from the index. If you would like to reindex that document, simply change the soft delete metadata value for that blob and rerun the indexer.
 
 ## Indexing large datasets
 
@@ -324,14 +371,14 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 - Partition your data into multiple blob containers or virtual folders
 - Set up several Azure Cognitive Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
 
-	```
-	{
-	    "name" : "blob-datasource",
-	    "type" : "azureblob",
-	    "credentials" : { "connectionString" : "<your storage connection string>" },
-		"container" : { "name" : "my-container", "query" : "my-folder" }
-	}
-	```
+    ```
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : "my-folder" }
+    }
+    ```
 
 - Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
 
@@ -359,7 +406,7 @@ If all your blobs contain plain text in the same encoding, you can significantly
 
 By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
 
-	{
+    {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }

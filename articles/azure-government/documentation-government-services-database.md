@@ -1,5 +1,5 @@
----
-title: Azure Government Databases | Microsoft Docs
+---                                   
+title: Azure Government Databases | Microsoft Docs        
 description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -38,18 +38,18 @@ The following information identifies the Azure Government boundary for Azure SQL
 | All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
 
 ## SQL Data Warehouse
-For details on this service and how to use it, see [Azure SQL Data Warehouse documentation](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+For details on this service and how to use it, see [Azure SQL Data Warehouse documentation](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 ## SQL Server Stretch Database
-For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.md)
+For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.yml)
 
 ## Azure Cosmos DB
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
-Azure Cosmos DB is generally available in Azure Government with parity to the public version. One exception is the **Add Azure Cognitive Search** function currently, which isn't available in Cosmos DB for Azure Government.
+Azure Cosmos DB is generally available in Azure Government with parity to the public version.
 
-Also, the URLs for accessing Cosmos DB in Azure Government are different:
+The URLs for accessing Cosmos DB in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ The following information identifies the Azure Government boundary for Azure Cac
 For details on this service and how to use it, see [Azure Database for PostgreSQL documentation](../postgresql/index.yml).
 
 ### Variations
-Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for PostgreSQL are **not** available in Azure Government.
+Advanced Threat Protection and Private endpoint connections for Azure Database for PostgreSQL are **not** available in Azure Government.
 
 The URLs for accessing and managing Azure Database for PostgreSQL in Azure Government are different:
 
@@ -109,8 +109,6 @@ The following information identifies the Azure Government boundary for Azure Dat
 For details on this service and how to use it, see [Azure Database for MariaDB documentation](../mariadb/index.yml).
 
 ### Variations
-Query Performance Insights and Performance Recommendations for Azure Database for MariaDB are **not** available in Azure Government.
-
 The URLs for accessing and managing Azure Database for MariaDB in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
@@ -128,7 +126,7 @@ The following information identifies the Azure Government boundary for Azure Dat
 For details on this service and how to use it, see [Azure Database for MySQL documentation](../mysql/index.yml).
 
 ### Variations
-Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for MySQL are **not** available in Azure Government.
+Advanced Threat Protection and Private endpoint connections for Azure Database for MySQL are **not** available in Azure Government.
 
 The URLs for accessing and managing Azure Database for MySQL in Azure Government are different:
 

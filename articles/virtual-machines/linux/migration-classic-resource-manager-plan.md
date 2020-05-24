@@ -120,19 +120,19 @@ The following were issues discovered in many of the larger migrations. This is n
 
     **Compute** *(Cores, Availability Sets)*
 
-    ```bash
+    ```azurecli
     az vm list-usage -l <azure-region> -o jsonc
     ```
 
     **Network** *(Virtual Networks, Static Public IPs, Public IPs, Network Security Groups, Network Interfaces, Load Balancers, Route Tables)*
 
-    ```bash
+    ```azurecli
     az network list-usages -l <azure-region> -o jsonc
     ```
 
     **Storage** *(Storage Account)*
 
-    ```bash
+    ```azurecli
     az storage account show-usage
     ```
 

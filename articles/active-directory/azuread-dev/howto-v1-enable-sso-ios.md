@@ -4,7 +4,7 @@ description: How to use the features of the ADAL SDK to enable Single Sign On ac
 services: active-directory
 author: rwike77 
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
+
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,6 +15,7 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # How to: Enable cross-app SSO on iOS using ADAL
@@ -304,7 +305,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### Step 4: Add a configuration parameter to your app
 
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
+ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add "msauth" to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>

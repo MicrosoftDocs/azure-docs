@@ -1,14 +1,8 @@
 ---
-title: Provision a custom pool from a managed image - Azure Batch | Microsoft Docs
+title: Provision a custom pool from a managed image
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: labrenne
 ---
 
 # Use a managed image to create a pool of virtual machines
@@ -114,4 +108,4 @@ For more information on using Packer to create a VM, see [Build a Linux image wi
 
 ## Next steps
 
-For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+- For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

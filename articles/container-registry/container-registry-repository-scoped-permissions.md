@@ -20,8 +20,9 @@ Scenarios for creating a token include:
 
 ## Preview limitations
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
+* This feature is available in **Premium** container registries. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
+* You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
 ## Concepts
 

@@ -19,9 +19,9 @@ This article describes how to exclude disks from replication during disaster rec
 
 You can exclude disks from replication as summarized in the table.
 
-**Azure to Azure** | **VMware to Azure** | **Hyper-V to Azure** 
---- | --- | ---
-Yes (using PowerShell) | Yes | Yes 
+**Azure to Azure** | **VMware to Azure** | **Hyper-V to Azure** | **Physical Server to Azure**
+--- | --- | --- | ---
+Yes | Yes | Yes | Yes
 
 ## Exclude limitations
 
@@ -30,7 +30,7 @@ Yes (using PowerShell) | Yes | Yes
 **Disk types** | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. Temp disks are excluded by default. | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks. We recommend that you don't exclude dynamic disks. Site Recovery can't identify which VHS is basic or dynamic in the guest VM. If all dependent dynamic volume disks aren't excluded, the protected dynamic disk becomes a failed disk on a failover VM, and the data on that disk isn't accessible.
 **Replicating disk** | You can't exclude a disk that's replicating.<br/><br/> Disable and reenable replication for the VM. |  You can't exclude a disk that's replicating. |  You can't exclude a disk that's replicating.
 **Mobility service (VMware)** | Not relevant | You can exclude disks only on VMs that have the Mobility service installed.<br/><br/> This means that you have to manually install the Mobility service on the VMs for which you want to exclude disks.You can't use the push installation mechanism because it installs the Mobility service only after replication is enabled. | Not relevant.
-**Add/Remove** | You can add and remove disks on Azure VMs with managed disks. | You can't add or remove disks after replication is enabled. Disable and then reenable replication to add a disk. | You can't add or remove disks after replication is enabled. Disable and then reenable replication.
+**Add/Remove** | You can add managed disks on replication-enabled Azure VMs with managed disks. You cannot remove disks on replication-enabled Azure VMs. | You can't add or remove disks after replication is enabled. Disable and then reenable replication to add a disk. | You can't add or remove disks after replication is enabled. Disable and then reenable replication.
 **Failover** | If an app needs a disk that you excluded, after failover you need to create the disk manually so that the replicated app can run.<br/><br/> Alternatively, you can create the disk during VM failover, by integrating Azure automation into a recovery plan. | If you exclude a disk that an app needs, create it manually in Azure after failover. | If you exclude a disk that an app needs, create it manually in Azure after failover.
 **On-premises failback-disks created manually** | Not relevant | **Windows VMs**: Disks created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only the three disks that were failed over are then failed back.<br/><br/> **Linux VMs**: Disks created manually in Azure are failed back. For example, if you fail over three disks and create two disks on an Azure VM, all five will be failed back. You can't exclude disks that were created manually from failback. | Disks created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only three disks that were failed over will be failed back.
 **On-premises failback-Excluded disks** | Not relevant | If you fail back to the original machine, the failback VM disk configuration doesn't include the excluded disks. Disks that were excluded from VMware to Azure replication aren't available on the failback VM. | When failback is to the original Hyper-V location, the failback VM disk configuration remains the same as that of original source VM disk. Disks that were excluded from Hyper-V site to Azure replication are available on the failback VM.

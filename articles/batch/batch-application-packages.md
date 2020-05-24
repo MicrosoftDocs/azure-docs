@@ -1,19 +1,8 @@
 ---
-title: Install application packages on compute nodes - Azure Batch | Microsoft Docs
+title: Deploy application packages to compute nodes
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -74,7 +63,7 @@ With application packages, your pool's start task doesn't have to specify a long
 You can use the [Azure portal][portal] or the Batch Management APIs to manage the application packages in your Batch account. In the next few sections, we first show how to link a Storage account, then discuss adding applications and packages and managing them with the portal.
 
 ### Link a Storage account
-To use application packages, you must first link an [Azure Storage account](batch-api-basics.md#azure-storage-account) to your Batch account. If you have not yet configured a Storage account, the Azure portal displays a warning the first time you click **Applications** in your Batch account.
+To use application packages, you must first link an [Azure Storage account](accounts.md#azure-storage-accounts) to your Batch account. If you have not yet configured a Storage account, the Azure portal displays a warning the first time you click **Applications** in your Batch account.
 
 
 
@@ -291,9 +280,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> See [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
-> 
-> 
+> For more information about compute node environment settings, see [Environment settings for tasks](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## Update a pool's application packages
 If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new package reference for a pool, the following apply:

@@ -7,7 +7,6 @@ manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
 ms.devlang: na
-ms.topic: article
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

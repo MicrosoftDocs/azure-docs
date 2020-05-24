@@ -4,10 +4,11 @@ description: This article helps you enable and configure extended diagnostics me
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Add extended metrics for Azure virtual machines
@@ -24,7 +25,9 @@ After you enable metric collection, you can:
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _Percentage CPU_ and _\Memory\% Committed Bytes In Use_.
 
 > [!NOTE]
-> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the [Log Analytics agent](../../azure-monitor/platform/agents-overview.md). 
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the [Log Analytics agent](../../azure-monitor/platform/agents-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Determine whether extended metrics are enabled
 

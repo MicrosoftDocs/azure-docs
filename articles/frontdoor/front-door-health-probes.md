@@ -17,8 +17,8 @@ ms.author: sharadag
 
 In order to determine the health and proximity of each backend from a given Front Door environment, each Front Door environment periodically sends a synthetic HTTP/HTTPS request to each of your configured backends. Front Door then uses responses from these probes to determine the "best" backends to which it should route real client requests. 
 
-> [!NOTE]
-> Since Front Door has many edge environments globally, health probe requests volume to your backends can be quite high - ranging from 18 requests every minute to as high as 960 requests per minute, depending on the health probe frequency configured.
+> [!WARNING]
+> Since Front Door has many edge environments globally, health probe requests volume to your backends can be quite high - ranging from 25 requests every minute to as high as 1200 requests per minute, depending on the health probe frequency configured. With the default probe frequency of 30 seconds, the probe volume on your backend should be about 200 requests per minute.
 
 ## Supported protocols
 
@@ -62,6 +62,10 @@ Azure Front Door uses the same three-step process below across all algorithms to
 If health probes fail for every backend in a backend pool, then Front Door considers all backends healthy and routes traffic in a round robin distribution across all of them.
 
 Once any backend returns to a healthy state, then Front Door will resume the normal load-balancing algorithm.
+
+## Disabling health probes
+
+If you have a single backend in your backend pool, you can choose to disable the health probes reducing the load on your application backend. Even if you have multiple backends in the backend pool but only one of them is in enabled state, you can disable health probes.
 
 ## Next steps
 

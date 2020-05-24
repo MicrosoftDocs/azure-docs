@@ -3,9 +3,9 @@ title: Manage integration service environments in Azure Logic Apps
 description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/29/2020
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
@@ -49,6 +49,10 @@ You can view and manage the logic apps that are in your ISE.
    ![View logic apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. To remove logic apps that you no longer need in your ISE, select those logic apps, and then select **Delete**. To confirm that you want to delete, select **Yes**.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 <a name="find-api-connections"></a>
 

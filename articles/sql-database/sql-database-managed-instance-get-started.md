@@ -3,7 +3,7 @@ title: 'Azure portal: Create a managed instance'
 description: Create a SQL Database managed instance, network environment, and client VM for access.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -116,6 +116,10 @@ The following steps show you how to create a managed instance:
 > 1. In Azure portal, open the resource group (on the **Basics** tab) to which you're deploying a managed instance.
 > 2. Select **Deployments**.
 > 3. Select the managed instance deployment operation in progress.
+
+> [!IMPORTANT]
+> In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while managed instance is in creation process, this can cause managed instance not to be visible in list of resource group deployments.
+>
 
 ## Post-deployment operations
 

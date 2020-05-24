@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -150,7 +150,7 @@ However the following features are not yet supported for edge jobs:
 * The following  SQL operators:
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Late arrival policy
 
 ### Runtime and hardware requirements
 To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
@@ -223,7 +223,7 @@ This version information was last updated on 2019-06-27:
       
       
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 

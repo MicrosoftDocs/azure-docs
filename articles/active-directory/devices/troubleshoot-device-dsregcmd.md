@@ -131,7 +131,7 @@ This section lists the status of various attributes for the user currently logge
 - **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
 - **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
 - **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt. 
 - **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
 - **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
 - **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 

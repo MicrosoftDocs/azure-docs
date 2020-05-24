@@ -50,7 +50,7 @@ Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
 - Specify between the HTTP and HTTPS protocols in the listener configuration.
 - Support for [WebSockets and HTTP/2 protocols](features.md#websocket-and-http2-traffic) is provided natively, and [WebSocket support](application-gateway-websocket.md) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 
-Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
+Use an HTTPS listener for TLS termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
 
 ### Custom error pages
 
@@ -106,7 +106,7 @@ For more information, see [Rewrite HTTP headers on your application gateway](rew
 
 An application gateway routes traffic to the backend servers (specified in the request routing rule that include HTTP settings) by using the port number, protocol, and other settings detailed in this component.
 
-The port and protocol used in the HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (providing end-to-end SSL) or unencrypted.
+The port and protocol used in the HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (providing end-to-end TLS) or unencrypted.
 
 This component is also used to:
 

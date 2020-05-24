@@ -1,11 +1,11 @@
 ﻿---
-title: Azure traffic analytics schema update - March 2020 | Microsoft Docs
+title: Azure Traffic Analytics schema update - March 2020 | Microsoft Docs
 description: Sample queries with new fields in the Traffic Analytics schema.
 services: network-watcher
 documentationcenter: na
 author: vinigam
 manager: agummadi
-editor:
+editor: 
 
 ms.service: network-watcher
 ms.devlang: na
@@ -16,16 +16,17 @@ ms.date: 03/06/2020
 ms.author: vinigam
 
 ---
-# Sample queries with new fields in Traffic Analytics schema (August 2019 schema update)
+# Sample queries with new fields in the Traffic Analytics schema (August 2019 schema update)
 
-The [Traffic Analytics Log schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) has been updated to include the following new fields: **SrcPublicIPs_s** , **DestPublicIPs_s**, **NSGRule_s**. In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
-The new fields provide information about source and destination IPs and simplify queries.
+The [Traffic Analytics log schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
 
-Below are three examples showing how to replace the old fields with new ones.
+In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 
-## Example 1 - VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, PublicIPs_s
+The following three examples show how to replace the old fields with the new ones.
 
-We don’t have to infer Source and destination cases for Azure and External public flows from FlowDirection_s field for AzurePublic and ExternalPublic flows specifically. In case of an NVA (Network Virtual Appliance), the FlowDirection_s field can be inappropriate to be used as well.
+## Example 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, and PublicIPs_s fields
+
+We don't have to infer source and destination cases from the **FlowDirection_s** field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the **FlowDirection_s** field for a network virtual appliance.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -67,12 +68,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
+## Example 2: NSGRules_s field
 
-## Example 2 - NSGRules_s
+The old field used the format:
 
-Earlier field was of format: <Index value 0)>|<NSG_RULENAME>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-Earlier we used to aggregate data across NSG and NSGRules. Now we do not aggregate. So NSGList_s contains only one NSG and NSGRules_s also used to contain only one rule. So we have removed the complicated formatting here and the same can be found in other fields as mentioned below:
+We no longer aggregate data across a network security group (NSG). In the updated schema, **NSGList_s** contains only one NSG. Also **NSGRules** contains only one rule. We removed the complicated formatting here and in other fields as shown in the example.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -97,17 +99,24 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## Example 3 - FlowCount_d
+## Example 3: FlowCount_d field
 
-Since we do not club data across NSG, the FlowCount_d is simply AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d.
-Only 1 of the above 4 will be non-zero and rest three will be 0. And it would indicate the status and count in the NIC where the flow was captured.
+Because we do not club data across the NSG, the **FlowCount_d** is simply:
 
-If the flow was allowed, one of the fields prefixed with “Allowed” will be populated. Else one fields prefixed with “Denied” will be populated.
-If the flow was inbound, one of the fields suffixed with "\_d" like “InFlows_d” suffixed field will be populated. Else “OutFlows_d” will be populated.
+**AllowedInFlows_d** + **DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**
 
-Depending on above 2 conditions, we know which one out of the 4 will be populated.
+Only one of the four fields will be nonzero. The other three fields will be zero. The fields populate to indicate the status and count in the NIC where the flow was captured.
 
+To illustrate these conditions:
 
-## Next Steps
-To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md)
-To see details about functionality, see [Traffic analytics documentation](traffic-analytics.md)
+- If the flow was allowed, one of the "Allowed" prefixed fields will be populated.
+- If the flow was denied, one of the "Denied" prefixed fields will be populated.
+- If the flow was inbound, one of the "InFlows_d" suffixed fields will be populated.
+- If the flow was outbound, one of the "OutFlows_d" suffixed fields will be populated.
+
+Depending on the conditions, we know which one of the four fields will be populated.
+
+## Next steps
+
+- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).
+- To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).

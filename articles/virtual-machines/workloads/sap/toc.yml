@@ -76,6 +76,8 @@
       href: ha-setup-with-stonith.md
     - name: OS Backup for Type II SKUs
       href: os-backup-type-ii-skus.md
+    - name: Enable Kdump for HANA Large Instances
+      href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
       href: os-upgrade-hana-large-instance.md
     - name: Setting up SMT server for SUSE Linux
@@ -84,7 +86,7 @@
       href: hana-large-instance-virtual-machine-migration.md
 - name: SAP HANA on Azure Virtual Machines
   items:
-  - name: Single instance SAP HANA installation
+  - name: Installation of SAP HANA on Azure  VMs
     href: hana-get-started.md
   - name: S/4 HANA or BW/4 HANA SAP CAL deployment guide
     href: cal-s4h.md

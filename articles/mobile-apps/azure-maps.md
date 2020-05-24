@@ -1,12 +1,12 @@
 ---
 title: Geospatial APIs to add maps, spatial analytics, and mobility solutions with Azure Maps
 description: Learn about a simple and secure geospatial service to create location-aware mobile applications.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Geospatial APIs to add maps, spatial analytics, and mobility solutions with Azure Maps
@@ -20,7 +20,7 @@ ms.author: emalani
 - **Routing**: Presents the shortest or fastest routes available to multiple destinations at a specific time. Routing also provides specialized routes and facts for walkers, bicyclists, and commercial vehicles.
 - **Time zones**: Makes it easy to see what time it is anywhere in the world.
 - **Spatial operations**: Enhance your location intelligence.
-- **Geolocation**: Finds the country of an IP address.
+- **Geolocation**: Finds the country/region of an IP address.
 - **Data service**: Uploads and stores geospatial data for use with spatial operations or image composition.
 - **Mobility**: Provides real-time location intelligence on nearby public transit services. Stops, route information, and travel time estimations are included.
 

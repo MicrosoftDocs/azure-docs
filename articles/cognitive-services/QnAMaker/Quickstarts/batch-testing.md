@@ -144,7 +144,7 @@ Use the following chart to understand how to find the field values for optional 
     |Charge your Surface Pro 4|
     |Check the battery level|
 
-    Two QnA sets have the metadata set.
+    Two QnA pairs have the metadata set.
 
     > [!TIP]
     > To see the metadata and QnA IDs of each set, export the knowledge base. Select the **Settings** page, then select **Export** as a `.xls` file. Find this downloaded file and open with Excel reviewing for metadata and ID.
@@ -164,7 +164,7 @@ There are two main scenarios for batch testing:
 
 The following procedure assumes the scenario is to process chat logs with
 
-1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row.
+1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA pair ID for each row.
 
     To simulate the automated process of checking new text from chat logs against the knowledge base, set the metadata for each column to the same value: `topic:power`.
 

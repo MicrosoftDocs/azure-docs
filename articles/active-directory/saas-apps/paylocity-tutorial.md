@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,6 +41,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Paylocity supports **SP and IDP** initiated SSO
+
+* Once you configure the Paylocity you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## Adding Paylocity from the gallery
 
@@ -79,8 +80,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![Paylocity Domain and URLs single sign-on information](common/preintegrated.png)
-
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
@@ -96,13 +95,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name |  Source Attribute|
 	| ---------------| --------------- |
-	| PartnerID | <"PartnerID"> |
-	| PaylocityUser | <"PaylocityUser"> |
-	| PaylocityEntity | <"PaylocityEntity"> |
+	| PartnerID | `P8000010` |
+	| PaylocityUser | `user.mail`|
+	| PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > The PaylocityEntity is Paylocity Company ID.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Edit Icon**.
+
+	![The SAML Signing Certificate Edit](./media/paylocity-tutorial/edit-samlassertion.png)
+
+1. Select **Signing Option** as **Sign SAML response and assertion** and click **Save**.
+
+    ![The SAML Signing Certificate Edit](./media/paylocity-tutorial/saml-assertion.png)
 
 1. On the **Set up Paylocity** section, copy the appropriate URL(s) based on your requirement.
 
@@ -161,3 +171,7 @@ When you click the Paylocity tile in the Access Panel, you should be automatical
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Paylocity with Azure AD](https://aad.portal.azure.com/)
+
+* [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+* [How to protect Paylocity with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

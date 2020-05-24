@@ -30,7 +30,7 @@ The following Azure Backup features or workloads support the use of offline back
 > * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) Agent, also referred to as the Azure Backup Agent.
 > * Backup of all workloads and files with System Center Data Protection Manager (DPM).
 > * Backup of all workloads and files with Microsoft Azure Backup Server.
- 
+
    > [!NOTE]
    > Offline backup isn't supported for system state backups done by using the Azure Backup Agent.
 

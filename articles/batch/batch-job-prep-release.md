@@ -1,19 +1,8 @@
 ---
-title: Create tasks to prepare & complete jobs on compute nodes - Azure Batch
+title: Create tasks to prepare & complete jobs on compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.author: labrenne
 ms.custom: seodec18
 
 ---

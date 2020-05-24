@@ -1,8 +1,8 @@
 ---
 title: Connect to a Web Feature Service (WFS) service | Microsoft Azure Maps
 description: Learn how to connect to a WFS service, then query the WFS service using the Azure Maps web SDK and the Spatial IO module.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Connect to a WFS service
 
-A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API, which has been defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
+A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API that is defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
 
 The following features are supported by the `WfsClient` class:
 
@@ -89,32 +89,14 @@ The following code uses the WFS client to explore WFS services. Select a propert
 <iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS service explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-You may also use a proxy service to load resources that are hosted on domains that aren't CORs enabled. You would first define a variable to hold the proxy service url and set the `proxyService` option for the WFS client. To render a proxy service option for the user, add a user input to the UI. Load the service url when the input is clicked. The following snippets show you how to use the proxy service.
+To access WFS services hosted on non-CORS enabled endpoints, a CORS enabled proxy service can be passed into the `proxyService` option of the WFS client as shown below. 
 
 ```JavaScript
-
-//A variable to hold the URL of the proxy service
-var proxyServiceUrl = window.location.origin + 'CorsEnabledProxyService.ashx?url=';
-
 //Create the WFS client to access the service and use the proxy service settings
 client = new atlas.io.ogc.WfsClient({
     url: url,
-    proxyService: (document.getElementById('useProxyService').checked) ? proxyServiceUrl : null
+    proxyService: window.location.origin + '/YourCorsEnabledProxyService.ashx?url='
 });
-
-function proxyOptionChanged() {
-    if (currentServiceUrl) {
-        loadClient(currentServiceUrl);
-    }
-}
-
-```
-
-The HTML code snippet below corresponds to the above JavaScript code:
-
-```html
-<!-- use the proxy service -->
-<input id="useProxyService" type="checkbox" onclick="proxyOptionChanged()"/>
 ```
 
 ## Next steps

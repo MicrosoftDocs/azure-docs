@@ -3,7 +3,7 @@ title: Connect client VM - managed instance
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -114,7 +114,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 4. Close the **Connect to virtual machine** form.
 5. To connect to your VM, open the downloaded RDP file.
-6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the Mac App Store.
 
 7. Enter the username and password you specified when creating the virtual machine, then choose **OK**.
 

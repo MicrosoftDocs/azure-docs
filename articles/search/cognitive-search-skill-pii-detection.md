@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 1/27/2020
 ---
 
-#	PII Detection cognitive skill
+#    PII Detection cognitive skill
 
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
@@ -34,9 +34,9 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 Parameters are case-sensitive and all are optional.
 
-| Parameter name	 | Description |
+| Parameter name     | Description |
 |--------------------|-------------|
-| defaultLanguageCode |	Language code of the input text. For now, only `en` is supported. |
+| defaultLanguageCode |    Language code of the input text. For now, only `en` is supported. |
 | minimumPrecision | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
 | maskingMode | A parameter that provides various ways to mask the detected PII in the input text. The following options are supported: <ul><li>`none` (default): This means that no masking will be performed and the `maskedText` output will not be returned. </li><li> `redact`: This option will remove the detected entities from the input text and not replace them with anything. Note that in this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: This option will replace the detected entities with the character given in the `maskingCharacter` parameter.  The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
 | maskingCharacter | The character that will be used to masked the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
@@ -44,19 +44,19 @@ Parameters are case-sensitive and all are optional.
 
 ## Skill inputs
 
-| Input name	  | Description                   |
+| Input name      | Description                   |
 |---------------|-------------------------------|
-| languageCode	| Optional. Default is `en`.  |
+| languageCode    | Optional. Default is `en`.  |
 | text          | The text to analyze.          |
 
 ## Skill outputs
 
-| Output name	  | Description                   |
+| Output name      | Description                   |
 |---------------|-------------------------------|
 | piiEntities | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
 | maskedText | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
 
-##	Sample definition
+##    Sample definition
 
 ```json
   {
@@ -81,7 +81,7 @@ Parameters are case-sensitive and all are optional.
     ]
   }
 ```
-##	Sample input
+##    Sample input
 
 ```json
 {
@@ -97,7 +97,7 @@ Parameters are case-sensitive and all are optional.
 }
 ```
 
-##	Sample output
+##    Sample output
 
 ```json
 {
@@ -123,6 +123,7 @@ Parameters are case-sensitive and all are optional.
 }
 ```
 
+Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), which means if you are using them to index into the original string, you should use the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class in .NET in order to extract the correct content.  [More details can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
 ## Error and warning cases
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.

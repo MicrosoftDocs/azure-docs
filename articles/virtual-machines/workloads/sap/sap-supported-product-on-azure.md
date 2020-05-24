@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -108,7 +108,7 @@ As you know the specific HANA releases you can run on the targeted Azure infrast
 
 
 ## Certified Azure VMs and HANA Large Instance units and business transaction throughput
-Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput, which is expressed in the unit 'SAP' by SAP. All the SAP sizing circles around SAPS. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
+Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput, which is expressed in the unit 'SAP' by SAP. All the SAP sizing depends on SAPS calculations. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
 
 For Azure VMs, these SAPS throughput numbers are documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). 
 For Azure HANA Large Instance units, the SAPS throughput numbers are documented in [SAP support note #2316233](https://launchpad.support.sap.com/#/notes/2316233)
@@ -133,7 +133,13 @@ SAP Datahub/Vora support in Azure Kubernetes Services (AKS) is detailed in [SAP 
 
 Support for SAP BPC 10.1 SP08 is described in [SAP support note #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Support for SAP Hybris Commerce Platform 5.x and 6.x on Azure is detailed in the [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud)
+Support for SAP Hybris Commerce Platform on Azure is detailed in the [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). As of supported DBMS for SAP Hybris Commerce Platform, it lists like:
+
+- SQL Server and Oracle on the Windows operating system platform. Same minimum releases apply as for SAP NetWeaver. See [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) for details
+- SAP HANA on Red Hat and SUSE Linux. SAP HANA certified VM types are required as documented earlier in [this document](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform is considered OLTP workload
+- SQL Azure DB as of SAP (Hybris) Commerce Platform version 1811
+
+
 
 
 ## Next Steps

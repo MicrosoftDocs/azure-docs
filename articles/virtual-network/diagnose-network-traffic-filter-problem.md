@@ -99,7 +99,7 @@ $VM.NetworkProfile
 
 You receive output similar to the following example:
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -134,7 +134,7 @@ az vm show \
 
 Within the returned output, you see information similar to the following example:
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
