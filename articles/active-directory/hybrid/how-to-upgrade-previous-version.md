@@ -85,8 +85,10 @@ You need to configure the following things the same way on both servers:
 * Any domain and OU filtering
 * The same optional features, such as password sync and password writeback
 
-**Move custom synchronization rules**  
-To move custom synchronization rules, do the following:
+**Move custom synchronization rules**
+To move the custom synchronization rules automatically, you can use the Export-CustomRule.ps1 script at https://github.com/mbendana/ADConnect/tree/ExportCustomRules
+
+To move the custom synchronization rules manually, do the following:
 
 1. Open **Synchronization Rules Editor** on your active server.
 2. Select a custom rule. Click **Export**. This brings up a Notepad window. Save the temporary file with a PS1 extension. This makes it a PowerShell script. Copy the PS1 file to the staging server.  
