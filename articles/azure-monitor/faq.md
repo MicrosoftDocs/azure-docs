@@ -731,7 +731,7 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).

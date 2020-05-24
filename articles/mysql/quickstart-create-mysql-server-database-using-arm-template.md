@@ -1,7 +1,6 @@
 ---
 title: Create an Azure DB for MySQL using an ARM template
 description: In this article, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart

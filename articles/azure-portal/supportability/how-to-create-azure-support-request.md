@@ -123,5 +123,5 @@ To learn more about self-help support options in Azure, watch this video:
 
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure)
+* Get help from your peers in the [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
