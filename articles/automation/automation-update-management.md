@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -91,7 +91,7 @@ The following table lists unsupported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
 |Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
@@ -249,13 +249,5 @@ Here are the ways that you can enable Update Management and select machines to b
 ## Next steps
 
 * For details of working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* If you need to target a dynamic VM group for updates, see [Use dynamic groups with Update Management](automation-update-management-groups.md).
-* To enable the feature using an Azure Resource Manager template, see [Enable Update Management using Azure Resource Manager template](automation-update-management-deploy-template.md).
-* To enable the feature from a runbook, see [Enable Update Management from a runbook](automation-onboard-solutions.md).
-* To enable the feature from an Automation account, see [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md).
-* To enable the feature by browsing the Azure portal, see [Enable Update Management from Azure portal](automation-onboard-solutions-from-browse.md).
-* To enable the feature from an Azure VM, see [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md).
-* If you need to search logs stored in your Log Analytics workspace, see [Query Update Management logs](automation-update-management-query-logs.md).
-* To troubleshoot feature errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
-* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+
+* Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](automation-faq.md).
