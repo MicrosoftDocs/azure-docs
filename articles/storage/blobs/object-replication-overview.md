@@ -21,6 +21,10 @@ Object replication (preview) asynchronously copies block blobs between a source 
 - **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
 - **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
 
+The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
+
+:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
+
 To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
 
 ## Object replication policies and rules
@@ -46,7 +50,7 @@ When you create a replication rule, by default only new block blobs that are sub
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier.md) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
 
 ## About the preview
 
