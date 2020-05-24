@@ -70,7 +70,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 
 
 
-## Get current links
+## Get linked storage accounts
 
 ### Get linked storage accounts for a specific data source type
 
