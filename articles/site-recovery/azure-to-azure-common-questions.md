@@ -310,4 +310,4 @@ Yes, both encryption in transit and [encryption at rest in Azure](https://docs.m
 
 - [Review Azure-to-Azure support requirements](azure-to-azure-support-matrix.md).
 - [Set up Azure-to-Azure replication](azure-to-azure-tutorial-enable-replication.md).
-- If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- If you have questions after reading this article, post them on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

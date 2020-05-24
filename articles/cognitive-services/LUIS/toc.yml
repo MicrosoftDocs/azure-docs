@@ -182,6 +182,8 @@
     href: luis-get-started-get-intent-from-browser.md
   - name: Migrate
     items:
+    - name: Overview
+      href: migration.md
     - name: Migrate from composite entity
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
