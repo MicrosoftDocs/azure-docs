@@ -31,15 +31,11 @@ The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure
 
 ## How CMK works in Azure Monitor
 
-Azure Monitor leverages system-assigned managed identity to grant access
-to your Azure Key Vault. System-assigned managed identity can only be
-associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level. This
-dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics
-*Cluster* resource performs as an intermediate identity connection
-between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the
-managed identity that\'s associated with the *Cluster* resource to
-authenticate to your Azure Key Vault via Azure Active Directory. 
-After CMK configuration, any data ingested to workspaces associated to your *Cluster* resource gets encrypted with your key in Key Vault. You can disassociate workspaces from the *Cluster* resource at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
+Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault. 
+System-assigned managed identity can only be associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level -- This dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+
+After CMK configuration, any data ingested to workspaces associated to your *Cluster* resource gets encrypted with your key in Key Vault. You can disassociate workspaces from the *Cluster* resource at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
+
 
 ![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
 
@@ -125,6 +121,29 @@ Operation is in progress
     "name": "operation-id", 
     "status" : "InProgress", 
     "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
+
+Key identifier update operation is in progress
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+*Cluster* resource delete is in progress -- When you delete a *Cluster* resource that has workspaces associated workspaces, a disassociation operation is performed for each of the workspaces in asynchronous operations that can take a while.
+This isn’t relevant when you delete a *Cluster* with no associated workspace -- In this case the *Cluster* resource is deleted immediately.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
 }
 ```
 
