@@ -220,3 +220,6 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
+### Browser DNS settings
+
+To connect to your Azure Monitor resources over a Private Link, traffic to these resource must go through the private endpoint configured on your network. To enable that, DNS settings are updated as explained in the 'Connect to a private endpoint' section. Some browsers use their own DNS settings instead, and may attempt to connect to Azure Monitor public endpoints, bypassing the Private Link entirely. You should verify your browsers settings don't override or cache old DNS settings. 
