@@ -111,7 +111,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
     "@apiVersion": "1.0",
     "name": "MotionDetection",
     "properties": {
-        "description": "Motion detection on incoming live video stream",
+        "description": "Analyzing live video to detect motion and emit events",
         "parameters": [
             {
                 "name": "rtspUserName",
@@ -123,7 +123,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
                 "name": "rtspPassword",
                 "type": "String",
                 "description": "rtsp source password.",
-                "default" : "dummyPassword"
+                "default": "dummyPassword"
             },
             {
                 "name": "rtspUrl",
@@ -136,7 +136,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
                 "@type": "#Microsoft.Media.MediaGraphRtspSource",
                 "name": "rtspSource",
                 "endpoint": {
-                    "@type": "#Microsoft.Media.MediaGraphClearEndpoint",
+                    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
                     "url": "${rtspUrl}",
                     "credentials": {
                         "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
@@ -148,12 +148,12 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
         ],
         "processors": [
             {
-                "@type": "#Microsoft.Media.MediaGraphMotionDetector",
-                "name": "md",
+                "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
+                "name": "motionDetection",
                 "sensitivity": "medium",
                 "inputs": [
                     {
-                        "moduleName": "rtspSource"
+                        "nodeName": "rtspSource"
                     }
                 ]
             }
@@ -162,17 +162,17 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
             {
                 "@type": "#Microsoft.Media.MediaGraphIoTHubMessageSink",
                 "name": "hubSink",
-                "hubOutputName": "iothubsinkoutput",
+                "hubOutputName": "inferenceOutput",
                 "inputs": [
                     {
-                        "moduleName": "md"
+                        "nodeName": "motionDetection"
                     }
                 ]
             }
         ]
     }
-  }
-  ```
+}
+```
 
 The above JSON payload results in the creation of a MediaGraph topology that defines three parameters (two of which have default values). The topology has one source (RTSP source), one processor (motion detection processor), and one sink (IoT Hub sink).
 
@@ -214,7 +214,7 @@ Within a few seconds, you will see the following response in the Output window:
           "name": "rtspSource",
           "transport": "Tcp",
           "endpoint": {
-            "@type": "#Microsoft.Media.MediaGraphClearEndpoint",
+            "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
@@ -226,9 +226,9 @@ Within a few seconds, you will see the following response in the Output window:
       ],
       "processors": [
         {
-          "@type": "#Microsoft.Media.MediaGraphMotionDetector",
+          "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
           "sensitivity": "medium",
-          "name": "md",
+          "name": "motionDetection",
           "inputs": [
             {
               "moduleName": "rtspSource"
@@ -243,7 +243,7 @@ Within a few seconds, you will see the following response in the Output window:
           "name": "hubSink",
           "inputs": [
             {
-              "moduleName": "md"
+              "moduleName": "motionDetection"
             }
           ]
         }
@@ -321,7 +321,7 @@ Within a few seconds, you should see the following response in the Output window
       ],
       "processors": [
         {
-          "@type": "#Microsoft.Media.MediaGraphMotionDetector",
+          "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
           "sensitivity": "medium",
           "name": "md",
           "inputs": [
@@ -523,7 +523,7 @@ You will see the following messages in the Output window:
     },
     "applicationProperties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/milan-lva-sample-resources/providers/microsoft.media/mediaservices/lvasamplew7z2vwdm5l4uk",
-    "subject": "/graphInstances/Sample-Graph-1/processors/md",
+    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-05-08T14:34:33.404Z",
     "dataVersion": "1.0"
