@@ -38,7 +38,7 @@ az group delete --name $resource
 
 ## Sample reference
 
-This script uses the following commands. Each command in the table links to commandspecific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | | |
 |---|---|
