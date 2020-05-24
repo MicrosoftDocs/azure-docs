@@ -49,6 +49,8 @@ When you create the VM, pay attention to the virtual network settings to make su
 
 Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
+You can use the script at https://github.com/mbendana/AADDS/tree/RHELVMJoin to automatically configure and install all necessary components to join the RHEL VM to the AADDS managed instance.
+
 ## Configure the hosts file
 
 To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
