@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 05/22/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -33,11 +33,9 @@ Before you start, make sure that you have the following:
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
-    >[!NOTE]
-    >Enable monitoring of multiple clusters with the same cluster name to same Log Analytics workspace is not supported. Cluster names must be unique.
-    >
-
 - To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Azure Monitor for containers.
+
+- You are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the Azure Arc cluster resource.
 
 - To view the monitoring data, you are a member of the [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Azure Monitor for containers.
 
@@ -98,19 +96,11 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 
 ## Enable monitoring using PowerShell
 
-1. Sign into Azure
-
-    ```azurecli
-    az login
-    ```
-
-2. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
+1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1`
 
-3. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
-
-4. Run the following command to enable monitoring, replacing the value for the `resourceIdOfAzureArcCluster` and `workspaceResourceId` parameter:
+2. Run the following command to enable monitoring, replacing the value for the `resourceIdOfAzureArcCluster`, `kube-context`, and `workspaceResourceId` parameter:
 
     ```powershell
     .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> -logAnalyticsWorkspaceResourceId <workspaceResourceId>
@@ -120,6 +110,9 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     ```powershell
     .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster  -logAnalyticsWorkspaceResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup/providers/Microsoft.OperationalInsights/workspaces/TestLAWorkspace
     ```
+
+    >[!NOTE]
+    >To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
 
 ### Integrate with default workspace
 
@@ -141,25 +134,26 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 Perform the following steps to enable monitoring using the provided bash script.
 
-1. Sign into Azure
-
-    ```azurecli
-    az login
-    ```
-
-2. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
+1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh`
 
-3. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
+2. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
 
 Run the following command to enable monitoring, replacing the value for the `resourcedIdOfAzureArcCluster` and `workspaceResourceId` parameters:
 
-    `bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context> <workspaceResourceId>`
+    ```bash
+    bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context> <workspaceResourceId>`
+    ```
 
     Example:
 
-    `bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup`
+    ```bash
+    bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup`
+    ```
+
+    >[!NOTE]
+    >To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
@@ -187,4 +181,4 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
-- To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](container-insights-optout-openshift.md).
+- To learn how to stop monitoring your Arc enabled Kubernetes cluster with Azure Monitor for containers, see [How to stop monitoring your hybrid cluster](container-insights-optout-hybrid.md).
