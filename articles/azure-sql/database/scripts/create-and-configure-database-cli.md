@@ -1,6 +1,6 @@
 ---
 title: "The Azure CLI: Create a single database"
-description: Use this Azure CLI example script to create a single database in Azure SQL Database.
+description: Use this Azure CLI example script to create a single database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
