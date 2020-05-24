@@ -159,6 +159,8 @@
           href: manage-self-service-access.md
         - name: Home Realm Discovery
           href: configure-authentication-for-federated-users-portal.md
+      - name: Automate SAML-based single sign-on using MS Graph APIs
+        href: application-saml-sso-configure-api.md
       - name: Migrate apps to Azure AD
         items:
         - name: Migration resources
@@ -339,8 +341,8 @@
           href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
-        - name: MSDN forum
-          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Microsoft Q&A question page
+          href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
         - name: Pricing
           href: https://azure.microsoft.com/pricing/details/active-directory
         - name: Service updates

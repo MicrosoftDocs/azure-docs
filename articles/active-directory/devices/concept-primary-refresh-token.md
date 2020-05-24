@@ -72,7 +72,7 @@ Once issued, a PRT is valid for 14 days and is continuously renewed as long as t
 A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
-* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the Windows 10 Accounts or Office Online extension).
+* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions).
 
 ## How is a PRT renewed?
 
