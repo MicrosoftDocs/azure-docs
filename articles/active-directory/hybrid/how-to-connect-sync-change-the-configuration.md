@@ -195,7 +195,7 @@ By default, the UserType attribute is not enabled for synchronization because th
 
 - Azure AD only accepts two values for the UserType attribute: **Member** and **Guest**.
 - If the UserType attribute is not enabled for synchronization in Azure AD Connect, Azure AD users created through directory synchronization would have the UserType attribute set to **Member**.
-- Azure AD does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. It can only be set during the creation of the Azure AD users and [changed via Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Prior to version 1.5.30.0, Azure AD did not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. In older versions, it could only be set during the creation of the Azure AD users and [changed via Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Before enabling synchronization of the UserType attribute, you must first decide how the attribute is derived from on-premises Active Directory. The following are the most common approaches:
 
@@ -205,7 +205,7 @@ Before enabling synchronization of the UserType attribute, you must first decide
 
 - Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. 
 
-    As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
+    As mentioned previously, older versions of Azure AD Connect do not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
 
 The steps to enable synchronization of the UserType attribute can be summarized as:
 

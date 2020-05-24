@@ -1,7 +1,7 @@
 ---
-title: Build solutions with Visual Studio templates - Azure Batch | Microsoft Docs
+title: Build solutions with Visual Studio templates
 description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
 
@@ -11,9 +11,7 @@ ms.custom: seodec18
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
 > [!IMPORTANT]
-> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md) and [Batch feature overview for developers](batch-api-basics.md).
-> 
-> 
+> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md) and [Batch service workflow and resources](batch-service-workflow-features.md). 
 
 ## High-level overview
 The Job Manager and Task Processor templates can be used to create two useful components:
@@ -64,7 +62,7 @@ The Job Manager template helps you to implement a job manager task that can perf
 * Submit those tasks to run on Batch.
 
 > [!NOTE]
-> For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
+> For more information about job manager tasks, see [Jobs and tasks](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -183,7 +181,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](error-handling.md).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.

@@ -77,7 +77,7 @@ You can [extend the lease time](../how-tos/session-rest-api.md#update-a-session)
 
 The code below shows a simple implementation of starting a session, waiting for the *ready* state, connecting, and then disconnecting and shutting down again.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
