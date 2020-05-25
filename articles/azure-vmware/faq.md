@@ -69,7 +69,11 @@ Yes, Azure VMware Solution supports migration using familiar VMware tools such a
 You can request a quota increase by submitting a support request. The Quota Management team evaluates the request and approves it within three business days.  
 
 > [!IMPORTANT]
-> Before you can request a quota increase, make sure that you [register the **Microsoft.AVS** resource provider](tutorial-create-private-cloud.md) in the Azure portal.  For additional ways to register the resource provider, see [Azure resource providers and types](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+> Before you can request a quota increase, make sure that you [register the **Microsoft.AVS** resource provider](tutorial-create-private-cloud.md) in the Azure portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> For additional ways to register the resource provider, see [Azure resource providers and types](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
 
 1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
    - **Issue type:** Technical
