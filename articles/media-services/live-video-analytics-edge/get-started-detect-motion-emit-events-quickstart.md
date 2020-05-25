@@ -35,7 +35,6 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     ![Environment Selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command
-<!-- TODO - Would be nice to have some screen shots from https://docs.microsoft.com/azure/cloud-shell/quickstart copied over here -->
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
@@ -47,7 +46,7 @@ If the script completes successfully, you should see all the resources mentioned
 Run the following command from Cloud Shell
 
 ```
-az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment.quickstart.json-in-cloud-shell-storage>
+az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content clouddrive/lva-sample/deployment.amd64.json
 ```
 Note: As part of the script output, a table of resources will be generated which will list out the IoT hub name. Look for the resource type **"Microsoft.Devices/IotHubs"**.
 
