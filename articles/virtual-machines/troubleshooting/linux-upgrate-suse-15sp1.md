@@ -49,7 +49,7 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 
     ```
     uname -a
-
+    cat /etc/os-release
     ```
 
 4. Install the **suse-migration-sle15-activation** and **SLES15-Migration** package.
@@ -66,7 +66,12 @@ For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen
 
 8. After the system is restarted with new kernel, you will see the following message. 
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
-9. Run `uname -a` to check whether the system is upgraded successfully.
+9. Verify the kernel and OS version to check whether the system is upgraded successfully.
+
+    ```
+    uname -a
+    cat /etc/os-release
+    ```
 
 ## Check the generation version for a VM
 
