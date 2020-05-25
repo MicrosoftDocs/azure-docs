@@ -27,15 +27,7 @@ What you need to begin:
 * Any code editor
 * **.NET Core 3.1** on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-### Prepare an Azure Digital Twins instance
-
-To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
-
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
-
-Otherwise:
-1. Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). 
-2. Set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
+[!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-instance-prereq.md)]
 
 ## Set up project
 
