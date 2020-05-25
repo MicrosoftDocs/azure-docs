@@ -20,7 +20,10 @@ You can also enable [auto-registration](./private-dns-autoregistration.md) featu
 
 ## Limits
 
-To understand how many private DNS zones you can create in a subscription and how many record sets are supported in a private DNS zone see [Azure DNS limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+The following default limits apply when using Azure DNS Private Zones:
+
+[!INCLUDE privatedns-limits]
+
 
 ## Restrictions
 
