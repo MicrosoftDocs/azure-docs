@@ -71,6 +71,21 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
       > [!NOTE]
       > If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
 
+## Known issues and limitations
+
+Using Teams in a virtualized environment is different from using Teams in a non-virtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi#known-issues-and-limitations). There are also several known limitations and user experience differences when using Teams on Windows Virtual Desktop.
+
+### Client deployment, installation, and setup
+
+- Teams shows UTC time zone in chat, channels and calendar. A fix for this issue is coming soon.
+
+### Calling and meetings
+
+- The Teams desktop app in Windows Virtual Desktop does not support live events. A fix for this issue is coming soon. In the meantime, join live events from the [Teams web client](https://teams.microsoft.com).
+- Minimizing the Teams app during a call or meeting may result in the incoming video feed disappearing when the app is expanded. A fix for this issue is coming in 
+
+For Teams known issues that aren't related to VDI, see [Support Teams in your organization](https://docs.microsoft.com/microsoftteams/known-issues)
+
 ## Customize Remote Desktop Protocol properties for a host pool
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience, enabling Microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.
