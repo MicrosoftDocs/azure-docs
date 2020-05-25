@@ -41,7 +41,7 @@ To add the actuator to a Maven-based project, add the 'Starter' dependency:
 
 Compile the new binary and deploy it to your app.
 
-## Enable production-ready Features
+## Enable production-ready features
 Actuator endpoints let you monitor and interact with your application. By default, Spring Boot application exposes `health` and `info` endpoints to show arbitrary application info and health information.
 
 To observe the configuration and configurable environment, we need to enable `env` and `configgrops` endpoints as well.
