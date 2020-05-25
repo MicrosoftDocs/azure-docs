@@ -31,7 +31,7 @@ If you prefer, you can [manually configure an availability group](availability-g
 
 This article requires that your availability groups are already configured.  
 
-Related topics include:
+View related articles:
 
 * [Configure Always On availability groups in Azure VM (GUI)](availability-group-manually-configure-tutorial.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
@@ -40,12 +40,12 @@ By walking through this article, you create and configure a load balancer in the
 
 ## Create and configure the load balancer in the Azure portal
 
-In this portion of the task, do the following:
+In this portion of the task, do the following steps:
 
 1. In the Azure portal, create the load balancer and configure the IP address.
 2. Configure the back-end pool.
 3. Create the probe. 
-4. Set the load balancing rules.
+4. Set the load-balancing rules.
 
 > [!NOTE]
 > If the SQL Server instances are in multiple resource groups and regions, perform each step twice, once in each resource group.
@@ -73,7 +73,7 @@ First, create the load balancer.
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
-   | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
+   | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It's normally the same subscription as all the resources for the availability group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
 
@@ -129,19 +129,19 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 Azure creates the probe and then uses it to test which SQL Server instance has the listener for the availability group.
 
-### Step 4: Set the load balancing rules
+### Step 4: Set the load-balancing rules
 
-The load balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the two SQL Server instances owns the availability group listener resource at a time.
+The load-balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the two SQL Server instances owns the availability group listener resource at a time.
 
 1. On the load balancer **Settings** blade, select **Load balancing rules**. 
 
 2. On the **Load balancing rules** blade, select **Add**.
 
-3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
+3. On the **Add load balancing rules** blade, configure the load-balancing rule. Use the following settings: 
 
    | Setting | Value |
    | --- | --- |
-   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Name** |A text name representing the load-balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
    | **Protocol** |**TCP** |
    | **Port** |*1433* |
    | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
@@ -156,7 +156,7 @@ The load balancing rules configure how the load balancer routes traffic to the S
 
 4. Select **OK**. 
 
-5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
+5. Azure configures the load-balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
 
 At this point, the resource group has a load balancer that connects to both SQL Server machines. The load balancer also contains an IP address for the SQL Server Always On availability group listener, so that either machine can respond to requests for the availability groups.
 
@@ -166,7 +166,7 @@ At this point, the resource group has a load balancer that connects to both SQL 
 
 ## Configure the cluster to use the load balancer IP address
 
-The next step is to configure the listener on the cluster, and bring the listener online. Do the following: 
+The next step is to configure the listener on the cluster, and bring the listener online. Do the following steps: 
 
 1. Create the availability group listener on the failover cluster. 
 
@@ -180,11 +180,12 @@ In this step, you manually create the availability group listener in Failover Cl
 
 ### Verify the configuration of the listener
 
-If the cluster resources and dependencies are correctly configured, you should be able to view the listener in SQL Server Management Studio. To set the listener port, do the following:
+If the cluster resources and dependencies are correctly configured, you should be able to view the listener in SQL Server Management Studio. To set the listener port, do the following steps:
 
 1. Start SQL Server Management Studio, and then connect to the primary replica.
 
 2. Go to **AlwaysOn High Availability** > **Availability Groups** > **Availability Group Listeners**.  
+
     You should now see the listener name that you created in Failover Cluster Manager. 
 
 3. Right-click the listener name, and then select **Properties**.
@@ -195,9 +196,9 @@ You now have an availability group in Azure virtual machines running in Resource
 
 ## Test the connection to the listener
 
-Test the connection by doing the following:
+Test the connection by doing the following steps:
 
-1. RDP to a SQL Server instance that is in the same virtual network, but does not own the replica. This server can be the other SQL Server instance in the cluster.
+1. Use remote desktop protocol (RDP) to connect to a SQL Server instance that's in the same virtual network, but does not own the replica. This server can be the other SQL Server instance in the cluster.
 
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
    
@@ -209,7 +210,7 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
 
-To add an IP address to a load balancer with the Azure portal, do the following:
+To add an IP address to a load balancer with the Azure portal, do the following steps:
 
 1. In the Azure portal, open the resource group that contains the load balancer, and then select the load balancer. 
 
@@ -238,13 +239,13 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 8. Select **OK** to save the probe. 
 
-9. Create a load balancing rule. Select **Load balancing rules**, and then select **Add**.
+9. Create a load-balancing rule. Select **Load balancing rules**, and then select **Add**.
 
-10. Configure the new load balancing rule by using the following settings:
+10. Configure the new load-balancing rule by using the following settings:
 
     |Setting |Value
     |:-----|:----
-    |**Name** |A name to identify the load balancing rule. 
+    |**Name** |A name to identify the load-balancing rule. 
     |**Frontend IP address** |Select the IP address you created. 
     |**Protocol** |TCP
     |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
@@ -259,7 +260,7 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 To finish configuring the cluster, repeat the steps that you followed when you made the first availability group. That is, configure the [cluster to use the new IP address](#configure-the-cluster-to-use-the-load-balancer-ip-address). 
 
-After you have added an IP address for the listener, configure the additional availability group by doing the following: 
+After you have added an IP address for the listener, configure the additional availability group by doing the following steps: 
 
 1. Verify that the probe port for the new IP address is open on both SQL Server virtual machines. 
 
@@ -278,7 +279,7 @@ After you have added an IP address for the listener, configure the additional av
 
 After you configure the availability group to use the new IP address, configure the connection to the listener. 
 
-## Add load balancing rule for distributed availability group
+## Add load-balancing rule for distributed availability group
 
 If an availability group participates in a distributed availability group, the load balancer needs an additional rule. This rule stores the port used by the distributed availability group listener.
 
@@ -306,7 +307,10 @@ If an availability group participates in a distributed availability group, the l
 
 Repeat these steps for the load balancer on the other availability groups that participate in the distributed availability groups.
 
-If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
+If you have an Azure Network Security Group to restrict access, make sure that the allow rules include:
+- The backend SQL Server VM IP addresses
+- The load balancer floating IP addresses for the AG listener
+- The cluster core IP address, if applicable.
 
 ## Next steps
 
