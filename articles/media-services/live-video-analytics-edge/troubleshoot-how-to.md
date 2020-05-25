@@ -80,47 +80,48 @@ As part of the our documentation, we have provided a set up script to deploy Edg
 
 1. Script runs partly creating few resources but fails with the following message
 
-<br/><i>
-registering device...
-
-Unable to load extension 'eventgrid: unrecognized kwargs: ['min_profile']'. Use --debug for more information.
-The command failed with an unexpected error. Here is the traceback:
-
- No module named 'azure.mgmt.iothub.iot_hub_client'
-Traceback (most recent call last):
-  File "/opt/az/lib/python3.6/site-packages/knack/cli.py", line 215, in invoke
-    cmd_result = self.invocation.execute(args)
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 631, in execute
-    raise ex
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 695, in _run_jobs_serially
-    results.append(self._run_job(expanded_arg, cmd_copy))
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 688, in _run_job
-    six.reraise(*sys.exc_info())
-  File "/opt/az/lib/python3.6/site-packages/six.py", line 693, in reraise
-    raise value
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 665, in _run_job
-    result = cmd_copy(params)
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 324, in __call__
-    return self.handler(*args, **kwargs)
-  File "/opt/az/lib/python3.6/site-packages/azure/cli/core/__init__.py", line 574, in default_command_handler
-    return op(**command_args)
-  File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 75, in iot_device_list
-    result = iot_query(cmd, query, hub_name, top, resource_group_name, login=login)
-  File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 45, in iot_query
-    target = get_iot_hub_connection_string(cmd, hub_name, resource_group_name, login=login)
-  File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/common/_azure.py", line 112, in get_iot_hub_connection_string
-    client = iot_hub_service_factory(cmd.cli_ctx)
-  File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 28, in iot_hub_service_factory
-    from azure.mgmt.iothub.iot_hub_client import IotHubClient
-ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
-</i>
-
+    ```
+    registering device...
+    
+    Unable to load extension 'eventgrid: unrecognized kwargs: ['min_profile']'. Use --debug for more information.
+    The command failed with an unexpected error. Here is the traceback:
+    
+     No module named 'azure.mgmt.iothub.iot_hub_client'
+    Traceback (most recent call last):
+      File "/opt/az/lib/python3.6/site-packages/knack/cli.py", line 215, in invoke
+        cmd_result = self.invocation.execute(args)
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 631, in execute
+        raise ex
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 695, in _run_jobs_serially
+        results.append(self._run_job(expanded_arg, cmd_copy))
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 688, in _run_job
+        six.reraise(*sys.exc_info())
+      File "/opt/az/lib/python3.6/site-packages/six.py", line 693, in reraise
+        raise value
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 665, in _run_job
+        result = cmd_copy(params)
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 324, in __call__
+        return self.handler(*args, **kwargs)
+      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/__init__.py", line 574, in default_command_handler
+        return op(**command_args)
+      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 75, in iot_device_list
+        result = iot_query(cmd, query, hub_name, top, resource_group_name, login=login)
+      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 45, in iot_query
+        target = get_iot_hub_connection_string(cmd, hub_name, resource_group_name, login=login)
+      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/common/_azure.py", line 112, in get_iot_hub_connection_string
+        client = iot_hub_service_factory(cmd.cli_ctx)
+      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 28, in iot_hub_service_factory
+        from azure.mgmt.iothub.iot_hub_client import IotHubClient
+    ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
+    ```
+    
 To fix this issue:
 
 1. Run the following command
 
     `az --version`
 1. Ensure you have the following extensions installed. As of the writing of this guide, the version for extensions were as follows:
+
     |||
     |---|---|
     |azure-cli   |      2.5.1*|
@@ -213,3 +214,4 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
 
 ## Next steps
 
+[Tutorial: Event-based video recording to cloud and playback from cloud](event-based-video-recording-tutorial.md)
