@@ -17,16 +17,21 @@ ms.author: genli
 
 ---
 
-# Upgrade Azure VM with SUSE Linux Enterprise Server to SUSE 15 SP1
+# Upgrade Azure VM with SLES 12 to SLES 15 SP1
 
-This article provides general steps about how to use SUSE Distribution Migration System to upgrade SUSE Linux Enterprise server to SUSE 15 SP1 for an Azure virtual machine (VM). For more information, see [Using the SUSE Distribution Migration System](https://documentation.suse.com/suse-distribution-migration-system/1.0/single-html/distribution-migration-system/index.html) and [SUSE Linux Enterprise Server 15 SP1 Upgrade Guide](https://documentation.suse.com/sles/15-SP1/single-html/SLES-upgrade/index.html#sec-update-preparation-update).
+This article provides general steps about how to upgrade SUSE Linux Enterprise server (SLES) 12 to SLES 15 SP1 for an Azure virtual machine (VM). For more information, see [Using the SUSE Distribution Migration System](https://documentation.suse.com/suse-distribution-migration-system/1.0/single-html/distribution-migration-system/index.html) and [SUSE Linux Enterprise Server 15 SP1 Upgrade Guide](https://documentation.suse.com/sles/15-SP1/single-html/SLES-upgrade/index.html#sec-update-preparation-update).
+
+## Supported upgrade paths
+The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to SLES 15 SP1.
+
+![The screenshot about supported upgrade path](./media/linux-upgrate-suse-15sp1/upgrade-path.png)
 
 ## Prerequisites
 
-- The current SUSE version must be SUSE 12 SP4  or 12 SP5.
 - Plan the migration activity as per the approved downtime window. This is because the VM reboots during the migration.
 - Prior to the migration activity, take a complete backup of the VM.
 - If backup is not configured, take a snapshot backup of the OS disk.
+- [Check the generation version of the VM](#check-the-generation-version-for-the-VM).
 
 ## Upgrade from SUSE 12 SP4 or SP5 to SUSE 15 SP1
 
@@ -54,11 +59,17 @@ This article provides general steps about how to use SUSE Distribution Migration
 
 5. After the installation is finished, run the `reboot` command to restart the VM.
 
-6. Go to the [Azure portal](https://portal.azure.com), select the VM, and then select **Serial console** to check whether the upgrade process is finished. You will see that the system stops at "reboot: Restarting system". It may take 30-45 minutes to install the package and restart the system. If the system is stuck on this screen, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
-    ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
+6. Go to the [Azure portal](https://portal.azure.com), select the VM, and then select **Serial console**. You will see that the system stops at "reboot: Restarting system". This process should take about 15-45 minutes.
+     ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/reboot-message.png)
+For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen. In this case, wait for 45 minutes. If it still don't progress further, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
 
-7.  After the system is restarted, verify the kernel and OS version to check whether the system is upgraded successfully.
+8. After the system is restarted with new kernel, run `uname -a` to check whether the system is upgraded successfully.
+     ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
 
-    ```
-    uname -a
-    ```
+## Check the generation version for the VM
+
+You can use one of the following methods to check the generation version:
+
+- In the SLES terminal,  run the command `dmidecode | grep -i hyper`. If it's a generation 1 VM,  there is no output returned. For the generations 2 VMs, you will see the following output:
+     ![The screenshot about output for generation 2 vm](./media/linux-upgrate-suse-15sp1/output-gen2.png)
+- In the [Azure portal](https://portal.azure.com),  go to **Properties**  of the VM, and then check the **VM generation** field.
