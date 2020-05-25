@@ -95,6 +95,10 @@
         href: user-flow-add-custom-attributes.md
       - name: Customize the user flow language
         href: user-flow-customize-language.md
+      - name: Add an API connector
+        href: self-service-sign-up-add-api-connector.md
+      - name: Add an custom approval system
+        href: self-service-sign-up-add-approvals.md
     - name: Manage guest accounts
       items:
       - name: Add a B2B user to a role
