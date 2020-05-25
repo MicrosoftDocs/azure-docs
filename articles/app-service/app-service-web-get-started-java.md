@@ -129,7 +129,7 @@ Open to `pom.xml` to see the updated configuration.
 code pom.xml
 ```
 
-You can modify other configurations for App Service directly in your pom file if needed, some common ones are listed below:
+You can modify the configurations for App Service directly in your pom file if needed, some common ones are listed below:
 
  Property | Required | Description | Version
 ---|---|---|---
