@@ -18,7 +18,7 @@ Here are some configurations within each service that can help improve overall t
 
 ## Azure Stream Analytics
 
-- **Inherit Partitioning** – This SQL output configuration option enables inheriting the partitioning scheme of your previous query step or input. With this enabled, writing to a disk-based table and having a [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topology for your job, expect to see better throughputs. This partitioning already automatically happens for many other [outputs](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Table locking (TABLOCK) is also disabled for bulk inserts made with this option.
+- **Inherit Partitioning** – This SQL output configuration option enables inheriting the partitioning scheme of your previous query step or input. With this enabled, writing to a disk-based table and having a [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topology for your job, expect to see better throughputs. This partitioning already automatically happens for many other [outputs](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Table locking (TABLOCK) is also disabled for bulk inserts made with this option.
 
 > [!NOTE] 
 > When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. This upper limit was observed on a table with a single identity column and a clustered index. In this case, consider using [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 in your query, to explicitly specify the number of output writers. Based on your schema and choice of indexes, your observations may vary.

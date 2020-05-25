@@ -304,4 +304,4 @@ ORDER BY
 
 ## Next steps
 
-For more information about DMVs, see [System views](sql-data-warehouse-reference-tsql-system-views.md).
+For more information about DMVs, see [System views](../sql/reference-tsql-system-views.md).

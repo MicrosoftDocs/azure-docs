@@ -42,10 +42,6 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 ### Flash Player
 
-#### AES-encrypted with Token
-
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
-
 #### PlayReady with Token
 
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)

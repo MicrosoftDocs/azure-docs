@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 04/15/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -26,6 +26,15 @@ Here's more information about the Azure Migrate appliance:
 
 [Learn more](migrate-appliance.md) about the appliance.
 
+## How can I deploy the appliance?
+
+The appliance can be deployed as follows:
+
+- Using a template for VMware VMs and Hyper-V VMs (OVA template for VMware or VHD for Hyper-V).
+- If you don't want to use a template, or you're in Azure Government, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
+- For physical servers, you always deploy the appliance using a script.
+
+
 ## How does the appliance connect to Azure?
 
 The appliance can connect over the internet or by using Azure ExpressRoute with public/Microsoft peering.
@@ -40,11 +49,8 @@ When you use the downloaded template to create the appliance VM, you can add com
 
 ## What network connectivity is required?
 
-See the following articles for information about network connectivity requirements for the Azure Migrate appliance:
 
-- **VMware assessment**: [URL access](migrate-appliance.md#url-access) and [port access](migrate-support-matrix-vmware.md#port-access)
-- **VMware agentless migration**: [URL access](migrate-appliance.md#url-access) and [port access](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Hyper-V assessment**: [URL access](migrate-appliance.md#url-access) and [port access](migrate-support-matrix-hyper-v.md#port-access)
+The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-access) the URL list.
 
 ## What data does the appliance collect?
 

@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
 ---
 
@@ -25,7 +25,7 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Best practices
 
-To get started with Azure Time Series Insights, it’s best if you know how much data you expect to push by the minute and how long you need to store your data.  
+To get started with Azure Time Series Insights, it's best if you know how much data you expect to push by the minute and how long you need to store your data.  
 
 For more information about capacity and retention for both Time Series Insights SKUs, read [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -50,7 +50,7 @@ Azure Time Series Insights has two modes:
 * One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
 * The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**.
 
-You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
+You can adjust retention and toggle between the two modes on the environment's configuration page in the Azure portal.
 
 > [!IMPORTANT]
 > You can configure a maximum of 400 days of data retention in your Azure Time Series Insights GA environment.
@@ -74,9 +74,7 @@ You can adjust retention and toggle between the two modes on the environment’s
 
 ### Environment planning
 
-The second area to focus on for planning your Time Series Insights environment is ingress capacity. Ingress capacity is a derivative of the per-minute allocation.
-
-From a throttling perspective, an ingressed data packet that has a packet size of 32 KB is treated as 32 events, each 1 KB in size. The maximum allowed event size is 32 KB. Data packets larger than 32 KB are truncated.
+The second area to focus on for planning your Time Series Insights environment is ingress capacity. The daily ingress storage and event capacity is measured per minute, in 1-KB blocks. The maximum allowed packet size is 32 KB. Data packets larger than 32 KB are truncated.
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You can't migrate from an S1 environment to an S2. You can't migrate from an S2 environment to an S1.
 

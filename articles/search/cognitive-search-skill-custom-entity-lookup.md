@@ -25,7 +25,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## Data limits
 + The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
-+ The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefitionUri* parameter. 
++ The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefinitionUri* parameter. 
 + If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
 
 ## Skill parameters
@@ -59,13 +59,13 @@ Parameters are case-sensitive.
 
 There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill. You can provide the list in a .CSV file, a .JSON file or as an inline definition as part of the skill definition.  
 
-If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
+If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefinitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
 
 If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
 
 ### CSV format
 
-You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the *entitiesDefitionUri*  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the *entitiesDefinitionUri*  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The CSV format is simple. Each line represents a unique entity, as shown below:
 
@@ -81,7 +81,7 @@ In this case, there are three entities that can be returned as entities found (B
 
 You can provide the definition of the custom entities to look for in a JSON file as well. The JSON format gives you a bit more flexibility since it allows you to define matching rules per term. For instance, you can specify the fuzzy matching distance (Damerau-Levenshtein distance) for each term or whether the matching should be case-sensitive or not. 
 
- Just like with CSV files, you need to provide the path to the JSON file and set it in the *entitiesDefitionUri* skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+ Just like with CSV files, you need to provide the path to the JSON file and set it in the *entitiesDefinitionUri* skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The most basic JSON custom entity list definition can be a list of entities to match:
 

@@ -163,7 +163,7 @@ In the following examples, you create, update, link, and delete policies on appl
 
 If nothing is returned, it means you have no policies created in your tenant.
 
-### Example: Set HRD policy for an application 
+### Example: Set an HRD policy for an application 
 
 In this example, you create a policy that when it is assigned to an application either: 
 - Auto-accelerates users to an AD FS sign-in screen when they are signing in to an application when there is a single domain in your tenant. 
@@ -246,7 +246,7 @@ Note the **ObjectID** of the policy that you want to list assignments for.
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### Example: Remove an HRD policy for an application
+### Example: Remove an HRD policy from an application
 #### Step 1: Get the ObjectID
 Use the previous example to get the **ObjectID** of the policy, and that of the application service principal from which you want to remove it. 
 

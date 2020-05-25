@@ -2,7 +2,7 @@
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
 ---
 
@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. In **Getting started**, click **Add tools**.
 5. In the **Migrate project** tab, select your Azure subscription, and create a resource group if you don't have one.
-6. In **Project Details**, specify the project name, and the region in which you want to create the project. [Review](migrate-support-matrix.md#supported-geographies) the regions in which you can create Azure Migrate project.
+6. In **Project Details**, specify the project name, and the region in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - The project region is used only to store the metadata gathered from on-premises VMs.
     - You can select a different Azure target region when you migrate the VMs. All Azure regions are supported for migration target.
@@ -62,9 +62,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate:server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate.
-- The appliance can be set up on a Hyper-V VM using a downloaded Hyper-V VHD. Alternatively, you can set up the appliance on a VM or physical machine with a PowerShell installer script.
-- This tutorial uses the VHD. Review [this article](deploy-appliance-script.md) if you want to set up the appliance using a script.
+
+Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. The appliance can be set up in a number of ways.
+
+- Set up on a Hyper-V VM using a downloaded Hyper-V VHD. This is the method used in this tutorial.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using the VHD, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
@@ -120,9 +122,9 @@ Import the downloaded file, and create the VM.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
 
-### Verify appliance access to Azure
+## Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ### Configure the appliance
 

@@ -22,7 +22,7 @@ Once a knowledge base is created, add question and answer (QnA) sets with metada
 |#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-Once metadata is added to a QnA set, the client application can:
+Once metadata is added to a QnA pair, the client application can:
 
 * Request answers that only match certain metadata.
 * Receive all answers but post-process the answers depending on the metadata for each answer.
@@ -40,7 +40,7 @@ Once metadata is added to a QnA set, the client application can:
 
 ## Add additional alternatively-phrased questions
 
-The current knowledge base has the QnA Maker troubleshooting QnA sets. These sets were created when the URL was added to the knowledge base during the creation process.
+The current knowledge base has the QnA Maker troubleshooting QnA pairs. These sets were created when the URL was added to the knowledge base during the creation process.
 
 When this URL was imported, only one question with one answer was created. In this procedure, add additional questions.
 
@@ -77,7 +77,7 @@ Adding metadata to a question and answer set allows your client application to r
 
 1. Select **View options**, then select **Show metadata**.
 
-1. For the QnA set you just added, select **Add metadata tags**, then add the name of `service` and the value of `search`. It looks like this: `service:search`.
+1. For the QnA pair you just added, select **Add metadata tags**, then add the name of `service` and the value of `search`. It looks like this: `service:search`.
 
 1. Add another metadata tag with name of `link_in_answer` and value of `false`. It looks like this: `link_in_answer:false`.
 

@@ -36,7 +36,7 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
 
 ## Collect Support package
 
-A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI.
+A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI. 
 
 Do the following steps to collect a Support package. 
 

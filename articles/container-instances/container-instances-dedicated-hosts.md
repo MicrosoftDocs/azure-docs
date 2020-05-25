@@ -32,7 +32,7 @@ The `sku` property can have one of the following values:
 ## Modify your JSON deployment template
 
 In your deployment template, modify or add the following properties:
-* Under `resources`, set `apiVersion` to `2012-12-01`.
+* Under `resources`, set `apiVersion` to `2019-12-01`.
 * Under the container group properties, add a `sku` property with value `Dedicated`.
 
 Here is an example snippet for the resources section of a container group deployment template that uses the dedicated sku:

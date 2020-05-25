@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
 ---
@@ -80,6 +80,11 @@ Azure Databricks provides enterprise-grade Azure security, including Azure Activ
 * Integration with Azure Active Directory enables you to run complete Azure-based solutions using Azure Databricks.
 * Azure Databricks roles-based access enables fine-grained user permissions for notebooks, clusters, jobs, and data.
 * Enterprise-grade SLAs. 
+
+> [!IMPORTANT]
+>
+> Azure Databricks is a Microsoft Azure first-party service that is deployed on the Global Azure Public Cloud infrastructure. All communications between components of the service, including between the public IPs in the control plane and the customer data plane, remain within the Microsoft Azure network backbone. See also [Microsoft global network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+
 
 ## Integration with Azure services
 

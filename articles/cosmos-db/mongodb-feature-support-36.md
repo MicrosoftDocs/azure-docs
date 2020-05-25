@@ -90,8 +90,8 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |dataSize     |   No      |
 |dbHash    |    No     |
 |dbStats     |   Yes      |
-|explain     | No        |
-|explain: executionStats     |     No    |
+|explain     |   Yes      |
+|explain: executionStats     |   Yes      |
 |features     |    No     |
 |hostInfo     |   No      |
 |listDatabases         |   Yes      |

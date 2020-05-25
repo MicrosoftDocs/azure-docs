@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
+ms.custom: [amqp, mqtt]
 ---
 
 # Azure IoT Hub pricing information

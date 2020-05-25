@@ -108,7 +108,7 @@ traces | extend id = operation_ParentId
 | extend question = tostring(customDimensions['Question'])
 | extend answer = tostring(customDimensions['Answer'])
 | extend score = tostring(customDimensions['Score'])
-| where  score  == "0"
+| where  score  == "0" and message == "QnAMaker GenerateAnswer"
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```

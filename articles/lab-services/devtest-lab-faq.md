@@ -44,7 +44,7 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ.
-- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
+- To reach a wider audience, post a question on the [Microsoft Q&A question page for Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### What is a Microsoft account?
@@ -206,6 +206,9 @@ To copy your existing VMs to DevTest Labs:
 ### Can I attach multiple disks to my VMs?
 
 Yes, you can attach multiple disks to your VMs.
+
+### Are Gen 2 images supported by DevTest Labs?
+No. The DevTest Labs service doesn't support [Gen 2 images](../virtual-machines/windows/generation-2.md). If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You won't see an image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:

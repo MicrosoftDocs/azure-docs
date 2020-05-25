@@ -25,17 +25,47 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing is in
 5. Check the [requirements](migrate-appliance.md) for deploying the Azure Migrate appliance.
 6. [Verify support and requirements](migrate-support-matrix-vmware.md#application-discovery) for application discovery.
 
-## Prepare for app discovery
 
-1. [Prepare for appliance deployment](tutorial-prepare-vmware.md). Preparation includes verifying appliance settings, and setting up an account that the appliance will use to access vCenter Server.
-2. Make sure you have a user account (one each for Windows and Linux servers) with administrator permissions for machines on which you want to discover apps, roles, and features.
-3. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
-2. As you deploy the appliance, to start continuous discovery you specify the following:
+
+## Deploy the Azure Migrate appliance
+
+1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
+2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
+4. [Note](migrate-support-matrix-vmware.md#port-access) port access requirements for the appliance.
+5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
+6. As you deploy the appliance, to start continuous discovery you specify the following:
     - The name of the vCenter Server to which you want to connect.
     - Credentials that you created for the appliance to connect to vCenter Server.
     - The account credentials you created for the appliance to connect to Windows/Linux VMs.
 
 After the appliance is deployed and you've provided credentials, the appliance starts continuous discovery of VM metadata and performance data, along with and discovery of apps, features, and roles.  The duration of app discovery depends on how many VMs you have. It typically takes an hour for app-discovery of 500 VMs.
+
+## Prepare a user account
+
+Create an account to use for discovery, and add it to the appliance.
+
+### Create a user account for discovery
+
+Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#application-discovery) about account requirements.
+
+
+### Add the user account to the appliance
+
+Add the user account to the appliance.
+
+1. Open the appliance management app. 
+2. Navigate to the **Provide vCenter details** panel.
+3. In **Discover application and dependencies on VMs**, click **Add credentials**
+3. Choose the **Operating system**, provide a friendly name for the account, and the **User name**/**Password**
+6. Click **Save**.
+7. Click **Save and start discovery**.
+
+    ![Add VM user account](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## Review and export the inventory
 

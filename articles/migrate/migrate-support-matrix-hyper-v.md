@@ -2,7 +2,7 @@
 title: Support for Hyper-V assessment in Azure Migrate
 description: Learn about support for Hyper-V assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ---
 
 # Support matrix for Hyper-V assessment
@@ -48,7 +48,8 @@ To set up Hyper-V VM assessment, you create an Azure Migrate project, and add th
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance using a compressed Hyper-V VHD that you download from the portal, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V.
-- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
+- Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
 ## Port access
 
@@ -73,6 +74,7 @@ The following table summarizes port requirements for assessment.
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
 **Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
+**Azure Government** | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 

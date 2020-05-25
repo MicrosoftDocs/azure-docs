@@ -117,7 +117,7 @@ No. This is not supported currently as a lease is present to prevent accidental 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
@@ -254,32 +254,6 @@ All Azure regions now support Standard SSD disks.
 **Is Azure Backup available when using Standard SSDs?**
 Yes, Azure Backup is now available.
 
-**How do I create Standard SSD disks?**
-You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell, or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
-
-* *apiVersion* for Microsoft.Compute must be set as `2018-04-01` (or later)
-* Specify *managedDisk.storageAccountType* as `StandardSSD_LRS`
-
-The following example shows the *properties.storageProfile.osDisk* section for a VM that uses Standard SSD Disks:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Can I convert my existing disks to Standard SSD?**
-Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
-    -AccountType StandardSSD_LRS
-
 **What is the benefit of using Standard SSD disks instead of HDD?**
 Standard SSD disks deliver better latency, consistency, availability, and reliability compared to HDD disks. Application workloads run a lot more smoothly on Standard SSD because of that. Note, Premium SSD disks are the recommended solution for most IO-intensive production workloads.
 
@@ -329,9 +303,9 @@ Yes
 
 ## Managed Disks and Storage Service Encryption
 
-**Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
+**Is Server-side Encryption enabled by default when I create a managed disk?**
 
-Yes.
+Yes. Managed Disks are encrypted with server-side encryption with platform managed keys. 
 
 **Is the boot volume encrypted by default on a managed disk?**
 
@@ -339,30 +313,27 @@ Yes. By default, all managed disks are encrypted, including the OS disk.
 
 **Who manages the encryption keys?**
 
-Microsoft manages the encryption keys.
+Platform managed keys are managed by Microsoft. You can also use and manage your own keys stored in Azure Key Vault. 
 
-**Can I disable Storage Service Encryption for my managed disks?**
+**Can I disable Server-side Encryption for my managed disks?**
 
 No.
 
-**Is Storage Service Encryption only available in specific regions?**
+**Is Server-side Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
+No. Server-side Encryption with both platform and customer managed keys are available in all the regions where Managed Disks are available. 
 
-**How can I find out if my managed disk is encrypted?**
+**Does Azure Site Recovery support server-side encryption with customer-managed key for on-premises to Azure and Azure to Azure disaster recovery scenarios?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
+Yes. 
 
-**How can I encrypt my existing disks that were created before June 10, 2017?**
+**Can I backup Managed Disks encrypted with server-side encryption with customer-managed key using Azure Backup service?**
 
-As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
-
-* [Copy managed disks by using the Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copy managed disks by using PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Yes.
 
 **Are managed snapshots and images encrypted?**
 
-Yes. All managed snapshots and images created after June 9, 2017, are automatically encrypted. 
+Yes. All managed snapshots and images are automatically encrypted. 
 
 **Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -481,6 +452,6 @@ We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4 TiB
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

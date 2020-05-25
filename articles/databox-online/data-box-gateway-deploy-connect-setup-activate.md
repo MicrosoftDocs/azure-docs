@@ -37,7 +37,7 @@ Before you configure and set up your Data Box Gateway, make sure that:
 
 1. Open a browser window and access the local web UI of the device at:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    Use the connection URL noted in the previous tutorial. You see an error or a warning indicating that there is a problem with the website's security certificate.
 
@@ -61,7 +61,7 @@ Your dashboard displays the various settings that are required to configure and 
    
 ![Local web UI "Dashboard" page](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. In the left-pane, select **Device name**, and then enter a friendly name for your device. The friendly name must contain from 1 to 15 characters long and have letter, numbers, and hyphens.
+1. In the left-pane, select **Device name**, and then enter a friendly name for your device. The friendly name must contain from 1 to 15 characters long and have letter, numbers, and hyphens. 
 
     ![Local web UI "Device name" page](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 

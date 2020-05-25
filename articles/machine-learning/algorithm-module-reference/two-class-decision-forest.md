@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 04/22/2020
 ---
 # Two-Class Decision Forest module
 
@@ -27,7 +27,7 @@ There are many ways to create individual models and combine them in an ensemble.
 
 + Many individual classification trees are created, using the entire dataset, but different (usually randomized) starting points. This differs from the random forest approach, in which the individual decision trees might only use some randomized portion of the data or features.
 + Each tree in the decision forest tree outputs a non-normalized frequency histogram of labels. 
-+ The aggregation process sums these histograms and normalizes the result to get the “probabilities” for each label. 
++ The aggregation process sums these histograms and normalizes the result to get the "probabilities" for each label. 
 + The trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.
 
 Decision trees in general have many advantages for classification tasks:
@@ -52,7 +52,7 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
   
     -   **Bagging**: Bagging is also called *bootstrap aggregating*. In this method, each tree is grown on a new sample, created by randomly sampling the original dataset with replacement until you have a dataset the size of the original.  
   
-         The outputs of the models are combined by *voting*, which is a form of aggregation. Each tree in a classification decision forest outputs an unnormalized frequency histogram of labels. The aggregation is to sum these histograms and normalize to get the “probabilities” for each label. In this manner, the trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.  
+         The outputs of the models are combined by *voting*, which is a form of aggregation. Each tree in a classification decision forest outputs an unnormalized frequency histogram of labels. The aggregation is to sum these histograms and normalize to get the "probabilities" for each label. In this manner, the trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.  
   
          For more information, see the Wikipedia entry for Bootstrap aggregating.  
   
@@ -81,9 +81,19 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 
      If you deselect this option, the model can accept only the values that are contained in the training data.
   
-9. Attach a labeled dataset, and one of the [training modules](module-reference.md):  
+9. Attach a labeled dataset, and train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
     
 ## Results
 

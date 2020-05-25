@@ -12,6 +12,8 @@
     items:
     - name: Use the Azure CLI
       href: kubernetes-walkthrough.md
+    - name: Use Azure PowerShell
+      href: kubernetes-walkthrough-powershell.md
     - name: Use the Azure portal
       href: kubernetes-walkthrough-portal.md
     - name: Use ARM template
@@ -20,8 +22,8 @@
   - name: Develop applications
     expanded: true
     items:
-    - name: Use Draft
-      href: kubernetes-draft.md
+    - name: Develop with Helm
+      href: quickstart-helm.md
     - name: Azure Dev Spaces
       expanded: true
       items:
@@ -59,6 +61,11 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -124,6 +131,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Use Uptime SLA
+      href: uptime-sla.md
     - name: Process node OS updates
       href: node-updates-kured.md
     - name: Configure an AKS cluster
@@ -140,10 +149,14 @@
       href: cluster-autoscaler.md
     - name: Use Availability Zones
       href: availability-zones.md
-    - name: Use multiple node pools
-      href: use-multiple-node-pools.md
-    - name: Use spot node pools (preview)
-      href: spot-node-pool.md
+    - name: Use node pools
+      items:
+      - name: Use multiple node pools
+        href: use-multiple-node-pools.md
+      - name: Use spot node pools (preview)
+        href: spot-node-pool.md
+      - name: Use system node pools
+        href: use-system-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
@@ -214,7 +227,7 @@
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
-      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+      href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic
@@ -222,7 +235,7 @@
     - name: Enable Azure Active Directory integration
       items:
         - name: Integrate Azure AD (preview)
-          href: azure-ad-v2.md
+          href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
         - name: Use the Azure portal
@@ -248,10 +261,12 @@
     - name: View container data real-time
       href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
-  - name: Use Windows Server containers (preview)
+  - name: Use Windows Server containers
     items:
     - name: Create an AKS cluster
       href: windows-container-cli.md
+    - name: Create an AKS cluster with PowerShell
+      href: windows-container-powershell.md
     - name: Connect remotely
       href: rdp.md
     - name: Known limitations
@@ -312,7 +327,7 @@
         - name: 3 - Team development
           href: ../dev-spaces/team-development-nodejs.md
           maintainContext: true
-    - name: Run applications with Helm
+    - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
       href: openfaas.md

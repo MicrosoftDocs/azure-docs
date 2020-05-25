@@ -26,7 +26,7 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 
 ## Use unoptimized Microsoft Teams
 
-You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environments to leverage the full chat and collaboration features of Microsoft Teams as well as audio calling. Audio quality in calls will vary based on your host configuration because unoptimized calls use more of your host CPU.
+You can use Microsoft Teams in your Windows Virtual Desktop environments to leverage the chat and collaboration features of Microsoft Teams. Windows Virtual Desktop does not support Teams on VDI audio/video (AV) optimizations. Calls and meetings are not supported. If your organization's policies allow, you can still make audio calls and join meetings with audio, but unoptimized audio quality in calls will vary based on your host configuration and may not be reliable. To learn more, check out [Teams on VDI performance consideration](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
 
 ### Prepare your image for Teams
 
@@ -35,7 +35,7 @@ To enable Teams per-machine installation, set the following registry key on the 
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### Install Microsoft Teams
@@ -46,7 +46,7 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
 2. Run this command to install the MSI to the host VM.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
       ```
 
       This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the app will ask for your credentials.
@@ -61,4 +61,8 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
       ```
 
       > [!NOTE]
-      > If you install Teams with the MSI setting ALLUSERS=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month.
+      > If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
+
+## Customize Remote Desktop Protocol properties for a host pool
+Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience, enabling Microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
+See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.

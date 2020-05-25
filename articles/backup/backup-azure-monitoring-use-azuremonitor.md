@@ -40,6 +40,9 @@ The defining characteristic of an alert is its triggering condition. Select **Co
 
 If necessary, you can edit the Kusto query. Choose a threshold, period, and frequency. The threshold determines when the alert will be raised. The period is the window of time in which the query is run. For example, if the threshold is greater than 0, the period is 5 minutes, and the frequency is 5 minutes, then the rule runs the query every 5 minutes, reviewing the previous 5 minutes. If the number of results is greater than 0, you're notified through the selected action group.
 
+> [!NOTE]
+> To run the alert rule once a day, across all the events/logs that were created on the given day, change the value of both 'period' and 'frequency' to 1440, i.e., 24 hours.
+
 #### Alert action groups
 
 Use an action group to specify a notification channel. To see the available notification mechanisms, under **Action groups**, select **Create New**.
@@ -59,6 +62,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     ````
 
@@ -67,6 +71,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
 
@@ -75,6 +80,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -91,6 +97,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -107,6 +114,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -130,13 +138,12 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     (AddonAzureBackupStorage
     | where OperationName == "StorageAssociation"
     //Get latest record for each Backup Item
-    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
     | project BackupItemUniqueId , StorageConsumedInMBs)
     on BackupItemUniqueId
-    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs
     | sort by StorageConsumedInMBs desc
     ````
-
 
 ### Diagnostic data update frequency
 
@@ -157,8 +164,8 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 You can also use activity logs to get notification for events such as backup success. To begin, follow these steps:
 
 1. Sign in into the Azure portal.
-1. Open the relevant Recovery Services vault.
-1. In the vault's properties, open the **Activity log** section.
+2. Open the relevant Recovery Services vault.
+3. In the vault's properties, open the **Activity log** section.
 
 To identify the appropriate log and create an alert:
 
@@ -166,9 +173,9 @@ To identify the appropriate log and create an alert:
 
    ![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Select the operation name to see the relevant details.
-1. Select **New alert rule** to open the **Create rule** page.
-1. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+2. Select the operation name to see the relevant details.
+3. Select **New alert rule** to open the **Create rule** page.
+4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

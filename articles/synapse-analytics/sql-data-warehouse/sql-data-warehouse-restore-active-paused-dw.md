@@ -23,12 +23,12 @@ In this article, you learn how to restore an existing SQL pool in Azure Synapse 
 
 ## Before you begin
 
-1. Make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Make sure to [install Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Have an existing restore point that you want to restore from. If you want to create a new restore, see [the tutorial to create a new user-defined restore point](sql-data-warehouse-restore-points.md).
 
 ## Restore an existing SQL pool through PowerShell
 
-To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet.
+To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
 
 1. Open PowerShell.
 
@@ -40,7 +40,7 @@ To restore an existing SQL pool from a restore point use the [Restore-AzSqlDatab
 
 5. Pick the desired restore point using the RestorePointCreationDate.
 
-6. Restore the SQL pool to the desired restore point using [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell cmdlet.
+6. Restore the SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
         1. To restore the SQL pool to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
         2. To restore to a different subscription, use the  'Move' button to move the logical server to another subscription.
 
