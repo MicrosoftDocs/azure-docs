@@ -39,7 +39,7 @@ Live Video Analytics on IoT Edge exposes the following module twin properties.
 
 Dynamic properties can be updated without the restarting the module. You can obtain the values for several of these properties by following the instruction in the [Getting access to Media Services API](../latest/access-api-cli-how-to.md) article. 
 
-See the article on Monitoring and Logging (How-to) for more information about the role of the optional diagnostics settings.
+See the article on [Monitoring and logging](monitoring-logging.md) for more information about the role of the optional diagnostics settings.
 
 ```
 { 
