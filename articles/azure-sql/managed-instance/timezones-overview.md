@@ -1,5 +1,5 @@
 ---
-title: Managed Instance time zones
+title: Azure SQL Managed Instance time zones
 description: Learn about the time zone specifics of Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ Coordinated Universal Time (UTC) is the recommended time zone for the data tier 
 T-SQL functions like [GETDATE()](/sql/t-sql/functions/getdate-transact-sql) or CLR code observe the time zone set on the instance level. SQL Server Agent jobs also follow schedules according to the time zone of the instance.
 
   > [!NOTE]
-  > Azure SQL Database does not support time zone settings; it always follows UTC. Use [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql) in SQL Databases if you need to interpret date and time information in a non-UTC time zone.
+  > Azure SQL Database does not support time zone settings; it always follows UTC. Use [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql) in SQL Database if you need to interpret date and time information in a non-UTC time zone.
 
 ## Supported time zones
 
