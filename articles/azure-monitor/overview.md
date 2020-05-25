@@ -19,7 +19,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Correlate infrastructure issues with [Azure Monitor for VMs](insights/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](platform/alerts-smartgroups-overview.md) and [automated actions](platform/alerts-action-rules.md).
-- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](app/usage-workbooks.md).
+- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](platform/workbooks-overview.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 

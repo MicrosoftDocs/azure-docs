@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -33,8 +33,8 @@ The following tokens are used in communication with Azure AD B2C:
 
 A [registered application](tutorial-register-applications.md) receives tokens and communicates with Azure AD B2C by sending requests to these endpoints:
 
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the `/authorize` endpoint, it's done using the [implicit flow](implicit-flow-single-page-application.md), which is often used for users signing in to JavaScript-based web applications. When ID tokens are acquired from the `/token` endpoint, it's done using the [authorization code flow](openid-connect.md#get-a-token), which keeps the token hidden from the browser.
 
