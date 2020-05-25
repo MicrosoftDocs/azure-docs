@@ -721,8 +721,8 @@
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
-  - name: Ask a question - MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
+  - name: Ask a question - Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature

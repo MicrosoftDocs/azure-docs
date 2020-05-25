@@ -237,6 +237,13 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
 
+### Create a remediation task during policy assignment in the Azure portal
+
+A streamlined way of creating a remediation task is to do so from the Azure portal during policy
+assignment. If the policy definition to assign is a **deployIfNotExists** or a **Modify** effect,
+the wizard on the **Remediation** tab offers a _Create a remedation task_ option. If this option is
+selected a remedation task is created at the same time as the policy assignment.
+
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).

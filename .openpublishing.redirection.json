@@ -2505,12 +2505,12 @@
     },
     {
       "source_path": "articles/cosmos-db/analytics-usecases.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
       "redirect_document_id": false
     },
     {
@@ -2520,7 +2520,7 @@
     },
     {
       "source_path": "articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
-      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_url": "/azure/cosmos-db/analytical-store-introduction",
       "redirect_document_id": false
     },
     {
@@ -33928,6 +33928,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/role-based-access-control/tutorial-role-assignments-user-template.md",
+      "redirect_url": "/azure/role-based-access-control/quickstart-role-assignments-template",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
       "redirect_document_id": false
@@ -40833,7 +40838,7 @@
     },
     {
       "source_path": "articles/monitoring/monitoring-solutions-inventory.md",
-      "redirect_url": "/azure/azure-monitor/insights/solutions-inventory",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
       "redirect_document_id": false
     },
     {
@@ -41698,8 +41703,8 @@
     },
     {
       "source_path": "articles/log-analytics/powershell-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/alert-log.md",
@@ -41838,7 +41843,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-cli-samples.md",
-      "redirect_url": "/azure/azure-monitor/platform/cli-samples",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
       "redirect_document_id": true
     },
     {
@@ -42724,7 +42729,7 @@
     {
       "source_path": "articles/application-insights/app-insights-usage-workbooks.md",
       "redirect_url": "/azure/azure-monitor/app/usage-workbooks",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-visual-studio-codelens.md",
@@ -43004,6 +43009,41 @@
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-settings-legacy.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-collect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/quick-create-workspace-posh.md",
+      "redirect_url": "/azure/azure-monitor/platform/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/powershell-quickstart-samples.md",
+      "redirect_url": "/azure/azure-monitor/platform/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/cli-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/azure-management.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-inventory.md",
+      "redirect_url": "/azure/azure-monitor/monitor-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/policy-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/policy-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/powershell-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -52335,56 +52375,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-desktop/create-host-pools-arm-template.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-arm-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/create-service-principal-role-powershell.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/create-service-principal-role-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/deploy-diagnostics.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/deploy-windows-7-virtual-machine.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/deploy-windows-7-virtual-machine",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/manage-resources-using-ui-powershell.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/manage-resources-using-ui-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/manage-resources-using-ui.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/manage-resources-using-ui",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/set-up-scaling-script.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/set-up-scaling-script",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/tenant-setup-azure-active-directory.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-management-tool.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-management-tool",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-windows-7-vm.md",
-      "redirect_url": "/azure/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-windows-7-vm",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/sql-database-edge/index.yml",
       "redirect_url": "/azure/azure-sql-edge/",
       "redirect_document_id": true
@@ -52483,12 +52473,17 @@
         "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
         "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
         "redirect_document_id": true
-      },
-      {
+    },
+    {
         "source_path": "articles/cdn/endpoint-multiorigin.md",
         "redirect_url": "/azure/cdn/cdn-overview",
         "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/app/usage-workbooks.md",
+      "redirect_url": "/azure/azure-monitor/platform/workbooks-overview",
+	  "redirect_document_id": false
+	},
     {
       "source_path": "articles/batch/batch-api-basics.md",
       "redirect_url": "/azure/batch/batch-service-workflow-features",
