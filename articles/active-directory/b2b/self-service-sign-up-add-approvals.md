@@ -16,7 +16,7 @@ ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
  
-# Add approvals to the self-service sign-up user flow
+# Add approvals to a self-service sign-up user flow
 
 API connectors enable you to implement your own approvals logic to your self-service sign-up user flow. This lets you manage which users are successfully created in your tenant.
 

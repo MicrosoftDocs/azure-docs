@@ -106,3 +106,5 @@ Now you can associate applications with the user flow.
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
+- [Add an API connector to your user flow](self-service-sign-up-add-api-connector.md)
+- [Add custom approvals to your user flow](self-service-sign-up-add-approvals.md)

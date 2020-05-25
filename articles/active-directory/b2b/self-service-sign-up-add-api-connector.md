@@ -16,9 +16,9 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Add an API connector
+# Add an API connector to a user flow
 
-To use an [API connector](api-connectors-overview.md), you first [create the API connector](#create-an-api-connector) and then [enabling it in a user flow](#enable-the-api-connector-in-a-user-flow). 
+To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow. 
 
 ## Create an API connector
 
@@ -34,16 +34,15 @@ To use an [API connector](api-connectors-overview.md), you first [create the API
 7. Provide the authentication information for the API.
 
 > [!NOTE]
-> Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, put in a dummy **Username** and **Password**, your API can ignore it. For use with an Azure Functions with an API key, you can include the code as a query parameter in the **Endpoint URL** (e.g. `https://contosouserflows.azurewebsites.net/api/endpoint`**?code=123456789**).
+> Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, put in a dummy **Username** and **Password**, your API can ignore it. For use with an Azure Functions with an API key, you can include the code as a query parameter in the **Endpoint URL** ( e.g. https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
-    ![Configure an API connector](./media/api-connectors-set-up-api/api-connectors-configure.png)
+   ![Configure an API connector](./media/api-connectors-set-up-api/api-connectors-configure.png)
 
 8. Select the claims that you want to send to the API. 
 9. Select any claims that you plan to receive back from the API, if any.
  
-    ![Set API connector claims](./media/api-connectors-set-up-api/api-connectors-claims.png)
- 
-10. To take advantage of the two hooks previously described for a user flow, repeat steps 1 through 9 to add a **Create new approval** API.
+ ![Set API connector claims](./media/api-connectors-set-up-api/api-connectors-claims.png)
+10. Select **Save**.
 
 > [!TIP]
 > **Identities ('identities')** and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. They are always sent.
@@ -69,7 +68,7 @@ These steps show how to add an API connector to a self-service sign-up user flow
 6. Select **Save**.
 
 ## Next steps
-- Learn [how your Web API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
+- Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-API-connector-for-a-user-flow)
 - Learn how to [add an approval system to self service sign up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
