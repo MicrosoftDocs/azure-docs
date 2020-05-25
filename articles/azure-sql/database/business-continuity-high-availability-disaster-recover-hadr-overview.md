@@ -21,7 +21,7 @@ ms.date: 06/25/2019
 
 - User accidentally deleted or updated a row in a table.
 - Malicious attacker succeeded to delete data or drop a database.
-- Earthquake caused a power outage and temporary disabled data-center.
+- Earthquake caused a power outage and temporary disabled datacenter.
 
 This overview describes the capabilities that SQL Database and SQL Managed Instance provide for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
@@ -36,7 +36,7 @@ From a database perspective, there are four major potential disruption scenarios
 
 To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](high-availability-sla.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
-To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days.
+To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes. The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days.
 
 SQL Database and SQL Managed Instance also provide several business continuity features that you can use to mitigate various unplanned scenarios.
 
@@ -44,8 +44,8 @@ SQL Database and SQL Managed Instance also provide several business continuity f
 - [Built-in automated backups](automated-backups-overview.md) and [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
 - [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
-- [Active geo-replication](active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
-- [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
+- [Active geo-replication](active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade.
+- [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recovery in case of a datacenter outage.
 
 ## Recover a database within the same Azure region
 
@@ -70,9 +70,9 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 
 ## Recover a database to the existing server
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
+Although rare, an Azure datacenter can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
-- One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
+- One option is to wait for your database to come back online when the datacenter outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a datacenter has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 - Another option is to restore a database on any server in any Azure region using [geo-redundant database backups](recovery-using-backups.md#geo-restore) (geo-restore). Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
 - Finally, you can quickly recover from an outage if you have configured either geo-secondary using [active geo-replication](active-geo-replication-overview.md) or an [auto-failover group](auto-failover-group-overview.md) for your database or databases. Depending on your choice of these technologies, you can use either manual or automatic failover. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that the failover is justified by the scale of the outage. Also, the failover may result in small data loss due to the nature of asynchronous replication.
 
@@ -120,14 +120,14 @@ If you do not prepare properly, bringing your applications online after a failov
 If you are using active geo-replication or auto-failover groups as your recovery mechanism, you can configure an automatic failover policy or use [manual unplanned failover](active-geo-replication-configure-portal.md#initiate-a-failover). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data not yet replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> When the data center comes back online the old primaries automatically reconnect to the new primary and become secondary databases. If you need to relocate the primary back to the original region, you can initiate a planned failover manually (failback).
+> When the datacenter comes back online the old primaries automatically reconnect to the new primary and become secondary databases. If you need to relocate the primary back to the original region, you can initiate a planned failover manually (failback).
 
 ### Perform a geo-restore
 
 If you are using the automated backups with geo-redundant storage (enabled by default), you can recover the database using [geo-restore](disaster-recovery-guidance.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. Note, geo-restore only restores the database to the last available point in time.
 
 > [!NOTE]
-> If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.
+> If the datacenter comes back online before you switch your application over to the recovered database, you can cancel the recovery.
 
 ### Perform post failover / recovery tasks
 
