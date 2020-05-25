@@ -148,7 +148,7 @@ $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-On the DPM server, run the [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) cmdlet to register the machine with the vault.
+On the DPM server, run the [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
 
 ```powershell
 $cred = $credspath + $credsfilename

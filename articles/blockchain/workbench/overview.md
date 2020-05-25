@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Workbench Preview overview
 description: Overview of Azure Blockchain Workbench Preview and its capabilities.
-ms.date: 09/05/2019
+ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
 #Customer intent: As an developer or administrator, I want to understand what Azure Blockchain Workbench is and its capabilities.
@@ -50,7 +50,7 @@ To provide product feedback or to request new features, post of vote for an idea
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Microsoft Q&A question page for Azure Blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-service.html)
+* [Microsoft Q&A question page for Azure Blockchain Workbench](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

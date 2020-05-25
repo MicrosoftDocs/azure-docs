@@ -395,7 +395,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. Note that, you should still use storageaccount.file.core.windows.net to count to your file share insread of the privatelink path.
 
 ```Output
 Server:         127.0.0.53
