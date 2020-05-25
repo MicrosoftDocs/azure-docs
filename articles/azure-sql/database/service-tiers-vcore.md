@@ -141,7 +141,7 @@ On the **Basics** tab, select the **Configure database** link in the **Compute +
   
 **To change the hardware generation of an existing managed instance**
 
-# [Portal](#tab/azure-portal)
+# [The Azure portal](#tab/azure-portal)
 
 From the SQL Managed Instance page, select **Pricing tier** link placed under the Settings section
 

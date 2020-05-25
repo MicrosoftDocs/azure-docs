@@ -126,7 +126,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# [the Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
