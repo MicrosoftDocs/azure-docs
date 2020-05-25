@@ -122,6 +122,7 @@ To fix this issue:
     ````
     az --version
     ```
+    
 1. Ensure you have the following extensions installed. As of the writing of this guide, the version for extensions were as follows:
 
     |||
