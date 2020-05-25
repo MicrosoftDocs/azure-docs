@@ -31,7 +31,7 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 - Plan the migration activity as per the approved downtime window. This is because the VM reboots during the migration.
 - Prior to the migration activity, take a complete backup of the VM.
 - If backup is not configured, take a snapshot backup of the OS disk.
-- [Check the generation version of the VM](#check-the-generation-version-for-the-VM).
+- [Check if the VM is generation V1 or generation V2](#check-the-generation-version-for-the-VM).
 
 ## Upgrade from SUSE 12 SP4 or SP5 to SUSE 15 SP1
 
@@ -49,6 +49,7 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 
     ```
     uname -a
+
     ```
 
 4. Install the **suse-migration-sle15-activation** and **SLES15-Migration** package.
@@ -63,8 +64,9 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/reboot-message.png)
 For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen. In this case, wait for 45 minutes. If it still don't progress further, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
 
-8. After the system is restarted with new kernel, run `uname -a` to check whether the system is upgraded successfully.
+8. After the system is restarted with new kernel, you will see the following message. 
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
+9. Run `uname -a` to check whether the system is upgraded successfully.
 
 ## Check the generation version for the VM
 
