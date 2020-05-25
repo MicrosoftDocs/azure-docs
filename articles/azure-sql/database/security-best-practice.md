@@ -498,7 +498,7 @@ Best practices on how to prevent client machines and applications with well-know
 
 **How to implement**:
 
-- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-tls-encryption-in-transit).
+- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Best practices**:
 
