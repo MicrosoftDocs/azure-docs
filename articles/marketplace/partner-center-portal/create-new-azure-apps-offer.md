@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 05/19/2020
 ---
 
 # Create an Azure application offer
 
-This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer. 
+This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer.
 
 Before you can publish a new Azure application offer, [create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and make sure your account is enrolled in the commercial marketplace program.
 
@@ -123,7 +123,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 
 ## Offer setup
 
-The **Offer setup** page is where you can configure a test drive and lead management for your offer. 
+The **Offer setup** page is where you can configure a test drive and lead management for your offer.
 
 ### Test drive
 
@@ -136,7 +136,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## Lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -169,26 +169,19 @@ The name you enter here will be shown to customers as the title of your offer li
 
 #### Search results summary
 
-Provide a short description of your offer (up to 100 characters), which may be used in search results.
+Provide a short description of your offer, up to 100 characters. This description may be used in search results.
 
 #### Long summary
 
-Provide a longer description of your offer (up to 256 characters). This description may be used in search results.
+Provide a longer description of your offer, up to 256 characters. This description may be used in search results.
 
 #### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-SHere are some tips for writing your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Clearly describe the value proposition of your offer in the first few sentences of your description. Include the following items:
-  * Description of your offer.
-  * The type of user that benefits from your offer.
-  * Customer needs or issues that the offer addresses.
-* Remember that the first few sentences might be displayed in search engine results.
-* Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
-* Use industry-specific or benefit-based words.
-* Consider using HTML tags to format your description to make it more engaging.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### Search keywords
 
@@ -356,7 +349,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
@@ -375,7 +368,7 @@ Select **Save draft** before continuing.
 
 #### Markets
 
-Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
+Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries/regions, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. Always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
@@ -401,7 +394,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.

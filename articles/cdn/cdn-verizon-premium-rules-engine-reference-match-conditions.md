@@ -276,9 +276,9 @@ This match condition allows you to perform a multitude of customizations based o
 - URL Path Wildcard match: Set the [URL Path Wildcard match condition](#url-path-wildcard) to the directory that will be secured. 
     Append an asterisk to the end of the relative path to ensure that access to all of its children will be restricted by this rule.
 
-- Country match: Set the Country match condition to the desired set of countries.
-  - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries access to content stored in the location defined by the URL Path Wildcard match condition.
-  - Block: Set the Country match condition to **Matches** to block the specified countries from accessing content stored in the location defined by the URL Path Wildcard match condition.
+- Country match: Set the Country match condition to the desired set of countries/regions.
+  - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries/regions access to content stored in the location defined by the URL Path Wildcard match condition.
+  - Block: Set the Country match condition to **Matches** to block the specified countries/regions from accessing content stored in the location defined by the URL Path Wildcard match condition.
 
 - Deny Access (403) Feature: Enable the [Deny Access (403) feature](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) to replicate the allow or block portion of the Country Filtering feature.
 

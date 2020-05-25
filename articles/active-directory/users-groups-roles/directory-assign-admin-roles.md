@@ -95,14 +95,6 @@ All enterprise Azure DevOps policies can be managed by users in this role.
 
 Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
-### [B2C User Flow Administrator](#b2c-user-flow-administrator-permissions)
-
-Users with this role can create and manage B2C User Flows (also called "built-in" policies) in the Azure portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token, and adjust session settings for all policies in the Azure AD organization. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework (also known as Custom) policies is also outside the scope of this role.
-
-### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator-permissions)
-
-Users with this role add or delete custom attributes available to all user flows in the Azure AD organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
-
 ### [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator-permissions)
 
 User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
@@ -209,6 +201,15 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
+
+### [External Id User Flow Administrator](#external-id-user-flow-administrator-permissions)
+
+Users with this role can create and manage B2C User Flows (also called "built-in" policies) in the Azure portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token, and adjust session settings for all policies in the Azure AD organization. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the organization schema. Changes to Identity Experience Framework (also known as Custom) policies is also outside the scope of this role.
+
+### [External Id User Flow Attribute Administrator](#external-id-user-flow-attribute-administrator-permissions)
+
+Users with this role add or delete custom attributes available to all user flows in the Azure AD organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+
 ### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
 This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
@@ -232,8 +233,6 @@ Users in this role can read settings and administrative information across Micro
 > [!NOTE]
 > Global reader role has a few limitations right now -
 >
->- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global reader role.
->- [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >- [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs, do content search, or see Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
@@ -377,7 +376,7 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 ### [Security Administrator](#security-administrator-permissions)
 
-Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In | Can do
 --- | ---
@@ -391,6 +390,8 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Add admins, add policies and settings, upload logs and perform governance actions
 [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations
 [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
+[Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
+[Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
 
 ### [Security operator](#security-operator-permissions)
 
@@ -592,22 +593,6 @@ Can manage all aspects of the Azure Information Protection service.
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
-### B2C User Flow Administrator permissions
-
-Create and manage all aspects of user flows.
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
-
-### B2C User Flow Attribute Administrator permissions
-
-Create and manage the attribute schema available to all user flows.
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in  Azure Active Directory B2C. |
 
 ### B2C IEF Keyset Administrator permissions
 
@@ -1023,6 +1008,22 @@ Can manage all aspects of the Exchange product.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
+### External Id User Flow Administrator permissions
+
+Create and manage all aspects of user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
+
+### External Id User Flow Attribute Administrator permissions
+
+Create and manage the attribute schema available to all user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in  Azure Active Directory B2C. |
 
 ### External Identity Provider Administrator permissions
 
@@ -1802,8 +1803,6 @@ Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DC
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Azure DevOps Administrator | Azure DevOps administrator | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
-B2C User flow Administrator | B2C User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
-B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475-9f94-5c398ef6c070
 Billing Administrator | Billing administrator | b0f54661-2d74-4c50-afa3-1ec803f12efe
@@ -1824,6 +1823,8 @@ Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
 Directory Writers | Not shown because it shouldn't be used | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
+External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
+External Id User Flow Attribute Administrator | External Id User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Groups Administrator | Groups administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
