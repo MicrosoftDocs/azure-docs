@@ -64,7 +64,7 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
 
-**How do I request a host quota increase for an existing Azure VMware Solution?**
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**How do I request a host quota increase for an existing Azure VMware Solution?**
 
 You can request a quota increase by submitting a support request, and the Quota Management team evaluates the request and approves it within three business days.  
 
