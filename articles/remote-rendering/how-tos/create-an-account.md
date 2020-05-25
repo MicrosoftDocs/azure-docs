@@ -76,9 +76,12 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
 ![Storage account IAM](./media/azure-add-role-assignment.png)
 
-* The first role to assign is **Owner** as shown in the screenshot above. 
-* Select **Remote Rendering Account** from the ***Assign access to** dropdown.
+* The first role to assign is **Owner** as shown in the screenshot above.
+* Select **Remote Rendering Account** from the **Assign access to** dropdown.
 * Select your subscription and Remote Rendering account in the last dropdowns.
+
+> [!WARNING]
+> In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repeat adding new roles two more times for the respective selections from the **Role** dropdown:
 * **Storage Account Contributor**
