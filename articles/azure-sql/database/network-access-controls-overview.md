@@ -1,7 +1,7 @@
 ---
 title: Network Access Controls 
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-description: Overview of how to manage and control network access for Azure SQL Database and Azure SQL Data Warehouse (formerly SQL Data Warehouse).
+description: Overview of how to manage and control network access for Azure SQL Database and Azure SQL Data Warehouse (formerly Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
