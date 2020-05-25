@@ -140,7 +140,7 @@ To create a failover group, you need RBAC write access to both the primary and s
 
 To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed Instance.  
 
-### Failover a failover group
+### Fail over a failover group
 
 To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance.
 
