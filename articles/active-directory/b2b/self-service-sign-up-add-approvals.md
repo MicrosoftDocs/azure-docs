@@ -18,8 +18,7 @@ ms.collection: M365-identity-device-management
  
 # Add approvals to a self-service sign-up user flow
 
-API connectors enable you to implement your own approvals logic to your self-service sign-up user flow. This lets you manage which users are successfully created in your tenant.
-
+[API connectors](api-connectors-overview.md) enable you to implement your own approvals logic to your self-service sign-up user flow. This lets you manage which users are successfully created in your tenant.
 
 In this example, we connect to the external approval system so we can collect user data during the sign-up process, pass it to the approval system, and allow someone to review and approve the request.
 
@@ -51,19 +50,19 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 
 ## Create the API connectors
 
-Your approval system needs two endpoints to:
+Learn to [create an API connector](api-connectors-set-up-api.md#create-an-api-connector).
+
+Your approval system API needs two endpoints to:
 
 - **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request.
 
-![Check approval status  API connector configuration](./media/self-service-sign-up-approvals/check-approval-status-api-connector-config.png)
-
+![Check approval status  API connector configuration](./media/self-service-sign-up-approvals/check-approval-status-api-connector-config-alt.png)
 
 
 - **Create approval request** - Send a call to the approval system after a user completes the attribute collection page, before the user is created, to create a new approval request.
 
-![Create approval request API connector configuration](./media/self-service-sign-up-approvals/create-approval-request-api-connector-config.png)
+![Create approval request API connector configuration](./media/self-service-sign-up-approvals/create-approval-request-api-connector-config-alt.png)
 
-Learn to [create an API connector](api-connectors-set-up-api.md#create-an-api-connector).
 
 ## Enable the API connectors in a user flow
 
@@ -77,7 +76,7 @@ These steps show how to add the API connectors to a self-service sign-up user fl
    - **After signing in with an identity provider**: 'Check approval status'
    - **Before creating the user**: 'Create approval request'
 
-   ![Add APIs to the user flow](./media/api-connectors-user-flow/api-connectors-user-flow-api.png)
+   ![Add APIs to the user flow](./media/self-service-sign-up-approvals/api-connectors-user-flow-select-approvals.png)
 
 6. Select **Save**.
 
