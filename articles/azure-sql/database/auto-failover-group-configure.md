@@ -125,7 +125,7 @@ Test failover of your failover group using the Azure portal.
    ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
-1. Select **Failover** again to fail the servers back to their originally roles.
+1. Select **Failover** again to fail the servers back to their original roles.
 
 # [PowerShell](#tab/azure-powershell)
 
