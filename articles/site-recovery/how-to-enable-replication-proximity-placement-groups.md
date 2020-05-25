@@ -188,6 +188,6 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 
 To perform re-protect and failback for VMware to Azure, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-prepare-failback).
 
-To perform failover for Hyper-V to Azure follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover) and to perform failback, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-failback).
+To perform failover for Hyper-V to Azure follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) and to perform failback, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-failback).
 
 For more information, see [Failover in Site Recovery](site-recovery-failover.md).
