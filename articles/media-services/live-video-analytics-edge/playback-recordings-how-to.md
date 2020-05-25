@@ -41,89 +41,13 @@ Media Services provides you with a query API (availableMedia) to address the fir
 
 When using CVR, playback devices (clients) cannot request a manifest covering playback of the entire recording.  A multi-year recording would produce a manifest file that was too large for playback and it would be unwieldy to parse into usable portions on the client side.  The client needs to know what datetime ranges have data in the recording so that it can make valid requests without much guess work. This is where the new Query API comes in – clients can now use this server-side API to discover content.
 
-### Request format  
-
-The client can call the Locator URL for a camera like this:
-
-`https://hostname/locatorId/content.ism/availableMedia?precision= [value]&startTime={ISO-8601}&endTime={ISO-8601}`
-
 Where the precision value can be one of: year, month, day, or full (as shown below). 
 
-#### Query - year 
-
-`/availableMedia?precision=year&startTime=2018&endTime=2019`
-
-#### Response - year
-
-```
-{
-  "timeRanges":[{ "start":"2018", "end":"2019" }]
-}
-```
-
-#### Constrains - year
-
-* startTime <= endTime.
-* Both should be in YYYY format, otherwise return error.
-* Values can be any number of years apart.
-* Values are inclusive.
-
-#### Query - month
-
-`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
-
-#### Response - month
-
-```
-{
-  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]
-}
-```
-
-#### Constrains - month
-
-* startTime <= endTime
-* Both should be in YYYY-MM format, otherwise return error
-* Values can be at most 12 months apart
-* Values are inclusive
-
-#### Query - day
-
-`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
-
-#### Response - day
-
-```
-{
-  "timeRanges":[
-    { "start":"2018-03-01", "end":"2018-03-07" },
-    { "start":"2018-03-09", "end":"2018-03-31" }
-  ]
-}
-```
-
-The above response assumes we lost data for the entire day, 2018-03-08.
-
-#### Constrains - day
-
-* startTime <= endTime.
-* Both should be in YYYY-MM-DD format, otherwise return error.
-* Values can be at most 31 days apart.
-* Values are inclusive.
-
-#### Query - full
-
-`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
-
-#### Response - full
-
-Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
-
-#### Constrains - full
-
-* startTime < endTime.
-* Values can be at most 25 hours apart.
-* Values are inclusive.
+|Precision|year|month|day|full|
+|---|---|---|---|---|
+|Query|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
+|Response|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.|
+|Constrains|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY format, otherwise return error.<br/>&#x2022;Values can be any number of years apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM format, otherwise return error.<br/>&#x2022;Values can be at most 12 months apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM-DD format, otherwise return error.<br/>&#x2022;Values can be at most 31 days apart.<br/>Values are inclusive.|&#x2022;startTime < endTime<br/>&#x2022;Values can be at most 25 hours apart.<br/>&#x2022;Values are inclusive.|
 
 #### Additional request format considerations
 
