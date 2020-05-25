@@ -24,7 +24,7 @@ Using Private Endpoint for your Web App enables you to:
 
 - Secure your Web App by configuring the Private Endpoint, eliminating public exposure.
 - Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering.
-- Avoid any data exfiltration from your vnet. 
+- Avoid any data exfiltration from your VNet. 
 
 If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet, or a globally peered VNet, Private Endpoint is the solution.  
 
