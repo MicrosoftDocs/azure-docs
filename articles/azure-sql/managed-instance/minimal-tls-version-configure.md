@@ -18,7 +18,7 @@ At present we support TLS 1.0, 1.1 and 1.2. Setting a Minimal TLS Version ensure
 
 For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
 
-For more information, see [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+For more information, see [TLS considerations for SQL Database connectivity](../database/connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
 
 After setting the Minimal TLS Version, login attempts from clients that are using a TLS version lower than the Minimal TLS Version of the server will fail with following error:
 
@@ -29,7 +29,7 @@ Login failed with invalid TLS version
 
 ## Set minimal TLS version via PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
