@@ -72,6 +72,6 @@ For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen
 
 You can use one of the following methods to check the generation version:
 
-- In the SLES terminal,  run the command `dmidecode | grep -i hyper`. If it's a generation 1 VM,  there is no output returned. For the generations 2 VMs, you will see the following output:
+- In the SLES terminal,  run the command `dmidecode | grep -i hyper`. If it's a generation V1 VM,  there is no output returned. For the generations V2 VMs, you will see the following output:
      ![The screenshot about output for generation 2 vm](./media/linux-upgrate-suse-15sp1/output-gen2.png)
 - In the [Azure portal](https://portal.azure.com),  go to **Properties**  of the VM, and then check the **VM generation** field.
