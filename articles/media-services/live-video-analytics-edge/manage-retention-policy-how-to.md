@@ -40,7 +40,7 @@ The above rule:
 * Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 * And when blobs age beyond 90 days, they are to be deleted.
 
-Since Live Video Analytics archives your video in specified units of time, <!--(see segmentLengthSeconds in the [Direct Method](direct-methods.md) article)--> your asset will contain a series of blobs, one blob per segment. When Lifecycle management policy kicks in and deletes older blobs, you will continue to be able to access and playback the remaining blobs via Media Service APIs. For more information, see [playback recordings](playback-recordings-how-to.md). 
+Since Live Video Analytics archives your video in specified units of time, your asset will contain a series of blobs, one blob per segment. When Lifecycle management policy kicks in and deletes older blobs, you will continue to be able to access and playback the remaining blobs via Media Service APIs. For more information, see [playback recordings](playback-recordings-how-to.md). 
 
 ## Limitations
 
