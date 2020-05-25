@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 As a developer, IT administrator, etc., you can use API connectors to integrate with your own web APIs as part of your [self-service sign-up user flow](self-service-portal.md). You can use API connectors to:
 
-- [**Enable third party approvals**](self-service-sign-up-approvals.md) – Enable an external user approval system for managing who successfully signs up to your tenant.
+- [**Enable third party approvals**](self-service-sign-up-add-approvals.md) – Enable an external user approval system for managing who successfully signs up to your tenant.
 - **Overwrite input claims** - Reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data** - Integrate with corporate line-of-business applications. For example, your API can receive the user's email address, query a database, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
 - **Validate user input data** - Prevent malformed or invalid data from persisting into Azure AD. For example, you can perform identity proofing or validate user provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign up flow.
@@ -125,8 +125,8 @@ Status code: 400
 
 ![Example validation page](./media/api-connectors/<insert-image>)
 
-### Other
-If an invalid response is returned or some other error occurs (e.g. network error), the user flow will be stopped and the user will be shown a generic error message and asked to try again.
+> [!CAUTION]
+> If an invalid response is returned or some other error occurs (e.g. network error), the user flow will be stopped and the user will be shown a generic error message and asked to try again.
 
 
 ## Frequently asked questions (FAQ)
@@ -135,6 +135,6 @@ If an invalid response is returned or some other error occurs (e.g. network erro
 You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) for a simple way to call and invoke other Web APIs.
 
 ## Next steps
-- Learn how to [add an API connector to a user flow](api-connectors-set-up-api.md).
-- Learn how to [add an approval system to self service sign up](self-service-sign-up-approvals.md)
+- Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
+- Learn how to [add an approval system to self service sign up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
