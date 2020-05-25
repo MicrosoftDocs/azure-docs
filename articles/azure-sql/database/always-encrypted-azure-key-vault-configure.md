@@ -100,7 +100,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 ## Connect with SSMS
 
-Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
 
