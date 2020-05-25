@@ -49,6 +49,7 @@ Run the following command from Cloud Shell
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment.quickstart.json-in-cloud-shell-storage>
 ```
+Note: As part of the script output, a table of resources will be generated which will list out the IoT hub name. Look for the resource type **"Microsoft.Devices/IotHubs"**.
 
 <!-- TODO - Replace path-to-deployment.quickstart.json-in-cloud-shell-storage with actual value -->
 The above command will deploy the following modules:
@@ -62,8 +63,9 @@ The RTSP simulator module simulates a live video stream using a video file store
 
 Start Visual Studio Code and follow the instructions below to connect to your Azure IoT Hub using the Azure IoT Tools extension.
 
-1. In Explorer of VS Code, click "Azure IoT Hub Devices" in the bottom-left corner.
-1. Click "Set IoT Hub Connection String" in context menu.
+1. Navigate to the Explorer tab in Visual Studio Code via **File** > **View** > **Explorer** or simply press (Ctrl+Shift+E).
+1. In the Explorer tab, click "Azure IoT Hub Devices" in the bottom-left corner.
+1. Right click to see the context menu and select the "Set IoT Hub Connection String" option.
 1. An input box will pop up, then enter your IoT Hub Connection String. You can get the connection string for your IoT Hub from /clouddrive/lva-sample/appsettings.json in Cloud Shell.
 1. If the connection succeeds, the device list will be shown.
 1. You can now manage your IoT devices and interact with Azure IoT Hub through context menu.
