@@ -1,7 +1,7 @@
 ---
-title: Rotate TDE protector (PowerShell & Azure CLI)
-titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a server in Azure used by Azure SQL Database and Azure Synapse Analytics using PowerShell and Azure CLI.
+title: Rotate TDE protector (PowerShell and the Azure CLI)
+titleSuffix: Azure SQL Database and Azure Synapse Analytics 
+description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a server in Azure used by Azure SQL Database and Azure Synapse Analytics using PowerShell and the Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -29,7 +29,7 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 ## Prerequisites
 
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse Analytics. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md).
 - You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) to learn more.
 
@@ -42,7 +42,7 @@ For Az module installation instructions, see [Install Azure PowerShell](/powersh
 
 # [Azure CLI](#tab/azure-cli)
 
-For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
+For installation, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
@@ -69,7 +69,7 @@ Set-AzSqlServerTransparentDataEncryptionProtector -Type AzureKeyVault -KeyId <ke
    -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create), [az sql server key create](/cli/azure/sql/server/key#az-sql-server-key-create), and [az sql server tde-key set](/cli/azure/sql/server/tde-key#az-sql-server-tde-key-set) commands.
 
@@ -104,7 +104,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
        -ServerName <logicalServerName> -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 The following examples use [az sql server tde-key set](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector).
 
@@ -124,6 +124,6 @@ The following examples use [az sql server tde-key set](/powershell/module/az.sql
 
 ## Next steps
 
-- In case of a security risk, learn how to remove a potentially compromised TDE protector: [Remove a potentially compromised key](transparent-data-encryption-byok-remove-tde-protector.md)
+- In case of a security risk, learn how to remove a potentially compromised TDE protector: [Remove a potentially compromised key](transparent-data-encryption-byok-remove-tde-protector.md).
 
-- Get started with Azure Key Vault integration and Bring Your Own Key support for TDE: [Turn on TDE using your own key from Key Vault using PowerShell](transparent-data-encryption-byok-configure.md)
+- Get started with Azure Key Vault integration and Bring Your Own Key support for TDE: [Turn on TDE using your own key from Key Vault using PowerShell](transparent-data-encryption-byok-configure.md).
