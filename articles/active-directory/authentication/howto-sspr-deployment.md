@@ -106,7 +106,7 @@ Note: For users who have [Password hash synchronization (PHS)](https://docs.micr
 
 You can help users register quickly by deploying SSPR alongside another popular application or service in the organization. This action will generate a large volume of sign-ins and will drive registration.
 
-Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. YOU can use this data post deployment to show the value SSPR is bringing to the organization.
+Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
 #### Enable combined registration for SSPR and MFA
 
