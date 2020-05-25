@@ -31,7 +31,7 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 - Plan the migration activity as per the approved downtime window. This is because the VM reboots during the migration.
 - Prior to the migration activity, take a complete backup of the VM.
 - If backup is not configured, take a snapshot backup of the OS disk.
-- [Check if the VM is generation V1 or generation V2](#check-the-generation-version-for-the-VM).
+- [Check if the VM is generation V1 or generation V2](#check-the-generation-version-for-a-vm).
 
 ## Upgrade from SUSE 12 SP4 or SP5 to SUSE 15 SP1
 
@@ -68,7 +68,7 @@ For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
 9. Run `uname -a` to check whether the system is upgraded successfully.
 
-## Check the generation version for the VM
+## Check the generation version for a VM
 
 You can use one of the following methods to check the generation version:
 
