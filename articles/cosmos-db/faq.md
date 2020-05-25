@@ -64,7 +64,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 
 To ask a technical question, you can post to one of these two question and answer forums:
 
-* [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -87,7 +87,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
 * Maximum throughput of 5 K RU/s when provisioned at the container level.
 * Maximum throughput of 20 K RU/s when provisioned at the database level.
-* Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total.
+* Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total. After expiration, the information contained is deleted.
 * Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
 
 ## Set up Azure Cosmos DB

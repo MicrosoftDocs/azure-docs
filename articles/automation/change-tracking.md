@@ -1,13 +1,13 @@
 ---
-title: Overview of Change Tracking and Inventory in Azure Automation
-description: Change Tracking and Inventory helps you identify software and Microsoft service changes that occur in your environment.
+title: Azure Automation Change Tracking and Inventory overview
+description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes that occur in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
 ---
 
-# Overview of Change Tracking and Inventory
+# Change Tracking and Inventory overview
 
 This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines and server infrastructure to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include: 
 
@@ -190,6 +190,10 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-* To work with Change Tracking and Inventory in your runbooks, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To resolve errors with Change Tracking and Inventory, see [Troubleshoot Change Tracking and Inventory](automation-tutorial-troubleshoot-changes.md).
-* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* For details of working with Change Tracking and Inventory, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
+* To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+* To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from Azure portal](automation-onboard-solutions-from-browse.md).
+* To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

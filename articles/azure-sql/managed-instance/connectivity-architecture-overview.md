@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance communication and connectivity architecture as well as how the components direct traffic to the SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: fasttrack-edit, sqldbrb=1
+ms.subservice: operations
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft

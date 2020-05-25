@@ -56,7 +56,7 @@ To create and run the sample, do the following steps:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v2.1/ocr";
+        var uriBase = endpoint + "vision/v3.0/ocr";
 
         // Request parameters.
         var params = {
