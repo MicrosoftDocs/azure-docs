@@ -7,13 +7,15 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Detect motion and emit events
 
-This article walks you through the steps to set up Live Video Analytics on IoT Edge to detect motion from a video stream and output the events to IoT Hub sink. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
+This article walks you through the steps to set up Live Video Analytics on IoT Edge to detect motion from a video stream and output the events to IoT Hub sink. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on the sample code written in C#.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with the following extensions:
+    1. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    2. [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
 > [!TIP]
 > You might be prompted to install docker. Feel free to ignore it.
 
@@ -47,7 +49,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
 
 ## Set up the environment
 
-1. Clone the repo from here https://github.com/Azure-Samples/lva-edge-rc4.
+1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
 2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
 3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 3. Copy the contents from clouddrive/lva-sample/appsettings.json file. See step 5 in the previous section.
@@ -101,7 +103,7 @@ The deployment manifest contains the instructions for running the Motion Detecti
 1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json".
 1. Under the node GraphTopologySet, ensure the following:
 
-    ` "topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/motion-detection/topology.json"`
+    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
 1. Next, under the node GraphInstanceSet, ensure:
 
     `"topologyName" : "MotionDetection"`
@@ -146,7 +148,7 @@ Follow the steps below to run the sample code.
 In the Media Graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
 
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
-* An opaque binary body
+* A body tag which will contain the diagnostoc or the opertational event messages
 
 In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module.
 
