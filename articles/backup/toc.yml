@@ -357,6 +357,8 @@
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
+    - name: Private Endpoints
+      href: private-endpoints.md
     - name: Encryption
       href: backup-encryption.md
     - name: Built-in security controls
@@ -405,8 +407,8 @@
     href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Microsoft Q&A - Azure Backup
+    href: https://docs.microsoft.com/answers/topics/azure-backup.html
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

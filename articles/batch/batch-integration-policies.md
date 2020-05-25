@@ -1,7 +1,7 @@
 ---
 title: Integration with Azure Policies
 description: Azure Policy is a service in Azure that you use to create, assign, and manage policies that enforce rules over your resources.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
 
