@@ -1,11 +1,11 @@
 ---
-title:  Live Video Analytics via external inference module - Azure
+title:  Run Live Video Analytics with your own model - Azure
 description: In this quickstart, you will apply computer vision to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Live Video Analytics via external inference module
+# Quickstart: Run Live Video Analytics with your own model
 
 In this quickstart, you will apply computer vision to analyze the live video feed from a (simulated) IP camera. You will be able to filter a subset of your video frames, convert them to images and send them to an external inference module that applies computer vision to detect objects in those images. The external inference module returns these detection results as events, that are published to the IoT Edge Hub.
 

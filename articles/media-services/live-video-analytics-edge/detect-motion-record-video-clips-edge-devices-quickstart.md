@@ -1,12 +1,12 @@
 ---
-title: Detect motion and record clips on the edge
+title: Detect motion, record video on edge devices - Azure
 description: In this quickstart, you will analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record a mp4 video clip to your local file system on the edge device.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
 
-# Quickstart: Detect motion and record clips on the edge
+# Quickstart: Detect motion, record video on edge devices
  
 In this quickstart, you will analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record a mp4 video clip to your local file system on the edge device. This article illustrates a programmatic way of invoking the sequence of direct method calls that you executed as part of the [Detect motion, record video to Media Services](detect-motion-record-video-clips-media-services-quickstart.md) quickstart. It uses a Linux Azure VM as an IoT Edge device and a simulated live video stream.
 

@@ -1,4 +1,4 @@
-- name: Live Video Analytics on IoT Edge (Preview) documentation
+- name: Live Video Analytics on IoT Edge documentation
   href: index.yml
 - name: Switch to Azure Media Services v3 documentation
   href: ../latest/index.yml
@@ -14,12 +14,12 @@
       href: release-notes.md  
 - name: Quickstarts
   items:
-  - name: Get started – Detect motion and emit events
+  - name: Get started - Live Video Analytics on IoT Edge
     href: get-started-detect-motion-emit-events-quickstart.md
-  - name: Detect motion, record video to Media Services
-    href: detect-motion-record-video-clips-media-services-quickstart.md  
   - name: Detect motion and emit events
     href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video to Media Services
+    href: detect-motion-record-video-clips-media-services-quickstart.md  
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-clips-edge-devices-quickstart.md
   - name: Run Live Video Analytics with your own model
@@ -29,7 +29,11 @@
   - name: Continuous video recording  
     href: continuous-video-recording-tutorial.md
   - name: Event-based video recording  
-    href: event-based-video-recording-tutorial.md    
+    href: event-based-video-recording-tutorial.md   
+- name: Samples
+  items:
+  - name: Live Video Analytics on IoT Edge C# samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
 - name: Concepts
   items:
   - name: Media graph
@@ -53,11 +57,11 @@
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
   - name: Playback a recording 
-    href: playback-recordings-how-to.md    
-  - name: Monitoring and logging
-    href: monitoring-logging.md    
+    href: playback-recordings-how-to.md        
 - name: Reference
   items:
+  - name: Telemetry schema
+    href: telemetry-schema.md
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  
