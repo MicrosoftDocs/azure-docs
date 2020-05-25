@@ -26,8 +26,8 @@ Replace the placeholder values with your own values, then use the following com
 
 
 
-```
-// Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
+```cli
+# Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
