@@ -57,11 +57,13 @@
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
   - name: Playback a recording 
-    href: playback-recordings-how-to.md        
+    href: playback-recordings-how-to.md 
+  - name: Monitoring and logging
+    href: monitoring-logging.md
+  - name: Troubleshoot
+    href: troubleshoot-how-to.md
 - name: Reference
   items:
-  - name: Telemetry schema
-    href: telemetry-schema.md
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  
