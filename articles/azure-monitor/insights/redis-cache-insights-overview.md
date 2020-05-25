@@ -29,8 +29,6 @@ It delivers:
 
 - **Drill-down analysis** of a particular Azure Cache for Redis resource. You can diagnose problems and see detailed analysis of utilization, failures, capacity, and operations. Select any of these categories to see an in-depth view of  relevant information.  
 
-- **Customization** of this experience, which is built atop Azure Monitor workbook templates. The experience lets you change what metrics are displayed and modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
-
 - **Customization** of this experience is built atop Azure Monitor workbook templates. The experience allows you to change what metrics are displayed and to modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
 
 This feature doesn't require you to enable or configure anything. Azure Cache for Redis information is collected by default.
