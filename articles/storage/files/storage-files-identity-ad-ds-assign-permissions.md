@@ -5,19 +5,19 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/26/2020
 ms.author: rogarana
 ---
 
-# Part two: assign access permissions to an identity
+# Part two: assign share-level permissions to an identity
 
 Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
 
-Once you've enabled active directory domain services (AD DS) authentication on your storage account, you must configure permissions in order to get the benefits of controlling access with identity-based authentication. You can configure permissions for your identities (a user, group, or service principal) at the share level. This process is similar to the process for Windows share permissions, where you specify the type of access that a particular user has to a file share. This article demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+Once you've enabled active directory domain services (AD DS) authentication on your storage account, you must configure share-level permissions in order to get access to the file share. The identity you want to use for access must be synched from your AD DS to Azure AD. For example, say you have a user in your AD DS that is user1@onprem.contoso.com and have synced to Azure AD as user1@contoso.com using Azure AD Connect. if you want to allow this user to access Azure Files, you need to assign the share-level permission to user1@contoso.com. The same concept applies to groups or service principals. Share-level permissions must be assigned to the Azure AD identity representing the same user or group to support AD DS authentication to your Azure file share. This article demonstrates how to assign share-level permissions for a file share to an identity.
 
 ## Share-level permissions
 
-Generally, we recommend using share level permission for high-level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
+Generally, we recommend using share level permissions for high-level access management to an Azure AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
 
 There are three Azure built-in roles for granting share-level permissions to users:
 
@@ -70,4 +70,4 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 ## Next steps
 
-[Configure Windows NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
+[Part three: Configure Windows NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
