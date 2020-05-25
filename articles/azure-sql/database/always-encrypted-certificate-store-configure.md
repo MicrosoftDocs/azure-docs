@@ -52,7 +52,7 @@ To get the *Application ID* and *key*, follow the steps in [create an Azure Acti
 
 ## Connect with SSMS
 
-Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials.
