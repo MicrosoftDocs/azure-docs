@@ -7,7 +7,7 @@ ms.date: 02/02/2020
 
 # Accidental delete protection for Azure file shares using Azure Backup
 
-To provide protection against cyberattacks or accidental deletion, [soft delete](https://aka.ms/softdeletefeature) is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for 14 additional days, allowing the recovery of file shares with no data loss.  
+To provide protection against cyberattacks or accidental deletion, [soft delete](https://aka.ms/softdeletefeature) is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for a minimum of 14 additional days, allowing the recovery of file shares with no data loss.  
 
 Soft delete is supported only for standard and premium storage accounts and is currently enable from the Azure Backup side in [these regions](azure-file-share-support-matrix.md).
 
@@ -25,7 +25,7 @@ When you configure backup for the first time for any file share in a storage acc
 
 Yes, you can set the retention period according to your requirements. [This document](https://aka.ms/stepstoconfigretention) explains the steps to configure the retention period. For storage accounts with backed-up file shares, the minimum retention setting should be 14 days.
 
-### I configured the file shares retention setting to less than 14 days, but found the value reset to 14 days.
+### Does Azure Backup reset my retention setting because I configured it to less than 14 days?
 
 From a security perspective, we recommend having minimum retention of 14 days for storage accounts with backed-up file shares. So on each backup job run, if Azure Backup identifies the setting to be less than 14 days, it resets it to 14 days.
 
