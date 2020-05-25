@@ -39,7 +39,7 @@ Live Video Analytics on IoT Edge exposes the following module twin properties.
 
 Dynamic properties can be updated without the restarting the module. You can obtain the values for several of these properties by following the instruction in the [Getting access to Media Services API](../latest/access-api-cli-how-to.md) article. 
 
-<!--Diagnostics related properties enable you to <<TODO: add content here>> -->
+See the article on Monitoring and Logging (How-to) for more information about the role of the optional diagnostics settings.
 
 ```
 { 
@@ -57,8 +57,10 @@ Dynamic properties can be updated without the restarting the module. You can obt
         "armEndpoint": "https://management.azure.com/", 
         
         // Optional Diagnostics 
-        "diagnosticsLevel": "Warning", 
-        "diagnosticsEventsOutputName": "Diagnostics"
+        "diagnosticsEventsOutputName": "lvaEdgeDiagnostics",
+        "operationalEventsOutputName": "lvaEdgeOperational",
+        "logLevel": "Information",
+        "logCategories": "Application,Event"
     } 
 } 
 ```
