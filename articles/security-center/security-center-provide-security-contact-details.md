@@ -11,25 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2019
+ms.date: 06/01/2020
 ms.author: memildin
 
 ---
 # Provide security contact details in Azure Security Center
-Azure Security Center will recommend that you provide security contact details for your Azure subscription if you haven't already. This information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your customer data has been accessed by an unlawful or unauthorized party. MSRC performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties.
 
-An email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Resource groups within a subscription will inherit these settings. Alerts are available only in the Standard tier of Azure Security Center.
+OPENER SHOULD COVER THE FOLLOWING:
 
-Alert email notifications are sent:
-- To a single email recipient per alert type per day  
-- No more than 3 email messages are sent to a single recipient in a single day
-- Each email message contains a single alert, not an aggregation of alerts
-- Only for high severity alerts
+    the customer can configure security contact in order to get notifications from Azure Security center on new security alerts in his environments – and that by default (if no security contact defined) we will send notifications on high severity alerts to the resource owner 
+    email notifications could be send to specific email addresses or to users with specific RBAC roles on the subscription, and the user can choose to get notifications only on alerts from specific severities
 
-> [!TIP]
-> For alerts with other severity levels, create a [workflow automation](workflow-automation.md) to use a Logic App that will send emails to the relevant personnel.
- 
-For example, if an email message was already sent to alert you about an RDP attack, you will not receive another email message about an RDP attack on the same day, even if another alert is triggered. 
+
+
+To avoid alert fatigue, Security Center restricts the volume of outgoing mails. For each subscription, Security Center sends:
+
+- **For high-severity alerts**, a maximum of **four** emails are sent per day
+- **For medium-severity alerts**, a maximum of **two** emails are sent per day
+- **For low-severity alerts**, a maximum of **one** emails are sent per day
+
+
 
 > [!IMPORTANT]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
