@@ -10,7 +10,7 @@ This solution aims to help app developers and security administrators achieve De
 
 ## Components of the solution
 Here are the architectural components of the solution.
-![Pyramid](../media/pyramid.PNG)
+![Pyramid](./media/pyramid.PNG)
 
 * *Secure Infrastructure*. This layer is secure infrastructure. Developers and security admins need strongly governed components like networking, storage, and monitoring, that abide by the Zero Trust “never trust, always verify” philosophy. When you leverage a Zero Trust model it becomes possible to ensure every request is authenticated, authorized, and inspected before granting access.
 * *Container Orchestration*. This layer is the container orchestration part of the architecture that deploys and manages Kubernetes nodes. Your compute solution also should be setup and leveraged in a secure way. This is a secure deployment of RedHat OpenShift on Azure. The deployment is unique as it’s (1) fully automated and runs quickly with close to 1-click and (2) has hardening baked-in, including a script that STIGs all host OSes. All of this neatly deploys on top of the Zero Trust Blueprint – inheriting and building on its security and allowing your architecture to remain compliant.
@@ -18,10 +18,12 @@ Here are the architectural components of the solution.
 
 ## Deploying the solution
 * *Secure Infrastructure*. Use the [Zero Trust Blueprint](https://github.com/Azure/ato-toolkit/tree/master/automation/zero-trust-architecture) to setup strongly governed components like networking, storage, and monitoring that abide by the Zero Trust "never trust, always verify" philosophy on Azure
-* *Container Orchestration*. Use the secure OpenShift deployment
+* *Container Orchestration*. Use the secure OpenShift deployment (OneDrive link). 
 * *Workload*. Use the Iron Bank verification script to ensure you're using a secure Docker image 
 
 > [!NOTE]
-> If you would like to see a video tutorial on the solution [see demo video here](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> For more information on Parts 2 and 3 of solution deployment, e.g. Container Orchestration and Workload, please contact Microsoft-trusted partner CloudFit. [Contact here](mailto:info@cloudfit.com).
 > 
 > 
+
+For a full end-to-end tutorial of the solution [see demo video here](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
