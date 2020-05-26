@@ -18,20 +18,20 @@ Continuous video recording (CVR) refers to the process of continuously recording
 
 ![Continuous video recording](./media/continuous-video-recording/continuous-video-recording-overview.png)
 
-The media graph depicted above can be run on an Edge device, with the asset sink recording video to an Azure Media Services [asset](terminology.md#asset). The video will be recorded for as long as the media graph stays in the running state. Since video is being recorded as an asset, it can be played back using Media Services. See [Playback of recorded content](video-playback-concept.md) for more details.
+The media graph depicted above can be run on an edge device, with the asset sink recording video to an Azure Media Services [asset](terminology.md#asset). The video will be recorded for as long as the media graph stays in the activated state. Since video is being recorded as an asset, it can be played back using the existing streaming capabilities of Media Services. See [Playback of recorded content](video-playback-concept.md) for more details.
 
 ## Resilient recording
 
-Live Video Analytics on IoT Edge supports operating under less-than-perfect network conditions, where the Edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis. If you examine the topology JSON [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json), you will see it has the following properties defined:
+Live Video Analytics on IoT Edge supports operating under less-than-perfect network conditions, where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis. If you examine the topology JSON [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json), you will see it has the following properties defined:
 
 ```
     "segmentLength": "PT30S",
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-The latter two properties are relevant to resilient recording (both are also required properties for an asset sink node). The localMediaCachePath property tells the asset sink to use that folder path to cache media data before uploading to the asset. You can see [this](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) article to understand how the Edge module can make use of your device's local storage. The localMediaCacheMaximumSizeMiB property defines how much disk space the asset sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
+The latter two properties are relevant to resilient recording (both are also required properties for an asset sink node). The localMediaCachePath property tells the asset sink to use that folder path to cache media data before uploading to the asset. You can see [this](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) article to understand how the edge module can make use of your device's local storage. The localMediaCacheMaximumSizeMiB property defines how much disk space the asset sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
 
-If your Edge module loses connectivity for a very long time and the content stored in the cache folder reaches the localMediaCacheMaximumSizeMiB value, the asset sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the asset sink starts to delete data recorded at 10AM. 
+If your edge module loses connectivity for a very long time and the content stored in the cache folder reaches the localMediaCacheMaximumSizeMiB value, the asset sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the asset sink starts to delete data recorded at 10AM. 
 
 When network connectivity is restored, the asset sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the asset sink will start uploading from the 10:05AM mark.
 
@@ -39,7 +39,7 @@ If you later examine the asset using [these](playback-recordings-how-to.md) APIs
 
 ## Segmented recording  
 
-As discussed above, the asset Sink component will record video to a local cache, and periodically upload the video to the cloud. Since there is a cost associated with operations on your Storage account, this property will help you control that cost. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
+As discussed above, the asset Sink component will record video to a local cache, and periodically upload the video to the cloud. Since there is a cost associated with operations on your Storage account, the segmentLength property (shown in the above section) will help you control that cost. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
 
 The segmentLength property ensures that the edge module will upload video at most once per segmentLength seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
 
