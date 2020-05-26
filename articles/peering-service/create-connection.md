@@ -43,6 +43,8 @@ This tutorial shows you how to create a Peering Service resource and how to conf
 
  1. When you see the **Validation passed** message as shown, select **Create**.
 
+> ![Register Peering Service configuration tab](./media/peering-service-portal/peering-service-prefix.png)
+
 1. After you register a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the resource name. If the validation fails, one of the following error messages is displayed:
 
    - Invalid Peering Service prefix, the prefix should be valid format, only Ipv4 prefix is supported.

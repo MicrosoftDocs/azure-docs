@@ -43,6 +43,8 @@ The detailed information includes:
 - **Deletion Time**: When was the app deleted  
 
 ## Restore deleted app
+>[!NOTE]
+> `Restore-AzDeletedWebApp` isn't supported for function apps.
 
 Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 

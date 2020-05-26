@@ -3,7 +3,7 @@ title: Configure an existing virtual network for managed instance
 description: This article describes how to configure an existing virtual network and subnet where you can deploy Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

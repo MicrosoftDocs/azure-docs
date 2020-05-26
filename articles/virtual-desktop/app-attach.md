@@ -13,7 +13,7 @@ manager: lizross
 # Set up MSIX app attach
 
 > [!IMPORTANT]
-> MSIX app attach is currently in public preview.
+> MSIX app attach is currently in private preview.
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

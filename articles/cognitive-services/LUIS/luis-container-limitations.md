@@ -43,7 +43,7 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 
 | Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
-| American English | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| English (United States) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | French (France) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | French (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

@@ -8,14 +8,14 @@ ms.author: v-demjoh
 ---
 
 
-## Run the SPX tool
+## Run the Speech CLI
 
-Now you're ready to run the SPX tool to synthesize speech from text.
+Now you're ready to run the Speech CLI to synthesize speech from text.
 
-From the command line, change to the directory that contains the SPX tool binary file, and type:
+From the command line, change to the directory that contains the Speech CLI binary file, and type:
 
 ```bash
 spx synthesize --text "The speech synthesizer greets you!"
 ```
 
-The SPX tool will produce natural language in English through the computer speaker.
+The Speech CLI will produce natural language in English through the computer speaker.
