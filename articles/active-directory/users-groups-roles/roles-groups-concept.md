@@ -55,6 +55,8 @@ We are working on these capabilities.
 
 ## Known Issues
 
+- You can't create or modify a dynamic group when the role is assigned via a group.
+- Azure Information Protection doesn't recognize role membership via group yet. Direct role assignments still work.
 - *Azure AD P2 license customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
 
   - End time of the assignment might end up showing incorrectly
