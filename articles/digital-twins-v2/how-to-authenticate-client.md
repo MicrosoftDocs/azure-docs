@@ -131,7 +131,7 @@ try
 >[!NOTE]
 > While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
-In an Azure Function, you can then use the managed identity credentials like this:
+In an Azure function, you can then use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
@@ -140,12 +140,12 @@ DigitalTwinsClientOptions opts =
 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
 * [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for more information.
+* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) for more information.
 
 ## Authentication in an AutoRest-generated SDK
 

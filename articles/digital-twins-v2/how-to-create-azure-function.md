@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Set up an Azure Function for processing data
+title: Set up an Azure function for processing data
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can access and be triggered by digital twins.
 author: cschormann
@@ -45,7 +45,7 @@ Specify a name for the function app and press "Create".
 
 Select the *Event Grid trigger* and press "Create".
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-trigger.png" alt-text="Visual Studio: Azure Function project trigger dialog":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-trigger.png" alt-text="Visual Studio: Azure function project trigger dialog":::
 
 ## Write an Azure function with an Event Grid trigger
 
@@ -93,7 +93,7 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 
 Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
 
-Add the following using statements to your Azure Function.
+Add the following using statements to your Azure function.
 
 ```csharp
 using Azure.Identity;
@@ -200,7 +200,7 @@ To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate
 
 In the *Platform features* tab, select *Identity*:
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-1.png" alt-text="Azure portal: Selecting Identity for an Azure Function":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-1.png" alt-text="Azure portal: Selecting Identity for an Azure function":::
 
 On the identity page, set the *Status* toggle to *On*. 
 

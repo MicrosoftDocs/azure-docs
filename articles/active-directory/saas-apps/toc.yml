@@ -133,6 +133,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: askSpoke
+        href: askspoke-tutorial.md
       - name: AskYourTeam
         href: askyourteam-tutorial.md
       - name: Asset Bank
@@ -513,6 +515,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -1839,6 +1843,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-provisioning-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo

@@ -347,7 +347,7 @@ In the [Azure portal](https://ms.portal.azure.com/), navigate to your event grid
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure portal: Event Grid event subscription":::
 
-The steps to create this event subscription are similar to when you subscribed the first Azure Function to IoT Hub earlier in this tutorial. The difference is that this time you don't need to specify *Device Telemetry* as the event type to listen for, and you'll connect to a different Azure function.
+The steps to create this event subscription are similar to when you subscribed the first Azure function to IoT Hub earlier in this tutorial. The difference is that this time you don't need to specify *Device Telemetry* as the event type to listen for, and you'll connect to a different Azure function.
 
 Here are the subscription steps again:
 
@@ -390,7 +390,7 @@ Here is a review of the scenario that you built out in this tutorial.
 
 1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
 2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the *Temperature* property on *thermostat67* (**arrow B** in the diagram).
-3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure Function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on *room21* (**arrow C** in the diagram).
+3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on *room21* (**arrow C** in the diagram).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Graphic of the full building scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C)":::
 
