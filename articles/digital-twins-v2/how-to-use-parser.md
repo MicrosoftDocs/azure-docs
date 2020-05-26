@@ -3,7 +3,7 @@
 title: Parse and validate models
 titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
-author: cschorm
+author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to

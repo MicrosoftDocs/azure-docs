@@ -40,8 +40,6 @@ For example, for the twin *foo*, each specific relationship ID must be unique. H
 
 The following code sample illustrates how to add a relationship to your Azure Digital Twins instance.
 
-For more information on the helper class BasicRelationship see [How to use the SDK](./how-to-use-apis-sdks).
-
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -62,6 +60,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
     }
 }
 ```
+
+For more information on the helper class `BasicRelationship`, see [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks).
 
 ## List relationships
 
