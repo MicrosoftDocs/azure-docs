@@ -74,6 +74,8 @@
           href: tutorial-setup-vscode-extension.md
         - name: Train and deploy a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Create a workspace using a Resource Manager template
+      href: tutorial-resource-manager-workspace.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks

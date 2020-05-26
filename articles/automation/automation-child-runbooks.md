@@ -29,7 +29,7 @@ When you invoke a runbook inline, it runs in the same job as the parent runbook.
 
 When a runbook is published, any child runbooks that it calls must already be published. The reason is that Azure Automation builds an association with any child runbooks when it compiles a runbook. If the child runbooks have not already been published, the parent runbook appears to publish properly but generates an exception when it is started. If this happens, you can republish the parent runbook to properly reference the child runbooks. You do not need to republish the parent runbook if any child runbook is changed because the association has already been created.
 
-The parameters of a child runbook called inline can be of any data type, including complex objects. There is no [JSON serialization](start-runbooks.md#runbook-parameters), as there is when you start the runbook using the Azure portal or with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet.
+The parameters of a child runbook called inline can be of any data type, including complex objects. There is no [JSON serialization](start-runbooks.md#work-with-runbook-parameters), as there is when you start the runbook using the Azure portal or with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet.
 
 ### Runbook types
 
@@ -74,7 +74,7 @@ Child runbook output does not return to the parent runbook reliably because of t
 
 If you don't want the parent runbook to be blocked on waiting, you can start the child runbook using `Start-AzAutomationRunbook` without the `Wait` parameter. In this case, your runbook must use [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) to wait for job completion. It must also use [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) and [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) to retrieve the results.
 
-Parameters for a child runbook started with a cmdlet are provided as a hashtable, as described in [Runbook parameters](start-runbooks.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
+Parameters for a child runbook started with a cmdlet are provided as a hashtable, as described in [Runbook parameters](start-runbooks.md#work-with-runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
 
 The subscription context might be lost when starting child runbooks as separate jobs. For the child runbook to execute Az module cmdlets against a specific Azure subscription, the child must authenticate to this subscription independently of the parent runbook.
 
@@ -111,5 +111,5 @@ Start-AzAutomationRunbook `
 
 ## Next steps
 
-* [Starting a runbook in Azure Automation](start-runbooks.md)
-* [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+* To run run your runbook, see [Start a runbook in Azure Automation](start-runbooks.md).
+* For monitoring of runbook operation, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md).

@@ -3,7 +3,7 @@ title: 'Azure portal: Create a managed instance'
 description: Create a SQL Database managed instance, network environment, and client VM for access.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart

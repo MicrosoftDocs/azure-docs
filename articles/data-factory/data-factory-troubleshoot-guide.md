@@ -1052,4 +1052,4 @@ For more troubleshooting help, try these resources:
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
-* [MSDN forum](https://social.msdn.microsoft.com/Forums/home)
+* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

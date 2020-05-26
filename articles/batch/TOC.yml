@@ -53,12 +53,26 @@
     items:
     - name: Security baseline
       href: security-baseline.md
-  - name: Developer features
-    href: batch-api-basics.md
+  - name: Batch service workflow and resources
+    displayName: developer features
+    href: batch-service-workflow-features.md
+    items:
+    - name: Batch accounts
+      displayName: storage account
+      href: accounts.md
+    - name: Nodes and pools
+      displayName: compute node, application package, scaling, schedule, os
+      href: nodes-and-pools.md
+    - name: Jobs and tasks
+      displayName: Batch job
+      href: jobs-and-tasks.md
+    - name: Files and directories
+      displayName: Batch file
+      href: files-and-directories.md
   - name: APIs and tools
     href: batch-apis-tools.md
-  - name: Detecting and handling Batch service errors
-    href: batch-retry-after-errors.md
+  - name: Error handling and detection
+    href: error-handling.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
@@ -91,6 +105,12 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
+
+    - name: Using certificates with Batch
+      href: batch-certificates.md
+  - name: Using application packages
+    href: batch-application-packages.md
+
   - name: Copy files and applications to pool nodes
     items: 
     - name: Copying applications and data to pool nodes
@@ -248,8 +268,8 @@
     href: https://github.com/Azure/Batch
   - name: Batch feedback
     href: https://feedback.azure.com/forums/269742-batch
-  - name: Batch forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
+  - name: Microsoft Q&A question page for Batch
+    href: https://docs.microsoft.com/answers/topics/azure-batch.html
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog

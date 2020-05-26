@@ -136,14 +136,23 @@ To list all logical volumes, names, and their paths in a volume group:
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+The ```lvdisplay``` command also shows whether the volume groups are active are not. If the volume group is marked as inactive, it needs to be activated again to be mounted. If volume-group is shown as inactive, use the following command to activate it.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+After the volume group name is active, run the ```lvdisplay``` command once more to see all the relevant attributes.
 
 To mount the logical volumes to the path of your choice:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### For RAID arrays
