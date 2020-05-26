@@ -12,7 +12,7 @@ ms.author: memildin
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. 
 
@@ -221,9 +221,8 @@ You can turn off automatic provisioning from resources at any time by turning of
 
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 
-If you switch off auto provision after it was previously on:
--	Agents will not be provisioned on new VMs.
--	Security Center stops collecting data from the default workspace.
+If you switch off auto provision after it was previously on agents will not be provisioned on new VMs.
+
  
 > [!NOTE]
 >  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents.md#remove-oms).

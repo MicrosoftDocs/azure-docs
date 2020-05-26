@@ -3,7 +3,7 @@ title: Instance pools (preview)
 description: This article describes Azure SQL Database instance pools (preview).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

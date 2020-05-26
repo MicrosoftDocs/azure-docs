@@ -58,6 +58,10 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
 
 If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
 
+> [!TIP]
+>
+> If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly.
+
 To set up the appropriate permissions for password writeback to occur, complete the following steps:
 
 1. In your on-premises AD DS environment, open **Active Directory Users and Computers** with an account that has the appropriate *domain administrator* permissions.

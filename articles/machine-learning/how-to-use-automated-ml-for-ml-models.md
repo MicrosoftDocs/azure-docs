@@ -155,7 +155,7 @@ Kurtosis| Measure of how heavily tailed this column's data is compared to a norm
 
 ## Advanced featurization options
 
-Automated machine learning offers preprocessing and data guardrails automatically, to help you identify and manage potential issues with your data. 
+Automated machine learning offers preprocessing and data guardrails automatically, to help you identify and manage potential issues with your data, like [over-fitting and imbalanced data](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
 
 ### Preprocessing
 

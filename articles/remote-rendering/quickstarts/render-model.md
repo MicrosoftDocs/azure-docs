@@ -61,7 +61,7 @@ The default model we render is a [built-in sample model](../samples/sample-model
 
 1. In the Unity asset browser, navigate to the *Scenes* folder and open the **Quickstart** scene.
 1. From the *Hierarchy*, select the **RemoteRendering** game object.
-1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md).
+1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md). If you don't have an account yet, [create one](../how-tos/create-an-account.md).
 
 ![ARR Account Info](./media/arr-sample-account-info.png)
 

@@ -167,9 +167,9 @@ The final step is to enable the user you created to write the leads.
 To configure the lead management information for your offer in the publishing portal:
 
 1. Go to the **Offer setup** page for your offer.
-1. Select **Connect** under the **Lead management** section.
+1. Under the **Customer leads** section, select **Connect**.
 
-    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Customer leads":::
 
 1. In the Connection details pop-up window, select **Dynamics 365 Customer Engagement** for the lead destination.
 

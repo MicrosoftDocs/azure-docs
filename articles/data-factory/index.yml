@@ -12,7 +12,6 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  monikerRange: ""
 
 landingContent:
   - title: About Azure Data Factory
