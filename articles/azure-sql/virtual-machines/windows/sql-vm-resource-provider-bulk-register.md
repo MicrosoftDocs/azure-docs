@@ -1,6 +1,6 @@
 ---
-title: Bulk register SQL virtual machines in Azure with the SQL VM resource provider | Microsoft Docs
-description: Bulk register SQL Server VMs with the SQL VM resource provider to improve manageability. 
+title: Bulk register SQL virtual machines in Azure with the SQL Server VM resource provider | Microsoft Docs
+description: Bulk register SQL Server VMs with the SQL Server VM resource provider to improve manageability. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,16 +15,16 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Bulk register SQL virtual machines in Azure with the SQL VM resource provider
+# Bulk register SQL virtual machines in Azure with the SQL Server VM resource provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the `Register-SqlVMs` PowerShell cmdlet.
+This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL Server VM resource provider using the `Register-SqlVMs` PowerShell cmdlet.
 
 The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
-For more information about the resource provider, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
+For more information about the resource provider, see [SQL Server VM resource provider](sql-vm-resource-provider-register.md). 
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Example output: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -150,7 +150,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Specific VMs in single resource group
+## Specific VMs in a single resource group
 
 Use the following cmdlet to register specific SQL Server virtual machines within a single resource group:
 
@@ -201,7 +201,7 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 | **Output value** | **Description** |
 | :--------------  | :-------------- | 
 | Number of subscriptions registration failed for because you do not have access or credentials are incorrect | This provides the number and list of subscriptions that had issues with the provided authentication. The detailed error can be found in the log by searching for the subscription ID. | 
-| Number of subscriptions that could not be tried because they are not registered to the RP | This section contains the count and list of subscriptions that have not been registered to the SQL VM resource provider. |
+| Number of subscriptions that could not be tried because they are not registered to the RP | This section contains the count and list of subscriptions that have not been registered to the SQL Server VM resource provider. |
 | Total VMs found | The count of virtual machines that were found in the scope of the parameters passed to the cmdlet. | 
 | VMs already registered | The count of virtual machines that were skipped as they were already registered with the resource provider. |
 | Number of VMs registered successfully | The count of virtual machines that were successfully registered after running the cmdlet. Lists the registered virtual machines in the format `SubscriptionID, Resource Group, Virtual Machine`. | 
