@@ -21,16 +21,16 @@ Entities in your environment are represented by [digital twins](concepts-twins-g
 
 This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
-## Create a digital twin (preview)
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
+
+## Create a digital twin
 
 To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
 
 ```csharp
 await client.CreateDigitalTwinAsync("myNewTwinID", initData);
 ```
-
-> [!TIP]
-> All SDK functions come in synchronous and asynchronous versions.
 
 To create a digital twin, you need to provide:
 * The desired ID for the digital twin
@@ -41,29 +41,15 @@ Optionally, you can provide initial values for all properties of the digital twi
 > [!TIP]
 > Only properties that have been set at least once are returned when you retrieve a twin with GetDigitalTwin.  
 
-The model and initial property values are provided through the `initData` parameter, which is a json string that contains the relevant data.
+The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
 
 ### Initialize properties
 
 The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Concepts: Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
-You can create a parameter object either manually or by using a provided helper class.
+You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
-#### Creating Twins using the Helper Class
-```csharp
-BasicDigitalTwin twin = new BasicDigitalTwin();
-twin.Metadata = new DigitalTwinMetadata();
-twin.Metadata.ModelId = "dtmi:example:Room;1";
-// Initialize properties
-Dictionary<string, object> props = new Dictionary<string, object>();
-props.Add("Temperature", 25.0);
-props.Add("Humidity", 50.0);
-twin.CustomProperties = props;
-
-client.CreateDigitalTwin("myNewRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-```
-
-#### Creating Twins using manually created data
+#### Create twins using manually-created data
 
 ```csharp
 // Define the model type for the twin to be created
@@ -78,9 +64,23 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "Temperature", temperature},
     { "Humidity", humidity},
 };
-client.CreateDigitalTwin("myNewRoomId", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```
 
+#### Create twins with the helper class
+
+```csharp
+BasicDigitalTwin twin = new BasicDigitalTwin();
+twin.Metadata = new DigitalTwinMetadata();
+twin.Metadata.ModelId = "dtmi:example:Room;1";
+// Initialize properties
+Dictionary<string, object> props = new Dictionary<string, object>();
+props.Add("Temperature", 25.0);
+props.Add("Humidity", 50.0);
+twin.CustomProperties = props;
+
+client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 
 ## Get data for a digital twin
 
@@ -90,12 +90,9 @@ You can access the full data of any digital twin by calling:
 object result = await client.GetDigitalTwin(id);
 ```
 
-> [!TIP]
-> All SDK functions come in synchronous and asynchronous versions.
-
-> [!TIP] To retrieve multiple twins using a single API call, see the [query API](./how-to-query-graph.md).
-
 This call returns twin data as a JSON string. 
+
+To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
 
@@ -155,11 +152,9 @@ The defined properties of the digital twin are returned as top-level properties 
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
-You can parse the returned json for the twin using a json parsing library of your choice, for example `System.Text.Json`.
+You can parse the returned JSON for the twin using a JSON parsing library of your choice, such as `System.Text.Json`.
 
-You can also use the Serialization Helper class `BasicDigitalTwin` that is included with the SDK.
-
-It will return the core twin metadata and properties in pre-parsed form. For example:
+You can also use the serialization helper class `BasicDigitalTwin` that is included with the SDK, which will return the core twin metadata and properties in pre-parsed form. Here is an example:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);
@@ -172,7 +167,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-> [!TIP] See [How to use APIs and SDKs](./how-to-use-apis.md) for more information on the serialization helper classes.]
+You can read more about the serialization helper classes in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
 
 ## Update a digital twin
 
@@ -197,19 +192,9 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 ]
 ```
 
-You can create patches manually or using a helper class in the SDK.
+You can create patches manually, or by using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example of each.
 
-#### Create Patches using the helper class
-
-```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
-```
-
-> [!TIP] See [How to use APIs and SDKs](./how-to-use-apis.md) for more information on the serialization helper classes.]
-
-#### Create Patches manually
+#### Create patches manually
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -219,6 +204,14 @@ twinData.Add(new Dictionary<string, object>() {
 });
 
 await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+```
+
+#### Create patches using the helper class
+
+```csharp
+UpdateOperationsUtility uou = new UpdateOperationsUtility();
+uou.AppendAddOp("/Temperature", 25.0);
+await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
 ```
 
 ### Update properties in digital twin components
@@ -303,7 +296,7 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipsAsync will throw if an error occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
 
         await foreach (string relJson in relsJson)
@@ -325,7 +318,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw if an error occurs
+        // GetRelationshipssAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -343,7 +336,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### Delete all digital twins
 
-See the [`CommandDeleteAllTwins` function](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) in the ADTSampleApp tutorial (CommandLoop.cs) for an example for how to delete all twins.
+For an example of how to delete all twins at once, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
 
 ## Manage twins with CLI
 
