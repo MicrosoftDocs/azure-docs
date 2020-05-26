@@ -206,6 +206,17 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |||||
 
 
+
+|**Antimalware Action Taken**|Microsoft Antimalware has taken an action to protect this machine from nalware or other potentially unwanted software.|-|Medium|
+|**Burst of log deletions may indicate actions of an attacker**|Analysis of host data on TENABLE-NESSUS-MANAGERVM-001 detected a large nunber of system log files being removed. Attackers often perform this for defense evasion.|-|Medium|
+|**Burst of log deletions may indicate actions of an attacker [seen multiple times)**|Analysis of host data on TENABLE-NESSUS-MANAGERVM-001 detected a large number of system log files being removed. Attackers often perform this for defense evasion.This behaviour was seen over 100 times today on the following machines: [machine name]|-|Medium|
+|**Suspicious enumeration of host configuration**|Analysis of host data on IAC-VMOI detected possible malicious host enumeration. These commands are sonetimes run by a malicious actor when they initially corpromise a
+machine.|-|Medium|
+
+
+
+
+
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
 [Further details and notes](threat-protection.md#app-services)
