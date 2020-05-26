@@ -17,12 +17,11 @@ ms.author: memildin
 ---
 # Provide security contact details in Azure Security Center
 
-OPENER SHOULD COVER THE FOLLOWING:
+To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
 
-    the customer can configure security contact in order to get notifications from Azure Security center on new security alerts in his environments – and that by default (if no security contact defined) we will send notifications on high severity alerts to the resource owner 
-    email notifications could be send to specific email addresses or to users with specific RBAC roles on the subscription, and the user can choose to get notifications only on alerts from specific severities
+When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific RBAC role for a subscription. You can also choose the severity levels for the alerts to be emailed.
 
-
+By default, if no security contacts are defined, Azure Security Center sends notifications about high-severity alerts to the resource owner.  
 
 To avoid alert fatigue, Security Center restricts the volume of outgoing mails. For each subscription, Security Center sends:
 
@@ -32,18 +31,20 @@ To avoid alert fatigue, Security Center restricts the volume of outgoing mails. 
 
 
 
-> [!IMPORTANT]
-> This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Availability
+
+- Release state: **Generally Available**
+- Required roles: **Security Admin** or **Subscription Owner** 
+- Clouds: 
+    - ✔ Commercial clouds
+    - ✘ National/Sovereign (US Gov, Chinese Gov, Other Gov)
+
+
+
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-1. As a user with the role Security Admin or Subscription Owner, open the **Email notifications** page:
-
-    - For alerts, open **Pricing & settings**, select the relevant subscription, and select **Email notifications**.
-
-    - If you are implementing a recommendation, then Under **Recommendations**, select **Provide security contact details**, select the Azure subscription to provide contact information on. This opens **Email notifications**.
-
-   ![Provide security contact details][2]
+1. From Security Center's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
 
 1. Enter the security contact email address or addresses separated by commas. 
 There is no limit to the number of email addresses that you can enter.
@@ -54,6 +55,9 @@ There is no limit to the number of email addresses that you can enter.
 
 1. To apply the security contact information to your subscription, select **Save**.
 
+
+
+
 ## See also
 To learn more about Security Center, see the following:
 
@@ -61,8 +65,3 @@ To learn more about Security Center, see the following:
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-
-<!--Image references-->
-[1]: ./media/security-center-provide-security-contacts/provide-contacts.png
-[2]:./media/security-center-provide-security-contacts/provide-contact-details.png
