@@ -52,7 +52,7 @@ To build the JAR files and get started with the sample project, do the following
 
     ![Progress-java][5]
 
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 To add the client library to your own Maven project, add the following dependency in your POM file:
 
@@ -89,7 +89,7 @@ To download and run the sample, follow these steps:
 
    ![Progress][4]
 
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
 > We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -128,7 +128,7 @@ For more information about Elastic Database Tools, see the following articles:
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Discussion forum: [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
 * To measure performance: [Performance counters for shard map manager](elastic-database-client-library.md)
 
 <!--Anchors-->

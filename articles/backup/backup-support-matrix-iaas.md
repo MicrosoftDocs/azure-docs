@@ -43,7 +43,7 @@ Back up disks after migrating to managed disks | Supported.<br/><br/> Backup wil
 Back up managed disks after enabling resource group lock | Not supported.<br/><br/> Azure Backup can't delete the older restore points, and backups will start to fail when the maximum limit of restore points is reached.
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up by using the schedule and retention settings in new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
 Cancel a backup job| Supported during snapshot process.<br/><br/> Not supported when the snapshot is being transferred to the vault.
-Back up the VM to a different region or subscription |Not supported.
+Back up the VM to a different region or subscription |Not supported.<br><br>To successfully back up, virtual machines must be in the same subscription as the vault for backup.
 Backups per day (via the Azure VM extension) | One scheduled backup per day.<br/><br/>The  Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
 Backups per day (via the MARS agent) | Three scheduled backups per day.
 Backups per day (via DPM/MABS) | Two scheduled backups per day.
@@ -158,7 +158,7 @@ Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
-Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the Disks with Write Accelerator enabled during backup. Since they are not backed up, you will not be able to Restore these disks from Recovery-Points of the VM.
+Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the disks with Write Accelerator (WA) enabled during backup. Since they are not backed up, you will not be able to restore these disks from Recovery-Points of the VM. <br><br> **Important note**: Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup.)
 Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format. However, you will be able to successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.

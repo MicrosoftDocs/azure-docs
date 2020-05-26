@@ -108,7 +108,7 @@
       - name: Overview
         href: database/monitor-tune-overview.md
       - name: Intelligent Insights
-        href: intelligent-insights.md
+        href: database/intelligent-insights-overview.md
       - name: SQL Analytics
         href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
       - name: Automatic tuning
@@ -146,6 +146,12 @@
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Store vulnerability scans in storage
         href: database/sql-database-vulnerability-assessment-storage.md
+      - name: Always Encrypted
+        items: 
+        - name: Use the Azure key vault
+          href: database/always-encrypted-azure-key-vault-configure.md
+        - name: Use the certificate store
+          href: database/always-encrypted-certificate-store-configure.md
 
   
     - name: Monitor & tune
@@ -236,6 +242,7 @@
         href: database/service-tiers-prs.md     
 
   - name: Quickstarts
+    href: database/quickstart-content-reference-guide.md
     items:
     - name: Create database
       items:
@@ -348,7 +355,7 @@
         - name: Azure SQL Auditing
           href: database/auditing-overview.md
         - name: Audit log format
-          href: database/audit-log-format.md          
+          href: database/audit-log-format.md
         - name: Network access controls
           href: database/network-access-controls-overview.md
         - name: DNS aliases
@@ -491,12 +498,6 @@
         href: database/firewall-configure.md
       - name: vNet endpoints - PowerShell
         href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
-      - name: Always Encrypted
-        items: 
-        - name: Use the certificate store
-          href: database/always-encrypted-certificate-store-configure.md
-        - name: Use the Azure key vault
-          href: database/always-encrypted-azure-key-vault-configure.md
 
     - name: Business continuity
       items: 
@@ -697,6 +698,7 @@
     - name: Release notes
       href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
   - name: Quickstarts
+    href: managed-instance/quickstart-content-reference-guide.md
     items:
     - name: Create 
       items:

@@ -89,13 +89,13 @@ After you apply this recommendation, it enables forced parameterization within m
 ## Fix schema issues recommendations (preview)
 
 > [!IMPORTANT]
-> Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](../intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
+> Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](intelligent-insights-overview.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 
 **Fix schema issues** recommendations appear when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
 "Schema issues" are a class of syntax errors. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa.
 
-The "Fix schema issue" recommendation appears when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
+The "Fix schema issue" recommendation appears when Azure SQL Database notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
 
 | SQL error code | Message |
 | --- | --- |
@@ -113,5 +113,5 @@ Developers might consider developing custom applications using performance recom
 ## Next steps
 
 - For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](automatic-tuning-overview.md).
-- For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](../intelligent-insights.md).
+- For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](intelligent-insights-overview.md).
 - See [Query Performance Insights](query-performance-insight-use.md) to learn about and view the performance impact of your top queries.

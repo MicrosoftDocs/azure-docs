@@ -38,6 +38,19 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 }
 ```
 
+```cpp
+void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEntity)
+{
+    ApiHandle<CutPlaneComponent> cutPlane = session->Actions()->CreateComponent(ObjectType::CutPlaneComponent, ownerEntity)->as<CutPlaneComponent>();;
+    cutPlane->Normal(Axis::X); // normal points along the positive x-axis of the owner object's orientation
+    Color4Ub fadeColor;
+    fadeColor.channels = { 255, 0, 0, 128 }; // fade to 50% red
+    cutPlane->FadeColor(fadeColor);
+    cutPlane->FadeLength(0.05f); // gradient width: 5cm
+}
+```
+
+
 ### CutPlaneComponent properties
 
 The following properties are exposed on a cut plane component:
