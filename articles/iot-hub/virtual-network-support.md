@@ -172,6 +172,8 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 
 2. Select **Storage Blob Data Contributor** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
+ >> Please make sure selected role is Storage Blob Data Contributor and **not** Contributor otherwise IoT Hub service will not be able to route to storage endpoint because of permission issue
+
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
 You can now use the Azure IoT REST APIs for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
