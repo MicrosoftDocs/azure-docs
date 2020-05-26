@@ -20,6 +20,8 @@ manager: lizross
 
 Microsoft Teams on Windows Virtual Desktop supports chat and collaboration, and with media optimizations, calling and meeting functionality are also supported. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi).
 
+With media optimization for Microsoft Teams, the Windows Desktop client handles audio and video locally for Teams calls and meetings. You can still use Microsoft Teams on Windows Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms. To redirect local devices in your remote session, check out [Customize Remote Desktop Protocol properties for a host pool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
+
 ## Prerequisites
 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
@@ -67,7 +69,7 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
 
       To uninstall the MSI from the host VM, run this command:
 
-      ```shell
+      ```console
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -75,10 +77,6 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
 
       > [!NOTE]
       > When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
-
-### Revert to unoptimized teams
-
-To revert to unoptimized Teams in your Windows Virtual Desktop environment, uninstall the Teams WebSocket Service.
 
 ## Known issues and limitations
 
@@ -109,5 +107,4 @@ For Teams known issues that aren't related to virtualized environments, see [Sup
 For issues with Microsoft Teams, check out the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
 
 ## Customize Remote Desktop Protocol properties for a host pool
-Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience, enabling Microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
-See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.
+Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience, enabling Microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs. To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
