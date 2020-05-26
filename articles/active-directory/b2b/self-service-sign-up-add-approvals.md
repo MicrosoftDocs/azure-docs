@@ -219,7 +219,7 @@ The following HTTP POST request can be used to create a user account:
 > The `mail` parameter should be equivalent to `email_address` claim sent from a user flow. 
 
 > [!NOTE]
-> 
+> Aside from `userPrincipalName`, `accountEnabled`, `mail`, and `mailNickname`, the rest of the user attributes, including custom attributes, are the same serialized format as that of the claims sent by the API connector.  
 
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
@@ -259,15 +259,13 @@ PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
 ```
 
 > [!NOTE]
-> These parameters, including custom attributes, are the same format as what that of the claims sent by the API connector. 
+> These user attributes, including custom attributes, are the same serialized format as that of the claims sent by the API connector. 
 
 > [!NOTE]
-> **mail** can't be set using the PATCH method, but is already set by the **invitedUserEmailAddress** value.
+> **mail** can't be set using the PATCH method, but it is already set by the **invitedUserEmailAddress** value.
 
-#### Attributes
+#### Custom Attributes
 Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
-
-Aside from `userPrincipalName`, `accountEnabled`, `mail`, and `mailNickname`, the rest of the user attributes, including custom attributes, are the same serialized format as that of the claims sent by the API connector.  
 
 ## Further reference
 - See an example approval system with the [Woodgrove self service sign up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->

@@ -54,6 +54,8 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 > If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
 <!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
 
+> [!NOTE]
+> Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. More information regarding custom & extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
  
 ## Enable the API connector in a user flow
 
@@ -70,6 +72,7 @@ These steps show how to add an API connector to a self-service sign-up user flow
    ![Add APIs to the user flow](./media/api-connectors/create-new/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
+
 
 ## Next steps
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
