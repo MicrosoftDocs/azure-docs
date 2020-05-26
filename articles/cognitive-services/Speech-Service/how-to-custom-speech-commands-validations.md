@@ -1,5 +1,5 @@
 ---
-title: 'Add validations to parameters in Custom Commands Preview - Speech service'
+title: 'Add validations in Custom Commands Preview - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to add validations to a command parameter in a Custom Commands Preview app.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# How To: Add validations to a custom command parameter in a Custom Commands Preview application
+# How To: Add validations to a command parameter in a Custom Commands Preview application
 
 In this article, you'll learn how to add validations to parameters and prompts for correction.
 
@@ -27,7 +27,7 @@ Complete the steps in the following articles:
 
 ## Create a SetTemperature command
 
-To demonstrate validations, let's create a new command that allows users to set temperature.
+To demonstrate validations, create a new command that allows users to set temperature.
 
 1. In [Speech Studio](https://speech.microsoft.com/), open the Custom Commands Preview app that you created.
 1. Create a new **SetTemperature** command.
@@ -57,7 +57,7 @@ To demonstrate validations, let's create a new command that allows users to set 
 
 1. Select **Create**.
 
-1. Add some example sentences:
+1. Add some example sentences.
 
    ```
    set the temperature to {Temperature} degrees
@@ -77,12 +77,11 @@ To demonstrate validations, let's create a new command that allows users to set 
 > [!TIP]
 > This example uses a speech response to confirm the result. For examples on completing the command with a client action, see [How To: Fulfill commands on the client with the Speech SDK](./how-to-custom-speech-commands-fulfill-sdk.md).
 
-
 ## Try it out
 
 1. Select **Train**.
 
-1. After training is done, select **Test**, and then try a few interactions:
+1. After training is done, select **Test**, and then try these interactions:
 
     - Input: Set the temperature to 72 degrees
     - Output: Ok, setting temperature to 72 degrees
@@ -94,4 +93,4 @@ To demonstrate validations, let's create a new command that allows users to set 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add a confirmation to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-confirmations.md)
+> [How To: Add confirmations to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-confirmations.md)
