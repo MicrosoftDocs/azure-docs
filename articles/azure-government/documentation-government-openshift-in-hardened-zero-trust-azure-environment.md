@@ -19,11 +19,11 @@ Here are the architectural components of the solution.
 
 ## Deploying the solution
 * *Secure Infrastructure*. Use the [Zero Trust Blueprint](https://github.com/Azure/ato-toolkit/tree/master/automation/zero-trust-architecture) to setup strongly governed components like networking, storage, and monitoring that abide by the Zero Trust "never trust, always verify" philosophy on Azure
-* *Container Orchestration*. Use the secure OpenShift deployment (OneDrive link). 
-* *Workload*. Use the Iron Bank verification script to ensure you're using a secure Docker image 
+* *Container Orchestration*. Use the [secure OpenShift deployment](https://microsoft-my.sharepoint.com/:u:/p/v-ryasch/EYM8eLuaDPNFii4wI31ydqkBzWnZHUQsO7GogyAww0JISQ?e=0W819L) to deploy a functional OpenShift 3.11 cluster
+* *Workload*. Use the [Iron Bank verification script](https://microsoft-my.sharepoint.com/:u:/p/v-ryasch/EdFfT3rw6ZNMh5qKQWpctoIBsSAaHVTt46xB7Zam8l6B8Q?e=Sqjldp) to ensure you're using a secure Docker image 
 
 > [!NOTE]
-> For more information on Parts 2 and 3 of solution deployment, e.g. Container Orchestration and Workload, please [contact Microsoft-trusted partner CloudFit] (https://www.cloudfitsoftware.com/contact-us/)
+> For more information on Parts 2 and 3 of solution deployment, e.g. Container Orchestration and Workload, please [contact Microsoft-trusted partner CloudFit](https://www.cloudfitsoftware.com/contact-us/)
 > 
 > 
 
