@@ -30,7 +30,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 1. Open Azure AD [Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) and sign in with Privileged role administrator or Global administrator permissions in the Azure AD organization.  
 
-1. Select Privileged Identity Management > Azure AD roles > Roles > Add member
+1. Select Privileged Identity Management > Azure AD roles > Roles > Add assignment
 
     ![Azure AD roles](./media/roles-groups-pim-eligible/roles-list.png)
 
