@@ -10,6 +10,7 @@ This solution aims to help app developers and security administrators achieve De
 
 ## Components of the solution
 Here are the architectural components of the solution.
+
 ![Pyramid](./media/pyramid.PNG)
 
 * *Secure Infrastructure*. This layer is secure infrastructure. Developers and security admins need strongly governed components like networking, storage, and monitoring, that abide by the Zero Trust “never trust, always verify” philosophy. When you leverage a Zero Trust model it becomes possible to ensure every request is authenticated, authorized, and inspected before granting access.
