@@ -21,35 +21,11 @@ This article will walk you through the basic steps to set up a new Azure Digital
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add the IoT extension to Cloud Shell
-
-Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-> [!NOTE]
-> This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
-> Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
-> Use `az extension add --name azure-iot` to add the new version of the extension. 
-> To see what extensions you have installed, use `az extension list`.
-
-> [!TIP]
-> You can run `az dt -h` to see the top-level Azure Digital Twins commands.
+[!INCLUDE [Cloud shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## Set up an Azure Digital Twins instance
 
-Begin by logging in, setting the shell context to your subscription, and registering with the Azure Digital Twins namespace.
-
-```azurecli
-az account set --subscription <your-Azure-subscription-ID>
-az provider register --namespace 'Microsoft.DigitalTwins'
-```
-
-Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
+Next, run the following commands to create a new Azure resource group for use in this how-to, and then create a new instance of Azure Digital Twins in this resource group.
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
