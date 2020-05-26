@@ -18,18 +18,17 @@ ms.collection: M365-identity-device-management
 
 # Use API connectors to customize and extend your user flows via Web APIs
 
-As a developer, IT administrator, etc., you can use API connectors to integrate with your own web APIs as part of your [self-service sign-up user flow](self-service-portal.md). You can use API connectors to:
+As a developer, IT administrator, etc., you can use API connectors to integrate with your own web APIs as part of your [self-service sign-up user flow](self-service-sign-up-overview.md). You can use API connectors to:
 
-- [**Enable third party approvals**](self-service-sign-up-add-approvals.md) – Enable an external user approval system for managing who successfully signs up to your tenant.
+- [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing who successfully signs up to your tenant.
 - **Overwrite input claims** - Reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
-- **Enrich user data** - Integrate with corporate line-of-business applications. For example, your API can receive the user's email address, query a database, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
-- **Validate user input data** - Prevent malformed or invalid data from persisting into Azure AD. For example, you can perform identity proofing or validate user provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign up flow.
+- **Enrich user data** - Integrate with your cloud systems that have user information. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
+- **Validate user input data** - Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign up flow.
 - **Run custom business logic** - You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
-
 
 An API connector represents a contract between Azure AD and an API endpoint by defining the HTTP **endpoint**, **authentication**, **request** and **expected response**. Once you configure an API connector, you can enable it for a specific step in a user flow. 
 
-An API connector materializes as an **HTTP POST** request, sending the claims as key-value pairs in a JSON body. The response should also have the HTTP header **Content-Type: application/json**. Attributes are serialized in the same way as for Microsoft Graph. <!--# TODO: Add link to MS Graph or create separate reference.-->
+An API connector materializes as an **HTTP POST** request, sending the claims as key-value pairs in a JSON body. The response should also have the HTTP header **Content-Type: application/json**. Attributes are serialized in the same way as user attributes in Microsoft Graph. <!--# TODO: Add link to MS Graph or create separate reference.-->
 
 ## Where you can enable an API connector for a user flow
 There are two places in the *sign up* path of a user flow in which an API connector may be used.
@@ -66,12 +65,15 @@ When the web API receives an HTTP request from Azure AD during a user flow, it c
 A continuation response indicates for the user flow to continue to the next step. In a continuation response, the API can send back claims. 
 
 A claim returned from the API:
-- If before an attribute collection page, prefills the input field if it is selected as a 'User attribute' for the user flow.
+- If before an attribute collection page, pre-fills the input field. Must be selected as a 'User attribute' for the user flow.
 - Overrides any existing value of the claim.
-- Is assigned to the claim if one hasn't been assigned. 
+- Assigns a value to the claim if it was previously null. 
 
 > [!NOTE]
-> A claim is only stored in the directory if it is collected in the attribute collection page by being selected in the **'User attributes'** blade.
+> To return a claim in the token, select it in the **Application claims** blade.
+
+> [!NOTE]
+> A claim is only stored in the directory if it is collected in the attribute collection page by being selected in the **User attributes** blade.
 
 The following is an example of a continuation response:
 
@@ -85,6 +87,7 @@ Status code: 200
 };  
 ```
 `version` and `action` are required in the response.
+
 
 ### Exit response
 
@@ -126,7 +129,7 @@ Status code: 400
 ![Example validation page](./media/api-connectors/<insert-image>)
 
 > [!CAUTION]
-> If an invalid response is returned or some other error occurs (e.g. network error), the user flow will be stopped and the user will be shown a generic error message and asked to try again.
+> If an invalid response is returned or some other error occurs (e.g. network error), the user flow will be shown a block page with a generic error message and asked to try again.
 
 
 ## Frequently asked questions (FAQ)
@@ -136,5 +139,5 @@ You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/en-u
 
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
-- Learn how to [add an approval system to self service sign up](self-service-sign-up-add-approvals.md)
+- Learn how to [add a custom approval system to self service sign up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->

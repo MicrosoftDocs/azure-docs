@@ -27,21 +27,21 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 3. In the left menu, select **External Identities**.
 4. Select **All API connectors (Preview)**, and then select **New API connector**.
 
-    ![Add a new API connector](./media/api-connectors-set-up-api/api-connectors-new-api.png)
+    ![Add a new API connector](./media/api-connectors/create-new/api-connector-new.png)
 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
 > [!NOTE]
-> Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, put in a dummy **Username** and **Password**, your API can ignore it. For use with an Azure Functions with an API key, you can include the code as a query parameter in the **Endpoint URL** ( e.g. https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+> Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, put in a dummy **Username** and **Password**, your API can ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( e.g. https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
-   ![Configure an API connector](./media/api-connectors-set-up-api/api-connectors-configure.png)
+   ![Add a new API connector](./media/api-connectors/create-new/api-connector-config.png)
 
 8. Select the claims that you want to send to the API. 
 9. Select any claims that you plan to receive back from the API, if any.
  
- ![Set API connector claims](./media/api-connectors-set-up-api/api-connectors-claims.png)
+ ![Set API connector claims](./media/api-connectors/create-new/api-connectors-claims.png)
 10. Select **Save**.
 
 > [!TIP]
@@ -49,6 +49,10 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 > [!NOTE]
 > The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
+
+> [!NOTE]
+> If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
+<!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?>
 
  
 ## Enable the API connector in a user flow
@@ -63,12 +67,12 @@ These steps show how to add an API connector to a self-service sign-up user flow
    - **After signing in with an identity provider**
    - **Before creating the user**
 
-   ![Add APIs to the user flow](./media/api-connectors-user-flow/api-connectors-user-flow-select.png)
+   ![Add APIs to the user flow](./media/api-connectors/create-new/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
 
 ## Next steps
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-API-connector-for-a-user-flow)
-- Learn how to [add an approval system to self service sign up](self-service-sign-up-add-approvals.md)
+- Learn how to [add a custom approval system to self service sign up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
