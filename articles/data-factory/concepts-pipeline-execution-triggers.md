@@ -311,11 +311,11 @@ The following table describes the **schedule** elements in detail:
 
 | JSON element | Description | Valid values |
 | --- | --- | --- |
-| **minutes** | Minutes of the hour at which the trigger runs. |- Integer<br />- Array of integers|
-| **hours** | Hours of the day at which the trigger runs. |- Integer<br />- Array of integers|
-| **weekDays** | Days of the week the trigger runs. The value can be specified only with a weekly frequency.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Array of day values (maximum array size is 7)<br /><br />Day values aren't case-sensitive|
-| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Array of **monthlyOccurrence** objects: `{ "day": day, "occurrence": occurrence }`<br />- The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.<br />- The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.|
-| **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31<br />- Array of values|
+| **minutes** | Minutes of the hour at which the trigger runs. |- Integer<br />- Array of integers |
+| **hours** | Hours of the day at which the trigger runs. |- Integer<br />- Array of integers |
+| **weekDays** | Days of the week the trigger runs. The value can be specified only with a weekly frequency.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Array of day values (maximum array size is 7)<br /><br />Day values aren't case-sensitive |
+| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Array of **monthlyOccurrence** objects: `{ "day": day, "occurrence": occurrence }`<br />- The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.<br />- The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional. |
+| **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31<br />- Array of values |
 
 ## Tumbling window trigger
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals.
