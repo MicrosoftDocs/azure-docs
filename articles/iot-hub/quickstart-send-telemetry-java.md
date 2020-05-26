@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt]
-ms.date: 05/21/2020
+ms.date: 05/26/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
