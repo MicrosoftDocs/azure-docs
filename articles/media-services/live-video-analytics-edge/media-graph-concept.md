@@ -16,7 +16,7 @@ ms.date: 04/27/2020
 
 Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a media graph.   
 
-![A graphical representation of a media graph](./media/media-graph/graphical-representation-media-graph.png)
+![A graphical representation of a media graph](./media/media-graph/overview.png)
 
 Media graph has the following nodes:
 
