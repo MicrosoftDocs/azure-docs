@@ -202,7 +202,7 @@ Azure Batch creates and manages a set of users and groups on the VM, which shoul
 
 #### Linux
 
-    - A user named **_azbatch**
+    - A user named **\_azbatch**
 
 ### File cleanup
 
