@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/26/2020
 ms.author: iainfou
 ---
 
@@ -30,16 +30,17 @@ The migration process takes an existing Azure AD DS instance that uses the Class
 
 After migration, Azure AD DS provides many features that are only available for domains using Resource Manager deployment model, such as the following:
 
-* [Fine-grained password policy support][password-policy]
-* Faster synchronization speeds between Azure AD and Azure AD Domain Services
-* Two new [attributes that synchronize from Azure AD][attributes]- *manager* and *employeeID*
-* Access to higher-powered domain controllers when you [upgrade the SKU][skus]
-* AD account lockout protection
-* [Email notifications alerts][email-alerts]
-* [Use Azure Workbooks and Azure monitor to view audit logs and sign-in activity][workbooks]
-* In supported regions, [Azure Availability Zones][availability-zones]
-* Integrations with other Azure products such as [Azure Files][azure-files], [HD Insights][hd-insights], and [Windows Virtual Desktop][wvd]
-* Support has access to more telemetry and can help troubleshoot more effectively
+* [Fine-grained password policy support][password-policy].
+* Faster synchronization speeds between Azure AD and Azure AD Domain Services.
+* Two new [attributes that synchronize from Azure AD][attributes] - *manager* and *employeeID*.
+* Access to higher-powered domain controllers when you [upgrade the SKU][skus].
+* AD account lockout protection.
+* [Email notifications for alerts on your managed domain][email-alerts].
+* [Use Azure Workbooks and Azure monitor to view audit logs and sign-in activity][workbooks].
+* In supported regions, [Azure Availability Zones][availability-zones].
+* Integrations with other Azure products such as [Azure Files][azure-files], [HD Insights][hd-insights], and [Windows Virtual Desktop][wvd].
+* Support has access to more telemetry and can help troubleshoot more effectively.
+* Encryption at rest using [Azure Managed Disks][managed-disks] for the data on the managed domain controllers.
 
 Azure AD DS managed domains that use a Resource Manager deployment model help you stay up-to-date with the latest new features. New features aren't available for Azure AD DS managed domains that use the Classic deployment model.
 
@@ -58,3 +59,4 @@ To get started, see [Migrate Azure AD Domain Services from the Classic virtual n
 [availability-zones]: ../availability-zones/az-overview.md
 [howto-migrate]: migrate-from-classic-vnet.md
 [attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds
+[managed-disks]: ../virtual-machines/windows/managed-disks-overview.md
