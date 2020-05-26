@@ -32,6 +32,9 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/office365
 - Your tenant must have unified auditing enabled. Tenants with Office 365 E3 or E5 licenses have unified auditing enabled by default. <br>If your tenant does not have one of these licenses, you must enable unified auditing on your tenant using one of these methods:
     - [Using the Set-AdminAuditLogConfig cmdlet](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) and enable the parameter “UnifiedAuditLogIngestionEnabled”).
     - [Using the Security & Compliance Center UI](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
+   
+   > [!NOTE]
+   > Currently The O365 Data Connector only captures Exchange and Sharepoint Activty automatically as mentioned on the connector page in the Data types section. We recommend you to check [this article in case you require Teams Audit data and protect Teams using Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
 
 ## Connect to Office 365
 

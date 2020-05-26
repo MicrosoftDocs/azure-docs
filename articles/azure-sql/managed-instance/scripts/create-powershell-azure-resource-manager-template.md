@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: Use this Azure PowerShell example script to create an Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: seo-dt-2019, sqldbrb=1
+ms.subservice: operations
+ms.custom: "seo-dt-2019"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft

@@ -10,7 +10,7 @@
     items:
     - name: Start analyzing costs
       href: quick-acm-cost-analysis.md
-    - name: Create a budget using a template
+    - name: Create a budget - ARM template
       href: quick-create-budget-template.md
       displayName: ARM template, resource manager template
   - name: Tutorials

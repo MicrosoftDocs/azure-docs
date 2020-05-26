@@ -237,7 +237,7 @@ The script starts with commands to clean up after a possible previous run, and i
 The PowerShell script printed a few named values when it ended. You must edit the Transact-SQL script to use those values. Find **TODO** in the Transact-SQL script to locate the edit points.
 
 1. Open SQL Server Management Studio (ssms.exe).
-2. Connect to your Azure SQL Database database.
+2. Connect to your database in Azure SQL Database.
 3. Click to open a new query pane.
 4. Paste the following Transact-SQL script into the query pane.
 5. Find every **TODO** in the script and make the appropriate edits.

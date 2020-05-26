@@ -14,10 +14,10 @@ You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/b
 Backup for Azure file shares is available in the following GEOS:
 
 **GA regions**:<br>
-Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA),Switzerland West (SZW), UAE Central (UAC), Norway East (NWE),India West (INW), Australia Central (ACL), Korea Central (KRC), Japan West (JPW), South Africa North (SAN), UK West (UKW), Korea South (KRS), Germany North (GN), Norway West (NWW), South Africa West (SAW), Switzerland North (SZN), Germany West Central (GWC), UAE North(UAN), France Central (FRC), India Central (INC), Canada East (CNE), East Asia (EA), Australia East (AE),  Central US (CUS), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD Central (UDC), US DoD East (UDE)
+Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), South Central US (SCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA),Switzerland West (SZW), UAE Central (UAC), Norway East (NWE),India West (INW), Australia Central (ACL), Korea Central (KRC), Japan West (JPW), South Africa North (SAN), UK South (UKS), UK West (UKW), Korea South (KRS), North Europe (NE), Germany North (GN), Norway West (NWW), South Africa West (SAW), Switzerland North (SZN), Germany West Central (GWC), UAE North(UAN), France Central (FRC), India Central (INC), Canada East (CNE), East Asia (EA), Australia East (AE),  Central US (CUS), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD Central (UDC), US DoD East (UDE)
 
 **Supported regions (as part of preview) but not yet GA**:<br>
-East US (EUS), East US 2 (EUS2), North Europe (NE), South Central US (SCUS), UK South (UKS), West Europe (WE)
+East US (EUS), East US 2 (EUS2), West Europe (WE)
 
 ## Supported storage accounts
 
