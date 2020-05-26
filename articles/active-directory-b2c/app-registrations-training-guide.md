@@ -15,14 +15,14 @@ ms.subservice: B2C
 
 # The new app registration experience for Azure AD B2C
 
-There are many improvements in the new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure AD B2C. If you're more familiar with the legacy **Applications** experience for registering applications for Azure AD B2C, referred to here as the **"old experience"** this guide will get you started using the new experience.
+The new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure AD B2C is now generally available. If you're more familiar with the legacy **Applications** experience for registering applications for Azure AD B2C, referred to here as the **"old experience"** this guide will get you started using the new experience.
 
 ## Overview
 Previously, you had to manage your B2C consumer-facing applications separately from the rest of your apps using the old experience. That meant different app creation experiences across different places in Azure.
 
-The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. Whether you need to manage a customer-facing app or an app that has access Microsoft Graph for DevOps scenerios, you only need to learn one way to do things.
+The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. Whether you need to manage a customer-facing app or an app that has access Microsoft Graph for DevOps scenarios, you only need to learn one way to do things.
 
-This feature improvement can be reached by navigating to **App registrations** in a B2C tenant. You can do this through the **Azure AD B2C** extension or the **Azure Active Directory** extension in the Azure portal.
+You can reach the new experience by navigating to **App registrations** in a B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** extensions in the Azure portal.
 
 The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/en-us/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for any Azure AD tenant, but is tailored for Azure AD B2C tenants.
 
@@ -38,7 +38,11 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 -   **Combined app registration** allows you to quickly register an app whether it's a customer-facing app or an app to access Microsoft Graph.
 
--   **Owners** and **Manifest** are now available for apps that authenticate with Azure AD B2C. You can add owners for your registrations and directly edit application properties using the manifest editor.
+- **Endpoints** pane lets you quickly identify the relevant endpoints for your scenario including OpenID connect configuration, SAML metadata, Microsoft Graph API, and [OAuth 2.0 user flow endpoints](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tokens-overview#endpoints). 
+
+- **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph and Azure AD Graph permissions to an app.
+
+-   **Owners** and **Manifest** are now available for apps that authenticate with Azure AD B2C. You can add owners for your registrations and directly edit application properties [using the manifest editor](reference-app-manifest.md).
 
 
 ## New supported account types
@@ -52,117 +56,62 @@ To understand the different account types, select **Help me choose** in the crea
 
 In the old experience, apps were always created as customer-facing applications. Those apps have their account type set to the **'Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C.'** option. 
 
-> [!IMPORTANT]
+
 > This option is required to be able to run Azure B2C user flows to authenticate users for this application. [Learn how to register an application for use with user flows.](tutorial-register-applications.md)
 
 Now, you can also use this option  to use Azure AD B2C as a SAML Service Provider. [Learn more.](identity-provider-adfs2016-custom.md)
 
-## Applications for DevOps scenarios
-You can use the other account types to create an app to manage your DevOps scenarios like uploading Identity Experience Framework policies or provisioning users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+## Applications for DevOps or user management scenarios
+You can use the other account types to create an app to manage your DevOps scenarios like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
-> [!NOTE]
-> 
+## Offline_access+openid scopes and Admin consent
+Azure AD B2C does not support user consent. That is, when a user signs into an application, the user does not see a consent screen requesting consent for the application permissions. Thus, all permissions have to be granted admin consent. 
 
-The **Accounts in this organizational directory only** option can also be used for registering the IdentityExperienceFramework and ProxyIdentityExperienceFramework apps for custom policies. [Learn more.](custom-policy-get-started.md)
+The **openid** scope is necessary so that Azure AD B2C can sign in users to an app. The **offline_access** scope is needed to issue refresh tokens for a user. These scopes were previously added and given admin consent by added default. Now, you can easily add them during the creation process.
 
-## App management page
+Learn more about [permissions and consent](../active-directory/develop/v2-permissions-and-consent.md).
 
-The old experience had a single app management page for apps
-with the following sections: Properties, Application secrets, Platforms,
-Owners, Microsoft Graph Permissions, Profile, and Advanced Options.
+## Platforms/Authentication: Reply URLs/redirect URIs
+In the old experience, the various platform types were managed under **Properties** as reply urls for web apps/APIs and Redirect URI for Native clients. 'Native clients' are also known as 'Public clients'. These include apps that run on iOS, macOS, Android, and other mobile and desktop application types. 
 
-The new experience in the Azure portal presents these features in
-separate pages. Here's where you can find the equivalent functionality:
+In the new experience, reply URLs and redirect URIs are both referred to as Redirect URLs and can be found on an app\'s **Authentication** section. App registrations aren't limited to being either a web app/API or a native application. You can use the same app registration for all of these apps by registering the respective redirect URIs. 
 
-- Properties - Name and Application ID is on the Overview page.
-- Application Secrets is on the Certificates & secrets page
-- Platforms configuration is on the Authentication page
-- Microsoft Graph permissions is on the API permissions page along with other permissions
-- Profile is on Branding page
-- Advanced option - Live SDK support is on the Authentication page.
+Redirect URIs are required to be associated with an app type (web or Public (mobile and desktop)). [Learn more about Redirect URIs](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+
+Whether an application should be treated as public client is inferred if possible at run-time from the Redirect URI platform type. The 'Treat application as a public client' should be said to yes for flows that may not use a redirect URI, such as ROPC flows.
+
+The **iOS/macOS** and **Android** platforms are a type of Public client. They provide an easy way to configure iOS/macOS or Android apps with corresponding Redirect URIs for use with MSAL. Learn more about [Application configuration options](../active-directory/develop/msal-client-applications.md).
+
 
 ## Application secrets/Certificates & secrets
 
 In the new experience, instead of **Keys**, you have the
 **Certificates & secrets** blade to manage certificates and secrets. Credentials enable applications to identify themselves to the authentication service when receiving tokens at a web addressable location (using an HTTPS scheme). We recommend using a certificate instead of a client secret for client credential scenarios when authenticating against Azure AD. Please note certificates cannot be used to authenticate against Azure AD B2C.
 
-## Platforms/Authentication: Reply URLs/redirect URIs
-In the old experience, an app had Platforms section for Web, native, and
-Web API to configure Redirect URLs, Logout URL and Implicit flow.
 
-In the new experience, Reply URLs can be found on an app\'s
-Authentication section. In addition, they are referred to as redirect
-URIs and the format for redirect URIs has changed. They are required to
-be associated with an app type (web or public client - mobile and
-desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+## What's the difference between App Registrations for Azure AD tenants and Azure AD B2C tenants?
+The following are not applicable to Azure AD B2C tenants via App Registrations:
+- **Roles and administrators** - not applicable to Azure AD B2C tenants.
+- **Extensive branding and publisher verification** - UX customization is done using user flows. Publisher verification is not applicable to Azure AD B2C tenants.
+- **Token configuration** - the token is configured in a user flow.
+- The **Quickstarts** blade is currently not shown for Azure AD B2C tenants.
+- The **Integration assistant** blade is currently not shown for Azure AD B2C tenants.
 
-Web APIs are configured in Expose an API page.
-
-> [!NOTE]
-> Try out the new Authentication settings experience where you can
-configure settings for your application based on the platform or device
-that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
-
-## Microsoft Graph permissions/API permissions
-
--   When selecting an API in the old experience, you could choose from
-    Microsoft Graph APIs only. In the new experience, you can choose
-    from many Microsoft APIs including Microsoft Graph, APIs from your
-    organization and your APIs, this is presented in three tabs:
-    Microsoft APIs, APIs my organization uses, or My APIs. The search
-    bar on APIs my organization uses tab searches through service
-    principals in the tenant.
-
-    > [!NOTE]
-    > You won't see this tab if your application isn't
-    associated with a tenant. For more info on how to request
-    permissions using the new experience, see [this
-    quickstart](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
-
--   The old experience did not have a **Grant permissions** button. In the
-    new experience, there's a Grant consent section with a **Grant admin consent** button on an app's API permissions section. Only an       admin can grant consent and this button is enabled for admins only. When an admin selects the **Grant admin consent** button, admin     consent is granted to all the requested permissions.
-
-## Profile
-In the old experience, Profile had Logo, Home page URL, Terms of Service
-URL and Privacy Statement URL configuration. In the new experience,
-these can be found in Branding page.
-
-## Application manifest
-In the new experience, Manifest page allows you to edit and update app's
-attributes. For more info, see [Application manifest](reference-app-manifest.md).
-
-## New UI
-There's new UI for properties that could previously only be set using
-the manifest editor or the API, or didn't exist.
-
--   Implicit grant flow (oauth2AllowImplicitFlow) can be found on the
-    Authentication page. Unlike the old experience, you can enable
-    access tokens or ID tokens, or both.
-
--   Scopes defined by this API (oauth2Permissions) and Authorized client
-    applications (preAuthorizedApplications) can be configured through
-    the Expose an API page. For more info on how to configure an app to
-    be a web API and expose permissions/scopes, see [this
-    quickstart](quickstart-configure-app-expose-web-apis.md).
-
--   Publisher domain (which is displayed to users on the [application\'s
-    consent
-    prompt](application-consent-experience.md))
-    can be found on the Branding page. For more info on how to
-    configure a publisher domain, see [this
-    how-to](howto-configure-publisher-domain.md).
 
 ## Limitations
-
 The new experience has the following limitations:
-
+-   At this time, Azure AD B2C does not differentiate between being able to issue Access and ID tokens for implicit flows; both type of tokens are available for implicit grant flow if the **ID tokens** option is selected in the **Authentication** blade.
 -   Changing the value for supported accounts is not supported in the
     UI. You need to use the app manifest unless you\'re switching
     between Azure AD single-tenant and multi-tenant.
+- Azure B2C does not currently support the Single-page application 'SPA' app type.
 
 ## Next steps
 
 To get started with the new app registration experience, see:
-* Learn [how to register a web application for use with user flows.](tutorial-register-applications.md)
+* Learn about [application types](application-types.md)
+* Learn [how to register a web application](tutorial-register-applications.md)
+* Learn [how to register a web API](add-web-application.md)
+* Learn [how to register a native client application](add-native-application.md)
 * Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 * Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs2016-custom.md)
