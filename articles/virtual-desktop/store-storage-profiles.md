@@ -10,7 +10,7 @@ ms.date: 05/19/2020
 ms.author: helohr
 manager: lizross
 ---
-# Store storage profiles on an Azure file share
+# Set up an Azure Files file share with Azure AD DS
 
 In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
 
@@ -69,7 +69,7 @@ Next, you'll need to enable Azure AD authentication. To enable this policy, you'
 
      ![A screenshot of the Configuration page with the Active Directory enabled.](media/active-directory-enabled.png)
 
-## Assign Azure RBAC permission to storage account
+## Assign Azure RBAC permissions to Windows Virtual Desktop users
 
 All users that need to have FSLogix profiles stored on the storage account must be assigned the Storage File Data SMB Share Contributor role. 
 
