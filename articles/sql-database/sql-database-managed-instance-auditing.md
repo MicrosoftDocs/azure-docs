@@ -12,9 +12,9 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/27/2020
+ms.date: 05/24/2020
 ---
-# Get started with Azure SQL Database managed instance auditing
+# Azure SQL Database managed instance auditing
 
 [Managed instance](sql-database-managed-instance.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
@@ -205,6 +205,9 @@ There are several methods you can use to view blob auditing logs.
 - You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](sql-database-auditing.md).
+
+  > [!NOTE]
+  > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
 ### Consume logs stored in Event Hub
 
