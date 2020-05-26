@@ -7,7 +7,6 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
@@ -65,7 +64,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
 - Let a user create, edit, or delete any data factory in a resource group from the Azure portal.
 
-  Assign the built-in **Data Factory contributor** role at the resource group level for the user. If you want to allow access to any data factory in a subscription, assign the role at the subscription level.
+  Assign the built-in **Data Factory contributor** role at the resource group level for the user. If you want to allow  access to any data factory in a subscription, assign the role at the subscription level.
 
 - Let a user view (read) and monitor a data factory, but not edit or change it.
 
@@ -80,7 +79,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
 - Let a user only be able to test connection in a linked service
 
-    Create a custom role role with permissions for the following actions: **Microsoft.DataFactory/factories/getFeatureValue/read** and **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assign this custom role on the data factory resource for the user.
+    Create a custom role with permissions for the following actions: **Microsoft.DataFactory/factories/getFeatureValue/read** and **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assign this custom role on the data factory resource for the user.
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 

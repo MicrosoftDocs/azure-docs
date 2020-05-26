@@ -190,7 +190,10 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
+* For details of working with Change Tracking and Inventory, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
+* To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+* To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from Azure portal](automation-onboard-solutions-from-browse.md).
+* To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

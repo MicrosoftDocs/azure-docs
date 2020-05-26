@@ -63,20 +63,19 @@ Manually installed machines or machines already reporting to your workspace must
 
     ![Saved searches](media/automation-enable-changes-from-auto-acct/managemachines.png)
 
-4. To enable Change Tracking and Inventory for all available machines, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** button.
+3. To enable Change Tracking and Inventory for all available machines, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** button.
 
-5. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
+4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
 
-6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+5. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
 
-7. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
+6. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
 
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
-* [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
-* [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
+* For details of the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* For information about scope configurations, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+* To learn how to use the feature to identify software installed in your environment, see [Discover what software is installed on your VMs](automation-tutorial-installed-software.md).
+* If you don't want to integrate your Automation account with a Log Analytics workspace when enabling the feature, see [Unlink workspace from Automation account](automation-unlink-workspace-change-tracking.md).
+* When finished deploying changes to VMs, you can remove them as described in [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
+* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
