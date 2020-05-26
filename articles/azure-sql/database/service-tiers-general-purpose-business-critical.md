@@ -19,7 +19,7 @@ ms.date: 01/30/2020
 Azure SQL Database and Azure SQL Managed Instance are based on SQL Server database engine architecture that's adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Two service tiers are used by Azure SQL Database and Azure SQL Managed Instance, each with a different architectural model. These service tiers are:
 
 - [General purpose](service-tier-general-purpose.md), which is designed for budget-oriented workloads.
-- [Business critical](service-tier-business-critical.md),which is designed for low-latency workloads with high resiliency to failures and fast failovers.
+- [Business critical](service-tier-business-critical.md), which is designed for low-latency workloads with high resiliency to failures and fast failovers.
 
 Azure SQL Database has an additional service tier: 
 
@@ -62,7 +62,7 @@ For more information, see the detailed differences between the service tiers in 
 
 ## Data and log storage
 
-The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](service-tier-hyperscale.md).
+The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](service-tier-hyperscale.md).
 
 - The allocated storage is used by data files (MDF) and log files (LDF).
 - Each single database compute size supports a maximum database size, with a default maximum size of 32 GB.
