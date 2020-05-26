@@ -24,7 +24,7 @@ In addition to deployments, you also trigger deletions when you run the [what-if
 
 You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
 
-To disable automatic deletions, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. You apply the flag to each subscription that you want to opt out of automatic deletions.
+To disable automatic deletions, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group.
 
 # [PowerShell](#tab/azure-powershell)
 
