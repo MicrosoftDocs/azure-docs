@@ -31,6 +31,8 @@ When you deactivate a device, any data that was stored locally on the device is 
 >
 > The factory reset process deletes all the data that was stored locally on your device. Therefore, you must take a cloud snapshot of all your data before you deactivate a device. This cloud snapshot allows you to recover all the data at a later stage.
 
+If the storage account(s) or the buckets in the storage account associated with the volume containers are already deleted before deleting the data from the device, you will receive an error and may not be able to delete the data. Our recommendation is to delete the data on the device before deleting the Storage Account or buckets therein. However, in this situation, you will have to proceed with device deactivation and deletion assuming that the data is already removed from the storage account.
+
 After reading this tutorial, you will be able to:
 
 * Deactivate a device and delete the data.
@@ -49,8 +51,6 @@ If you are interested in deleting the device completely and do not want to retai
 
     > [!NOTE]
     > Before you deactivate a StorSimple physical device or cloud appliance, ensure that the data from the deleted volume container is actually deleted from the device. You can monitor the cloud consumption charts and when you see the cloud usage drop because of the backups you have deleted, then you can proceed to deactivate the device. If you deactivate the device before this drop occurs, the data is stranded in the storage account and accrues charges.
-
-If the storage account(s) or the buckets in the storage account associated with the volume containers are already deleted before deleting the data from the device, you will receive an error and may not be able to delete the data. Our recommendation is to delete the data on the device before deleting the Storage Account or buckets therein. However, in this situation, you will have to proceed with device deactivation and deletion assuming that the data is already removed from the storage account.
 
 2. Deactivate the device as follows:
 
