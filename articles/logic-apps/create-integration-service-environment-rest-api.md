@@ -56,7 +56,7 @@ In the request header, include these properties:
 
 * `Authorization`: Set this property value to the bearer token for the customer who has access to the Azure subscription or resource group that you want to use.
 
-### Request body syntax
+## Request body
 
 Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that uses a self-signed certificate installed at the trusted root location for authentication, include the `certificates` property inside the ISE definition's `properties` section. For existing ISEs, you can send a PATCH request with only the `certificates` property.
 
