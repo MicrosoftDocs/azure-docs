@@ -20,7 +20,7 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Register an application
+  - name: 2 - Register a web application
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
@@ -87,7 +87,7 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
-    - name: Register a Graph application
+    - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
     - name: Add a web API application
@@ -397,6 +397,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: App registrations
+    href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples
@@ -409,7 +411,7 @@
   - name: Extensions app
     href: extensions-app.md
   - name: IEF release notes
-    href: custom-policy-developer-notes.md
+    href: custom-policy-developer-notes.md 
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
   - name: Page layout versions
