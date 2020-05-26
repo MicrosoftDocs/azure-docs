@@ -20,7 +20,7 @@ ms.date: 04/23/2020
 Azure Active Directory (Azure AD) authentication is a mechanism for connecting to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD.
 
 > [!NOTE]
-> This article applies to Azure SQL Database, SQL Managed Instance, and Azure Synapse. For simplicity, we use *Azure SQL* to refer to all three.
+> This article applies to Azure SQL Database, SQL Managed Instance, and Azure Synapse Analytics.
 
 With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
@@ -30,7 +30,7 @@ With Azure AD authentication, you can centrally manage the identities of databas
 - Customers can manage database permissions using external (Azure AD) groups.
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure AD authentication uses contained database users to authenticate identities at the database level.
-- Azure AD supports token-based authentication for applications connecting to Azure SQL.
+- Azure AD supports token-based authentication for applications connecting to SQL Database and SQL Managed Instance.
 - Azure AD authentication supports:
   - Azure AD cloud-only identities.
   - Azure AD hybrid identities that support:
@@ -60,7 +60,7 @@ The configuration steps include the following procedures to configure and use Az
 
 ## Trust architecture
 
-- To support Azure AD native user password, only the cloud portion and Azure AD/Azure SQL is considered.
+- To support Azure AD native user password, only the cloud portion of Azure AD, SQL Database, and SQL Managed Instance is considered.
 - To support Windows single sign-on credentials (or user/password for Windows credential), use Azure Active Directory credentials from a federated or managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 - To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required.
 
@@ -74,13 +74,13 @@ For a sample federated authentication with ADFS infrastructure (or user/password
 
 ![aad auth diagram][1]
 
-The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the Azure SQL Database, SQL Managed Instance, or Azure Synapse resources.
+The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users, in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the Azure SQL Database, SQL Managed Instance, or Azure Synapse resources.
 
 ![subscription relationship][2]
 
 ## Administrator structure
 
-When using Azure AD authentication, there are two Administrator accounts; the original Azure SQL Database administrator and the Azure AD administrator. The same concepts apply to Azure Synapse. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the SQL Server instance. Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Azure SQL Database. Only one Azure AD administrator (a user or group) can be configured at any time.
+When using Azure AD authentication, there are two Administrator accounts: the original Azure SQL Database administrator and the Azure AD administrator. The same concepts apply to Azure Synapse. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the server. Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in SQL Database or Azure Synapse. Only one Azure AD administrator (a user or group) can be configured at any time.
 
 ![admin structure][3]
 
