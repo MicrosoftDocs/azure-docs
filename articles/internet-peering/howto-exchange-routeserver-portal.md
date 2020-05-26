@@ -1,5 +1,5 @@
 ---
-title: Peering Connection for Exchange partners with route server via Portal
+title: Peering Connection for Exchange partners with route server by using the Portal
 titleSuffix: Azure
 description: Create or modify an Exchange peering with route server by using the Azure portal
 services: internet-peering
@@ -54,43 +54,63 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 
 #### Configure connections and submit
 
-1. On the Create a Peering page, on the Configuration tab, fill in the boxes as shown here
- * For Peering type, select **Direct**
- * For Microsoft network, select AS8075 with exchange route server. 
- * Select SKU as **Basic Free**. Don't select premiut free as it's reserved for special applications.
- * Select the **Metro** location where you want to setup peering.
+1. On the Create a Peering page, on the Configuration tab, fill in the boxes as shown here:
 
-1. Under *Peering Connections**, select **Create new**
+    > [!div class="mx-imgBorder"]
+    > ![Configure route server](./media/setup-exchange-conf-tab-routeserver.png)
+ 
+    * For Peering type, select **Direct**
+    * For Microsoft network, select **AS8075 with exchange route server**. 
+    * Select SKU as **Basic Free**. Don't select premium free as it's reserved for special applications.
+    * Select the **Metro** location where you want to setup peering.
 
-1. Under Direct Peering Connection, fill in the following BGP session details:
- * Peering Facility, select the appropriate physical location for the peering
- * Session Address Provider, select Peer
- * Session IPv4 prefix will be provided by the exchange provider peer
- * Peer session IPv4 address, will be selected by the exchange peer for the route server from their IP prefix range.
- * Microsoft session IPv4 address, will be the router IP allocated from the IP prefix range.
- * Session IPv6 is optional at this time.
- * Maximum advertised IPv4 prefix can be up to 20000. 
- * Use for Peering Service is disabled by default. It can be enabled once the exchange provider has signed a Peering Service Agreement with Microsoft.
+1. Under **Peering Connections**, select **Create new**
 
-1. Upon completion, click Save. 
+1.  Under **Direct Peering Connection**, fill in the following BGP session details:
+
+    > [!div class="mx-imgBorder"]
+    > ![Configure direct peering route server](./media/setup-exchange-conf-tab-direct-route.png)
+
+
+     * Peering Facility, select the appropriate physical location for the peering
+     * Session Address Provider, select Peer
+     * Session IPv4 prefix will be provided by the exchange provider peer
+     * Peer session IPv4 address, will be selected by the exchange peer for the route server from their IP prefix range.
+     * Microsoft session IPv4 address, will be the router IP allocated from the IP prefix range.
+     * Session IPv6 is optional at this time.
+     * Maximum advertised IPv4 prefix can be up to 20000. 
+     * Use for Peering Service is disabled by default. It can be enabled once the exchange provider has signed a Peering Service Agreement with Microsoft.
+
+1. Upon completion, click **Save**. 
 
 1. Under Create a peering, you will see validation passed. Once validation passed, click **Create**
 
->[!Note]
+    > [!div class="mx-imgBorder"]
+    > ![Validation of settings](./media/setup-exchange-conf-tab-validation.png)
+
+
+>[!NOTE]
 >For normal Internet Service Providers (ISP) who are a Microsoft Peering Service partner, customer IP prefixes registration is required. However, in the case of exchange partners with a route server, it is required to register customer ASNs and not prefixes. Same ASN key would be valid for the customer's prefix registration.
 
 1. Select **Registered ASNs** under the Settings section.
 
+    > [!div class="mx-imgBorder"]
+    > ![Configure direct peering route server](./media/setup-exchange-registered-asn.png)
+
 1. Select **Add registered ASN** to create a new customer ASN under your exchange subscription.
+
+    > [!div class="mx-imgBorder"]
+    > ![Configure direct peering route server](./media/setup-exchange-register-new-asn.png)
 
 1. Under Register an ASN, select a Name, populate the customer ASN, and click Save.
 
 1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you will need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
 
+    > [!div class="mx-imgBorder"]
+    > ![Configure direct peering route server](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 
-1. Fill
 
 ### <a name=get></a>Verify an Exchange peering
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
