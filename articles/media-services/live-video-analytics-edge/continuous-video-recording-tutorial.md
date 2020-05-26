@@ -30,13 +30,12 @@ It is recommended that you read through the following documentation pages
 
 Prerequisites for this tutorial are as follows
 
-1. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension, and the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
+* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension, and the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
     > [!TIP]
     > You might be prompted to install docker. You may ignore this prompt.
-
-2. [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
-3. Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
+* Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
 At the end of the above steps, you will have certain Azure resources deployed in the Azure subscription, including:
 
@@ -58,7 +57,7 @@ In this tutorial, we will use one Edge module built using the [Live555 Media Ser
 1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
 2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
 3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
-3. Copy the contents from clouddrive/lva-sample/appsettings.json file after executing the resource setup script . See [Prerequisite #3](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/continuous-video-recording-tutorial?branch=pr-en-us-116393#prerequisites).Once the resource setup script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files and appsetting.json. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+3. Copy the contents from clouddrive/lva-sample/appsettings.json file after executing the resource setup script . See the 3rd bullet in [Prerequisites](#prerequisites).Once the resource setup script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files and appsetting.json. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
