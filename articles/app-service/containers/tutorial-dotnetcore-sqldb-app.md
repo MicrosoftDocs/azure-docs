@@ -309,6 +309,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
+>
+
 ### Use the new property
 
 Make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
@@ -362,6 +366,10 @@ Run the app locally.
 ```bash
 dotnet run
 ```
+
+> [!NOTE]
+> If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
+>
 
 In your browser, navigate to `http://localhost:5000/`. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
 
