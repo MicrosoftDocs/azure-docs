@@ -52500,11 +52500,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
-      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
-      "redirect_document_id": true
-    },   
-    {
         "source_path": "articles/sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md",
         "redirect_url": "/azure/azure-sql/database/scripts/add-elastic-pool-to-failover-group-powershell",
         "redirect_document_id": true
