@@ -1,6 +1,6 @@
 # OpenShift in a Hardened Zero Trust Azure Environment
 
-This article defines and helps you execute a production-ready DevSecOps ecosystem that may be used with Government workloads on Azure.
+This article defines and helps you execute a production-ready DevSecOps environment for Government workloads that is seamlessly configured, deployed, and governed on Azure.
 
 ## Benefits of the solution
 This solution aims to help app developers and security administrators achieve DevSecOps in a few different cutting-edge ways. The benefits of the ecosystem are three-fold: 
