@@ -185,7 +185,7 @@
         href: roles-groups-remove-assignment.md
       - name: View a group's role assignments
         href: roles-groups-view-assignments.md
-      - name: Make a group's role PIM-eligible
+      - name: Make a group eligible for a role in PIM
         href: roles-groups-pim-eligible.md
       - name: FAQ and troubleshooting
         href: roles-groups-faq-troubleshooting.md
