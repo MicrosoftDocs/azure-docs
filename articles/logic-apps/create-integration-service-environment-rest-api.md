@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 05/27/2020
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
@@ -35,6 +35,48 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
+
+### Self-signed certificates for authentication
+
+To use a self-signed certificate for authentication in your ISE, include the following `certificates` JSON object with the ISE definition `properties` section when you define the request body for creating the ISE:
+
+```json
+"certificates": {
+   "testCertificate": {
+      "publicCertificate": "{certificate}",
+         "kind": "TrustedRoot"
+   }
+}
+```
+
+*Example*
+
+```json
+{
+   "sku": {
+      "name": "Premium",
+      "capacity": 1
+   },
+   "properties": {
+      "networkConfiguration": {
+         "accessEndpoint": {
+            "type": "External"
+         },
+         "subnets": "{subnet-array}"
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{certificate}",
+            "kind": "TrustedRoot"
+         }
+      }
+   },
+   "id": "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}",
+   "name": "{integrationServiceEnvironmentName}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}"
+}
+```
 
 Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
