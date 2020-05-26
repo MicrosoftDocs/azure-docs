@@ -35,7 +35,7 @@ To indicate the use of Azure Hybrid Benefit for SQL Server on an Azure VM and be
 - Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate the Azure Hybrid Benefit.
 - Self-install SQL Server on an Azure VM, manually [register with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md), and activate Azure Hybrid Benefit.
 
-The license type of SQL Server is set when the VM is provisioned. You can change it anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
+The license type of SQL Server can be configured when the VM is provisioned, or anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
 ## Prerequisites
 

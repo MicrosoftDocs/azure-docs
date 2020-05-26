@@ -36,7 +36,7 @@ No—the creation of the Shard Map Manager (for example, [ShardMapManagerFactory
 
 ## I have questions about using elastic database tools, how do I get them answered
 
-Please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Please reach out to us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
 
 ## When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design
 

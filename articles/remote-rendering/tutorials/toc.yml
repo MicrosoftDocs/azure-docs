@@ -1,14 +1,4 @@
-- name: Overview
-  href: unity/tutorial-landing.md
-- name: Viewing a remotely rendered model
-  href: unity/view-remote-models/view-remote-models.md
-- name: Interfaces and custom models
-  href: unity/custom-models/custom-models.md
-- name: Manipulating models
-  href: unity/manipulate-models/manipulate-models.md
-- name: Refining materials, lighting, and effects
-  href: unity/materials-lighting-effects/materials-lighting-effects.md
-- name: Securing Azure Remote Rendering and model storage
-  href: unity/security/security.md
-- name: Creating a commercial ready Azure Remote Rendering application
-  href: unity/commercial-ready/commercial-ready.md
+- name: Unity
+  href: unity/toc.yml
+- name: Native C++
+  href: native-cpp/toc.yml

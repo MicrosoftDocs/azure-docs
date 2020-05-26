@@ -80,3 +80,5 @@ landingContent:
             url: tutorials/unity/security/security.md
           - text: Creating a commercial ready Azure Remote Rendering application
             url: tutorials/unity/commercial-ready/commercial-ready.md
+          - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
+            url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

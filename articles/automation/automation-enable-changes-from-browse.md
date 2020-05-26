@@ -6,7 +6,7 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ---
-# Enable Change Tracking and Inventory from the Azure portal
+# Enable Change Tracking and Inventory from Azure portal
 
 This article describes how you can enable the [Change Tracking and Inventory](change-tracking.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory. 
 
@@ -54,10 +54,9 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
-* [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
-* [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
+* For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* For information about scope configurations, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+* To learn how to use the feature to identify software installed in your environment, see [Discover what software is installed on your VMs](automation-tutorial-installed-software.md).
+* If you don't want to integrate your Automation account with a Log Analytics workspace when enabling the feature, see [Unlink workspace from Automation account](automation-unlink-workspace-change-tracking.md).
+* When finished deploying changes to VMs, you can remove them as described in [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
+* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

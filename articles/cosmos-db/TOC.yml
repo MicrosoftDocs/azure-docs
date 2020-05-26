@@ -373,6 +373,9 @@
             - name: STARTSWITH
               displayName: STARTSWITH, starts with, built-in functions
               href: sql-query-startswith.md
+            - name: STRINGEQUALS
+              displayName: STRINGEQUALS, equals, case-insensitive
+              href: sql-query-stringequals.md
             - name: StringToArray
               displayName: StringToArray, string to array, built-in functions
               href: sql-query-stringtoarray.md
