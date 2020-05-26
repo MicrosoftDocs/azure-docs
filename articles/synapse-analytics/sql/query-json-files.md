@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
@@ -17,10 +17,7 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 ## Prerequisites
 
-Before reading the rest of this article, review the following articles:
-
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 ## Sample JSON files
 
@@ -51,7 +48,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/book1.json',
+        BULK 'json/books/book1.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -76,7 +74,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -99,7 +98,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -121,7 +121,8 @@ SELECT
     j.*
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',

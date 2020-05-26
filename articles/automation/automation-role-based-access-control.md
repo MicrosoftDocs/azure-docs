@@ -419,6 +419,6 @@ When a user assigned to the Automation Operator role on the Runbook scope views 
 
 ## Next steps
 
-* [Manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Start a runbook in Azure Automation](start-runbooks.md)
-* [Azure Automation runbook types](automation-runbook-types.md)
+* To find out more PowerShell RBAC, see [Manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* For details of the types of runbooks, see [Azure Automation runbook types](automation-runbook-types.md).
+* To start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).

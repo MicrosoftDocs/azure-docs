@@ -44,4 +44,4 @@ After performing this configuration change, you create a new deployment followin
 
 ## Next steps
 
-[Schedule an update deployment](automation-tutorial-update-management.md#schedule-an-update-deployment)
+To set up an integration schedule, see [Schedule an update deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
