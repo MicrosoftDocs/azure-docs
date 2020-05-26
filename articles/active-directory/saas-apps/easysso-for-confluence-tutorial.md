@@ -53,7 +53,7 @@ To configure the integration of EasySSO for Confluence into Azure AD, you need t
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **EasySSO for Confluence** in the search box.
-1. Select **EasySSO for JiConfluencera** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **EasySSO for Confluence** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD single sign-on for EasySSO for Confluence
@@ -153,7 +153,7 @@ Login into your Atlassian Confluence instance with Administrator privileges and 
 
 ![Manage Apps](./media/easysso-for-confluence-tutorial/confl-admin-1.png)
 
-On the left side locate **EasySSO** and click it.
+On the left side locate **EasySSO** and click it. Then click **Configure** button.
 
 ![Easy SSO](./media/easysso-for-confluence-tutorial/confl-admin-2.png)
 
