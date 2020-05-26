@@ -37,9 +37,9 @@ Although this application is written in Ruby, the API is a RESTful Web service c
 
 2. Create variables for your subscription key, endpoint URI, and path. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Create your request parameters:
 
-   a. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+   1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 
-   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors). 
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors). 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
