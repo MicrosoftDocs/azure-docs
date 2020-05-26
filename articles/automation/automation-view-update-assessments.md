@@ -58,4 +58,4 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Next steps
 
-[Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
+For general information, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
