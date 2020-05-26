@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2020
+ms.date: 05/26/2020
 ---
 
 # Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
@@ -619,9 +619,9 @@ Using COPY statement supports the following configuration:
       5. `skipLineCount` is left as default or set to 0.
       6. `compression` can be **no compression** or **GZip**.
 
-3. If your source is a folder, `recursive` in copy activity must be set to true.
+3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. COPY statement retrieves all files from the folder and all its subfolders, and it ignores hidden folders and the files that begin with an underline (_) or a period (.) unless explicitly specified in the path. 
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 

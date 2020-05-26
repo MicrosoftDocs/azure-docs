@@ -44,7 +44,7 @@ In this guide, you will learn how to:
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
-Install the latest version of [Visual Studio](https://www.visualstudio.com/vs/). For Visual Studio 2019 on Windows you need to install the Azure Development workload. For Visual Studio 2017 on Windows you need to install the ASP.NET and web development workload as well as [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
+Install the latest version of [Visual Studio 2019](https://www.visualstudio.com/vs/) on Windows with the Azure Development workload.
 
 ## Create a web app running in a container
 
