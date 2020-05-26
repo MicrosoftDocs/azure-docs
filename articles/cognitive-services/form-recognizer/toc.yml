@@ -10,7 +10,7 @@
 - name: Quickstarts
   expaned: true
   items:
-  - name: Using client libarary
+  - name: Using client library
     href: quickstarts/client-library.md
   - name: Using the sample labeling tool
     items:
