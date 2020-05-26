@@ -23,6 +23,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 Text Analysis API v3 is now generally available with the following updates:
 
 * Model version `2020-04-01`
+* New [data limits](concepts/data-limits?tabs=version-3) for each feature
 * Updated [language support](language-support.md) for [Sentiment Analysis (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * Separate endpoint for Entity Linking 
 * New "Address" entity category in [Named Entity Recognition (NER) v3](how-tos/text-analytics-how-to-entity-linking.md).
