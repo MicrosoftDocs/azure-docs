@@ -77,7 +77,7 @@ As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
-    The text should look like:
+    The text from clouddrive/lva-sample/appsettings.json file should look like:
 
     ```
     {  
