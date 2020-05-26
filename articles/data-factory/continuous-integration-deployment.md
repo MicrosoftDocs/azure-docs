@@ -565,26 +565,6 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-## Exclude Azure-SSIS integration runtimes from CI/CD
-
-If your development factory has Azure-SSIS integration runtime, you can exclude all Azure-SSIS Integration runtimes from CI/CD process in below scenario:
-
-- Azure-SSIS IR infrastructure is complex, and varies in each environment.  
-- Azure-SSIS IR is set up manually for each environment with the same name. Otherwise publish will fail if there is activity depending on Azure-SSIS IR.
-
-To exclude Azure-SSIS integration runtime:
-
-1. Add a publish_config.json file to the root folder in the collaboration branch, if not exists.
-1. Add below setting to publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-When publishing from the collaboration branch, Azure-SSIS integration runtimes will be excluded from the Resource Manager template generated.
-
 ## Hotfix production branch
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
