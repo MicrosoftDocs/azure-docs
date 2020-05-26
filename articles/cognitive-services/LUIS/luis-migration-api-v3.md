@@ -279,4 +279,4 @@ The V2 API will not be deprecated for at least 9 months after the V3 preview.
 
 ## Next steps
 
-Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs.
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) APIs.
