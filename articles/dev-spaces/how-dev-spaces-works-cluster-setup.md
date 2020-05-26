@@ -81,7 +81,7 @@ While your application is running, the client-side tooling also:
 You can use the client-side tooling from the command line as part of the `azds` command. You can also use the client-side tooling with:
 
 * Visual Studio Code using the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio with [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio with the Azure Development workload.
 
 ## Next steps
 
