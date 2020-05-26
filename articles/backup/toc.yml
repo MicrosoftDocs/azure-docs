@@ -395,7 +395,7 @@
     href: /cli/azure/backup?view=azure-cli-latest
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: Powershell – Azure Backup Agent
+  - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup
   - name: REST - Backup
     href: /rest/api/backup/
