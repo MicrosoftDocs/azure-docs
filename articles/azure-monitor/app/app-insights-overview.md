@@ -123,7 +123,7 @@ Get started at development time with:
 ## Support and feedback
 * Questions and Issues:
   * [Troubleshooting][qna]
-  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
