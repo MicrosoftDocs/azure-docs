@@ -121,7 +121,7 @@ Before you stream logs in real time, enable the log type that you want. Any info
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
 >
 
-### In Azure portal
+### In Azure Portal
 
 To stream logs in the [Azure portal](https://portal.azure.com), navigate to your app and select **Log stream**. 
 
