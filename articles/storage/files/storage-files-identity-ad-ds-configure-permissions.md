@@ -43,8 +43,11 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 
 If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
 
+## Configure NTFS permissions
 
-## Configure NTFS permissions with Windows File Explorer
+Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as NTFS permissions). You can configure the Windows ACLs using either Windows File Explorer or icacls.
+
+### Configure NTFS permissions with Windows File Explorer
 
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
@@ -57,7 +60,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 1.    In the **Security** tab, select all permissions you want to grant your new user.
 1.    Select **Apply**.
 
-## Configure NTFS permissions with icacls
+### Configure NTFS permissions with icacls
 
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
