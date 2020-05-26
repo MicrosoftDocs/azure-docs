@@ -38,14 +38,14 @@ If you don't have a subscription, follow the steps below:
 1.    Navigate to the "Settings" page for your workspace.
 2.    Click Add Key
 
-    ![How to add subscription key](media/how-to/how-to-add-subscription-key.png)
+   ![How to add subscription key](media/how-to/how-to-add-subscription-key.png)
 
 3. In the dialog, enter the key for your translator subscription, then click the "Add" button.
 
     ![How to add subscription key](media/how-to/how-to-add-subscription-key-dialog.png)
 4.    After you've added a key, you can modify or delete the key at any time.
 
-    ![Subscription key after add](media/how-to/subscription-key-after-add.png)
+   ![Subscription key after add](media/how-to/subscription-key-after-add.png)
 
 ## Manage your workspace
 
@@ -58,12 +58,12 @@ If different part of your work needs to be shared with different people, then cr
 1.    Navigate to the workspace "Settings" page.
 2.    Click on the "New workspace" button in the "Create New Workspace" section.
 
-    ![Create new workspace](media/how-to/create-new-workspace.png)
+   ![Create new workspace](media/how-to/create-new-workspace.png)
 
 4.    In the dialog, enter the name of the new workspace.
 5.    Click "Create".
 
-    ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
+   ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
 
 ## Share your workspace
 
@@ -72,7 +72,7 @@ In Custom Translator you can share your workspace with others, if different part
 1.    Navigate to the workspace "Settings" page.
 2.    Click the "Share" button in the "Sharing Settings" section.
 
-    ![Share workspace](media/how-to/share-workspace.png)
+   ![Share workspace](media/how-to/share-workspace.png)
 
 3.    On the dialog, enter a comma-separated list of email addresses you want this workspace shared with. Make sure you share with the email address that person uses to sign in to Custom Translator with. Then, select the appropriate level of sharing permission.
 
@@ -95,7 +95,7 @@ When a workspace is shared, the "Sharing Settings" section shows all email addre
 
 2.    Click the dropdown menu and select the new permission level you want to assign to that email address.
 
-    ![Sharing permission settings](media/how-to/sharing-permission-settings.png)
+   ![Sharing permission settings](media/how-to/sharing-permission-settings.png)
 
 ## Next steps
 
