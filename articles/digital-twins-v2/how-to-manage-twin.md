@@ -21,7 +21,7 @@ Entities in your environment are represented by [digital twins](concepts-twins-g
 
 This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
-## Create a digital twin (preview)
+## Create a digital twin
 
 To create a twin, you use the `DigitalTwins.Add` method on the service client like this:
 
