@@ -60,7 +60,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Add the question as text and the answer formatted with markdown.":::
 
     The markdown symbol, `*`, is used for bullet points. The `\n` is used for a new line.
 
@@ -77,7 +77,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Enter an example user query in the textbox. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Enter an example user query in the textbox.":::
 
 1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
 
@@ -127,7 +127,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     The chat bot responds with an answer from your knowledge base.
 
-    ![Enter a user query into the test web chat.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
 
 ## What did you accomplish?
 
