@@ -41,7 +41,7 @@ If you later examine the asset using [these](playback-recordings-how-to.md) APIs
 
 As discussed above, the asset Sink component will record video to a local cache, and periodically upload the video to the cloud. Since there is a cost associated with operations on your Storage account, this property will help you control that cost. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
 
-The segmentLength property ensures that the edge module will upload video at most once per segmentLength seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximium of 5 minutes.
+The segmentLength property ensures that the edge module will upload video at most once per segmentLength seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
 
 [!NOTE]
  See [this](playback-recordings-how-to.md) article for the effect that segmentLength has on playback.
