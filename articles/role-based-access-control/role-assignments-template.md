@@ -356,7 +356,7 @@ The following shows an example of the Contributor role assignment to a new manag
 
 ## Remove a role assignment
 
-In Azure RBAC, to remove access to an Azure resource, you remove a role assignment. There isn't a way to remove a role assignment using a template. To remove a role assignment, you should use other tools such as:
+In Azure RBAC, to remove access to an Azure resource, you remove the role assignment. There isn't a way to remove a role assignment using a template. To remove a role assignment, you should use other tools such as:
 
 - [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
