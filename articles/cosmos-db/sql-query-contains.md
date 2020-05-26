@@ -69,7 +69,7 @@ For example, consider two properties: town and country. The cardinality of town 
     SELECT * FROM c WHERE CONTAINS(c.country, "States", false)
 ```
 
-The first query will likely use more RUs than the second query because the cardinality of town is higher than city.
+The first query will likely use more RUs than the second query because the cardinality of town is higher than country.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
-# CONTAINS (Azure Cosmos DB)
+# STRINGEQUALS (Azure Cosmos DB)
 
  Returns a Boolean indicating whether the first string expression matches the second.  
   
