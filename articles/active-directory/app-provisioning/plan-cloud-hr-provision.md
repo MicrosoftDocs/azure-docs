@@ -76,8 +76,8 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 
 ### Prerequisites
 
-- Azure AD [hybrid identity administrator](../users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
-- Azure AD [application administrator](../users-groups-roles/directory-assign-admin-roles#application-administrator) role to configure the provisioning app in the Azure portal
+- Azure AD [hybrid identity administrator](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
+- Azure AD [application administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) role to configure the provisioning app in the Azure portal
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
 - For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the Azure AD Connect provisioning agent
@@ -281,7 +281,7 @@ When you initiate the Joiners-Movers-Leavers process, gather the following requi
 | | What effective dates are considered for processing user termination? |
 | | How do employee and contingent worker conversions impact existing Active Directory accounts? |
 
-Depending on your requirements, you can modify the mappings to meet your integration goals. For more information, see the specific cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+Depending on your requirements, you can modify the mappings to meet your integration goals. For more information, see the specific cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) for a list of custom attributes to map.
 
 ### Generate a unique attribute value
 
@@ -361,7 +361,9 @@ The cloud HR user provisioning implementation might fail to work as desired in t
 
 Choose the cloud HR app that aligns to your solution requirements.
 
-**Workday**: To import worker profiles from Workday into Active Directory and Azure AD, see [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Optionally, you can write back the email address and username to Workday.
+**Workday**: To import worker profiles from Workday into Active Directory and Azure AD, see [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Optionally, you can write back the email address, username and phone number to Workday.
+
+**SAP SuccessFactors**: To import worker profiles from SuccessFactors into Active Directory and Azure AD, see [Tutorial: Configure SAP SuccessFactors for automatic user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Optionally, you can write back the email address and username to SuccessFactors.
 
 ## Manage your configuration
 
