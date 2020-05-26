@@ -14,7 +14,10 @@ This article builds on top of the [Getting started](get-started-detect-motion-em
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with the following extensions:
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
 
 ## Overview
 
@@ -115,8 +118,8 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
 1. In Visual Studio Code, navigate to "src/cloud-to-device-console-app/operations.json".
 
-    1. Under GraphTopologySet, ensure the following:
-"topologyUrl" : " https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json".
+    1. Under GraphTopologySet, ensure the following:  
+`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json".`
     1. Under GraphInstanceSet, ensure: "topologyName" : " InferencingWithHttpExtension".
     1. Under GraphTopologyDelete, ensure "name": " InferencingWithHttpExtension ".
 1. Right click on "src/edge/ deployment.yolov3.template.json" file and click on Generate IoT Edge Deployment Manifest.

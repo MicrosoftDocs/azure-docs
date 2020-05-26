@@ -39,7 +39,6 @@ Prerequisites for this tutorial are as follows
 
     > [!TIP]
     > You might be prompted to install docker. You may ignore this prompt.
-
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
 * Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
@@ -68,6 +67,40 @@ As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-
 * First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified frame rate. Those video frames sever as input to an HTTP extension node.The HTTP extension node sends frames (as images) to the AI module (YOLO v3 – which is an object detector) and receives results – which will be the objects detected by the model. The HTTP extension node then publishes the results via the IoT Hub Message Sink to the IoT Edge Hub
 * The object counter module is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It checks the messages looking for objects of a certain type (configured via a twin property) and outputs a message to IoT Edge Hub. Those messages are then routed back to the IoT Hub source node of the media graph. Upon receiving a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node to open the gate for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream,  is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
 
+## Set up the environment
+
+1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
+2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
+3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
+3. Copy the contents from clouddrive/lva-sample/appsettings.json file after executing the resource setup script . See [Prerequisite #4](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/event-based-video-recording-tutorial?branch=pr-en-us-116393#prerequisites). Once the resource setup script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files and appsetting.json. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+
+    ![App settings](./media/quickstarts/clouddrive.png)
+
+    The text from clouddrive/lva-sample/appsettings.json file should look like:
+
+    ```
+    {  
+        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+        "deviceId" : "lva-sample-device",  
+        "moduleId" : "lvaEdge"  
+    }
+    ```
+1. Next, browse to "src/edge" folder and create a file named ".env".
+1. Copy the contents from clouddrive/lva-sample/.env file. The text should look like:
+
+    ```
+    SUBSCRIPTION_ID="<Subscription ID>"  
+    RESOURCE_GROUP="<Resource Group>"  
+    AMS_ACCOUNT="<AMS Account ID>"  
+    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
+    AAD_TENANT_ID="<AAD Tenant ID>"  
+    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
+    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
+    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
+    ```
 ## Examine the template file 
 
 During  Setup the environment, you will have launched Visual Studio Code and opened the folder containing the sample code.
@@ -91,7 +124,7 @@ Read the section on how to declare routes in IoT Edge deployment manifest and th
 > [!NOTE]
 > The desired properties for the objectCounter module – it’s set up to look for objects that are tagged as “truck”, with a confidence level of at least 50%.
 
-## Deploy the modules
+## Deploy the Edge modules
 
 Using Visual Studio Code, follow the instructions to login into docker and "Build and Push IoT Edge solution" but use src/edge/deployment.objectCounter.template.json for this step.
 
@@ -114,11 +147,11 @@ In about 30 seconds, refresh the Azure IOT Hub on the bottom left section in Vis
 
 ![4 modules deployed](./media/event-based-video-recording-tutorial/iot-hub.png)
 
-## Prepare to monitor the modules
+## Prepare for monitoring events
 
 Right click on the Edge device (“lva-sample-device”) and click on “Start Monitoring Built-in Event Endpoint”. The Live Video Analytics on IoT Edge module will emit [operational](#operational-events) and [diagnostic](#diagnostic-events) events to the IoT Edge Hub, and you can see those events in the “OUTPUT” window in Visual Studio Code.
 
-## Run the sample
+## Run the program
 
 1. Visual Studio Code, navigate to "src/cloud-to-device-console-app/operations.json"
 1. Under the node GraphTopologySet, set the following:

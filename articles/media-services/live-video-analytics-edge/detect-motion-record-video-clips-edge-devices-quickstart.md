@@ -16,7 +16,10 @@ This article builds on top of the [getting started](get-started-detect-motion-em
 Just like in the previous quickstarts, to run this quickstart, you need to have installed:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+* [Visual Studio Code](https://code.visualstudio.com/) on your machine with the following extensions:
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
 
 ## Overview
 
@@ -66,7 +69,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
 ### Set up the environment
 
-1. Clone the repo from here https://github.com/Azure-Samples/lva-edge-rc4
+1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
 1. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
 1. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 1. Copy the contents from clouddrive/lva-sample/appsettings.json file into the appsettings.json file you created in VSCode.
@@ -118,7 +121,7 @@ The text should look like:
 1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json"
 
     1. Under GraphTopologySet, ensure the following:
-"topologyUrl" : " https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-files/topology.json"
+"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"
     1. Under GraphInstanceSet, ensure: "topologyName" : "EVRToFilesOnMotionDetection"
     1. Under GraphTopologyDelete, ensure "name": " EVRToFilesOnMotionDetection "
 1. Right click on "src/edge/deployment.template.json" file and click on “Generate IoT Edge Deployment Manifest”

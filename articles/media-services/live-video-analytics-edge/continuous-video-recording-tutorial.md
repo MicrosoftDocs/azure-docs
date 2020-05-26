@@ -34,7 +34,6 @@ Prerequisites for this tutorial are as follows
 
     > [!TIP]
     > You might be prompted to install docker. You may ignore this prompt.
-
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
 * Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
@@ -52,6 +51,41 @@ As explained in the [media graph](media-graph-concept.md) article, a media graph
 ![Media graph](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
 
 In this tutorial, we will use one Edge module built using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the Media Graph, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed, and send that video to the [asset sink node](media-graph-concept.md#asset-sink) which will record the video to an asset.
+
+## Set up the environment
+
+1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
+2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
+3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
+3. Copy the contents from clouddrive/lva-sample/appsettings.json file after executing the resource setup script . See the 3rd bullet in [Prerequisites](#prerequisites).Once the resource setup script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files and appsetting.json. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+
+    ![App settings](./media/quickstarts/clouddrive.png)
+
+    The text from clouddrive/lva-sample/appsettings.json file should look like:
+
+    ```
+    {  
+        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+        "deviceId" : "lva-sample-device",  
+        "moduleId" : "lvaEdge"  
+    }
+    ```
+1. Next, browse to "src/edge" folder and create a file named ".env".
+1. Copy the contents from clouddrive/lva-sample/.env file. The text should look like:
+
+    ```
+    SUBSCRIPTION_ID="<Subscription ID>"  
+    RESOURCE_GROUP="<Resource Group>"  
+    AMS_ACCOUNT="<AMS Account ID>"  
+    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
+    AAD_TENANT_ID="<AAD Tenant ID>"  
+    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
+    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
+    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
+    ```
 
 ## Examine the sample 
 
