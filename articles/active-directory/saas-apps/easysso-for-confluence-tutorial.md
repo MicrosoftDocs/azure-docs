@@ -113,7 +113,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click **Download** links for **Certificate (Base64)** or **Federation Metadata XML** options and save either or all to your computer. You will need it later to configure Confluence EasySSO.
 
-	![The Certificate download link](./media/easysso-for-confluence-tutorial/azure-ad-SAML-certificate.png)
+	![The Certificate download link](./media/easysso-for-confluence-tutorial/certificate.png)
 	
 	If you plan to perform EasySSO for Confluence configuration manually with certificate, you also need to copy **Login URL** and **Azure AD Identifier** from the section below and save those on your computer.
 
