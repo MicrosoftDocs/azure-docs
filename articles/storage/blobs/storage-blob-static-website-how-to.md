@@ -190,21 +190,19 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-## Find the website URL by using the Azure portal
+<a id="portal-find-url" />
+
+## Find the website URL
 
 You can view the pages of your site from a browser by using the public URL of the website.
 
 ### [Portal](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
 
 ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### [Azure CLI](#tab/azure-cli)
-
-<a id="cli-find-url" />
 
 Find the public URL of your static website by using the following command:
 
@@ -217,8 +215,6 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
 ### [PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Find the public URL of your static website by using by using the following command:
 

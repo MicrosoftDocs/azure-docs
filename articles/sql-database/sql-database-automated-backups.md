@@ -3,7 +3,7 @@ title: Automatic, geo-redundant backups
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -56,6 +56,8 @@ SQL Database supports self-service for point-in-time restore (PITR) by automatic
 
 The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database service as it balances the overall system workload. You can't change or disable the backup jobs.
 
+### Default backup retention period
+
 PITR backups are protected with geo-redundant storage. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 For more information about PITR, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
@@ -83,7 +85,7 @@ Backups that occur before the retention period are automatically purged based on
 Azure SQL Database computes your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. After backups become older than the retention period, billing stops.
 
    > [!IMPORTANT]
-   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and re-creating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period (which is 7 days at minimum) for each dropped database, every time it's dropped.
+   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and re-creating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period for each dropped database, every time it's dropped.
 
 ### Monitor consumption
 
@@ -141,6 +143,9 @@ If you need to keep the backups for longer than the maximum retention period, yo
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic database pools and databases that belong to the server are also deleted. They can't be recovered. You can't restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR won't be deleted, and these databases can be restored.
+
+> [!NOTE]
+> Minimum PITR backup retention that can be configured for single, pooled databases and managed isntances through Azure portal is 7 days. Minimum PITR backup retention of 1 day can be configured for managed instance only using PowerShell with As.SQL module v2.6.0 or higher.
 
 ## Encrypted backups
 

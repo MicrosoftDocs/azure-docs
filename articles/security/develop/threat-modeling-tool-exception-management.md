@@ -220,7 +220,7 @@ Check the links in the references section for additional details about exception
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Fail securely](https://www.owasp.org/index.php/Fail_securely) |
+| **References**              | [Fail securely](https://owasp.org/www-community/Fail_securely) |
 | **Steps** | Application should fail safely. Any method that returns a Boolean value, based on which certain decision is made, should have exception block carefully created. There are lot of logical errors due to which security issues creep in, when the exception block is written carelessly.|
 
 ### Example

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -30,7 +30,7 @@ The most basic sign-in flow has the steps shown in the next diagram. Each step i
 
 ## Fetch the OpenID Connect metadata document
 
-OpenID Connect describes a metadata document that contains most of the information required for an app to do sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. For the Microsoft identity platform endpoint, this is the OpenID Connect metadata document you should use:
+OpenID Connect describes a metadata document that contains most of the information required for an app to do sign in. This includes information such as the URLs to use and the location of the service's public signing keys. For the Microsoft identity platform endpoint, this is the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -175,7 +175,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 
 * Ensuring the user/organization has signed up for the app.
 * Ensuring the user has proper authorization/privileges
-* Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
+* Ensuring a certain strength of authentication has occurred, such as [multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
 Once you have validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, personalization, etc.
 

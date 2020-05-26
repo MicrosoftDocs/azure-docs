@@ -58,7 +58,7 @@ Your workspace contains a **Samples** folder with notebooks designed to help you
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="terminal"> Use files from Git and version my files
+### <a name="terminal"></a> Use files from Git and version my files
 
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 

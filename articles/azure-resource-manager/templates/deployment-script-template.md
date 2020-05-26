@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.author: jgao
 
 ---
@@ -249,6 +249,8 @@ You can control how PowerShell responds to non-terminating errors by using the [
 ### Pass secured strings to deployment script
 
 Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
+
+The max allowed size for environment variables is 64KB.
 
 ## Debug deployment scripts
 
