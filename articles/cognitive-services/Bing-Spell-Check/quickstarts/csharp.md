@@ -47,7 +47,7 @@ Although this application is written in C#, the API is a RESTful Web service com
     using Newtonsoft.Json;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and the text to be spell checked. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create variables for the API endpoint, your subscription key, and the text to be spell checked. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace SpellCheckSample
@@ -63,11 +63,11 @@ Although this application is written in C#, the API is a RESTful Web service com
     }
     ```
 
-3. Create a string for your search parameters: 
+1. Create a string for your search parameters: 
 
-   a. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+   1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 
-   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors).
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -88,13 +88,13 @@ Although this application is written in C#, the API is a RESTful Web service com
     }
     ```
 
-2. Create the URI for your request by appending your host, path, and parameters.
+1. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;
     ```
 
-3. Create a list with a `KeyValuePair` object containing your text, and use it to create a `FormUrlEncodedContent` object. Set the header information, and use `PostAsync()` to send the request.
+1. Create a list with a `KeyValuePair` object containing your text, and use it to create a `FormUrlEncodedContent` object. Set the header information, and use `PostAsync()` to send the request.
 
     ```csharp
     var values = new Dictionary<string, string>();

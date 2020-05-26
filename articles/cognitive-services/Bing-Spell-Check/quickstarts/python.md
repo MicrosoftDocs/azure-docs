@@ -33,7 +33,7 @@ Although this application is written in Python, the API is a RESTful Web service
    import json
    ```
 
-2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -49,11 +49,11 @@ Although this application is written in Python, the API is a RESTful Web service
     data = {'text': example_text}
     ```
 
-2. Add the parameters for your request: 
+1. Add the parameters for your request: 
 
-   a. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+   1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 
-   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors). 
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors). 
  
     ```python
     params = {
@@ -62,7 +62,7 @@ Although this application is written in Python, the API is a RESTful Web service
         }
     ```
 
-3. Add a `Content-Type` header and your subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Add a `Content-Type` header and your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```python
     headers = {
@@ -79,7 +79,7 @@ Although this application is written in Python, the API is a RESTful Web service
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Get the JSON response and print it.
+1. Get the JSON response and print it.
 
     ```python
     json_response = response.json()

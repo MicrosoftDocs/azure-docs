@@ -38,7 +38,7 @@ Although this application is written in Java, the API is a RESTful web service c
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Create variables for the API endpoint's host, path, and your subscription key. Then, create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create variables for the API endpoint's host, path, and your subscription key. Then, create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,9 +55,9 @@ Although this application is written in Java, the API is a RESTful web service c
 
 1. Create a function called `check()` to create and send the API request. Within this function, add the code specified in the next steps. Create a string for the request parameters:
 
-   a. Assign your market code to the `mkt` parameter with the `=` operator. 
+   1. Assign your market code to the `mkt` parameter with the `=` operator. 
 
-   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. 
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. 
 
    ```java
    public static void check () throws Exception {
@@ -66,14 +66,14 @@ Although this application is written in Java, the API is a RESTful web service c
    }
    ```
 
-2. Create a URL by combining the endpoint host, path, and parameters string. Create a new `HttpsURLConnection` object.
+1. Create a URL by combining the endpoint host, path, and parameters string. Create a new `HttpsURLConnection` object.
 
     ```java
     URL url = new URL(host + path + params);
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Open a connection to the URL. Set the request method to `POST` and add your request parameters. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Open a connection to the URL. Set the request method to `POST` and add your request parameters. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
 	connection.setRequestMethod("POST");
@@ -82,7 +82,7 @@ Although this application is written in Java, the API is a RESTful web service c
 	connection.setDoOutput(true);
     ```
 
-4. Create a new `DataOutputStream` object and send the request to the API.
+1. Create a new `DataOutputStream` object and send the request to the API.
 
     ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -141,7 +141,7 @@ Build and run your project. If you're using the command line, use the following 
    javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
    ```
 
-2. Run the application:
+1. Run the application:
 
    ```bash
    java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
