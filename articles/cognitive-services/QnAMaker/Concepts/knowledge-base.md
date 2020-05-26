@@ -7,7 +7,7 @@ ms.date: 03/16/2020
 
 # Importing from data sources
 
-A knowledge base consists of question and answer pairss brought in by public URLs and files.
+A knowledge base consists of question and answer pairs brought in by public URLs and files.
 
 ## Data source locations
 
