@@ -42,7 +42,7 @@ Open `build.gradle` and change the `appName` in the following section to a uniqu
 ```gradle
 azurefunctions {
     resourceGroup = 'java-functions-group'
-    appName = 'azure-functions-sample-doc'
+    appName = 'azure-functions-sample-demo'
     pricingTier = 'Consumption'
     region = 'westus'
     runtime {
@@ -55,7 +55,7 @@ azurefunctions {
 Open the new Function.java file from the *src/main/java* path in a text editor and review the generated code. This code is an [HTTP triggered](functions-bindings-http-webhook.md) function that echoes the body of the request. 
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## Run the function locally
 
@@ -96,7 +96,7 @@ Hello, AzureFunctions
 Use `Ctrl+C` in the terminal to stop the function code.
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
 
 ## Deploy the function to Azure
 
@@ -127,7 +127,7 @@ The deployment also packages the project files and deploys them to the new funct
 The authLevel for HTTP Trigger in sample proejct is `ANONYMOUS`, which will skip the authentication. However, if you uses other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## Get the HTTP trigger URL
 
@@ -148,7 +148,7 @@ You can now use the copied URL to access your function.
 To verify the function app running on Azure using `cURL`, replace the URL from the sample below with the URL that you copied from the portal.
 
 ```console
-curl -w "\n" http://azure-functions-sample-doc.azurewebsites.net/api/HttpExample --data AzureFunctions
+curl -w "\n" http://azure-functions-sample-demo.azurewebsites.net/api/HttpExample --data AzureFunctions
 ```
 
 This sends a POST request to the function endpoint with `AzureFunctions` in the body of the request. You see the following response.
@@ -158,7 +158,7 @@ Hello, AzureFunctions
 </pre>
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
 ## Next steps
 
