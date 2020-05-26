@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/26/2020
 ms.author: aahi
 ---
 
@@ -61,7 +61,7 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
 Use the Docker `run` command to start the container. This will start an interactive shell inside the container.
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs markopoc.azurecr.io/scratch/onprem/batch-client:0.7.3  
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs <batch-client-location>:latest  
 ```
 
 To run the batch client:  
@@ -73,7 +73,7 @@ run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio
 To run the batch client and container in a single command:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs markopoc.azurecr.io/scratch/onprem/batch-client:0.7.3  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs <batch-client-location>:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
@@ -83,11 +83,11 @@ The client will start running. If an audio file has already been transcribed in 
 The batch processing kit offers three modes:
 
 
-|Mode  |Description  |
+|Run mode (`--run-mode` or `-m`) |Description  |
 |---------|---------|
-|ONESHOT mode      | Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.         |
-|DAEMON mode     | Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          |
-|APISERVER mode    | Provides a basic set of HTTP endpoints that can be used for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.          |
+|`ONESHOT`      | Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.         |
+|`DAEMON`     | Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          |
+|`REST`    | API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.          |
 
 ## Logging
 
