@@ -104,7 +104,7 @@ Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload.
+Using the same steps as those outlined for invoking GraphTopologySet, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload.
 
 ```
 {
@@ -172,7 +172,11 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
         ]
     }
 }
+
+
 ```
+
+
 
 The above JSON payload results in the creation of a MediaGraph topology that defines three parameters (two of which have default values). The topology has one source (RTSP source), one processor (motion detection processor), and one sink (IoT Hub sink).
 
@@ -184,11 +188,13 @@ Within a few seconds, you will see the following response in the Output window:
 {
   "status": 201,
   "payload": {
+    "systemData": {
+      "createdAt": "2020-05-24T21:38:55.823Z",
+      "lastModifiedAt": "2020-05-24T21:38:55.823Z"
+    },
     "name": "MotionDetection",
     "properties": {
-      "created": "2020-05-08T13:53:49.045Z",
-      "lastModified": "2020-05-08T13:53:49.045Z",
-      "description": "Motion detection on incoming live video stream",
+      "description": "Analyzing live video to detect motion and emit events",
       "parameters": [
         {
           "name": "rtspUserName",
@@ -231,7 +237,8 @@ Within a few seconds, you will see the following response in the Output window:
           "name": "motionDetection",
           "inputs": [
             {
-              "moduleName": "rtspSource"
+              "nodeName": "rtspSource",
+              "outputSelectors": []
             }
           ]
         }
@@ -239,7 +246,7 @@ Within a few seconds, you will see the following response in the Output window:
       "sinks": [
         {
           "@type": "#Microsoft.Media.MediaGraphIoTHubMessageSink",
-          "hubOutputName": "iothubsinkoutput",
+          "hubOutputName": "inferenceOutput",
           "name": "hubSink",
           "inputs": [
             {
