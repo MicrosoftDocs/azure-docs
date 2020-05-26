@@ -45,14 +45,14 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 10. Select **Save**.
 
 > [!TIP]
-> **Identities ('identities')** and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. They are always sent.
+> [**Identities ('identities')**](https://docs.microsoft.com/en-us/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. They are always sent.
 
 > [!NOTE]
 > The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
 
 > [!NOTE]
 > If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
-<!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?>
+<!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
 
  
 ## Enable the API connector in a user flow

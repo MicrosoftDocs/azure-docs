@@ -70,10 +70,7 @@ A claim returned from the API:
 - Assigns a value to the claim if it was previously null. 
 
 > [!NOTE]
-> To return a claim in the token, select it in the **Application claims** blade.
-
-> [!NOTE]
-> A claim is only stored in the directory if it is collected in the attribute collection page by being selected in the **User attributes** blade.
+> A claim is only stored in the directory if it is collected in the attribute collection page by being selected in the **User attributes** blade. You can always return a claim in the token by selecting it in the **Application claims** blade.
 
 The following is an example of a continuation response:
 
