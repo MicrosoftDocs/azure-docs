@@ -115,8 +115,8 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
 1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json".
 
-    1. Under GraphTopologySet, ensure the following:
-"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json".
+    1. Under GraphTopologySet, ensure the following:  
+`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json".`
     1. Under GraphInstanceSet, ensure: "topologyName" : " InferencingWithHttpExtension".
     1. Under GraphTopologyDelete, ensure "name": " InferencingWithHttpExtension ".
 1. Right click on "src/edge/ deployment.yolov3.template.json" file and click on Generate IoT Edge Deployment Manifest.
