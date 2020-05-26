@@ -38,7 +38,7 @@ In the tutorial that you completed as part of the prerequisites, you registered 
 
 ### Add a redirect URI (reply URL)
 
-To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregistrations).
+To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
 #### [App registrations](#tab/app-reg-ga/)
 

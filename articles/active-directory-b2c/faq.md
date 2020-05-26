@@ -130,7 +130,7 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 
 Follow these steps to delete your Azure AD B2C tenant.
 
-You can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregistrations).
+You can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
 #### [App registrations](#tab/app-reg-ga/)
 
