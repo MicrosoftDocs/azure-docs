@@ -4,7 +4,7 @@ description: Learn how to enable soft delete on Azure file shares for data recov
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -12,7 +12,7 @@ services: storage
 
 # Enable soft delete on Azure file shares
 
-Azure Storage offers soft delete for file shares so that you can more easily recover your data when it is mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
+Azure Storage offers soft delete for file shares so that you can more easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
 The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
@@ -55,7 +55,7 @@ To restore a soft deleted file share:
 
     This will display any shares currently in a **Deleted** state.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="If the status column, the column next to the name column, is set to deleted, then your file share is in a soft deleted state. And will be permanently deleted after your specified retention period.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="If the status column, the column next to the name column, is set to Deleted, then your file share is in a soft deleted state. And will be permanently deleted after your specified retention period.":::
 
 1. Select the share and select **undelete**, this will restore the share.
 
