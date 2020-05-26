@@ -27,9 +27,9 @@ The rules engine is designed to be the final authority on how specific types of 
 
 The manner in which special characters are treated varies according to how a match condition or feature handles text values. A match condition or feature may interpret text in one of the following ways:
 
-1. [**Literal values**](#literal-values)
-2. [**Wildcard values**](#wildcard-values)
-3. [**Regular expressions**](#regular-expressions)
+- [**Literal values**](#literal-values)
+- [**Wildcard values**](#wildcard-values)
+- [**Regular expressions**](#regular-expressions)
 
 ### Literal values
 
