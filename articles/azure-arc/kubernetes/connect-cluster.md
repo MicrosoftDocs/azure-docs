@@ -150,7 +150,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Output:**
