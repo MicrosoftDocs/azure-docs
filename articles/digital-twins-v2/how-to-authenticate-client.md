@@ -108,12 +108,13 @@ To use the interactive browser credentials to create an authenticated SDK client
 
 ```csharp
 // Your client / app registration ID
-private static string clientId; 
+private static string clientId = "<your-client-ID>"; 
 // Your tenant / directory ID
-private static string tenantId;
-// The URL of your instance, including the protocol (https://)
-private static string adtInstanceUrl;
-...
+private static string tenantId = "<your-tenant-ID>";
+// The URL of your instance, starting with the protocol (https://)
+private static string adtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
+
+//...
 
 DigitalTwinsClient client;
 try
@@ -127,7 +128,10 @@ try
 }
 ```
 
-In an Azure Function, you can use the managed identity credentials like this:
+>[!NOTE]
+> While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
+
+In an Azure Function, you can then use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
@@ -171,11 +175,11 @@ import { TokenCredentials } from "@azure/ms-rest-js";
 import { AzureDigitalTwinsAPI } from './azureDigitalTwinsAPI';
 
 // Client / app registration ID
-var ClientId;
+var ClientId = "<your-client-ID>";
 // Azure tenant / directory ID
-var TenantId;
+var TenantId = "<your-tenant-ID>";
 // URL of the Azure Digital Twins instance
-var AdtInstanceUrl; 
+var AdtInstanceUrl = "<your-instance-URL>"; 
 
 var AdtAppId = "https://digitaltwins.azure.net";
 
@@ -235,6 +239,8 @@ export async function login() {
     }
 }
 ```
+
+Note again that where the code above places the client ID, tenant ID and instance URL directly into the code for simplicity, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
 MSAL has many more options you can use, to implement things like caching and other authentication flows. For more information on this, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 

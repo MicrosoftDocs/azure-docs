@@ -56,7 +56,7 @@ Before continuing with this example, you'll need to complete the following prere
 
 ## Create an Azure function in Visual Studio
 
-This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure Function for processing data](./how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton function is this:
 
