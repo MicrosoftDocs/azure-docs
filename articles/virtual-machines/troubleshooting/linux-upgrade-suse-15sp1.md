@@ -52,7 +52,7 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
     cat /etc/os-release
     ```
 
-4. Install the **suse-migration-sle15-activation** and **SLES15-Migration** package.
+4. Install the **suse-migration-sle15-activation**. When the package **suse-migration-sle15-activation** gets installed, another package **SLES15-Migration** will be automatically installed as a dependency package. 
 
    ```
    zypper install suse-migration-sle15-activation
@@ -60,9 +60,8 @@ The current SLES version must be SLES 12 SP4 or 12 SP5 before you can proceed to
 
 5. After the installation is finished, run the `reboot` command to restart the VM.
 
-6. Go to the [Azure portal](https://portal.azure.com), select the VM, and then select **Serial console**. You will see that the system stops at "reboot: Restarting system". This process should take about 15-45 minutes.
+6. Go to the [Azure portal](https://portal.azure.com), select the VM, and then select **Serial console**. You will see that the system stops at "reboot: Restarting system". This process should take about 15-45 minutes. For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen. In this case, wait for 45 minutes. If it still doesn't progress further, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/reboot-message.png)
-For Generation 2 VM, it might be stuck on the "reboot: Restarting system" screen. In this case, wait for 45 minutes. If it still doesn't progress further, go to the **Overview** page of the VM in the Azure portal, stop the VM, and then restart it.
 
 8. After the system is restarted with new kernel, you will see the following message. 
      ![The screenshot about the messages in the serial console](./media/linux-upgrate-suse-15sp1/output-message.png)
