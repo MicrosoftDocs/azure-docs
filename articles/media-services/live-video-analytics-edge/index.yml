@@ -29,7 +29,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Media Graph
+          - text: Media graph
             url: media-graph-concept.md
           - text: Video recording 
             url: video-recording-concept.md
@@ -61,8 +61,10 @@ landingContent:
         links:
           - text: Continuous video recording  
             url: continuous-video-recording-tutorial.md
-      #    - text: Event-based video recording  
-       #     url: event-based-video-recording-tutorial.md  
+          - text: Event-based video recording  
+            url: event-based-video-recording-tutorial.md  
+          - text: Playback multi-day recordings
+            url: playback-multi-day-recordings-tutorial.md
 
   # Card
   - title: Develop 
@@ -76,12 +78,14 @@ landingContent:
           - text: Playback a recording 
             url: playback-recordings-how-to.md
           - text: Monitoring and logging
-            url: monitoring-logging.md           
+            url: monitoring-logging.md     
+          - text: Troubleshoot
+            url: troubleshoot-how-to.md
       - linkListType: reference
         links:
           - text: Direct methods
             url: direct-methods.md
-          - text: Module Twin configuration schema  
+          - text: Module twin configuration schema  
             url: module-twin-configuration-schema.md
           - text: Quotas and limitations  
             url: quotas-limitations.md
