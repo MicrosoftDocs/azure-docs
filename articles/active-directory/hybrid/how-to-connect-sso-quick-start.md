@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - quick start | Microsoft Docs'
+title: 'Azure AD Connect: Seamless Single Sign-On - quickstart | Microsoft Docs'
 description: This article describes how to get started with Azure Active Directory Seamless Single Sign-On
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
@@ -18,7 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory Seamless Single Sign-On: Quick start
+# Azure Active Directory Seamless Single Sign-On: Quickstart
 
 ## Deploy Seamless Single Sign-On
 
@@ -187,7 +187,7 @@ If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microso
 
 #### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
 
-For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
+For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
 
 #### Google Chrome (all platforms)
 
@@ -195,7 +195,7 @@ If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium
 
 #### Google Chrome (macOS and other non-Windows platforms)
 
-For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
+For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
 
 The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome on Mac users is outside the scope of this article.
 

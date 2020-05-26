@@ -128,7 +128,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure Trelica SSO
 
-To configure single sign-on on the **Trelica** side, go to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the **New** button. Enter **Azure AD** as the Name and choose **Metadata from url** for the Metadata type. Paste the **App Fedeation Metadata Url** you took from Azure AD into the **Metadata url** field in Trelica.
+To configure single sign-on on the **Trelica** side, go to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the **New** button. Enter **Azure AD** as the Name and choose **Metadata from url** for the Metadata type. Paste the **App Federation Metadata Url** you took from Azure AD into the **Metadata url** field in Trelica.
 
 Read the [Trelica help documentation](https://docs.trelica.com/admin/saml/azure-ad) or contact the [Trelica Client support team](mailto:support@trelica.com) if you have questions.
 
