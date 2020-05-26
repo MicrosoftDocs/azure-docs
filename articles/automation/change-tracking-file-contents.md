@@ -173,6 +173,5 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 ## Next steps
 
-* [Change Tracking and Inventory overview](change-tracking.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
-* [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md)
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

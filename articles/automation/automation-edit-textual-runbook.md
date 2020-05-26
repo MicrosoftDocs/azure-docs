@@ -85,14 +85,14 @@ Import-AzAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookN
 Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
 ```
 
-## Related articles
+## Next steps
 
-* [Manage runbooks in Azure Automation](manage-runbooks.md)
-* [Learning PowerShell workflow](automation-powershell-workflow.md)
-* [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-* [Certificates](automation-certificates.md)
-* [Connections](automation-connections.md)
-* [Credentials](automation-credentials.md)
-* [Schedules](automation-schedules.md)
-* [Variables](automation-variables.md)
-* [PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Manage runbooks in Azure Automation](manage-runbooks.md).
+* [Learning PowerShell workflow](automation-powershell-workflow.md).
+* [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+* [Certificates](automation-certificates.md).
+* [Connections](automation-connections.md).
+* [Credentials](automation-credentials.md).
+* [Schedules](automation-schedules.md).
+* [Variables](automation-variables.md).
+* [PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

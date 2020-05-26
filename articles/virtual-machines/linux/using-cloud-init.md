@@ -50,11 +50,12 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to complete end of May| yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to complete end of May | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.2020051912 | no - image updates in flight, to complete end of May  | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 (Gen2) |rhel-byos | rhel-lvm77 | 7.7.2020051913 |no - image updates in flight, to complete end of May  | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | no - image updates in flight, to complete end of May  | yes - support from package version: *18.5-6.el7*|
 |RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020|
 |RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020 |
 

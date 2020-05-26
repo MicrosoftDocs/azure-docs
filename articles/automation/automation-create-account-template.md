@@ -6,7 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
+ms.date: 05/22/2020
 ---
 # Create an Automation account using an Azure Resource Manager template
 
@@ -20,6 +20,8 @@ The template doesn't automate the enabling of Azure or non-Azure virtual machine
 
 >[!NOTE]
 >Creation of the Automation Run As account is not supported when you're using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
+
+After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace. 
 
 ## API versions
 
@@ -304,6 +306,4 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 ## Next steps
 
-* [Create a PowerShell runbook](automation-first-runbook-textual-powershell.md)
-* [Create a PowerShell Workflow runbook](automation-first-runbook-textual.md)
-* [Create a Python runbook](automation-first-runbook-textual-python2.md)
+To forward runbook job status and job streams to your linked Log Analytics workspace, review [Forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md). This configures the diagnostic settings of the Automation account using Azure PowerShell commands to complete the integration for sending logs to the workspace for analysis. 

@@ -70,4 +70,4 @@ Authentication and Identity (Azure Active Directory) is a global service and may
 
 ## Next steps
 
-If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

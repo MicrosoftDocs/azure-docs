@@ -95,8 +95,9 @@ Classic Run As accounts are no longer created by default when you create an Azur
 
 ## Next steps
 
-* [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-* [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
-* [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
-* [My first Python2 runbook](automation-first-runbook-textual-python2.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* To learn more about graphical authoring, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).
+* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To get started with PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* To get started with Python 2 runbooks, see [Tutorial: Create a Python 2 runbook](learn/automation-tutorial-runbook-textual-python2.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
