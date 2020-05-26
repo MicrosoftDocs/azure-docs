@@ -60,7 +60,7 @@ The configuration steps include the following procedures to configure and use Az
 
 ## Trust architecture
 
-- To support Azure AD native user password, only the cloud portion of Azure AD, SQL Database, and SQL Managed Instance is considered.
+- Only the cloud portion of Azure AD, SQL Database, SQL Managed Instance, and Azure Synapse is considered to support Azure AD native user passwords.
 - To support Windows single sign-on credentials (or user/password for Windows credential), use Azure Active Directory credentials from a federated or managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 - To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required.
 
