@@ -155,6 +155,8 @@ Get-ServiceFabricClusterHealth
 
 We're now ready to start disabling the nodes of the original scale set. As these nodes become disabled, the system services and seed nodes migrate to the VMs of the new scale set because it is also marked as the primary node type.
 
+For scaling up non-primary node types, in this step you would modify the service placement constraint to include the new virtual machine scale set/node type and then reduce the old virtual machine scale set instance count to zero, one node at a time (to ensure node removal doesn't impact cluster reliability).
+
 ```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
