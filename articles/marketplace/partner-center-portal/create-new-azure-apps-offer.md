@@ -123,7 +123,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 
 ## Offer setup
 
-The **Offer setup** page is where you can configure a test drive and lead management for your offer. 
+The **Offer setup** page is where you can configure a test drive and lead management for your offer.
 
 ### Test drive
 
@@ -136,7 +136,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## Lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

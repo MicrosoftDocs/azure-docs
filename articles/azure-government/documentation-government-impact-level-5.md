@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/22/2019
+ms.date: 05/25/2020
 ms.Updated: 03/13/2020
 ms.author: dumartin
 
@@ -157,6 +157,20 @@ Power BI Embedded can be used in Azure Government supporting Impact Level 5 work
 | **Power BI Embedded** |   |   |   |   | X | X |
 
 ## Compute services
+
+### [Azure Automation](https://azure.microsoft.com/services/automation/)
+
+Azure Automation can be used in Azure Government supporting Impact level 5 workloads for providing compute level isolation.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Automation** | X |  | X | X | | |
+
+Azure Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to these one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or Isolated Virtual Machine types for Hybrid worker role. [Isolated VM types](#isolated-virtual-machines) when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
+
+- [Azure Dedicated Host](#azure-dedicated-hosts) provides physical servers, able to host one or more virtual machines, dedicated to one Azure subscription.
 
 ### [Azure Batch](https://azure.microsoft.com/services/batch/)
 
