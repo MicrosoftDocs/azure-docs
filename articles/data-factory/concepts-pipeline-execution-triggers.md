@@ -370,7 +370,7 @@ The tumbling window trigger and the schedule trigger both operate on time heartb
 
 The following table provides a comparison of the tumbling window trigger and schedule trigger:
 
-|   | Tumbling window trigger | Schedule trigger |
+| Item | Tumbling window trigger | Schedule trigger |
 | --- | --- | --- |
 | **Backfill scenarios** | Supported. Pipeline runs can be scheduled for windows in the past. | Not supported. Pipeline runs can be executed only on time periods from the current time and the future. |
 | **Reliability** | 100% reliability. Pipeline runs can be scheduled for all windows from a specified start date without gaps. | Less reliable. |
