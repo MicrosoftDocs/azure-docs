@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a shared query with templates"
 description: In this quickstart, you use a Resource Manager template to create a Resource Graph shared query that counts virtual machines by OS.
-ms.date: 04/28/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
@@ -44,7 +44,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   [![Deploy the Policy template to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 
