@@ -40,7 +40,7 @@ Both the horizontal pod autoscaler and cluster autoscaler can also decrease the 
 
 For more information about how the cluster autoscaler may be unable to scale down, see [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown]
 
-The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. These parameters are defined by the Azure platform, and aren't currently exposed for you to adjust. For more information on what parameters the cluster autoscaler uses, see [What are the cluster autoscaler parameters?][autoscaler-parameters].
+The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. For more information on what parameters the cluster autoscaler uses, see [What are the cluster autoscaler parameters?][autoscaler-parameters].
 
 The cluster and horizontal pod autoscalers can work together, and are often both deployed in a cluster. When combined, the horizontal pod autoscaler is focused on running the number of pods required to meet application demand. The cluster autoscaler is focused on running the number of nodes required to support the scheduled pods.
 
@@ -95,7 +95,7 @@ az aks update \
 The above example updates cluster autoscaler on the single node pool in *myAKSCluster* to a minimum of *1* and maximum of *5* nodes.
 
 > [!NOTE]
-> You can't set a higher minimum node count than is currently set for the node pool. For example, if you currently have min count set to *1*, you can't update the min count to *3*.
+The cluster autoscaler will make its scaling decisions based on the minimum and maximum counts set on each node pool, but it does not enforce them. For example, setting a min-count of 5 when the current node count is 3 will not immediately scale the pool up to 5. If you change the minimum count on the node pool to a value higher than the current number of nodes, this new limit will be respected when there are enough unschedulable pods present that would require 2 new additional nodes and trigger an autoscaler event. After this occurs, the new minimum count limit will be respected for the cluster autoscaler.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 

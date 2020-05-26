@@ -19,7 +19,7 @@ The following Transact-SQL scripts provide examples for each of these areas.
 
 ### Prerequisites for examples
 
-Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**. The following Transact-SQL commands setup these prerequisites for running the examples.
+Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_cred**. The following Transact-SQL commands setup these prerequisites for running the examples.
 
 ``` sql
 USE master;
@@ -27,7 +27,7 @@ GO
 
 --create credential
 --The <<SECRET>> here requires the <Application ID> (without hyphens) and <Secret> to be passed together without a space between them.
-CREATE CREDENTIAL sysadmin_ekm_cred
+CREATE CREDENTIAL Azure_EKM_cred
     WITH IDENTITY = 'keytestvault', --keyvault
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
@@ -35,7 +35,7 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
-ADD CREDENTIAL sysadmin_ekm_cred;
+ADD CREDENTIAL Azure_EKM_cred;
 
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY

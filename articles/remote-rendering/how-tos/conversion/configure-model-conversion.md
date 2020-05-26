@@ -34,6 +34,7 @@ The contents of the file should satisfy the following json schema:
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
         "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
+        "deduplicateMaterials" : { "type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
@@ -73,6 +74,10 @@ If that is not the intended behavior, this parameter should be set to "SingleSid
 ### Material overrides
 
 * `material-override` - This parameter allows the processing of materials to be [customized during conversion](override-materials.md).
+
+### Material de-duplication
+
+* `deduplicateMaterials` - This parameter enables or disables automatic de-duplication of materials that share the same properties and textures. De-duplication happens after material overrides have been processed. It's enabled by default.
 
 ### Color space parameters
 

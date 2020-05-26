@@ -3,7 +3,7 @@ title: Resource limits - managed instance
 description: This article provides an overview of the Azure SQL Database resource limits for managed instances. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -75,6 +75,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
 | [Read-only replicas](sql-database-read-scale-out.md) | 0 | 1 (included in price) |
+| Compute isolation | Gen5:<br/>-supported for 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 60, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
 
 > [!NOTE]
 > - **Currently available instance storage size** is the difference between reserved instance size and the used storage space.

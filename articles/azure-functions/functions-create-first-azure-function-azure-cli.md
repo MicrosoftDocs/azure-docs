@@ -8,15 +8,33 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Create a function in Azure that responds to HTTP requests
 
-In this article, you use command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+::: zone pivot="programming-language-csharp"  
+In this article, you use command-line tools to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+In this article, you use command-line tools to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+In this article, you use command-line tools to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
 ::: zone-end  
-
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> If Maven is not your prefered development tool, check out our similar tutorials for Java developers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> If Maven is not your prefered development tool, check out our similar tutorials for Java developers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -376,9 +394,16 @@ If you continue to the next step, [Add an Azure Storage queue output binding](fu
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
+::: zone pivot="programming-language-java"
+```azurecli
+az group delete --name java-functions-group
+```
+::: zone-end
 
 ## Next steps
 

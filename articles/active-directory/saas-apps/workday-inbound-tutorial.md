@@ -238,7 +238,7 @@ A common requirement of all the Workday provisioning connectors is that they req
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
   
    * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.
-   * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.
+   * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user's sessions from timing out prematurely.
    * Select the option **Do Not Allow UI Sessions** as it provides an added layer of security that prevents a user with the password of the integration system from logging into Workday.
 
    ![Create Integration System User](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
@@ -439,7 +439,7 @@ Transfer the downloaded agent installer to the server host and follow the steps 
   
    ![Exit Screen](./media/workday-inbound-tutorial/pa_install_screen_9.png "Exit Screen")
    
-1. Verify the installation of the Agent and make sure it is running by opening the “Services” Snap-In and look for the Service named “Microsoft Azure AD Connect Provisioning Agent”
+1. Verify the installation of the Agent and make sure it is running by opening the "Services" Snap-In and look for the Service named "Microsoft Azure AD Connect Provisioning Agent"
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
@@ -455,11 +455,11 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Workday password –** Enter the password of the Workday integration system account
 
    * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
 
      > [!NOTE]
      > By default, the app uses Workday Web Services (WWS) v21.1 if no version information is specified in the URL. To use a specific WWS API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > If you are using a WWS API v30.0 and above, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -472,7 +472,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
      > [!NOTE]
      > This setting only comes into play for user account creations if the *parentDistinguishedName* attribute is not configured in the attribute mappings. This setting is not used for user search or update operations. The entire domain sub tree falls in the scope of the search operation.
 
-   * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
+   * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
 
      > [!NOTE]
      > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
@@ -489,7 +489,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize Workday Workers to On Premises Active Directory**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is “all users in Workday”. Example filters:
+1. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is "all users in Workday". Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
         2000000 (excluding 2000000)
@@ -623,15 +623,15 @@ The following sections describe steps for configuring user provisioning from Wor
    * **Workday password –** Enter the password of the Workday integration system account
 
    * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`,
         where *contoso4* is replaced with your correct tenant name and  *wd3-impl* is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
      > [!NOTE]
      > By default, the app uses Workday Web Services v21.1 if no version information is specified in the URL. To use a specific Workday Web Services API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
-   * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
+   * **Notification Email –** Enter your email address, and check the  "send email if failure occurs" checkbox.
 
    * Click the **Test Connection** button.
 
@@ -645,7 +645,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize Workers to Azure AD**.
 
-2. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to Azure AD, by  defining a set of attribute-based filters. The default scope is “all  users in Workday”. Example filters:
+2. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to Azure AD, by  defining a set of attribute-based filters. The default scope is "all  users in Workday". Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
         2000000
@@ -736,10 +736,10 @@ Follow these instructions to configure writeback of user email addresses and use
    * **Admin password –** Enter the password of the Workday integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`,
         where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string (if necessary).
 
-   * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
+   * **Notification Email –** Enter your email address, and check the  "send email if failure occurs" checkbox.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
         the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
@@ -750,7 +750,7 @@ In this section, you will configure how writeback attributes flow from Azure AD 
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize Azure Active Directory Users to Workday**.
 
-2. In the **Source Object Scope** field, you can optionally filter, which sets of users in Azure Active Directory should have their email addresses written back to Workday. The default scope is “all users in Azure AD”.
+2. In the **Source Object Scope** field, you can optionally filter, which sets of users in Azure Active Directory should have their email addresses written back to Workday. The default scope is "all users in Azure AD".
 
 3. In the **Attribute mappings** section, update the matching ID to indicate the attribute in Azure Active Directory where the Workday worker ID or employee ID is stored. A popular matching method is to synchronize the Workday worker ID or employee ID to extensionAttribute1-15 in Azure AD, and then use this attribute in Azure AD to match users back in Workday.
 
@@ -805,7 +805,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [I have custom attributes in Workday and Active Directory. How do I configure the solution to work with my custom attributes?](#i-have-custom-attributes-in-workday-and-active-directory-how-do-i-configure-the-solution-to-work-with-my-custom-attributes)
   * [Can I provision user's photo from Workday to Active Directory?](#can-i-provision-users-photo-from-workday-to-active-directory)
   * [How do I sync mobile numbers from Workday based on user consent for public usage?](#how-do-i-sync-mobile-numbers-from-workday-based-on-user-consent-for-public-usage)
-  * [How do I format display names in AD based on the user’s department/country/city attributes and handle regional variances?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
+  * [How do I format display names in AD based on the user's department/country/city attributes and handle regional variances?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
   * [How can I use SelectUniqueValue to generate unique values for samAccountName attribute?](#how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute)
   * [How do I remove characters with diacritics and convert them into normal English alphabets?](#how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets)
 
@@ -821,9 +821,9 @@ No, sending email notifications after completing provisioning operations is not 
 
 #### How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?
 
-One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user’s AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user’s manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
+One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user's AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user's manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
 
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
+As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the "Mobile Number" attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the "Mobile Number" is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user's account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
 
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
@@ -935,7 +935,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 * Change to the directory containing the registration scripts and run the following commands replacing the \[tenant ID\] parameter with the value of your tenant ID.
 
   ```powershell
-  cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
+  cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder"
   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder\AppProxyPSModule.psd1"
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
@@ -1008,7 +1008,7 @@ The solution currently does not support setting binary attributes such as *thumb
 * Save the Attribute Mapping.
 * Clear current state and restart the full sync.
 
-#### How do I format display names in AD based on the user’s department/country/city attributes and handle regional variances?
+#### How do I format display names in AD based on the user's department/country/city attributes and handle regional variances?
 
 It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
 
@@ -1025,9 +1025,9 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
   
    Confirm with your Workday team that the API expression above is valid for your Workday tenant configuration. If necessary, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
-* Similarly the country information present in Workday is retrieved using the following XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
+* Similarly the country/region information present in Workday is retrieved using the following XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
 
-     There are 5 country-related attributes that are available in the Workday attribute list section.
+     There are 5 country/region-related attributes that are available in the Workday attribute list section.
 
      | Workday Attribute | API XPATH Expression |
      | ----------------- | -------------------- |
@@ -1039,7 +1039,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
 
   Confirm with your Workday team that the API expressions above are valid for your Workday tenant configuration. If necessary, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
-* To build the right attribute mapping expression, identify which Workday attribute “authoritatively” represents the user’s first name, last name, country/region and department. Let’s say the attributes are *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* and *SupervisoryOrganization* respectively. You can use this to build an expression for the AD *displayName* attribute as follows to get a display name like *Smith, John (Marketing-US)*.
+* To build the right attribute mapping expression, identify which Workday attribute "authoritatively" represents the user's first name, last name, country/region and department. Let's say the attributes are *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* and *SupervisoryOrganization* respectively. You can use this to build an expression for the AD *displayName* attribute as follows to get a display name like *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1172,7 +1172,7 @@ When you click on any of the audit log records, the **Activity Details** page op
 
   If there are issues with your attribute mapping expressions or the incoming Workday data has issues (for example: empty or null value for required attributes), then you will observe a failure at this stage with the ErrorCode providing details of the failure.
 
-* **AD Export** record: This log record displays the result of AD account creation operation along with the attribute values that were set in the process. Use information in the *Additional Details* section of the log record to troubleshoot issues with the account create operation. An example record is shown below along with pointers on how to interpret each field. In the “Additional Details” section, the “EventName” is set to “EntryExportAdd”, the “JoiningProperty” is set to the value of the Matching ID attribute, the “SourceAnchor” is set to the WorkdayID (WID) associated with the record and the “TargetAnchor” is set to the value of the AD “ObjectGuid” attribute of the newly created user. 
+* **AD Export** record: This log record displays the result of AD account creation operation along with the attribute values that were set in the process. Use information in the *Additional Details* section of the log record to troubleshoot issues with the account create operation. An example record is shown below along with pointers on how to interpret each field. In the "Additional Details" section, the "EventName" is set to "EntryExportAdd", the "JoiningProperty" is set to the value of the Matching ID attribute, the "SourceAnchor" is set to the WorkdayID (WID) associated with the record and the "TargetAnchor" is set to the value of the AD "ObjectGuid" attribute of the newly created user. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1194,11 +1194,11 @@ When you click on any of the audit log records, the **Activity Details** page op
 
 ### Understanding logs for manager update operations
 
-The manager attribute is a reference attribute in AD. The provisioning service does not set the manager attribute as part of the user creation operation. Rather the manager attribute is set as part of an *update* operation after AD account is created for the user. Expanding the example above, let’s say a new hire with Employee ID "21451" is activated in Workday and the new hire’s manager (*21023*) already has an AD account. In this scenario, searching the Audit logs for user 21451 shows up 5 entries.
+The manager attribute is a reference attribute in AD. The provisioning service does not set the manager attribute as part of the user creation operation. Rather the manager attribute is set as part of an *update* operation after AD account is created for the user. Expanding the example above, let's say a new hire with Employee ID "21451" is activated in Workday and the new hire's manager (*21023*) already has an AD account. In this scenario, searching the Audit logs for user 21451 shows up 5 entries.
 
   [![Manager Update](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
-The first 4 records are like the ones we explored as part of the user create operation. The 5th record is the export associated with manager attribute update. The log record displays the result of AD account manager update operation, which is performed using the manager’s *objectGuid* attribute.
+The first 4 records are like the ones we explored as part of the user create operation. The 5th record is the export associated with manager attribute update. The log record displays the result of AD account manager update operation, which is performed using the manager's *objectGuid* attribute.
 
   ```JSON
   // Modified Properties
@@ -1290,7 +1290,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 7. Set **Operation** to **Get_Workers**
 
-8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
+8.    Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

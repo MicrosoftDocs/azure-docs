@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019 
 ---
 # Get support and training for Azure Machine Learning Studio (classic)

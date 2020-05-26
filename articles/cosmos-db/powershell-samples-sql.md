@@ -4,7 +4,7 @@ description:  Get the Azure PowerShell samples to perform various common tasks i
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/26/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
 ---
 
@@ -15,7 +15,7 @@ The following table includes links to commonly used Azure PowerShell scripts for
 For additional Cosmos DB PowerShell samples for SQL (Core) API and documentation, see [Manage Azure Cosmos DB SQL API resources using PowerShell](manage-with-powershell.md). For Cosmos DB PowerShell samples for other APIs, see [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md), and [Table API](powershell-samples-table.md).
 
 > [!NOTE]
-> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please note that the `Az.CosmosDB` cmdlets are still in preview and may change before release. Please check for updates to `Az.CosmosDB` regularly.
+> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
 | | |
 |---|---|

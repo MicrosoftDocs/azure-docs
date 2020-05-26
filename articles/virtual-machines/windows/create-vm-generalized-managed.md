@@ -15,6 +15,7 @@ You can create multiple virtual machines (VMs) from an Azure managed VM image us
 
 Before creating a new VM, you'll need to [create a managed VM image](capture-image-resource.md) to use as the source image and grant read access on the image to any user who should have access to the image. 
 
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use a [Shared Image Galleries](shared-image-galleries.md) image configured with 1 replica for every 20 concurrent VM deployments.
 
 ## Use the portal
 

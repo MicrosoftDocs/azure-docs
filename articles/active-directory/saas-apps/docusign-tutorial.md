@@ -218,7 +218,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
        
        1. Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
        
-       1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
+       1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal. At the end of the **Service Provider Login URL** you will get the IDPID value.
 
        1. Select **Close**.
 

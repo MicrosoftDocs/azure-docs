@@ -243,6 +243,10 @@ This functionality is not supported. If you need this capability, you can vote f
 
 Once you have implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
+### What are the other limitation of using custom deserializers in Stream Analytics?
+
+If your input is of Protobuf format with schema containing MapField type, you will not be able to implement a custom deserializer. We are working on supporting this type going forward.
+
 ## Next Steps
 
 * [.NET custom deserializers for Azure Stream Analytics cloud jobs](custom-deserializer.md)

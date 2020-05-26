@@ -52,7 +52,7 @@ Before you begin this tutorial, you should:
 
 Add the Azure Migrate:Server Migration tool.
 
-- If you followed the second tutorial to [assess VMware VMs](/tutorial-assess-vmware.md), you can go ahead and add the tool.
+- If you followed the second tutorial to [assess VMware VMs](tutorial-assess-vmware.md), you can go ahead and add the tool.
 - If you didn't follow the second tutorial, [follow these instructions](how-to-add-tool-first-time.md)  to set up an Azure Migrate project.  You add the Azure Migrate:Server Migration tool when you create the project.
 
 If you have a project set up, add the tool as follows:

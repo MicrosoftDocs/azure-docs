@@ -130,10 +130,10 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 
 ### Event Scope		
 Scheduled events are delivered to:
- - Standalone Virtual Machines
- - All Virtual Machines in a Cloud Service		
- - All Virtual Machines in an Availability Set		
- - All Virtual Machines in a Scale Set Placement Group. 		
+ - Standalone Virtual Machines.
+ - All Virtual Machines in a Cloud Service.		
+ - All Virtual Machines in an Availability Set.		
+ - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
 
 As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 

@@ -4,7 +4,7 @@ description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 
 ---
 
@@ -13,20 +13,20 @@ The [Azure Application Insights](../../azure-monitor/app/app-insights-overview.m
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
-> 
-> 
 
 > [!TIP]
-> Subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
-> 
-> 
+> You can use Azure [network service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+
+Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
+
 
 ## Outgoing ports
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170 | 443 |
+| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23 | 443 |
 | Live Metrics Stream (East US) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | Live Metrics Stream (South Central US) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
 | Live Metrics Stream (North Europe) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
@@ -174,6 +174,13 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
+Azure US Government (Not needed if you are an Azure Public cloud customer)
+
+20.140.48.160/27
+20.140.56.160/27
+20.140.64.160/27
+20.140.72.160/27
+52.127.49.96/27
 ```  
 
 ## Application Insights & Log Analytics APIs
@@ -216,11 +223,11 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
-## Alert webhooks
+## Action Group webhooks
 
 | Purpose | IP | Ports
 | --- | --- | --- |
-| Alerting | 23.96.11.4 | 443 |
+| Alerting | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
 
 ## Profiler
 

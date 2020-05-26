@@ -97,14 +97,15 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 ## Limitations 
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
 * Availability Zones are currently supported for certain regions, see the beginning of this document 
-* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
+* [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
-* No support for Azure DevOps integration out of the box with private clusters
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
+* Uptime SLA isn't currently supported.
 
 
 <!-- LINKS - internal -->
@@ -112,8 +113,8 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

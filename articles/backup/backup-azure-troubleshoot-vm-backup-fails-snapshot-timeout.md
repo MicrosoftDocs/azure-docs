@@ -40,6 +40,8 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 
 **Cause 4: [VM-Agent configuration options are not set (for Linux VMs)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
+**Cause 5: [Application control solution is blocking IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
+
 ## UserErrorVmProvisioningStateFailed - The VM is in failed provisioning state
 
 **Error code**: UserErrorVmProvisioningStateFailed<br>
@@ -195,8 +197,16 @@ If you require verbose logging for waagent, follow these steps:
 
 ### VM-Agent configuration options are not set (for Linux VMs)
 
-A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** and **Provisioning.Agent** should be set to **y** for Backup to work.
+A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** should be set to **y** and **Provisioning.Agent** should be set to **auto** for Backup to work.
 For full list of VM-Agent Configuration File Options, see <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### Application control solution is blocking IaaSBcdrExtension.exe
+
+If you are running [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (or another application control solution), and the rules are publisher or path based, they may block the **IaaSBcdrExtension.exe** executable from running.
+
+#### Solution
+
+Exclude the `/var/lib` path or the **IaaSBcdrExtension.exe** executable from AppLocker (or other application control software.)
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>The snapshot status can't be retrieved, or a snapshot can't be taken
 

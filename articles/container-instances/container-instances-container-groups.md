@@ -64,7 +64,7 @@ In this scenario, you could set a resource limit of up to 2 CPUs for the contain
 
 ## Networking
 
-Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. A container group's IP address and FQDN will be released when the container group is deleted. 
+Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. A container group's IP address and FQDN are released when the container group is deleted. 
 
 Within a container group, container instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
@@ -113,7 +113,7 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md

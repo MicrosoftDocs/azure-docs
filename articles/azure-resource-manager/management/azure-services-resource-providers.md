@@ -56,7 +56,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
 | Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Data Catalog](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |

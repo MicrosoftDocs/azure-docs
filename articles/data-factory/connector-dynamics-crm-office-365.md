@@ -12,7 +12,7 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
+ms.date: 05/06/2020
 ---
 
 # Copy data from and to Dynamics 365 (Common Data Service) or Dynamics CRM by using Azure Data Factory
@@ -56,6 +56,10 @@ This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.m
 
 >[!TIP]
 >To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
+
+## Prerequisites
+
+To use this connector with AAD service principal authentication, you need to set up Server-to-Server (S2S) authentication in Common Data Service or Dynamics. Refer to [this article](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) on detailed steps.
 
 ## Get started
 

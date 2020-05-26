@@ -74,6 +74,14 @@ The following sections contain links to articles that explain how to use a Recov
 
 - [Securing cloud backup data in Recovery Services vaults](backup-azure-security-feature.md)
 
+## Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
+
+Azure Advisor provides hourly [recommendations](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can click on the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+
 ## Next steps
 
 Use the following articles to:</br>

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -68,9 +68,9 @@ The `error` field has several possible values - review the protocol documentatio
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
 ## Lookup current error code information
-Error codes and messages are subject to change.  For the most current info, take a look at the `https://login.microsoftonline.com/error` page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
+Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
 
-Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in `https://login.microsoftonline.com/error` for "16000".  You can also link directly to a specific error by adding the error code number to the URL: `https://login.microsoftonline.com/error?code=16000`.
+Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "16000".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## AADSTS error codes
 
@@ -185,6 +185,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
 | AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS650052 | The app needs access to a service `(\"{name}\")` that your organization `\"{organization}\"` has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. |
@@ -202,6 +203,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS75001 | BindingSerializationError - An error occurred during SAML message binding. |
 | AADSTS75003 | UnsupportedBindingError - The app returned an error related to unsupported binding (SAML protocol response cannot be sent via bindings other than HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD doesn’t support the SAML request sent by the app for SSO. |
+| AADSTS7500514 | A supported type of SAML response was not found. The supported response types are 'Response' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:protocol') or 'Assertion' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:assertion'). Application error - the developer will handle this error.|
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
@@ -307,6 +309,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS700020 | InteractionRequired - The access grant requires interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
+| AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
 | AADSTS7000222| InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://aka.ms/certCreds |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |

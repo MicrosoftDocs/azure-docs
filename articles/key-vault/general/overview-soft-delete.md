@@ -19,7 +19,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and vault 
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
+The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 

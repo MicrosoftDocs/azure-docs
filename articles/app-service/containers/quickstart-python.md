@@ -5,8 +5,6 @@ ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 
-experimental: true
-experiment_id: 01a9132f-eaab-4c
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux
@@ -100,6 +98,11 @@ In the *python-docs-hello-world* folder that contains the sample code, run the f
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> If you are using **Azure-CLI version 2.5.0** there is a regression in `az webapp up` where certain scenarios will fail if the `-l <location-name>` parameter is not included. This issue being [tracked here](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>You can check what version of the Azure-CLI you are using with the `az --version` command.
+>
 
 The `--sku F1` argument creates the web app on the Free pricing tier. You can omit this argument to use a premium tier instead, which incurs an hourly cost.
 

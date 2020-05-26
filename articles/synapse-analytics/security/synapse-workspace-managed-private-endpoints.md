@@ -27,8 +27,9 @@ Private endpoint uses a private IP address from your VNet to effectively bring t
 
 >[!IMPORTANT]
 >Managed private endpoints are only supported in Azure Synapse workspaces with a Managed workspace VNet.
+
 >[!NOTE]
->It's recommended that you create Managed private endpoints to connect to all your Azure data sources. All outbound traffic from the >Managed workspace VNet will be blocked in the future.
+>All outbound traffic from the Managed workspace VNet except through Managed private endpoints will be blocked in the future. It's recommended that you create Managed private endpoints to connect to all your Azure data sources external to the workspace. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Synapse. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 

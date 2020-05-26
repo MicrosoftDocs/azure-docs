@@ -3,9 +3,9 @@ title: Connect to SQL Server or Azure SQL Database
 description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam; logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/12/2020
 tags: connectors
 ---
 
@@ -124,6 +124,20 @@ Sometimes, you have to work with result sets so large that the connector doesn't
   * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
   * [SELECT - ORDER BY Clause](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+
+### Handle dynamic bulk data
+
+Sometimes, when you make a call to a stored procedure in the SQL Server connector, the returned output is dynamic. In this scenario, follow these steps:
+
+1. Open **Logic Apps Designer**.
+1. Perform a test run of your logic app to see the output format. Copy down your sample output.
+1. In the designer, under the action where you call the stored procedure, select **New step**.
+1. Under **Choose an action**, search for and select the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) action.
+1. In the **Parse JSON** action, select **Use sample payload to generate schema**.
+1. In the **Enter or paste a sample JSON payload** window, paste your sample output, then select **Done**.
+1. If you get an error that Logic Apps can't generate a schema, check that your sample output's syntax is correctly formatted. If you still can't generate the schema, manually enter one in the **Schema** box.
+1. On the designer toolbar, select **Save**.
+1. To access the JSON content properties, use the data tokens that appear in the dynamic content list under the [**Parse JSON** action](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## Connector-specific details
 

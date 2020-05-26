@@ -33,13 +33,13 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
 * [Ls-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)
-* [Mv2-series](../mv2-series.md)
+* [M-series](../m-series.md)
+* [Mv2-series](../mv2-series.md)<sup>1</sup>
 * [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
-> [!NOTE]
-> The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
+<sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -53,6 +53,9 @@ Generation 2 VMs support the following Marketplace images:
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
+
+> [!NOTE]
+> Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -120,12 +123,6 @@ For example, use the following PowerShell cmdlet to get a list of the SKUs in th
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which looks like this:
 
 ```powershell
@@ -134,6 +131,14 @@ If you're creating a VM with Windows Server 2012 as the OS, then you will select
 ```
 
 See the [Features and capabilities](#features-and-capabilities) section for a current list of supported Marketplace images.
+
+#### Azure CLI
+
+Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### Managed image or managed disk
 

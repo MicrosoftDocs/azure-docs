@@ -3,7 +3,7 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
+ms.date: 04/28/2020
 
 ---
 
@@ -25,6 +25,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * The AKS cluster must be built with virtual machine scale sets as the VM type.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between 1 and 6 characters.
+* An API version of 2020-03-01 or greater must be used to set a node pool mode.
+* The mode of a node pool is a required property and must be explicitly set when using ARM templates or direct API calls.
 
 ## System and user node pools
 
@@ -44,6 +46,7 @@ You can do the following operations with node pools:
 * Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
+* If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
 
 ## Create a new AKS cluster with a system node pool
 
@@ -171,4 +174,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

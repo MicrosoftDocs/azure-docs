@@ -1,15 +1,9 @@
 ---
-title: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog | Microsoft Docs
-description: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog
-services: data-lake-store,data-catalog
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Integrate Data Lake Storage Gen1 with Azure Data Catalog
+description: Learn how to register data from Azure Data Lake Storage Gen1 in Azure Data Catalog to make data discoverable in your organization.
 
-ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
@@ -23,7 +17,7 @@ Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Storage Gen1. See [instructions](data-lake-store-get-started-portal.md).
-* **A Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md). For this tutorial, create a Data Lake Storage Gen1 account called **datacatalogstore**.
+* **A Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure portal](data-lake-store-get-started-portal.md). For this tutorial, create a Data Lake Storage Gen1 account called **datacatalogstore**.
 
     Once you have created the account, upload a sample data set to it. For this tutorial, let us upload all the .csv files under the **AmbulanceData** folder in the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). You can use various clients, such as [Azure Storage Explorer](https://storageexplorer.com/), to upload data to a blob container.
 * **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
@@ -52,7 +46,7 @@ Before you begin this tutorial, you must have the following:
 
     b. The **Available objects** box lists the files and folders under the **AmbulanceData** folder.
 
-    c. **Objects to be registered** box lists the files and folders that you want to register in Azure Data Catalog.
+    c. The **Objects to be registered** box lists the files and folders that you want to register in Azure Data Catalog.
 
     ![View data structure](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
 1. For this tutorial, you should register all the files in the directory. For that, click the (![move objects](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) button to move all the files to **Objects to be registered** box.

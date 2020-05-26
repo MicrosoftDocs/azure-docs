@@ -39,6 +39,7 @@ const util = require('util');
 const fs = require('fs');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
+const msRest = require("@azure/ms-rest-js");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -51,7 +52,8 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "classifyModel";
 
-const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
+const credentials = new msRest.ApiKeyCredentials({ inHeader: { "Training-key": trainingKey } });
+const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 
 (async () => {
     console.log("Creating project...");
@@ -119,7 +121,8 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```javascript
-    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
+    const predictor_credentials = new msRest.ApiKeyCredentials({ inHeader: { "Prediction-key": predictionKey } });
+    const predictor = new PredictionApi.PredictionAPIClient(predictor_credentials, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
     const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);

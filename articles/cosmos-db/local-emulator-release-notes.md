@@ -21,6 +21,15 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.11.0
+
+- This release introduces support for autoscale provisioned throughput. These new features include the ability to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and programmatic support through Azure Cosmos DB SDKs.
+- Fix an issue while querying through large amount of documents (over 1GB) were the emulator will fail with internal error status code 500.
+
+### 2.9.2
+
+- This release fixes a bug while enabling support for MongoDb endpoint version 3.2. It also adds support for generating ETL traces for troubleshooting purposes using WPR instead of LOGMAN.
+
 ### 2.9.1
 
 - This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.

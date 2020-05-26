@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database, managed instance, and Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek

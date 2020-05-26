@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 
 ms.author: mimart
 author: msmimart
@@ -30,6 +30,27 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 
 If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Understand the CSV template
+
+Download and fill in the bulk upload CSV template to help you successfully invite Azure AD guest users in bulk. The CSV template you download might look like this example:
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](media/tutorial-bulk-invite/understand-template.png)
+
+### CSV template structure
+
+The rows in a downloaded CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Email address to invite [inviteeEmail] Required`. Some older versions of the template might have slight variations.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional guidance
+
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- The required columns are listed first.
+- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We recommend that you download the latest version of the CSV template as often as possible.
+
 ## Prerequisites
 
 You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
@@ -39,11 +60,11 @@ You need two or more test email accounts that you can send the invitations to. T
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users** > **Bulk invite**.
-4. On the **Bulk invite users** page, select **Download** to get a valid .csv file with invitation properties.
+4. On the **Bulk invite users** page, select **Download** to get a valid .csv template with invitation properties.
 
     ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Open the .csv file and add a line for each guest user. Required values are:
+5. Open the .csv template and add a line for each guest user. Required values are:
 
    * **Email address to invite** - the user who will receive an invitation
 

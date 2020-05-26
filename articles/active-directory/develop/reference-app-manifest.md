@@ -427,7 +427,7 @@ Example:
 | :--- | :--- |
 | parentalControlSettings | String |
 
-- `countriesBlockedForMinors` specifies the countries in which the app is blocked for minors.
+- `countriesBlockedForMinors` specifies the countries/regions in which the app is blocked for minors.
 - `legalAgeGroupRule` specifies the legal age group rule that applies to users of the app. Can be set to `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, or `BlockMinors`.  
 
 Example:
