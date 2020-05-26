@@ -635,7 +635,7 @@ CORS is fully supported for Python function apps.
 
 ## Known issues and FAQ
 
-Thanks to your valuable feedback, we are able to maintain a list of troubleshooting guides for common issues:
+Following is a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-module-not-found.md)
 
