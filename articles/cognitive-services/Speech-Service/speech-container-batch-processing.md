@@ -83,7 +83,7 @@ The client will start running. If an audio file has already been transcribed in 
 The batch processing kit offers three modes:
 
 
-|Run mode (`--run-mode` or `-m`) |Description  |
+|Run mode (`--run-mode`) |Description  |
 |---------|---------|
 |`ONESHOT`      | Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.         |
 |`DAEMON`     | Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          |
