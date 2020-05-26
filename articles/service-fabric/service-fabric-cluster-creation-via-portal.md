@@ -204,7 +204,7 @@ At this point, you have a secure cluster using certificates for management authe
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

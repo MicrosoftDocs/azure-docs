@@ -11,7 +11,7 @@ This article describes how to scale up a Service Fabric cluster primary node typ
 > [!WARNING]
 > Do not start to change the primary nodetype VM SKU, if the cluster health is unhealthy. If the cluster health is unhealthy, you will only destabilize the cluster further, if you try to change the VM SKU.
 >
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. This means your primary node type, which is running stateful service fabric system services, or any node type that is running your stateful application work loads.
+> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. This means your primary node type, which is running stateful service fabric system services, or any node type that is running your stateful application work loads.
 >
 
 

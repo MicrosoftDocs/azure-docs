@@ -68,8 +68,8 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Windows cluster is confi
 * Certificate secured (configurable in the template parameters).
 * [Reverse proxy](service-fabric-reverseproxy.md) is enabled.
 * [DNS service](service-fabric-dnsservice.md) is enabled.
-* [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters).
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters).
+* [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters).
+* [Reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters).
 * Client connection endpoint: 19000 (configurable in the template parameters).
 * HTTP gateway endpoint: 19080 (configurable in the template parameters).
 

@@ -483,5 +483,5 @@ Next, advance to the following tutorial to learn how to scale a cluster.
 > [!div class="nextstepaction"]
 > [Scale a cluster](service-fabric-tutorial-scale-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

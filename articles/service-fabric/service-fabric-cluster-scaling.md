@@ -23,7 +23,7 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 - primary node types running production workloads should always have five or more nodes.
 - non-primary node types running stateful production workloads should always have five or more nodes.
 - non-primary node types running stateless production workloads should always have two or more nodes.
-- Any node type of [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Gold or Silver should always have five or more nodes.
+- Any node type of [durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Gold or Silver should always have five or more nodes.
 - Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale in feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
 - If using autoscale rules, set the rules so that scaling in (removing VM instances) is done one node at a time. Scaling down more than one instance at a time is not safe.
 
@@ -57,11 +57,11 @@ Changes the resources (CPU, memory, or storage) of nodes in the cluster.
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.  Scaling a node type up or down involves changing the SKU of the virtual machine instances in the scale set. 
 
 > [!WARNING]
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
+> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 >
 
 When scaling an Azure cluster, keep the following guideline in mind:
-- If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows.
+- If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) allows.
 
 The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
 

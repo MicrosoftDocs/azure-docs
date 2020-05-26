@@ -118,5 +118,5 @@ Is your application and cluster ready to take production traffic? Before deployi
 * [Create a Service Fabric cluster running Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

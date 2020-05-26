@@ -870,8 +870,8 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 > [!div class="nextstepaction"]
 > [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
@@ -882,7 +882,7 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 > [!div class="nextstepaction"]
 > [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

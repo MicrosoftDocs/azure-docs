@@ -111,7 +111,7 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
 
 **Repair Manager service**: This is an optional system service that allows repair actions to be performed on a cluster in a way that is safe, automatable, and transparent. Repair manager is used in:
 
-   - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
+   - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
    - Carrying out repair actions for [Patch Orchestration Application](service-fabric-patch-orchestration-application.md)
 
 ## Deployment and application models
