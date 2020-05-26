@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 05/26/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1004,7 +1004,15 @@ Manage and review access to Azure Container Instances resources by using differe
 
 * [Execute a command in a running Azure container instance](https://docs.microsoft.com/azure/container-instances/container-instances-exec)
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet) * [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+
+* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+
+* [Deploy in a virtual network - Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-vnet)
+
+* [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
+* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
 
 
