@@ -81,7 +81,7 @@ You can add, modify, or remove each change. The example below shows a change in 
 
 ![Change Tracking and Inventory details](./media/change-tracking/change-tracking-details.png)
 
-## Support for File Integrity Monitoring in Azure Security Center
+## FIM Support in Azure Security Center
 
 Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
 
@@ -192,6 +192,6 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 ## Next steps
 
 * To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
-* To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from Azure portal](automation-onboard-solutions-from-browse.md).
+* To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-onboard-solutions-from-browse.md).
 * To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
 * To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).

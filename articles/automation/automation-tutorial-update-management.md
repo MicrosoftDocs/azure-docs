@@ -17,7 +17,7 @@ This article describes how you can use the Azure Automation [Update Management](
 Before using the procedures in this article, ensure that you've enabled Update Management on your VMs using one of these techniques:
 
 * [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md)
-* [Enable Update Management by browsing in Azure Portal](automation-onboard-solutions-from-browse.md)
+* [Enable Update Management by browsing in the Azure Portal](automation-onboard-solutions-from-browse.md)
 * [Enable Update Management from a runbook](automation-onboard-solutions.md)
 * [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
 
