@@ -96,10 +96,10 @@ Create a method to instantiate the `TextAnalyticsClient` object with the key and
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
-		return new TextAnalyticsClientBuilder()
-				.credential(new AzureKeyCredential(key))
-				.endpoint(endpoint)
-				.buildClient();
+    return new TextAnalyticsClientBuilder()
+        .credential(new AzureKeyCredential(key))
+        .endpoint(endpoint)
+        .buildClient();
 }
 ```
 
@@ -130,8 +130,8 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
             sentenceSentiment.getConfidenceScores().getPositive(),
             sentenceSentiment.getConfidenceScores().getNeutral(),
             sentenceSentiment.getConfidenceScores().getNegative());
+        }
     }
-}
 ```
 
 ### Output
@@ -152,14 +152,14 @@ Create a new function called `detectLanguageExample()` that takes the client tha
 ```java
 static void detectLanguageExample(TextAnalyticsClient client)
 {
-		// The text that need be analyzed.
-		String text = "Ce document est rédigé en Français.";
+    // The text that need be analyzed.
+    String text = "Ce document est rédigé en Français.";
 
-		DetectedLanguage detectedLanguage = client.detectLanguage(text);
-		System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
-				detectedLanguage.getName(),
-				detectedLanguage.getIso6391Name(),
-				detectedLanguage.getConfidenceScore());
+    DetectedLanguage detectedLanguage = client.detectLanguage(text);
+    System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
+        detectedLanguage.getName(),
+        detectedLanguage.getIso6391Name(),
+        detectedLanguage.getConfidenceScore());
 }
 ```
 
@@ -180,17 +180,17 @@ Create a new function called `recognizeEntitiesExample()` that takes the client 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
 {
-		// The text that need be analyzed.
-		String text = "I had a wonderful trip to Seattle last week.";
+    // The text that need be analyzed.
+    String text = "I had a wonderful trip to Seattle last week.";
 
-		for (CategorizedEntity entity : client.recognizeEntities(text)) {
-				System.out.printf(
-						"Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
-						entity.getText(),
-						entity.getCategory(),
-						entity.getSubcategory(),
-						entity.getConfidenceScore());
-		}
+    for (CategorizedEntity entity : client.recognizeEntities(text)) {
+        System.out.printf(
+            "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
+            entity.getText(),
+            entity.getCategory(),
+            entity.getSubcategory(),
+            entity.getConfidenceScore());
+    }
 }
 ```
 
@@ -209,27 +209,27 @@ Create a new function called `recognizeLinkedEntitiesExample()` that takes the c
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 {
-		// The text that need be analyzed.
-		String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-						"to develop and sell BASIC interpreters for the Altair 8800. " +
-						"During his career at Microsoft, Gates held the positions of chairman, " +
-						"chief executive officer, president and chief software architect, " +
-						"while also being the largest individual shareholder until May 2014.";
+    // The text that need be analyzed.
+    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
 
-		System.out.printf("Linked Entities:%n");
-		for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
-				System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-						linkedEntity.getName(),
-						linkedEntity.getDataSourceEntityId(),
-						linkedEntity.getUrl(),
-						linkedEntity.getDataSource());
-				System.out.printf("Matches:%n");
-				for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
-						System.out.printf("Text: %s, Score: %.2f%n",
-								linkedEntityMatch.getText(),
-								linkedEntityMatch.getConfidenceScore());
-				}
-		}
+    System.out.printf("Linked Entities:%n");
+    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
+        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
+        System.out.printf("Matches:%n");
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
+            System.out.printf("Text: %s, Score: %.2f%n",
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore());
+        }
+    }
 }
 ```
 
