@@ -69,11 +69,17 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 Start by creating an Azure Monitor Private Link Scope resource.
 
-1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
-2. Click **create**. 
-3. Pick a Subscription and Resource Group. 
-4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
+1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
+
+   ![Find Azure Monitor Private Link Scope](./media/private-link-security/ampls-find-1c.png)
+
+2. Click **create**.
+3. Pick a Subscription and Resource Group.
+4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem".
 5. Click **Review + Create**. 
+
+   ![Create Azure Monitor Private Link Scope](./media/private-link-security/ampls-create-1d.png)
+
 6. Let the validation pass, and then click **Create**.
 
 ## Connect Azure Monitor resources
