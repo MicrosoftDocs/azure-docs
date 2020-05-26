@@ -37,6 +37,10 @@ Use the Text Analytics client library to perform:
 
 ::: zone pivot="programming-language-java"
 
+> [!IMPORTANT]
+> * The latest stable version the Text Analytics client library is `3.0`.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
