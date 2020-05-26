@@ -15,29 +15,29 @@ ms.date: 04/27/2020
 
 ## Overview  
 
-You can use [media graphs](media-graph-concept.md) to record media into an Azure Media Services [asset](terminology.md#asset). In this document, you can learn about how to play the media, via [streaming](terminology.md#streaming).
+You can use [media graphs](media-graph-concept.md) to record media into an Azure Media Services [asset](terminology.md#asset). In this document, you can learn about how to play the asset.
 
 ## Streaming endpoint 
 
-You can use Azure Media Services to stream the media, that you recorded into Assets, to clients using industry-standard, HTTP-based media streaming protocols like HTTP Live Streaming (HLS) and MPEG-DASH. This conversion of media from recorded content into streaming formats is handled by the so-called [streaming endpoint](../latest/streaming-endpoint-concept.md), which is a resource that you need to provision in your Azure Media Service account.
+You can use Azure Media Services to [stream](terminology.md#streaming) the asset, to players using industry-standard, HTTP-based media streaming protocols like HTTP Live Streaming (HLS) and MPEG-DASH. This conversion of media from recorded content into streaming formats is handled by a [streaming endpoint](../latest/streaming-endpoint-concept.md), which is a resource that you need to provision in your Azure Media Service account.
 
 ## Streaming policy 
 
-Azure Media Services offers you different methods to secure your video streams, as discussed in [Protect your content with Media Services dynamic encryption](../latest/content-protection-overview.md) article. At a high level, your options for content protection are:
+Azure Media Services offers you different methods to secure your video streams, as discussed in [Protect your content with Media Services dynamic encryption](../latest/content-protection-overview.md) article. At a high level, options for content protection are:
 
-* In-the-clear streaming – where anyone knowing the URL can view your streams.
+* In-the-clear streaming – where anyone who has the streaming URL can view your media.
 * Use Advanced Encryption Standard (AES-128) – and implement a method to deliver the keys for decrypting the video only to authenticated viewers.
 * Use Digital Rights Management (DRM) systems – such as those used by services like Netflix, Disney+, Apple TV+ etc. to protect their content.
 
-To achieve content protection, you would define and create a [Streaming Policy](../latest/streaming-policy-concept.md) in your Media Service account, and use it for all of the streams (assuming all streams have the same requirements for security).
+To achieve content protection, you can define and create a [Streaming Policy](../latest/streaming-policy-concept.md) in your Media Service account, and use it for streaming all assets (assuming all streams have the same requirements for security).
 
 ## Streaming locator  
 
-Once you have a Streaming Endpoint started in your Media Service account, and Streaming Policy defined, you can proceed to stream recorded media from an Asset via HLS or DASH protocols. Web-players and mobile apps need a URL pointing to that HLS or DASH stream – you can get this URL via the [Streaming Locator](../latest/streaming-locators-concept.md). As discussed in that article, and shown in [Create a streaming locator and build URLs](../latest/create-streaming-locator-build-url.md) sample, the streaming URL is built from the Streaming Endpoint, Streaming Policy, and the Streaming Locator.
+Once you have a Streaming Endpoint started in your Media Service account, and Streaming Policy defined, you can proceed to stream recorded media from an asset via HLS or DASH protocols. Web-players and mobile apps need a URL pointing to that HLS or DASH stream – you can build this URL using the [streaming locator](../latest/streaming-locators-concept.md). As discussed in that article, and shown in [Create a streaming locator and build URLs](../latest/create-streaming-locator-build-url.md) sample, the streaming URL is built from the streaming endpoint, streaming policy, and the streaming locator.
 
 ## Content recorded using file sink  
 
-As described in [media graph file sink](media-graph-concept.md#file-sink), you can use Media Graphs to record video into the local file system of the Edge device using the File Sink component. This component generates [MP4](https://developer.mozilla.org/docs/Web/Media/Formats/Containers#MP4) files, and you can use the HTML5 [&lt;video&gt;](https://developer.mozilla.org/docs/Web/HTML/Element/video) element to play such content. 
+As described in [media graph file sink](media-graph-concept.md#file-sink), you can use media graphs to record videos to the local file system of the edge device using a file sink in your media graph. The file sink generates [MP4](https://developer.mozilla.org/docs/Web/Media/Formats/Containers#MP4) files, and you can use the HTML5 [&lt;video&gt;](https://developer.mozilla.org/docs/Web/HTML/Element/video) element to play such content. 
 
 ## Next steps
 

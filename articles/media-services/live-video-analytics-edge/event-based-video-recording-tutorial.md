@@ -352,7 +352,8 @@ You can examine the Media Services Asset that was created by the graph by loggin
 1. The player should load the video, and you should be able to hit **Play**>** to view it.
 
 > [!NOTE]
-> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the Graph Instance, and when you deactivated it. <!--You can see this <TODO Link> Tutorial on how to browse a multi-day recording, and view portions of that archive. In that tutorial, you are also able to see the timestamps in the video displayed on screen.-->
+> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the Graph Instance, and when you deactivated it. For more information, see [Playback multi-day recordings](playback-multi-day-recordings-tutorial.md)
+ on how to browse a multi-day recording, and view portions of that archive. In that tutorial, you are also able to see the timestamps in the video displayed on screen.
 
 ## Clean up resources
 

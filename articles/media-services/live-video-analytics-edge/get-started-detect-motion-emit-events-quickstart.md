@@ -1,11 +1,11 @@
 ---
-title: Detect motion and emit events quickstart - Azure
+title: Get started with Live Video Analytics on IoT Edge - Azure
 description: This getting started quickstart shows how to detect motion and emit events with Live Video Analytics on IoT Edge.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: get started with Live Video Analytics on IoT Edge
+# Quickstart: Get started - Live Video Analytics on IoT Edge
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 
@@ -35,10 +35,11 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     ![Environment Selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command
+
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
-
+    
 If the script completes successfully, you should see all the resources mentioned above in your subscription.
 
 ## Deploy modules on your edge device
@@ -105,14 +106,14 @@ Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload.
+Using the same steps as those outlined for invoking GraphTopologySet, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload.
 
 ```
 {
     "@apiVersion": "1.0",
     "name": "MotionDetection",
     "properties": {
-        "description": "Motion detection on incoming live video stream",
+        "description": "Analyzing live video to detect motion and emit events",
         "parameters": [
             {
                 "name": "rtspUserName",
@@ -124,7 +125,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
                 "name": "rtspPassword",
                 "type": "String",
                 "description": "rtsp source password.",
-                "default" : "dummyPassword"
+                "default": "dummyPassword"
             },
             {
                 "name": "rtspUrl",
@@ -137,7 +138,7 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
                 "@type": "#Microsoft.Media.MediaGraphRtspSource",
                 "name": "rtspSource",
                 "endpoint": {
-                    "@type": "#Microsoft.Media.MediaGraphClearEndpoint",
+                    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
                     "url": "${rtspUrl}",
                     "credentials": {
                         "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
@@ -149,12 +150,12 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
         ],
         "processors": [
             {
-                "@type": "#Microsoft.Media.MediaGraphMotionDetector",
-                "name": "md",
+                "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
+                "name": "motionDetection",
                 "sensitivity": "medium",
                 "inputs": [
                     {
-                        "moduleName": "rtspSource"
+                        "nodeName": "rtspSource"
                     }
                 ]
             }
@@ -163,17 +164,21 @@ Using the same steps as those outlined for invoking GraphTopologyList, you can i
             {
                 "@type": "#Microsoft.Media.MediaGraphIoTHubMessageSink",
                 "name": "hubSink",
-                "hubOutputName": "iothubsinkoutput",
+                "hubOutputName": "inferenceOutput",
                 "inputs": [
                     {
-                        "moduleName": "md"
+                        "nodeName": "motionDetection"
                     }
                 ]
             }
         ]
     }
-  }
-  ```
+}
+
+
+```
+
+
 
 The above JSON payload results in the creation of a MediaGraph topology that defines three parameters (two of which have default values). The topology has one source (RTSP source), one processor (motion detection processor), and one sink (IoT Hub sink).
 
@@ -185,11 +190,13 @@ Within a few seconds, you will see the following response in the Output window:
 {
   "status": 201,
   "payload": {
+    "systemData": {
+      "createdAt": "2020-05-24T21:38:55.823Z",
+      "lastModifiedAt": "2020-05-24T21:38:55.823Z"
+    },
     "name": "MotionDetection",
     "properties": {
-      "created": "2020-05-08T13:53:49.045Z",
-      "lastModified": "2020-05-08T13:53:49.045Z",
-      "description": "Motion detection on incoming live video stream",
+      "description": "Analyzing live video to detect motion and emit events",
       "parameters": [
         {
           "name": "rtspUserName",
@@ -215,7 +222,7 @@ Within a few seconds, you will see the following response in the Output window:
           "name": "rtspSource",
           "transport": "Tcp",
           "endpoint": {
-            "@type": "#Microsoft.Media.MediaGraphClearEndpoint",
+            "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
@@ -227,12 +234,13 @@ Within a few seconds, you will see the following response in the Output window:
       ],
       "processors": [
         {
-          "@type": "#Microsoft.Media.MediaGraphMotionDetector",
+          "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
           "sensitivity": "medium",
-          "name": "md",
+          "name": "motionDetection",
           "inputs": [
             {
-              "moduleName": "rtspSource"
+              "nodeName": "rtspSource",
+              "outputSelectors": []
             }
           ]
         }
@@ -240,11 +248,11 @@ Within a few seconds, you will see the following response in the Output window:
       "sinks": [
         {
           "@type": "#Microsoft.Media.MediaGraphIoTHubMessageSink",
-          "hubOutputName": "iothubsinkoutput",
+          "hubOutputName": "inferenceOutput",
           "name": "hubSink",
           "inputs": [
             {
-              "moduleName": "md"
+              "moduleName": "motionDetection"
             }
           ]
         }
@@ -322,7 +330,7 @@ Within a few seconds, you should see the following response in the Output window
       ],
       "processors": [
         {
-          "@type": "#Microsoft.Media.MediaGraphMotionDetector",
+          "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
           "sensitivity": "medium",
           "name": "md",
           "inputs": [
@@ -524,7 +532,7 @@ You will see the following messages in the Output window:
     },
     "applicationProperties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/milan-lva-sample-resources/providers/microsoft.media/mediaservices/lvasamplew7z2vwdm5l4uk",
-    "subject": "/graphInstances/Sample-Graph-1/processors/md",
+    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-05-08T14:34:33.404Z",
     "dataVersion": "1.0"
