@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
+ms.date: 05/26/2020
 ---
 
 # Create and configure a Log Analytics workspace in Azure Monitor using PowerShell
