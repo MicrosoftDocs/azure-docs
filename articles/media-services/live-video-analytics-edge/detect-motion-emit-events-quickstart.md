@@ -121,7 +121,7 @@ The deployment manifest contains the instructions for running the Motion Detecti
 1. In about 30 seconds, refresh the Azure IOT Hub on the bottom left section and you should have the edge device with the following modules deployed:
 
     * The Live Video Analytics module, named as “lvaEdge”.
-    * A module named “rtspsim” which simulates an RTSP Server, acting as the source of a live video feed.
+    * A module named “rtspsim” that simulates an RTSP Server, acting as the source of a live video feed.
 
 ## Prepare for monitoring events
 
@@ -134,7 +134,7 @@ Right click on the Live Video Analytics device and click "Start Monitoring Built
 Follow the steps below to run the sample code.
 
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
-1. In the TERMINAL window, you will see the responses to the Direct Method calls. In this quickstart, there will be 2 instances where the program will ask you to press the "Enter" key for it to load and run the media graph.
+1. In the TERMINAL window, you will see the responses to the Direct Method calls. In this quickstart, there will be two instances where the program will ask you to press the "Enter" key for it to load and run the media graph.
 
     * After invoking the GraphTopologyList and getting a successful response with status: 200.
     * After invoking the GraphInstanceList and getting a successful response with status: 200.
@@ -148,7 +148,7 @@ Follow the steps below to run the sample code.
 In the Media Graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
 
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
-* A body tag which will contain the diagnostoc or the opertational event messages
+* A body tag that will contain the diagnostic or the operational event messages
 
 In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module.
 
