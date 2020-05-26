@@ -62,7 +62,7 @@ In this tutorial, we will use one Edge module built using the [Live555 Media Ser
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
-    The text should look like:
+    The text from clouddrive/lva-sample/appsettings.json file should look like:
 
     ```
     {  
