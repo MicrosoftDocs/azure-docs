@@ -69,7 +69,7 @@ On the **Deploy Azure Database for MariaDB with VNet** page:
 
 3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
 
-    ![Deploy Azure Database for MariaDB with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-mariadb-server-database-using-arm-template/deploy-azure-database-for-mariadb-with-vnet.png)
+    ![Deploy Azure Database for MariaDB with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-mariadb-server-database-arm-template/deploy-azure-database-mariadb-vnet.png)
 
 4. Change the other default settings if you want:
 

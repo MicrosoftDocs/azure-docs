@@ -14,7 +14,7 @@
   - name: Create DB - Azure CLI
     href: quickstart-create-mariadb-server-database-using-azure-cli.md
   - name: Create DB - ARM template
-    href: quickstart-create-mariadb-server-database-using-arm-template.md
+    href: quickstart-create-mariadb-server-database-arm-template.md
     displayName: deploy azure resource manager template
   - name: Connect & query
     items:
