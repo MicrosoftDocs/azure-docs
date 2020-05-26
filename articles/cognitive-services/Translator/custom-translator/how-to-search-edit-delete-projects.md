@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to search, edit, delete projects, so that I can manage my projects effeciently.
@@ -30,7 +30,7 @@ The filter tool allows you to search projects by different filter conditions. It
 
     ![Search project filter options](media/how-to/how-to-search-project-filters.png)
 
-3.  Clear the filter to view all your projects by tapping “Clear”.
+3.  Clear the filter to view all your projects by tapping "Clear".
 
 
 ## Edit a project
