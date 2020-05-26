@@ -7,7 +7,7 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---
-# Getting paid in commercial marketplace
+# Getting paid in the commercial marketplace
 
 Here's some important info about receiving payment for your offers, add-ons, and advertising earnings.
 
@@ -37,17 +37,15 @@ You also have the option to enter a free-form price of your choosing in a specif
 
 Keep in mind that the price you select may include sales or value-added tax that your customers must pay. For details, see [Tax details for paid offer](tax-details-paid-transactions.md).
 
-
 ## Payout reporting
 
 You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For details on the info shown here and how we categorize the money you earn, see [Payout summary overview](payout-summary-overview.md).
-
 
 ## Payout time frame
 
 Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven't placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For details, see [Payment thresholds, methods, and time frames](payment-thresholds-methods-timeframes.md).
 
-##  Payout hold status
+## Payout hold status
 
 By default, we'll send payments on a monthly basis as described above. However, you have the option to put your payouts for a program on hold, which will prevent us from sending payments to your account. If you choose to put your payouts on hold, we'll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won't send any payments to your account until you remove the hold.
 
