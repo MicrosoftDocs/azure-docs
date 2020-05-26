@@ -3,7 +3,7 @@ title: Optimize your cloud investment with Azure Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -99,6 +99,12 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 - Options for up-front monetary commitments
 - Access to reduced Azure pricing
+
+#### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- CSP partners are the first point of contact for their customers’ needs and the center of the customer relationship
+- CSP partners provision new customers, order subscriptions, manage subscriptions, and perform admin tasks on behalf of their customers
+- CSP partners bundle services with unique solutions or resell Azure while controlling the pricing, terms and billing
 
 ## Estimate the cost of your solution
 

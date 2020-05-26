@@ -93,9 +93,7 @@ If your data flow uses parameterized datasets, set the parameter values in the *
 
 ### Parameterized data flows
 
-If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the ADF pipeline expression language or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md). If you wish to include pipeline properties as part of your expression to pass into a data flow parameter, then choose pipeline expressions.
-
-![Execute Data Flow Parameter Example](media/data-flow/parameter-example.png "Parameter Example")
+If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the ADF pipeline expression language or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md).
 
 ### Parameterized compute properties.
 

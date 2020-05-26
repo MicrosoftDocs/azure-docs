@@ -80,7 +80,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at the elevated access.
 
-    For information about assigning roles, see [Manage access using RBAC and the Azure portal](role-assignments-portal.md). If you are using Azure AD Privileged Identity Management (PIM), see [Discover Azure resources to manage in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    For information about assigning roles, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). If you are using Azure AD Privileged Identity Management (PIM), see [Discover Azure resources to manage in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### Remove elevated access
 
@@ -318,5 +318,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## Next steps
 
-- [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
-- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)
+- [Understand the different roles](rbac-and-directory-admin-roles.md)
+- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)

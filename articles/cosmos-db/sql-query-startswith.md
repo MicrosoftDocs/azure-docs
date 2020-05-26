@@ -4,17 +4,18 @@ description: Learn about SQL system function STARTSWITH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # STARTSWITH (Azure Cosmos DB)
+
  Returns a Boolean indicating whether the first string expression starts with the second.  
   
 ## Syntax
   
 ```sql
-STARTSWITH(<str_expr1>, <str_expr2>)  
+STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## Arguments
@@ -24,6 +25,9 @@ STARTSWITH(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    Is a string expression to be compared to the beginning of *str_expr1*.
+
+*bool_expr*
+    Optional value for ignoring case. When set to true, STARTSWITH will do a case-insensitive search. When unspecified, this value is false.
 
 ## Return types
   

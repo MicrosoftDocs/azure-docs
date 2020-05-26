@@ -4,7 +4,7 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-
+ms.custom: has-adal-ref
 ---
 
 # Azure Monitoring REST API walkthrough

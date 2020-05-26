@@ -335,7 +335,7 @@ GO
 ### Maintenance
 
 - **Adding new shards**: Execute the T-SQL script to enable RLS on any new shards, otherwise queries on these shards are not be filtered.
-- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## Summary
 
@@ -351,7 +351,7 @@ Elastic database tools and row-level security can be used together to scale out 
 
 ## Questions and Feature Requests
 
-For questions, contact us on the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, contact us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

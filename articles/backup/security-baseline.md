@@ -459,7 +459,7 @@ Microsoft manages the underlying infrastructure for Azure Backup and has impleme
 
 **Guidance**: Backup traffic from servers to the Recovery Services vault is transferred over a secure HTTPS link and encrypted using Advanced Encryption Standard (AES) 256 when stored in the vault.
 
-- [Understand encryption at rest in Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Understand encryption at rest in Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -507,7 +507,7 @@ Azure Backup provides three built-in roles to control backup management operatio
 
 When backing up with the MARS agent or using a Recovery Services vault encrypted with a customer-managed key, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
 
-- [Understand encryption at rest for Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Understand encryption at rest for Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -905,7 +905,7 @@ Backup customer managed keys within Azure Key Vault.
 
 - [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Understand encryption in Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys)
+- [Understand encryption in Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
 
 **Azure Security Center monitoring**: Not applicable
 

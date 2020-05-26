@@ -36,7 +36,7 @@ If you select the event, you should see the exact disk information:
 
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application input-output (I/O) combinations. Actual results can vary based on your application I/O mix.
 
-There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 25 MB/s of total churn per VM.
+There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 54 MB/s of total churn per VM.
 
 **Replication storage target** | **Average I/O size for source disk** |**Average data churn for source disk** | **Total data churn per day for source data disk**
 ---|---|---|---

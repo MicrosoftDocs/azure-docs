@@ -63,6 +63,8 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.md
   - name: Front Door
     items:
     - name: Custom rules

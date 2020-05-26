@@ -1,7 +1,7 @@
 ---
-title: Dynamic Dictionary - Translator Text API
+title: Dynamic Dictionary - Translator
 titleSuffix: Azure Cognitive Services
-description: This article explains how to use the dynamic dictionary feature of the Azure Cognitive Services Translator Text API.
+description: This article explains how to use the dynamic dictionary feature of the Azure Cognitive Services Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme

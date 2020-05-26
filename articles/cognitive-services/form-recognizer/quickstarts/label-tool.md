@@ -33,7 +33,7 @@ To complete this quickstart, you must have:
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).   
 
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
 

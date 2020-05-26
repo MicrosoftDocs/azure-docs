@@ -226,7 +226,9 @@
     - name: Tokens and session management
       items:
       - name: Customize tokens
-        href: custom-policy-manage-sso-and-token-config.md
+        href: configure-tokens-custom-policy.md
+      - name: Configure session behavior
+        href: session-behavior-custom-policy.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience

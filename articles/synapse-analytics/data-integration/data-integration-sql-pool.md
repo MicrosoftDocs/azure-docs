@@ -34,7 +34,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 ## Create pipeline
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS gen 2 into a SQL pool.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from ADLS Gen2 into a SQL pool.
 
 1. Go to the **Orchestrate** tab. Click on the plus icon 
 next to the pipelines header and select **Pipeline**.

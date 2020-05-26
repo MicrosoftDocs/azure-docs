@@ -27,7 +27,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* The [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/2.1).
+* The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
 This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
@@ -91,12 +91,14 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 ### Create a service principal
 
-The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. 
+
+For the sake of simplicity however, this quickstart creates a .NET console application, which requires the use of a service principal and an access control policy. Your service principle requires a unique name in the format "http://&lt;my-unique-service-principle-name&gt;".
 
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 
@@ -119,7 +121,7 @@ Create a service principal using Azure PowerShell [New-AzADServicePrincipal](/po
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://mySP"
+$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principle-name&gt;"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id
@@ -194,7 +196,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate and create a client
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net".
+Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is reading environment variables to retrieve access token. 
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 

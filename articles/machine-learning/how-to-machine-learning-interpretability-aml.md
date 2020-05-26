@@ -233,10 +233,10 @@ The following example shows how you can use the `ExplanationClient` class to ena
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.
 
-1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
+1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
 

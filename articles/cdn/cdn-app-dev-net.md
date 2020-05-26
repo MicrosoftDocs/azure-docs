@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-
+ms.custom: has-adal-ref
 ---
 # Get started with Azure CDN development
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
-> 
-> 
+>
+>
 
 You can use the [Azure CDN Library for .NET](/dotnet/api/overview/azure/cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple .NET console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN Library for .NET in detail.
 
@@ -30,35 +30,35 @@ You need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community
 
 > [!TIP]
 > The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.
-> 
-> 
+>
+>
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Create your project and add Nuget packages
 Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
-From within Visual Studio 2015, click **File**, **New**, **Project...** to open the new project dialog.  Expand **Visual C#**, then select **Windows** in the pane on the left.  Click **Console Application** in the center pane.  Name your project, then click **OK**.  
+From within Visual Studio 2015, click **File**, **New**, **Project...** to open the new project dialog.  Expand **Visual C#**, then select **Windows** in the pane on the left.  Click **Console Application** in the center pane.  Name your project, then click **OK**.
 
 ![New Project](./media/cdn-app-dev-net/cdn-new-project.png)
 
 Our project is going to use some Azure libraries contained in Nuget packages.  Let's add those to the project.
 
 1. Click the **Tools** menu, **Nuget Package Manager**, then **Package Manager Console**.
-   
+
     ![Manage Nuget Packages](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. In the Package Manager Console, execute the following command to install the **Active Directory Authentication Library (ADAL)**:
-   
+
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Execute the following to install the **Azure CDN Management Library**:
-   
+
     `Install-Package Microsoft.Azure.Management.Cdn`
 
 ## Directives, constants, main method, and helper methods
 Let's get the basic structure of our program written.
 
 1. Back in the Program.cs tab, replace the `using` directives at the top with the following:
-   
+
     ```csharp
     using System;
     using System.Collections.Generic;
@@ -70,13 +70,13 @@ Let's get the basic structure of our program written.
     using Microsoft.Rest;
     ```
 2. We need to define some constants our methods will use.  In the `Program` class, but before the `Main` method, add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
-   
+
     ```csharp
     //Tenant app constants
     private const string clientID = "<YOUR CLIENT ID>";
     private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
     private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
-   
+
     //Application constants
     private const string subscriptionId = "<YOUR SUBSCRIPTION ID>";
     private const string profileName = "CdnConsoleApp";
@@ -85,48 +85,48 @@ Let's get the basic structure of our program written.
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
 3. Also at the class level, define these two variables.  We'll use these later to determine if our profile and endpoint already exist.
-   
+
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
 4. Replace the `Main` method as follows:
-   
+
    ```csharp
    static void Main(string[] args)
    {
        //Get a token
        AuthenticationResult authResult = GetAccessToken();
-   
+
        // Create CDN client
        CdnManagementClient cdn = new CdnManagementClient(new TokenCredentials(authResult.AccessToken))
            { SubscriptionId = subscriptionId };
-   
+
        ListProfilesAndEndpoints(cdn);
-   
+
        // Create CDN Profile
        CreateCdnProfile(cdn);
-   
+
        // Create CDN Endpoint
        CreateCdnEndpoint(cdn);
-   
+
        Console.WriteLine();
-   
+
        // Purge CDN Endpoint
        PromptPurgeCdnEndpoint(cdn);
-   
+
        // Delete CDN Endpoint
        PromptDeleteCdnEndpoint(cdn);
-   
+
        // Delete CDN Profile
        PromptDeleteCdnProfile(cdn);
-   
+
        Console.WriteLine("Press Enter to end program.");
        Console.ReadLine();
    }
    ```
 5. Some of our other methods are going to prompt the user with "Yes/No" questions.  Add the following method to make that a little easier:
-   
+
     ```csharp
     private static bool PromptUser(string Question)
     {
@@ -157,9 +157,9 @@ Before we can use the Azure CDN Management Library, we need to authenticate our 
 ```csharp
 private static AuthenticationResult GetAccessToken()
 {
-    AuthenticationContext authContext = new AuthenticationContext(authority); 
+    AuthenticationContext authContext = new AuthenticationContext(authority);
     ClientCredential credential = new ClientCredential(clientID, clientSecret);
-    AuthenticationResult authResult = 
+    AuthenticationResult authResult =
         authContext.AcquireTokenAsync("https://management.core.windows.net/", credential).Result;
 
     return authResult;
@@ -170,8 +170,8 @@ If you are using individual user authentication, the `GetAccessToken` method wil
 
 > [!IMPORTANT]
 > Only use this code sample if you are choosing to have individual user authentication instead of a service principal.
-> 
-> 
+>
+>
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -267,8 +267,8 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 > [!NOTE]
 > The example above assigns the endpoint an origin named *Contoso* with a hostname `www.contoso.com`.  You should change this to point to your own origin's hostname.
-> 
-> 
+>
+>
 
 ## Purge an endpoint
 Assuming the endpoint has been created, one common task that we might want to perform in our program is purging the content in our endpoint.
@@ -288,8 +288,8 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 > [!NOTE]
 > In the example above, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
-> 
-> 
+>
+>
 
 ## Delete CDN profiles and endpoints
 The last methods will delete our endpoint and profile.
@@ -337,4 +337,3 @@ To see the completed project from this walkthrough, [download the sample](https:
 To find additional documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](/dotnet/api/overview/azure/cdn).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).
-

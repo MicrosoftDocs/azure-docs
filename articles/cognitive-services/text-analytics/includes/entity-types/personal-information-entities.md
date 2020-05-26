@@ -159,9 +159,9 @@ Languages:
 | Credit Card                | Credit card numbers.                                                       |
 | IBAN Code                  | IBAN codes for payment instruction information.                            |
 
-#### Government and country-specific Identification
+#### Government and country/region-specific Identification
 
-The entities below are grouped and listed by country:
+The entities below are grouped and listed by country/region:
 
 Argentina
 * National Identity (DNI) Number

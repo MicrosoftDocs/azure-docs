@@ -100,7 +100,7 @@ The IoT Edge hub is optimized for performance by default, so it attempts to allo
 
 When **OptimizeForPerformance** is set to **true**, the MQTT protocol head uses the PooledByteBufferAllocator, which has better performance but allocates more memory. The allocator does not work well on 32-bit operating systems or on devices with low memory. Additionally, when optimized for performance, RocksDb allocates more memory for its role as the local storage provider.
 
-For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+For more information, see [Stability issues on smaller devices](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### Disable unused protocols
 
@@ -193,7 +193,7 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Allow connections from IoT Edge devices
 

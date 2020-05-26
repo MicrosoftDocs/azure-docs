@@ -1,7 +1,7 @@
 ---
-title: Language support - Translator Text API
+title: Language support - Translator
 titleSuffix: Azure Cognitive Services
-description: The Translator Text API supports the following languages for text to text translation using Neural Machine Translation (NMT).
+description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ---
-# Language and region support for the Translator Text API
+# Language and region support for Translator
 
-The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available.
+The Translator supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
 ## Translation
 
-**V2 Translator API**
+**V2 Translator**
 
 > [!NOTE]
 > V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
@@ -29,8 +29,8 @@ The Translator Text API supports the following languages for text to text transl
 * Neural default: Neural is the default translation system. Use the parameter `category=smt` to access the statistical system for use with the Microsoft Translator Hub.
 * Neural only: Only neural translation is available.
 
-**V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists.
+**V3 Translator**
+V3 Translator is neural by default and statistical systems are only available when no neural system exists.
 
 > [!NOTE]
 > Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
@@ -199,12 +199,12 @@ The dictionary supports the following languages to or from English using the Loo
 
 ## Detect
 
-Translator Text API detects all languages available for translation and transliteration.
+Translator detects all languages available for translation and transliteration.
 
 
-## Access the Translator Text API language list programmatically
+## Access the Translator language list programmatically
 
-You can retrieve a list of supported languages for the Translator Text API v3.0 using the Languages method. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages are made available.
+You can retrieve a list of supported languages for Translator v3.0 using the Languages method. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages are made available.
 
 [View Languages operation reference documentation](reference/v3-0-languages.md)
 
@@ -264,6 +264,6 @@ The following languages are available for customization to or from English using
 
 ## Access the list on the Microsoft Translator website
 
-For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs. This list doesn't include developer-specific information such as language codes.
+For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator and Speech APIs. This list doesn't include developer-specific information such as language codes.
 
 [See the list of languages](https://www.microsoft.com/translator/languages.aspx)

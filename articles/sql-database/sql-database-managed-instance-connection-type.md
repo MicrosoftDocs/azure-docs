@@ -3,7 +3,7 @@ title: Managed instance connection types
 description: Learn about managed instance connection types
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi

@@ -5,8 +5,6 @@ ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 
-experimental: true
-experiment_id: 01a9132f-eaab-4c
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux

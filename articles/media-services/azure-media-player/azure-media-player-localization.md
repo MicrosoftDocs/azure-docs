@@ -39,7 +39,7 @@ Azure Media Player currently supports the following languages with their corresp
 | French              | fr   | Norwegian - Nynorsk     | nn     | Chinese - simplified    | zh-hans      |
 | Galician            | gl   | Polish                  | pl     | Chinese - traditional   | zh-hant      |
 | Hebrew              | he   | Portuguese - Brazil     | pt-br  |                         |              |
-| Hindi               | hu   | Portuguese - Portugal   | pt-pt  |                         |              |
+| Hindi               | hi   | Portuguese - Portugal   | pt-pt  |                         |              |
 
 
 > [!NOTE]

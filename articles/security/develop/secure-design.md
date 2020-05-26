@@ -437,14 +437,13 @@ privilege](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/securit
 throughout its access patterns.
 
 > [!NOTE]
->  The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much
-access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
+> The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
 
 #### Implement just-in-time access
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity)
+Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity)
 to:
 
 - Give users the permissions they need only JIT.

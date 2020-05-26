@@ -176,7 +176,7 @@ On the VM, or on whatever host you choose, install the Replay Markup Language (R
 For more information, see:
 - The ostress.exe discussion in [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Sample Database for In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- The [blog for installing ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- The [blog for installing ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 

@@ -25,11 +25,11 @@ To access the settings page:
 
 ## Associating Microsoft Translator Subscription
 
-You need to have a Microsoft Translator Text API subscription key associated with your workspace to train or deploy models.
+You need to have a Translator subscription key associated with your workspace to train or deploy models.
 
 If you don’t have a subscription, follow the steps below:
 
-1. Subscribe to the Microsoft Translator Text API. This article shows how to subscribe for the Microsoft Translator Text API.
+1. Subscribe to the Translator. This article shows how to subscribe for the Translator.
 2. Note the key for your translator subscription. Either of the  Key1 or Key2 are acceptable.
 3. Navigate back to the Custom Translator portal.
 

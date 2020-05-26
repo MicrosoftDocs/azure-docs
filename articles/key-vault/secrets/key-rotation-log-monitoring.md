@@ -81,23 +81,35 @@ First, you must register your application with Azure Active Directory. Then tell
 > [!NOTE]
 > Your application must be created on the same Azure Active Directory tenant as your key vault.
 
-1. Open **Azure Active Directory**.
-2. Select **App registrations**. 
-3. Select **New application registration** to add an application to Azure Active Directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
+1. If your account gives you access to more than one tenant, select your account in the upper right corner. Set your portal session to the Azure AD tenant that you want.
+1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
+1. Select **New registration**.
+1. In **Register an application**, enter a meaningful application name to display to users.
+1. Specify who can use the application, as follows:
 
-    ![Open applications in Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Supported account types | Description |
+    |-------------------------|-------------|
+    | **Accounts in this organizational directory only** | Select this option if you're building a line-of-business (LOB) application. This option isn't available if you're not registering the application in a directory.<br><br>This option maps to Azure AD only single-tenant.<br><br>This option is the default unless you're registering the app outside of a directory. In cases where the app is registered outside of a directory, the default is Azure AD multi-tenant and personal Microsoft accounts. |
+    | **Accounts in any organizational directory** | Select this option if you would like to target all business and educational customers.<br><br>This option maps to an Azure AD only multi-tenant.<br><br>If you registered the app as Azure AD only single-tenant, you can update it to be Azure AD multi-tenant and back to single-tenant through the **Authentication** page. |
+    | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>This option maps to Azure AD multi-tenant and personal Microsoft accounts.<br><br>If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change this setting in the UI. Instead, you must use the application manifest editor to change the supported account types. |
 
-4. Under **Create**, leave the application type as **Web app / API** and give your application a name. Give your application a **Sign-on URL**. This URL can be anything you want for this demo.
+1. Under **Redirect URI (optional)**, select the type of app you're building: **Web** or **Public client (mobile & desktop)**. Then enter the redirect URI, or reply URL, for your application.
 
-    ![Create application registration](../media/keyvault-keyrotation/create-app.png)
+    * For web applications, provide the base URL of your app. For example, `https://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
+    * For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
-5. After the application is added to Azure Active Directory, the application page opens. Select **Settings**, and then select **Properties**. Copy the **Application ID** value. You'll need it in later steps.
+1. When finished, select **Register**.
 
-Next, generate a key for your application so it can interact with Azure Active Directory. To create a key, select **Keys** under **Settings**. Make note of the newly generated key for your Azure Active Directory application. You'll need it in a later step. The key won't be available after you leave this section. 
+    ![Shows the screen to register a new application in the Azure portal](../media/new-app-registration.png)
 
-![Azure Active Directory app keys](../media/keyvault-keyrotation/create-key.png)
+Azure AD assigns a unique application, or client, ID to your app. The portal opens your application's **Overview** page. Note the **Application (client) ID** value.
 
-Before you establish any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command uses the vault name and the application ID from your Azure Active Directory app to grant the application **Get** access to your key vault.
+To add  capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
+
+![Example of a newly registered app overview page](../media//new-app-overview-page-expanded.png)
+
+Before you establish any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command uses the vault name and the **Application (client) ID** from your Azure Active Directory app to grant the application **Get** access to your key vault.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

@@ -3,7 +3,7 @@ title: Restore a backup to managed instance
 description: Restore a database backup to an Azure SQL Database Managed Instance using SSMS. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart

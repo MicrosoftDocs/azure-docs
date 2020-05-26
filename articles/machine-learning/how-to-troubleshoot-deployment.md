@@ -19,12 +19,12 @@ Learn how to work around or solve common Docker deployment errors with Azure Con
 
 When deploying a model in Azure Machine Learning, the system performs a number of tasks.
 
-The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
+The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
 2. Define Inference Configuration:
-    1. Create an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
+    1. Create an [Environment](how-to-use-environments.md) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
     2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
 
 3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
@@ -45,7 +45,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter, your code can be broken down into three major steps:
+Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
 
 1. Register the model. Here is some sample code:
 

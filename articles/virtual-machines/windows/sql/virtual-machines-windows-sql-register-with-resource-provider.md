@@ -47,11 +47,6 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-subscription-with-rp), which gives the  resource provider the ability to create resources within that specific subscription.
 
-For more information about the benefits of using the SQL VM resource provider, watch this [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) video: 
-
-<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Benefit from SQL VM Resource Provider when self-installing SQL Server on Azure - Microsoft Channel 9 Video"></iframe>
-
-
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need: 

@@ -29,7 +29,7 @@ In the **Basics** tab, enter values for **Resource group** and **Registry name**
 
 Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 When the **Deployment succeeded** message appears, select the container registry in the portal. 
 
