@@ -67,11 +67,9 @@ We are fixing these issues.
 
 ## Required license plan
 
-Using this feature requires you to have an available Azure AD Premium P1 license in your Azure AD organization. If you want to use also Privileged Identity Management for just-in-time role activation along with it, you are required to also have an available Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium plans](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses).
+Using this feature requires you to have an available Azure AD Premium P1 license in your Azure AD organization. To use also Privileged Identity Management for just-in-time role activation requires you to have an available Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium plans](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses).
 
 ## Next steps
 
 - [Create a role-assignable group](roles-groups-create-eligible.md)
-- [Assign a role to a group](roles-groups-assign-role.md)
-- [View a group's role assignments](roles-groups-view-assignments.md)
-- [Remove a group role assignment](roles-groups-remove-assignment.md)
+- [Assign a role to a role-assignable group](roles-groups-assign-role.md)

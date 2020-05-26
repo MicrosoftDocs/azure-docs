@@ -87,6 +87,5 @@ This article describes how an IT admin can remove Azure AD roles assigned to gro
 
 ## Next steps
 
-- [Create a role-assignable group](roles-groups-create-eligible.md)
-- [Assign a role to a group](roles-groups-assign-role.md)
-- [View a group's role assignments](roles-groups-view-assignments.md)
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)

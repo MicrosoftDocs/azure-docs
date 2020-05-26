@@ -92,7 +92,5 @@ User | Catalog owner | Only if group owner | Only if group owner | Only if app o
 
 ## Next steps
 
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
 - [Create a role-assignable group](roles-groups-create-eligible.md)
-- [Assign a role to a group](roles-groups-assign-role.md)
-- [View a group's role assignments](roles-groups-view-assignments.md)
-- [Remove a group role assignment](roles-groups-remove-assignment.md)

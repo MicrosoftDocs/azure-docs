@@ -89,4 +89,5 @@ The highlighted section may be changed as required for the specific environment.
 
 ## Next steps
 
-- [Administrative units troubleshooting and FAQ](roles-admin-units-faq-troubleshoot.md)
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)

@@ -28,17 +28,15 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 ## Using Azure AD admin center
 
-1. Open Azure AD [Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) and sign in with Privileged role administrator or Global administrator permissions in the Azure AD organization.  
+1. Sign in to [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
-1. Select Privileged Identity Management > Azure AD roles > Roles > Add assignment
+1. Select **Privileged Identity Management** > **Azure AD roles** > **Roles** > **Add assignments**
 
-    ![Azure AD roles](./media/roles-groups-pim-eligible/roles-list.png)
-
-1. Select the group. Only groups that are eligible for role assignment (the cloud groups created with "Azure AD roles can be assigned to the group") are shown in the list, not all groups.
+1. Select a role, and then select a group. Only groups that are eligible for role assignment (the cloud groups created with "Azure AD roles can be assigned to the group") are shown in the list, not all groups.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
 
-1. Select the desired membership setting. For roles requiring activation, choose eligible. By default, the user would be permanently eligible, but you could also set a start and end time for the user's eligibility. Once you are complete, hit Save and Add to complete the role assignment.
+1. Select the desired membership setting. For roles requiring activation, choose **eligible**. By default, the user would be permanently eligible, but you could also set a start and end time for the user's eligibility. Once you are complete, hit Save and Add to complete the role assignment.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/set-assignment-settings.png)
 
@@ -96,5 +94,7 @@ To verify that the module is ready to use, use the following cmdlet:
 
 ## Next steps
 
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)
 - [Configure Azure AD admin role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

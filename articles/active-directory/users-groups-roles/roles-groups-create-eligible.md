@@ -77,6 +77,5 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ## Next steps
 
-- [Assign a role to a group](roles-groups-assign-role.md)
-- [View a group's role assignments](roles-groups-view-assignments.md)
-- [Remove a group role assignment](roles-groups-remove-assignment.md)
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)

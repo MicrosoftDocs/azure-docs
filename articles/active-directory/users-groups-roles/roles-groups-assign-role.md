@@ -86,6 +86,5 @@ For more information on assigning role permissions, see [Assign administrator an
 
 ## Next steps
 
-- [Create a role-assignable group](roles-groups-create-eligible.md)
-- [View a group's role assignments](roles-groups-view-assignments.md)
-- [Remove a group role assignment](roles-groups-remove-assignment.md)
+- [Use cloud groups to manage role assignments](roles-groups-concept.md)
+- [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)
