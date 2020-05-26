@@ -37,12 +37,18 @@ Execute the following Maven command in the Cloud Shell prompt to create a new ap
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
 ```
 
+Then change your working directory to the project folder:
+
+```bash
+cd helloworld
+```
+
 ## Configure the Maven plugin
 
 You can run the following maven command in the Command Prompt to configure the deployment, choose  **'2'** for the **windows** OS in the first step, then accept the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
 
 ```bash
-cd helloworld && mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
 A sample process looks like:
