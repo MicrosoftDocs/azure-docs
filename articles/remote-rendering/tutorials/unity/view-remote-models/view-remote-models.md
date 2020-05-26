@@ -13,7 +13,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Provision an Azure Remote Rendering instance
+> * Provision an Azure Remote Rendering (ARR) instance
 > * Create and stop a rendering session
 > * Reuse an existing rendering session
 > * Connect and disconnect from sessions
@@ -33,7 +33,7 @@ For this tutorial you need:
     * **IL2CPP** - Windows Build Support (IL2CPP)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
-## Provision an Azure Remote Rendering instance
+## Provision an Azure Remote Rendering (ARR) instance
 
 To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account). 
 
@@ -90,15 +90,17 @@ The following steps ensure that your project is using the latest version of the 
 ![Up to date package](./media/package-up-to-date.png)
 ## Configure the camera
 
-Select the **Main Camera** node.
+1. Select the **Main Camera** node.
 
-1. Reset its *Transform*:
+1. Open the context menu by right clicking on the *Transform* component and select the **Reset** option:
 
     ![reset camera transform](./media/camera-reset-transform.png)
 
 1. Set **Clear flags** to *Solid Color*
 
-1. Set **Background** to *Black* (#000000), with full (255) alpha.
+1. Set **Background** to *Black* (#000000), with full (255) alpha (A)
+
+    ![Color wheel](./media/color-wheel-black.png)
 
 1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
@@ -113,14 +115,14 @@ Select the **Main Camera** node.
     ![change project quality settings](./media/settings-quality.png)
 
 1. Select **Graphics** from the left list menu
-1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal Render Pipeline is not used.
+1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
 
     ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)\
     Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 
-    * > [!NOTE]
-    If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > [!NOTE]
+    > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
 
 1. Select **Player** from the left list menu
 1. Select the **Universal Windows Platform settings** tab, represented as a Windows icon.
@@ -141,19 +143,13 @@ Select the **Main Camera** node.
     * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
 
 1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
-
- > [!NOTE] 
- > Later in this tutorial, we will use the Mixed Reality Toolkit. See the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview) for more information on recommended settings and capabilities.
-
 1. Close or dock the **Project Settings** panel
 1. Open *File->Build Settings*
 1. Select **Universal Windows Platform**
 1. Configure your settings to match those found below
 1. Press the **Switch Platform** button.
-
 ![build settings](./media/build-settings.png)
-
-6. After Unity changes platforms, close the build panel.
+1. After Unity changes platforms, close the build panel.
 
 ## Validate project setup
 
@@ -170,7 +166,7 @@ There are four basic stages to show remotely rendered models, outlined in the fl
 
 ![ARR stack 0](./media/remote-render-stack-0.png)
 
-1. Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder called *Scripts*.
+1. In the *Project* pane, under **Assets**, create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder called *Scripts*.
 
 1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) called **RemoteRenderingCoordinator**.
 Your project should look like this:
@@ -513,18 +509,18 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
 ## Create the Azure Remote Rendering GameObject
 
-The remote rendering coordinator and its required script (*ARRServiceUnity*) are both MonoBehaviours that must be attached to a GameObject in the scene.
+The remote rendering coordinator and its required script (*ARRServiceUnity*) are both MonoBehaviours that must be attached to a GameObject in the scene. The *ARRServiceUnity* script is provided by ARR to expose much of ARR's functionality for connecting to and managing remote sessions.
 
 1. Create a new GameObject in the scene (Ctrl+Shift+N or *GameObject->Create Empty*) and name it **RemoteRenderingCoordinator**.
 1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
 ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
 1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject. This is a result of adding the attribute, `[RequireComponent(typeof(ARRServiceUnity))]`, to the top of the **RemoteRenderingCoordinator** script.
-1. Add your Azure Remote Rendering credentials to the coordinator script:\
+1. Add your Azure Remote Rendering credentials and your Account Domain to the coordinator script:\
 ![Add your credentials](./media/configure-coordinator-script.png)
 
 ## Initialize Azure Remote Rendering
 
-Now that we have the framework for our coordinator, we will implement each of the four stages starting with **Initialize Remote Rendering**. 
+Now that we have the framework for our coordinator, we will implement each of the four stages starting with **Initialize Remote Rendering**.
 
 ![ARR stack 1](./media/remote-render-stack-1.png)
 
@@ -637,7 +633,7 @@ public void StopRemoteSession()
 }
 ```
 
-If you want to save time by reusing sessions, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server. On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, which can be a somewhat lengthy process.
+If you want to save time by reusing sessions, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server (The value for *MaxLeaseTime* can be modified in the Remote Rendering Cooridnator, under *New Session Defaults*). On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, which can be a somewhat lengthy process.
 
 > [!NOTE]
 > Stopping a session will take immediate effect and cannot be undone. Once stopped, you have to create a new session, with the same startup overhead.
@@ -699,7 +695,7 @@ private void LateUpdate()
 > [!NOTE]
 > Connecting the local runtime to a remote session depends on **Update** being called on the currently active session. If you find your application is never progressing past the **ConnectingToRuntime** state, ensure you're calling **Update** regularly on the active session.
 
-## Loading a model
+## Load a model
 
 With the required foundation in place, you are ready to load a model into the remote session and start receiving frames.
 
@@ -769,7 +765,9 @@ The code above is performing the following steps:
 
 ## View the test model
 
-We now have all the code required to view a remotely rendered model.
+We now have all the code required to view a remotely rendered model, all four of the required stages for remote rendering are complete. Now we need to add a little code to start the model load process.
+
+![ARR stack 4](./media/remote-render-stack-5.png)
 
 1. Add the following code to the **RemoteRenderingCoordinator** class, just below the **LoadModel** method is fine:
 
