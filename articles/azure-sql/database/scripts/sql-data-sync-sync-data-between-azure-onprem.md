@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: sampleinfo
+ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
