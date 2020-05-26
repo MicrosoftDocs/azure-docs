@@ -16,7 +16,7 @@ ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# What is SQL Server on Azure Virtual Machines? (Windows)
+# What is SQL Server on Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]

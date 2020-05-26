@@ -18,7 +18,7 @@ ms.date: 06/27/2017
 ms.author: mikeray
 
 ---
-# High-availability and disaster recovery for SQL Server in Azure virtual machines
+# High availability and disaster recovery for SQL Server in Azure virtual machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Microsoft SQL Server on Azure Virtual Machines can help lower the cost of a high-availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported in virtual machines (VMs), both as Azure-only and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
