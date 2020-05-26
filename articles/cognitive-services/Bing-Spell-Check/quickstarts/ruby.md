@@ -35,7 +35,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
     require 'json'
     ```
 
-1. Create variables for your subscription key, endpoint URI, and path. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Create your request parameters:
+2. Create variables for your subscription key, endpoint URI, and path. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Create your request parameters:
 
    1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 
@@ -60,7 +60,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
    })
    ```
 
-1. Create a request using the URI constructed previously. Add your key to the `Ocp-Apim-Subscription-Key` header.
+2. Create a request using the URI constructed previously. Add your key to the `Ocp-Apim-Subscription-Key` header.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -68,7 +68,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
     request['Ocp-Apim-Subscription-Key'] = key
     ```
 
-1. Send the request.
+3. Send the request.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -76,7 +76,7 @@ Although this application is written in Ruby, the API is a RESTful Web service c
     end
     ```
 
-1. Get the JSON response, and print it to the console. 
+4. Get the JSON response, and print it to the console. 
 
     ```ruby
     result = JSON.pretty_generate(JSON.parse(response.body))

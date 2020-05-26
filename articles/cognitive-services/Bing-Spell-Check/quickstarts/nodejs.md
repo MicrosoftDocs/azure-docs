@@ -39,7 +39,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let key = '<ENTER-KEY-HERE>';
     ```
 
-1. Create variables for your search parameters and the text you want to check: 
+2. Create variables for your search parameters and the text you want to check: 
 
    1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
 
