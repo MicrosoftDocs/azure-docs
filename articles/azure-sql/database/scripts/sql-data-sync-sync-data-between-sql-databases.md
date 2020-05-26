@@ -33,7 +33,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 ## Prerequisites
 
 - Create a database in Azure SQL Database from an AdventureWorksLT sample database as a hub database.
-- Create a SQL Server on-premises database as a member database.
+- Create a database in Azure SQL Database in the same region as the sync database.
 - Update the parameter placeholders before running the example.
 
 ## Example
