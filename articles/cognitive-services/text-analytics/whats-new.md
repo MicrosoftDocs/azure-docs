@@ -23,8 +23,8 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 Text Analysis API v3 is now generally available with the following updates:
 
 * Model version `2020-04-01`
-* Updated [language support](language-support.md) for [sentiment analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* Separate endpoint for entity linking 
+* Updated [language support](language-support.md) for [Sentiment Analysis (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* Separate endpoint for Entity Linking 
 * New "Address" entity category in [Named Entity Recognition (NER) v3](how-tos/text-analytics-how-to-entity-linking.md).
 * New subcategories in NER v3:
    * Location - Geographical
@@ -38,7 +38,7 @@ Text Analysis API v3 is now generally available with the following updates:
 
 The following properties in the JSON response have been added:
    * `SentenceText` in Sentiment Analysis
-   * Warnings for each document
+   * `Warnings` for each document 
 
 The names of the following properties in the JSON response have been changed, where applicable:
 
@@ -50,14 +50,17 @@ The names of the following properties in the JSON response have been changed, wh
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
+> [Learn more about Text Analytics API v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
 ### Text Analytics API v3.1 Public Preview
-   * New sentiment analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
+   * New Sentiment Analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
    * New Personal (`PII`) categories:
       * International Classification of Diseases (ICD-9-CM)
       * International Classification of Diseases (ICD-10-CM)
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ## February 2020
 
