@@ -2,17 +2,12 @@
 title: Add or remove Azure role assignments using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2020
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -67,7 +62,7 @@ In Azure RBAC, to grant access to an Azure resource, you add a role assignment. 
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add menu](./media/role-assignments-portal/add-menu.png)
+   ![Add role assignment menu](./media/role-assignments-portal/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
@@ -101,7 +96,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add menu](./media/role-assignments-portal/add-menu.png)
+   ![Add role assignment menu](./media/role-assignments-portal/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
@@ -114,6 +109,70 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 1. Click **Save** to assign the role.
 
    After a few moments, the user is assigned the Owner role at the subscription scope.
+
+## Add a role assignment for a managed identity
+
+You can add role assignments for system-assigned and user-assigned managed identities at a particular scope by using the **Access control (IAM)** blade as described earlier. This section describes how to add role assignments by starting with the managed identity and then selecting the scope and role.
+
+### System-assigned managed identity
+
+Follow these steps to assign a role to a system-assigned managed identity by starting with the managed identity.
+
+1. In the Azure portal, open a system-assigned managed identity.
+
+1. In the left menu, click **Identity**.
+
+    ![System-assigned managed identity](./media/shared/identity-system-assigned.png)
+
+1. Under **Permissions**, click **Azure role assignments**.
+
+    If roles are already assigned to the selected system-assigned managed identity, you see the list of role assignments. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/shared/role-assignments-system-assigned.png)
+
+1. To change the subscription, click the **Subscription** list.
+
+1. Click **Add role assignment**.
+
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled. The Add role assignment pane opens.
+
+1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
+
+1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
+
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Click **Save** to assign the role.
+
+   After a few moments, the managed identity is assigned the role at the selected scope.
+
+### User-assigned managed identity
+
+Follow these steps to assign a role to a user-assigned managed identity by starting with the managed identity.
+
+1. In the Azure portal, open a user-assigned managed identity.
+
+1. Click **Azure resources**.
+
+    If roles are already assigned to the selected user-assigned managed identity, you see the list of role assignments. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/shared/role-assignments-user-assigned.png)
+
+1. To change the subscription, click the **Subscription** list.
+
+1. Click **Add role assignment**.
+
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled. The Add role assignment pane opens.
+
+1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
+
+1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
+
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Click **Save** to assign the role.
+
+   After a few moments, the managed identity is assigned the role at the selected scope.
 
 ## Remove a role assignment
 
