@@ -37,7 +37,7 @@ The Azure sign-up experience consists of four sections:
 
 This walkthrough provides examples of the correct information to sign up for an Azure account. Each section also contains some common issues and how to resolve them.
 
-### About you
+## About you
 
 ![About you](./media/troubleshoot-azure-sign-up/1.png)
  
@@ -73,7 +73,7 @@ To resolve this issue, double-check whether the following items are true:
 This issue can occur if the account is registered in an [unmanaged Azure AD directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup), and it is not in your organization's Azure AD directory.
 To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover).
 
-### Identity verification by phone
+## Identity verification by phone
 
 ![Identity verification by phone](./media/troubleshoot-azure-sign-up/2.png)
  
@@ -93,7 +93,7 @@ Here are some additional tips:
 - Double-check the phone number that you enter, including the country code that you select in the drop-down menu.
 - If your phone doesn't receive text messages (SMS), try the **Call me** option.
 
-### Identity verification by card
+## Identity verification by card
 
 ![Identity verification by card](./media/troubleshoot-azure-sign-up/3.png)
  
@@ -127,7 +127,7 @@ Use the following steps to update your browser's cookie settings.
 
 You may see a small verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
 
-### Agreement
+## Agreement
 
 Complete the Agreement.
 
