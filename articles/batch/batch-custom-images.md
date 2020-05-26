@@ -108,4 +108,4 @@ For more information on using Packer to create a VM, see [Build a Linux image wi
 
 ## Next steps
 
-For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+- For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

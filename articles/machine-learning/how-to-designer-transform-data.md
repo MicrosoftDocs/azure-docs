@@ -5,11 +5,12 @@ description: Learn how to transform data in Azure Machine Learning designer to c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
+ms.custom: designer
 ---
 
 # Transform data in Azure Machine Learning designer (preview)

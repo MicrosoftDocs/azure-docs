@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Database and Azure SQL Managed Instance
 description: Learn how Azure SQL Database and Azure SQL Managed Instance support storing full database backups for up to 10 years via the long-term retention policy.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.subservice: operations
+ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960

@@ -145,7 +145,7 @@ Switch the *build type* of the Unity solution to **Debug**. When testing ARR in 
 ### Compile failures when compiling Unity samples for HoloLens 2
 
 We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp, ..) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they are there. If you hit this problem:
-* Remove all temporary Unity files from the project and try again.
+* Remove all temporary Unity files from the project and try again. That is, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again.
 * Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
 * If that does not help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
     ```cmd

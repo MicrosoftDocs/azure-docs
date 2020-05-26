@@ -20,10 +20,6 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 * **Cause**: An error occurred while writing data to an adapter.
 
-## KafkaServerError
-
-* **Cause**: The Kafka server returned an error:
-
 ## AzureFunctionHttpError
 
 * **Cause**: An HTTP error was returned from Azure functions.

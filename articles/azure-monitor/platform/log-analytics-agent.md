@@ -87,7 +87,7 @@ The following versions of the Windows operating system are officially supported 
 * Windows Server 2016, version 1709 and 1803
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
-* Windows 10 Enterprise and Pro
+* Windows 10 Enterprise (including multi-session) and Pro
 * Windows 8 Enterprise and Pro 
 * Windows 7 SP1
 
@@ -166,10 +166,10 @@ The following table lists the proxy and firewall configuration information that'
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Inbound and Outbound|Yes |
-|*.azure-automation.net |Port 443 |Inbound and Outbound|Yes |
+|*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Outbound|Yes |
+|*.azure-automation.net |Port 443 |Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

@@ -1,18 +1,15 @@
 ---
 title: Create an Azure container offer - Azure Marketplace
-description: This article explains how to create and publish a container offer to Azure Marketplace. 
+description: Learn how to create and publish a container offer to Azure Marketplace. 
 author: mingshen 
 ms.author: mingshen 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 05/19/2020
 ---
 
 # Create an Azure container offer
-
-> [!IMPORTANT]
-> We're moving the management of your Azure container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
 
 This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -64,12 +61,12 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 1. **Select a lead destination where you want us to send customer leads**. Partner Center supports the following CRM systems:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+   > [!NOTE]
+   > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -145,40 +142,11 @@ A more detailed description of your offer. This can be up to 256 characters long
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-  - Description of the offer.
-  - The type of user that benefits from the offer
-  - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer **description** more engaging, use the rich text editor, to format your description. with numbering, bullets, bold, italics, and indents to make your description more readable.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false" :::
-
-- Use this drop-down to apply a paragraph style to text.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
-
-- Use these icons to apply numbering or bullets to text.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
-
-- Use these icons to add or remove indentation to or from text.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy link
 

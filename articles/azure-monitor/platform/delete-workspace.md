@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 
 ---
 
 # Delete and recover Azure Log Analytics workspace
 
-This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover deleted workspace. 
+This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover deleted workspace.
 
 ## Considerations when deleting a workspace
 
@@ -42,12 +42,12 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 
 ### Azure portal
 
-1. To sign in, go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
-   ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png)
-4. When the confirmation message window appears asking you to confirm deletion of the workspace, click **Yes**.
-   ![Confirm deletion of workspace](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+4. A confirmation page appears that shows the data ingestion to the workspace over the past week. Type in the name of the workspace to confirm and then click **Delete**.
+
+   ![Confirm deletion of workspace](media/delete-workspace/workspace-delete.png)
 
 ### PowerShell
 ```PowerShell
@@ -89,10 +89,27 @@ To permanently delete your workspace, use the [Workspaces - Delete REST]( https:
 Where 'eyJ0eXAiOiJKV1Qi…' represents the full authorization token.
 
 ## Recover workspace
+When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state making it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period and can't be used for creating a new workspace. After the soft-delete period, the workspace is non-recoverable, it is scheduled for permanent deletion and its name it released and can be used for creating a new workspace.
 
-If you have Contributor permissions to the subscription and resource group where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion. Names of deleted workspaces are preserved during the soft-delete period and can't be used when attempting to create a new workspace.  
+You can recover your workspace during the soft-delete period including its data, configuration and connected agents. You need to have Contributor permissions to the subscription and resource group where the workspace was located before the soft-delete operation. The workspace recover is performed by creating a Log Analytics workspace with the details of the deleted workspace including:
 
-You can recover your workspace by creating a workspace with the details of the deleted workspace, these include *Subscription ID*, *Resource Group name*, *Workspace name* and *Region*. If your resource group was also deleted and doesn’t exist, create a resource group with the same name that was used before the delete, then create a workspace using any of these methods: [Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
+- Subscription ID
+- Resource Group name
+- Workspace name
+- Region
+
+### Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+2. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
+3. Click **Recover** on the top left menu to open a page with workspaces in soft-delete state that can be recovered.
+
+   ![Recover workspace](media/delete-workspace/recover-menu.png)
+
+4. Select the workspace and click **Recover** to recover that workspace.
+
+   ![Recover workspace](media/delete-workspace/recover-workspace.png)
+
 
 ### PowerShell
 ```PowerShell

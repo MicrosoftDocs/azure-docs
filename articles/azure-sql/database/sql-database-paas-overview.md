@@ -217,7 +217,7 @@ No. The impact of patching is generally not noticeable if you [employ retry logi
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ask development questions.
-- [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ask technical questions.
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 - [Feedback](https://aka.ms/sqlfeedback): Report bugs and request feature.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server.
 
