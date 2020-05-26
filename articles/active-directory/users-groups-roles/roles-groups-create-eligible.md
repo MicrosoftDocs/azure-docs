@@ -16,9 +16,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Create a group for assigning roles in Azure Active Directory
+# Create a role-assignable group in Azure Active Directory
 
-You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with "Azure AD roles can be assigned to the group". This group attribute makes the group eligible to be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create such a group.
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with **Azure AD roles can be assigned to the group** turned on. This group attribute makes the group one that can be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create this special kind of group.
 
 ## Using Azure AD admin center
 
@@ -59,7 +59,7 @@ To verify that the module is ready to use, issue the following command:
 
 For this type of group, `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
-### Copy all users and service principals of an existing group to a new role-assignable group
+### Copy one group's users and service principals into a role-assignable group
 
     #Basic set up
     install-module azureadpreview
@@ -93,7 +93,7 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ## Using Microsoft Graph API
 
-### Create a group that can be assigned Azure AD role
+### Create a role-assignable group in Azure AD
 
     POST https://graph.microsoft.com/beta/groups
     {
