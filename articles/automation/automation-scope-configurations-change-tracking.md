@@ -47,11 +47,5 @@ When a computer is added to Change Tracking and Inventory, it's also added to a 
 
 ## Next steps
 
-* For general information about the feature, see [Change Tracking and Inventory overview](change-tracking.md).
-* To work with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To use an Automation account to enable the feature, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
-* To use the Azure portal to enable the feature, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
-* To use a runbook to enable the feature, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
-* To use an Azure VM to enable the feature, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
-* To troubleshoot issues with change tracking and inventory on a VM, see [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md).
-* To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
+* To work with Change Tracking and Inventory, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To troubleshoot general feature issues, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
