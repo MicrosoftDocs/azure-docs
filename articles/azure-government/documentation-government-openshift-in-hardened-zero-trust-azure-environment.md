@@ -23,7 +23,7 @@ Here are the architectural components of the solution.
 * *Workload*. Use the Iron Bank verification script to ensure you're using a secure Docker image 
 
 > [!NOTE]
-> For more information on Parts 2 and 3 of solution deployment, e.g. Container Orchestration and Workload, please [contact Microsoft-trusted partner CloudFit] (mailto:info@cloudfit.com)
+> For more information on Parts 2 and 3 of solution deployment, e.g. Container Orchestration and Workload, please [contact Microsoft-trusted partner CloudFit] (https://www.cloudfitsoftware.com/contact-us/)
 > 
 > 
 
