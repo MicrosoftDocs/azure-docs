@@ -30,13 +30,13 @@ In this tutorial, you learn how to:
 
 ## Create Jekyll App
 
-Create a Hugo app using the Jekyll Command Line Interface (CLI):
+Create a Jekyll app using the Jekyll Command Line Interface (CLI):
 
 1. Follow the [installation guide](https://jekyllrb.com/docs/installation/) for Jekyll on your OS. You can also use WSL (Windows Subsystem for Linux) and follow Ubuntu instructions and it works just fine. 
 
 1. Open a terminal
 
-1. Run the Hugo CLI to create a new app.
+1. Run the Jekyll CLI to create a new app.
 
    ```bash
    jekyll new static-app
@@ -64,7 +64,7 @@ Create a Hugo app using the Jekyll Command Line Interface (CLI):
 
 You need a repository on GitHub to connect to Azure Static Web Apps. The following steps show you how to create a repository for your site.
 
-1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **hugo-static-app**.
+1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **jekyll-azure-static**.
 
 1. Add the GitHub repository as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
 
@@ -137,9 +137,9 @@ Next, you add configuration settings that the build process uses to build your a
    git pull
    ```
 
-1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
+1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Hugo application.
+1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Jekyll application.
 
     ```yml
 
@@ -148,9 +148,6 @@ Next, you add configuration settings that the build process uses to build your a
       submodules: true
         
     - name: Set up Ruby
-      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-      # change this to (see https://github.com/ruby/setup-ruby#versioning):
-      # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
       ruby-version: 2.6
