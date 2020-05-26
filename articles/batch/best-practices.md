@@ -197,12 +197,12 @@ Azure Batch creates and manages a set of users and groups on the VM, which shoul
 
 #### Windows
 
-    - A user named **PoolNonAdmin**
-    - A user group named **WATaskCommon**
+- A user named **PoolNonAdmin**
+- A user group named **WATaskCommon**
 
 #### Linux
 
-    - A user named **\_azbatch**
+- A user named **_azbatch**
 
 ### File cleanup
 
