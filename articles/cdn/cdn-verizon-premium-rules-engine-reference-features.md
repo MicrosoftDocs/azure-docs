@@ -343,8 +343,8 @@ Internet Media Type|Description
 text/plain|Plain text files
 text/html| HTML files
 text/css|Cascading Style Sheets (CSS)
-application/x-javascript|Javascript
-application/javascript|Javascript
+application/x-javascript|JavaScript
+application/javascript|JavaScript
 
 Key information:
 
