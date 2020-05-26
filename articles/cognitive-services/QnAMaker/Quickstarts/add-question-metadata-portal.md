@@ -1,14 +1,8 @@
 ---
 title: "Quickstart: Add questions and answer in QnA Maker portal"
 description:  This quickstart shows how to add question and answer sets with metadata so your users can find the right answer to their question.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
+ms.date: 05/26/2020
 ---
 
 # Quickstart: Add questions and answer with QnA Maker portal
