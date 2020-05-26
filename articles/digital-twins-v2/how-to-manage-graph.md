@@ -36,7 +36,7 @@ To create a relationship, you need to specify:
 * A relationship ID
 
 The relationship ID must be unique within the given source twin. It does not need to be globally unique.
-For example, for the twin *foo*, each specific relationship ID must be unique. but a twin *foo* and a twin *bar* can each have outgoing relationships with the same id. 
+For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship. 
 
 The following code sample illustrates how to add a relationship to your Azure Digital Twins instance.
 
@@ -115,7 +115,7 @@ async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtI
     // Find the relationships for the twin
     try
     {
-        // GetRelationshipssAsync will throw if an error occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         List<IncomingRelationship> results = new List<IncomingRelationship>();
@@ -133,7 +133,7 @@ async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtI
 
 You can delete relationships using `DeleteRelationship(source, relId);`.
 
-The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin id and the relationship id, because relationship IDs are unique only within the scope of a twin.
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
 
 ## Create a twin graph 
 

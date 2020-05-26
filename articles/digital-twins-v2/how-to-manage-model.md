@@ -66,16 +66,20 @@ This model defines a name and a unique ID for the patient room, and properties t
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
-> [!Tip]
-> Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
+> [!TIP]
+> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library, see [How-to: Use the DTDL client-side parser library](how-to-use-parser.md).
+
+## Manage models with APIs.
+
+The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+
+> [!NOTE]
+> The examples below do not include error handling for brevity. However, it's strongly recommended within your projects to wrap service calls in try/catch blocks.
 
 > [!Tip] 
-> The examples below do not include error handling for brevity. In real world, it is strongly recommended to wrap service calls in a try/catch block.
+> Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
 
-> [!Tip]
-> There is a [client-side library that lets you parse and validate DTDL](./how-to-use-parser.md). It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, for example to generate UI elements. 
-
-## Upload models
+### Upload models
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
@@ -90,7 +94,7 @@ string[] dtdls = new string[] { dtdl };
 client.CreateModels(dtdls);
 ```
 
-As you can see, the `CreateModels` method accepts multiple files in one single transaction:
+Observe that the `CreateModels` method accepts multiple files in one single transaction. Here's a sample to illustrate:
 
 ```csharp
 var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
@@ -125,9 +129,10 @@ Model files can contain more than a single model. In this case, the models need 
  
 On upload, model files are validated.
 
-> [!Tip] Note that you can also use the [Parser client side library](./how-to-use-parser.md) to validate models on the client side.
+> [!TIP] 
+> Note that you can also use the [DTDL client-side parser library](how-to-use-parser.md) to validate models on the client side.
 
-## Retrieve models
+### Retrieve models
 
 You can list and retrieve models stored on your Azure Digital Twins instance. 
 
@@ -142,7 +147,7 @@ Here are some example calls:
 ```csharp
 // 'client' is a valid DigitalTwinsClient object
 
-// Get just a single model, metadata and data
+// Get a single model, metadata and data
 ModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
@@ -151,7 +156,7 @@ Pageable<ModelData> pmd2 = client.GetModels();
 // Get a list of metadata and full model definitions
 Pageable<ModelData> pmd3 = client.GetModels(null, true);
 
-// Get models and metadata for a model id including all dependencies (models inherited from, component references)
+// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
@@ -161,11 +166,11 @@ The `RetrieveModelWithDependencies` call returns not only the requested model, b
 
 Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
-## Remove models
+### Remove models
 
 Models can also be removed from the service, in one of two ways:
 * **Decommissioning** : Once a model is decommissioned, you can no longer use it to create new digital twins. Existing digital twins that already use this model aren't affected, so you can still update them with things like property changes and adding or deleting relationships.
-* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them, until you assign a different model to them.
+* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them until they're reassigned to a different model.
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
@@ -182,15 +187,15 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
-### Deletion
+#### Deletion
 
-#### Before deletion: Deletion requirements
+You can delete all models in your instance at once, or you can do it on an individual basis.
 
-To delete a model, use:
-```csharp
-// 'client' is a valid DigitalTwinsClient
-await client.DeleteModelAsync(idToDelete);
-```
+For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+
+The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
+
+##### Before deletion: Deletion requirements
 
 Generally, models can be deleted at any time.
 
@@ -198,9 +203,7 @@ The exception is models that other models depend on, either with an `extends` re
 
 You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
 
-See the [`CommandDeleteAllModels` function](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) in the ADTSampleApp tutorial (CommandLoop.cs) for an example for how to delete all models.
-
-#### During deletion: Deletion process
+##### During deletion: Deletion process
 
 Even if a model meets the requirements to delete it immediately, you may want to go through a few steps first to avoid unintended consequences for the twins left behind. Here are some steps that can help you manage the process:
 1. First, decommission the model
@@ -210,7 +213,13 @@ Even if a model meets the requirements to delete it immediately, you may want to
 5. Wait for another few minutes to make sure the changes have percolated through
 6. Delete the model 
 
-#### After deletion: Twins without models
+To delete a model, use this call:
+```csharp
+// 'client' is a valid DigitalTwinsClient
+await client.DeleteModelAsync(IDToDelete);
+```
+
+##### After deletion: Twins without models
 
 Once a model is deleted, any digital twins that were using the model are now considered to be without a model. Note that there is no query that can give you a list of all the twins in this state—although you *can* still query the twins by the deleted model to know what twins are affected.
 
@@ -229,7 +238,7 @@ Things you **can't** do:
 * Edit outgoing relationships (as in, relationships *from* this twin to other twins)
 * Edit properties
 
-#### After deletion: Re-uploading a model
+##### After deletion: Re-uploading a model
 
 After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted. Here's what happens in that case.
 * From the solution store's perspective, this is the same as uploading a completely new model. The service doesn't remember the old one was ever uploaded.   

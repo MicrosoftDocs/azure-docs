@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use the client-side parser library
+title: Use the DTDL client-side parser library
 titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: cschorm
