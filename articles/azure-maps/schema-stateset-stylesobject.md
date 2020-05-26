@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Schema reference guide for the StylesObject in Dynamic Maps
+# StylesObject Schema reference guide for Dynamic Maps
 
 This article is a reference guide to the JSON schema and syntax for the `StylesObject`. The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate) to apply your stateset styles to indoor map data features. Once you have created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator indoor maps](#indoor-map-dynamic-styling.md).
 
@@ -124,15 +124,13 @@ A `BooleanTypeStyleRule` defines a boolean *state* and associated colors for `tr
 | `type` | string |Value is "boolean". | Yes |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| A boolean pair with colors for `true` and `false` *state* values.| Yes |
 
-
-
 ### BooleanRuleObject
 
-A `BooleanRuleObject` defines colors for `true` and `false` values..
+A `BooleanRuleObject` defines colors for `true` and `false` values.
 
 | Attribute | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `true` | string | The color to use when the *state* value is `true`. The color to use when state value falls into the range. The `color` attribute is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow and blue.</li></ul>| Yes |
+| `true` | string | The color to use when the *state* value is `true`. The `color` attribute is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow and blue.</li></ul>| Yes |
 | `false` | string | The color to use when the *state* value is `false`. | Yes |
 
 ### Example of BooleanTypeStyleRule
