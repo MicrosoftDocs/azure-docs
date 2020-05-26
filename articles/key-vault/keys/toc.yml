@@ -24,7 +24,7 @@
     href: hsm-protected-keys.md
   - name: Import HSM-protected keys (preview)
     href: hsm-protected-keys-vendor-agnostic-byok.md
-  - name: Import HSM-protected keys(legacy)
+  - name: Import HSM-protected keys (legacy)
     href: hsm-protected-keys-legacy.md
 
 - name: Samples

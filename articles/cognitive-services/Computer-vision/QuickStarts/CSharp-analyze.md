@@ -28,13 +28,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create the sample in Visual Studio, do the following steps:
 
-1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App (.NET Framework) template.
+1. Create a new Visual Studio solution/project in Visual Studio, using the Visual C# Console App (.NET Core Framework) template.
 1. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
-    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
-    1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json" (if it is not already displayed).
+    1. Select **Newtonsoft.Json**, then click the checkbox next to your project name, and **Install**.
+1. Copy/paste the sample code snippet below, into your Program.cs file. Adjust the namespace name if it's different from the one you created.
+1. Add an image of your choosing to your bin/debug/netcoreappX.X folder, then add the image name (with extension) to the 'imageFilePath' variable.
 1. Run the program.
-1. At the prompt, enter the path to a local image.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -54,26 +55,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -162,7 +155,7 @@ namespace CSHttpClientSample
 
 ## Examine the response
 
-A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example:
+A successful response is returned in JSON (based on your own image used) in the console window, similar to the following example:
 
 ```json
 {

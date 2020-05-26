@@ -15,7 +15,7 @@ ms.date: 04/25/2019
 
 # Linked services in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-linked-services.md)
 
@@ -23,7 +23,7 @@ ms.date: 04/25/2019
 
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory pipelines.
 
-If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
+If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
 
 ## Overview
 
