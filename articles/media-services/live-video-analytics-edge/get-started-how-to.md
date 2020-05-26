@@ -11,7 +11,7 @@ This article covers all necessary resource creation and configuration steps.
 
 ## Create an Azure Media Service account
 
-In order to use Live Video Analytics, you will need to have a Media Services account. <!--Following are the regions where Live Video Analytics is supported: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.-->
+In order to use Live Video Analytics, you will need to have a Media Services account. Following are the regions where Live Video Analytics is supported: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
 
 You can use the Azure CLI to create an account using the instructions provided here. You are recommended to use General-purpose v2 (GPv2) Storage accounts.
 

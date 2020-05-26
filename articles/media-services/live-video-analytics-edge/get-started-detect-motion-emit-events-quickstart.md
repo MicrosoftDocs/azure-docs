@@ -172,7 +172,11 @@ Using the same steps as those outlined for invoking GraphTopologySet, you can in
         ]
     }
 }
-  ```
+
+
+```
+
+
 
 The above JSON payload results in the creation of a MediaGraph topology that defines three parameters (two of which have default values). The topology has one source (RTSP source), one processor (motion detection processor), and one sink (IoT Hub sink).
 
@@ -246,8 +250,7 @@ Within a few seconds, you will see the following response in the Output window:
           "name": "hubSink",
           "inputs": [
             {
-              "nodeName": "motionDetection",
-              "outputSelectors": []
+              "moduleName": "motionDetection"
             }
           ]
         }
@@ -325,7 +328,7 @@ Within a few seconds, you should see the following response in the Output window
       ],
       "processors": [
         {
-          "@type": "#Microsoft.Media.MediaGraphMotionDetector",
+          "@type": "#Microsoft.Media.MediaGraphMotionDetectionProcessor",
           "sensitivity": "medium",
           "name": "md",
           "inputs": [
@@ -527,7 +530,7 @@ You will see the following messages in the Output window:
     },
     "applicationProperties": {
     "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/milan-lva-sample-resources/providers/microsoft.media/mediaservices/lvasamplew7z2vwdm5l4uk",
-    "subject": "/graphInstances/Sample-Graph-1/processors/md",
+    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-05-08T14:34:33.404Z",
     "dataVersion": "1.0"

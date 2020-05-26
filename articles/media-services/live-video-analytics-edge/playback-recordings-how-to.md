@@ -17,7 +17,7 @@ ms.date: 04/27/2020
 
 You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md) (CVR), whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via [event-based video recording](event-based-video-recording-concept.md) (EVR). 
 
-Your Media Service  account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [Media Service asset](terminology.md#asset). Media Services allows you to [stream that content](terminology.md#streaming), either after the recording is complete, or while the recording is ongoing. Media Services provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). <!-- (TODO: here, link to the concept page on playback-->You would use Media Service APIs to generate the requisite streaming URLs – used by clients to play back the video & audio. To construct the streaming URL for an asset, see [Create a streaming locator and build URLs](../latest/create-streaming-locator-build-url.md). Once the streaming URL has been created for an asset, you can and should store the association of the URL with the video source (that is, camera) in your content management system.
+Your Media Service  account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [Media Service asset](terminology.md#asset). Media Services allows you to [stream that content](terminology.md#streaming), either after the recording is complete, or while the recording is ongoing. Media Services provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). See [this](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/video-playback-concept?branch=release-preview-media-services-lva) article for more details. You would use Media Service APIs to generate the requisite streaming URLs – used by clients to play back the video & audio. To construct the streaming URL for an asset, see [Create a streaming locator and build URLs](../latest/create-streaming-locator-build-url.md). Once the streaming URL has been created for an asset, you can and should store the association of the URL with the video source (that is, camera) in your content management system.
 
 For example, when streaming via HLS, the streaming URL would look like `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8`. For MPEG-DASH, it would look like `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=mpd-time-cmaf).mpd`.
 
@@ -41,89 +41,13 @@ Media Services provides you with a query API (availableMedia) to address the fir
 
 When using CVR, playback devices (clients) cannot request a manifest covering playback of the entire recording.  A multi-year recording would produce a manifest file that was too large for playback and it would be unwieldy to parse into usable portions on the client side.  The client needs to know what datetime ranges have data in the recording so that it can make valid requests without much guess work. This is where the new Query API comes in – clients can now use this server-side API to discover content.
 
-### Request format  
-
-The client can call the Locator URL for a camera like this:
-
-`https://hostname/locatorId/content.ism/availableMedia?precision= [value]&startTime={ISO-8601}&endTime={ISO-8601}`
-
 Where the precision value can be one of: year, month, day, or full (as shown below). 
 
-#### Query - year 
-
-`/availableMedia?precision=year&startTime=2018&endTime=2019`
-
-#### Response - year
-
-```
-{
-  "timeRanges":[{ "start":"2018", "end":"2019" }]
-}
-```
-
-#### Constrains - year
-
-* startTime <= endTime.
-* Both should be in YYYY format, otherwise return error.
-* Values can be any number of years apart.
-* Values are inclusive.
-
-#### Query - month
-
-`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`
-
-#### Response - month
-
-```
-{
-  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]
-}
-```
-
-#### Constrains - month
-
-* startTime <= endTime
-* Both should be in YYYY-MM format, otherwise return error
-* Values can be at most 12 months apart
-* Values are inclusive
-
-#### Query - day
-
-`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`
-
-#### Response - day
-
-```
-{
-  "timeRanges":[
-    { "start":"2018-03-01", "end":"2018-03-07" },
-    { "start":"2018-03-09", "end":"2018-03-31" }
-  ]
-}
-```
-
-The above response assumes we lost data for the entire day, 2018-03-08.
-
-#### Constrains - day
-
-* startTime <= endTime.
-* Both should be in YYYY-MM-DD format, otherwise return error.
-* Values can be at most 31 days apart.
-* Values are inclusive.
-
-#### Query - full
-
-`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`
-
-#### Response - full
-
-Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.
-
-#### Constrains - full
-
-* startTime < endTime.
-* Values can be at most 25 hours apart.
-* Values are inclusive.
+|Precision|year|month|day|full|
+|---|---|---|---|---|
+|Query|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
+|Response|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.|
+|Constrains|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY format, otherwise return error.<br/>&#x2022;Values can be any number of years apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM format, otherwise return error.<br/>&#x2022;Values can be at most 12 months apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM-DD format, otherwise return error.<br/>&#x2022;Values can be at most 31 days apart.<br/>Values are inclusive.|&#x2022;startTime < endTime<br/>&#x2022;Values can be at most 25 hours apart.<br/>&#x2022;Values are inclusive.|
 
 #### Additional request format considerations
 
@@ -378,7 +302,7 @@ When using Live Video Analytics on IoT Edge to record to an Asset, you will spec
 
 Consequently, streaming of the video from Media Services will be delayed by at least that much time. 
 
-Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the GOP <!--TODO valid link for [GOP]()--> duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It’s common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
+Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It’s common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
 
 ## Next steps
 
