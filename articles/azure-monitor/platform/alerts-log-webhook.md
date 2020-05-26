@@ -195,7 +195,7 @@ The following sample payload is for a standard webhook *without a custom JSON op
 							"type": "string"
 						},
 						{
-							"name": "TimeGenerated",
+							"name": "Timestamp",
 							"type": "datetime"
 						}
 					],
