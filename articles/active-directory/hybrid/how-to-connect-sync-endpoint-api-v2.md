@@ -8,7 +8,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -26,6 +26,9 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 
 ## Pre-requisites  
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
+
+>[!NOTE]
+>Currently, this public preview is only available in the Azure global cloud and not available for [national clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
 
 ### Public preview limitations  
 While this release has undergone extensive testing, you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  

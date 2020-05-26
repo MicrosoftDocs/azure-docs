@@ -641,11 +641,9 @@ The following limitations apply when you're using Private Link with an Azure Cos
 
 * When you're using an Azure Cosmos DB's API for MongoDB account that has Private Link, some tools or libraries may not work as they automatically strip out the `appName` parameter from the connection string. This parameter is required to connect to the account over a private endpoint. Some tools, like Visual Studio Code, do not remove this parameter from the connection string and are therefore compatible.
 
-* You can't move or delete a virtual network if it contains Private Link.
-
-* You can't fail over an Azure Cosmos account to a region that's not mapped to all private endpoints attached to the account.
-
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
+
+* Direct mode isn't currently supported in China-based Azure regions.
 
 ### Limitations to private DNS zone integration
 

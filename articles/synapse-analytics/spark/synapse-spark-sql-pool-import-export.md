@@ -38,14 +38,14 @@ For this reason, there is no need to create credentials or specify them in the c
 
 To create users, connect to the database, and follow these examples:
 
-```Sql
+```sql
 CREATE USER Mary FROM LOGIN Mary;
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 To assign a role:
 
-```Sql
+```sql
 EXEC sp_addrolemember 'db_exporter', 'Mary';
 ```
 
@@ -58,14 +58,14 @@ The import statements are not required, they are pre-imported for the notebook e
 > [!NOTE]
 > **Imports not needed in notebook experience**
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### Read API
 
-```Scala
+```scala
 val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 ```
 
@@ -73,13 +73,13 @@ The above API will work for both Internal (Managed) as well as External Tables i
 
 #### Write API
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
 where TableType can be Constants.INTERNAL or Constants.EXTERNAL
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 ```
@@ -91,14 +91,14 @@ The authentication to Storage and the SQL Server is done
 > [!NOTE]
 > Imports not needed in notebook experience
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### Read API
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>")
@@ -106,7 +106,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### Write API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
@@ -118,7 +118,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Currently the connector doesn't support token-based auth to a SQL pool that is outside of the workspace. You'll need to use SQL Auth.
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -128,7 +128,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### Write API
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -145,13 +145,13 @@ Assume you have a dataframe "pyspark_df" that you want to write into the DW.
 
 Create a temp table using the dataframe in PySpark:
 
-```Python
+```py
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
 Run a Scala cell in the PySpark notebook using magics:
 
-```Scala
+```scala
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 

@@ -15,12 +15,9 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 ## Overview
 
-When a cluster is onboarded to Azure, the agents running in your cluster must authenticate to Azure Resource Manager as part of registration. The `connectedk8s` Azure CLI extension has automated Service Principal creation. However, there may be a few scenarios where the CLI automation does not work:
+It is possible to use service principals having a role assignment with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in continuous integration and continuous deployment (CI/CD) pipelines like Azure Pipelines and GitHub Actions.
 
-* Your organization generally restricts the creation of Service Principals
-* The user onboarding the cluster does not have sufficient permissions to create Service Principals
-
-Instead, let's create the Service Principal out of band, and then pass the principal to the Azure CLI extension.
+The following steps provide a walkthrough on using service principals for onboarding Kubernetes clusters to Azure Arc.
 
 ## Create a new Service Principal
 
@@ -59,7 +56,7 @@ Permissions may be further limited by passing in the appropriate `--scope` argum
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP
-    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the apropriate scope
+    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the appropriate scope
 ```
 
 **Output:**

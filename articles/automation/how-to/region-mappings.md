@@ -1,6 +1,6 @@
 ---
-title: Support regions for linked Log Analytics workspace
-description: This article tells how to support region mappings between an Automation account and a Log Analytics workspace.
+title: Supported regions for linked Log Analytics workspace
+description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Support regions for linked Log Analytics workspace
+# Supported regions for linked Log Analytics workspace
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your VMs. However, only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription. The region mappings only apply to the Automation account and the Log Analytics workspace. The Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region. For further information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
@@ -44,9 +44,9 @@ The following table shows the supported mappings:
 
 ## Unlink a workspace
 
-If you decide that you no longer want to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before proceeding, you first need to [disable](move-account.md#disable-features) Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours if you are using them. If you don't disable the features, you can't complete the unlinking operation. 
+If you decide that you no longer want to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before proceeding, you first need to [remove](move-account.md#remove-features) Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours if you are using them. If you don't remove them, you can't complete the unlinking operation. 
 
-With the features disabled, you can follow the steps below to unlink your Automation account.
+With the features removed, you can follow the steps below to unlink your Automation account.
 
 > [!NOTE]
 > Some features, including earlier versions of the Azure SQL monitoring solution, might have created Automation assets that need to be removed prior to unlinking the workspace.

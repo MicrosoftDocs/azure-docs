@@ -10,7 +10,7 @@ ms.date: 05/18/2020
 ms.author: babanisa
 ---
 
-# Become and Event Grid partner
+# Onboard as an Azure Event Grid Partner
 
 This article describes how to privately use the Event Grid partner resources and how to become a publicly available Partner Topic Type.
 
@@ -30,10 +30,14 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 #### Partner flow
 
 1. Create an Azure tenant if you don't already have one.
-1. Using CLI create a new Event Grid `partnerRegistration`. This resource includes information such as display name, description, setup URI and so on. 
-![Create Partner Topic](./media/partner-onboarding-how-to/create-partner-registration.png)
-1. Create one or more `partnerNamespaces` in each region you want to publish events. As part of this, Event Grid service will provision a publishing endpoint (for example, https://contoso.westus-1.eventgrid.azure.net/api/events) and access keys.
-![Create Partner Namespace](./media/partner-onboarding-how-to/create-partner-namespace.png)
+1. Using CLI create a new Event Grid `partnerRegistration`. This resource includes information such as display name, description, setup URI and so on.
+
+    ![Create Partner Topic](./media/partner-onboarding-how-to/create-partner-registration.png)
+
+1. Create one or more `partnerNamespaces` in each region you want to publish events. As part of this, Event Grid service will provision a publishing endpoint (for example, `https://contoso.westus-1.eventgrid.azure.net/api/events`) and access keys.
+
+    ![Create Partner Namespace](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
 1. Provide a way for customers to register in your system that they would like a partner topic.
 1. Contact the Event Grid team to let us know you would like your Partner Topic Type to become public.
 
@@ -42,9 +46,12 @@ Partner topics allow you to publish events to Azure Event Grid for multitenant c
 1. Your customer will visit the Azure portal to note the Azure Subscription ID and Resource Group they would like the Partner Topic created in.
 1. The customer will request a Partner Topic via your system. In response, you'll create an Event Tunnel your Partner Namespace.
 1. Event Grid will create a **Pending** Partner Topic in the customer's Azure Subscription and Resource Group.
-![Create Event Channel](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
+    ![Create Event Channel](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
 1. The customer activates the Partner Topic via the Azure portal. Events may now flow from your service to the customer's Azure Subscription.
-![Activate Partner Topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
+
+    ![Activate Partner Topic](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## Resource Model
 
@@ -60,21 +67,14 @@ Below is the resource model for Partner Topics.
     Only Microsoft approved partnerRegistrations are discoverable by customers.
 * Scope: Created in partner's Azure Subscription. Metadata visible to customers once public.
 
-### Event Types
-* Resource: `partnerRegistrations/eventTypes`
-* Used by: Partners
-* Description: Captures metadata about event types supported by a partner registration.
-* Scope: Discoverable by customers once made public. Lives in a partner’s subscription as a child resource of Partner Registration.
-		
-
 ### Partner Namespaces
 * Resource: partnerNamespaces
 * Used by: Partners
 * Description: Provides a regional resource for publishing customer events to. Each Partner Namespace has a publishing endpoint and auth keys. The namespace is also how the partner requests a Partner Topic for a given customer and lists active customers.
 * Scope: Lives in partner’s subscription.
 
-### Event Tunnels
-* Resource: `partnerNamespaces/eventTunnels`
+### Event Channel
+* Resource: `partnerNamespaces/eventChannels`
 * Used by: Partners
 * Description: The Event Tunnels are a mirror of the customer's Partner Topic. By creating an Event Tunnel and specifying the customer's Azure Subscription and resource Group in the metadata, you're signaling to Event Grid to create a Partner Topic for the customer. Event Grid will issue an ARM call to create a corresponding partnerTopic in the customer’s subscription. The partner topic will be created in a "pending" state. There’s a 1-1 link between each eventTunnel and a partnerTopic.
 * Scope: Lives in partner’s subscription.
@@ -101,7 +101,7 @@ Publish events to Azure Event Grid using the CloudEvents 1.0 schema. Event Grid 
 
 ### Example Flow
 
-1.	The publishing service does an HTTP POST to https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01.
+1.	The publishing service does an HTTP POST to `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 2.	In the request, include a header value named aeg-sas-key that contains a key for authentication. This key is provisioned during the creation of the partnerNamespace. For example, a valid header value is aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
 3.	Set the Content-Type header to “application/cloudevents-batch+json; charset=UTF-8”.
 4.	Perform an HTTP POST to the above publish URL with a batch of events corresponding to that region. For example:
@@ -154,7 +154,7 @@ After posting to the partnerNamespace endpoint, you'll receive a response. The r
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [ARM Template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [ARM Template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/partnernamespaces)
+  * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [CLI Extension](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### SDKs

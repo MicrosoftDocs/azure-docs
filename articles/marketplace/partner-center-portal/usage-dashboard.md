@@ -49,7 +49,7 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 ### Usage by geography
 
-The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country. Country color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
+The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
 
 ### Usage by offers
 
@@ -87,7 +87,7 @@ The **usage details table** displays a numbered list of the top 1000 usage recor
 - Each column in the grid is sortable.
 - The data can be extracted to a CSV file if the count of the records is less than 1000.
 - If records count is over 1000, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
-- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
 > [!NOTE]
 > Select the **Usage type** in the page filter to view charts on the page in either "Normalized view" or "Raw view." The default view for these charts is "Normalized view."
