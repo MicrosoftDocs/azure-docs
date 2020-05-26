@@ -22,7 +22,7 @@ The tutorial shows you how to:
 
 ## Suggested pre-reading  
 
-It is recommended that you read through the following documentation pages
+It is recommended that you read through the following documentation pages:
 
 * [Live Video Analytics on IoT Edge overview](overview.md)
 * [Live Video Analytics on IoT Edge terminology](terminology.md)
@@ -78,7 +78,9 @@ Select the AMS Asset Player application from the drop down box, as shown below, 
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 
-Note: depending on the security settings on your browser, you may see a warning message. Since the web page is running locally, you can choose to ignore the warning.
+> [!NOTE]
+> Depending on the security settings on your browser, you may see a warning message. Since the web page is running locally, you can choose to ignore the warning.
+
 The AMS Asset Player prompts you to enter the name of a Media Service Asset. You should use the name of the Asset that you used for recording video in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md).
 
 Upon typing the asset name and hitting submit, the player code will load the streaming URL. For more information, see [How-to-Guide: Playback of recordings](playback-recordings-how-to.md). If, as recommended, you are still recording to the asset, the player will detect that, and attempt to cue the playback to the most recent part of the recorded video. You can see the timestamp (in UTC) at the top left of the player. In the screenshot below, note how the “Live” button is selected.

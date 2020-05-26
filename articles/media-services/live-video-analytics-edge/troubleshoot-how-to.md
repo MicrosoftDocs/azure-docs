@@ -40,8 +40,8 @@ If you encounter this error, it is recommended to check the JSON file for missin
 Once the Live Video Analytics on IoT Edge module is deployed correctly on the edge device, you can create and run the Media Graph by invoking [direct methods](direct-methods.md). You can use the portal to run the diagnosis of Media graph via direct methods:
 
 1. Via Portal, go to the IoT Hub that is connected to your edge device.
-    1. Once in the IoT Hub blade, look for the Automatic device management->IoT Edge
-    1. Clicking on IoT Edge should bring up a list of edge devices. Pick the device you want to diagnose
+    1. Once in the IoT Hub blade, look for the Automatic device management->IoT Edge.
+    1. Clicking on IoT Edge should bring up a list of edge devices. Pick the device you want to diagnose.
          
         ![Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
     1. Check if the Response code is 200-OK. There are various other response codes for the [IoT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) such as:
@@ -64,7 +64,7 @@ The container logs for our edge module should have diagnostic<!--<todo:add link 
 
 ## Common error resolutions
 
-Live Video Analytics is deployed as an IoT Edge module on the edge device and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you will face with the Live Video Analytics deployment will be due to the issues with the underlying IoT infrastructure. Some common errors that IoT Edge agent and hub can have are 
+Live Video Analytics is deployed as an IoT Edge module on the edge device and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you will face with the Live Video Analytics deployment will be due to the issues with the underlying IoT infrastructure. Some common errors that IoT Edge agent and hub can have are:
 
 1. [IoT Edge agent stops after about a minute](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-stops-after-about-a-minute).
 1. [IoT Edge agent can't access a module's image (403)](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-cant-access-a-modules-image-403).
@@ -78,46 +78,46 @@ Live Video Analytics is deployed as an IoT Edge module on the edge device and it
 
 As part of the our documentation, we have provided a [set up script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy Edge and Cloud resources to get started with Live Video Analytics Edge. In this section, we have captured errors you might face with the script and how to debug them.
 
-1. Script runs partly creating few resources but fails with the following message
+Script runs partly creating few resources but fails with the following message:
 
-    ```
-    registering device...
-    
-    Unable to load extension 'eventgrid: unrecognized kwargs: ['min_profile']'. Use --debug for more information.
-    The command failed with an unexpected error. Here is the traceback:
-    
-     No module named 'azure.mgmt.iothub.iot_hub_client'
-    Traceback (most recent call last):
-      File "/opt/az/lib/python3.6/site-packages/knack/cli.py", line 215, in invoke
-        cmd_result = self.invocation.execute(args)
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 631, in execute
-        raise ex
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 695, in _run_jobs_serially
-        results.append(self._run_job(expanded_arg, cmd_copy))
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 688, in _run_job
-        six.reraise(*sys.exc_info())
-      File "/opt/az/lib/python3.6/site-packages/six.py", line 693, in reraise
-        raise value
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 665, in _run_job
-        result = cmd_copy(params)
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 324, in __call__
-        return self.handler(*args, **kwargs)
-      File "/opt/az/lib/python3.6/site-packages/azure/cli/core/__init__.py", line 574, in default_command_handler
-        return op(**command_args)
-      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 75, in iot_device_list
-        result = iot_query(cmd, query, hub_name, top, resource_group_name, login=login)
-      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 45, in iot_query
-        target = get_iot_hub_connection_string(cmd, hub_name, resource_group_name, login=login)
-      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/common/_azure.py", line 112, in get_iot_hub_connection_string
-        client = iot_hub_service_factory(cmd.cli_ctx)
-      File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 28, in iot_hub_service_factory
-        from azure.mgmt.iothub.iot_hub_client import IotHubClient
-    ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
+  ```
+  registering device...
+  
+  Unable to load extension 'eventgrid: unrecognized kwargs: ['min_profile']'. Use --debug for more information.
+  The command failed with an unexpected error. Here is the traceback:
+  
+    No module named 'azure.mgmt.iothub.iot_hub_client'
+  Traceback (most recent call last):
+    File "/opt/az/lib/python3.6/site-packages/knack/cli.py", line 215, in invoke
+      cmd_result = self.invocation.execute(args)
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 631, in execute
+      raise ex
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 695, in _run_jobs_serially
+      results.append(self._run_job(expanded_arg, cmd_copy))
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 688, in _run_job
+      six.reraise(*sys.exc_info())
+    File "/opt/az/lib/python3.6/site-packages/six.py", line 693, in reraise
+      raise value
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 665, in _run_job
+      result = cmd_copy(params)
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/commands/__init__.py", line 324, in __call__
+      return self.handler(*args, **kwargs)
+    File "/opt/az/lib/python3.6/site-packages/azure/cli/core/__init__.py", line 574, in default_command_handler
+      return op(**command_args)
+    File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 75, in iot_device_list
+      result = iot_query(cmd, query, hub_name, top, resource_group_name, login=login)
+    File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/operations/hub.py", line 45, in iot_query
+      target = get_iot_hub_connection_string(cmd, hub_name, resource_group_name, login=login)
+    File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/common/_azure.py", line 112, in get_iot_hub_connection_string
+      client = iot_hub_service_factory(cmd.cli_ctx)
+    File "/home/.azure/cliextensions/azure-cli-iot-ext/azext_iot/_factory.py", line 28, in iot_hub_service_factory
+      from azure.mgmt.iothub.iot_hub_client import IotHubClient
+  ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
     ```
     
 To fix this issue:
 
-1. Run the following command
+1. Run the following command:
 
     ```
     az --version
@@ -136,7 +136,7 @@ To fix this issue:
     |azure-cli-iot-ext          |    0.8.9|
     |eventgrid|	0.4.9|
     |azure-iot                       | 0.9.2|
-1. If any of the extensions are older than the above release numbers, update the extension to the latest version using the command
+1. If any of the extensions are older than the above release numbers, update the extension to the latest version using the command:
 
     ```
     az extension update --name <Extension name>
@@ -224,7 +224,7 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
     curl -X POST http://172.17.0.3/score -H "Content-Type: image/jpeg" --data-binary @<fullpath to jpg>
     ```
 
-    Result returned
+    Result returned:
 
     ```
     {"inferences": [{"type": "entity", "entity": {"tag": {"value": "car", "confidence": 0.8668569922447205}, "box": {"l": 0.3853073438008626, "t": 0.6063712999658677, "w": 0.04174524943033854, "h": 0.02989496027381675}}}]}

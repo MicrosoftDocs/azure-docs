@@ -73,7 +73,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
 The text should look like:
 
-    ````
+    ```
     {
     "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",
     "deviceId" : "lva-sample-device",
