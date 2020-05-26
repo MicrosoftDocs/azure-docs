@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for Azure Digital Twins tutorials - full setup for the sample project
+description: include file for Azure Digital Twins tutorials - configuring the sample project
 ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020

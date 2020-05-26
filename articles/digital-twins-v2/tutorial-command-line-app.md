@@ -26,9 +26,9 @@ In this tutorial, you will...
 2. Configure the sample command-line app to interact with the instance
 3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
 
-[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-configure.md)]
+[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
 
 ## Explore with the sample solution
 

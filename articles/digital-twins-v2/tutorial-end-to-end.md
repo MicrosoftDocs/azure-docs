@@ -25,11 +25,11 @@ In this tutorial, you will...
 * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
 * Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
-[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
 [!INCLUDE [Cloud shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
-[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-configure.md)]
+[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
 
 ## Get started with the building scenario
 
