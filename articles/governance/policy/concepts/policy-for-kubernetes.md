@@ -487,8 +487,9 @@ following steps:
 
 1. Set **parameter values**	
 
-   - To exclude Kubernetes namespaces from policy evaluation, specify the list of namespaces in	
-     parameter **Namespace exclusions**. It's recommended to exclude: _kube-system_	
+   - To exclude Kubernetes namespaces from policy evaluation, specify the list of namespaces in
+     parameter **Namespace exclusions**. It's recommended to exclude: _kube-system_,
+     _gatekeeper-system_, and _azure-arc_.
 
 1. Select **Review + create**.
 
