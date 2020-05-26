@@ -10,7 +10,7 @@ This solution aims to help app developers and security administrators achieve De
 
 ## Deploying the solution
 Here are the architectural components of the solution and how to use them.
-![Alt](/media/pyramid.PNG "Pyramid")
+![Pyramid](/media/pyramid.PNG)
 
 * *Secure Infrastructure*. Use the [Zero Trust Blueprint](https://github.com/Azure/ato-toolkit/tree/master/automation/zero-trust-architecture) to setup strongly governed components like networking, storage, and monitoring that abide by the Zero Trust "never trust, always verify" philosophy. When you leverage a Zero Trust model it becomes possible to ensure every request is authenticated, authorized, and inspected before granting access.
 * *Container Orchestration*. Use the secure OpenShift deployment
