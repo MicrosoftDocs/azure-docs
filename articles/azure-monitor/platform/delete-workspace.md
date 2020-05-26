@@ -61,7 +61,7 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-To permanently delete your workspace, use the [Workspaces – Delete] ( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST request with a force tag:
+To permanently delete your workspace, use the [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST request with a force tag:
 
 ```rst
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
