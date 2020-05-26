@@ -36,48 +36,6 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
 
-### Self-signed certificates for authentication
-
-To use a self-signed certificate for authentication in your ISE, include the following `certificates` JSON object with the ISE definition `properties` section when you define the request body for creating the ISE:
-
-```json
-"certificates": {
-   "testCertificate": {
-      "publicCertificate": "{certificate}",
-         "kind": "TrustedRoot"
-   }
-}
-```
-
-*Example*
-
-```json
-{
-   "sku": {
-      "name": "Premium",
-      "capacity": 1
-   },
-   "properties": {
-      "networkConfiguration": {
-         "accessEndpoint": {
-            "type": "External"
-         },
-         "subnets": "{subnet-array}"
-      },
-      "certificates": {
-         "testCertificate": {
-            "publicCertificate": "{certificate}",
-            "kind": "TrustedRoot"
-         }
-      }
-   },
-   "id": "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}",
-   "name": "{integrationServiceEnvironmentName}",
-   "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "{Azure-region}"
-}
-```
-
 Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
 > [!NOTE]
@@ -100,7 +58,7 @@ In the request header, include these properties:
 
 ### Request body syntax
 
-Here is the request body syntax, which describes the properties to use when you create your ISE:
+Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that uses a self-signed certificate installed at the trusted root location for authentication, include the `certificates` property inside the ISE definition's `properties` section. For existing ISEs, you can send a PATCH request with only the `certificates` property.
 
 ```json
 {
@@ -132,6 +90,13 @@ Here is the request body syntax, which describes the properties to use when you 
                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
+      },
+      // Include `certificates` property to use self-signed certificates for authentication
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
       }
    }
 }
@@ -171,7 +136,12 @@ This example request body shows the sample values:
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
             }
          ]
-      }
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
+            "kind": "TrustedRoot"
+         }
    }
 }
 ```
