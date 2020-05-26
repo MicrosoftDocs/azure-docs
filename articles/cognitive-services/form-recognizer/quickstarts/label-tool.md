@@ -161,6 +161,27 @@ The following value types and variations are currently supported:
 * `time`
 * `integer`
 
+> [!NOTE]
+> See these rules for date formatting:
+> 
+> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> The day and month can each be written as one or two digits, and the year can be two or four digits:
+> * 1-1-2020
+> * 1-01-20
+>
+> If a DMY date string has eight digits, the delimiter is optional:
+> * 01012020
+> * 01 01 2020
+>
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
+
 ## Train a custom model
 
 Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
