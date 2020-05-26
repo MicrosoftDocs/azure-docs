@@ -75,7 +75,7 @@ Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr
 
 ## Configure integration system user in Workday
 
-Refer to the section [configure integration system user](workday-inbound-tutorial.md/#configure-integration-system-user-in-workday) for creating a Workday integration system user account with permissions to retrieve worker data. 
+Refer to the section [configure integration system user](workday-inbound-tutorial.md#configure-integration-system-user-in-workday) for creating a Workday integration system user account with permissions to retrieve worker data. 
 
 ## Configure user provisioning from Workday to Azure AD
 
@@ -120,7 +120,7 @@ The following sections describe steps for configuring user provisioning from Wor
       > [!NOTE]
      > If no version information is specified in the URL, the app uses Workday Web Services (WWS) v21.1 and no changes are required to the default XPATH API expressions shipped with the app. To use a specific WWS API version, specify version number in the URL <br>
      > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
-     > <br> If you are using a WWS API v30.0+, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
+     > <br> If you are using a WWS API v30.0+, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](workday-inbound-tutorial.md#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Notification Email –** Enter your email address, and check the  "send email if failure occurs" checkbox.
 
@@ -169,7 +169,7 @@ In this section, you will configure how user data flows from Workday to Azure Ac
       * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
-   * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
+   * **Source attribute** - The user attribute from Workday. If the attribute you are looking for is not present, see [Customizing the list of Workday user attributes](workday-inbound-tutorial.md#customizing-the-list-of-workday-user-attributes).
 
    * **Default value** – Optional. If the source attribute has an empty value, the mapping will write this value instead.
             Most common configuration is to leave this blank.

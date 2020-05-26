@@ -23,7 +23,7 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >[!NOTE]
 >Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and an Azure AD account. 
 >* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
->* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial).
+>* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
 
 
 ## Overview
@@ -253,7 +253,8 @@ Use the steps below to setup a service account that can be used for provisioning
 2.	Create a new domain user (example: *provAgentAdmin*)  
 3.	Right click the OU or domain name and select *Delegate Control* which will open the *Delegation of Control Wizard*. 
 
-> [!NOTE] If you want to limit the provisioning agent to only create and read users from a certain OU for testing purposes, then we recommend delegating the control at the appropriate OU level during test runs.
+> [!NOTE] 
+> If you want to limit the provisioning agent to only create and read users from a certain OU for testing purposes, then we recommend delegating the control at the appropriate OU level during test runs.
 
 4. Click **Next** on the welcome screen. 
 5. On the **Select Users or Groups** screen, add the domain user you created in step 2. Click **Next**.

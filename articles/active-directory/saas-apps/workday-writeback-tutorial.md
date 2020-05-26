@@ -36,7 +36,7 @@ This Workday Writeback user provisioning solution is ideally suited for:
 
 ## Configure integration system user in Workday
 
-Refer to the section [configure integration system user](workday-inbound-tutorial.md/#configure-integration-system-user-in-workday) for creating a Workday integration system user account with permissions to retrieve worker data. 
+Refer to the section [configure integration system user](workday-inbound-tutorial.md#configure-integration-system-user-in-workday) for creating a Workday integration system user account with permissions to retrieve worker data. 
 
 ## Configuring Azure AD attribute writeback to Workday
 

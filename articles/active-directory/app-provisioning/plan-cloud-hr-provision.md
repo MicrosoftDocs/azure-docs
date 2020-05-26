@@ -76,10 +76,11 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 
 ### Prerequisites
 
-- Azure AD global administrator access to configure the Azure AD Connect provisioning agent.
+- Azure AD [hybrid identity administrator](../users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
+- Azure AD [application administrator](../users-groups-roles/directory-assign-admin-roles#application-administrator) role to configure the provisioning app in the Azure portal
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
-- For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the [Azure AD Connect provisioning agent](https://go.microsoft.com/fwlink/?linkid=847801).
+- For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the Azure AD Connect provisioning agent
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Azure AD.
 
 ### Training resources
@@ -243,7 +244,7 @@ By default, the attribute in the cloud HR app that represents the unique employe
 
 You can set multiple matching attributes and assign matching precedence. They're evaluated on matching precedence. As soon as a match is found, no further matching attributes are evaluated.
 
-You can also [customize the default attribute mappings](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) for a list of custom attributes to map.
+You can also [customize the default attribute mappings](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), such as changing or deleting existing attribute mappings. You can also create new attribute mappings according to your business needs. For more information, see the cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)) for a list of custom attributes to map.
 
 ### Determine user account status
 
