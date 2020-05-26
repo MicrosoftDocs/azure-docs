@@ -47,6 +47,22 @@ Windows or Linux IaaS VMs qualify if:
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 
+## Where is the default Log Analytics workspace created?
+
+The location of the default workspace depends on your Azure region:
+
+- For VMs in the United States and Brazil the workspace location is the United States
+- For VMs in Canada, the workspace location is Canada
+- For VMs in Europe the workspace location is Europe
+- For VMs in the UK the workspace location is the UK
+- For VMs in East Asia and Southeast Asia the workspace location is Asia
+- For VMs in Korea, the workspace location is Korea
+- For VMs in India, the workspace location is India
+- For VMs in Japan, the workspace location is Japan
+- For VMs in China, the workspace location is China
+- For VMs in Australia, the workspace location is Australia
+
+
 ## Can I delete the default workspaces created by Security Center?
 
 **Deleting the default workspace is not recommended.** Security Center uses the default workspaces to store security data from your VMs. If you delete a workspace, Security Center is unable to collect this data and some security recommendations and alerts are unavailable.
