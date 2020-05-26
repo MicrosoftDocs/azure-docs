@@ -59,7 +59,7 @@
   - name: Create or modify an Exchange peering with route server
     items:
     - name: Portal
-      href: howto-exchange-routeserver-portal.md
+      href: how-to-exchange-route-server-portal.md
 - name: Reference
   items:
   - name: Azure CLI
