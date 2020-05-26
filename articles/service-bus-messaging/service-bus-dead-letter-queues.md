@@ -46,14 +46,13 @@ As the message gets moved by the broker, two properties are added to the message
 
 Applications can define their own codes for the `DeadLetterReason` property, but the system sets the following values.
 
-| Condition | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Always |HeaderSizeExceeded |The size quota for this stream has been exceeded. |
-| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |The message expired and was dead lettered. |
-| SubscriptionDescription.RequiresSession |Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
-| !dead letter queue | MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
-| Application explicit dead lettering |Specified by application |Specified by application |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |The size quota for this stream has been exceeded. |
+|TTLExpiredException |The message expired and was dead lettered. See the [Exceeding TimeToLive](#exceeding-timetolive) section for details. |
+|Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
+|MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
+| MaxDeliveryCountExceededExceptionMessage | Message could not be consumed after maximum delivery attempts. See the [Exceeding MaxDeliveryCount](#exceeding-maxdeliverycount) section for details. |
 
 ## Exceeding MaxDeliveryCount
 

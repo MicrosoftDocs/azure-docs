@@ -1224,10 +1224,6 @@ To help drive awareness and demand of our joint integration, we recommend you up
 ) 
 * **Customer communication.** Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
 
-### Allow IP addresses used by the Azure AD provisioning service to make SCIM requests
-
-Certain apps allow inbound traffic to their app. In order for the Azure AD provisioning service to function as expected, the IP addresses used must be allowed. For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
-
 ## Related articles
 
 * [Automate user provisioning and deprovisioning to SaaS apps](user-provisioning.md)

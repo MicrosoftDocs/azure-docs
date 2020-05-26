@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
+ms.date:  05/15/2020
 ---
 
 # Lookup transformation in mapping data flow
@@ -35,6 +35,12 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 The lookup transformation only supports equality matches. To customize the lookup expression to include other operators such as greater than, it's recommended to use a [cross join in the join transformation](data-flow-join.md#custom-cross-join). A cross join will avoid any possible cartesian product errors on execution.
 
 All columns from both streams are included in the output data. To drop duplicate or unwanted columns, add a [select transformation](data-flow-select.md) after your lookup transformation. Columns can also be dropped or renamed in a sink transformation.
+
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your lookup conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi lookup](media/data-flow/non-equi-lookup.png "Non-equi lookup")
 
 ## Analyzing matched rows
 

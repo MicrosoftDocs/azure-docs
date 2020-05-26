@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the SQL API'
-description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .Net, Java, Python and various other SDKs'
+description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .NET, Java, Python and various other SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -23,7 +23,7 @@ This article covers the following tasks:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## Connecting to a preferred region using the SQL API
+## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
 
 In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 

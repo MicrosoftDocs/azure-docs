@@ -24,7 +24,7 @@ The Store fee is applied to all offer sales collected by the commercial marketpl
 
 ## Price tiers
 
-The price tier(s) that you select sets the sales price in all the countries where you choose to distribute your offer. You can also use additional pricing features such as choosing different prices for different markets.
+The price tier(s) that you select sets the sales price in all the countries/regions where you choose to distribute your offer. You can also use additional pricing features such as choosing different prices for different markets.
 
 You can offer your app for free, or you can pick a price that customers must pay to acquire your offer. Price tiers start at .99 USD, with additional increments (1.09 USD, 1.19 USD, and so on). The increments between price tiers increase as the price gets higher.
 
@@ -45,7 +45,7 @@ You can access details about your payment info and download reports in the **Pay
 
 ## Payout time frame
 
-Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For details, see [Payment thresholds, methods, and time frames](payment-thresholds-methods-timeframes.md).
+Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven't placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For details, see [Payment thresholds, methods, and time frames](payment-thresholds-methods-timeframes.md).
 
 ##  Payout hold status
 

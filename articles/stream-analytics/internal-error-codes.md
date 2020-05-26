@@ -12,14 +12,6 @@ ms.service: stream-analytics
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every internal error code. Internal errors are generic errors that are thrown within the Stream Analytics platform when Stream Analytics can't distinguish if the error is an Internal Availability error or a bug in the system.
 
-## KafkaInvalidRequest
-
-* **Cause**: The request sent to the Kafka server is invalid.
-
-## KafkaInputError
-
-* **Cause**: Kafka input encountered an issue.
-
 ## CosmosDBOutputBatchSizeTooLarge
 
 * **Cause**: The batch size used to write to Cosmos DB is too large. 

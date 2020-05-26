@@ -12,10 +12,10 @@ manager: philmea
 
 # Configure the application dashboard
 
-The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Legacy application** application template, your dashboard will be blank to start.
+The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from a **Custom application** application template, your dashboard will show some tips on getting started.
 
 > [!NOTE]
-> Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application. 
+> Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application.  
 
 ## Add tiles
 
@@ -30,22 +30,23 @@ Selecting **Edit** opens the dashboard library panel. The library contains the t
 > ![Dashboard library](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
 
 For example, you can add a **Telemetry** tile for the current temperature of the device. To do so:
-1. Select a **Device Template**
-1. Select a **Device Instance** for the device you want to see on a dashboard tile. Then you will see a list of the device's properties that can be used on the tile.
-1. To create the tile on the dashboard, click on **Temperature** and drag it to the dashboard area. You can also click the checkbox next to **Temperature** and click **Combine**. The following screenshot shows selecting a Device Template and Device Instance then creating a Temperature Telemetry tile on the dashboard.
+
+1. Select a **Device template**
+1. Select a device from **Devices** for the device you want to see on a dashboard tile. Then you will see a list of the device's properties that can be used on the tile.
+1. To create the tile on the dashboard, click on **Temperature** and drag it to the dashboard area. You can also click the checkbox next to **Temperature** and click **Add tile**. The following screenshot shows selecting a Device Template and Device Instance then creating a Temperature Telemetry tile on the dashboard.
 1. Select **Save** in the top left to save the tile to the dashboard.
 
 > [!div class="mx-imgBorder"]
 > !["Configure Device Details" form with details for settings and properties](media/howto-add-tiles-to-your-dashboard/device-details.png)
 
-Now when an operator views the default application dashboard, they see the new tile with the **Temperature** for the device. Each tile has a pre-selected graph, chart, etc. that will be displayed when the tile is created. However, users can choose to edit and change this visualization. 
+Now when an operator views the default application dashboard, they see the new tile with the **Temperature** for the device. Each tile has a pre-selected graph, chart, etc. that will be displayed when the tile is created. However, users can choose to edit and change this visualization.  
 
 > [!div class="mx-imgBorder"]
 > !["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
 ## Edit tiles
 
-To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. 
+To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles.  
 
 > [!div class="mx-imgBorder"]
 > ![Dashboard screen with edit mode activated for a selected tile](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
@@ -63,7 +64,7 @@ You can also change the chart visualization by clicking the **Ruler** icon on th
 ## Tile types
 
 The following table summarizes the usage of tiles in Azure IoT Central:
- 
+
 | Tile | Dashboard | Description
 | ----------- | ------- | ------- |
 | Content | Application and device set dashboards |Markdown supported tiles are clickable tiles that display heading and description text. You can also use this tile as a link tile to enable a user to navigate to a URL related to your application.|
@@ -73,11 +74,24 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 | Line Chart | Application and device dashboards |Line chart tiles display a chart of aggregate measurement for a device for a time period. For example, you can display a line chart that shows the average temperature and pressure of a device for the last hour.|
 | Bar Chart | Application and device dashboards |Bar chart tiles display a chart of aggregate measurements for a device for a time period. For example, you can display a bar chart that shows the average temperature and pressure of a device for the last hour.|
 | Pie Chart | Application and device set dashboards |Pie chart tiles display a chart of aggregate measurements for a device for a time period.|
-| Heat Map | Application and device set dashboards |Heat Map tiles display information about the device set, represented as colors.|
+| Heat Map | Application and device set dashboards |Heat Map tiles display information about the device, represented as colors.|
 | Event History | Application and device dashboards |Event History tiles display the events for a device over a time period. For example, you can use it to show all the temperature changes for a device during the last hour.|
 | State History | Application and device dashboards |State history tiles display the measurement values for a time period. For example, you can use it to show the temperature values for a device during the last hour.|
 | KPI | Application and device dashboards | KPI tiles display an aggregate telemetry or event measurement for a time period. For example, you can use it to show the maximum temperature reached for a device during the last hour.|
-| Last Known Value | Application and device dashboards |Last known value tiles display the latest value for a telemetry or state measurement. For example, you can use this tile to display the most recent measurements of temperature, pressure and humidity for a device.|
+| Last Known Value | Application and device dashboards |Last known value tiles display the latest value for a telemetry or state measurement. For example, you can use this tile to display the most recent measurements of temperature, pressure and humidity for a device. |
+| Property | Application and device dashboards | Property tiles display the current value for properties and cloud properties of a device. For example, you can use this tile to display device properties like manufacturer or firmware version for a device. |
+
+### Customizing visualizations
+
+For line charts, bar charts, and pie charts, you can customize the colors displayed by different telemetries in your chart. To do this, select the palate icon next to the telemetry you want to customize, and choose a color.
+
+> [!div class="mx-imgBorder"]
+> ![Dropdown for telemetry color display settings](media/howto-add-tiles-to-your-dashboard/color-customization.png)
+
+For telemetries or properties that are of string type, you can choose how you want to visualize the text. For example, if your device sends a URL as string telemetry, you can visualize that URL as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. You can change the way string telemetry is displayed by selecting the gear next to the telemetry name. In this way, you can show the text as text, link, or an image.
+
+> [!div class="mx-imgBorder"]
+> ![Dropdown for string visualization settings](media/howto-add-tiles-to-your-dashboard/string-viz-customization.png)
 
 ## Next steps
 
