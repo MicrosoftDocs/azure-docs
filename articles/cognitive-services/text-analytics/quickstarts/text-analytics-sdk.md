@@ -27,7 +27,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Currently, the v3 Text Analytics client library is in preview. The latest stable version is `2.1`.
+> * The latest stable version the Text Analytics client library is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
@@ -37,10 +37,6 @@ Use the Text Analytics client library to perform:
 
 ::: zone pivot="programming-language-java"
 
-> [!IMPORTANT]
-> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
-
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
@@ -48,7 +44,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Currently, the v3 Text Analytics client library is in preview. The latest stable version is `2.1`.
+> * The latest stable version the Text Analytics client library is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 > * You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -60,7 +56,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Currently, the v3 Text Analytics client library is in preview. The latest stable version is `2.1`.
+> * The latest stable version the Text Analytics client library is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
 
