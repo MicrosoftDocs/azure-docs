@@ -40,6 +40,8 @@
     href: how-to-set-up-instance.md
   - name: Authenticate a client application
     href: how-to-authenticate-client.md
+  - name: Parse and validate models
+    href: how-to-use-parser.md
   - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin
