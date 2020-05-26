@@ -32,7 +32,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 > [!NOTE]
 > To view all your previously created applications, navigate to the **App registrations** blade and select the **All applications** tab. This will display apps created in the old experience, the new experience, those created in the Azure AD extension.
 
-## Key changes
+## Key new features
 
 -   A **unified app list** shows all your applications that authenticate with Azure AD B2C and Azure AD in one convenient place! In addition, you can take advantage of all the great features already available for Azure AD applications: created on date, status of certificates & secrets, search bar, and so much more.
 
@@ -156,19 +156,13 @@ the manifest editor or the API, or didn't exist.
 
 The new experience has the following limitations:
 
--   The new experience does not yet support App registrations for Azure AD
-    B2C tenants.
-
--   The new experience does not yet support Live SDK apps created with
-    personal Microsoft accounts.
-
 -   Changing the value for supported accounts is not supported in the
     UI. You need to use the app manifest unless you\'re switching
     between Azure AD single-tenant and multi-tenant.
 
-   > [!NOTE]
-   > If you're a personal Microsoft account user in Azure AD tenant, and the tenant admin has restricted access to Azure portal, you may get an access denied. However, if you come through the shortcut by typing App registrations in the search bar or pinning it, you'll be able to access the new experience.
-
 ## Next steps
 
-To get started with the new app registration experience, see [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+To get started with the new app registration experience, see:
+* Learn [how to register a web application for use with user flows.](tutorial-register-applications.md)
+* Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+* Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs2016-custom.md)

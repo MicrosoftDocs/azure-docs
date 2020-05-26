@@ -20,7 +20,7 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Register an application
+  - name: 2 - Register a web application
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
@@ -397,6 +397,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: App registrations
+    href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples
