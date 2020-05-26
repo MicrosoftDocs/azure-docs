@@ -1,24 +1,26 @@
 ---
 title: What's new in Microsoft Azure Backup Server
-description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server V3.
+description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.topic: conceptual
 ms.date: 05/24/2020
 ---
 
-# What's new in Microsoft Azure Backup Server (MABS) V3 UR1
+# What's new in Microsoft Azure Backup Server (MABS)
 
-MABS V3 UR1 introduces a number of new features and capabilities.
+## What's new in MABS V3 UR1
+
+Microsoft Azure Backup Server (MABS) version 3 UR1 is the latest upgrade, and includes critical bug fixes and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3 UR1, see KB article [4534062](https://support.microsoft.com/help/4534062).
 
 >[!NOTE]
 >Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
 
-## Faster backups with Tiered storage using SSDs
+### Faster backups with Tiered storage using SSDs
 
 MABS V2 introduced [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), improving storage utilization and performance. MBS uses ReFS as underlying file system and is designed to make use of hybrid storage such as tiered storage.
 
 To achieve the scale and performance by MBS we recommend using a small percentage (4% of overall storage) of flash storage (SSD) with MABS V3 UR1  as a tiered volume in combination with DPM HDD storage. MABS V3 UR1  with tiered storage delivers 50-70% faster backups. Refer to the DPM article [Set up MBS with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) for steps to configure tiered storage.
 
-## Support for ReFS volumes and ReFS volumes with deduplication enabled
+### Support for ReFS volumes and ReFS volumes with deduplication enabled
 
 With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. You can back up the following workloads deployed on the ReFS volumes:
 
@@ -30,30 +32,30 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 >[!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
-## VMWare parallel backups
+### VMWare parallel backups
 
 With MABS V3 UR1, all your VMWare VMs backups within a single protection group will be parallel, leading to 25% faster VM backups.
 With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
 
-## Disk exclusion for VMware VM backup
+### Disk exclusion for VMware VM backup
 
 With MABS V3 UR1, you can exclude specific disks from a VMware VM backup. Learn more about [excluding disks from VMware VM backup](backup-azure-backup-server-vmware.md#exclude-disk-from-vmware-vm-backup).  
 
-## Support for additional layer of authentication to delete online backup
+### Support for additional layer of authentication to delete online backup
 
 With MABS V3 UR1, an additional a layer of authentication is added for critical operations. You'll be prompted to enter a security PIN when you perform **Stop Protection with Delete data** operations.
 
-## New cmdlet parameter
+### New cmdlet parameter
 
 MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new parameter calculates the fragmentation percentage for a replica, and is included in the **Copy-DPMDatasourceReplica** cmdlet.
 
-## 32-Bit protection agent deprecation
+### 32-Bit protection agent deprecation
 
 With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain backup data for these agents, you can stop the protection with the retain data option. Otherwise, the protection agent can be removed.
 
 ## What's new in MABS V3 RTM
 
-Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support, and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
+Microsoft Azure Backup Server version 3 (MABS V3) includes critical bug fixes, Windows Server 2019 support, SQL 2017 support, and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 
 The following features are included in MABS V3:
 
