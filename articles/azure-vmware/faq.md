@@ -64,6 +64,35 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
 
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**How do I request a host quota increase for an existing Azure VMware Solution?**
+
+You can request a quota increase by submitting a support request. The Quota Management team evaluates the request and approves it within three business days.  
+
+> [!IMPORTANT]
+> Before you can request a quota increase, make sure that you [register the **Microsoft.AVS** resource provider](tutorial-create-private-cloud.md) in the Azure portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> For additional ways to register the resource provider, see [Azure resource providers and types](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
+   - **Issue type:** Technical
+   - **Subscription:** Your subscription ID
+   - **Service:**  Azure VMware Solution 
+   - **Summary:** Quota increase
+   - **Problem type:** Capacity Management Issues
+   - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+
+1. In the Description of the support ticket, on the Details tab, provide the:
+   - Number of additional nodes   
+   - Node SKU
+   - Region
+
+   > [!NOTE] 
+   > By default, a minimum of four nodes will be granted.
+
+1. Click **Review + Create** to submit the request.
+
 ## Compute, network, and storage
 
 **Is there more than one type of host available?**
