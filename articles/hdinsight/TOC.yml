@@ -289,8 +289,8 @@
       href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-    - name: Get help on the forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
+    - name: Get help on the Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -330,8 +330,18 @@
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
-      - name: Optimize Apache Spark jobs
-        href: ./spark/apache-spark-perf.md
+      - name: Optimization
+        items:
+        - name: Optimize Apache Spark jobs
+          href: ./spark/apache-spark-perf.md
+        - name: Optimize data processing
+          href: ./spark/optimize-data-processing.md
+        - name: Optimize data storage
+          href: ./spark/optimize-data-storage.md
+        - name: Optimize memory usage
+          href: ./spark/optimize-memory-usage.md
+        - name: Optimize cluster configuration
+          href: ./spark/optimize-cluster-configuration.md
       - name: Migrate to Spark 2.3 or 2.4
         href: ./spark/migrate-versions.md
   - name: How to
@@ -752,8 +762,12 @@
         href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       - name: Use Python with Apache Hive and Apache Pig
         href: ./hadoop/python-udf-hdinsight.md
-      - name: Apache Hive with Apache Spark
+      - name: HWC integration with Apache Spark and Apache Hive
         href: ./interactive-query/apache-hive-warehouse-connector.md
+      - name: HWC and Apache Spark operations
+        href: ./interactive-query/apache-hive-warehouse-connector-operations.md
+      - name: HWC integration with Apache Zeppelin
+        href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View

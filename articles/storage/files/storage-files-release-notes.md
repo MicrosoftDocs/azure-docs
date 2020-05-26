@@ -25,9 +25,9 @@ The following versions are supported for the Azure File Sync agent:
 | December 2019 update rollup - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | December 12, 2019 | Supported |
 | V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | December 2, 2019 | Supported |
 | V8 Release - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | October 8, 2019 | Supported |
-| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported |
-| July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported |
-| V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | Supported |
+| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported - Agent versions expiring on September 1, 2020 |
+| July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported - Agent versions expiring on September 1, 2020 |
+| V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | Supported - Agent versions expiring on September 1, 2020 |
 | V6 Release | 6.0.0.0 - 6.3.0.0 | N/A | Not Supported - Agent versions expired on April 21, 2020 |
 | V5 Release | 5.0.2.0 - 5.2.0.0 | N/A | Not Supported - Agent versions expired on March 18, 2020 |
 | V4 Release | 4.0.1.0 - 4.3.0.0 | N/A | Not Supported - Agent versions expired on November 6, 2019 |

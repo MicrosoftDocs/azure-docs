@@ -135,6 +135,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
+  > [!Note]
+  > The "templateId": "GUID" is an optional parameter being sent in the body depending on requirement. If you have a requirement for creating multiple different custom role with common parameters , it is best to create a template and define a templateId . You can generate a templateId beforehand using the powershell cmdlet (New-Guid).Guid . 
+
 1. Create the role assignment.
 
     HTTP request to create a custom role definition.
@@ -154,6 +157,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
 
 ## Assign a custom role scoped to a resource
 

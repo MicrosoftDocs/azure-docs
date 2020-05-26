@@ -3,7 +3,7 @@ title: Connect client VM - managed instance
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

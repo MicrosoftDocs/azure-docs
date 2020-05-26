@@ -469,6 +469,12 @@
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
+      - name: EasySSO for BitBucket
+        href: easysso-for-bitbucket-tutorial.md
+      - name: EasySSO for Confluence
+        href: easysso-for-confluence-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -1534,6 +1540,8 @@
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
+      - name: TextExpander
+        href: textexpander-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1642,6 +1650,8 @@
         href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
+      - name: Vyond
+        href: vyond-tutorial.md
     - name: W - Z
       items:
       - name: Watch by Colors
@@ -1763,6 +1773,8 @@
       items:
       - name: 4me
         href: 4me-provisioning-tutorial.md
+      - name: 8x8
+        href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
     - name: A - L

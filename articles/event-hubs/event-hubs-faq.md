@@ -255,7 +255,7 @@ Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.m
 
 ### Support and SLA
 
-Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Billing and subscription management support is provided at no cost.
+Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 

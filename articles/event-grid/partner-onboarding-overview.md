@@ -10,7 +10,7 @@ ms.date: 05/18/2020
 ms.author: babanisa
 ---
 
-# Become and Event Grid partner
+# Onboard as an Azure Event Grid Partner
 
 This article describes how to privately use the Event Grid partner resources and how to become a publicly available Partner Topic Type.
 
