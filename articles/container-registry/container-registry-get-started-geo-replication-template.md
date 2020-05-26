@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/22/2020
+ms.date: 05/26/2020
 ---
 
 # Quickstart: Create a geo-replicated container registry by using a Resource Manager template
 
-This quickstart shows how to create an Azure Container Registry instance using an Azure Resource Manager template. The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
+This quickstart shows how to create an Azure Container Registry instance by using an Azure Resource Manager template. The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -53,11 +53,11 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
     * **I agree to the terms and conditions stated above**: Select.
 
-    ![Template properties](media/container-registry-get-started-geo-replication-template/template-properties.png)
+        :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Template properties":::
 
  3. If you accept the terms and conditions, select **Purchase**. After the registry has been created successfully, you get a notification:
 
-    ![Portal notification](media/container-registry-get-started-geo-replication-template/deployment-notification.png)
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Portal notification":::
 
  The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -68,16 +68,16 @@ Use the Azure portal or a tool such as the Azure CLI to review the properties of
 1. In the portal, search for Container Registries, and select the container registry you created.
 
 1. On the **Overview** page, note the **Login server** of the registry. Use this URI when you use Docker to tag and push images to your registry. For information, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
-    ![Registry overview](media/container-registry-get-started-geo-replication-template/registry-overview.png)
+
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Registry overview":::
 
 1. On the **Replications** page, confirm the locations of the home replica and the replica added through the template. If desired, add more replicas on this page.
 
-  ![Registry replications](media/container-registry-get-started-geo-replication-template/registry-replications.png)
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Registry replications":::
 
 ## Clean up resources
 
 When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
-
 
 ## Next steps
 
