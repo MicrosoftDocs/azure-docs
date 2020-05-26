@@ -59,6 +59,8 @@
     href: documentation-government-ase-disa-cap.md
   - name: Impact Level 5 Isolation Guidance 
     href: documentation-government-impact-level-5.md
+  - name: Use OpenShift in a hardened Zero Trust Azure environment
+    href: documentation-government-openshift-in-hardened-azure-environment.md
 - name: Reference
   items:
   - name: Marketplace
