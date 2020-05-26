@@ -113,7 +113,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click **Download** links for **Certificate (Base64)** or **Federation Metadata XML** options and save either or all to your computer. You will need it later to configure Jira EasySSO.
 
-	![The Certificate download link](media/azure-ad-SAML-certificate.png)
+	![The Certificate download link](media/easysso-for-jira-tutorial/azure-ad-SAML-certificate.png)
 	
 	If you plan to perform EasySSO for Jira configuration manually with certificate, you also need to copy **Login URL** and **Azure AD Identifier** from the section below and save those on your computer.
 
@@ -151,19 +151,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Login into your Atlassian Jira instance with Administrator privileges and navigate to the **Manage Apps** section. 
 
-![Manage Apps](media/jira-admin-1.png)
+![Manage Apps](media/easysso-for-jira-tutorial/jira-admin-1.png)
 
 On the left side locate **EasySSO** and click it.
 
-![Easy SSO](media/jira-admin-2.png)
+![Easy SSO](media/easysso-for-jira-tutorial/jira-admin-2.png)
 
 Select **SAML** option. This will take you to SAML configuration section.
 
-![SAML](media/jira-admin-3.png)
+![SAML](media/easysso-for-jira-tutorial/jira-admin-3.png)
 
 Select **Certificates** tab on the top and you will be presented with the following screen:
 
-![Metadata URL](media/jira-admin-4.png)
+![Metadata URL](media/easysso-for-jira-tutorial/jira-admin-4.png)
 
 Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
 
@@ -181,7 +181,7 @@ Click **Save** button on the bottom of the page. You will see the content of the
 
 For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Jira login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
 
-![Look & Feel](media/jira-admin-5.png)
+![Look & Feel](media/easysso-for-jira-tutorial/jira-admin-5.png)
 
 Should you have any issues, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 
@@ -191,7 +191,7 @@ In this section, a user called Britta Simon is created in Jira. EasySSO for Jira
 
 However, if you do not wish to enable automatic user provisioning on the user first login, users must exist in backend User Directories the Jira instance make use of, such as LDAP or Atlassian Crowd.
 
-![User provisioning](media/jira-admin-6.png)
+![User provisioning](media/easysso-for-jira-tutorial/jira-admin-6.png)
 
 ## Test SSO 
 
@@ -205,13 +205,13 @@ When you click the EasySSO for Jira tile in the Access Panel, you should be auto
 
 In this section, you test your Azure AD single sign-on configuration using Jira **SAML Login** button.
 
-![User SAML login](media/jira-admin-7.png)
+![User SAML login](media/easysso-for-jira-tutorial/jira-admin-7.png)
 
 This scenario presumes you have enabled **SAML Login Button** in **Look & Feel** tab in your Jira EasySSO configuration page (see above). Open your Jira login URL in browser incognito mode to avoid any interference with your existing sessions. Click **SAML Login** button and you will get redirected to Azure AD user authentication flow. Once successfully completed you will be redirected back to your Jira instance as authenticated user via SAML.
 
 There's a possibility you may encounter the following screen after getting redirected back from Azure AD
 
-![EasySSO failure screen](media/jira-admin-8.png)
+![EasySSO failure screen](media/easysso-for-jira-tutorial/jira-admin-8.png)
 
 In this case you have to follow the [instructions on this page]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) to get access to **atlassian-jira.log** file. Details of the error will be available by the reference ID found on EasySSO error page.
 
