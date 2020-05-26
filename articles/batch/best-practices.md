@@ -189,7 +189,7 @@ interval of at least 5 minutes. Automatic retry capabilities are provided with v
 
 ## Batch node underlying dependencies
 
-Consider the following dependenices and restrictions when designing your Batch solutions.
+Consider the following dependencies and restrictions when designing your Batch solutions.
 
 ### System-created resources
 
