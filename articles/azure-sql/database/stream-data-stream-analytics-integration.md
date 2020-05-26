@@ -63,7 +63,7 @@ To complete the steps in this article, you need the following resources:
 
 5. Select which table you want to ingest your streaming data into. Once done, select **Create**.
 
-   - **Username**, **Password**: Enter your credentials for SQL Server authentication. Select **Validate**.
+   - **Username**, **Password**: Enter your credentials for SQL server authentication. Select **Validate**.
    - **Table**: Select **Create new** or **Use existing**. In this flow, let’s select **Create**. This will create a new table when you start the stream Analytics job.
 
      ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create.png)

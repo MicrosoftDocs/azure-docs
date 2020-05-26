@@ -26,12 +26,12 @@ Data exfiltration in Azure SQL Database is when an authorized user, such as a da
 Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure virtual machine connecting to a database in SQL Database. This database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
 1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
-1. Only allow traffic to the SQL Database database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [virtual network firewall rules](firewall-configure.md).
+1. Only allow traffic to the database in SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [virtual network firewall rules](firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../../virtual-network/manage-network-security-group.md) and Service Tags as follows
     - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
     - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
 
-At the end of this setup, the Azure VM can connect only to SQL Database databases in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
+At the end of this setup, the Azure VM can connect only to a database in SQL Database in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
 
 With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
 
@@ -52,7 +52,7 @@ Private Endpoints can be created using the Azure portal, PowerShell, or the Azur
 ### Approval process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
 
-1. Navigate to the SQL Server resource in the Azure portal as per steps shown in the screenshot below
+1. Navigate to the server resource in the Azure portal as per steps shown in the screenshot below
 
     - (1) Select the Private endpoint connections in the left pane
     - (2) Shows a list of all Private Endpoint Connections (PECs)
@@ -165,7 +165,7 @@ Configure [virtual network to virtual network VPN gateway connection](../../vpn-
 
 ## Connecting from an on-premises environment over VPN
 
-To establish connectivity from an on-premises environment to the SQL Database database, choose and implement one of the options:
+To establish connectivity from an on-premises environment to the database in SQL Database, choose and implement one of the options:
 - [Point-to-Site connection](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Site-to-Site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)

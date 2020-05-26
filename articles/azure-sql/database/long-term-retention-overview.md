@@ -73,7 +73,7 @@ If you are using active geo-replication or failover groups as your business cont
 
 ## SQL Managed Instance support
 
-Using long-term backup retention with a managed instance of Azure SQL Managed Instance has the following limitations:
+Using long-term backup retention with Azure SQL Managed Instance has the following limitations:
 
 - **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
 - [**PowerShell only**](../managed-instance/long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
@@ -82,11 +82,11 @@ To request enrollment, create an [Azure support ticket](https://azure.microsoft.
 
 ## Configure long-term backup retention
 
-You can configure long-term backup retention using the Azure portal and PowerShell for a database in Azure SQL Database, and PowerShell for a managed instance of Azure SQL Managed Instance. To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server or managed instance under the same subscription as the original database.
+You can configure long-term backup retention using the Azure portal and PowerShell for Azure SQL Database, and PowerShell for Azure SQL Managed Instance. To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server or managed instance under the same subscription as the original database.
 
-To learn how to configure long-term retention or restore a database from backup for a database in Azure SQL Database using the Azure portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md)
+To learn how to configure long-term retention or restore a database from backup for SQL Database using the Azure portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md)
 
-To learn how to configure long-term retention or restore a database from  backup for a managed instance of Azure SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](../managed-instance/long-term-backup-retention-configure.md). 
+To learn how to configure long-term retention or restore a database from backup for SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](../managed-instance/long-term-backup-retention-configure.md).
 
 To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md). In your request, please state you would like to be enrolled in the limited public preview of LTR for SQL Managed Instance.
 

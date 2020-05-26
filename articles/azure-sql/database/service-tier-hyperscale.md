@@ -153,10 +153,10 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ### Restoring a Hyperscale database to a different geography
 
-If you need to restore an Azure SQL Database Hyperscale database to a region other than the one it is currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database.  This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
+If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it is currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database.  This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
 
 1. Create a [server](logical-servers.md) in the target region if you do not already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
-2. Follow the instructions in the [geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) topic of the page on restoring Azure SQL Database databases from automatic backups.
+2. Follow the instructions in the [geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) topic of the page on restoring a database in Azure SQL Database from automatic backups.
 
 > [!NOTE]
 > Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete extremely quickly. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage.  That means that doing a geo-restore will take time proportional to the size of the database being restored.  If the target is in the paired region, the copy will be within a region, which will be significantly faster than a cross-region copy, but it will still be a size-of-data operation.

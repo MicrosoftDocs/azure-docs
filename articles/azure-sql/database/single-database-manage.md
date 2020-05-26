@@ -57,7 +57,7 @@ To manage an existing database, navigate to the **SQL databases** page and selec
 To create and manage servers, single and pooled databases, and server-level firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> For PowerShell example scripts, see [Use PowerShell to create a database in SQL Database and configure a server-level firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale a database in SQL database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> For PowerShell example scripts, see [Use PowerShell to create a database in SQL Database and configure a server-level firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale a database in SQL Database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Description |
 | --- | --- |
