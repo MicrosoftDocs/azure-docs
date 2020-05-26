@@ -27,6 +27,8 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [Cloud shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+
 [!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-configure.md)]
 
 ## Get started with the building scenario
