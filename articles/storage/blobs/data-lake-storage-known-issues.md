@@ -102,7 +102,7 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Premium-performance block blob storage accounts
+## Premium-performance BlockBlobStorage storage accounts
 
 ### Diagnostic logs
 
@@ -121,7 +121,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### Lifecycle management policies
 
-- Lifecycle management policies aren't yet supported in premium block blob storage accounts. 
+- Lifecycle management policies aren't yet supported in premium BlockBlobStorage storage accounts. 
 
 - Data can't be moved from the premium tier to lower tiers. 
 
@@ -129,11 +129,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### HDInsight support
 
-When you create a n HDInsight cluster, you can't yet select a block blob storage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
+When you create a n HDInsight cluster, you can't yet select a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
 
 ### Dremio support
 
-Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
+Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
 
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 

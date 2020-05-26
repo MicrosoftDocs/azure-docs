@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: memildin
 
 ---
@@ -27,6 +27,36 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 
 ## May 2020
+
+
+### Alert suppression rules (preview)
+
+This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
+
+Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
+
+Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
+
+- suppress alerts that you've identified as false positives
+
+- suppress alerts that are being triggered too often to be useful
+
+[Learn more about suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
+
+
+### Virtual machine vulnerability assessment is now generally available
+
+Security Center's standard tier now includes a built-in vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
+
+The new solution can continuously scan your virtual machines to find vulnerabilities and present the findings in Security Center. 
+
+To deploy the solution, use the new security recommendation:
+
+"Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
+
+[Learn more](built-in-vulnerability-assessment.md).
+
+
 
 ### Changes to just-in-time (JIT) virtual machine (VM) access
 
@@ -63,22 +93,40 @@ The security controls - and this toggle - are part of the new secure score exper
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
-### Account security recommendations moved to "Security best practices" security control
+### Expanded security control "Implement security best practices" 
 
-One of the security controls introduced with the enhanced secure score is "Security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
+One of the security controls introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
 
 With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
 
-The recommendations are:
+In addition, two new recommendations have been introduced and added to this control.
 
-- MFA should be enabled on accounts with read permissions on your subscription (originally in the "Enable MFA" control)
-- External accounts with read permissions should be removed from your subscription (originally in the "Manage access and permissions" control)
-- A maximum of 3 owners should be designated for your subscription (originally in the "Manage access and permissions" control)
+The three recommendations that moved are:
+
+- **MFA should be enabled on accounts with read permissions on your subscription** (originally in the "Enable MFA" control)
+- **External accounts with read permissions should be removed from your subscription** (originally in the "Manage access and permissions" control)
+- **A maximum of 3 owners should be designated for your subscription** (originally in the "Manage access and permissions" control)
+
+The two new recommendations added to the control are:
+
+- **[Preview] Guest configuration agent should be installed** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
+
+- **[Preview] Windows exploit guard should be enabled** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
+
+Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
-### Custom policies with custom metadata generally available
+
+
+
+
+
+
+
+
+### Custom policies with custom metadata are now generally available
 
 Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
 
@@ -91,7 +139,7 @@ We've now also added the option to edit the custom recommendation metadata. Meta
 
 ## April 2020
 
-### Dynamic compliance packages now generally available
+### Dynamic compliance packages are now generally available
 
 The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
 
@@ -193,7 +241,7 @@ These recommendations will no longer appear in the Security Center list of recom
 
 ## February 2020
 
-### Fileless attack detection for Linux is now in preview
+### Fileless attack detection for Linux (preview)
 
 As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
 
@@ -205,7 +253,7 @@ To counter this threat, Azure Security Center released fileless attack detection
 
 ## January 2020
 
-### Enhanced secure score
+### Enhanced secure score (preview)
 
 An enhanced version of the secure score feature of Azure Security Center is now available in preview. In this version, multiple recommendations are grouped into Security Controls that better reflect your vulnerable attack surfaces (for example, restrict access to management ports).
 

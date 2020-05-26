@@ -21,9 +21,9 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 > [!NOTE]
 > Support level refers only to how the feature is supported with Data Lake Storage Gen2. 
 >
-> [Premium-performance block blob storage accounts](storage-blob-create-account-block-blob.md) for Data Lake Storage Gen2 are currently in public preview. Support-levels for these types of accounts appear in the **Premium block blob storage accounts** column.
+> [Premium-performance BlockBlobStorage accounts](storage-blob-create-account-block-blob.md) for Data Lake Storage Gen2 are currently in public preview. Support-levels for these types of accounts appear in the **BlockBlobStorage (Premium)** column.
 
-|Blob Storage feature |General-purpose V2 storage accounts|Premium block blob storage accounts |Related articles |
+|Blob Storage feature |General-purpose V2 |BlockBlobStorage (Premium) |Related articles |
 |---------------|-------------------|---|
 |Hot access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Cool access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
@@ -34,6 +34,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Blob storage Azure CLI commands|Generally available|Preview|[Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)|
 |Blob storage APIs|Generally available|Preview|[Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Manage blobs with Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Manage blobs with Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
 |Diagnostic logs|Generally available|Preview <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Logging in Azure Monitor|Preview |Not yet supported|[Monitoring Azure Storage](../common/monitor-storage.md)|
 |Archive Access Tier|Preview|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Lifecycle management policies|Preview|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
@@ -44,7 +45,6 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Snapshots|Not yet supported|Not yet supported|[Create and manage a blob snapshot in .NET](storage-blob-snapshots.md)|
 |Soft Delete|Not yet supported|Not yet supported|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)|
 |Static websites|Not yet supported|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
-|Logging in Azure Monitor|Not yet supported|Not yet supported|Not yet available|
 
 <div id="diagnostic-logging"><sup>1</sup>For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
 
