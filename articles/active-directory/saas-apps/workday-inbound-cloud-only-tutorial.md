@@ -191,7 +191,6 @@ In this section, you will configure how user data flows from Workday to Azure Ac
 
 6. To save your mappings, click **Save** at the top of the Attribute-Mapping section.
 
-Once your attribute mapping configuration is complete, you can now [enable and launch the user provisioning service](#enable-and-launch-user-provisioning).
 
 ## Enable and launch user provisioning
 
@@ -206,7 +205,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
 
 3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Workday tenant. You can check the progress bar to the track the progress of the sync cycle. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. 
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Azure Active Directory. 
 
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
