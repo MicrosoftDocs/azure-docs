@@ -167,7 +167,7 @@ Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out Fi
 
 ### Backup of Azure virtual machines with up to 32 disks
 
-Azure Backup now supports backup of Azure VMs with up to 32 attached disks.  This feature is in public preview in West Central US.  If you are interested in this feature in other regions, sign up for the limited preview by writing to us at AskAzureBackupTeam@microsoft.com.  
+Azure Backup now supports backup of Azure VMs with up to 32 attached disks.  This feature is in public preview in West Central US, Canada Central, Asia SouthEast, Brazil South, Canada East, France Central, France South, India Central, India South, Japan East, Japan West, Korea Central, Korea South, South Africa North, UK South, UK West, Australia East.  If you are interested in this feature in other regions, sign up for the limited preview by writing to us at AskAzureBackupTeam@microsoft.com.  
 
 >[!NOTE]
 >Azure Backup only supports up to 16 disks for Azure VMs with unmanaged disks or classic VMs.

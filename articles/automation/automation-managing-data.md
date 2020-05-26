@@ -71,6 +71,5 @@ The Automation geo-replication service isn't accessible directly to external cus
 
 ## Next steps
 
-* To learn more about secure assets in Azure Automation, see [Encrypt secure assets in Azure Automation](automation-secure-asset-encryption.md).
-
+* To learn more about secure assets in Azure Automation, see [Encryption of secure assets in Azure Automation](automation-secure-asset-encryption.md).
 * To find out more about geo-replication, see [Creating and using active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).

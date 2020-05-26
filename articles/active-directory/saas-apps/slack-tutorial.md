@@ -104,6 +104,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | emailaddress | user.userprincipalname |
     | | |
 
+> [!NOTE]
+	> In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
