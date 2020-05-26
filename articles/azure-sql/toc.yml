@@ -1052,8 +1052,6 @@
 
 - name: Resources
   items:
-  - name: Glossary of terms
-    href: glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: SQL Server Blog
