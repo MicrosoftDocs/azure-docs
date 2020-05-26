@@ -1,6 +1,6 @@
 ---
 author: sukhand
-ms.service: cost-management-billing
+ms.service: dns
 ms.topic: include
 ms.date: 5/25/2020    
 ms.author: sukhand
