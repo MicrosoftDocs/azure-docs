@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/19/2020
+ms.date: 05/26/2020
 
 ---
 
@@ -54,16 +54,6 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-### Troubleshooting
-
-You must have at least *Log Analytics Contributor* permissions to delete a workspace.<br>
-If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
-* The workspace name isn't available and being used by someone in your organization, or by other customer.
-* The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
-   1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
-   2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
-   3. Create a new workspace using the same workspace name.
-
 ## Permanent workspace delete
 The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name and you can create a new workspace using the same name.
 
@@ -71,22 +61,21 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-The permanent workspace delete can currently be performed via REST API.
+To permanently delete your workspace, use the [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST request with a force tag:
 
-> [!NOTE]
-> Any API request must include a Bearer authorization token in the request header.
->
-> You can acquire the token using:
-> - [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-> - Navigate to Azure portal using the developer's console (F12) in the browser. Look in one of the **batch?** instances for the authentication string under **Request Headers**. This will be in the pattern *authorization: Bearer <token>*. Copy and add this to your API call as shown in the examples.
-> - Navigate to the Azure REST documentation site. press **Try it** on any API, copy the Bearer token, and add it to your API call.
-To permanently delete your workspace, use the [Workspaces - Delete REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) API call with a force tag:
->
-> ```rst
-> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
-> ```
-Where 'eyJ0eXAiOiJKV1Qi…' represents the full authorization token.
+```rst
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+Authorization: Bearer <token>
+```
+
+Alternatively, you can execute the operation from Azure REST documentation site:
+1.	Navigate to [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST API and click **Try it**. 
+2.	Enter details of the workspace you want to permanently delete
+3.	Ender a new parameter *force* with value *true*
+4.	Click the ‘+’ icon on the right to the value. This will add *force=true* to the URI in the request
+5.	Click the *Run* button
+
+The response should be 200 OK
 
 ## Recover workspace
 When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state making it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period and can't be used for creating a new workspace. After the soft-delete period, the workspace is non-recoverable, it is scheduled for permanent deletion and its name it released and can be used for creating a new workspace.
@@ -120,6 +109,13 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
 
 > [!NOTE]
-> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
 > * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
-> 
+ 
+### Troubleshooting
+You must have at least *Log Analytics Contributor* permissions to delete a workspace.<br>
+If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
+* The workspace name isn't available and being used by someone in your organization, or by other customer.
+* The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
+   1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
+   2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
+   3. Create a new workspace using the same workspace name.

@@ -184,8 +184,8 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For 
 
 ## Next steps
 
-- [What is Azure Key Vault?](../key-vault/general/overview.md)
-- [Manage certificates in Azure Automation](shared-resources/certificates.md)
-- [Manage credentials in Azure Automation](shared-resources/credentials.md)
-- [Manage variables in Azure Automation](shared-resources/variables.md)
-- [Manage connections in Azure Automation](automation-connections.md)
+- To understand Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+- To work with certificates, see [Manage certificates in Azure Automation](shared-resources/certificates.md).
+- To handle credentials, see [Manage credentials in Azure Automation](shared-resources/credentials.md).
+- To use Automation variables, [Manage variables in Azure Automation](shared-resources/variables.md).
+- For help when working with connections, see [Manage connections in Azure Automation](automation-connections.md).
