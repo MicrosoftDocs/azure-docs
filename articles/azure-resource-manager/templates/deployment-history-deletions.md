@@ -16,6 +16,10 @@ Deleting a deployment from the history doesn't affect any of the resources that 
 
 Deployments are deleted from your deployment history only when you near the limit of 800. Azure Resource Manager deletes a small set of the oldest deployments to clear space for future deployments. Most of your deployment history remains unchanged. The oldest deployments are always deleted first.
 
+:::image type="content" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Deletions from deployment history":::
+
+You also trigger the deletion process when you run the [what-if operation](template-deploy-what-if.md) or validate a deployment.
+
 ## Opt out of automatic deletions
 
 You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
