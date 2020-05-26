@@ -28,7 +28,7 @@ ms.author: pafarley
 
 ### Create environment variables
 
-[!INCLUDE [env-vars](../env-vars.md)]
+[!INCLUDE [environment-variables](../environment-variables.md)]
 
 ### Create a new Gradle project
 
