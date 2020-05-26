@@ -49,5 +49,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 If your question isn't answered here, you can refer to the following sources for additional questions and answers.
 
-- [Azure Automation](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
 - [Feedback forum](https://feedback.azure.com/forums/905242-update-management)

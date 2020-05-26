@@ -170,4 +170,4 @@ When your update deployment succeeds, you receive a confirming email similar to 
 
 ## Next steps
 
-* [Update Management overview](automation-update-management.md)
+* For details of Update Management, see [Update Management overview](automation-update-management.md).
