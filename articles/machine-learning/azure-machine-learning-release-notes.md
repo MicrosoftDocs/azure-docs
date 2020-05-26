@@ -74,8 +74,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Support for cv_split_column_names to be used with training_data
   + **azureml-contrib-automl-dnn-forecasting**
     + Improved logging in AutoML
-  + **azureml-contrib-dataset**
-    + Significantly Improved error text in case of Dataset execution failures.
   + **azureml-contrib-mir**
     + Added support for Windows services in ManagedInferencing
     + Remove old MIR workflows such as attach MIR compute, SingleModelMirWebservice class - Clean out model profiling placed in contrib-mir package
@@ -92,25 +90,26 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Workspace private link cli support added.
     + Added an optional parameter `invalid_lines` to `Dataset.Tabular.from_json_lines_files` that allows for specifying how to handle lines that contain invalid JSON.
     + We will be deprecating the run based creation of compute in the next release. We recommend creating an actual Amlcompute cluster as a persistent compute target, and using the cluster name as the compute target in your run configuration. See example notebook here: aka.ms/amlcomputenb
+    + Significantly improved error messages in case of Dataset execution failures.
   + **azureml-dataprep**
     + Made warning to upgrade pyarrow version more explicit.
-    + Significantly Improved error text in case of Dataset execution failures.
     + Improved error handling and message returned in case of failure to execute dataflow.
-    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
   + **azureml-interpret**
     + Documentation updates to azureml-interpret package.
     + Fixed interpretability packages and notebooks to be compatible with latest sklearn update
   + **azureml-opendatasets**
     + return None when there is no data returned.
     + Improve the performance of to_pandas_dataframe.
-    + `azureml-train-automl-runtime` and `azureml-automl-runtime` have updated dependencies for `pytorch`, `scipy`, and `cudatoolkit`. we now support `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1`, and `cudatoolkit==10.1.243`.
   + **azureml-pipeline-core**
     + Quick fix for ParallelRunStep where loading from YAML was broken
     + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
   + **azureml-pipeline-steps**
     + Deprecated azureml.dprep.Dataflow as a valid type for input data.
     + Quick fix for ParallelRunStep where loading from YAML was broken
-    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
+    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include:
+      + Datasets as PipelineParameter
+      + New parameter run_max_retry
+      + Configurable append_row output file name
   + **azureml-telemetry**
     + Update logging the exception message and traceback.
   + **azureml-train-automl-client**
