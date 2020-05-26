@@ -29,7 +29,7 @@ The following table lists the different ways that you can use metric data in Azu
 |  |  |
 |:---|:---|
 | Analyze | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
-| Visualize | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
+| Visualize | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](../platform/workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | Alert | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
 | Automate |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
 | Export | [Route Metrics to Logs](resource-logs-collect-storage.md) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |

@@ -3,7 +3,7 @@ title: How to configure a managed instance
 description: Learn how to configure and manage Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

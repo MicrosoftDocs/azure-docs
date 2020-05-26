@@ -104,8 +104,6 @@ Before you start, do the following:
 
 1. Navigate to your Azure Databricks service in the [Azure portal](https://portal.azure.com) and select **Launch Workspace**.
 
-   ![Launch Databricks workspace](./media/service-endpoint-cosmosdb/launch-workspace.png)
-
 2. Create a new cluster. Choose a Cluster Name and accept the remaining default settings.
 
    ![New cluster settings](./media/service-endpoint-cosmosdb/create-cluster.png)

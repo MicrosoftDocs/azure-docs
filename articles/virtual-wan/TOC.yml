@@ -48,6 +48,8 @@
     href: upgrade-virtual-wan.md
   - name: Configure custom IPsec policy
     href: virtual-wan-custom-ipsec-portal.md
+  - name: Install Azure Firewall in a hub
+    href: howto-firewall.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -83,7 +85,9 @@
     - name: Configure Azure VPN Client for Windows 10
       href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md  
+      href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Install Azure Firewall in a hub
+      href: howto-firewall.md 
   - name: Routing
     items:
     - name: Route traffic from a virtual hub to an NVA
@@ -94,6 +98,10 @@
           href: virtual-wan-route-table.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+  - name: Security
+    items:
+    - name: Install Azure Firewall in a hub
+      href: howto-firewall.md
 - name: Reference
   items:
   - name: Azure PowerShell

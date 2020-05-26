@@ -3,7 +3,7 @@ title: Managed instance T-SQL differences
 description: This article discusses the T-SQL differences between a managed instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
