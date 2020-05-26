@@ -15,4 +15,4 @@ If you already have an Azure Digital Twins instance set up from previous work, y
 
 Otherwise:
 1. Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](../articles/digital-twins-v2/how-to-set-up-instance.md). 
-2. Set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application]((../articles/digital-twins-v2/how-to-authenticate-client.md).
+2. Set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](../articles/digital-twins-v2/how-to-authenticate-client.md).

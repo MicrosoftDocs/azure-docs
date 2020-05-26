@@ -47,7 +47,7 @@ Save this file as *manifest.json*.
 
 In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
 
-:::image type="content" source="media/include-setup/upload-extension.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+:::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."
 
 Next, run the following command to create an app registration (replacing placeholders as needed):
@@ -58,13 +58,13 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 The output from this command looks something like this.
 
-:::image type="content" source="media/include-setup/new-app-registration.png" alt-text="New AAD app registration":::
+:::image type="content" source="media/how-to-authenticate-client/new-app-registration.png" alt-text="New AAD app registration":::
 
 After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
 
 From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
 
-:::image type="content" source="media/include-setup/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
+:::image type="content" source="media/how-to-authenticate-client/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later to authenticate a client app against the Azure Digital Twins APIs.
 
