@@ -26,7 +26,9 @@ In this tutorial, you will...
 2. Configure the sample command-line app to interact with the instance
 3. Use the command-line app to explore Azure Digital Twins, including **models**, **digital twins**, **relationships**, and **queries**
 
-[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-setup.md)]
+[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+
+[!INCLUDE [Azure Digital Twins tutorial: sample setup](../../includes/digital-twins-tutorial-sample-configure.md)]
 
 ## Explore with the sample solution
 
@@ -284,10 +286,12 @@ The project in this tutorial forms the basis for the next tutorial, [Tutorial: C
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them.
 
-Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
+Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+
+Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
 
 ```azurecli-interactive
 az group delete --name <your-resource-group>
