@@ -153,7 +153,7 @@ Login into your Atlassian Bamboo instance with Administrator privileges and navi
 
 ![Manage Apps](./media/easysso-for-bamboo-tutorial/bamboo-admin-1.png)
 
-On the left side locate **EasySSO** and click it. Then click **Configure** button.
+On the left side locate **EasySSO** and click it.
 
 ![Easy SSO](./media/easysso-for-bamboo-tutorial/bamboo-admin-2.png)
 
