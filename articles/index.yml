@@ -688,10 +688,9 @@ productDirectory:
     # Card
     - title: Azure SQL 
       summary: Modern SQL family for migration and app modernization
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-sql.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
       azureCategories:
         - featured
-        - databases
         - hybrid
       url: azure-sql/index.yml
     # Card
