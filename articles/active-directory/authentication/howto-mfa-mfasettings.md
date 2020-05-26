@@ -212,9 +212,9 @@ You can set a time period to allow authentication attempts after a user is authe
 
 Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
 
-## Add picture with public address example (I can share the picture if you want)
+![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-The trusted IP address ranges should be the external/public IP addresses used by the caller.
+The trusted IP address ranges can be private or public.
 
 ## App passwords
 
