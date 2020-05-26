@@ -99,7 +99,25 @@ static async Task Main()
 
 #### Version 2.*x*
 
-The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that enables development mode.  The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when it runs locally, set a local environment variable named `AzureWebJobsEnv` with the value `Development`.
+The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that enables development mode.  The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when it runs locally, set a local environment variable named `AzureWebJobsEnv` with the value `Development` in a local configuration file only.
+
+Local app.config file:
+```
+  <appSettings>
+	   <add key="AzureWebJobsEnv" value="Development" />
+  </appSettings>
+```
+
+This will not work, where appsettings.config is a shared solution level application config file referenced locally via the file attribute:
+```
+app.config:
+  <appSettings file="..\appsettings.config"></appSettings>
+
+appsettings.config:
+  <appSettings>
+	   <add key="AzureWebJobsEnv" value="Development" />
+  </appSettings>
+```
 
 ```cs
 static void Main()
