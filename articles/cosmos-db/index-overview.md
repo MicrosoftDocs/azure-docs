@@ -1,11 +1,11 @@
 ---
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB, different kinds of indexes such as Range, Spatial, composite indexes supported. 
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
+ms.date: 05/21/2020
+ms.author: tisande
 ---
 
 # Indexing in Azure Cosmos DB - Overview
@@ -100,7 +100,7 @@ Azure Cosmos DB currently supports three kinds of indexes.
    ```
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - `ORDER BY` queries:
