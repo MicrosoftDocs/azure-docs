@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Tutorial: Event-based video recording to cloud and playback from cloud
 
-In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to selectively record portions of a live video source to Media Services in the cloud. This usecase is referred as [event based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To accomplish this, you will use an object detection AI model to look for objects in the video, and record video clips only when a certain type of object is detected. You will also learn about how to playback the recorded video clips using Media Services. This is useful for a variety of scenarios, where there is a need to keep an archive of video clips of interest.
+In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to selectively record portions of a live video source to Media Services in the cloud. This use case is referred as [event based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To accomplish this, you will use an object detection AI model to look for objects in the video, and record video clips only when a certain type of object is detected. You will also learn about how to playback the recorded video clips using Media Services. This is useful for a variety of scenarios, where there is a need to keep an archive of video clips of interest.
 
 > [!div class="checklist"]
 > * Setup the relevant resources
@@ -54,7 +54,7 @@ At the end of the above steps, you will have certain Azure resources deployed in
 
 ![Media graph](./media/event-based-video-recording-tutorial/overview.png)
 
-Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question, could originate due to processing of the video signal itself (for example, upon detecting a moving object in the video) or could be from an independent source (for example, opening of a door). Alternatively, you can trigger recording only when an external inferencing service detects that a specific event has occurred.  In this tutorial you will use a video of vehicales moving on a freeway, and record video clips whenever a truck is detected.
+Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question, could originate due to processing of the video signal itself (for example, upon detecting a moving object in the video) or could be from an independent source (for example, opening of a door). Alternatively, you can trigger recording only when an external inferencing service detects that a specific event has occurred.  In this tutorial you will use a video of vehicles moving on a freeway, and record video clips whenever a truck is detected.
 
 The diagram above is a pictorial representation of a [media graph](media-graph-concept.md) and additional modules that accomplish the desired scenario. There are four IoT Edge modules involved:
 
@@ -319,7 +319,8 @@ You can examine the Media Services Asset that was created by the graph by loggin
 1. The player should load the video, and you should be able to hit **Play**>** to view it.
 
 > [!NOTE]
-> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the Graph Instance, and when you deactivated it. <!--You can see this <TODO Link> Tutorial on how to browse a multi-day recording, and view portions of that archive. In that tutorial, you are also able to see the timestamps in the video displayed on screen.-->
+> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the Graph Instance, and when you deactivated it. For more information, see [Playback multi-day recordings](playback-multi-day-recordings-tutorial.md)
+ on how to browse a multi-day recording, and view portions of that archive. In that tutorial, you are also able to see the timestamps in the video displayed on screen.
 
 ## Clean up resources
 

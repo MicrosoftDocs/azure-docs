@@ -1,13 +1,13 @@
 ---
-title: Detect motion, record video clips to Azure Media Services
+title: Detect motion, record video to Azure Media Services
 description: This quickstart shows how to detect motion, record video clips to Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Event-based recording of videos using Live Video Analytics on IoT Edge
+# Quickstart: Detect motion, record video to Media Services
 
-This article walks you through the steps to use Live Video Analytics on IoT Edge for event-based recording. It uses a Linux Azure VM as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as an Asset in Azure Media Services.
+This article walks you through the steps to use Live Video Analytics on IoT Edge for event-based recording. It uses a Linux Azure VM as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as an asset in Azure Media Services.
 
 This article builds on top of the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md).
 

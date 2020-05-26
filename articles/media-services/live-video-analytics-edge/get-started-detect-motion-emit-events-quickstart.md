@@ -1,11 +1,11 @@
 ---
-title: Detect motion and emit events quickstart - Azure
+title: Get started with Live Video Analytics on IoT Edge - Azure
 description: This getting started quickstart shows how to detect motion and emit events with Live Video Analytics on IoT Edge.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: get started with Live Video Analytics on IoT Edge
+# Quickstart: Get started - Live Video Analytics on IoT Edge
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 
@@ -35,11 +35,11 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     ![Environment Selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command
-<!-- TODO - Would be nice to have some screen shots from https://docs.microsoft.com/azure/cloud-shell/quickstart copied over here -->
+
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
-
+    
 If the script completes successfully, you should see all the resources mentioned above in your subscription.
 
 ## Deploy modules on your edge device
