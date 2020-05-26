@@ -16,13 +16,13 @@ ms.author: aahi
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3.x. Version 3.0 is generally available and introduces new features such as [model versioning](concepts/model-versioning.md) and expanded [Named Entity Recognition (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). A preview version of v3.1 (v3.1-preview.x) is also available, which adds features such as [opinion mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features).
+If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3.x. Version 3.0 is generally available and introduces new features such as expanded [Named Entity Recognition (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) and [model versioning](concepts/model-versioning.md). A preview version of v3.1 (v3.1-preview.x) is also available, which adds features such as [opinion mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). The models used in v2 will not receive future updates. 
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
 ## Feature changes 
 
-Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative") with their associated confidence scores. 
+Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. Version 3 instead returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores. 
 
 ## Steps to migrate
 
@@ -66,7 +66,7 @@ You will also need to update your application to use the [entity categories](nam
 
 ## Feature changes 
 
-The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. 
+The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns a single language in the output. 
 
 ## Steps to migrate
 

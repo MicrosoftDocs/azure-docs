@@ -80,6 +80,8 @@
         href: how-tos/text-analytics-how-to-use-container-instances.md
       - name: Use kubernetes service (AKS)
         href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+   - name: Migrate to version 3 of the API
+     href: migration-guide.md
 - name: Reference
   items:
   - name: CLI reference
@@ -118,8 +120,6 @@
           href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
 - name: Resources
   items:
-  - name: Migrate to version 3 of the API
-    href: migration-guide.md
   - name: External and community content
     href: text-analytics-resource-external-community.md
   - name: FAQ
