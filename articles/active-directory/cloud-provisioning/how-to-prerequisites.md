@@ -59,14 +59,9 @@ Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-dir
    - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
 
-### Verify the port
-To verify that Azure is listening on port 443 and that your agent can communicate with it, use the following URL:
+>[!NOTE]
+> Installing the cloud provisioning agent on Windows Server Core is not supported.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
-
-![Verification of port reachability](media/how-to-install/verify2.png)
 
 ### Additional requirements
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
