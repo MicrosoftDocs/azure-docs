@@ -32,9 +32,8 @@ It is recommended that you read through the following documentation pages
 
 ## Prerequisites
 
-1. Complete the [CVR tutorial](continuous-video-recording-tutorial.md). While this tutorial and the relevant APIs discussed in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md) apply to recordings that are 5 minutes or longer, it is recommended that you record 5 hours worth of video, if not more. The APIs used to browse recordings are best demonstrated with long recordings.
-
-Further, it is recommended that you run this tutorial while the [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md) is still running – that is, you are still recording video to the cloud.
+* Complete the [CVR tutorial](continuous-video-recording-tutorial.md). While this tutorial and the relevant APIs discussed in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md) apply to recordings that are 5 minutes or longer, it is recommended that you record 5 hours worth of video, if not more. The APIs used to browse recordings are best demonstrated with long recordings.
+* We recommend that you run this tutorial while the [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md) is still running – that is, you are still recording video to the cloud.
 
 ## Run the sample 
 
@@ -72,7 +71,7 @@ In Visual Studio Code, you can click the Run icon on the left (or Ctrl + Shift +
 
 ![Run](./media/playback-multi-day-recordings-tutorial/run.png)
  
-Select the Azure Media Services Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
 
 ![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
 
@@ -83,12 +82,12 @@ The AMS Asset Player prompts you to enter the name of a Media Service Asset. You
 
 Upon typing the asset name and hitting submit, the player code will load the streaming URL. For more information, see [How-to-Guide: Playback of recordings](playback-recordings-how-to.md). If, as recommended, you are still recording to the asset, the player will detect that, and attempt to cue the playback to the most recent part of the recorded video. You can see the timestamp (in UTC) at the top left of the player. In the screenshot below, note how the “Live” button is selected.
 
-![Stream](./media/playback-multi-day-recordings-tutorial/play.png)
+![Stream](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  
 On the right side of the player, you can see the controls to browse the archive. The years, months, and dates in this control are populated using the availableMedia API documented in [How-to-Guide: Playback of recordings](playback-recordings-how-to.md).
 When you expand the day, if you have let the CVR Tutorial run for several hours, you will see a result like this:
 
-![Browse archive](./media/playback-multi-day-recordings-tutorial/results.png)
+![Browse archive](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
 
 The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see, [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP Source node in the Media Graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
 
