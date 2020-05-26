@@ -919,7 +919,7 @@ This example converts a timestamp to the specified time zone:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-And returns this result: `"2018-01-01T00:00:00.0000000"`
+And returns this result: `"2018-01-01T00:00:00Z"`
 
 *Example 2*
 
