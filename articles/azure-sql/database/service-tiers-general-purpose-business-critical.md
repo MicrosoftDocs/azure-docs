@@ -19,7 +19,7 @@ ms.date: 01/30/2020
 Azure SQL Database and Azure SQL Managed Instance are based on SQL Server database engine architecture that's adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Two service tiers are used by Azure SQL Database and Azure SQL Managed Instance, each with a different architectural model. These service tiers are:
 
 - [General purpose](service-tier-general-purpose.md), which is designed for budget-oriented workloads.
-- [Business critical](service-tier-business-critical.md),which is designed for low-latency workloads with high resiliency to failures and fast failovers.
+- [Business critical](service-tier-business-critical.md), which is designed for low-latency workloads with high resiliency to failures and fast failovers.
 
 Azure SQL Database has an additional service tier: 
 
@@ -42,7 +42,7 @@ The following table describes the key differences between service tiers for the 
 | **Database size** | SQL Database | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **Storage size** | SQL Database | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-| | SQL Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **TempDB size** | SQL Database | [32 GB per vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB per vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB per vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | SQL Managed Instance  | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | Up to 4 TB - [limited by storage size](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | SQL Database | [1.875 MB/s per vCore (max 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s per vCore (max 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
@@ -62,7 +62,7 @@ For more information, see the detailed differences between the service tiers in 
 
 ## Data and log storage
 
-The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](service-tier-hyperscale.md).
+The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](service-tier-hyperscale.md).
 
 - The allocated storage is used by data files (MDF) and log files (LDF).
 - Each single database compute size supports a maximum database size, with a default maximum size of 32 GB.
@@ -95,6 +95,6 @@ Storage for database backups is allocated to support the point-in-time restore (
 For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see: 
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
-- [vCore-based resource limits for pooled Azure SQL Databases](resource-limits-vcore-elastic-pools.md).
+- [vCore-based resource limits for pooled databases in Azure SQL Database](resource-limits-vcore-elastic-pools.md).
 - [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
 
