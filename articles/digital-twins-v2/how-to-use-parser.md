@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # DTDL client-side parser library
 
-[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-based Digital Twins Definition language (DTDL). 
+[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-based Digital Twins Definition language (DTDL). For cases where it is useful to parse your models, a DTDL parsing library is provided on NuGet.org as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
-As part of the [Azure Digital Twins SDK](how-to-use-apis-sdks.md), a DTDL parsing library is provided as a client-side library. This library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. It is useful for making sure your model definition files are valid before you try to upload them to the service.
+This library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. It is useful for making sure your model definition files are valid before you try to upload them to the service.
 
 To use the parser library, you provide it with a set of DTDL documents. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. 
 
