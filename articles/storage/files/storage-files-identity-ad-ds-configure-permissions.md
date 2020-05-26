@@ -1,6 +1,6 @@
 ---
 title: Control what a user can do at the file level - Azure file shares
-description: Learn how to configure Windows NTFS permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
+description: Learn how to configure Windows ACLs permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
 author: roygara
 ms.service: storage
 ms.subservice: files
@@ -9,21 +9,21 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ---
 
-# Part three: configure Windows NTFS permissions over SMB 
+# Part three: configure directory and file level permissions over SMB 
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
+After you assign share-level permissions with RBAC, you must assign proper Windows ACLs (also known as Windows ACLs) at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
 
-After you assign share-level permissions with RBAC, you must configure proper NTFS permissions (also known as Windows ACLs) at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the NTFS permissions operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions with RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 ## Supported permissions
 
-Azure Files supports the full set of basic and advanced NTFS permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
+Azure Files supports the full set of basic and advanced Windows ACLs. You can view and configure Windows ACLs on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
 
-To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions.
+To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure Windows ACLs.
 
-The following permissions are supported on the root directory of a file share:
+The following permissions are included on the root directory of a file share:
 
 - BUILTIN\Administrators:(OI)(CI)(F)
 - NT AUTHORITY\SYSTEM:(OI)(CI)(F)
@@ -43,11 +43,11 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 
 If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
 
-## Configure NTFS permissions
+## Configure Windows ACLs
 
-Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as NTFS permissions). You can configure the Windows ACLs using either Windows File Explorer or icacls.
+Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as Windows ACLs). You can configure the Windows ACLs using either Windows File Explorer or icacls.
 
-### Configure NTFS permissions with Windows File Explorer
+### Configure Windows ACLs with Windows File Explorer
 
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
@@ -60,7 +60,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 1.    In the **Security** tab, select all permissions you want to grant your new user.
 1.    Select **Apply**.
 
-### Configure NTFS permissions with icacls
+### Configure Windows ACLs with icacls
 
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
@@ -68,7 +68,7 @@ Use the following Windows command to grant full permissions to all directories a
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## Next steps
 
