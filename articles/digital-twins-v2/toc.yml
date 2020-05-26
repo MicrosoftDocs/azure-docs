@@ -52,7 +52,7 @@
     href: how-to-manage-routes.md
   - name: Interpret event data
     href: how-to-interpret-event-data.md
-  - name: Set up an Azure Function for processing data
+  - name: Set up an Azure function for processing data
     href: how-to-create-azure-function.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md

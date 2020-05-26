@@ -47,7 +47,7 @@ Events sent via routes come without context. As a result, a compute resource tha
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure Function to process digital twin events, see [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md).
 
 ## Create an endpoint
 
@@ -93,5 +93,5 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 See how to set up and manage an event route:
 * [How-to: Manage endpoints and routes](how-to-manage-routes.md)
 
-Or, see how to use an Azure Function to route events within Azure Digital Twins:
-* [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md)
+Or, see how to use Azure Functions to route events within Azure Digital Twins:
+* [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md)

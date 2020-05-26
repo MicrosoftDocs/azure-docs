@@ -127,7 +127,7 @@ try
 }
 ```
 
-In an Azure Function, you can use the managed identity credentials like this:
+In an Azure function, you can use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
@@ -136,12 +136,12 @@ DigitalTwinsClientOptions opts =
 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
 * [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [How-to: Set up an Azure Function for processing data](how-to-create-azure-function.md) for more information.
+* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) for more information.
 
 ## Authentication in an AutoRest-generated SDK
 
