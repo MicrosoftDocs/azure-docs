@@ -8,7 +8,7 @@ ms.date: 04/27/2020
 
 # Tutorial: Playback of multi-day recordings  
 
-In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording (CVR) <TODO: Link to article on CVR> from the cloud. This is useful for scenarios such as public safety, where there is a need to maintain a recording of the footage from a camera for multiple days (or weeks), and there is an occasional need to watch specific portions of that footage.
+In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day [continuous video recording](continuous-video-recording-concept.md) (CVR) from the cloud. This is useful for scenarios such as public safety, where there is a need to maintain a recording of the footage from a camera for multiple days (or weeks), and there is an occasional need to watch specific portions of that footage.
 
 The tutorial shows you how to:
 
@@ -26,7 +26,7 @@ It is recommended that you read through the following documentation pages
 * [Live Video Analytics on IoT Edge overview](overview.md)
 * [Live Video Analytics on IoT Edge terminology](terminology.md)
 * [Media graph concept](media-graph-concept.md)
-* [Continuous video recording](continuous-video-recording-concept.md)
+* [Continuous video recording](continuous-video-recording-concept.md) 
 * [How-to-Guide: Playback of recordings](playback-recordings-how-to.md)
 * [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md)
 
@@ -38,7 +38,7 @@ Further, it is recommended that you run this tutorial while the [Tutorial: Conti
 
 ## Run the sample 
 
-As part of the CVR tutorial.docx, you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps here to create a service principal. You should be able to get a JSON block from the Portal that looks like this:
+As part of the  [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md#use-the-azure-portal) to create a service principal. You should be able to get a JSON block from the Portal that looks like this:
 
 ```
 {
@@ -72,31 +72,31 @@ In Visual Studio Code, you can click the Run icon on the left (or Ctrl + Shift +
 
 ![Run](./media/playback-multi-day-recordings-tutorial/run.png)
  
-Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+Select the Azure Media Services Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
 
 ![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 
 Note: depending on the security settings on your browser, you may see a warning message. Since the web page is running locally, you can choose to ignore the warning.
-The AMS Asset Player prompts you to enter the name of a Media Service Asset. You should use the name of the Asset that you used for recording video in the CVR tutorial.docx.
+The AMS Asset Player prompts you to enter the name of a Media Service Asset. You should use the name of the Asset that you used for recording video in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md).
 
-Upon typing the Asset name and hitting submit, the player code will load the streaming URL <TODO Link to the background section in How-to-Guide Playback of recordings.docx). If, as recommended, you are still recording to the Asset, the player will detect that, and attempt to cue the playback to the most recent part of the recorded video. You can see the timestamp (in UTC) at the top left of the player. In the screenshot below, note how the “Live” button is selected.
+Upon typing the asset name and hitting submit, the player code will load the streaming URL. For more information, see [How-to-Guide: Playback of recordings](playback-recordings-how-to.md). If, as recommended, you are still recording to the asset, the player will detect that, and attempt to cue the playback to the most recent part of the recorded video. You can see the timestamp (in UTC) at the top left of the player. In the screenshot below, note how the “Live” button is selected.
 
 ![Stream](./media/playback-multi-day-recordings-tutorial/play.png)
  
-On the right side of the player, you can see the controls to browse the archive. The years, months, and dates in this control are populated using the availableMedia API documented in How-to-Guide Playback of recordings.docx.
+On the right side of the player, you can see the controls to browse the archive. The years, months, and dates in this control are populated using the availableMedia API documented in [How-to-Guide: Playback of recordings](playback-recordings-how-to.md).
 When you expand the day, if you have let the CVR Tutorial run for several hours, you will see a result like this:
 
 ![Browse archive](./media/playback-multi-day-recordings-tutorial/results.png)
 
-The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (TODO: Link to Live555 page) reaches the end of the file, it ends the stream. The RTSP Source node in the Media Graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
+The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see, [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP Source node in the Media Graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
 
 ![Results](./media/playback-multi-day-recordings-tutorial/archive.png)
  
 When you click on any one entry in the list, the application creates a streaming URL with the appropriate filter, such as https://{hostname}/{locatorId}/content.ism/manifest(format=mpd-time-csf,startTime=YYYY-MM-DDTHH:MM:SS). The player will load this URL and playback will commence at the desired startTime.
 
-Alternatively, you can use specific start and end times, via the controls at the bottom of the page. You can use the results of the availableMedia call, as listed on the right-hand side, as a guide to the allowed values of start and end times. The detailed constraints on the startTime and endTime filters are documented in How-to-Guide Playback of recordings.docx. After selecting the time values, upon clicking on Submit, the application will load the player with a streaming URL like:
+Alternatively, you can use specific start and end times, via the controls at the bottom of the page. You can use the results of the availableMedia call, as listed on the right-hand side, as a guide to the allowed values of start and end times. The detailed constraints on the startTime and endTime filters are documented in [How-to-Guide: Playback of recordings](playback-recordings-how-to.md). After selecting the time values, upon clicking on Submit, the application will load the player with a streaming URL like:
 https://{hostname}/{locatorId}/content.ism/manifest(format=mpd-time-csf,startTime=YYYY-MM-DDTHH:MM:SS,endTime= YYYY-MM-DDTHH:MM:SS)
 Playback will commence at the desired startTime.
 
