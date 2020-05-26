@@ -8,7 +8,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
@@ -19,7 +19,7 @@ Translator automatically encrypts your data, which you upload to build custom tr
 
 ## About Cognitive Services encryption
 
-Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don’t need to modify your code or applications to take advantage of encryption.
+Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
 
