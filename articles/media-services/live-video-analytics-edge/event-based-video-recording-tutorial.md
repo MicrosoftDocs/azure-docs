@@ -124,7 +124,7 @@ Read the section on how to declare routes in IoT Edge deployment manifest and th
 > [!NOTE]
 > The desired properties for the objectCounter module – it’s set up to look for objects that are tagged as “truck”, with a confidence level of at least 50%.
 
-## Deploy the edge modules
+## Deploy the Edge modules
 
 Using Visual Studio Code, follow the instructions to login into docker and "Build and Push IoT Edge solution" but use src/edge/deployment.objectCounter.template.json for this step.
 
