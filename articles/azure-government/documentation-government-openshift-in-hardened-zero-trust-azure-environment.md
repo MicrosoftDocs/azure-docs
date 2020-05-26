@@ -2,13 +2,13 @@
 
 This article defines and helps you execute a production-ready DevSecOps ecosystem that may be used with Government workloads on Azure.
 
-## Solution
+## Benefits of the solution
 This solution aims to help app developers and security administrators achieve DevSecOps in a few different cutting-edge ways. The benefits of the ecosystem are three-fold: 
 * *Increases speed of deployment and delivery.* This is the Dev part of DevSecOps – Developers get to focus on what matters, which is writing code and building and delivering application workloads at speed.
 * *Advanced security posture.* The Sec part of DevSecOps – Security needs to be at the heart of DoD software development. In our hierarchal Zero Trust solution, each level of the production architecture inherits security from the level below it. This results in a continuously hardened environment from infra all the way up to the workload running on top of it all. We ensure security extends throughout your digital estate
 * *Makes compliance easier to monitor and achieve.* The Ops part of DevSecOps can be seriously time-consuming. Our entire DevSecOps environment is continuously defensible with 24-hour compliance checks against DoD requirements, which ensures limited or no drift. This greatly reduces operational overhead and allows your team to run their services, 24-7 with confidence
 
-## Using it
+## Deploying the solution
 Here are the architectural components of the solution and how to use them.
 ![Alt](/pyramid.png "Pyramid")
 
