@@ -1,6 +1,6 @@
 ---
 title: Connect to a SQL Server virtual machine (Resource Manager) | Microsoft Docs
-description: Learn how to connect to SQL Server running on a virtual machine in Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client.
+description: Learn how to connect to your SQL Server virtual machine on Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -22,7 +22,7 @@ ms.reviewer: jroth
 
 ## Overview
 
-This topic describes how to connect to your SQL Server on Azure virtual machine (VM). It covers some [general connectivity scenarios](#connection-scenarios) and then provides [steps in the portal for changing connectivity settings](#change). If you need to troubleshoot or configure connectivity outside of the portal, see the [manual configuration](#manual) at the end of this topic. 
+This topic describes how to connect to your SQL on Azure virtual machine (VM). It covers some [general connectivity scenarios](#connection-scenarios) and then provides [steps in the portal for changing connectivity settings](#change). If you need to troubleshoot or configure connectivity outside of the portal, see the [manual configuration](#manual) at the end of this topic. 
 
 If you would rather have a full walkthrough of both provisioning and connectivity, see [Provision a SQL Server virtual machine on Azure](create-sql-vm-portal.md).
 
