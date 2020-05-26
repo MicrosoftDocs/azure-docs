@@ -44,7 +44,7 @@ The group is created with any selected roles assigned to it. You can also choose
 
 ## Using PowerShell
 
-To install the preview module:
+### Install the Azure AD preview module
 
     install-module azureadpreview
     import-module azureadpreview
