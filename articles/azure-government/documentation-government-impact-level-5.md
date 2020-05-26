@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/22/2019
+ms.date: 05/25/2020
 ms.Updated: 03/13/2020
 ms.author: dumartin
 
