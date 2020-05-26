@@ -16,10 +16,10 @@ This article describes how you can use the Azure Automation [Update Management](
 
 Before using the procedures in this article, ensure that you've enabled Update Management on your VMs using one of these techniques:
 
-* [Enable Update Management from an Automation account](onboard-solutions-from-automation-account.md)
-* [Enable Update Management by browsing in Azure Portal](onboard-solutions-from-browse.md)
-* [Enable Update Management from a runbook](onboard-solutions.md)
-* [Enable Update Management from an Azure VM](onboard-solutions-from-vm.md)
+* [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md)
+* [Enable Update Management by browsing in Azure Portal](automation-onboard-solutions-from-browse.md)
+* [Enable Update Management from a runbook](automation-onboard-solutions.md)
+* [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
 
 ## View update assessment
 
@@ -92,7 +92,7 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 10. When you're finished, select **Create alert rule**. 
 
-## Schedule an update deployment in Azure portal
+## Schedule an update deployment
 
 Scheduling an update deployment creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. You must schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
