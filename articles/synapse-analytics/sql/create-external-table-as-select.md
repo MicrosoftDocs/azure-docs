@@ -19,7 +19,7 @@ In this article, you'll learn how to store query results to storage using SQL On
 
 Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
 
-followi instructiong in this artivle to create data sources, database scoped credentials, and external file formats that are used to write data into the output storage.
+Follow the instructions in this article to create data sources, database scoped credentials, and external file formats that are used to write data into the output storage.
 
 ## Create external table as select
 
@@ -91,4 +91,4 @@ ORDER BY
 
 ## Next steps
 
-For more information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
+For more information on how to query different file types, see the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
