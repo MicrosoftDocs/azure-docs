@@ -235,14 +235,6 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: ML Studio (Classic)
-      summary: Easily build, deploy, and manage predictive analytics solutions
-      imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning-studio-service.svg
-      azureCategories:
-        - ai-machine-learning
-        - iot
-      url: machine-learning/studio/index.yml
-    # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
