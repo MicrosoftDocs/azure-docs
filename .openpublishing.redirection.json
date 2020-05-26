@@ -51685,6 +51685,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/metrics-explorer.md",
       "redirect_url": "/azure/azure-monitor/platform/metrics-charts",
       "redirect_document_id": false
