@@ -16,7 +16,7 @@ If you have a problem when using Azure Dev Spaces, create an [issue in the Azure
 
 To troubleshoot problems more effectively, it may help to create more detailed logs for review.
 
-For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+For Visual Studio, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
 In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the *TEMP* directory is usually `/tmp`. In addition, verify that logging is enabled in your [Azure CLI configuration file](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 

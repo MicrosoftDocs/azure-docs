@@ -52495,6 +52495,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-api-differences.md",
+      "redirect_url": "/azure/batch/batch-apis-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-integration-policies.md",
+      "redirect_url": "/azure/batch/policy-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
