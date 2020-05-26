@@ -250,7 +250,7 @@ Blob Index pricing is currently in public preview and subject to change for gene
 
 ## Regional availability and storage account support
 
-Blob Index is currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+Blob Index is currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade any GPv1 account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 In public preview, Blob Index is currently only available in the following select regions:
 - Canada Central
