@@ -99,7 +99,7 @@ To create and manage servers, databases, and firewalls with Azure PowerShell, us
 | New-AzSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
 > [!TIP]
-> For a PowerShell quickstart, see [Create an Azure SQL Database database using PowerShell](single-database-create-quickstart.md). For PowerShell example scripts, see [Use PowerShell to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale an Azure SQL Database database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> For a PowerShell quickstart, see [Create a database in Azure SQL Database using PowerShell](single-database-create-quickstart.md). For PowerShell example scripts, see [Use PowerShell to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-powershell.md) and [Monitor and scale a database in Azure SQL Database using PowerShell](scripts/monitor-and-scale-database-powershell.md).
 >
 
 ## Manage servers, databases, and firewalls using the Azure CLI
@@ -129,7 +129,7 @@ To create and manage servers, databases, and firewalls with the [Azure CLI](/cli
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL Database database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL Database database](scripts/monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use the CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## Manage servers, databases, and firewalls using Transact-SQL
