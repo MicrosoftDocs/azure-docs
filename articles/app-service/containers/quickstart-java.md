@@ -89,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
-Open file `pom.xml` and you will see the plugin configurations are updated, you can modify the configurations for App Service directly in your pom file if needed, some common ones are listed below:
+Open to `pom.xml` to see the updated configuration.
+
+```bash
+code pom.xml
+```
+
+You can modify the configurations for App Service directly in your pom file if needed, some common ones are listed below:
 
  Property | Required | Description | Version
 ---|---|---|---
