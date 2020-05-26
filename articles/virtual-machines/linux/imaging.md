@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 05/04/2020
+ms.date: 05/26/2020
 ms.author: danis
 ms.reviewer: cynthn
 
@@ -16,31 +16,21 @@ ms.reviewer: cynthn
 
 This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure.
 
-* Difference between Managed Disks vs Images
-* Steps to bringing and creating a Linux custom image to Azure
-* Image Types
-    * Generalized images
-    * Specialized images
-* Image Storage Options
-    * Azure Shared Image Gallery (SIG)
-    * Managed Images
-* HyperV Generation
-* Building your own custom images in Azure
-* Building your own custom images outside Azure
-
 If you have a requirement to bring a custom images to Azure, you need to be aware of the types and options available to you.
 
 This article will talk through the image decision points and requirements, explain key concepts, so that you can follow this, and be able to create your own custom images to your specification.
 
 ## Difference between managed disks and images
-Azure allows you to bring a VHD to the platform, and either turn it into a [Managed Disk](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq-for-disks#managed-disks), or an [Image](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/shared-images). 
 
-Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq-for-disks#managed-disks), or use as a source for an image. 
+
+Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will try to turn on the VM and start up using that disk. 
 
 Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed images support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning. 
 
 
-## Image Types
+## Generalized and specialized
+
 Azure offers two main image types, generalized and specialized. The terms generalized and specialized are originally Windows terms, which migrated in to Azure. These types define how the platform will handle the VM when it turns it on. Both types have advantages and disadvantages, and prerequisites. Before you get started, you need to know what image type you will need. Below summarizes the scenarios and type you would need to choose:
 
 | Scenario      | Image Type  | Storage Options |
@@ -64,101 +54,57 @@ Provisioning Agents are not required for these images, however, you may want to 
 
 ## Image Storage Options
 When bringing your Linux image you have two options:
-1. Shared Image Gallery
-2. Managed Images
 
-### Azure Shared Image Gallery (SIG)
-This should be your default option to create images, this service helps you build structure and organization around your managed images, for example it provides these features:
-* Support for image types (generalized and specialized)
-* Support for image [generation (Gen1 / Gen2)](Link to section below)
-* Managed global replication of images.
-* Versioning and grouping of images for easier management.
-* Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
-* Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
-* Scaling your deployments with image replicas in each region.
+1. Managed images for simple VM creation in a development and test environment
+1. Shared Image Gallery for creating and sharing images at-scale.
 
-At a high level, you create a SIG, and it is made up of:
-* Image Definitions - These are containers that hold groups of images.
-* Image Versions - These are the actual images
-
-*This is currently in preview for the Azure Shared Image Gallery (SIG), if you need a fully supported option to just bring an image and turn the VM on, please use Managed disks.
-
-Example to create a SIG, SIG Definition:
-```bash
-# Create SIG  resource group
-sigResourceGroup=aibsig
-
-# name of the shared image gallery, e.g. myCorpGallery
-sigName=my21stSIG
-
-# name of the image definition to be created, e.g. ProdImages
-imageDefName=ubuntu1804images
-
-# create SIG
-az sig create \
-    -g $sigResourceGroup \
-    --gallery-name $sigName
-
-# create SIG image definition
-az sig image-definition create \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --os-state Generalized \ #(Specialized or Generalized)
-   <<<<<<<ADD GEN>>>
-   --publisher corpIT \
-   --offer myOffer \
-   --sku 18.04-LTS \
-   --os-type Linux
-
-# create image version
-az sig image-version create \
-    -g $sigResourceGroup 
-    --gallery-name $sigName 
-    --gallery-image-definition $imageDefName 
-    --gallery-image-version 1.0.0 
-    --managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/images/MyManagedImage
-```
-In the example, it creates a SIG version from a managed image, but this could be a OS disk Snapshot. Note, you cannot directly create a SIG version from a VHD or Managed Disk, to do this, create a Managed Image from and OS disk VHD URI or managed OS disk ID
 
 ### Managed Images
-This allows you to store images, but only per region, and does not offer the benefits of SIG, or options of SIG image, such as specialized.
 
-```bash
-az image create 
-    -g $imgResourceGroup \
-    -n $imageName \
-    --os-type Linux \
-    --source <OS disk VHD URI or managed OS disk ID>
-```
+Managed images can be used to create multiple VMs, but they have a lot of limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across susbscriptions and tenants.
 
-### HyperV Generation
+Managed images can be used for development and test environments, where you need a couple of simple generalized images to use within single region and subscription. 
+
+### Azure Shared Image Gallery (SIG)
+Shared Image Galleries are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
+
+- Support for both generalized and specialized images.
+- Support for image both generation 1 and 2 images.
+- Global replication of images.
+- Versioning and grouping of images for easier management.
+- Highly available images with Zone Redundant Storage (ZRS), in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
+- Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
+- Scaling your deployments with image replicas in each region.
+
+At a high level, you create a SIG, and it is made up of:
+- Image Definitions - These are containers that hold groups of images.
+- Image Versions - These are the actual images
+
+
+
+## HyperV Generation
 Azure supports HyperV Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1, for example increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/generation-2). Create Gen2 images if you require the additional functionality.
 
 
-## Building your own custom images
-Whilst Azure allows you to create and upload an image you have created, you should consider using existing vanilla Azure images that existing in the Azure Market Place, as these are already configured and tested to run on Azure.
 
-## Bringing custom image prerequisites <<<<<FINISH>>>>>
-The primary cause of VMs failing to create from images is the OS image not satisfying prerequisites for running on Azure.
+## Bringing custom images to Azure
+The primary cause of VMs failing when being created from an image, is because the OS image does not satisfy prerequisites for running on Azure. While Azure allows you to create and upload an image created from your own source, you should consider using an Azure Marketplace image as a starting point. Azure Marketplace images are already configured and tested to run on Azure.
 
 If you still need to create your own image, ensure it meets the [image prerequisites](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic) below, and upload to Azure.
-<<<<<<THESE NEED LINKING AND CHECKING>>>>>>
 
-CentOS-based Distributions
-Debian Linux
-Oracle Linux
-Red Hat Enterprise Linux
-SLES & openSUSE
-Ubuntu
 
-## Building your own custom images
+- **[CentOS-based distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-You have some options to build images, you can build them using exist modified pipelines, these may be on premise or in the cloud. 
 
-Or you can use the Azure VM Image Builder, that builds custom images in Azure, these can be built from existing custom Images or Azure Market Place Images.
 
-#### Building your own custom images and uploading them to Azure
+## Next steps
 
-If you are creating a custom image that you have uploaded, then you must ensure it meets the requirements for Azure. 
+Learn how to create a [Shared Image Gallery](tutorial-custom-images.md).
+
+
 
