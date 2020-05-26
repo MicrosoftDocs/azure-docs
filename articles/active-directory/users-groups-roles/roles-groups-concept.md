@@ -24,7 +24,7 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Just create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You can enable this property in the Azure portal by turning on **Azure AD roles can be assigned to the group** when creating a new group. Then you can assign the group to one or more Azure AD roles in the same way as you assign roles to users.
+Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users.
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group aa an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 

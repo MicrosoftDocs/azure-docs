@@ -19,12 +19,10 @@ ms.collection: M365-identity-device-management
 
 # Assign a role to a group using Privileged Identity Management
 
-This article describes how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management. Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version. You can assign a role to a group only in the new version. While the new version is being rolled out, you need to make sure you're in the new version to use the procedures in this article depend on version of Privileged Identity Management you currently have.
+This article describes how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management (PIM).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, you have the new version and con proceed with the instructions in this article. If you don't have the new version, you can't complete the role assignment.
-
-   [![](media/roles-groups-pim-eligible/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/roles-groups-pim-eligible/pim-new-version.png#lightbox)
+> [!Note]
+> You must be using the updated version of Privileged Identity Management to be able to assign a group to an Azure AD role using PIM. You might be on older version of PIM if your Azure AD organization leverages the Privileged Identity Management API. If so, please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## Using Azure AD admin center
 
