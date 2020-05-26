@@ -34,14 +34,13 @@ It is recommended that you read through the following documentation pages
 
 Prerequisites for this tutorial are as follows
 
-1. Install [docker](https://docs.docker.com/desktop/) on your development machine
-2. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension, and the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
+* Install [docker](https://docs.docker.com/desktop/) on your development machine
+* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension, and the [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
     > [!TIP]
     > You might be prompted to install docker. You may ignore this prompt.
-
-3. [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
-4. Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
+* Complete [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) <!--and [Set up the environment]()-->
 
 At the end of the above steps, you will have certain Azure resources deployed in the Azure subscription, including:
 
