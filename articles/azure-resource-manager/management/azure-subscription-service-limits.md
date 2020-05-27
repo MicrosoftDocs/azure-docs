@@ -320,9 +320,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md), and [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
 
-## SQL Data Warehouse limits
+## Azure Synapse Analytics limits
 
-For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## Storage limits
 
