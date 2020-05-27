@@ -565,11 +565,11 @@
         href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
         href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    # - name: Resource Manager template
-    #   displayName: ARM
-    #   href: /azure/templates/microsoft.storage/allversions
-    # - name: Monitoring data
-    #   href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Resource Manager template
+      displayName: ARM
+      href: /azure/templates/microsoft.storage/allversions
+    - name: Monitoring data
+      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure updates

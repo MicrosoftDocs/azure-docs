@@ -266,9 +266,9 @@
   #   href: https://azure.github.io/azure-storage-ios/
   # - name: Android
   #   href: https://azure.github.io/azure-storage-android
-  # - name: Resource Manager template
-  #   displayName: ARM
-  #   href: /azure/templates/microsoft.storage/allversions
+  - name: Resource Manager template
+    displayName: ARM
+    href: /azure/templates/microsoft.storage/allversions
 - name: Resources
   items:
   - name: Azure updates
