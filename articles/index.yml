@@ -692,6 +692,7 @@ productDirectory:
       azureCategories:
         - featured
         - hybrid
+        - databases
       url: azure-sql/index.yml
     # Card
     - title: Azure SQL Database
