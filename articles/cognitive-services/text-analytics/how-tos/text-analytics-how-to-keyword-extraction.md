@@ -160,5 +160,6 @@ In this article, you learned concepts and workflow for key phrase extraction by 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Text Analytics API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/)
+* [Text Analytics overview](../overview.md)
+* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [What's new](../whats-new.md)

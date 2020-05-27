@@ -265,11 +265,6 @@ In this article, you learned concepts and workflow for language detection by usi
 
 ## See also
 
- [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Analyze sentiment](text-analytics-how-to-sentiment-analysis.md)
+* [Text Analytics overview](../overview.md)
+* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [What's new](../whats-new.md)
