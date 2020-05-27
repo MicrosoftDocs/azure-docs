@@ -47,7 +47,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](access-api-howto.md#use-the-azure-portal).
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
 
 ## Deploy Live Video Analytics Edge module
 
@@ -107,7 +107,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  
     ![Twin settings](./media/deploy-iot-edge-device/twin-settings.png)
 
-    Configure each property with an appropriate value. See [Module Twin configuration schema](module-twin-configuration-schema.md) for more details on what each property means. To get these values, see [Access Azure Media Services API](access-api-howto.md#use-the-azure-portal).
+    Configure each property with an appropriate value. See [Module Twin configuration schema](module-twin-configuration-schema.md) for more details on what each property means. To get these values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).
 
     Following are the required properties:
     
