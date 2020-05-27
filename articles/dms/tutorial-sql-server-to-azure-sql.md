@@ -63,7 +63,7 @@ To complete this tutorial, you need to:
 - Open your Windows firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
-- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure SQL Database to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 - Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 - Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases.
 
@@ -224,7 +224,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database Server, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the Data Migration Assistant.
+1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the Data Migration Assistant.
 
     ![Select Target](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -266,7 +266,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 2. After the migration completes, select **Download report** to get a report listing the details associated with the migration process.
 
-3. Verify the target database(s) on the target Azure SQL Database server.
+3. Verify the target database(s) on the target Azure SQL Database.
 
 ### Additional resources
 
