@@ -223,6 +223,16 @@
         - name: Salesforce
           href: identity-provider-salesforce-custom.md
           displayName: SAML
+    - name: Partner integration
+      items:
+      - name: ipification
+        href: custom-policy-partner-ipification.md
+      - name: itsme
+        href: custom-policy-partner-itsme.md
+      - name: trusona
+        href: custom-policy-partner-trusona.md
+      - name: twilio
+        href: custom-policy-partner-twilio.md
     - name: Tokens and session management
       items:
       - name: Customize tokens
