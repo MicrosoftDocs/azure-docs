@@ -6,7 +6,7 @@
   href: override-hierarchical-state.md
 - name: Late stage reprojection
   href: late-stage-reprojection.md
-- name: Lights
+- name: Scene lighting
   href: lights.md
 - name: PBR materials
   href: pbr-materials.md
