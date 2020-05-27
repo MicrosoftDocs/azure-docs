@@ -2,7 +2,7 @@
 title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 ms.topic: how-to
-ms.date: 12/05/2018
+ms.date: 05/27/2020
 ms.custom: seodec18
 
 ---
@@ -61,7 +61,7 @@ To configure a metric alert in the Azure portal:
 2. Under **Monitoring**, select **Alerts**, then select **New alert rule**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric).
+For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 You can also configure a near real-time alert using the Azure Monitor [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
 
@@ -88,49 +88,51 @@ Alternately, you can:
 
 ### Enable collection of Batch diagnostic logs
 
-1. In the portal, select **All services** > **Batch accounts**, and then select the name of your Batch account.
-2. Under **Monitoring**, select **Diagnostic logs** > **Turn on diagnostics**.
-3. In **Diagnostic settings**, enter a name for the setting, and choose a log destination (existing Storage account, Event Hub, or Azure Monitor logs). Select either or both **ServiceLog** and **AllMetrics**.
+To create a new diagnostic setting in the Azure portal, follow the steps below.
 
-    When you select a storage account, optionally set a retention policy. If you don't specify a number of days for retention, data is retained during the life of the storage account.
+1. In the Azure portal, select **All services** > **Batch accounts**, and then select the name of your Batch account.
+2. Under **Monitoring**, select **Diagnostic settings**.
+3. In **Diagnostic settings**, select **Add diagnostic setting**.
+4. Enter a name for the setting.
+5. Select a destination: **Send to Log Analytics**, **Archive to a storage account**, or **Stream to an Event Hub**. If you select a storage account, you can optionally set a retention policy. If you don't specify a number of days for retention, data is retained during the life of the storage account.
+6. Select **ServiceLog**, **AllMetrics**, or both.
+7. Select **Save** to create the diagnostic setting.
 
-4. Click **Save**.
-
-![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
-
-Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).
+You can also [enable collection through Azure Monitor in the Azure portal](../azure-monitor/platform/diagnostic-settings.md) to configure diagnostic settings, by using a [Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md), or with Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md).
 
 ### Access diagnostics logs in storage
 
 If you archive Batch diagnostic logs in a storage account, a storage container is created in the storage account as soon as a related event occurs. Blobs are created according to the following naming pattern:
 
-```
+```json
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-Example:
 
-```
+For example:
+
+```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
+
 Each `PT1H.json` blob file contains JSON-formatted events that occurred within the hour specified in the blob URL (for example, `h=12`). During the present hour, events are appended to the `PT1H.json` file as they occur. The minute value (`m=00`) is always `00`, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 Below is an example of a `PoolResizeCompleteEvent` entry in a `PT1H.json` log file. It includes information about the current and target number of dedicated and low-priority nodes, as well as the start and end time of the operation:
 
-```
+```json
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). To access the logs in your storage account programmatically, use the Storage APIs. 
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). To access the logs in your storage account programmatically, use the Storage APIs.
 
-### Service Log events
+### Service log events
 
-Azure Batch Service Logs, if collected, contain events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. Each event emitted by Batch is logged in JSON format. For example, this is the body of a sample **pool create event**:
+Azure Batch service logs, if collected, contain events emitted by the Azure Batch service during the lifetime of an individual Batch resource, such as a pool or task. Each event emitted by Batch is logged in JSON format. For example, this is the body of a sample **pool create event**:
 
 ```json
 {
@@ -154,18 +156,16 @@ Azure Batch Service Logs, if collected, contain events emitted by the Azure Batc
 }
 ```
 
-Service Log events emitted by the Batch service include the following:
+Service log events emitted by the Batch service include the following:
 
-| **Service Log events** |
-| --- |
-| [Pool create](batch-pool-create-event.md) |
-| [Pool delete start](batch-pool-delete-start-event.md) |
-| [Pool delete complete](batch-pool-delete-complete-event.md) |
-| [Pool resize start](batch-pool-resize-start-event.md) |
-| [Pool resize complete](batch-pool-resize-complete-event.md) |
-| [Task start](batch-task-start-event.md) |
-| [Task complete](batch-task-complete-event.md) |
-| [Task fail](batch-task-fail-event.md) |
+- [Pool create](batch-pool-create-event.md)
+- [Pool delete start](batch-pool-delete-start-event.md)
+- [Pool delete complete](batch-pool-delete-complete-event.md)
+- [Pool resize start](batch-pool-resize-start-event.md)
+- [Pool resize complete](batch-pool-resize-complete-event.md)
+- [Task start](batch-task-start-event.md)
+- [Task complete](batch-task-complete-event.md)
+- [Task fail](batch-task-fail-event.md)
 
 ## Next steps
 
