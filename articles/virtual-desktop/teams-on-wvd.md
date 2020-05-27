@@ -102,6 +102,10 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](https://docs.microsoft.com/microsoftteams/known-issues)
 
+## Feedback
+
+Provide feedback for Microsoft Teams on Windows Virtual Desktop on the Teams [UserVoice site](https://microsoftteams.uservoice.com/).
+
 ## Contact Microsoft Teams support
 
 For issues with Microsoft Teams, check out the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
