@@ -8,6 +8,7 @@ ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 
 # Configure an IoT Edge device to act as a transparent gateway

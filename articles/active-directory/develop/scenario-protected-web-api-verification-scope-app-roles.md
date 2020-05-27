@@ -146,7 +146,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-This time, the code snippet is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal.Current` with `HttpContext.User`, and replace the `"roles"` claim name with `"http://schemas.microsoft.com/identity/claims/roles"`. Also see the code snippet earlier in this article.
+This time, the code snippet is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal.Current` with `HttpContext.User`, and replace the `"roles"` claim name with `"http://schemas.microsoft.com/ws/2008/06/identity/claims/role"`. Also see the code snippet earlier in this article.
 
 ### Accepting app-only tokens if the web API should be called only by daemon apps
 

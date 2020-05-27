@@ -60,7 +60,7 @@ You need OCR result files in order for the service to consider the corresponding
 
 1. Call the **[Analyze Layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
 1. Call the **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API, using the operation ID from the previous step.
-1. Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
+1. Get the response and write the content to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
 
     ```json
     {
@@ -483,11 +483,8 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/15/words/0"
-                }
-              ],
-              "fieldName":"total"
+                "#/analyzeResult/readResults/0/lines/15/words/0"
+              ]
             },
             "invoice #":{ 
               "type":"string",
@@ -506,11 +503,8 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/12/words/0"
-                }
-              ],
-              "fieldName":"invoice #"
+                "#/analyzeResult/readResults/0/lines/12/words/0"
+              ]
             },
             "vat":{ 
               "type":"string",
@@ -529,11 +523,8 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "page":1,
               "confidence":0.9839357733726502,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/16/words/0"
-                }
-              ],
-              "fieldName":"vat"
+                "#/analyzeResult/readResults/0/lines/16/words/0"
+              ]
             },
             ...
           }

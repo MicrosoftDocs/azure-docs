@@ -37,7 +37,7 @@ To help you protect yourself against these challenges, Security Center provides 
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and security alerts.
 
--   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with autoprovisioning and protection with Azure services.
+-   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -58,7 +58,7 @@ network security estate.
 
 ### Manage organization security policy and compliance
 
-It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
+It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
 Center, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
 
 ![Security Center dashboard](media/security-center-intro/sc-dashboard.png)

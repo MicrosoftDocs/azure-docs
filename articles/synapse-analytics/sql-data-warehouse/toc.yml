@@ -8,7 +8,8 @@
     href: sql-data-warehouse-overview-what-is.md
   - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
-
+  - name: Data warehouse units
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
   - name: Best practices
@@ -36,6 +37,8 @@
     items: 
     - name: COPY statement
       href: quickstart-bulk-load-copy-tsql.md
+    - name: COPY statement examples
+      href: quickstart-bulk-load-copy-tsql-examples.md
   - name: Scale
     items:
     - name: Portal
@@ -48,10 +51,14 @@
     items: 
     - name: Create workload classifier
       items:
+      - name: Portal
+        href: quickstart-create-a-workload-classifier-portal.md 
       - name: T-SQL
         href: quickstart-create-a-workload-classifier-tsql.md 
     - name: Create workload isolation
       items:
+      - name: Portal
+        href: quickstart-configure-workload-isolation-portal.md
       - name: T-SQL
         href: quickstart-configure-workload-isolation-tsql.md
   - name: Pause and resume
@@ -359,7 +366,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
   - name: Troubleshoot
     items:
     - name: Connectivity
@@ -386,8 +393,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
   - name: Pricing calculator
@@ -410,3 +417,5 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Public Preview partners
+      href: sql-data-warehouse-partner-launch.md

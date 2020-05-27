@@ -461,6 +461,6 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

@@ -4,7 +4,7 @@ description: This article describes upcoming releases for the Microsoft Security
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -21,7 +21,7 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 
 ![Releases](./media/security-code-analysis-releases/releases.png)
 
-## Credential Scanner v2.0: Released on April 1, 2020
+## Credential Scanner v2.0: Released in April 2020
 
 ### Innovations & Improvements
 
@@ -46,7 +46,7 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 
    - Support for SARIF 2.1 and CSV file output file formats
 
-## BinSkim v1.6.0: To be released on April 2020
+## BinSkim v1.6.0: Released in April 2020
 
 ### Improvements
 

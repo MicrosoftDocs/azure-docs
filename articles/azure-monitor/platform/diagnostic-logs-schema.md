@@ -44,12 +44,12 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | --- | --- |
 | Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| API Management | [API Management Resource Logs](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| API Management | [API Management Resource Logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Application Gateways |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Data Explorer | [Azure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
@@ -72,7 +72,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Recovery Services | [Data Model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database logging](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
@@ -80,7 +80,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 ## Supported log categories per resource type
 
-Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md). 
+Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Resource Type|Category|Category Display Name|
 |---|---|---|

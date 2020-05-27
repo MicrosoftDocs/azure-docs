@@ -85,7 +85,7 @@ To use Azure CLI:
 
 1. Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verify access by entering *az account get-access-token --resource https://vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
+1. Verify access by entering *az account get-access-token --resource https:\//vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
 
    If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI. Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
@@ -269,7 +269,7 @@ Using Azure CLI, set the default subscription to one that has the account you wa
 
 #### Unauthorized access, access denied, forbidden, or similar error
 
-The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
+The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
 
 ### Common issues when deployed to Azure App Service
 

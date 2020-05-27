@@ -40,9 +40,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/dotnet-sdk.md
-          - text: Using the REST API (Python)
-            url: quickstarts/python-train-extract.md
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
       - linkListType: tutorial
@@ -74,8 +78,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Using the REST API (Python)
-            url: quickstarts/python-receipts.md
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-receipts.md
 
@@ -83,6 +95,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
           - text: Using the REST API (Python)
             url: quickstarts/python-layout.md
 

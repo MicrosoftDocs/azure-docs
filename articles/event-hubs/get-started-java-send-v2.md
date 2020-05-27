@@ -7,7 +7,7 @@ author: spelluru
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
+ms.date: 04/21/2020
 ms.author: spelluru
 
 ---
@@ -190,7 +190,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
                      .processEvent(processEvent)
                      .processError(processError)
                      .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
-                     .checkpointStore(new InMemoryCheckpointStore())
+                     .checkpointStore(new SampleCheckpointStore())
                      .buildEventProcessorClient();
     
              System.out.println("Starting event processor");
@@ -208,7 +208,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
      }
     ```
     
-2. Download the **InMemoryCheckpointStore.java** file from [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/InMemoryCheckpointStore.java), and add it to your project. 
+2. Download the **SampleCheckpointStore.java** file from [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/SampleCheckpointStore.java), and add it to your project. 
 3. Build the program, and ensure that there are no errors. 
 
 ## Run the applications

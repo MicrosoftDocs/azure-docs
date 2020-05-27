@@ -19,7 +19,7 @@ Partial and pattern search can be problematic if the index doesn't have terms in
 The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
 
 > [!TIP]
-> Familiar with Postman and REST APIs? [Download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) to query partial terms and special characters described in this article.
+> Familiar with Postman and REST APIs? [Download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
 
 ## What is partial search in Azure Cognitive Search
 

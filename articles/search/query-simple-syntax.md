@@ -8,19 +8,18 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/12/2020
+ms.date: 04/24/2020
 ---
 
 # Simple query syntax in Azure Cognitive Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-In Azure Cognitive Search, the simple query syntax excludes fuzzy search operations. Instead, use the full Lucene syntax for [fuzzy search](search-query-fuzzy.md).
+The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search. 
 
-> [!NOTE]
-> The simple query syntax is used for query expressions passed in the **search** parameter of the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
->
-> Azure Cognitive Search provides an alternative [full Lucene query syntax](query-lucene-syntax.md) for more complex queries in the **search** parameter. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
+The simple syntax is used for query expressions passed in the `search` parameter of a [Search Documents request](https://docs.microsoft.com/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
+
+Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
 ## Invoke simple parsing
 
@@ -34,24 +33,24 @@ As straightforward as this sounds, there is one aspect of query execution in Azu
 
 ### Precedence operators (grouping)
 
-You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi||luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
+You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi|luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
 
-Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
+Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi|pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
 ### Escaping search operators  
 
-In order to use any of the search operators as part of the search text, escape the character by prefixing it with a single backslash (`\`). For example, for a wildcard search on `https://`, where `://` is part of the query string, you would specify `search=https\:\/\/*`. Similarly, an escaped phone number pattern might look like this `\+1 \(800\) 642\-7676`.
+In the simple syntax, search operators include these characters: `+ | " ( ) ' \`  
 
-Special characters that require escaping include the following: `- * ? \ /`  
+If any of these characters are part of a token in the index, escape it by prefixing it with a single backslash (`\`) in the query. For example, suppose you used a custom analyzer for whole term tokenization, and your index contains the string "Luxury+Hotel". To get an exact match on this token, insert an escape character: `search=luxury\+hotel`. 
 
-In order to make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
+To make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
 
-+ The NOT operator `-` only needs to be escaped if it's the first character after whitespace, not if it's in the middle of a term. For example, the following GUID is valid without the escape character: `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
++ The NOT operator `-` only needs to be escaped if it's the first character after a whitespace. If the `-` appears in the middle (for example, in `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`), you can skip escaping.
 
-+ The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `4*4=16` does not require a backslash.
++ The suffix operator `*` only needs to be escaped if it's the last character before a whitespace. If the `*` appears in the middle (for example, in `4*4=16`), no escaping is needed.
 
 > [!NOTE]  
-> Although escaping keeps tokens together, [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) during indexing may strip them out. For example, the standard Lucene analyzer will delete and break words on hyphens, whitespace, and other characters. If you require special characters in the query string, you might need an analyzer that preserves them in the index. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
+> By default, the standard analyzer will delete and break words on hyphens, whitespace, ampersands, and other characters during [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). If you require special characters to remain in the query string, you might need an analyzer that preserves them in the index. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
 
 ### Encoding unsafe and reserved characters in URLs
 
@@ -69,7 +68,7 @@ You can embed Boolean operators (AND, OR, NOT) in a query string to build a rich
 
 ### AND operator `+`
 
-The AND operator is a plus sign. For example, `wifi+luxury` will search for documents containing both `wifi` and `luxury`.
+The AND operator is a plus sign. For example, `wifi + luxury` will search for documents containing both `wifi` and `luxury`.
 
 ### OR operator `|`
 
@@ -105,8 +104,9 @@ A term search is a query for one or more terms, where any of the terms are consi
 
 ## See also  
 
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Query examples for simple search](search-query-simple-examples.md)
 + [Query examples for full Lucene search](search-query-lucene-examples.md)
-+ [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Lucene query syntax](query-lucene-syntax.md)
 + [OData expression syntax](query-odata-filter-orderby-syntax.md) 

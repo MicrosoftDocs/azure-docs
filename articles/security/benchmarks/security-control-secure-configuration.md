@@ -26,7 +26,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -58,7 +58,7 @@ Use Azure Security Center recommendations to maintain security configurations on
 |--|--|--|
 | 7.3 | 5.2 | Customer |
 
-Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
 - [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 

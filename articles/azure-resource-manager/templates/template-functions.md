@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/27/2020
 ---
 # ARM template functions
 
@@ -13,14 +13,12 @@ To create your own functions, see [User-defined functions](template-syntax.md#fu
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
 <a id="array" aria-hidden="true" />
-<a id="coalesce" aria-hidden="true" />
 <a id="concatarray" aria-hidden="true" />
 <a id="contains" aria-hidden="true" />
 <a id="createarray" aria-hidden="true" />
 <a id="empty" aria-hidden="true" />
 <a id="first" aria-hidden="true" />
 <a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
 <a id="last" aria-hidden="true" />
 <a id="length" aria-hidden="true" />
 <a id="min" aria-hidden="true" />
@@ -30,19 +28,17 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="take" aria-hidden="true" />
 <a id="union" aria-hidden="true" />
 
-## Array and object functions
+## Array functions
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays.
 
 * [array](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
 * [last](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
@@ -52,6 +48,7 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
+<a id="coalesce" aria-hidden="true" />
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
 <a id="lessorequals" aria-hidden="true" />
@@ -62,6 +59,7 @@ Resource Manager provides several functions for working with arrays and objects.
 
 Resource Manager provides several functions for making comparisons in your templates.
 
+* [coalesce](template-functions-comparison.md#coalesce)
 * [equals](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
@@ -129,6 +127,19 @@ Resource Manager provides the following functions for working with integers:
 * [mod](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
+
+<a id="json" aria-hidden="true" />
+
+## Object functions
+
+Resource Manager provides several functions for working with objects.
+
+* [contains](template-functions-object.md#contains)
+* [empty](template-functions-object.md#empty)
+* [intersection](template-functions-object.md#intersection)
+* [json](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />

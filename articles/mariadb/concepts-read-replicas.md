@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 5/4/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -28,9 +28,6 @@ The read replica feature uses asynchronous replication. The feature isn't meant 
 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
-
-> [!NOTE]
-> Cross region replication is in preview.
 
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
@@ -68,7 +65,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules or VNet service endpoint of the master server. Afterwards, these rules are independent from the the master server.
+At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -121,7 +118,7 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
-Firewall rules, virtual network rules, and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
+Firewall rules and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
 
 ### Stopped replicas
 
@@ -144,6 +141,8 @@ The following server parameters are locked on both the master and replica server
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parameter is locked on the replica servers.
+
+To update one of the above parameters on the master server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
 ### Other
 

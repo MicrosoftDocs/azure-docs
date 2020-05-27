@@ -96,6 +96,7 @@ Additionally, SQL pool does not support following collation types:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
+*    UTF-8
 
 ## Checking the current collation
 To check the current collation for the database, you can run the following T-SQL snippet:

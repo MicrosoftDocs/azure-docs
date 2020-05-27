@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
-ms.date: 03/16/2020
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
@@ -29,7 +29,7 @@ _Audit VMs that do not use managed disks_. For a partial list of available built
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
 The resource defined in the template is:
 
@@ -75,7 +75,7 @@ Some additional resources:
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance overview page](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Policy compliance overview page" border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -93,7 +93,7 @@ To remove the assignment created, follow these steps:
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete
    assignment**.
 
-   ![Delete an assignment from the compliance overview page](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Delete an assignment from the compliance overview page" border="false":::
 
 ## Next steps
 

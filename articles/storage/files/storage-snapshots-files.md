@@ -33,7 +33,7 @@ After a share snapshot is created, it can be read, copied, or deleted, but not m
 Share snapshot capability is provided at the file share level. Retrieval is provided at individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, the REST API, the portal, the client library, or PowerShell/CLI tooling.
 
 A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the
-time at which the share snapshot was taken. For example, if a file share URI is http://storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
+time at which the share snapshot was taken. For example, if a file share URI is http:\//storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -78,7 +78,7 @@ helping to improve data protection and recoverability. You can use the REST API,
 
 Before you deploy the share snapshot scheduler, carefully consider your share snapshot frequency and retention settings to avoid incurring unnecessary charges.
 
-Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can lock the storage account or the resource group.
+Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
 ## Next steps
 - Working with share snapshots in:

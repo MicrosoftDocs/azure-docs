@@ -6,9 +6,6 @@ ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
 
-experimental: false
-experiment_id: a231f2b4-2625-4d
-
 # NOTE: this article is nearly identical to app-service/containers/quickstart-nodejs.md.
 # The difference is that this article uses the advanced web app step to deploy to Windows, whereas the other
 # uses defaults to deploy to Linux.
@@ -22,7 +19,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice) for Visual Studio Code.
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
 
 ## Clone and run a local Node.js application
 
@@ -44,7 +41,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
     npm start
     ```
     
-1. Open your browser and navigate to [http://localhost:1337](http://localhost:1337). The browser should display "Hello World!".
+1. Open your browser and navigate to `http://localhost:1337`. The browser should display "Hello World!".
 
 1. Press **Ctrl**+**C** in the terminal to stop the server.
 

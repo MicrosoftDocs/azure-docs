@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 You've built your client application object. Now, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
 
-- Get a token for the web API by using the token cache. To get this token, you call the `AcquireTokenSilent` method.
+- Get a token for the web API by using the token cache. To get this token, you call the MSAL `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
 - Call the protected API, passing the access token to it as a parameter.
 
 # [ASP.NET Core](#tab/aspnetcore)
@@ -51,7 +51,7 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -157,6 +157,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## Next steps
 

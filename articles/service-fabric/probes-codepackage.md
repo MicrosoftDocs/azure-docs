@@ -1,59 +1,61 @@
 ---
 title: Azure Service Fabric probes
-description: How to model Liveness Probe in Azure Service Fabric using application and service manifest files.
+description: How to model a liveness probe in Azure Service Fabric by using application and service manifest files.
 
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
 ---
-# Liveness Probe
-Starting with 7.1 Service Fabric supports Liveness Probe mechanism for [containerized][containers-introduction-link] applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart.
-This article provides an overview of how to define a Liveness Probe via manifest files.
+# Liveness probe
+Starting with version 7.1, Azure Service Fabric supports a liveness probe mechanism for [containerized][containers-introduction-link] applications. A liveness probe helps to report the liveness of a containerized application, which will restart if it doesn't respond quickly.
+This article provides an overview of how to define a liveness probe by using manifest files.
 
-Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
+Before you proceed with this article, become familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
 > [!NOTE]
-> Liveness Probe is only supported for containers on NAT networking mode.
+> Liveness probe is supported only for containers in NAT networking mode.
 
 ## Semantics
-You can specify only 1 Liveness Probe per container and can control it's behavior with these fields:
+You can specify only one liveness probe per container and can control its behavior by using these fields:
 
-* `initialDelaySeconds`: The initial delay in seconds to start executing probe once container has started. Supported value is int. Default is 0. Minimum is 0.
+* `initialDelaySeconds`: The initial delay in seconds to start executing the probe after the container has started. The supported value is **int**. The default is 0 and the minimum is 0.
 
-* `timeoutSeconds`: Period in seconds after which we consider probe as failed if it hasn't completed successfully. Supported value is int. Default is 1. Minimum is 1.
+* `timeoutSeconds`: The period in seconds after which we consider the probe as failed, if it hasn't finished successfully. The supported value is **int**. The default is 1 and the minimum is 1.
 
-* `periodSeconds`: Period in seconds to specify how often we probe. Supported value is int. Default is 10. Minimum is 1.
+* `periodSeconds`: The period in seconds to specify the frequency of the probe. The supported value is **int**. The default is 10 and the minimum is 1.
 
-* `failureThreshold`: Once we hit FailureThreshold, container will restart. Supported value is int. Default is 3. Minimum is 1.
+* `failureThreshold`: When we hit this value, the container will restart. The supported value is **int**. The default is 3 and the minimum is 1.
 
-* `successThreshold`: On failure, for probe to be considered success it has to execute successfully for SuccessThreshold. Supported value is int. Default is 1. Minimum is 1.
+* `successThreshold`: On failure, for the probe to be considered successful, it has to run successfully for this value. The supported value is **int**. The default is 1 and the minimum is 1.
 
-There will be at most 1 probe to container at one moment of time. If the probe does not complete in **timeoutSeconds** we keep waiting and counting it towards the **failureThreshold**. 
+There can be, at most, one probe to one container at any moment. If the probe doesn't finish in the time set in **timeoutSeconds**, wait and count the time toward the **failureThreshold**. 
 
-Additionally, ServiceFabric will raise following probe [Health Reports][health-introduction-link] on DeployedServicePackage:
+Additionally, Service Fabric will raise the following probe [health reports][health-introduction-link] on **DeployedServicePackage**:
 
-* `Ok`: If the probe succeeds for **successThreshold** then we report health as Ok.
+* `OK`: The probe succeeds for the value set in **successThreshold**.
 
-* `Error`: If the probe failureCount ==  **failureThreshold**, before restarting the container we report Error.
+* `Error`: The probe **failureCount** ==  **failureThreshold**, before the container restarts.
 
 * `Warning`: 
-    1. If the probe fails and the failureCount < **failureThreshold** we report Warning. This health report stays until failureCount reaches **failureThreshold** or **successThreshold**.
-    2. On success post failure, we still report Warning but with updated consecutive success.
+    * The probe fails and **failureCount** < **failureThreshold**. This health report stays until **failureCount** reaches the value set in **failureThreshold** or **successThreshold**.
+    * On success after failure, the warning remains but with updated consecutive successes.
 
-## Specifying Liveness Probe
+## Specifying a liveness probe
 
-You can specify probe in the ApplicationManifest.xml under ServiceManifestImport:
+You can specify a probe in the ApplicationManifest.xml file under **ServiceManifestImport**.
 
-Probe can either one of :
+The probe can be for any of the following:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## HTTP Probe
+### HTTP probe
 
-For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Return code greater than or equal to 200 and less than 400 indicates success.
+For an HTTP probe, Service Fabric will send an HTTP request to the port and path that you specify. A return code that is greater than or equal to 200, and less than 400, indicates success.
 
-Here is an example of how to specify HttpGet probe:
+Here is an example of how to specify an HTTP probe:
 
 ```xml
   <ServiceManifestImport>
@@ -74,21 +76,21 @@ Here is an example of how to specify HttpGet probe:
   </ServiceManifestImport>
 ```
 
-HttpGet probe has additional properties you can set:
+The HTTP probe has additional properties that you can set:
 
-* `path`: Path to access on the HTTP request.
+* `path`: The path to use in the HTTP request.
 
-* `port`: Port to access for probes. Range is 1 to 65535. Mandatory.
+* `port`: The port to use for probes. This property is mandatory. The range is 1 to 65535.
 
-* `scheme`: Scheme to use for connecting to code package. If set to HTTPS, certificate verification is skipped. Defaults to HTTP
+* `scheme`: The scheme to use for connecting to the code package. If this property is set to HTTPS, the certificate verification is skipped. The default setting is HTTP.
 
-* `httpHeader`: Headers to set in the request. You can specify multiple of these.
+* `httpHeader`: The headers to set in the request. You can specify multiple headers.
 
-* `host`: Host IP to connect to.
+* `host`: The host IP address to connect to.
 
-## TCP Probe
+### TCP probe
 
-For TCP probe, Service Fabric will try to open a socket on the container with the specified port. If it can establish a connection, the probe is considered success. Here is an example of how to specify probe which uses TCP socket:
+For a TCP probe, Service Fabric will try to open a socket on the container by using the specified port. If it can establish a connection, the probe is considered successful. Here's an example of how to specify a probe that uses a TCP socket:
 
 ```xml
   <ServiceManifestImport>
@@ -106,13 +108,13 @@ For TCP probe, Service Fabric will try to open a socket on the container with th
   </ServiceManifestImport>
 ```
 
-## Exec Probe
+### Exec probe
 
-This probe will issue an exec into the container and wait for the command to complete.
+This probe will issue an **exec** command into the container and wait for the command to finish.
 
 > [!NOTE]
-> Exec command takes a comma seperated string. The following command in the example will work for Linux container.
-> If you are trying windows container, use <Command>cmd</Command>
+> **Exec** command takes a comma separated string. The command in the following example will work for a Linux container.
+> If you're trying to probe a Windows container, use **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -133,8 +135,8 @@ This probe will issue an exec into the container and wait for the command to com
 ```
 
 ## Next steps
-See the following articles for related information.
-* [Service Fabric and containers.][containers-introduction-link]
+See the following article for related information:
+* [Service Fabric and containers][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

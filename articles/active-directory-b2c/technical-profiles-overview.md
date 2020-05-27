@@ -35,7 +35,7 @@ A technical profile enables these types of scenarios:
 - [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
 - [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
-- [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
+- [SAML identity provider](saml-identity-provider-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.

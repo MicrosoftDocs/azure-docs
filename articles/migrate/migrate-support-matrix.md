@@ -2,7 +2,7 @@
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
 ---
 
@@ -20,6 +20,8 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 **On-premises assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
 **On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
 
+> [!NOTE]
+> Currently, ISV tools can't send data to Azure Migrate in Azure Government. You can use integrated Microsoft tools, or use partner tools independently.
 
 ## Supported tools
 
@@ -36,7 +38,7 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Assess on-premises SQL Server databases. | NA
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | NA
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Assess VMWare VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
+[Movere](https://www.movere.io/) | Assess VMWare VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
@@ -88,7 +90,7 @@ United States | Central US or West US 2
 **Task** | **Geography** | **Details**
 --- | --- | ---
 Create project | United States | Metadata is stored in US Gov Arizona, US Gov Virginia
-Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia/US Gov Texas
+Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 

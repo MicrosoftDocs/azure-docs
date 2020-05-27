@@ -66,9 +66,9 @@ If you put all of your logic inside a single data flow, ADF executes that same j
 
 This option can be more challenging to follow and troubleshoot because your business rules and business logic can be jumbled together. This option also doesn't provide much reusability.
 
-##### Execute data flows serially
+##### Execute data flows sequentially
 
-If you execute your data flow activities in serial in the pipeline and you have set a TTL on the Azure IR configuration, then ADF reuses the compute resources (VMs), resulting in faster subsequent execution times. You still receive a new Spark context for each execution.
+If you execute your data flow activities in sequence in the pipeline and you have set a TTL on the Azure IR configuration, then ADF will reuse the compute resources (VMs) resulting in faster subsequent execution times. You will still receive a new Spark context for each execution.
 
 Of these three options, this action likely takes the longest time to execute end-to-end. But it does provide a clean separation of logical operations in each data flow step.
 

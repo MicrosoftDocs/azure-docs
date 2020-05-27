@@ -94,7 +94,7 @@ Follow the steps to verify the certificate:
 2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
 3. Run **certmgr.msc** in the newly appeared command prompt
 2. In the management console expand the Personal container and click on Certificates
-3. Locate the certificate issued by **connectorregistrationca.msappproxy.ne
+3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
 
 **To renew the client certificate:**
 

@@ -1,12 +1,10 @@
 ---
 title: Security controls for Azure Windows Virtual Machines
 description: A checklist of security controls for evaluating Azure Windows Virtual Machines
-services: virtual-machines
 ms.service: virtual-machines
-documentationcenter: ''
+ms.subservice: security
 author: msmbaldwin
 manager: barbkess
-
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin

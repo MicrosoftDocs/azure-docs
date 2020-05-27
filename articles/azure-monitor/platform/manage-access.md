@@ -222,7 +222,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions on the workspace: 
 
-        * `Microsoft.OperationalInsights/workspaces/read` – required so the use can enumerate the workspace and open the workspace blade in the Azure portal
+        * `Microsoft.OperationalInsights/workspaces/read` – required so the user can enumerate the workspace and open the workspace blade in the Azure portal
         * `Microsoft.OperationalInsights/workspaces/query/read` – required for every user that can execute queries
         * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – to be able to read Azure AD sign-in logs
         * `Microsoft.OperationalInsights/workspaces/query/Update/read` – to be able to read Update Management solution logs

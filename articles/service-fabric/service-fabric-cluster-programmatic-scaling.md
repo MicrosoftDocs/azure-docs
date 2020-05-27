@@ -10,7 +10,7 @@ ms.author: mikerou
 
 # Scale a Service Fabric cluster programmatically 
 
-Service Fabric clusters running in Azure are built on top of virtual machine scale sets.  [Cluster scaling](./service-fabric-cluster-scale-up-down.md) describes how Service Fabric clusters can be scaled either manually or with auto-scale rules. This article describes how to manage credentials and scale a cluster in or out using the fluent Azure compute SDK, which is a more advanced scenario. For an overview, read [programmatic methods of coordinating Azure scaling operations](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Service Fabric clusters running in Azure are built on top of virtual machine scale sets.  [Cluster scaling](./service-fabric-cluster-scale-in-out.md) describes how Service Fabric clusters can be scaled either manually or with auto-scale rules. This article describes how to manage credentials and scale a cluster in or out using the fluent Azure compute SDK, which is a more advanced scenario. For an overview, read [programmatic methods of coordinating Azure scaling operations](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,6 +115,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 To get started implementing your own auto-scaling logic, familiarize yourself with the following concepts and useful APIs:
 
-- [Scaling manually or with auto-scale rules](./service-fabric-cluster-scale-up-down.md)
+- [Scaling manually or with auto-scale rules](./service-fabric-cluster-scale-in-out.md)
 - [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (useful for interacting with a Service Fabric cluster's underlying virtual machine scale sets)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (useful for interacting with a Service Fabric cluster and its nodes)

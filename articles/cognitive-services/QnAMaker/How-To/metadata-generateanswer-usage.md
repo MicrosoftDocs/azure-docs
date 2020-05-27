@@ -1,7 +1,7 @@
 ---
 title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: diberry
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
-QnA Maker lets you add metadata, in the form of key and value pairs, to your sets of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
@@ -32,7 +32,7 @@ Each QnA entity has a unique and persistent ID. You can use the ID to make updat
 
 ## Get answer predictions with the GenerateAnswer API
 
-You use the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer sets.
+You use the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -191,7 +191,7 @@ Because results are required only for the restaurant "Paradise", you can set a f
 
 ## Use question and answer results to keep conversation context
 
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer set. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
+The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer pair. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
 
 ```json
 {
@@ -251,4 +251,4 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)
+> [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)

@@ -1,15 +1,16 @@
 ---
-title: Microsoft identity platform access tokens reference | Azure
+title: Microsoft identity platform access tokens | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -17,9 +18,9 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Microsoft identity platform access tokens
 
-Access tokens enable clients to securely call APIs protected by Azure. Microsoft identity platform access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Azure. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either the v1.0 endpoint or the v2.0 endpoint using a variety of protocols.
+Access tokens enable clients to securely call protected APIs. Microsoft identity platform access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Microsoft identity platform. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs (JSON Web Tokens) using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either the v1.0 endpoint or the v2.0 endpoint using a variety of protocols.
 
-When your client requests an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
+When your client requests an access token, Microsoft identity platform also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization, such as the user, client, issuer, permissions, and more.
 
@@ -51,7 +52,7 @@ View this v2.0 token in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLC
 
 ## Claims in access tokens
 
-JWTs are split into three pieces:
+JWTs (JSON Web Tokens) are split into three pieces:
 
 * **Header** - Provides information about how to [validate the token](#validating-tokens) including information about the type of token and how it was signed.
 * **Payload** - Contains all of the important data about the user or app that is attempting to call your service.
@@ -109,7 +110,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 **Groups overage claim**
 
-To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
+To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object IDs that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
 
 ```JSON
 {
@@ -157,7 +158,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `otp` | One-time passcode using an email or a text message. |
 | `fed` | A federated authentication assertion (such as JWT or SAML) was used. |
 | `wia` | Windows Integrated Authentication |
-| `mfa` | Multi-factor authentication was used. When this is present the other authentication methods will also be included. |
+| `mfa` | [Multi-factor authentication](../authentication/concept-mfa-howitworks.md) was used. When this is present the other authentication methods will also be included. |
 | `ngcmfa` | Equivalent to `mfa`, used for provisioning of certain advanced credential types. |
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |
@@ -206,7 +207,7 @@ This metadata document:
 > [!NOTE]
 > The v1.0 endpoint returns both the `x5t` and `kid` claims, while the v2.0 endpoint responds with only the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
-Doing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
+Doing signature validation is outside the scope of this document - there are many open-source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
 
 If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID to get a `jwks_uri` pointing to your app's signing key information, which should be used for validation. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 

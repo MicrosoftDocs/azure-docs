@@ -19,12 +19,12 @@ Learn how to work around or solve common Docker deployment errors with Azure Con
 
 When deploying a model in Azure Machine Learning, the system performs a number of tasks.
 
-The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
+The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
 2. Define Inference Configuration:
-    1. Create an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
+    1. Create an [Environment](how-to-use-environments.md) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
     2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
 
 3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
@@ -45,7 +45,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter, your code can be broken down into three major steps:
+Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](how-to-use-environments.md) object as an input parameter, your code can be broken down into three major steps:
 
 1. Register the model. Here is some sample code:
 
@@ -175,6 +175,11 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+## Container cannot be scheduled
+
+When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If, after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 
+
+The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are 3 nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
 
 ## Service launch fails
 

@@ -4,6 +4,7 @@ description: Instructions and information to configure Azure Database for Postgr
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 03/30/2020
 ---
