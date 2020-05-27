@@ -19,7 +19,7 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 * **8266 (TCP+UDP)** - required for data transfer
 * **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
 
-## Error :::no-loc text="'Disconnected: VideoFormatNotAvailable'":::
+## Error '`Disconnected: VideoFormatNotAvailable`'
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
 
@@ -27,7 +27,7 @@ If you are working on a laptop with two GPUs, it is possible that the GPU you ar
 
 ## H265 codec not available
 
-There are two reasons why the server might refuse to connect with a **:::no-loc text="codec not available":::** error.
+There are two reasons why the server might refuse to connect with a `codec not available` error.
 
 **The H265 codec isn't installed:**
 
