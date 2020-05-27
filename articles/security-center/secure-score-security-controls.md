@@ -22,7 +22,7 @@ ms.author: memildin
 
 Azure Security Center has two main goals: to help you understand your current security situation, and to help you efficiently and effectively improve your security. The central aspect of Security Center that enables you to achieve those goals is secure score.
 
-Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization. 
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization over time. 
 
 The secure score page of Security Center includes:
 
@@ -43,9 +43,11 @@ The secure score page of Security Center includes:
 > While this enhanced version is still in preview, the earlier secure score experience is available as an option from the Azure Portal. 
 
 
-## Locating your secure score
+## Accessing your secure score
 
-Security Center displays your score prominently: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+
+You can also access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview).
 
 ## How the secure score is calculated 
 
@@ -81,6 +83,12 @@ To improve your secure score, remediate security recommendations from your recom
 
 >[!IMPORTANT]
 > Only built-in recommendations have an impact on the secure score.
+
+
+## Tracking your secure score over time
+
+
+
 
 ## Security controls and their recommendations
 
