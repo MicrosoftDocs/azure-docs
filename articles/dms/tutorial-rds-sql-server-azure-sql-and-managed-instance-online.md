@@ -61,7 +61,7 @@ To complete this tutorial, you need to:
 * Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
+* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure SQL Database to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for the Azure Database Migration Service.
 * Ensure that the credentials used to connect to the source RDS SQL Server instance are associated with an account that is a member of “Processadmin” server role and a member of the “db_owner” database roles on all databases that are to be migrated.
 * Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases and a member of the sysadmin role if migrating to an Azure SQL Database managed instance.
 * The source RDS SQL Server version must be SQL Server 2012 and above. To determine the version that you SQL Server instance is running, see the article [How to determine the version, edition, and update level of SQL Server and its components](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -224,7 +224,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database server, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the DMA.
+1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the DMA.
 
     ![Select Target](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 
