@@ -118,7 +118,7 @@ You can see the tables and volume of data generated per hour in the assigned Log
 
 Total = 31 MB/Hour = 23.1 GB/month (one month = 31 days)
 
-Using the default pricing for Log Analytics, which is a Pay-As-You-Go model ($2.30 per GB), the monthly Azure Monitor cost for example, would be $52.90 per month. After including a capacity reservation, the price could range from $47.82 to $54.20 per month depending on the reservation selected.
+Using the default [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Log Analytics, which is a Pay-As-You-Go model, you can estimate the Azure Monitor cost per month. After including a capacity reservation, the price would be higher per month depending on the reservation selected.
 
 ## Controlling ingestion to reduce cost
 
