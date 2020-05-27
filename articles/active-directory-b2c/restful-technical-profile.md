@@ -72,6 +72,7 @@ The following example `TechnicalProfile` sends a verification email by using a t
     <Item Key="AuthenticationType">Bearer</Item>
     <Item Key="SendClaimsIn">Body</Item>
     <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+    <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request right now, please try again later.</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
@@ -121,16 +122,16 @@ The technical profile also returns claims, that aren't returned by the identity 
 | ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
 | UseClaimAsBearerToken| No| The name of the claim that contains the bearer token.|
 
-### UI elements
+## Error handling
 
 The following metadata can be used to configure the error messages displayed upon REST API failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | DefaultUserMessageIfRequestFailed | No | A default customized error message for all REST API exceptions.|
-| UserMessageIfCircuitOpen | No | Error message when the REST API is not reachable. If not specify, the DefaultUserMessageIfRequestFailed will be return. |
-| UserMessageIfDnsResolutionFailed | No | Error message for the DNS resolution exception. If not specify, the DefaultUserMessageIfRequestFailed will be return. | 
-| UserMessageIfRequestTimeout | No | Error message when the connection is timed out. If not specify, the DefaultUserMessageIfRequestFailed will be return. | 
+| UserMessageIfCircuitOpen | No | Error message when the REST API is not reachable. If not specified, the DefaultUserMessageIfRequestFailed will be return. |
+| UserMessageIfDnsResolutionFailed | No | Error message for the DNS resolution exception. If not specified, the DefaultUserMessageIfRequestFailed will be return. | 
+| UserMessageIfRequestTimeout | No | Error message when the connection is timed out. If not specified, the DefaultUserMessageIfRequestFailed will be return. | 
 
 ## Cryptographic keys
 
