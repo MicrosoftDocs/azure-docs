@@ -43,11 +43,11 @@ You can try some of these operations by using the following examples:
 
 | | The Azure portal | Azure PowerShell |
 |---|---|---|
-| Change backup retention | [Single database](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Managed instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Single database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Managed instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Change long-term backup retention | [Single database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed instance - N/A  | [Single database](long-term-backup-retention-configure.md)<br/>Managed instance - N/A  |
-| Restore a database from a point in time | [Single database](recovery-using-backups.md#point-in-time-restore) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restore a deleted database | [Single database](recovery-using-backups.md) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Restore a database from Azure Blob storage | Single database - N/A <br/>Managed instance - N/A  | Single database - N/A <br/>[Managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Change backup retention | [SQL Database](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Change long-term backup retention | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance - N/A  | [SQL Database](long-term-backup-retention-configure.md)<br/>SQL Managed Instance - N/A  |
+| Restore a database from a point in time | [SQL Database](recovery-using-backups.md#point-in-time-restore) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Restore a deleted database | [SQL Database](recovery-using-backups.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Restore a database from Azure Blob storage | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## Backup frequency
 
@@ -55,7 +55,7 @@ You can try some of these operations by using the following examples:
 
 SQL Database and SQL Managed Instance support self-service for point-in-time restore (PITR) by automatically creating full backups, differential backups, and transaction log backups. Full database backups are created weekly, and differential database backups are generally created every 12 hours. Transaction log backups are generally created every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
 
-The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database or SQL Managed Instance service as it balances the overall system workload. You can't change or disable the backup jobs.
+The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by SQL Database and SQL Managed Instance as it balances the overall system workload. You can't change or disable the backup jobs.
 
 ### Default backup retention period
 
@@ -73,11 +73,11 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Backup storage consumption
 
-For single databases and managed instances, this equation is used to calculate the total backup storage usage:
+For single databases in SQL Database and managed instances in SQL Managed Instance, this equation is used to calculate the total backup storage usage:
 
 `Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-For pooled databases, the total backup storage size is aggregated at the pool level and is calculated as follows:
+For pooled databases in SQL Database, the total backup storage size is aggregated at the pool level and is calculated as follows:
 
 `Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
 
@@ -147,7 +147,7 @@ If you need to keep the backups for longer than the maximum retention period, yo
 
 ## Encrypted backups
 
-If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new databases in Azure SQL are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new databases in Azure SQL are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database and SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## Backup integrity
 

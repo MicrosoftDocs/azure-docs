@@ -81,7 +81,7 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Free Pluralsite Training - Azure Administrator
+          - text: Free Pluralsight Training - Azure Administrator
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
   # Card
