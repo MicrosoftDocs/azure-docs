@@ -9,16 +9,16 @@ ms.date: 04/27/2020
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
-Alternatively, we provide a setup script that will [create new resources]() for using Live Video Analytics on IoT Edge. Refer to [Live Video Analytics resources setup script]().
+Alternatively, we provide a setup script that will [create new resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources) for using Live Video Analytics on IoT Edge. Refer to [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
 ## Prerequisites
 
 * A Linux machine that meets the HW/SW constraints for Live Video Analytics
-* Azure subscription to which you have [owner privileges]()
-* [Create and setup IoT Hub]()
-* [Register IoT Edge device]()
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems]()
-* [Create an Azure Media Services account]()
+* Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+* [Create and setup IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
+* [Register IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* [Create an Azure Media Services account](../latest/create-account-howto.md)
     * Use one of these regions: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts.
 
@@ -26,11 +26,11 @@ Alternatively, we provide a setup script that will [create new resources]() for 
 
 ### Create custom Azure Resource Manager role
 
-Refer to [Create custom Azure Resource Manager role]()  and create a custom Azure Resource Manager role and assign it to a service principal for LVA use.
+Create custom Azure Resource Manager role and assign it to a service principal for Live Video Analytics use.
 
-### Set up a Premium Streaming Endpoint
+### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video to the cloud, and subsequently play it back, then you should be updating your Media Service to use a [premium streaming endpoint]().  
+If you intend to use Live Video Analytics to record video to the cloud, and subsequently play it back, then you should be updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 
@@ -47,19 +47,19 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs]().
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](access-api-howto.md#use-the-azure-portal).
 
 ## Deploy Live Video Analytics Edge module
 
 <!-- (To JuliaKo: this is similar to https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-blob)-->
-The Live Video Analytics on IoT Edge exposes module twin properties that are documented in [Module Twin configuration schema](). 
+The Live Video Analytics on IoT Edge exposes module twin properties that are documented in [Module Twin configuration schema](module-twin-configuration-schema.md). 
 
 ### Deploy using the Azure portal
 
 The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.
 Select your device
 
-1. Sign in to the [Azure portal]() and navigate to your IoT hub.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
 1. Select IoT Edge from the menu.
 1. Click on the ID of the target device from the list of devices.
 1. Select Set Modules.
@@ -107,7 +107,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
  
     ![Twin settings](./media/deploy-iot-edge-device/twin-settings.png)
 
-    Configure each property with an appropriate value. See [Module Twin configuration schema]() for more details on what each property means. To get these values, see [Access Azure Media Services API]().
+    Configure each property with an appropriate value. See [Module Twin configuration schema](module-twin-configuration-schema.md) for more details on what each property means. To get these values, see [Access Azure Media Services API](access-api-howto.md#use-the-azure-portal).
 
     Following are the required properties:
     
@@ -158,13 +158,13 @@ After you create the deployment, you return to the IoT Edge page of your IoT hub
 2.	In the device details, verify that the blob storage module is listed as both Specified in deployment and Reported by device.
 
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
-Status code: 200 –OK means that [the IoT Edge runtime]() is healthy and is operating fine.
+Status code: 200 –OK means that [the IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) is healthy and is operating fine.
 
 ![Status](./media/deploy-iot-edge-device/status.png)
 
 #### Invoke a direct method
 
-Next, lets test the sample by invoking a direct method. Read [Direct Methods for Live Video Analytics on IoT Edge]() to understand all the Direct Methods provided by our lvaEdge module.
+Next, lets test the sample by invoking a direct method. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by our lvaEdge module.
 
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
