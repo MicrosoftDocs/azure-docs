@@ -54339,7 +54339,10 @@
         "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
         "redirect_document_id": true
     },
-
-
+    {
+      "source_path": "articles/sql-database/index.yml",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": true
+    }
   ]
 }
