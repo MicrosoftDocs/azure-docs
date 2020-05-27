@@ -45,30 +45,21 @@ The arrows in the illustration below show different semantic relationships betwe
 
 You can think of the models as nouns in a description of your world, and the relationships as verbs.
 
-### Process incoming data and propagate state through the twin graph
+### Live execution environment
 
 Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides an event processing system through which you can [**route events**](concepts-route-events.md) to different locations, both within and beyond your Azure Digital Twins instance. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
 
 Routing data and events through custom code processing allows you to:
 * Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin).
 * Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes).
+
+### Output to TSI, storage, and analytics
+
+Routing data and events through custom code processing allows you to:
 * Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters).
 * Send data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations).
 
-### Query the digital representation of your environment to answer business questions
-
-Once you have created a graph of digital twins, you can use the [**Azure Digital Twins query language**](concepts-query-language.md) to run queries against the digital twins, their states, and their relationships. Depending on the state information you represented and the sensors you have connected to drive your digital representation, queries might be used to answer a broad range of questions about your environment.
-
-Here are some examples of insights you can gather:
-* Which campus contains meeting room 47?
-* Which assembly lines have an average temperature outside the range of 77–⁠79 degrees F?
-* Which power station has surplus capacity that is accessible to a particular customer?   
-
-### Manage access to your instance
-
-[**Security in Azure Digital Twins**](concepts-security.md) uses role-based access control (RBAC) to allow you to manage your instance at a twin level. You can define the policies for data access, using built-in roles or defining your own.
-
-### Work with IoT Hub for device-centric scenarios
+### Input from IoT and business systems
 
 Azure Digital Twins can represent IoT devices managed by [IoT Hub](../iot-hub/about-iot-hub.md) as part of your twin graph, where you can connect them via relationships and query them like all other digital twins.
 
