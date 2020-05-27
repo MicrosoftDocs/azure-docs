@@ -480,7 +480,7 @@ Details of telemetry available for all logs are documented in the following tabl
 |ResourceGroup|Name of the resource group for the database |
 |LogicalServerName_s|Name of the managed instance |
 |ResourceId|Resource URI |
-|SKU_s|Managed instance product SKU |
+|SKU_s|SQL Managed Instance product SKU |
 |virtual_core_count_s|Number of vCores available |
 |avg_cpu_percent_s|Average CPU percentage |
 |reserved_storage_mb_s|Reserved storage capacity on the managed instance |
