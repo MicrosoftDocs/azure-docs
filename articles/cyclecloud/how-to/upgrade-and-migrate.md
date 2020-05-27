@@ -1,35 +1,80 @@
 ---
 title: Upgrade or Migrate
-description: Upgrading to a newer CycleCloud version or migrate to a new host.
+description: Upgrading to a newer CycleCloud version or migrating to a new host.
 author: mvrequa
-ms.date: 02/04/2020
+ms.date: 05/27/2020
 ms.author: mirequa
 ---
 
 # Upgrading CycleCloud
+
 It is possible to upgrade the Azure CycleCloud application in place as new versions become available.
 
-## Ugrading on on Debian or Ubuntu
+::: moniker range="=cyclecloud-8"
+
+## CycleCloud 8
+
+CycleCloud 8 has a different package name `cyclecloud8` so as to prevent accidental upgrade from one major version to the next. There are incompatible changes between major versions. One may not install both `cyclecloud` and `cyclecloud8` on the same machine.
+
+The supported upgrade path is to remove the `cyclecloud` package and install `cyclecloud8`. Your data and configuration directories within `/opt/cycle_server` will be preserved upon removal of the `cyclecloud` package. Upon installing `cyclecloud8`, the installation scripts will detect existing data and configuration then run through any upgrade migrations automatically.
+::: moniker-end
+
+## Upgrading on Debian or Ubuntu
 
 Follow the instructions in [Installing on Debian or Ubuntu](./install-manual.md#installing-on-debian-or-ubuntu) to configure the Microsoft apt repository (if it was not already done during installation).
 
+::: moniker range="<=cyclecloud-7"
 Upgrade the CycleCloud package using:
 
 ```bash
 sudo apt update
 sudo apt -y upgrade cyclecloud
 ```
+::: moniker-end
 
-## Ugrading on Enterprise Linux (RHEL) clones
+::: moniker range="=cyclecloud-8"
+To perform a supported indirect upgrade from CycleCloud 7 to CycleCloud 8:
+
+```bash
+sudo apt update
+sudo apt -y remove cyclecloud
+sudo apt -y install cyclecloud8
+```
+
+To perform a direct upgrade of one version of CycleCloud 8 to a newer version:
+```bash
+sudo apt update
+sudo apt -y upgrade cyclecloud8
+```
+::: moniker-end
+
+## Upgrading on Enterprise Linux (RHEL) clones
 
 Follow the instructions in [Installing on Enterprise Linux (RHEL) clones](./install-manual.md#installing-on-enterprise-linux-rhel-clones) to configure the Microsoft yum repository (if it was not already done during installation).
 
+::: moniker range="<=cyclecloud-7"
 Upgrade the CycleCloud package using:
 
 ```bash
 sudo yum -y upgrade cyclecloud
 ```
+::: moniker-end
 
+::: moniker range="=cyclecloud-8"
+To perform a supported indirect upgrade from CycleCloud 7 to CycleCloud 8:
+
+```bash
+sudo yum -y remove cyclecloud
+sudo yum -y install cyclecloud8
+```
+
+To perform a direct upgrade of one version of CycleCloud 8 to a newer version:
+```bash
+sudo yum -y upgrade cyclecloud8
+```
+::: moniker-end
+
+::: moniker range="<=cyclecloud-7"
 ## Upgrading from the Microsoft Download center
 
 In environments where the Microsoft package repositories are unavailable or disallowed by policy, the CycleCloud packages may be downloaded and installed manually.  
@@ -49,6 +94,7 @@ For RedHat variants, use:
 ```bash
 rpm -U cyclecloud_7.9.2.rpm
 ```
+::: moniker-end
 
 > [!IMPORTANT]
 > Upgrading may have undesired consequences on your CycleCloud environment and any running clusters. Microsoft recommends testing all upgrades in a development or staging environment to minimize risk on production workloads.

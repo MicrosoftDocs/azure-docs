@@ -36,25 +36,34 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 
 ### Installing on Debian or Ubuntu
 
-First, install `wget` if its not already installed. This will be used to fetch the Microsoft signing key.
+First, install `wget` and `gnupg2` if its not already installed. This will be used to fetch, and install, the Microsoft signing key.
 
 ```CMD
-sudo apt update && sudo apt -y install wget
+sudo apt update && sudo apt -y install wget gnupg2
 ```
 
-Next, download the Microsoft signing key to Apt's trusted keyring
+Next, download the Microsoft signing key and add to Apt's trusted keyring
 
 ```CMD
-sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
+wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 ```
 
 Finally, configure a _cyclecloud.list_ file, update the Apt cache, and install CycleCloud.
 
+::: moniker range="<=cyclecloud-7"
 ```CMD
-sudo echo 'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
+sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
 sudo apt update
 sudo apt -y install cyclecloud
 ```
+::: moniker-end
+::: moniker range="=cyclecloud-8"
+```CMD
+sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
+sudo apt update
+sudo apt -y install cyclecloud8
+```
+::: moniker-end
 
 > [!NOTE]
 > Although the Apt repository is published for the "bionic" release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
@@ -75,10 +84,18 @@ EOF
 
 Finally, install cyclecloud with `yum` or `dnf`.
 
+::: moniker range="<=cyclecloud-7"
 ```CMD
 sudo yum -y install cyclecloud
 ```
+::: moniker-end
+::: moniker range="=cyclecloud-8"
+```CMD
+sudo yum -y install cyclecloud-8
+```
+::: moniker-end
 
+::: moniker range="<=cyclecloud-7"
 ### Installing from the Microsoft Download center
 
 Download the [Azure CycleCloud install file](https://www.microsoft.com/download/details.aspx?id=57182) from the Microsoft Download Center and install using a package manager.
@@ -99,6 +116,7 @@ dpkg -i <filename.deb>
 >You must have write permission to the _/opt_ directory. The CycleCloud installer will create a `cycle_server` user and unix group, install into the _/opt/cycle_server_ directory by default, and assign `cycle_server:cycle_server` ownership to the directory.
 
 Once the installer has finished running, you will be provided a link to complete the installation from your browser. Copy the link provided into your web browser and follow the configuration steps.
+::: moniker-end
 
 ### Notes on Security
 
