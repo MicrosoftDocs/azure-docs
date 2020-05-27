@@ -7,13 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ---
 
-# Back up and recover your Form Recognizer data
+# Back up and recover your Form Recognizer models
 
-After you've [trained custom Form Recognizer models](./quickstarts/curl-train-extract.md), you may want to move or copy your models from one subscription to another for an added level of data security. The Copy API feature enables this scenario by allowing you to copy custom models within your Form Recognizer account or into other accounts, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
+When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync [custom models](./quickstarts/curl-train-extract.md) across regions.
+
+The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 ## Business scenarios
 
@@ -21,7 +23,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 
 ##  Prerequisites
 
-1. A Form Recognizer Azure resource. If you don't have one, go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. The subscription key, endpoint URL, and subscription ID of your Form Recognizer resource. You can find these values on the resource's **Overview** tab on the Azure portal.
 
 
