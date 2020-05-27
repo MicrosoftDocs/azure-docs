@@ -39857,6 +39857,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/how-to/helm-3.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/monitoring/monitoring-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
@@ -48506,6 +48511,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/dotnet-sdk.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -52495,6 +52505,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-api-differences.md",
+      "redirect_url": "/azure/batch/batch-apis-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-integration-policies.md",
+      "redirect_url": "/azure/batch/policy-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
@@ -53366,8 +53386,8 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-glossary-terms.md",
-        "redirect_url": "/azure/azure-sql/glossary-terms",
-        "redirect_document_id": true
+        "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/sql-database/sql-database-high-availability.md",
@@ -54318,6 +54338,8 @@
         "source_path": "articles/data-factory/connector-azure-sql-database-managed-instance.md",
         "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
         "redirect_document_id": true
-    }
+    },
+
+
   ]
 }
