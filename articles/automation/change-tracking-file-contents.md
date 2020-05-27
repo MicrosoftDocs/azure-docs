@@ -14,7 +14,7 @@ When you add a new file or registry key to track, Azure Automation enables it fo
 Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs using one of these techniques:
 
 * [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md)
-* [Enable Change Tracking and Inventory by browsing in Azure Portal](automation-enable-changes-from-browse.md)
+* [Enable Change Tracking and Inventory by browsing in Azure portal](automation-enable-changes-from-browse.md)
 * [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
 * [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md)
 
