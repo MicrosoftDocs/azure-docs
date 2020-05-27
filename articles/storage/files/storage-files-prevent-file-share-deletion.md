@@ -18,17 +18,19 @@ Azure Storage now offers soft delete for file shares. Soft delete allows you to 
 
 When enabled, soft delete enables you to save and recover your file shares when they're deleted. When data is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted.
 
-Soft delete can be enabled on new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete. 
+Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete. 
 
 For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
 
-### Availability
+## Availability
 
 Soft delete for Azure file shares is available on all storage tiers, all storage account types, and in every region that Azure Files is available in.
 
 ## Configuration settings
 
-Soft delete for file shares is enabled at the storage account level, the soft delete settings apply to all file shares within a storage account. When you create a new storage account, soft delete is off by default. Soft delete is also off by default for existing storage accounts. You can toggle soft delete on and off at any time.
+Soft delete for file shares is enabled at the storage account level, because of this, the soft delete settings apply to all file shares within a storage account.
+
+When you create a new storage account, soft delete for file shares is off by default. Soft delete is also off by default for existing storage accounts. You can enable or disable soft delete at any time.
 
 If you enable soft delete for file shares, delete some file shares, and then disable soft delete, if the shares were saved in that period you can still access and recover those file shares. When you enable soft delete, you also need to configure the retention period.
 
