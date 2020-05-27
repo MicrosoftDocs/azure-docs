@@ -89,7 +89,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 
 > [!NOTE]
 > * The setting to drain requests is not honored for requests from Azure Load balancer.
-> * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. This should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * The settings are not honored when the upgrade is an impactless one i.e when the replicas will not be brought down during the upgrade.
 >
 >
