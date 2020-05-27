@@ -39,7 +39,7 @@ Java (Android) |    Android client applications    | Maven
 JavaScript |    Browser client applications and Node |    Npm
 
 
-Current availablity guidance and timelines for individual SDK packages are collated below. During the private preview these timelines will change signficiantly as we incorporate customer feedback and balance engineering priorities.
+Current availability guidance and timelines for individual SDK packages are collated below. During the private preview these timelines will change signficiantly as we incorporate customer feedback and balance engineering priorities.
 
 Area|  .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|
