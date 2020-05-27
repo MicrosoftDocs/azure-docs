@@ -45,6 +45,8 @@
     href: ./policy-samples.md
 - name: Concepts
   items: 
+    - name: Java and Base OS for Spring Microservice Apps
+      href: spring-cloud-principles-microservice-apps.md
     - name: Understanding Azure Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
     - name: Understanding metrics in Azure Spring Cloud
