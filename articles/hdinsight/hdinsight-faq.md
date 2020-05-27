@@ -82,9 +82,9 @@ No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight
 
 ## Metastore
 
-### How can I migrate from the existing metastore to Azure SQL Server? 
+### How can I migrate from the existing metastore to Azure SQL Database? 
 
-To migrate from SQL Server to Azure SQL Server, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### Is the Hive metastore deleted when the cluster is deleted?
 
