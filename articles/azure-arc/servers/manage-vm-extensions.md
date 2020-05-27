@@ -79,65 +79,65 @@ The following sample enables the Log Analytics agent for Windows.
 
 ```json
 { 
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json", 
-    "contentVersion": "1.0.0.0", 
-    "parameters": { 
-        "vmName": { 
-            "type": "String" 
-        }, 
-        "location": { 
-            "type": "String" 
-        }, 
-        "workspaceId": { 
-            "type": "String" 
-        }, 
-        "workspaceKey": { 
-            "type": "String" 
-        } 
-    }, 
-    "resources": [ 
-        { 
-            "type": "Microsoft.HybridCompute/machines/extensions", 
-            "apiVersion": "2019-08-02-preview",			 
-            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]", 
-            "location": "[parameters('location')]", 
-            "properties": { 
-                "publisher": "Microsoft.EnterpriseCloud.Monitoring", 
-                "type": "MicrosoftMonitoringAgent",                 
-                "autoUpgradeMinorVersion": true, 
-                "settings": { 
-                    "workspaceId": "[parameters('workspaceId')]" 
-                }, 
-                "protectedSettings": { 
-                    "workspaceKey": "[parameters('workspaceKey')]" 
-                } 
-            } 
-        } 
-    ] 
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "workspaceKey": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.HybridCompute/machines/extensions",
+            "apiVersion": "2019-08-02-preview",
+            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[parameters('workspaceId')]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[parameters('workspaceKey')]"
+                }
+            }
+        }
+    ]
 }
 ```
 
 #### Parameter file
 
 ```json
-{ 
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#", 
-    "contentVersion": "1.0.0.0", 
-    "parameters": { 
-        "vmName": { 
-            "value": "<vmName>" 
-        }, 
-        "location": { 
-            "value": "<region>" 
-        }, 
-        "workspaceId": { 
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "<vmName>"
+        },
+        "location": {
+            "value": "<region>"
+        },
+        "workspaceId": {
             "value": "<MyWorkspaceID>"
-        }, 
-        "workspaceKey": { 
-            "value": "<MyWorkspaceKey>" 
-        } 
-    } 
-} 
+        },
+        "workspaceKey": {
+            "value": "<MyWorkspaceKey>"
+        }
+    }
+}
 ```
 
 This command creates a new deployment by using a custom template and a template file on disk. The command uses the *TemplateFile* parameter to specify the template and the *TemplateParameterFile* parameter to specify a file that contains parameters and parameter values.
