@@ -67,7 +67,7 @@ The following list is the 24 metrics per node that are collected:
 - bytes_sent (net)
 - Kubelet_docker_operations (kubelet)
 
-### Container Metrics
+### Container metrics
 
 The following list is the eight metrics per container collected:
 
@@ -80,7 +80,7 @@ The following list is the eight metrics per container collected:
 - memoryLimitBytes
 - restartTimeEpoch
 
-### Cluster Inventory
+### Cluster inventory
 
 The following list is the cluster inventory data collected by default:
 
@@ -103,7 +103,7 @@ If you enabled monitoring of an AKS cluster configured as follows,
 - Five Kubernetes services (includes kube-system pods, services, and namespace)
 - Collection frequency = 60 secs (default)
 
-you can see the tables and volume of data generated per hour in the assigned Log Analytics workspace. For more information about each of these tables, see [Container records](container-insights-log-search.md#container-records).
+You can see the tables and volume of data generated per hour in the assigned Log Analytics workspace. For more information about each of these tables, see [Container records](container-insights-log-search.md#container-records).
 
 |Table | Size estimate (MB/hour) |
 |------|---------------|
@@ -118,7 +118,7 @@ you can see the tables and volume of data generated per hour in the assigned Log
 
 Total = 31 MB/Hour = 23.1 GB/month (one month = 31 days)
 
-Using the default pricing for Log Analytics, which is a Pay-As-You-Go model ($2.30 per GB), the monthly Azure Monitor cost would be $52.90 per month. After including a capacity reservation, the price could range from $47.82 to $54.20 per month depending on the reservation selected.
+Using the default pricing for Log Analytics, which is a Pay-As-You-Go model ($2.30 per GB), the monthly Azure Monitor cost for example, would be $52.90 per month. After including a capacity reservation, the price could range from $47.82 to $54.20 per month depending on the reservation selected.
 
 ## Controlling ingestion to reduce cost
 
@@ -151,7 +151,7 @@ The following are examples of what changes you can apply to your cluster by modi
 2. Disable collecting stderr logs from your development namespace (for example, **dev-test**), and continue collecting stderr logs from other namespaces (for example, **prod** and **default**) by modifying the following in the ConfigMap file:
 
     >[!NOTE]
-    >Note: kube-system log collection is disabled by default. The default setting is retained, adding **dev-test** namespace to the list of exclusion namespaces is applied to stderr log collection.
+    >The kube-system log collection is disabled by default. The default setting is retained, adding **dev-test** namespace to the list of exclusion namespaces is applied to stderr log collection.
 
     ```
     [log_collection_settings.stderr]          
