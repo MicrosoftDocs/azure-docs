@@ -20,10 +20,10 @@ Assembly    | Protocols| Namespaces| Capabilities
 ----|----|---|---|
 Azure Resource Manager | REST    | Azure.Management.Communication |Control plane, Provision ACS resources
 Common|    REST    |Azure.Communication|Bases types for other areas, APIs for telemetry, creating rooms, token management
-Data Plane Management|REST|Azure.Communication|    Phone numbers, Rooms, Users, etc.
-Chat |    REST |Azure.Communication.Chat|   Create and connect to system-to-person or person-to-person text interactions.
+Data Plane Management|REST|Azure.Communication|   Manage phone numbers, rooms, etc.
+Chat |    REST |Azure.Communication.Chat| Leverage threaded rich text chat.
 SMS |     REST | Azure.Communication.SMS|    Send and receive SMS messages.
-Calling |     Proprietary transport |Azure.Communication.Calling | Create and connect to system-to-person or person-to-person voice, video, screen-sharing, and other real-time data communication.
+Calling |     Proprietary transport |Azure.Communication.Calling | Leverage voice, video, screen-sharing, and other real-time data communication capabilities. 
 Network Traversal    | REST, RFC 5389 STUN, RFC 5766 TURN | Azure.Communication.Networking | Create STUN and TURN servers and access their traversal capabilities  
 
 ACS provides SDKs for several languages, and where applicable publishes built libraries for those languages in an appropriate public repository.
