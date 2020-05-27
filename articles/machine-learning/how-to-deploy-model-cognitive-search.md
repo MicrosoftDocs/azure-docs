@@ -88,7 +88,7 @@ prov_config = AksCompute.provisioning_configuration()
 # Leaf domain label generates a name using the formula
 #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
 #  where "######" is a random series of characters
-prov_config.enable_ssl(leaf_domain_label = "amlskills")
+prov_config.enable_ssl(leaf_domain_label = "contoso")
 
 cluster_name = 'amlskills'
 # Try to use an existing compute target by that name.
