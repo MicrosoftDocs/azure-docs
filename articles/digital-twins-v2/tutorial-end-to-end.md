@@ -33,7 +33,7 @@ In this tutorial, you will...
 
 ## Get started with the building scenario
 
-The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of and responses to data.
+The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of data.
 
 Below is a diagram representing the full scenario. 
 
@@ -48,7 +48,7 @@ Here are the components implemented by the building scenario *AdtSampleApp* samp
 * .NET (C#) SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
-* *SampleFunctionsApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events
+* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
 
 The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.
 
@@ -67,9 +67,11 @@ A console window will open, carry out authentication, and wait for a command. In
 > [!IMPORTANT]
 > If you already have digital twins and relationships in your Azure Digital Twins instance, running this command will delete them and replace them with the twins and relationships for the sample scenario.
 
-The command is: `SetupBuildingScenario`.
+```cmd/sh
+SetupBuildingScenario
+```
 
-The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. As you can see, these digital twins represent the entities that would exist in a real-world environment.
+The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. These digital twins represent the entities that would exist in a real-world environment.
 
 They are connected via relationships into the following [**twin graph**](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
 
@@ -77,7 +79,9 @@ They are connected via relationships into the following [**twin graph**](concept
 
 You can verify the twins that were created by running the following command, which queries the connected Azure Digital Twins instance for all the digital twins it contains:
 
-`Query`
+```cmd/sh
+Query
+```
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -87,38 +91,49 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to make use of the functions inside the function app. 
+In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
 
 ### Publish the app
 
-Go to your Visual Studio window where the _**AdtE2ESample**_ project is open. In the *Solution Explorer* menu, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, from the *Solution Explorer* pane, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
 
-In the *Pick a publish target* page that follows, leave the default selections and hit **Create Profile**.
+In the *Publish* page that follows, leave the default target selection of **Azure** and hit *Next*. 
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Azure function in Visual Studio: create profile":::
+For a specific target, choose **Azure Function App (Windows)** and hit *Next*.
 
-On the *App Service - Create New* page, fill in the fields as follows:
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publish Azure function in Visual Studio: specific target":::
+
+On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
+
+Select your instance's resource group and hit *+ Create a new Azure Function...*.
+
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publish Azure function in Visual Studio: Functions instance (before function app)":::
+
+In the *Function App (Windows) - Create new* window, fill in the fields as follows:
 * **Name** is the name of the consumption plan that Azure will use to host your Azure Functions app. This will also become the name of the function app that holds your actual function. You can choose your own unique value or leave the default suggestion.
 * Make sure the **Subscription** matches the subscription you want to use 
-* Change the **Resource group** to your instance's *resourceGroup*
+* Make sure the **Resource group** to the resource group you want to use
+* Leave the **Plan type** as *Consumption*
 * Select the **Location** that matches the location of your resource group
-* Create a new **Azure Storage** resource using the *New...* link. Use the default values and hit "Ok".
+* Create a new **Azure Storage** resource using the *New...* link. Set the location to match your resource group, use the other default values, and hit "Ok".
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Azure function in Visual Studio: Create new App Service menu with fields completed as described above":::
-
-Before you move on from this screen, take note of your *App Service* (also function app) name. You will use this later.
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publish Azure function in Visual Studio: Function App (Windows) - Create new":::
 
 Then, select **Create**.
 
-On the *Publish* page that follows, check that all the information looks correct and select **Publish**.
+This should bring you back to the *Functions instance* page, where your new function app is now visible underneath your resource group. Hit *Finish*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Azure function in Visual Studio: publish":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publish Azure function in Visual Studio: Functions instance (after function app)":::
+
+On the *Publish* pane that opens back in the main Visual Studio window, check that all the information looks correct and select **Publish**.
+
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publish Azure function in Visual Studio: publish":::
 
 > [!NOTE]
 > You may see a popup like this: 
-> :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Azure function in Visual Studio: publish credentials" border="false":::
+> :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
 > If so, select **Attempt to retrieve credentials from Azure** and **Save**.
 
 ### Assign permissions to the function app
