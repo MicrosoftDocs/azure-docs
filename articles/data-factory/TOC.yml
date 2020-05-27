@@ -23,7 +23,8 @@
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Resource Manager template
+  - name: ARM template
+  - displayName: Create data factory - Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Create data flow
     href: data-flow-create.md
