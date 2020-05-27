@@ -92,9 +92,20 @@ If you have a Custom Rules only WAF Policy, then you may want to move to the new
 
 Edits to the custom rule only WAF policy are disabled. To edit any WAF settings such as disabling rules, adding exclusions, etc. you have to migrate to a new top-level firewall policy resource.
 
-To do so, create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy **must** be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you are creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. You can also do this with Azure PowerShell. For more information, see [Associate a WAF policy with an existing Application Gateway](associate-waf-policy-existing-gateway.md).
+To do so, create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy must be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you are creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. You can also do this with Azure PowerShell. For more information, see [Associate a WAF policy with an existing Application Gateway](associate-waf-policy-existing-gateway.md).
 
 Optionally, you can use a migration script to migrate to a WAF policy. For more information, see [Migrate Web Application Firewall policies using Azure PowerShell](migrate-policy.md).
+
+## Force mode
+
+If you don't want to copy everything into a policy that is exactly the same as your current config, you can set the WAF into "force" mode. Run the following Azure PowerShell code and your WAF will be in force mode. Then you can associate any WAF Policy to your WAF, even if it doesn't have the exact same settings as your config. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+Then procees with the steps to associate a WAF Policy to your application gateway. For more information, see [Associate a WAF Policy with an existing Application Gateway.](associate-waf-policy-existing-gateway.md)
 
 ## Next steps
 
