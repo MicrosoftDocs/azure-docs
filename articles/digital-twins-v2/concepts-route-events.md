@@ -86,7 +86,7 @@ Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md
 
 Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-v2-notifications.md)]
 
 ## Next steps
 

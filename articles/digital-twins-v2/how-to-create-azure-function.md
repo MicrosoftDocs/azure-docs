@@ -212,7 +212,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
-[!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
+[!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-v2-resource-id.md)]
 
 Use the resource ID along with the Azure function's object ID from earlier in the command below:
 

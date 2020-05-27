@@ -21,7 +21,7 @@ This article will walk you through the basic steps to set up a new Azure Digital
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-v2-cloud-shell.md)]
 
 ## Set up an Azure Digital Twins instance
 
