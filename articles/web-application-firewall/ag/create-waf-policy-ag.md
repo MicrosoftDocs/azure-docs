@@ -98,7 +98,7 @@ Optionally, you can use a migration script to migrate to a WAF policy. For more 
 
 ## Force mode
 
-If you don't want to copy everything into a policy that is exactly the same as your current config, you can set the WAF into "force" mode. Simply execute the following powershell and your WAF will be in force mode. Then you can associate any WAF Policy to your WAF, even if it doesn't have the exact same settings as your config. 
+If you don't want to copy everything into a policy that is exactly the same as your current config, you can set the WAF into "force" mode. Run the following Azure PowerShell code and your WAF will be in force mode. Then you can associate any WAF Policy to your WAF, even if it doesn't have the exact same settings as your config. 
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
