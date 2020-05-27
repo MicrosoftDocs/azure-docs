@@ -9,9 +9,22 @@ ms.author: baanders
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
-### Add the IoT extension to Cloud Shell
+### Set up Cloud Shell session
 
-Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
+After opening a Cloud Shell window, the first thing to do is log in and set the shell context to your subscription for this session. 
+
+```azurecli
+az login
+az account set --subscription <your-Azure-subscription-ID>
+```
+
+If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
+
+```azurecli
+az provider register --namespace 'Microsoft.DigitalTwins'
+```
+
+Then, run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -25,15 +38,3 @@ Run the following command in your Cloud Shell instance to add the Microsoft Azur
 
 > [!TIP]
 > You can run `az dt -h` to see the top-level Azure Digital Twins commands.
-
-Next, set the shell context to your subscription for this session. 
-
-```azurecli
-az account set --subscription <your-Azure-subscription-ID>
-```
-
-If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
-
-```azurecli
-az provider register --namespace 'Microsoft.DigitalTwins'
-```
