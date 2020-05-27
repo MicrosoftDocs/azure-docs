@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -175,6 +175,7 @@ WVDFeeds
 To find all connections for a single user: 
 
 ```kusto
+WVDConnections
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
