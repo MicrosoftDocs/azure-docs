@@ -265,7 +265,7 @@ In this article, you learned concepts and workflow for language detection by usi
 
 ## See also
 
- [Text Analytics overview](../overview.md)
+ [Text Analytics overview](../overview.md)</br>
  [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
  [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
 
