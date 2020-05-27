@@ -3,7 +3,7 @@ title:  StylesObject for Dynamic Maps
 description: Reference guide to the JSON schema and syntax for the StylesObject used in creating Dynamic Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/25/2020
+ms.date: 05/27/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
@@ -16,9 +16,7 @@ This article is a reference guide to the JSON schema and syntax for the `StylesO
 
 ## StyleObject
 
-A `StyleObject` is expressed either as a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
-
-A `BooleanTypeStyleRule` defines a boolean *state* and associated colors for `true` and `false` values. A `NumericTypeStyleRule` defines a numeric *state* and associated colors for numeric ranges.
+A `StyleObject` is either as a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
 
 The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTypeStyleRule` named `temperature`.
 
@@ -48,7 +46,7 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
         {
           "range": {
                "maximum": 70,
-               "exclusiveMinumum": 30
+               "exclusiveMinimum": 30
           },
           "color": "#eba834"
         }
@@ -59,9 +57,9 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
 
 ## NumericTypeStyleRule
 
- A `NumericTypeStyleRule` is a type of [`StyleObject`](#styleobject) that defines a numeric *state* and associated colors for numeric ranges.
+ A `NumericTypeStyleRule` is a  [`StyleObject`](#styleobject) and consists of the following properties:
 
-| Attribute | Type | Description | Required |
+| Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
 | `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside `StyleObject` array.| Yes |
 | `type` | string | Value is "numeric". | Yes |
@@ -69,22 +67,22 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
 
 ### NumberRuleObject
 
-A `NumberRuleObject` consists of a [`RangeObject`](#rangeobject) and a `color` attribute. If the *state* value falls into the range, its color for display will be the color specified in the `color` attribute.
+A `NumberRuleObject` consists of a [`RangeObject`](#rangeobject) and a `color` property. If the *state* value falls into the range, its color for display will be the color specified in the `color` property.
 
-| Attribute | Type | Description | Required |
+| Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `range` | [RangeObject](#rangeobject) | The [RangeObject](#rangeobject) defines a set of logical range conditions, which, if `true`, change the display color of the *state* to the color specified in the `color` attribute   | Yes |
-| `color` | string | The color to use when state value falls into the range. The `color` attribute is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow, and blue.</li></ul> | Yes |
+| `range` | [RangeObject](#rangeobject) | The [RangeObject](#rangeobject) defines a set of logical range conditions, which, if `true`, change the display color of the *state* to the color specified in the `color` property   | Yes |
+| `color` | string | The color to use when state value falls into the range. The `color` property is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow, and blue.</li></ul> | Yes |
 
 ### RangeObject
 
-The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true. For an example, see [`NumberRuleObject`](#numberruleobject).
+The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true. 
 
-| Attribute | Type | Description | Required |
+| Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
 | `minimum` | double | All the number x that x ≥ `minimum`.| No |
 | `maximum` | double | All the number x that x ≤ `maximum`. | No |
-| `exclusiveMinumum` | double | All the number x that x > `exclusiveMinumum`.| No |
+| `exclusiveMinimum` | double | All the number x that x > `exclusiveMinimum`.| No |
 | `exclusiveMaximum` | double | All the number x that x < `exclusiveMaximum`.| No |
 
 ### Example of NumericTypeStyleRule
@@ -106,7 +104,7 @@ The following JSON illustrates a `NumericTypeStyleRule` *state* named `temperatu
     {
         "range": {
             "maximum": 70,
-            "exclusiveMinumum": 30
+            "exclusiveMinimum": 30
         },
         "color": "#eba834"
     }
@@ -116,9 +114,9 @@ The following JSON illustrates a `NumericTypeStyleRule` *state* named `temperatu
 
 ## BooleanTypeStyleRule
 
-A `BooleanTypeStyleRule` defines a boolean *state* and associated colors for `true` and `false` values.
+A `BooleanTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:.
 
-| Attribute | Type | Description | Required |
+| Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
 | `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside style array.| Yes |
 | `type` | string |Value is "boolean". | Yes |
@@ -128,9 +126,9 @@ A `BooleanTypeStyleRule` defines a boolean *state* and associated colors for `tr
 
 A `BooleanRuleObject` defines colors for `true` and `false` values.
 
-| Attribute | Type | Description | Required |
+| Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `true` | string | The color to use when the *state* value is `true`. The `color` attribute is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow, and blue.</li></ul>| Yes |
+| `true` | string | The color to use when the *state* value is `true`. The `color` property is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow, and blue.</li></ul>| Yes |
 | `false` | string | The color to use when the *state* value is `false`. | Yes |
 
 ### Example of BooleanTypeStyleRule
