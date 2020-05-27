@@ -96,7 +96,7 @@ If both hardware generations are not supported in the same region, changing the 
 
 **What if there are not enough IP addresses for performing update operation?**
 
-In case there are not enough IP addresses in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. (For proper subnet size, check [how to determine size of vnet subnet](vnet-subnet-determine-size.md).) After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
+In case there are not enough IP addresses in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. (For proper subnet size, check [how to determine the size of a VNet subnet](vnet-subnet-determine-size.md).) After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## Tune performance
@@ -163,7 +163,7 @@ To mitigate any data exfiltration risks, customers are recommended to apply a se
 
 **Where can I find use cases and resulting cost savings with SQL Managed Instance?**
 
-SQL Managed instance case studies:
+SQL Managed Instance case studies:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
