@@ -100,7 +100,7 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
-#### Where can I find client IP sending or receiving msgs to my namespace?
+### Where can I find client IP sending or receiving msgs to my namespace?
 First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
 
 Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.
