@@ -1,5 +1,5 @@
 ---
-title: Use autoML to create models & deploy 
+title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
 description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
 services: machine-learning

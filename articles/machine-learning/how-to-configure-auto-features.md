@@ -1,5 +1,5 @@
 ---
-title: Featurization in autoML experiments
+title: Featurization in AutoML experiments
 titleSuffix: Azure Machine Learning
 description: Learn what featurization settings Azure Machine Learning offers, and how feature engineering is supported in automated ml experiments.
 author: nibaccam
@@ -19,9 +19,9 @@ ms.custom: seodec18
 
 In this guide, learn what featurization settings are offered, and how to customize them for your [automated machine learning experiments](concept-automated-ml.md).
 
-Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, data scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization in automated machine learning, autoML, experiments.
+Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, data scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization in automated machine learning, AutoML, experiments.
 
-This article assumes you are already familiar with how to configure an autoML experiment. See the following articles for details,
+This article assumes you are already familiar with how to configure an AutoML experiment. See the following articles for details,
 
 * For a code first experience: [Configure automated ML experiments with the Python SDK](how-to-configure-auto-train.md).
 * For a low/no code experience: [Create, review, and deploy automated machine learning models with the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md)

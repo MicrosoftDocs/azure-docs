@@ -111,7 +111,7 @@ For automated machine learning experiments, featurization is applied automatical
 
 ### Automatic featurization (standard)
 
-In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well. During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how autoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
+In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well. During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how AutoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
 
 |Scaling&nbsp;&&nbsp;normalization| Description |
 | ------------- | ------------- |

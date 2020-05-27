@@ -311,13 +311,13 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Define ML tasks
-      displayName: machine learning, task type
+      displayName: machine learning, task type, automl
       href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
-    - name: Featurization in autoML (Python)
-      displayName: feature engineering, feature importance
+    - name: Featurization in automated ML (Python)
+      displayName: automl, feature engineering, feature importance
       href: how-to-configure-auto-features.md
     - name: Use automated ML in ML pipelines (Python)
       displayName: machine learning automl 
