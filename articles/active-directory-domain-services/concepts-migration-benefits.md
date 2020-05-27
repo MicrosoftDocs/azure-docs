@@ -46,7 +46,7 @@ Azure AD DS managed domains that use a Resource Manager deployment model help yo
 
 ## Next steps
 
-To get started, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager[howto-migrate].
+To get started, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager][howto-migrate].
 
 <!-- LINKS - INTERNAL -->
 [password-policy]: password-policy.md
