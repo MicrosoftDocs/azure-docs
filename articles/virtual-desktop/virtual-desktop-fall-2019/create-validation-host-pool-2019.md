@@ -78,3 +78,5 @@ Now that you've created a validation host pool, you can learn how to use Azure S
 
 > [!div class="nextstepaction"]
 > [Set up service alerts](../set-up-service-alerts.md)
+Hyperlink should point to 
+https://docs.microsoft.com/en-us/azure/virtual-desktop/virtual-desktop-fall-2019/set-up-service-alerts-2019
