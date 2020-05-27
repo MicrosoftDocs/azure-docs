@@ -23,7 +23,7 @@ This is done in two steps:
 1. Create an app registration
 2. Write authentication code in a client application
 
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-v2-cloud-shell.md)]
 
 ## Create an app registration
 

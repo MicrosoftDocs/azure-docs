@@ -15,4 +15,4 @@ Also before you start, install [Visual Studio 2019](https://visualstudio.microso
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
+[!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-v2-tutorial-prereq-instance.md)]
