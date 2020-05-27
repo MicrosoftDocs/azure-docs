@@ -15,7 +15,7 @@ ms.date: 11/13/2019
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your on-premises SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your on-premises SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  Note that the Azure Hybrid Benefit does not apply to Azure SQL Database serverless.
 
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
