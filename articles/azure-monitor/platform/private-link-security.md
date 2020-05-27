@@ -184,7 +184,7 @@ The latest versions of the Windows and Linux agents must be used on private netw
 
 **Log Analytics Windows agent**
 
-Use the Log Analytics agent version 18.20.18038.0 or later.
+Use the Log Analytics agent version 10.20.18038.0 or later.
 
 **Log Analytics Linux agent**
 
