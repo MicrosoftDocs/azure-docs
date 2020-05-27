@@ -26,6 +26,8 @@
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Cost Management budget
+      href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL
       href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid

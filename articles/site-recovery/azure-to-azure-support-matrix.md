@@ -226,6 +226,7 @@ Cool and Hot Storage | Not supported | Virtual machine disks are not supported o
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
+NVMe disks | Not supported
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.

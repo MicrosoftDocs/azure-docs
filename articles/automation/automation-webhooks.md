@@ -231,4 +231,4 @@ The following image shows the request being sent from Windows PowerShell and the
 
 ## Next steps
 
-* [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
+* To trigger a runbook from an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
