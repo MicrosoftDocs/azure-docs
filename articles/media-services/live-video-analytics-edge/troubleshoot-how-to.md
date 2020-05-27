@@ -37,7 +37,7 @@ If you encounter this error, it is recommended to check the JSON file for missin
 
 ### Deployment – diagnose with media graph direct methods 
 
-Once the Live Video Analytics on IoT Edge module is deployed correctly on the edge device, you can create and run the Media Graph by invoking [direct methods](direct-methods.md). You can use the portal to run the diagnosis of Media graph via direct methods:
+Once the Live Video Analytics on IoT Edge module is deployed correctly on the edge device, you can create and run the media graph by invoking [direct methods](direct-methods.md). You can use the portal to run the diagnosis of media graph via direct methods:
 
 1. Via Portal, go to the IoT Hub that is connected to your edge device.
     1. Once in the IoT Hub blade, look for the Automatic device management->IoT Edge.
@@ -144,7 +144,7 @@ To fix this issue:
 
     For example, `az extension update --name azure-iot`
 
-### Sample App issues
+### Sample app issues
 
 As part of our release, we have provided some .NET sample code to get our developer community bootstrapped. In this section, we have captured errors you might face while running the sample code and how to debug such errors.
 
@@ -233,7 +233,7 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
 1. If you are running one or multiple instances of a graph leveraging the Http Extension processor, you should have a Frame Rate Filter before each Http Extension Processor to manage the frames per second (fps) of the video feed. In certain situations where the CPU/memory of the edge machine are highly utilized, you can lose certain Inference events. To address this, set a low value for the maximumFps property on the Frame Rate Filter. You can set it to 0.5 ("maximumFps": 0.5 )on each instance of the graph and rerun to check for Inference events on the Hub.
     1. Alternatively, you can also get a more powerful edge machine with higher CPU and memory.
     
-### Multiple Direct methods in parallel – timeout failure 
+### Multiple direct methods in parallel – timeout failure 
 
 Live Video Analytics on IoT Edge provides a direct method based programming model that allows for set up of multiple topologies and multiple graph instances. As part of the topology and graph setup, you will be invoking multiple direct method calls on the edge module. If you invoke these multiple method calls, especially the ones starting and stopping the graphs, in parallel, you may experience some timeout failures such as below. 
 
