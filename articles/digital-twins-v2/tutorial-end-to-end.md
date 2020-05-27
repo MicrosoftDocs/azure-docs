@@ -33,7 +33,7 @@ In this tutorial, you will...
 
 ## Get started with the building scenario
 
-The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of and responses to data.
+The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of data.
 
 Below is a diagram representing the full scenario. 
 
@@ -48,7 +48,7 @@ Here are the components implemented by the building scenario *AdtSampleApp* samp
 * .NET (C#) SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
-* *SampleFunctionsApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events
+* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
 
 The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.
 
@@ -67,9 +67,11 @@ A console window will open, carry out authentication, and wait for a command. In
 > [!IMPORTANT]
 > If you already have digital twins and relationships in your Azure Digital Twins instance, running this command will delete them and replace them with the twins and relationships for the sample scenario.
 
-The command is: `SetupBuildingScenario`.
+```cmd/sh
+SetupBuildingScenario
+```
 
-The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. As you can see, these digital twins represent the entities that would exist in a real-world environment.
+The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. These digital twins represent the entities that would exist in a real-world environment.
 
 They are connected via relationships into the following [**twin graph**](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
 
@@ -77,7 +79,9 @@ They are connected via relationships into the following [**twin graph**](concept
 
 You can verify the twins that were created by running the following command, which queries the connected Azure Digital Twins instance for all the digital twins it contains:
 
-`Query`
+```cmd/sh
+Query
+```
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -87,11 +91,11 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to make use of the functions inside the function app. 
+In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
 
 ### Publish the app
 
-Go to your Visual Studio window where the _**AdtE2ESample**_ project is open. In the *Solution Explorer* menu, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, from the *Solution Explorer* pane, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
 
