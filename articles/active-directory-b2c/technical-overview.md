@@ -32,7 +32,7 @@ The primary resources you work with in an Azure AD B2C tenant are:
   * *Social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
   * *External* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
   * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
-* **Keys** - Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords .
+* **Keys** - Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
 An Azure AD B2C tenant is the first resource you need to create to get started with Azure AD B2C. Learn how in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
