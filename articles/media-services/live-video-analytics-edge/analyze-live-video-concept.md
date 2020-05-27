@@ -1,6 +1,6 @@
 ---
 title: Analyzing live video without any recording - Azure
-description: A Media Graph can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
+description: A Media graph can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
@@ -9,7 +9,7 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading 
 
-* [Media Graph concept](media-graph-concept.md)
+* [Media graph concept](media-graph-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 
 ## Overview  

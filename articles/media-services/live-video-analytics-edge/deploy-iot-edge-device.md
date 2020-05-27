@@ -189,7 +189,7 @@ Next, lets test the sample by invoking a direct method. Read [Direct Methods for
  
 ## Unsecured Protocols
 
-By default, unsecured protocols are blocked. When you connect RTSP capable cameras, or are using external modules such as yolov3, you will need to define a twin property “AllowUnsecuredEndpoints” and provide credentials for the Media Graphs to work.
+By default, unsecured protocols are blocked. When you connect RTSP capable cameras, or are using external modules such as yolov3, you will need to define a twin property “AllowUnsecuredEndpoints” and provide credentials for the media graphs to work.
 
 ## Next steps
 

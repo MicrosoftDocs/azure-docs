@@ -9,8 +9,8 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading  
 
-* [Media Graph concept](media-graph-concept.md)
-* [Video Recording concept](video-recording-concept.md)
+* [Media graph concept](media-graph-concept.md)
+* [Video recording concept](video-recording-concept.md)
 
 ## Overview
 
