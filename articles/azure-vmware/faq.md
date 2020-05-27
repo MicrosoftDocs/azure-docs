@@ -66,7 +66,7 @@ Yes, Azure VMware Solution supports migration using familiar VMware tools such a
 
 <a name="how-to-request-a-quota-increase-for-existing-avs"></a>**How do I request a host quota increase for an existing Azure VMware Solution?**
 
-You can request a quota increase by submitting a support request. The Quota Management team evaluates the request and approves it within three business days.  
+You can request a quota increase by [submitting a support request](..\azure-portal\supportability\how-to-create-azure-support-request.md). The Quota Management team evaluates the request and approves it within three business days.  
 
 > [!IMPORTANT]
 > Before you can request a quota increase, make sure that you [register the **Microsoft.AVS** resource provider](tutorial-create-private-cloud.md) in the Azure portal.  
@@ -161,7 +161,7 @@ No, you aren't required to use NSX on-premises.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle form VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
 
 **How often will the private cloud software stack be updated?**
 
