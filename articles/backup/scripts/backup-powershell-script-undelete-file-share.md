@@ -5,9 +5,9 @@ ms.topic: sample
 ms.date: 02/02/2020
 ---
 
-# Powershell script to undelete an accidentally deleted File share
+# PowerShell script to undelete an accidentally deleted File share
 
-This script helps you to undelete a file share, if you deleted it accidentally. The soft delete security feature for file shares provides you the option of undeleting a file share within the 14 days retention period, allowing recovery of all your file share contents, snapshots, and recovery points. To learn more about soft delete, visit this [link](../soft-delete-afs.md).
+This script helps you to undelete a file share, if you deleted it accidentally. The soft delete security feature for file shares provides you the option of undeleting a file share within the 14 days retention period, allowing recovery of all your file share contents, snapshots, and recovery points. To learn more about soft delete, visit this [link](../soft-delete-azure-file-share.md).
 
 ## Sample script
 
@@ -150,7 +150,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 ### Prerequisites
 
 1. Install the latest Azure PowerShell Az modules from [this link](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) before running the script.
-2. Keep the following details handy as you will need to pass them as values for different parameters of the script:
+2. Keep the following details handy as you'll need to pass them as values for different parameters of the script:
 
     * **-SubscriptionId** - ID of the subscription where the file share is present.
     * **-ResourceGroupName** - Resource Group of the Storage Account hosting the file share.
@@ -164,7 +164,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 #### Scenario 1
 
-There are no multiple deleted versions with the same name as the file share you are trying to undelete.
+There are no multiple deleted versions with the same name as the file share you're trying to undelete.
 
 The following example undeletes the file share *share1* present in storage account *afsshare*.
 
@@ -176,7 +176,7 @@ The output should show the message `Completed:Restore File Share`
 
 #### Scenario 2
 
-There are multiple deleted versions with the same name as the fileshare you are trying to undelete.
+There are multiple deleted versions with the same name as the fileshare you're trying to undelete.
 
 The following example undeletes a version of the file share *share1*
 

@@ -45,7 +45,7 @@ Follow these steps:
     }
     ```
 
-3. Keep your storage account ARM Id handy. For example: `/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare/providers/Microsoft.Storage/storageAccounts/inquirytest`
+3. Keep your storage account Azure Resource Manager (ARM) ID handy. For example: `/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare/providers/Microsoft.Storage/storageAccounts/inquirytest`
 
 4. Sign in using your credentials by running **armclient login**.
 
