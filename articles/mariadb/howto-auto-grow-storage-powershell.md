@@ -27,7 +27,7 @@ specified in the storage section of the
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
@@ -38,7 +38,7 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet.
+[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ## Enable MariaDB server storage auto grow
 
