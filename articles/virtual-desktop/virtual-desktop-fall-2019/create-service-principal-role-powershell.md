@@ -112,3 +112,5 @@ After you've created the service principal and assigned it a role in your Window
 
  > [!div class="nextstepaction"]
  > [Create a host pool with Azure Marketplace](../create-host-pools-azure-marketplace.md)
+ Hyperlink should take you to 
+https://docs.microsoft.com/en-us/azure/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019
