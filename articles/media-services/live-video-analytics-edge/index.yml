@@ -71,8 +71,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Get started
-            url: get-started-how-to.md
+          - text: Deploy to an IoT Edge device
+            url: deploy-iot-edge-device.md
           - text: Manage retention policy
             url: manage-retention-policy-how-to.md
           - text: Playback a recording 
