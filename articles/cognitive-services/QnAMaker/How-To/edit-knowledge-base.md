@@ -79,7 +79,7 @@ Any field in any QnA pair can be edited, regardless of the original data source.
 
 ## Delete a QnA pair
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting sets.
+To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs.
 
 ![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
