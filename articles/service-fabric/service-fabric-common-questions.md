@@ -180,4 +180,4 @@ Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefa
 
 ## Next steps
 
-Learn about [core Service Fabric concepts](../azure-sql/database/sql-database-paas-overview.md) and [best practices](service-fabric-best-practices-overview.md)
+Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

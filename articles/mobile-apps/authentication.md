@@ -15,26 +15,6 @@ Having a view of the user and their behavior across your application empowers de
 
 Use the following services to enable user authentication in your mobile apps.
 
-## Visual Studio App Center
-[App Center Auth](/appcenter/auth/) is a cloud-based identity management service that developers can use to authenticate users and manage user identities. App Center Auth also integrates with other parts of Visual Studio App Center. Developers can use user identity to [view user data](/appcenter/data/index) in other services and even [send push notifications to users instead of individual devices](/appcenter/push/push-to-user#setting-user-identity). 
-
-**Key features**
-- Powered by Azure Active Directory B2C (Azure AD B2C). 
-    - Enterprise grade.
-    - Highly available.
-    - Secure and global service.
-- Bring your own identity and the option to use other popular identity and access management providers, such as Auth0 and Firebase.
-- Azure Active Directory support.
-    - Connect existing Azure AD tenants. 
-    - Enable authenticating against a corporate domain.
-    - Manage access to sensitive data.
-- Simple user experience and magical SDK experience by wrapping Microsoft Authentication Library with the Visual Studio App Center SDK.
-- Platform support for iOS, Android, Xamarin, and React Native.
-
-**References**
-- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
-- [Get started with App Center Auth](/appcenter/auth/)
-
 ## Azure Active Directory B2C
 [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) is a business-to-consumer (B2C) identity management service that developers can use to authenticate their customers. This white-label service lets developers customize and control how users securely interact with their web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. 
 

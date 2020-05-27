@@ -79,7 +79,6 @@ You can use the Azure Dev Spaces client-side tools to interact with dev spaces o
 
 * In [Visual Studio Code][vscode], install the [Azure Dev Spaces extension][vscode-extension].
 * In [Visual Studio 2019][visual-studio], install the Azure Development workload.
-* In Visual Studio 2017, install the Web Development workload and [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools].
 * Download and install the [Windows][cli-win], [Mac][cli-mac], or [Linux][cli-linux] CLI.
 
 ## Next steps
