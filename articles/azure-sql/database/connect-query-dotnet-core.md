@@ -29,7 +29,7 @@ To complete this quickstart, you need:
 
 
 
-  || SQL Database | SQL Managed instance | SQL Server in Azure VM |
+  || SQL Database | SQL Managed Instance | SQL Server in Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

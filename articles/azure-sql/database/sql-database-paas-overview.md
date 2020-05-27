@@ -25,9 +25,6 @@ Azure SQL Database is based on the latest stable version of the [Microsoft SQL S
 
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
-> [!NOTE]
-> For relevant terms and their definitions, see the [SQL Database terms glossary](../glossary-terms.md).
-
 ## Deployment models
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
@@ -217,7 +214,7 @@ No. The impact of patching is generally not noticeable if you [employ retry logi
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ask development questions.
-- [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ask technical questions.
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 - [Feedback](https://aka.ms/sqlfeedback): Report bugs and request feature.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server.
 

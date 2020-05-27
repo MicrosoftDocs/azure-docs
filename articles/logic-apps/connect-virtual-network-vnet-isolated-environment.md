@@ -52,11 +52,15 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
 
-  * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services that's facilitated by the connectivity provider, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
+  * [ExpressRoute](../expressroute/expressroute-introduction.md) helps you extend your on-premises networks into Microsoft cloud and connect to Microsoft cloud services over a private connection that's facilitated by the connectivity provider. Specifically, ExpressRoute is a virtual private network that routes traffic over a private network instead of the public internet. Logic apps can connect to on-premises resources that are in the same virtual network when connecting through ExpressRoute or a virtual private network. 
+  
+    If you use ExpressRoute, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
 
     **Name**: <*route-name*><br>
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
+
+    This route table is required for Logic Apps components to communicate with other dependent Azure Services, such as Azure Storage and Azure SQL DB.
 
 * If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 

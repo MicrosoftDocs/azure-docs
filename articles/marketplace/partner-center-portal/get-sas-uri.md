@@ -11,9 +11,6 @@ ms.author: mingshen
 
 # Get shared access signature URI for your VM image
 
-> [!IMPORTANT]
-> We're moving the management of your Azure Virtual Machine offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Get shared access signature URI for your VM image](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) for Cloud Partner Portal to manage your offers.
-
 This article describes how to generate a shared access signature (SAS) uniform resource identifier (URI) for each virtual hard disk (VHD).
 
 During the publishing process, you must provide a URI for each VHD that's associated with your plans. These plans were previously referred to as SKUs, or stock keeping units. Microsoft needs access to these VHDs during the certification process. You'll enter this URI on the **Plans** tab in Partner Center.
