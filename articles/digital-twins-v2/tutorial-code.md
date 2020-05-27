@@ -439,10 +439,10 @@ namespace minimal
         static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
-            string clientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-            string tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-            string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+            
+            string clientId = "<your-application-ID>";
+            string tenantId = "<your-directory-ID>";
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
             var credentials = new InteractiveBrowserCredential(tenantId, clientId);
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             Console.WriteLine($"Service client created – ready to go");
