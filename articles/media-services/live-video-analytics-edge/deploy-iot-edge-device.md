@@ -51,7 +51,7 @@ Follow the steps in this article to get credentials to access the Media Service 
 
 ## Deploy Live Video Analytics Edge module
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-blob)-->
+<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 The Live Video Analytics on IoT Edge exposes module twin properties that are documented in [Module Twin configuration schema](module-twin-configuration-schema.md). 
 
 ### Deploy using the Azure portal
@@ -60,31 +60,31 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 Select your device
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
-1. Select IoT Edge from the menu.
+1. Select **IoT Edge** from the menu.
 1. Click on the ID of the target device from the list of devices.
-1. Select Set Modules.
+1. Select **Set Modules**.
 
 #### Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest. It has three steps organized into tabs: Modules, Routes, and Review + Create.
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest. It has three steps organized into tabs: **Modules**, **Routes**, and **Review + Create**.
 
 #### Add modules
 
-1. In the IoT Edge Modules section of the page, click the Add dropdown and select IoT Edge Module to display the Add IoT Edge Module page.
-1. On the Module Settings tab, provide a name for the module and then specify the container image URI:   
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:   
     Examples:
     
-    * IoT Edge Module Name: lvaEdge
-    * Image URI: mcr.microsoft.com/media/live-video-analytics:1.0.0o	 
+    * **IoT Edge Module Name**: lvaEdge
+    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0.0o	 
     
     ![Add](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > Don't select Add until you've specified values on the Module Settings, Container Create Options, and Module Twin Settings tabs as described in this procedure.
+    > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
     > [!IMPORTANT]
     > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
-1. Open the Container Create Options tab.
+1. Open the **Container Create Options** tab.
 
     ![Container create options](./media/deploy-iot-edge-device/container-create-options.png)
  
@@ -103,7 +103,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         }
     }
     ````
-1. On the Module Twin Settings tab, copy the following JSON and paste it into the box.
+1. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
  
     ![Twin settings](./media/deploy-iot-edge-device/twin-settings.png)
 
@@ -139,10 +139,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```
     
     Select Add to add the module twin properties.
-1. Select Next: Routes to continue to the routes section.
+1. Select **Next: Routes** to continue to the routes section.
     Specify routes.
 
-Keep the default routes and select Next: Review + create to continue to the review section.
+Keep the default routes and select **Next: Review + create** to continue to the review section.
 
 #### Review deployment
 
@@ -155,7 +155,7 @@ Review your deployment information, then select Create.
 After you create the deployment, you return to the IoT Edge page of your IoT hub.
 
 1.	Select the IoT Edge device that you targeted with the deployment to open its details.
-2.	In the device details, verify that the blob storage module is listed as both Specified in deployment and Reported by device.
+2.	In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
 
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) is healthy and is operating fine.
@@ -182,7 +182,7 @@ Next, lets test the sample by invoking a direct method. Read [Direct Methods for
     ```
 1. Click on “Invoke Method” option on top of the page
 
-    ![Direct methods](.media/deploy-iot-edge-device/direct-method.png)
+    ![Direct methods](./media/deploy-iot-edge-device/direct-method.png)
 1. You should see a status 200 message in the Result box
 
     ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png)
