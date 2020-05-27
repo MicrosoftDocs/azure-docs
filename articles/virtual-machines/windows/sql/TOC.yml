@@ -141,7 +141,7 @@
     href: https://docs.microsoft.com/sql/tools/overview-sql-tools
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server

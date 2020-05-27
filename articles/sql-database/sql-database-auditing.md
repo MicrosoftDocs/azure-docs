@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Auditing 
+title: Azure SQL Auditing for Azure SQL Database and Azure Synapse Analytics
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
 ms.service: sql-database
@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
 ---
-# Azure SQL Auditing
+# Azure SQL Auditing for Azure SQL Database and Azure Synapse Analytics
 
 Auditing for Azure [SQL Database](sql-database-technical-overview.md)  and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace or Event Hubs. 
 

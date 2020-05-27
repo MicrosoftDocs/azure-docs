@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/19/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -36,6 +36,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Slack single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -44,9 +47,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Slack supports **Just In Time** user provisioning
 * Slack supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * Once you configure Slack you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Slack from the gallery
 
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.slack.com`
+    `https://< DOMAIN NAME>.slack.com/sso/saml/start`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://slack.com`
@@ -103,6 +103,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | | |
+
+> [!NOTE]
+	> In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -148,15 +151,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
 
-     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial_slack_001.png)
+     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-001.png)
 
 3. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial_slack_002.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-002.png)
 
 4. On the **SAML Authentication Settings** dialog, perform the following steps:
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial_slack_003.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-003.png)
 
     a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -166,7 +169,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    e.  Click **Save Configuration**.
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-004.png)
+
+    e. Click on **expand** and enter `https://slack.com` in the **Identity provider issuer** textbox.
+
+    f.  Click **Save Configuration**.
 
 ### Create Slack test user
 

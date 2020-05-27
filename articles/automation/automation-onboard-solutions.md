@@ -95,8 +95,9 @@ You must have enabled Update Management for an Azure VM to start this runbook. I
 
 ## Next steps
 
+* To schedule a runbook, see [Manage schedules in Azure Automation](shared-resources/schedules.md).
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* For scope configurations, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+* For scope configurations, see [Work with scope configurations](automation-scope-configurations-update-management.md).
 * If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
 * To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).

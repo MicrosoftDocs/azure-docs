@@ -3,7 +3,7 @@ title: "Managed instance: Long-term backup retention (PowerShell)"
 description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Database managed instance using PowerShell."
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
