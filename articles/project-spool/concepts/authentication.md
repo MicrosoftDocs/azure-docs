@@ -20,7 +20,7 @@ Every client interaction with Azure Communication services must have be authenti
 |---|Device type|Access Keys| SAS Keys| Azure Active Directory (AAD) | User Access Tokens |
 |---|---|---|---|---|---|
 |||*HMAC using access keys from Azure portal*|*Scoped, time-bound self signed tokens derived from access keys*|*User and trusted services from linked AAD*| *Scoped, time-bound user tokens created by trusted service*
-|ARM|Trusted Service|Supported|Supported|Supported|-|
+|ARM|Trusted Service|-|-|Supported|-|
 |DataPlane Configuration (Phone Numbers, Rooms)| Trusted Service |Supported|Supported|Supported|-|
 |Chat| Trusted Service |Supported|Supported|Supported|-|
 |SMS| Trusted Service |Supported|Supported|Supported|-|

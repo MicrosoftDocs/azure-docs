@@ -20,10 +20,10 @@ Assembly    | Protocols| Namespaces| Capabilities
 ----|----|---|---|
 Azure Resource Manager | REST    | Azure.Management.Communication |Control plane, Provision ACS resources
 Common|    REST    |Azure.Communication|Bases types for other areas, APIs for telemetry, creating rooms, token management
-Data Plane Management|REST|Azure.Communication|    Phone numbers, Rooms, Users, etc.
-Chat |    REST |Azure.Communication.Chat|   Create and connect to system-to-person or person-to-person text interactions.
+Data Plane Management|REST|Azure.Communication|   Manage phone numbers, rooms, etc.
+Chat |    REST |Azure.Communication.Chat| Leverage threaded rich text chat.
 SMS |     REST | Azure.Communication.SMS|    Send and receive SMS messages.
-Calling |     Proprietary transport |Azure.Communication.Calling | Create and connect to system-to-person or person-to-person voice, video, screen-sharing, and other real-time data communication.
+Calling |     Proprietary transport |Azure.Communication.Calling | Leverage voice, video, screen-sharing, and other real-time data communication capabilities. 
 Network Traversal    | REST, RFC 5389 STUN, RFC 5766 TURN | Azure.Communication.Networking | Create STUN and TURN servers and access their traversal capabilities  
 
 ACS provides SDKs for several languages, and where applicable publishes built libraries for those languages in an appropriate public repository.
@@ -39,15 +39,15 @@ Java (Android) |    Android client applications    | Maven
 JavaScript |    Browser client applications and Node |    Npm
 
 
-Current availablity guidance and timelines for individual SDK packages are collated below. During the private preview these timelines will change signficiantly as we incorporate customer feedback and balance engineering priorities.
+Current availability guidance and timelines for individual SDK packages are collated below. During the private preview these timelines will change signficiantly as we incorporate customer feedback and balance engineering priorities.
 
 Area|  .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|
-ARM  |July |    July    |July |   TBD  |N/A|July|Azure CLI - July
-Common     |July    |July  |September| July| July| July |N/A
-Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|N/A
-Chat   |September | TBD  |September |September    |September    |July    |N/A
-SMS     |September | TBD  |September |September    |September    |July    |N/A
+ARM  |July |    July    |September |   TBD  |TBD|September|GO - July, Azure CLI - July
+Common     |July    |July  |September| July| July| July |TBD
+Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|TBD
+Chat   |September | TBD  |September |September    |September    |July    |TBD
+SMS     |September | TBD  |September |September    |September    |July    |TBD
 Calling   |September | TBD  |September |September    |July    |July    |iOS Objective C in July
 Network Traversal | TBD |TBD|TBD|TBD|TBD|TBD|TBD|
 
