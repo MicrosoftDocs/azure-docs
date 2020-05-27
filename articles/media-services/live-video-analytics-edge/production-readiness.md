@@ -57,9 +57,9 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 
 The Live Video Analytics on IoT Edge module may require the ability to write files to the local file system under the following circumstances:
 
-1. It exposes an optional module twin property [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], which allows you to specify a directory on the local file system for storing configuration data.
-1. If you are using a media graph to record video to the cloud, then it requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording-concept.md) article for more information).
-1. If you [record to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources) you will need to specify a file path for the recorded video.
+* It exposes an optional module twin property [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], which allows you to specify a directory on the local file system for storing configuration data.
+* If you are using a media graph to record video to the cloud, then it requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording-concept.md) article for more information).
+* If you [record to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources) you will need to specify a file path for the recorded video.
 
 If you intend to make use of any of the above, you should ensure that the above user account has access to the relevant directory. 
 Consider applicationDataDirectory for example. You can create a directory on the edge device and link device storage to module storage. 
