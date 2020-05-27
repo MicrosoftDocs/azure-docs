@@ -38,7 +38,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 ## Deploy an emulation environment for online and batch processing
 
 - [Asysco AMT GO](https://www.asysco.com/amt-go/) deployment architecture supporting CICS, IMS, TIP, HVTIP, and other common mainframe environments.
-- [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
+- [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) managed software container for migrating mainframe applications to Linux computers or private, public, and hybrid cloud environments.- [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
 - [NTT DATA Mainframe Rehosting Development Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) native transaction processing environment.
 - [NTT DATA Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE) including JCL transaction capabilities.
 - [Raincode CICS](https://www.raincode.com/technical-landscape/cics/) emulator for .NET and Azure platforms.
@@ -50,7 +50,6 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 - [Asysco AMT Services](https://www.asysco.com/migration-services/) end-to-end services for migration projects, including inventory and analysis, design training, dress rehearsals, go-live, and post-migration support.
 - [Blu Age](https://www.bluage.com/) tools for digitizing legacy business applications and databases.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services to convert mainframe COBOL, CICS, and VSAM to Java.
-- [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) managed software container for migrating mainframe applications to Linux computers or private, public, and hybrid cloud environments.
 
 ## Modernization services
 
