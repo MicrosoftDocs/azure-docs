@@ -50,6 +50,8 @@ The Linux Diagnostic Extension supports the following distributions and versions
 
 A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than the specified version are supported.
 
+Supported distributions and versions:
+
 - Ubuntu 18.04, 16.04, 14.04
 - CentOS 7, 6.5+
 - Oracle Linux 7, 6.4+
