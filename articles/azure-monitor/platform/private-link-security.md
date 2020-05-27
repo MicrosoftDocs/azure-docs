@@ -176,7 +176,7 @@ To create and manage private link scopes, use [az monitor private-link-scope](ht
 
 To manage network access, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) or [Application Insights components](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## Collect Custom Logs over Private Link
+## Collect custom logs over Private Link
 
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -226,3 +226,6 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
+## Next steps
+
+- Learn about [private storage](private-storage.md)
