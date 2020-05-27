@@ -1,6 +1,6 @@
 ---
 title: Enable system-assigned managed identity for application
-description: How to enable system managed identity for application.
+description: How to enable system-assigned managed identity for application.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
