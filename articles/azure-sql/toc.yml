@@ -754,6 +754,101 @@
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
+
+    - name: Machine Learning Services
+      items:
+      - name: Overview
+        href: managed-instance/machine-learning-services-overview.md
+      - name: Key differences
+        href: managed-instance/machine-learning-services-differences.md
+      - name: Quickstarts
+        items:
+        - name: Python
+          items:
+          - name: Run Python scripts
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Data structures and objects
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Python functions
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Train and score a model
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+        - name: R
+          items:
+          - name: Run R scripts
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Data types and objects
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: R functions
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Train and score a model
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+      - name: Tutorials
+        items:
+        - name: Python
+          items:
+          - name: Ski rental (linear regression)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 2 - Prepare data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 3 - Train model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 4 - Deploy model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Categorize customers (k-means clustering)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 2 - Prepare the data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 3 - Create the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 4 - Deploy the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+        - name: R
+          items:
+          - name: Ski rental (decision tree)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 2 - Prepare data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 3 - Train model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 4 - Deploy model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Categorize customers (k-means clustering)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 2 - Prepare the data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 3 - Create the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+            - name: 4 - Deploy the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+      - name: Manage Python, R packages
+        items:
+        - name: Python
+          items:
+          - name: Get Python package information
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Install with sqlmlutils
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+        - name: R
+          items:
+          - name: Get R package information
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Install with sqlmlutils
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Create a miniCRAN repo
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+          - name: Tips for using R packages
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15
+
+
     - name: Features
       items:
       - name: Linked servers
