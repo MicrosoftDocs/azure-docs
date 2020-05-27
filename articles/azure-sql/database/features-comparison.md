@@ -14,7 +14,7 @@ ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
 ---
 
-# Azure SQL Database Features
+# Features comparison: Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and SQL Manged Instance share a common code base with the latest stable version of SQL Server. Most of the standard SQL language, query processing, and database management features are identical. The features that are common between SQL Server and SQL Database or SQL Managed Instance are:
