@@ -125,7 +125,7 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Customize featurization
 
-Additional feature engineering techniques such as,  encoding and transforms are also available. 
+Additional feature engineering techniques such as, encoding and transforms are also available. 
 
 Enable this setting with:
 
