@@ -44,10 +44,10 @@ Current availability guidance and timelines for individual SDK packages are coll
 Area|  .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|
 ARM  |July |    July    |September |   TBD  |TBD|September|GO - July, Azure CLI - July
-Common     |July    |July  |September| July| July| July |N/A
-Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|N/A
-Chat   |September | TBD  |September |September    |September    |July    |N/A
-SMS     |September | TBD  |September |September    |September    |July    |N/A
+Common     |July    |July  |September| July| July| July |TBD
+Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|TBD
+Chat   |September | TBD  |September |September    |September    |July    |TBD
+SMS     |September | TBD  |September |September    |September    |July    |TBD
 Calling   |September | TBD  |September |September    |July    |July    |iOS Objective C in July
 Network Traversal | TBD |TBD|TBD|TBD|TBD|TBD|TBD|
 
