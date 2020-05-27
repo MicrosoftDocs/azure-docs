@@ -47,7 +47,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
 
-- Memory RSS metric isn't available for Windows node and containers.
+- Windows doesn't have a Memory RSS metric, and as a result it isn't available for Windows node and containers. The [Working Set](https://docs.microsoft.com/windows/win32/memory/working-set) metric is available.
 - Disk storage capacity information isn't available for Windows nodes.
 - Container logs aren't available for containers running in Windows nodes.
 - Live Data (preview) feature support is available with the exception of Windows container logs.
