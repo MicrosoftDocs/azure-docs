@@ -9,9 +9,13 @@ ms.custom: mvc
 
 # Limit Change Tracking and Inventory deployment scope
 
+This article describes how to work with scope configurations when using the [Change Tracking and Inventory](change-tracking.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+
+## About scope configurations
+
 A scope configuration is a group of one or more saved searches (queries) used to limit the scope of Change Tracking and Inventory to specific computers. The scope configuration is used within the Log Analytics workspace to target the computers to enable. When you add a computer to changes from the feature, the computer is also added to a saved search in the workspace.
 
-This article describes how to work with scope configurations when using the [Change Tracking and Inventory](change-tracking.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+## Set the scope limit
 
 To limit the scope for your Change Tracking and Inventory deployment:
 
