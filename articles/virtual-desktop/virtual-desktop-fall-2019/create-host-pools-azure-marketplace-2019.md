@@ -158,3 +158,5 @@ You've made a host pool and assigned users to access its desktop. You can popula
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](../manage-app-groups.md)
+Hyperlink should point to 
+https://docs.microsoft.com/en-us/azure/virtual-desktop/virtual-desktop-fall-2019/manage-app-groups-2019
