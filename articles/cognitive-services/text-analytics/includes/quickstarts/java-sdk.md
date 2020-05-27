@@ -51,7 +51,7 @@ import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 ```
 
-In the java file, add a new class and add your azure resource's key and endpoint as shown below.
+In the java file, add a new class and add your Azure resource's key and endpoint as shown below.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
