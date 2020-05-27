@@ -88,11 +88,21 @@ Identity-based authentication for Azure Files offers several benefits over using
 
 ## How it works
 
-Azure file shares supports Kerberos authentication for integration with either Azure AD DS or on-premises AD DS. Before you can enable authentication on Azure file shares, you must first set up your domain environment. For Azure AD DS authentication, you should enable Azure AD Domain Services and domain join the VMs you plan to access file data from. Your domain-joined VM must reside in the same virtual network (VNET) as your Azure AD DS. Similarly, for on-premises AD DS authentication, you need to set up your domain controller and domain join your machines or VMs.
+Azure file shares leverages Kerberos protocol for authenticating with either on-premises AD DS or Azure AD DS. Before you can enable authentication on Azure file shares, you must first set up your domain environment. For on-premises AD DS authentication, you must set up your AD domain controllers and domain join your machines or VMs. You can host your AD domain controllers on Azure VMs or on-premises. Either way, your domain joined clients must have line of sight to the domain service, so they must be within the corporate network or virtual network (VNET) of your domain service. Similarly, for Azure AD DS authentication, you should enable Azure AD Domain Services and domain join the VMs you plan to access file data from. Your domain-joined VM must reside in the same virtual network (VNET) as your Azure AD DS. 
 
-When an identity associated with an application running on a VM attempts to access data in Azure file shares, the request is sent to Azure AD DS to authenticate the identity. If authentication is successful, Azure AD DS returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure file shares use that token to authorize the request. Azure file shares receive the token only and does not persist Azure AD DS credentials. On-premises AD DS authentication works in a similar fashion, where your AD DS provides the Kerberos token.
+When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the domain service, either AD DS or Azure AD DS, to authenticate the identity. If authentication is successful, it returns a Kerberos token. The client sends a request that includes the Kerberos token and Azure file shares use that token to authorize the request. Azure file shares only receive the Kerberos token, not access credentials.
 
-![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
+The following diagram depicts on-premises AD DS authentication to Azure file shares over SMB. The on-prem AD DS must be synced to Azure AD using Azure AD Connect sync. Only hybrid users that exist in both on-premises AD DS and Azure AD can be authenticated and authorized for Azure file share access. This is because the share level permission is configured against the identity represented in Azure AD where the directory/file level permission is enforced with that in AD DS. Make sure that you configure the permissions correctly against the same hybrid user.
+
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram":::
+
+The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-prem AD DS authentication to Azure file shares. There are two major differences:
+
+- First, you don’t need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
+
+- Second, all users exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
+
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram":::
 
 ### Enable identity-based authentication
 
