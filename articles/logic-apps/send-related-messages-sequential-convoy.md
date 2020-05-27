@@ -135,7 +135,7 @@ Here is the top-level flow in the `Try` [scope action](../logic-apps/logic-apps-
 
 | Name | Description |
 |------|-------------|
-| **`Send initial message to topic`** | This Service Bus action sends the message to the queue specified by the session ID that's output from the trigger along with other information about the message. For details, see [Handle the initial message](#handle-initial-message). |
+| **`Send initial message to topic`** | You can replace this action with whatever action that you want to handle the first message from the session in the queue. The session ID specifies the session. <p><p>For this template, a Service Bus action sends the first message to a Service Bus topic. For details, see [Handle the initial message](#handle-initial-message). |
 | (parallel branch) | This [parallel branch action](../logic-apps/logic-apps-control-flow-branches.md) creates two paths: <p><p>- Branch #1: Continue processing the message. For more information, see [Branch #1: Complete initial message in queue](#complete-initial-message). <p><p>- Branch #2: Abandon the message if something goes wrong, and release for pickup by another trigger run. For more information, see [Branch #2: Abandon initial message from queue](#abandon-initial-message). <p><p>Both paths join up later in the **Close session in a queue and succeed** action, described in the next row. |
 | **`Close a session in a queue and succeed`** | This Service Bus action joins the previously described branches and closes the session in the queue after either of the following events happen: <p><p>- The workflow finishes processing available messages in the queue. <br>- The workflow abandons the initial message because something went wrong. <p><p>For details, see [Close a session in a queue and succeed](#close-session-succeed). |
 |||
@@ -156,7 +156,7 @@ Here is the top-level flow in the `Try` [scope action](../logic-apps/logic-apps-
 
 #### Branch #2: Abandon initial message from the queue
 
-If something goes wrong while processing the initial message, the Service Bus action, **Abandon initial message from the queue**, releases the message for another workflow instance run to pick up and process. For details, see [Handle the initial message](#handle-initial-message).
+If the action that handles the first message fails, the Service Bus action, **Abandon initial message from the queue**, releases the message for another workflow instance run to pick up and process. For details, see [Handle the initial message](#handle-initial-message).
 
 <a name="catch-scope"></a>
 
@@ -190,18 +190,28 @@ To provide the values for the trigger and actions in the **Correlated in-order d
 
   ![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
 
+  > [!NOTE]
+  > Initially, the polling interval is set to three minutes so that the logic app doesn't 
+  > run more frequently than you expect and result in unanticipated billing charges. Ideally, 
+  > set the interval and frequency to 30 seconds so that the logic app triggers immediately 
+  > when a message arrives. 
+
   | Property | Required for this scenario | Value | Description |
   |----------|----------------------------|-------|-------------|
   | **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
   | **Queue type** | Yes | **Main** | Your primary Service Bus queue |
-  | **Session id** | Yes | **Next available** | This option creates a new session for each trigger run based on the session ID from the message that arrives in the Service Bus queue. Each trigger run gets a new session from the queue. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
-  | **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message |
+  | **Session id** | Yes | **Next available** | This option gets a session for each trigger run, based on the session ID from the message in the Service Bus queue. The session is also locked so that no other logic app or other client can process messages that are related to this session. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
+  | **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message. |
   | **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
   |||||
 
   For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
 
-After initializing the session, the workflow uses the **Initialize variable** action to create a variable that tracks whether the next Service Bus action finishes reading messages in the queue and set the variable's Boolean value is set to `false`.
+After initializing the session, the workflow uses the **Initialize variable** action to create a Boolean variable that initially set to `false` and indicates when the following conditions are true: 
+
+* No more messages in the session are available to read.
+
+* The session lock no longer needs to be renewed so that the current workflow instance can finish.
 
 !["Initialize Variable" action details for "Init isDone"](./media/send-related-messages-sequential-convoy/init-is-done-variable.png)
 
@@ -211,7 +221,9 @@ Next, in the **Try** block, the workflow performs actions on the first message t
 
 ### Handle the initial message
 
-The first action, which is **Send initial message to topic**, sends the message to a topic that's specified by the **Session Id** property. That way, all the messages that are associated with a specific session go to the same topic. All **Session Id** properties for subsequent actions in this template use the same session ID value.
+The first action is a placeholder Service Bus action, **Send initial message to topic**, which you can replace with any other action that you want to handle the first message from the session in the queue. The session ID specifies the session from where the message originated.
+
+The placeholder Service Bus action sends the first message to a Service Bus topic that's specified by the **Session Id** property. That way, all the messages that are associated with a specific session go to the same topic. All **Session Id** properties for subsequent actions in this template use the same session ID value.
 
 ![Service Bus action details for "Send initial message to topic"](./media/send-related-messages-sequential-convoy/send-initial-message-to-topic-action.png)
 
@@ -351,7 +363,7 @@ Next, the workflow creates an array with a JSON object that contains the error i
 
 ### Select error details
 
-This [**Select** action](../logic-apps/logic-apps-perform-data-operations.md#select-action) creates an array that contains JSON objects based on the specified criteria and are built from the values in the array created by the previous action, `Find failure msg from 'Try' block`. Specifically, this action returns an array that contains a JSON object created from the error details returned from the previous action, `Find failure msg from 'Try' block`.
+This [**Select** action](../logic-apps/logic-apps-perform-data-operations.md#select-action) creates an array that contains JSON objects based on the input array that's output from the previous action, `Find failure msg from 'Try' block`. Specifically, this action returns an array that has only the specified properties for each object in the array. In this case, the array contains the action name and error result properties.
 
 ![Select action - "Select error details"](./media/send-related-messages-sequential-convoy/select-error-details.png)
 
