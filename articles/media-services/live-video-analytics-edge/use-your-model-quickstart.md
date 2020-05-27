@@ -1,13 +1,13 @@
 ---
-title:  Run Live Video Analytics with your own model - Azure
+title:  Analyze live video using your own model - Azure
 description: In this quickstart, you will apply computer vision to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Run Live Video Analytics with your own model
+# Quickstart: Analyze live video with your own model
 
-In this quickstart, you will apply computer vision to analyze the live video feed from a (simulated) IP camera. You will be able to filter a subset of your video frames, convert them to images and send them to an external inference module that applies computer vision to detect objects in those images. The external inference module returns these detection results as events, that are published to the IoT Edge Hub.
+In this quickstart, you will apply computer vision to analyze live video. You will be able to filter a subset of the video frames, convert them to images and send them to an inference module that applies computer vision to detect objects in those images. The  events returned by the inference module will be published to IoT Edge Hub.
 
 This article builds on top of the [Getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. 
 
@@ -23,7 +23,7 @@ This article builds on top of the [Getting started](get-started-detect-motion-em
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends the video frames to the [frame fate filter processor](media-graph-concept.md#) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-graph-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The Http Extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node captures the video feed from this server and sends the video to the [frame fate filter processor](media-graph-concept.md#) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-graph-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The Http Extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 The [video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) you will use for this quickstart has been built into the rtspsim-live555 container. If you play this video, you will see that the footage is of traffic on a highway, with many vehicles moving on it. 
 
