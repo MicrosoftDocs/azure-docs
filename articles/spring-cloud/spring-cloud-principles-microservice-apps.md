@@ -35,7 +35,7 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 * Azul Systems.
 3.	What is the base operating system for images?
 * Ubuntu 20.04 LTS (Focal Fossa). Apps will continue to stay on the most recent LTS version of Ubuntu.
-* See http://releases.ubuntu.com/focal/
+* See [Ubuntu 20.04 LTS (Focal Fossa)](http://releases.ubuntu.com/focal/)
 4.	How often will you update the runtimes?
 * Quarterly - to absorb quarterly updates to Java.
 * Out of band - to absorb security fixes to base operating systems and Java.
@@ -45,9 +45,9 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 6.	How long will you support Java 8 and 11 LTS versions?
 * Java 8 LTS until March 2025.
 * Java 11 LTS until September 2026.
-* See https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-long-term-support
+* See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
 7.	How can I download a supported Java runtime for local dev? 
-* See https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-install
+* See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
 8.	What is your policy for retiring older runtimes? How can developers address their grievances if they are NOT ready to part ways with older runtimes?
 * We will provide 12 months notice prior to retiring older runtimes.
 9.	How can I get support for issues at the Java runtime level?
@@ -55,8 +55,8 @@ Azul Systems will continuously scan for changes to base operating systems and ke
  
 ## Default deployment on Azure Spring Cloud
 
-    ![Default deployment](media/spring-cloud-principles/spring-cloud-default-deployment.png)
+> ![Default deployment](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 Next steps
-* [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-jdk-long-term-support)
-
+* [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal)
+* [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
