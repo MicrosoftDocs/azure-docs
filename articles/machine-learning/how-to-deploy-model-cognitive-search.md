@@ -15,7 +15,7 @@ ms.date: 05/21/2020
 # Deploy a model for use with Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../../search/search-what-is-azure-search.md).
+This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../search/search-what-is-azure-search.md).
 
 Cognitive Search provides a search-as-a-service cloud solution. It can be enhanced by adding _skills_. One such skill is the ability to use a model deployed as a web service by Azure Machine Learning.
 
