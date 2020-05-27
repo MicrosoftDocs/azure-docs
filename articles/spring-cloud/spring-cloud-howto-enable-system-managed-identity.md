@@ -1,5 +1,5 @@
 ---
-title: Enable system managed identity for application
+title: Enable system-assigned managed identity for application
 description: How to enable system managed identity for application.
 author:  MikeDodaro
 ms.author: brendm
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ---
 
-# How to enable system managed identity for application
+# How to enable system-assigned managed identity for application
 Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your Azure Spring Cloud application. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
-This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.3).
+This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.4).
 
 ## Prerequisites
 If you're unfamiliar with managed identities for Azure resources, see [overview section](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
