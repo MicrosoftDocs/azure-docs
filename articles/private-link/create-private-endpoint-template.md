@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ---
-# Create a private link endpoint - Resource Manager template
+# Create a private endpoint - Resource Manager template
 
 In this quickstart, you use a Resource Manager template to create an private endpoint.
 
