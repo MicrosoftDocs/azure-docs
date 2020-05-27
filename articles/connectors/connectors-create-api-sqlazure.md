@@ -21,7 +21,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) or [Azure SQL database](../sql-database/sql-database-get-started-portal.md)
+* An [SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) or [Azure SQL database](../azure-sql/database/single-database-create-quickstart.md)
 
   Your tables must have data so that your logic app can return results when calling operations. If you create an Azure SQL Database, you can use sample databases, which are included.
 
