@@ -8,13 +8,9 @@ ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 ---
 # Quickstart: Create your first function in Azure using Visual Studio
 
-Azure Functions lets you run your code in a serverless environment without having to first create a VM or publish a web application.
+In this article, you use Visual Studio to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.  
 
-In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" HTTP trigger C# function app, which you then publish to Azure. 
-
-![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
-
-This quickstart is designed for Visual Studio 2019. 
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
