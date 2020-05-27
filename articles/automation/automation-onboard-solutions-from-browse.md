@@ -1,12 +1,12 @@
 ---
-title: Enable Azure Automation Update Management from Azure portal
+title: Enable Azure Automation Update Management from the Azure portal
 description: This article tells how to enable Update Management from the Azure portal.
 services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ---
-# Enable Update Management from Azure portal
+# Enable Update Management from the Azure portal
 
 This article describes how you can enable the [Update Management](automation-update-management.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
 

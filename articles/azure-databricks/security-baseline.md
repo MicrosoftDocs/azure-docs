@@ -196,7 +196,7 @@ For audit logging, Azure Databricks provides comprehensive end-to-end diagnostic
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [How to enable Diagnostic Settings for Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -258,7 +258,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [How to configure alerts in Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 
