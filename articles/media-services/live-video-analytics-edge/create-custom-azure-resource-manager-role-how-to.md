@@ -255,7 +255,6 @@ Note the following values from this article. These values will be required for y
 
 | Variable from this article|Twin property name for Live Video Analytics on IoT Edge|
 |---|---|
-|AadSecret |	aadServicePrincipalPassword}
+|AadSecret |	aadServicePrincipalPassword|
 |AadTenantId |	aadTenantId|
 |AadClientId 	|aadServicePrincipalAppId|
-F
