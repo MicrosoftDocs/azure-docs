@@ -47,6 +47,30 @@ Windows or Linux IaaS VMs qualify if:
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 
+## Where is the default Log Analytics workspace created?
+
+The location of the default workspace depends on your Azure region:
+
+- For VMs in the United States and Brazil the workspace location is the United States
+- For VMs in Canada, the workspace location is Canada
+- For VMs in Europe the workspace location is Europe
+- For VMs in the UK the workspace location is the UK
+- For VMs in East Asia and Southeast Asia the workspace location is Asia
+- For VMs in Korea, the workspace location is Korea
+- For VMs in India, the workspace location is India
+- For VMs in Japan, the workspace location is Japan
+- For VMs in China, the workspace location is China
+- For VMs in Australia, the workspace location is Australia
+
+
+## What data is collected by the Log Analytics agent?
+
+For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
+
+
 ## Can I delete the default workspaces created by Security Center?
 
 **Deleting the default workspace is not recommended.** Security Center uses the default workspaces to store security data from your VMs. If you delete a workspace, Security Center is unable to collect this data and some security recommendations and alerts are unavailable.
@@ -181,9 +205,17 @@ To manually remove the agent:
 
 ## How do I disable data collection?
 
-Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection.
+Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities, and endpoint protection. By default, auto-provisioning is disabled.
 
-To disable data collection, [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Select policy**. Select the subscription that you wish to disable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **Off**.
+If you've enabled it but now want to disable it:
+
+1. From [the Azure portal](https://portal.azure.com), open **Security Center** and select **Security policy**.
+
+1. Select the subscription on which you want to disable automatic provisioning.
+
+    **Security policy - Data collection** opens.
+
+1. Under **Auto provisioning**, select **Off**.
 
 
 ## How do I enable data collection?
@@ -213,9 +245,6 @@ To collect the data, each VM and server must connect to the Internet using HTTPS
 The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## Where is my data stored?
-
-Data collected from this agent is stored in either an existing Log Analytics workspace associated with your subscription or a new workspace. For more information, see [Data Security](security-center-data-security.md).
 
 
 <!--Image references-->

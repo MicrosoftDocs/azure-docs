@@ -65,7 +65,7 @@ In addition to supporting virtual network service endpoints for the services abo
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](./translator/index.yml)
+> * [Translator](./translator/index.yml)
 > * [Speech Service](./speech-service/index.yml)
 
 ## Change the default network access rule

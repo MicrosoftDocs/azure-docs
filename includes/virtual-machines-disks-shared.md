@@ -46,6 +46,10 @@ Some popular applications running on WSFC include:
 
 Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
 
+#### Ubuntu
+
+For information about how to set up Ubuntu high availability with Corosync and Pacemaker on Azure Shared Disks, see [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+
 ## Persistent reservation flow
 
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
@@ -76,7 +80,7 @@ The flow is as follows:
 
 Ultra disks offer an additional throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the ReadOnly or Read/Write access for Reservation Holder, Registered, and Others.":::
 
 ## Ultra disk performance throttles
 
@@ -110,22 +114,16 @@ The following examples depict a few scenarios that show how the throttling can w
 
 The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultaneous write-access to the disk, which results in the ReadWrite throttle being split across the two VMs and the ReadOnly throttle not being used.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
 #### Two node cluster without cluster share volumes
 
 The following is an example of a 2-node WSFC that isn't using clustered shared volumes. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle only being used by the secondary.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
 
 #### Four node Linux cluster
 
 The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle being split by the secondary VMs.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::

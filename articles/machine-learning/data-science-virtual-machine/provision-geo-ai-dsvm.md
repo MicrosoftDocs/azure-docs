@@ -22,7 +22,7 @@ The AI tools that are included in the Geo-DSVM include the following:
 - GPU editions of popular deep-learning frameworks like Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, and Chainer
 - Tools to acquire and preprocess image and textual data
 - Tools for development activities such as Microsoft Machine Learning Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, and SQL databases
-- ArcGIS Pro desktop software from ESRI, along with Python and R interfaces that can work with the geospatial data from your AI applications
+- ArcGIS Pro desktop software from Esri, along with Python and R interfaces that can work with the geospatial data from your AI applications
  
 
 ## Create your Geo AI Data Science VM

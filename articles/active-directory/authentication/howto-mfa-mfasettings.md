@@ -33,7 +33,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
 | [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-methods.md#oath-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 

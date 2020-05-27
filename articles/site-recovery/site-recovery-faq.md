@@ -97,9 +97,14 @@ Yes. When you create a Site Recovery vault in a region, we ensure that all metad
 ### Does Site Recovery encrypt replication?
 For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
-### How can I enforce TLS 1.2 on all on-premises Azure Site Recovery components?
+### Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
+Yes, TLS 1.2 protocol is enforced by default for Azure-to-Azure Site Recovery scenario. 
+
+### How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
 Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
 
+### How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
+All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One will need to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services. 
 
 ## Disaster recovery
 

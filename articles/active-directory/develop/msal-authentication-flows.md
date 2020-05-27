@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -148,7 +148,7 @@ By using the device code flow, the application obtains tokens through a two-step
 
 In the preceding diagram:
 
-1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to go to a URL (for example, `https://microsoft.com/devicelogin`). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
+1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to go to a URL (for example, `https://microsoft.com/devicelogin`). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and [multi-factor authentication](../authentication/concept-mfa-howitworks.md) if necessary.
 
 2. Upon successful authentication, the command-line app receives the required tokens through a back channel, and uses them to perform the web API calls it needs.
 
@@ -179,7 +179,7 @@ IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Pla
 
 IWA doesn't bypass multi-factor authentication. If multi-factor authentication is configured, IWA might fail if a multi-factor authentication challenge is required. Multi-factor authentication requires user interaction.
 
-You don't control when the identity provider requests two-factor authentication to be performed. The tenant admin does. Typically, two-factor authentication is required when you sign in from a different country, when you're not connected via VPN to a corporate network, and sometimes even when you are connected via VPN. Azure AD uses AI to continuously learn if two-factor authentication is required. If IWA fails, you should fall back to an [interactive user prompt] (#interactive).
+You don't control when the identity provider requests two-factor authentication to be performed. The tenant admin does. Typically, two-factor authentication is required when you sign in from a different country/region, when you're not connected via VPN to a corporate network, and sometimes even when you are connected via VPN. Azure AD uses AI to continuously learn if two-factor authentication is required. If IWA fails, you should fall back to an [interactive user prompt] (#interactive).
 
 The authority passed in when constructing the public client application must be one of the following:
 - Tenanted (of the form `https://login.microsoftonline.com/{tenant}/` where `tenant` is either the guid representing the tenant ID or a domain associated with the tenant).

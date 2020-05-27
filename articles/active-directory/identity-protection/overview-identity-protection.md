@@ -83,6 +83,8 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 | Security operator | View all Identity Protection reports and Overview blade <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
 | Security reader | View all Identity Protection reports and Overview blade | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
 
+Currently, the security operator role cannot access the Risky sign-ins report.
+
 Conditional Access administrators can also create policies that factor in sign-in risk as a condition, find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## License requirements

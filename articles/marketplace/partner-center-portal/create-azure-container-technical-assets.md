@@ -11,9 +11,6 @@ ms.date: 04/09/2020
 
 # Create an Azure container offer
 
-> [!IMPORTANT]
-> We're moving the management of your Azure container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Prepare your Container technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) for Cloud Partner Portal to manage your offers.
-
 This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
 
 ## Before you begin

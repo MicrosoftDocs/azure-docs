@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/20/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -28,9 +28,9 @@ Azure Multi-Factor Authentication can be used, and licensed, in a few different 
 | If you're a user of | Capabilities and use cases |
 | --- | --- |
 | EMS or Microsoft 365 E3 and E5 | EMS E3 or Microsoft 365 E3 (that includes EMS and Office 365), includes Azure AD Premium P1. EMS E5 or Microsoft 365 E5 includes Azure AD Premium P2. You can use the same Conditional Access features noted in the following sections to provide multi-factor authentication to users. |
-| Azure AD Premium P1 | You can use [Azure AD Conditional Access](../conditional-access/overview.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements. |
+| Azure AD Premium P1 | You can use [Azure AD Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements. |
 | Azure AD Premium P2 | Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Azure AD Premium P1 features that adapts to user's patterns and minimizes multi-factor authentication prompts. |
-| Office 365 Business Premium, E3, or E5 | Azure Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Office 365 resources with multi-factor authentication](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
+| Office 365 Business Premium, E3, or E5 | Azure Multi-Factor Authentication can be [enabled on a per-user basis](howto-mfa-userstates.md), or enabled or disabled for all users, for all sign-in events, using security defaults. Management of Azure Multi-Factor Authentication is through the Office 365 portal. For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see [secure Office 365 resources with multi-factor authentication](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
 | Azure AD free | You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication for all users, every time an authentication request is made. You don't have granular control of enabled users or scenarios, but it does provide that additional security step.<br /> Even when security defaults aren't used to enable multi-factor authentication for everyone, users assigned the *Azure AD Global Administrator* role can be configured to use multi-factor authentication. This feature of the free tier makes sure the critical administrator accounts are protected by multi-factor authentication. |
 
 ## Feature comparison of versions
@@ -82,4 +82,6 @@ If you don't want to enable Azure Multi-Factor Authentication for all users and 
 
 ## Next steps
 
-For more information on costs, see [Azure Multi-Factor Authentication pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+* For more information on costs, see [Azure Multi-Factor Authentication pricing](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+* [What is Conditional Access](../conditional-access/overview.md)
+

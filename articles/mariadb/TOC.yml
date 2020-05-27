@@ -13,6 +13,9 @@
     href: quickstart-create-mariadb-server-database-using-azure-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Create DB - ARM template
+    href: quickstart-create-mariadb-server-database-arm-template.md
+    displayName: deploy azure resource manager template
   - name: Connect & query
     items:
     - name: MySQL Workbench
@@ -219,8 +222,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mariadb/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-database-mariadb.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
