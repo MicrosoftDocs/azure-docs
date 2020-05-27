@@ -208,13 +208,14 @@ The table below provides a list of other commonly used custom XPATH API expressi
 
 To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](https://docs.microsoft.com/contribute) to the article. 
 
-| \# | Workday Attribute Name  | Workday API version | Workday XPATH API expression   |
-|----|-------------------------|---------------------|--------------------------------|
-| 1  | UniversalID  | v30.0+   | wd:Worker/wd:Worker_Data/wd:Universal_ID/text()      |
-| 2  | UserName     | v30.0+   | wd:Worker/wd:Worker_Data/wd:User_Account_Data/wd:User_Name/text() |
-| 3  | ManagementLevelID  | v30.0+  | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=1]/wd:Position_Data/wd:Job_Profile_Summary_Data/wd:Management_Level_Reference/wd:ID[@wd:type="Management_Level_ID"]/text()  |
-| 4 | HireRescinded | v30.0+ | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Status_Data/wd:Hire_Rescinded/text() |
-| 5 | AssignedProvisioningGroup | v21.1+ | wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text() | 
+> [!div class="mx-tdBreakAll"]
+> | \# | Workday Attribute Name  | Workday API version | Workday XPATH API expression   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | Universal ID  | v30.0+   | wd:Worker/wd:Worker_Data/wd:Universal_ID/text()      |
+> | 2  | User Name     | v30.0+   | wd:Worker/wd:Worker_Data/wd:User_Account_Data/wd:User_Name/text() |
+> | 3  | Management Level ID  | v30.0+  | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=1]/wd:Position_Data/wd:Job_Profile_Summary_Data/wd:Management_Level_Reference/wd:ID[@wd:type="Management_Level_ID"]/text()  |
+> | 4 | Hire Rescinded | v30.0+ | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Status_Data/wd:Hire_Rescinded/text() |
+> | 5 | Assigned Provisioning Group | v21.1+ | wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text() | 
 
 
 ## Supported XPATH functions

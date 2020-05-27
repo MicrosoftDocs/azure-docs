@@ -1058,8 +1058,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 7. Set **Operation** to **Get_Workers**
 
 8.    Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
-
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Select **OK**.
 

@@ -92,48 +92,48 @@ In this section, you will configure how writeback attributes flow from Azure AD 
 
 4. Typically you map the Azure AD *userPrincipalName* attribute to Workday *UserID* attribute and map the Azure AD *mail* attribute to the Workday *EmailAddress* attribute. 
 
-  >[!div class="mx-imgBorder"]
-  >![Azure portal](./media/workday-inbound-tutorial/workday-writeback-mapping.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure portal](./media/workday-inbound-tutorial/workday-writeback-mapping.png)
 
 5. Use the guidance shared below to map phone number attribute values from Azure AD to Workday. 
 
-  | Workday phone attribute | Expected value | Mapping guidance |
-  |-------------------------|----------------|------------------|
-  | WorkphoneLandlineIsPrimary | true/false | Constant or expression mapping whose output is "true" or "false" string value. |
-  | WorkphoneLandlineCountryCodeName | [Three-letter ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Constant or expression mapping whose output is a three letter country code. |
-  | WorkphoneLandlineCountryCodeNumber | [International country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Constant or expression mapping whose output is a valid country code (without the + sign). |
-  | WorkphoneLandlineNumber | Full phone number including the area code | Map to *telephoneNumber* attribute. Use regex to remove whitespace, brackets and country code. See example below. |
-  | WorkphoneLandlineExtension | Extension number | If *telephoneNumber* contains extension, use regex to extract the value. |
-  | WorkphoneMobileIsPrimary | true/false | Constant mapping or expression mapping whose output is "true" or "false" string value |
-  | WorkphoneMobileCountryCodeName | [Three-letter ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Constant or expression mapping whose output is a three letter country code. |
-  | WorkphoneMobileCountryCodeNumber | [International country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Constant or expression mapping whose output is a valid country code (without the + sign). |
-  | WorkphoneMobileNumber | Full phone number including the area code | Map to *mobile* attribute. Use regex to remove whitespace, brackets and country code. See example below. |
+     | Workday phone attribute | Expected value | Mapping guidance |
+     |-------------------------|----------------|------------------|
+     | WorkphoneLandlineIsPrimary | true/false | Constant or expression mapping whose output is "true" or "false" string value. |
+     | WorkphoneLandlineCountryCodeName | [Three-letter ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Constant or expression mapping whose output is a three letter country code. |
+     | WorkphoneLandlineCountryCodeNumber | [International country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Constant or expression mapping whose output is a valid country code (without the + sign). |
+     | WorkphoneLandlineNumber | Full phone number including the area code | Map to *telephoneNumber* attribute. Use regex to remove whitespace, brackets and country code. See example below. |
+     | WorkphoneLandlineExtension | Extension number | If *telephoneNumber* contains extension, use regex to extract the value. |
+     | WorkphoneMobileIsPrimary | true/false | Constant mapping or expression mapping whose output is "true" or "false" string value |
+     | WorkphoneMobileCountryCodeName | [Three-letter ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Constant or expression mapping whose output is a three letter country code. |
+     | WorkphoneMobileCountryCodeNumber | [International country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Constant or expression mapping whose output is a valid country code (without the + sign). |
+     | WorkphoneMobileNumber | Full phone number including the area code | Map to *mobile* attribute. Use regex to remove whitespace, brackets and country code. See example below. |
 
-> [!NOTE]
-> When invoking the Change_Work_Contact Workday web service, Azure AD sends the following constant values: <br>
-> * **Communication_Usage_Type_ID** is set to the constant string "WORK" <br>
-> * **Phone_Device_Type_ID** is set to constant string "Mobile" for mobile phone numbers and "Landline" for landline phone numbers. <br>
-> 
-> You will encounter writeback failures if your Workday tenant uses different Type_IDs. To prevent such failures, you can use the Workday **Maintain Reference IDs** task and update the Type_IDs to match the values used by Azure AD. <br>
->  
+     > [!NOTE]
+     > When invoking the Change_Work_Contact Workday web service, Azure AD sends the following constant values: <br>
+     > * **Communication_Usage_Type_ID** is set to the constant string "WORK" <br>
+     > * **Phone_Device_Type_ID** is set to constant string "Mobile" for mobile phone numbers and "Landline" for landline phone numbers. <br>
+     > 
+     > You will encounter writeback failures if your Workday tenant uses different Type_IDs. To prevent such failures, you can use the Workday **Maintain Reference IDs** task and update the Type_IDs to match the values used by Azure AD. <br>
+     >  
 
-**Reference regex expressions - Example 1**
+     **Reference regex expressions - Example 1**
 
-Use the below regular expression, if phone number in Azure AD is set using the format required for Self Service Password Reset (SSPR). <br>
-Example: if the phone number value is +1 1112223333 -> then the regex expression will output 1112223333
+     Use the below regular expression, if phone number in Azure AD is set using the format required for Self Service Password Reset (SSPR). <br>
+     Example: if the phone number value is +1 1112223333 -> then the regex expression will output 1112223333
 
-```C#
-Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )
-```
+     ```C#
+     Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )
+     ```
 
-**Reference regex expressions - Example 2**
+     **Reference regex expressions - Example 2**
 
-Use the below regular expression, if phone number in Azure AD is set using the format (XXX) XXX-XXXX. <br>
-Example: if the phone number value is (111) 222-3333 -> then the regex expression will output 1112223333
+     Use the below regular expression, if phone number in Azure AD is set using the format (XXX) XXX-XXXX. <br>
+     Example: if the phone number value is (111) 222-3333 -> then the regex expression will output 1112223333
 
-```C#
-Replace([mobile], , "[()\\s-]+", , "", , )
-```
+     ```C#
+     Replace([mobile], , "[()\\s-]+", , "", , )
+     ```
 
 6. To save your mappings, click **Save** at the top of the Attribute-Mapping section.
 
@@ -154,8 +154,8 @@ Once the Workday provisioning app configurations have been completed, you can tu
 
 5. Once the initial sync is completed, it will write a summary report in the **Provisioning** tab, as shown below.
 
-   > [!div class="mx-imgBorder"]
-   > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+     > [!div class="mx-imgBorder"]
+     > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## Next steps
 

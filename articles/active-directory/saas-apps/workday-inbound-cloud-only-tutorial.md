@@ -45,11 +45,11 @@ This Workday to Azure Active Directory user provisioning solution is ideally sui
 
 * Organizations using Office 365 for email
 
-## Solution Architecture
+## Solution architecture
 
 This section describes the end-to-end user provisioning solution architecture for cloud-only users. There are two related flows:
 
-* **Authoritative HR Data Flow – from Workday to Azure Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in Workday and then the event data flows into Azure Active Directory. Depending on the event, it may lead to create/update/enable/disable operations in Azure AD.
+* **Authoritative HR data flow – from Workday to Azure Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in Workday and then the event data flows into Azure Active Directory. Depending on the event, it may lead to create/update/enable/disable operations in Azure AD.
 * **Writeback flow – from on-premises Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect and information such as email, username and phone number  can be written back to Workday.
 
   ![Overview](./media/workday-inbound-tutorial/workday-cloud-only-provisioning.png)
