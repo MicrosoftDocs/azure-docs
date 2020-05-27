@@ -38,9 +38,9 @@ cyclecloud add_node my-pbspro -t execute -c 10
 
 ## PBS Resource-based Autoscaling
 
-Cyclecloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*. 
+Cyclecloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*.
 
-If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname ` 
+If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname`
 then CycleCloud will add nodes to the nodearray named 'highmem'. If there is  no such nodearray then the job will remain idle.
 
 Similarly if a machinetype resource is specified which a job submission, e.g. `qsub -l machinetype:Standard_L32s_v2 my-job.sh`, then CycleCloud autoscales the 'Standard_L32s_v2' in the 'execute' (default) nodearray. If that machine type is not available in the 'execute' node array then the job will remain idle.
@@ -94,6 +94,9 @@ The following are the PBS Professional specific configuration options you can to
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported. |
 
 [!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+
+> [!NOTE]
+> CycleCloud does not support the bursting configuration with PBS Pro.
 
 > [!NOTE]
 > Even though Windows is an officially supported PBS Professional platform, CycleCloud does not support running PBS Professional on Windows at this time.
