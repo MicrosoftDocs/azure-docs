@@ -32,9 +32,9 @@ This table provides a quick comparison for the change in terminology:
 
 |**New term**  | **Previous term**  |**Explanation** |
 |---------|---------|---------|
-|**Azure SQL Managed Instance** | Azure SQL Database managed instance| Azure SQL Managed Instance is its own product within the Azure SQL family, rather than just a deployment option within Azure SQL Database. | 
-|**Azure SQL Database**|Azure SQL Database single database| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool. |
-|**Azure SQL Database**|Azure SQL Database elastic pool| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool.  |
+|**Azure SQL Managed Instance** | Azure SQL Database *managed instance*| Azure SQL Managed Instance is its own product within the Azure SQL family, rather than just a deployment option within Azure SQL Database. | 
+|**Azure SQL Database**|Azure SQL Database *single database*| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool. |
+|**Azure SQL Database**|Azure SQL Database *elastic pool*| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool.  |
 |**Azure SQL Database** |Azure SQL Database | Though the term stays the same, it now only applies to single database and elastic pool deployments, and does not include managed instance. |
 | **Azure SQL**| N/A | This refers to the family of SQL Server database engine products that are available in Azure: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs. | 
 
