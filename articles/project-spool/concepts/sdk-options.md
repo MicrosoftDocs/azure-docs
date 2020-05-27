@@ -14,13 +14,7 @@ ms.service: azure-project-spool
 
 # SDKs Options
 
-There are many ways to program with Azure Communication Services, and four common scenarios with corresponding examples are listed below to help you get started:
-- Person to person video calling through client applications, such as an iOS app or Web Page.
-- Person to person audio accessing the public switched telephone network (PSTN) via client applications, such as an iOS app or Web Page.
-- Person to person text communication (Chat) via client applications, such as an iOS app or Web Page.
-- A web service communicating with a person through SMS.
-
-ACS capabilities are conceptually organized into 7 areas, which align to packaged assembles and API namespaces as appropriate for the language. Some areas have fully open-sourced SDKs and can be directly accessed over the network. These open-source SDKs can be found in the Azure SDK GitHub repository. The Calling APIs use proprietary network interfaces and require packaged libraries built by the ACS team.
+ACS capabilities are conceptually organized into 7 areas, which align to packaged assembles and API namespaces where appropriate for the language. Some areas have fully open-sourced SDKs and can be directly accessed over the network. These open-source SDKs can be found in the Azure SDK GitHub repository. The Calling APIs use proprietary network interfaces and require packaged libraries built by the ACS team.
 
 Assembly    | Protocols| Namespaces| Capabilities
 ----|----|---|---|
