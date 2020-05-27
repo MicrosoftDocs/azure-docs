@@ -2,7 +2,7 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 05/22/2020
+ms.date: 05/27/2020
 ---
 
 # Create a token with repository-scoped permissions
@@ -48,7 +48,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
     * Configure multiple tokens with identical permissions to a set of repositories
     * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map 
 
-  Azure Container Registry also provides several system-defined scope maps you can apply, with fixed permissions across all repositories.
+  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -175,12 +175,14 @@ To use a token created in the portal, you must generate a password. You can gene
 
 ## Authenticate with token
 
-When a user or service uses a token to authenticate with the target registry, it provides the token name as a user name and one of its generated passwords. The authentication method depends on the configured action or actions associated with the token.
+When a user or service uses a token to authenticate with the target registry, it provides the token name as a user name and one of its generated passwords. 
+
+The authentication method depends on the configured action or actions associated with the token.
 
 |Action  |How to authenticate  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete` in Azure CLI |
-  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI  |
+  |`content/delete`    | `az acr repository delete` in Azure CLI<br/><br/>Example: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/>Example: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
   |`content/write`     |  `docker login`<br/><br/>`az acr login` in Azure CLI     |
   |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` in Azure CLI   |
   |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` in Azure CLI |
@@ -202,7 +204,7 @@ docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 
 ### Authenticate using token
 
-Run `docker login` to authenticate with the registry, Provide the token name as the user name, and provide one of its passwords. The token must have the `Enabled` status.
+Run `docker login` or `az acr login` to authenticate with the registry to push or pull images. Provide the token name as the user name, and provide one of its passwords. The token must have the `Enabled` status.
 
 The following example is formatted for the bash shell, and provides the values using environment variables.
 
@@ -341,7 +343,7 @@ az acr scope-map list \
   --registry myregistry --output table
 ```
 
-The output shows the scope maps you defined and several system-defined scope maps you can use to configure tokens:
+The output shows the scope maps you defined and several system-defined scope maps that are also available to configure tokens. The permissions of system-defined scope maps apply to all repositories in your registry.
 
 ```
 NAME                 TYPE           CREATION DATE         DESCRIPTION
