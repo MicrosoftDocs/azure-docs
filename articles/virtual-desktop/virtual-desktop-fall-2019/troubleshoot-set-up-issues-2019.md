@@ -370,6 +370,12 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
+### Error: vmSubnet not available when configuring virutal networks
+
+**Cause:** Our ARM templates require the total number of VMs to be specified and not the number of VMs to add. In the UI portal, we define some constraints on the element for selecting the subnet. The validation logic uses the total number of VMs specified to check if the subnet has enough IP addresses and only allow those with enough addresses available.
+
+**Fix:** There are few options to resolve this, expand existing host pool by redeploying in Azure: https://docs.microsoft.com/en-us/azure/virtual-desktop/expand-existing-host-pool#redeploy-from-azure or use the underlying ARM templates: https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-arm-template#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool. Both of these options should allow you to specify the subnet.
+
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
