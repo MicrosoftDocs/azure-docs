@@ -40,11 +40,11 @@ For experiments configured with the SDK,  you can enable/disable the setting `fe
 
 The following table shows the accepted settings for `featurization` in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-Featurization Configuration | Description 
-------------- | ------------- 
-**`"featurization": 'auto'`**| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.
-**`"featurization": 'off'`**| Indicates featurization steps shouldn't be done automatically.
-**`"featurization":`&nbsp;`'FeaturizationConfig'`**| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-featurization).|
+|Featurization Configuration | Description|
+------------- | ------------- |
+|**`"featurization": 'auto'`**| Indicates that as part of preprocessing, [data guardrails and featurization steps](#featurization) are performed automatically. **Default setting**.|
+|**`"featurization": 'off'`**| Indicates featurization steps shouldn't be done automatically.|
+|**`"featurization":`&nbsp;`'FeaturizationConfig'`**| Indicates customized featurization step should be used. [Learn how to customize featurization](#customize-featurization).|
 
 <a name="featurization"></a>
 
@@ -86,11 +86,11 @@ You can review the data guardrails pertaining to your experiment
 
 Data guardrails will display one of three states: **Passed**, **Done**, or **Alerted**.
 
-State| Description
-----|----
-**Passed**| No data problems were detected and no user action is required. 
-**Done**| Changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. 
-**Alerted**| A data issue that could not be remedied was detected. We encourage users to revise and fix the issue. 
+|State| Description |
+|----|---- |
+|**Passed**| No data problems were detected and no user action is required. |
+|**Done**| Changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. |
+|**Alerted**| A data issue that could not be remedied was detected. We encourage users to revise and fix the issue.| 
 
 The following table describes the data guardrails currently supported, and the associated statuses that users may come across when submitting their experiment.
 
