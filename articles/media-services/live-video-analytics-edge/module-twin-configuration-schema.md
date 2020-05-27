@@ -24,16 +24,15 @@ Live Video Analytics on IoT Edge exposes the following module twin properties.
 |aadServicePrincipalAppId |Yes |Yes |Customer created Azure AD AppId.|
 |aadServicePrincipalCertificate |Yes<sup>*</sup>  |Yes |Customer created Azure AD AppId certificate.|
 |aadServicePrincipalPassword |Yes<sup>*</sup>  |Yes |Customer created Azure AD AppId password.|
-|aadEndpoint |No |No |Cloud specific Azure AD endpoint. <br/>Default: `https://login.microsoftonline.com` |
-|aadResourceId |No |No |Cloud specific Azure AD audience/resource ID <br/>Default: `https://management.core.windows.net/` |
-|armEndpoint |No |No |Cloud specific Azure Resource Manage endpoint. <br/>Default: `https://management.azure.com/` |
+|aadEndpoint |No |No |Cloud-specific Azure AD endpoint. <br/>Default: `https://login.microsoftonline.com` |
+|aadResourceId |No |No |Cloud-specific Azure AD audience/resource ID <br/>Default: `https://management.core.windows.net/` |
+|armEndpoint |No |No |Cloud-specific Azure Resource Manage endpoint. <br/>Default: `https://management.azure.com/` |
 |diagnosticsLevel |No |Yes |Events verbosity: <br/>Information &#x02758; Warning &#x02758; Error &#x02758; Critical &#x02758; None |
 |diagnosticsEventsOutputName |No |Yes |Hub output for diagnostics events. <br/>(Empty means diagnostics are not published)|
 |operationalEventsOutputName|No|Yes|Hub output for operational events.<br/>(Empty means operational events are not published)
 |logLevel|No|Yes|One of the following: <br/>&#x000B7; Verbose<br/>&#x000B7; Information (Default)<br/>&#x000B7; Warning<br/>&#x000B7; Error<br/>&#x000B7; None|
-|logCategories|No|Yes|A comma separated list of the following: Application, MediaPipeline, Events <br/>Default: Application, Events|
+|logCategories|No|Yes|A comma-separated list of the following: Application, MediaPipeline, Events <br/>Default: Application, Events|
 |debugLogsDirectory|No|Yes|Directory for debug logs. If present logs are generated, if not present debug logs are disabled.
-
 
 <sup>*</sup>You MUST provide either service principal certificate or password. 
 

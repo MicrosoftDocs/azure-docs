@@ -139,13 +139,13 @@ Follow the steps below to run the sample code.
     * After invoking the GraphTopologyList and getting a successful response with status: 200.
     * After invoking the GraphInstanceList and getting a successful response with status: 200.
 1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. The Media Graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the Media Graph, you can do the following:
+1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can do the following:
 
     The Program will have paused at the Console.Readline() stage. Go the TERMINAL window, and hit the “Enter” key. The program will then start deactivating and deleting the GraphInstance. after which it will exit.
 
 ## Interpret results
 
-In the Media Graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
+In the media graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
 
 * A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
 * A body tag that will contain the diagnostic or the operational event messages
@@ -154,7 +154,7 @@ In the messages below, the application properties and the content of the body ar
 
 ## MediaSession Established event
 
-When the Media Graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the rtspsim-live555 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the rtspsim-live555 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  

@@ -9,12 +9,12 @@ ms.date: 04/27/2020
 
 ## Suggested pre-reading  
 
-* [Media Graph concept](media-graph-concept.md)
-* [Video Recording concept](video-recording-concept.md)
+* [Media graph concept](media-graph-concept.md)
+* [Video recording concept](video-recording-concept.md)
 
 ## Overview
 
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live Video Analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a [media graph](media-graph-concept.md) consisting of an RTSP source node and an asset sink node. The diagram below shows a graphical representation of such a media graph. The JSON representation of this media graph, referred to as a [graph topology](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) can be found [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Live Video Analytics on IoT Edge supports recording video continuously, on a 24x7 basis, from a CCTV camera via a [media graph](media-graph-concept.md) consisting of an RTSP source node and an asset sink node. The diagram below shows a graphical representation of such a media graph. The JSON representation of the [graph topology](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 ![Continuous video recording](./media/continuous-video-recording/continuous-video-recording-overview.png)
 
@@ -22,7 +22,7 @@ The media graph depicted above can be run on an edge device, with the asset sink
 
 ## Resilient recording
 
-Live Video Analytics on IoT Edge supports operating under less-than-perfect network conditions, where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis. If you examine the topology JSON [here](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json), you will see it has the following properties defined:
+Live Video Analytics on IoT Edge supports operating under less-than-perfect network conditions, where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the asset on a periodic basis. If you examine the [graph topology JSON](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json), you will see it has the following properties defined:
 
 ```
     "segmentLength": "PT30S",
@@ -39,7 +39,7 @@ If you later examine the asset using [these](playback-recordings-how-to.md) APIs
 
 ## Segmented recording  
 
-As discussed above, the asset Sink component will record video to a local cache, and periodically upload the video to the cloud. Since there is a cost associated with operations on your Storage account, the segmentLength property (shown in the above section) will help you control that cost. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
+As discussed above, the asset sink node will record video to a local cache, and periodically upload the video to the cloud. The segmentLength property (shown in the above section) will help you control the write transactions cost associated with writing data to your storage account where the asset is being recorded. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
 
 The segmentLength property ensures that the edge module will upload video at most once per segmentLength seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
 

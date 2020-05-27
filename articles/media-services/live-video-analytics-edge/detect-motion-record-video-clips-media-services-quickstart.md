@@ -60,7 +60,7 @@ Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to
 
 ### Invoke GraphTopologySet
 
-Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [Media Graph topology](media-graph-concept.md) using the following JSON as the payload. You will be creating a topology named as "EVRtoAssetsOnMotionDetecion".
+Using the same steps as those outlined for invoking GraphTopologyList, you can invoke GraphTopologySet to set a [media graph topology](media-graph-concept.md) using the following JSON as the payload. You will be creating a topology named as "EVRtoAssetsOnMotionDetecion".
 
 ```
 {
@@ -510,7 +510,7 @@ Try the following as next steps:
 
 ### Prepare for monitoring events
 
-The Media Graph you created uses the Motion Detection Processor node to detect motion, and such events are relayed to your IoT Hub. In order to prepare for observing such events, follow these steps
+The media graph you created uses the Motion Detection Processor node to detect motion, and such events are relayed to your IoT Hub. In order to prepare for observing such events, follow these steps
 
 1. Open the Explorer pane in VSCode and look for Azure IOT Hub at the bottom-left corner.
 1. Expand the Devices node
@@ -701,7 +701,7 @@ In the topology, the Signal Gate Processor was configured with activation times 
 * The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded.
 
-If you let the Media Graph continue to run you will see this message.
+If you let the media graph continue to run you will see this message.
 
 ```
 [IoTHubMonitor] [4:33:40 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -725,7 +725,7 @@ If you let the Media Graph continue to run you will see this message.
 * The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message.
 * The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded.
 
-If you let the Media Graph continue to run, the RTSP simulator will reach the end of the video file and stop/disconnect. The RTSP Source node will then reconnect to the simulator, and the process will repeat.
+If you let the media graph continue to run, the RTSP simulator will reach the end of the video file and stop/disconnect. The RTSP Source node will then reconnect to the simulator, and the process will repeat.
     
 ## Invoke additional Direct Methods
 

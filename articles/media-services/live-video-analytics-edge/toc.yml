@@ -54,8 +54,8 @@
       href: analyze-live-video-concept.md
 - name: How-to guides
   items:
-  - name: Get started
-    href: get-started-how-to.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
   - name: Playback a recording 
@@ -64,6 +64,8 @@
     href: monitoring-logging.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
+  - name: Create custom Azure Resource Manager role
+    href: create-custom-azure-resource-manager-role-how-to.md
 - name: Reference
   items:
   - name: Direct methods
@@ -72,4 +74,8 @@
     href: module-twin-configuration-schema.md
   - name: Quotas and limitations
     href: quotas-limitations.md
+  - name: FAQs
+    href: faq.md
+  - name: Production readiness and best practices
+    href: production-readiness.md
 

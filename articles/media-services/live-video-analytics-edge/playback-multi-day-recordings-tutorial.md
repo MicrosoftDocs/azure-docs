@@ -92,7 +92,7 @@ When you expand the day, if you have let the CVR Tutorial run for several hours,
 
 ![Browse archive](./media/playback-multi-day-recordings-tutorial/results.png)
 
-The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see, [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP Source node in the Media Graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
+The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see, [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP Source node in the media graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
 
 ![Results](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
  
