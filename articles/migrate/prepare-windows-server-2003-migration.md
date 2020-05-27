@@ -20,7 +20,7 @@ There's no direct download link for Hyper-V Integration Services. Install on Hyp
 2. Copy the file to the Hyper-V VM running Windows Server 2003 that you want to migrate.
 3. Mount the .iso file, and copy the installation folder to the VM.
 4. Install Integration Services on the VM.
-5. In Integration Services, the following components should be enabled.
+5. In Integration Services, leave the default settings.
 
 ## Install on VMware VMs
 
@@ -35,7 +35,7 @@ You can't install Hyper-V Integration Services directly on a VMware VM. Instead,
 7. After migration to Azure, the script runs the first time the Azure VM starts.
 8. You need to manually restart the Azure VM for the script. There's a pop-up in boot diagnostics to indicate this.
 9. After the script runs and Hyper-V Integration Services are installed on the Azure VM, you can remove the script from startup.
-10. In Integration Services, the following components should be enabled.
+10. In Integration Services, leave the default settings.
 
 
 ## Next steps
