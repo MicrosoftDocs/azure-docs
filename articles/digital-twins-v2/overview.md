@@ -17,62 +17,68 @@ ms.service: digital-twins
 
 # What is Azure Digital Twins?
 
-Azure Digital Twins is an IoT platform that enables enterprises to create digital representations of their assets, environments and business systems. By leveraging your domain expertise on top of Azure Digital Twins' flexible modeling system, your enterprise can build contextually aware solutions to address scenarios such as workflow modeling in manufacturing, energy efficiency in smart spaces, digital twin simulation in oil and gas, and more. 
+**Azure Digital Twins** is an IoT platform that enables the creation of comprehensive digital models of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
 
 Here are some more uses of Azure Digital Twins:
 
 :::image type="content" source="media/overview/use-cases.png" alt-text="Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management" border="false":::
 
-Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
-
-With Azure Digital Twins next generation IoT solutions, customers are better able to track the past, control the present, and predict the future. 
+Leverage your domain expertise on top of Azure Digital Twins to build customized, connected solutions that:
+* Model any environment, and bring digital twins to life in a scalable and secure manner
+* Connect assets such as IoT devices and existing business systems
+* Use a robust event system to build dynamic business logic and data processing
+* Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future
 
 ## Azure Digital Twins capabilities
 
-Here is a summary of what you can do with Azure Digital Twins.
+Here's a summary of the features provided by Azure Digital Twins.
 
-### Represent your real-world business environment
+### Open modeling language
 
-In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called [**models**](concepts-models.md). You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
+In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [**models**](concepts-models.md). 
 
-Once you have defined the vocabulary for your business, you can represent your concrete environment by creating digital twins from the models you previously defined, and connecting them into a graph. For example, using the models described above for a building management solution, you can create a [**twin graph**](concepts-twins-graph.md) that represents the office building you are in with its many floors, rooms, etc.
+You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", and "elevator". You can then create **digital twins** based on these models to represent your specific environment.
 
-The arrows in the illustration below show different semantic relationships between the digital twins in the representation. For example, the building *contains* three floors, and each floor *contains* several rooms. The building also *is-equipped-with* an HVAC system and an elevator. The HVAC system *cools* specific floors. 
+Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md), and they describe twins in terms of their state properties, telemetry events, commands, components, and relationships.
+* Models define semantic **relationships** between your entities so that you can connect your twins into a knowledge graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
+* You can also specialize twins using model inheritance. One model can inherit from another.
 
-:::image type="content" source="media/overview/graph-example.png" alt-text="An example twin graph built out of digital twins and relationships" border="false":::
+DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) and [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md). This helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
 
-You can think of the models as nouns in a description of your world, and the relationships as verbs.
+### Live execution environment
 
-### Process incoming data and propagate state through the twin graph
+Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides an event processing system through which you can [**route events**](concepts-route-events.md) to different locations, both within and beyond your Azure Digital Twins instance. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
+Azure Digital Twins provides a rich **event system** to keep that graph current with data processing and business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
-Routing data and events through custom code processing allows you to:
-* Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin).
-* Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes).
-* Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters).
-* Send data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations).
+You can also extract insights from the live execution environment, using Azure Digital Twins' powerful **query API​**. The API lets you query with rich search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you.
 
-### Query the digital representation of your environment to answer business questions
+### Input from IoT and business systems
 
-Once you have created a graph of digital twins, you can use the [**Azure Digital Twins query language**](concepts-query-language.md) to run queries against the digital twins, their states, and their relationships. Depending on the state information you represented and the sensors you have connected to drive your digital representation, queries might be used to answer a broad range of questions about your environment.
+To keep the live execution environment of Azure Digital Twins up to date with the real world, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model.
 
-Here are some examples of insights you can gather:
-* Which campus contains meeting room 47?
-* Which assembly lines have an average temperature outside the range of 77–⁠79 degrees F?
-* Which power station has surplus capacity that is accessible to a particular customer?   
+You can create a new IoT Hub for this purpose with Azure Digital Twins, or connect an existing IoT Hub along with the devices it already manages.
 
-### Manage access to your instance
+You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-[**Security in Azure Digital Twins**](concepts-security.md) uses role-based access control (RBAC) to allow you to manage your instance at a twin level. You can define the policies for data access, using built-in roles or defining your own.
+### Output to TSI, storage, and analytics
 
-### Work with IoT Hub for device-centric scenarios
+The data in your Azure Digital Twins model can be routed to downstream Azure services for additional analytics or storage. This is provided through **event routes**, which use [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your desired data flows.
 
-Azure Digital Twins can represent IoT devices managed by [IoT Hub](../iot-hub/about-iot-hub.md) as part of your twin graph, where you can connect them via relationships and query them like all other digital twins.
+Some things you can do with event routes include:
+* Storing Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
+* Analyzing Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
+* Integrating larger workflows with Logic Apps​
+* Connecting Azure Digital Twins to Time Series Insights to track time series history of each twin
+* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
+
+This is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
 
 ## Azure Digital Twins in a solution context
 
-Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution. A typical solution using Azure Digital Twins contains the following parts:
+Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution. 
+
+A complete solution using Azure Digital Twins may contain the following parts:
 * The Azure Digital Twins service instance. This stores your twin models and your twin graph with its state, and orchestrates event processing.
 * One or more client apps that drive the Azure Digital Twins instance by configuring models, creating topology, and extracting insights from the twin graph.
 * One or more external compute resources to process events generated by Azure Digital Twins, or connected data sources such as devices. One common way to provide compute resources is via [Azure Functions](../azure-functions/functions-overview.md).
