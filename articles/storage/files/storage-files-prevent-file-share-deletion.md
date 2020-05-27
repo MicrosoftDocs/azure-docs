@@ -34,9 +34,7 @@ When you create a new storage account, soft delete for file shares is off by def
 
 If you enable soft delete for file shares, delete some file shares, and then disable soft delete, if the shares were saved in that period you can still access and recover those file shares. When you enable soft delete, you also need to configure the retention period.
 
-The retention period indicates the amount of time that soft deleted file shares are stored and available for recovery. For file shares that are explicitly deleted, the retention period clock starts when the data is deleted. Currently you can keep soft deleted shares for between 1 and 365 days.
-
-You can change the soft delete retention period at any time. An updated retention period will only apply to shares deleted after the retention period has been updated. Shares deleted before the retention period update will expire based on the retention period that was configured when that data was deleted.
+The retention period is the amount of time that soft deleted file shares are stored and available for recovery. For file shares that are explicitly deleted, the retention period clock starts when the data is deleted. Currently you can specify a retention period between 1 and 365 days. You can change the soft delete retention period at any time. An updated retention period will only apply to shares deleted after the retention period has been updated. Shares deleted before the retention period update will expire based on the retention period that was configured when that data was deleted.
 
 To permanently delete a file share in a soft delete state prior to its expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should reenable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
 
