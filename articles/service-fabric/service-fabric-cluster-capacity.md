@@ -26,7 +26,7 @@ A *node type* defines the size, number, and properties for a set of nodes (virtu
 
 Because each node type is a distinct scale set, it can be scaled up or down independently, have different sets of ports open, and have different capacity metrics. For more information about the relationship between node types and virtual machine scale sets, see [Service Fabric cluster node types](service-fabric-cluster-nodetypes.md).
 
-Each cluster requires one (and only one) **primary node type**, which runs critical system services that provide the platform capabilities of Service Fabric. Although it's possible to also use primary node types to run your applications, it's recommended to dedicate them solely to running system services.
+Each cluster requires one (and only one) **primary node type**, which runs critical system services that provide Service Fabric platform capabilities. Although it's possible to also use primary node types to run your applications, it's recommended to dedicate them solely to running system services.
 
 **Non-primary node types** are used to define application roles (such as *front-end* and *back-end* services) for a set of cluster nodes. Service Fabric clusters can have zero or more non-primary node types.
 
@@ -34,7 +34,7 @@ The primary node type is configured using the `isPrimary` attribute under the no
 
 ### Node type planning considerations
 
-The number of initial nodes types depends what the cluster will be used for and what applications and services will be deployed. Consider the following questions:
+The number of initial nodes types depends upon the purpose of you cluster and the applications and services running on it. Consider the following questions:
 
 * ***Does your application have multiple services, and do any of them need to be public or internet facing?***
 
@@ -46,7 +46,7 @@ The number of initial nodes types depends what the cluster will be used for and 
 
 * ***Will any of your application services need to scale out beyond 100 nodes?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and thus additional node types).
+    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
 
 When determining the number and properties of node types for the initial creation of your cluster, keep in mind that you can always add, modify, or remove (non-primary) node types once your cluster is deployed. [Primary node types can also be modified](service-fabric-scale-up-node-type.md) in running clusters (though such operations require a great deal of planning and caution in production environments).
 
@@ -63,7 +63,7 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 
 | Durability tier  | Required minimum number of VMs | Supported VM Sizes                                                                  | Updates you make to your virtual machine scale set                               | Updates and maintenance initiated by Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | Full-node SKUs dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per upgrade domain to allow additional time for replicas to recover from earlier failures |
+| Gold             | 5                              | Full-node sizes dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per upgrade domain to allow additional time for replicas to recover from earlier failures |
 | Silver           | 5                              | VMs of single core or above with at least 50 GB of local SSD                      | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
 | Bronze (Default)          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
@@ -72,7 +72,7 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 
 ### Bronze
 
-Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your stateful workloads will not be stopped or delayed. Use Bronze durability only for node types that run stateless workloads. For production workloads, running Silver or above is recommended.
+Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your stateful workloads won't be stopped or delayed. Use Bronze durability only for node types that run stateless workloads. For production workloads, running Silver or above is recommended.
 
 ### Silver and Gold
 
