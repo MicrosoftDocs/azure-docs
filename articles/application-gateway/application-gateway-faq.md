@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/26/2020
 ms.author: victorh
 ---
 
@@ -89,7 +89,7 @@ See [Application Gateway subnet size considerations](https://docs.microsoft.com/
 
 Yes. In addition to multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
 
-A single subnet can't support both Standard_v2 and Standard Application Gateway together.
+A single subnet can't support both v2 and v1 Application Gateway SKUs.
 
 ### Does Application Gateway v2 support user-defined routes (UDR)?
 
