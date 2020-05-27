@@ -43,8 +43,8 @@ As discussed above, the asset Sink component will record video to a local cache,
 
 The segmentLength property ensures that the edge module will upload video at most once per segmentLength seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
 
-[!NOTE]
- See [this](playback-recordings-how-to.md) article for the effect that segmentLength has on playback.
+>[!NOTE]
+>See [this](playback-recordings-how-to.md) article for the effect that segmentLength has on playback.
 
 
 ## See also
