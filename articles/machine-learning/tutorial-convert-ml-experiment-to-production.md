@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate)
+- Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md#get-the-code)
 and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production. You can find these notebooks at [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
 - Install `nbconvert`. Follow only the installation instructions under section __Installing nbconvert__ on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
