@@ -714,6 +714,8 @@
         href: managed-instance/subnet-service-aided-configuration-enable.md
       - name: Public endpoint
         href: managed-instance/public-endpoint-configure.md
+      - name: Minimal TLS version
+        href: managed-instance/minimal-tls-version-configure.md
       - name: Client VM connection
         href: managed-instance/connect-vm-instance-configure.md
       - name: Point-to-site connection
