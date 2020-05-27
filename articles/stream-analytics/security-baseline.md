@@ -20,11 +20,17 @@ The baseline for this service is drawn from the [Azure Security Benchmark versio
 
 For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+
 ## Network security
 
 *For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20445).
 
 **Guidance**: Azure Stream Analytics does not support use of network security groups (NSG) and Azure Firewall.
 
@@ -34,6 +40,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICS
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20446).
+
 **Guidance**: Azure Stream Analytics does not support use of virtual networks and subnets.
 
 **Azure Security Center monitoring**: Not applicable
@@ -42,6 +51,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.3: Protect Critical Web Applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20447).
+
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -49,6 +61,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 1.4: Deny Communications with Known Malicious IP Addresses
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20448).
 
 **Guidance**: Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
@@ -60,6 +75,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.5: Record Network Packets and Flow Logs
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20449).
+
 **Guidance**: Azure Stream Analytics does not use network security groups (NSG) and flow logs for Azure Key Vault are not captured.
 
 **Azure Security Center monitoring**: Currently not available
@@ -67,6 +85,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 1.6: Deploy Network Based Intrusion Detection/Intrusion Prevention Systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20450).
 
 **Guidance**: Use Azure Security Center Integrated Threat Intelligence to detect unusual or potentially harmful operations in your Azure subscription environment.
 
@@ -78,6 +99,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.7: Manage traffic to your web applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20451).
+
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -85,6 +109,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20452).
 
 **Guidance**: Azure Stream Analytics does not support use of virtual networks and network rules.
 
@@ -94,6 +121,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.9: Maintain Standard Security Configurations for Network Devices
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20453).
+
 **Guidance**: Azure Stream Analytics does not support use of virtual networks and network devices.
 
 **Azure Security Center monitoring**: Not applicable
@@ -102,6 +132,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.10: Document Traffic Configuration Rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20454).
+
 **Guidance**: Azure Stream Analytics does not support use of virtual networks and traffic configuration rules.
 
 **Azure Security Center monitoring**: Not applicable
@@ -109,6 +142,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 1.11: Use Automated Tools to Monitor Network Resource Configurations and Detect Changes
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20455).
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes for your Stream Analytics resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
@@ -126,6 +162,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.1: Use Approved Time Synchronization Sources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20456).
+
 **Guidance**: Microsoft maintains the time source used for Azure resources, such as Stream Analytics.
 
 **Azure Security Center monitoring**: Not applicable
@@ -133,6 +172,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Microsoft
 
 ### 2.2: Configure Central Security Log Management
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20457).
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data like Audit and Requests. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds.
 
@@ -144,6 +186,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.3: Enable audit logging for Azure Resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20458).
+
 **Guidance**: Enable Diagnostic Settings on your Azure Stream Analytics for access to administrative, security, and diagnostic logs. You may also enable Azure Activity Log Diagnostic Settings and send the logs to the same Log Analytics workspace or Storage Account.
 
 * [Azure Stream Analytics provides diagnostic logs and activity data for review](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)
@@ -154,6 +199,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.4: Collect Security Logs from Operating System
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20459).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -161,6 +209,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 2.5: Configure Security Log Storage Retention
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20460).
 
 **Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements.
 
@@ -176,6 +227,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.6: Monitor and Review Logs
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20461).
+
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results for your Stream Analytics resources. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
@@ -189,6 +243,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 2.7: Enable Alerts for Anomalous Activity
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20462).
 
 **Guidance**: Enable Diagnostic Settings for Stream Analytics and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
 
@@ -204,6 +261,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.8: Centralize Anti-malware Logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20463).
+
 **Guidance**: Not applicable; Stream Analytics does not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -211,6 +271,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 2.9: Enable DNS Query Logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20464).
 
 **Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Stream Analytics however you can use third party dns logging solution.
 
@@ -221,6 +284,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 2.10: Enable Command-line Audit Logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20465).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -234,6 +300,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.1: Maintain Inventory of Administrative Accounts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20466).
+
 **Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
 * [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
@@ -246,6 +315,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.2: Change Default Passwords where Applicable
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20467).
+
 **Guidance**: Stream Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access controls (RBAC) to manage the service. Depending on the injection stream services and output services, you need to rotate credentials configured in the jobs.
 
 * [Rotate login credentials for inputs and outputs of a Stream Analytics Job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
@@ -255,6 +327,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 3.3: Ensure the Use of Dedicated Administrative Accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20468).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -268,6 +343,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.4: Utilize Single Sign-On (SSO) with Azure Active Directory
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20469).
+
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
 * [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
@@ -277,6 +355,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 **Responsibility**: Customer
 
 ### 3.5: Use Multifactor Authentication for all Azure Active Directory based access.
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20470).
 
 **Guidance**: Enable Azure Active Directory multi-factor authentication (MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Stream Analytics resources.
 
@@ -290,6 +371,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.6: Use of Dedicated Machines (Privileged Access Workstations) for all Administrative Tasks
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20471).
+
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure Stream Analytics resources.
 
 * [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
@@ -301,6 +385,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 **Responsibility**: Customer
 
 ### 3.7: Log and Alert on Suspicious Activity on Administrative Accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20472).
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
@@ -314,6 +401,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.8: Manage Azure Resource from only Approved Locations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20473).
+
 **Guidance**: Use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
 * [How to configure named locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
@@ -324,6 +414,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.9: Utilize Azure Active Directory
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20474).
+
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to Stream Analytics resources.
 
 * [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
@@ -333,6 +426,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 **Responsibility**: Customer
 
 ### 3.10: Regularly Review and Reconcile User Access
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20475).
 
 **Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -346,6 +442,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.11: Monitor Attempts to Access Deactivated Accounts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20476).
+
 **Guidance**: Enable diagnostic settings for Azure Stream Analytics and Azure Active Directory, sending all logs to a Log Analytics workspace. Configure desired alerts (such as attempts to access disabled secrets) within Log Analytics.
 
 * [Integrate Azure AD logs with Azure Monitor logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
@@ -355,6 +454,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 **Responsibility**: Customer
 
 ### 3.12: Alert on Account Login Behavior Deviation
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20477).
 
 **Guidance**: Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your Stream Analytics resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
@@ -370,6 +472,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20478).
+
 **Guidance**: Not applicable; Customer Lockbox not supported for Azure Data Lake Analytics.
 
 * [Supported services and scenarios in general availability](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
@@ -384,6 +489,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 4.1: Maintain an Inventory of Sensitive Information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20479).
+
 **Guidance**: Use tags to assist in tracking Stream Analytics resources that store or process sensitive information.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -393,6 +501,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 **Responsibility**: Customer
 
 ### 4.2: Isolate systems storing or processing sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20480).
 
 **Guidance**: Implement isolation using separate subscriptions, management groups for individual security domains such as environment, data sensitivity. You can restrict your Stream Analytics to control the level of access to your Stream Analytics resources that your applications and enterprise environments demand. You can control access to Azure Stream Analytics via Azure AD RBAC.
 
@@ -408,6 +519,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 4.3: Monitor and Block unauthorized transfer of sensitive information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20481).
+
 **Guidance**: Data loss prevention features are not yet available for Azure Stream Analytics resources. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
@@ -422,6 +536,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.4: Encrypt All Sensitive Information in Transit
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20482).
+
 **Guidance**: Azure Stream Analytics encrypts all incoming and outgoing communications and supports TLS 1.2. Built-in checkpoints are also encrypted.
 
 **Azure Security Center monitoring**: Not applicable
@@ -429,6 +546,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Microsoft
 
 ### 4.5: Utilize an Active Discovery Tool to Identify Sensitive Data
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20483).
 
 **Guidance**: Data identification features are not yet available for Azure Stream Analytics resources. Implement third-party solution if required for compliance purposes.
 
@@ -439,6 +559,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Customer
 
 ### 4.6: Utilize Azure RBAC to control access to resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20484).
 
 **Guidance**: Use role-based access control (RBAC) to control how users interact with the service.
 
@@ -452,6 +575,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.7: Use host-based Data Loss Prevention to enforce access control
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20485).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -459,6 +585,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Customer
 
 ### 4.8: Encrypt Sensitive Information at Rest
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20486).
 
 **Guidance**: Stream Analytics doesn't store the incoming data since all processing is done in-memory. Any private data including queries and functions that is required to be persisted by Stream Analytics is stored in the configured storage account. Use customer-managed keys (CMK) to encrypt your output data at rest in your storage accounts.
 
@@ -469,6 +598,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20487).
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Stream Analytics resources.
 
@@ -484,6 +616,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 5.1: Run Automated Vulnerability Scanning Tools
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20488).
+
 **Guidance**: Follow recommendations from Azure Security Center on securing your Azure Stream Analytics resources.
 
 Microsoft performs vulnerability management on the underlying systems that support Azure Stream Analytics.
@@ -496,6 +631,9 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 ### 5.2: Deploy Automated Operating System Patch Management Solution
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20489).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -503,6 +641,9 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 **Responsibility**: Customer
 
 ### 5.3: Deploy Automated Third Party Software Patch Management Solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20490).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -512,6 +653,9 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 ### 5.4: Compare Back-to-back Vulnerability Scans
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20491).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -519,6 +663,9 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 **Responsibility**: Customer
 
 ### 5.5: Utilize a risk-rating process to prioritize the remediation of discovered vulnerabilities.
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20492).
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center.
 
@@ -533,6 +680,9 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 *For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Utilize Azure Asset Discovery
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20493).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -550,6 +700,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.2: Maintain Asset Metadata
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20494).
+
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
 * [How to create and use tags](httphttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -559,6 +712,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Responsibility**: Customer
 
 ### 6.3: Delete Unauthorized Azure Resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20495).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Stream Analytics resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -578,6 +734,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.4: Maintain inventory of approved Azure resources and software titles.
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20496).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
 **Azure Security Center monitoring**: Not applicable
@@ -585,6 +744,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Customer
 
 ### 6.5: Monitor for Unapproved Azure Resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20497).
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -602,6 +764,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 6.6: Monitor for Unapproved Software Applications within Compute Resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20498).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -609,6 +774,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 6.7: Remove Unapproved Azure Resources and Software Applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20499).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
@@ -618,6 +786,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 6.8: Utilize only approved applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20500).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -625,6 +796,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 6.9: Use only approved Azure Services
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20501).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -640,6 +814,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 6.10: Implement approved application list
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20532).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -647,6 +824,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 6.11: Limit Users' Ability to interact with Azure Resources Manager via Scripts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20502).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -658,6 +838,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 6.12: Limit Users' Ability to Execute Scripts within Compute Resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20503).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -665,6 +848,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 6.13: Physically or Logically Segregate High Risk Applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20504).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -677,6 +863,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 *For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish Secure Configurations for all Azure Resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20505).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to audit or enforce the configuration of your Azure Stream Analytics. You may also make use of built-in policy definitions related to your Azure Stream Analytics, such as:
 -Diagnostic logs in Azure Stream Analytics should be enabled
@@ -693,6 +882,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.2: Establish Secure Configurations for your Operating System
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20506).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -700,6 +892,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.3: Maintain Secure Configurations for all Azure Resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20507).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -713,6 +908,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.4: Maintain Secure Configurations for Operating Systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20508).
+
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -720,6 +918,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.5: Securely Store Configuration of Azure Resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20509).
 
 **Guidance**: Use Azure Repos to securely store and manage your code including custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts, user defined functions, queries. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
@@ -733,6 +934,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.6: Securely Store Custom Operating System Images
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20510).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -740,6 +944,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.7: Deploy System Configuration Management Tools
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20511).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -751,6 +958,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.8: Deploy System Configuration Management Tools for Operating Systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20512).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -758,6 +968,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.9: Implement Automated Configuration Monitoring for Azure Services
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20513).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Stream Analytics resources.
 
@@ -769,6 +982,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.10: Implement Automated Configuration Monitoring for Operating Systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20514).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -776,6 +992,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.11: Securely manage Azure secrets
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20515).
 
 **Guidance**: Connection details of input or output resources, which are used by your Stream Analytics job, are stored in the configured storage account. Encrypt your storage account to secure all of your data. Also, regularly rotate credentials for an input or output of a Stream Analytics job.
 
@@ -788,6 +1007,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 7.12: Securely and automatically manage identities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20516).
 
 **Guidance**: Managed Identity authentication for output gives Stream Analytics jobs direct access to service including PowerBI, Storage Account, instead of using a connection string.
 
@@ -803,6 +1025,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.13: Eliminate unintended credential exposure
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20517).
+
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 * [How to setup Credential Scanner](httphttps://secdevtools.azurewebsites.net/helpcredscan.html)
@@ -817,6 +1042,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 8.1: Utilize Centrally Managed Anti-malware Software
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20518).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -824,6 +1052,9 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Responsibility**: Customer
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20519).
 
 **Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Stream Analytics), however it does not run on customer content.
 
@@ -834,6 +1065,9 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Str
 **Responsibility**: Customer
 
 ### 8.3: Ensure Anti-Malware Software and Signatures are Updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20520).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -846,6 +1080,9 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Str
 *For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure Regular Automated Back Ups
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20521).
 
 **Guidance**: Based on the type of output service selected. you can perform automated backups of the output data as per recommended guidelines for your output service. The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can backup on a regular basis.
 
@@ -868,6 +1105,9 @@ You can also use lifecycle management feature to backup data to the Archive tier
 
 ### 9.2: Perform Complete System Backups and Backup any Customer Managed Keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20522).
+
 **Guidance**: The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can backup on a regular basis.
 
 In order to backup data from Storage account supported services, there are multiple methods available including using azcopy or third party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
@@ -888,6 +1128,9 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 
 ### 9.3: Validate all Backups including Customer Managed Keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20523).
+
 **Guidance**: Periodically perform data restoration of your backup data to test the integrity of the data.
 
 **Azure Security Center monitoring**: Not applicable
@@ -895,6 +1138,9 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 **Responsibility**: Customer
 
 ### 9.4: Ensure Protection of Backups and Customer Managed Keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20524).
 
 **Guidance**: Stream Analytics backups stored within your Azure Storage supports encryption by default and cannot be turned off. You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.
 
@@ -912,6 +1158,9 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 
 ### 10.1: Create incident response guide
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20525).
+
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
 * [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
@@ -925,6 +1174,9 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 **Responsibility**: Customer
 
 ### 10.2: Create Incident Scoring and Prioritization Procedure
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20526).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -940,6 +1192,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test Security Response Procedures
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20527).
+
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 * [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
@@ -950,6 +1205,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.4: Provide Security Incident Contact Details and Configure Alert Notifications for Security Incidents
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20528).
+
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 * [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -959,6 +1217,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20529).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -971,6 +1232,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20530).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
@@ -985,6 +1249,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular Penetration Testing of your Azure resources and ensure to remediate all critical security findings within 60 days.
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/20531).
 
 **Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
