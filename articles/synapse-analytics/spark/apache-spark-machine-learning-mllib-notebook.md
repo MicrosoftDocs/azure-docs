@@ -86,8 +86,8 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
 3. It is now possible to look at the data to see what was read. It is normally better to review data with a subset rather than the full set depending on the size of the dataset. The following code offers two ways to view the data: the former being basic and the latter providing a much richer grid experience, as well as the capability to visualize the data graphically.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
 4. Depending on the size of the dataset size generated and your need to experiment or run the notebook many times, it may be advisable to cache the dataset locally in the workspace. There are three ways to do perform explicit caching:
