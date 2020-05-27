@@ -16,7 +16,7 @@ You can migrate machines running Windows Server 2003 to Azure with Azure Migrate
 
 There's no direct download link for Hyper-V Integration Services. Install on Hyper-V VMs as follows:
 
-1. Sign into a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role, and navigate to the installation file at **C:\Windows\System32\vmguest.iso**. Note that the file isn't available on machines running Windows Server 2016 with the Hyper-V role.
+1. Sign into a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role, and navigate to the installation file at **C:\Windows\System32\vmguest.iso**. The file isn't available on machines running Windows Server 2016 with the Hyper-V role.
 2. Copy the file to the Hyper-V VM running Windows Server 2003 that you want to migrate.
 3. Mount the .iso file, and copy the installation folder to the VM.
 4. Install Integration Services on the VM.
@@ -28,13 +28,13 @@ You can't install Hyper-V Integration Services directly on a VMware VM. Instead,
 
 1. Sign into a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role, and navigate to the installation file at **C:\Windows\System32\vmguest.iso**. 
 2. Copy the file to the Hyper-V VM running Windows Server 2003 that you want to migrate.
-3. Mount the .iso file, and copy the installation folder to the VM.
+3. Mount the .iso file, and copy the installation folder to the VM.In Integration Services, leave the default settings.
 4. From the command line on the VM, run ```gpedit.msc```.
 5. Open **Computer Configuration** > **Windows Settings** > **Scripts (Startup/Shutdown)**.
 6. In **Startup** > **Add** > **Script Name**, type the setup.exe address.
 7. After migration to Azure, the script runs the first time the Azure VM starts.
 8. You need to manually restart the Azure VM for the script. There's a pop-up in boot diagnostics to indicate this.
-9. After the script runs and Hyper-V Integration Services are installed on the Azure VM, you can remove the script from startup.
+9. After the script runs and Hyper-V Integration Services is installed on the Azure VM, you can remove the script from startup.
 10. In Integration Services, leave the default settings.
 
 
