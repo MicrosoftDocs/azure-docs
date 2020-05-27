@@ -196,4 +196,4 @@ When your update deployment is finished, you receive the alert that you've speci
 ## Next steps
 
 * If finished with deployments, see [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
-* To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management).
+* To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).

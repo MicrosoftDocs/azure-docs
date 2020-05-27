@@ -11,7 +11,7 @@ ms.custom: mvc
 
 A scope configuration is a group of one or more saved searches (queries) used to limit the scope of Update Management to specific computers. The scope configuration is used within the Log Analytics workspace to target the computers to enable. When you add a computer to receive updates from Update Management, the computer is also added to a saved search in the workspace.
 
-This article describes how to work with scope configurations when using the [Update Management](automation-update-management.md) feature to deploy updates and patches to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/solution-targeting). 
+This article describes how to work with scope configurations when using the [Update Management](automation-update-management.md) feature to deploy updates and patches to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
 To limit the scope for your Update Management deployment:
 
