@@ -83,7 +83,7 @@ You can stream metrics and resource logs to [Azure Event Hubs](../../azure-monit
 
 Stream metrics and resource logs to [Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md). Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
 
-## Use extended events in the Azure SQL database engine 
+## Use extended events in the SQL Server database engine 
 
 Additionally, you can use [extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) in SQL Server for advanced monotoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in Azure SQL Database, see [Extended events in Azure SQL Database](xevent-db-diff-from-svr.md).
 
