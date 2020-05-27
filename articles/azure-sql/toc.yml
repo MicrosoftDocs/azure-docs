@@ -766,20 +766,20 @@
       items: 
       - name: Secure public endpoints
         href: managed-instance/public-endpoint-overview.md
-      - name: Managed instance auditing
+      - name: Auditing
         href: managed-instance/auditing-configure.md
 
   - name: How to
     items:
     - name: Overview
       href: managed-instance/how-to-content-reference-guide.md
-    - name: Migrate to Managed instance
+    - name: Migrate to SQL Managed Instance
       href: managed-instance/migrate-to-instance-from-sql-server.md
     - name: Customize time zone
       href: managed-instance/timezones-overview.md
     - name: Configure connection types
       href: managed-instance/connection-types-overview.md
-    - name: Migrate TDE cert to Managed instance
+    - name: Migrate TDE cert 
       href: managed-instance/tde-certificate-migrate.md
     - name: Restore to a point in time
       href: managed-instance/point-in-time-restore.md

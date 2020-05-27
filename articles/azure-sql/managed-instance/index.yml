@@ -26,7 +26,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create SQL Managed Intsance
+          - text: Create SQL Managed Instance
             url: instance-create-quickstart.md
       - linkListType: concept
         links:

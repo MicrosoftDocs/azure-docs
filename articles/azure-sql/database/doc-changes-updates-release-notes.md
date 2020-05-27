@@ -73,7 +73,7 @@ This table provides a quick comparison for the change in terminology:
 
 ## SQL Managed Instance - new features and known issues
 
-### SQL Managed instance H2 2019 updates
+### SQL Managed Instance H2 2019 updates
 
 - [Service-aided subnet configuration](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) A secure and convenient way to manage subnet configuration where you control data traffic while SQL Managed Instance ensures the uninterrupted flow of management traffic
 - [Transparent data encryption (TDE) with Bring Your Own Key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) enables bring-your-own-key (BYOK) scenario for data protection at rest and allows organizations to separate management duties for keys and data.
@@ -86,7 +86,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
   - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azure monthly credit for Visual Studio subscribers </a> and increased [regional limits](../managed-instance/resource-limits.md#regional-resource-limitations).
   - Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Create SQL Managed Instances with <a href="https://aka.ms/managed-instance-collation">instance-level collation</a> and <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time-zone</a> of your choice.
-  - SQL Managed instances are now protected with [built-in firewall](../managed-instance/management-endpoint-verify-built-in-firewall.md).
+  - SQL Managed nstances are now protected with [built-in firewall](../managed-instance/management-endpoint-verify-built-in-firewall.md).
   - Configure SQL Managed Instances to use [public endpoints](../managed-instance/public-endpoint-configure.md), [Proxy override](connectivity-architecture.md#connection-policy) connection to get better network performance, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a> or <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. [Long-term backup retention](long-term-retention-overview.md#managed-instance-support) (up to 10 years) is currently in limited public preview.  
   - New functionalities enable you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-restore your database to another data center using PowerShell</a>, [rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [delete virtual cluster](../managed-instance/virtual-cluster-delete.md).
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
@@ -168,7 +168,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### In-memory OLTP memory limits are not applied
 
-Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](../managed-instance/resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
+Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](../managed-instance/resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed Instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
 **Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitor-space) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
  
