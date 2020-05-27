@@ -13,7 +13,10 @@ ms.author: rogarana
 
 Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
 
-Once you've enabled active directory domain services (AD DS) authentication on your storage account, you must configure share-level permissions in order to get access to the file share. The identity you want to use for access must be synched from your AD DS to Azure AD. For example, say you have a user in your AD DS that is user1@onprem.contoso.com and have synced to Azure AD as user1@contoso.com using Azure AD Connect. If you want to allow this user to access Azure Files, you need to assign the share-level permission to user1@contoso.com. The same concept applies to groups or service principals. Share-level permissions must be assigned to the Azure AD identity representing the same user or group to support AD DS authentication to your Azure file share. This article demonstrates how to assign share-level permissions for a file share to an identity.
+Once you've enabled active directory domain services (AD DS) authentication on your storage account, you must configure share-level permissions in order to get access to your file shares. The identity you want to access Azure file share resources with must be a hybrid identity that exists in both AD DS and Azure AD. For example, say you have a user in your AD DS that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync. To allow this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups or service principals. Because of this, you must sync the users and groups from your AD DS to Azure AD using Azure AD Connect sync. 
+
+Share-level permissions must be assigned to the Azure AD identity representing the same user or group to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), are not supported with AD DS authentication. This article demonstrates how to assign share-level permissions for a file share to an identity.
+
 
 ## Share-level permissions
 

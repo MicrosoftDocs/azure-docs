@@ -47,6 +47,8 @@ If you experience issues in connecting to Azure Files, refer to [the troubleshoo
 
 Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as Windows ACLs). You can configure the Windows ACLs using either Windows File Explorer or icacls.
 
+If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or Azure AzCopy v 10.4+(https://github.com/Azure/azure-storage-azcopy/releases). If you directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in the native format.
+
 ### Configure Windows ACLs with Windows File Explorer
 
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
