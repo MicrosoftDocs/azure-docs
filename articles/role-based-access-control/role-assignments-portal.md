@@ -134,9 +134,9 @@ Follow these steps to assign a role to a system-assigned managed identity by sta
 
 1. Click **Add role assignment**.
 
-    If you don't have permissions to assign roles, the Add role assignment option will be disabled. The Add role assignment pane opens.
-
 1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
+
+    If you don't have role assignment write permissions for the selected scope, an inline message will be displayed. 
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
@@ -162,9 +162,9 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
 1. Click **Add role assignment**.
 
-    If you don't have permissions to assign roles, the Add role assignment option will be disabled. The Add role assignment pane opens.
-
 1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
+
+    If you don't have role assignment write permissions for the selected scope, an inline message will be displayed. 
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
