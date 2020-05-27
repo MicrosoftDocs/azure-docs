@@ -58,6 +58,9 @@ Run the following commands in Azure PowerShell to acquire the location and servi
 Get Peering Service locations:
 
 ```azurepowershell-interactive
+# Gets a list of available countries
+Get-AzPeeringServiceCountry 
+# Gets a list of metro locations serviced by country
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
@@ -91,12 +94,13 @@ $name = “myPeeringService”
 $peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 $prefixName = "myPrefix"
 $prefix = “192.168.1.0/24”
-$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix
+$serviceKey = "6f48cdd6-2c2e-4722-af89-47e27b2513af"
+$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix -ServiceKey $serviceKey
 ```
 
 ### List all the Peering Services connections
 
-To view the list of all Peering Services connections, run the following command:
+To view the list of all Peering Services, run the following command:
 
 ```azurepowershell-interactive
 $peeringService = Get-AzPeeringService
