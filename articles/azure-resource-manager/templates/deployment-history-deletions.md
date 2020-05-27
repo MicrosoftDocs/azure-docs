@@ -2,7 +2,7 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ---
 # Automatic deletions from deployment history
 
@@ -10,15 +10,18 @@ Every time you deploy a template, information about the deployment is written to
 
 Starting in June 2020, Azure Resource Manager automatically deletes deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
 
-Deleting a deployment from the history doesn't affect any of the resources that were deployed.
+> [!NOTE]
+> Deleting a deployment from the history doesn't affect any of the resources that were deployed.
 
 ## When deployments are deleted
 
 Deployments are deleted from your deployment history only when you near the limit of 800. Azure Resource Manager deletes a small set of the oldest deployments to clear space for future deployments. Most of your history remains unchanged. The oldest deployments are always deleted first.
 
-:::image type="content" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Deletions from deployment history":::
+:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Deletions from deployment history":::
 
 In addition to deployments, you also trigger deletions when you run the [what-if operation](template-deploy-what-if.md) or validate a deployment.
+
+When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](rollback-on-error.md) after an error.
 
 ## Opt out of automatic deletions
 
