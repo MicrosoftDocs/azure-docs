@@ -25,28 +25,28 @@ If you run into any issue while provisioning or deprovisioning SSIS IR, you'll s
 
 If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
-Otherwise, three major external dependencies can cause errors: an logical SQL server or SQL Managed instance, a custom setup script, and a virtual network configuration.
+Otherwise, three major external dependencies can cause errors: Azure SQL Database or Azure SQL Managed Instance, a custom setup script, and a virtual network configuration.
 
-## logical SQL server or SQL Managed instance issues
+## SQL Database or SQL Managed Instance issues
 
-An logical SQL server or SQL Managed instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access the logical SQL server or SQL Managed instance. Also, the account of the logical SQL server or SQL Managed instance should have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
+SQL Database or SQL Managed Instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access SQL Database or SQL Managed Instance. Also, the login account for SQL Database or SQL Managed Instance must have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
 
 ### AzureSqlConnectionFailure
 
 You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, you might get a detailed SqlException message in the error message that indicates one of the following problems:
 
-* A network connection issue. Check whether the SQL Server or SQL Managed instance host name is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
+* A network connection issue. Check whether the host name for SQL Database or SQL Managed Instance  is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
 * Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
 * Login failed during Microsoft Azure Active Directory (Azure AD)
  authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This error is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM.
   1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a virtual network.
-  1. Install SSMS and check the logical SQL server or SQL Managed instance status.
+  1. Install SSMS and check the SQL Database or SQL Managed Instance status.
 
-For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the logical SQL server or SQL Managed instance support team.
+For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the SQL Database or SQL Managed Instance support team.
 
-If you see the error when IR is running, network security group or firewall changes are likely preventing the SSIS IR worker node from accessing the logical SQL server or SQL Managed instance. Unblock the SSIS IR worker node so that it can access the logical SQL server or SQL Managed instance.
+If you see the error when IR is running, network security group or firewall changes are likely preventing the SSIS IR worker node from accessing SQL Database or SQL Managed Instance. Unblock the SSIS IR worker node so that it can access SQL Database or SQL Managed Instance.
 
 ### CatalogCapacityLimitError
 
@@ -61,20 +61,20 @@ The possible solutions are:
 
 ### CatalogDbBelongsToAnotherIR
 
-This error means the logical SQL server or SQL Managed instance already has an SSISDB and that it's being used by another IR. You need to either provide a different logical SQL server or SQL Managed instance or else delete the existing SSISDB and restart the new IR.
+This error means SQL Database or SQL Managed Instance already has an SSISDB and that it's being used by another IR. You need to either provide a different SQL Database or SQL Managed Instance or else delete the existing SSISDB and restart the new IR.
 
 ### CatalogDbCreationFailure
 
 This error can occur for one of the following reasons:
 
 * The user account that's configured for the SSIS IR doesn't have permission to create the database. You can grant the user permission to create the database.
-* A timeout occurs during database creation, such as an execution timeout or a DB operation timeout. You should retry the operation later. If the retry doesn’t work, contact the logical SQL server or SQL Managed instance support team.
+* A timeout occurs during database creation, such as an execution timeout or a DB operation timeout. You should retry the operation later. If the retry doesn’t work, contact the SQL Database or SQL Managed Instance support team.
 
-For other issues, check the SQL Exception error message and fix the issue mentioned in the error details. If you’re still having problems, contact the logical SQL server or SQL Managed instance support team.
+For other issues, check the SQL Exception error message and fix the issue mentioned in the error details. If you’re still having problems, contact the SQL Database or SQL Managed Instance support team.
 
 ### InvalidCatalogDb
 
-This kind of error message looks like this: “Invalid object name 'catalog.catalog_properties'.” In this situation, either you already have a database named SSISDB but it wasn't created by SSIS IR, or the database is in an invalid state that's caused by errors in the last SSIS IR provisioning. You can drop the existing database with the name SSISDB, or you can configure a new logical SQL server or SQL Managed instance for the IR.
+This kind of error message looks like this: “Invalid object name 'catalog.catalog_properties'.” In this situation, either you already have a database named SSISDB but it wasn't created by SSIS IR, or the database is in an invalid state that's caused by errors in the last SSIS IR provisioning. You can drop the existing database with the name SSISDB, or you can configure a new SQL Database or SQL Managed Instance for the IR.
 
 ## Custom setup issues
 
