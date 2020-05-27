@@ -131,9 +131,9 @@ You may see a small verification hold on your credit card account after you sign
 
 Complete the Agreement.
 
-### Other issues
+## Other issues
 
-#### Can't activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
+### Can't activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
 
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
 - MSDN
@@ -147,7 +147,7 @@ Check that you're using the correct sign-in credentials. Then, check the benefit
   - If you can't verify your status, contact [MPN Support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
 
 
-#### Can't activate new Azure In Open subscription
+### Can't activate new Azure In Open subscription
 
 To create an Azure In Open subscription, you must have a valid Online Service Activation (OSA) key that has at least one Azure In Open token associated with it. If you don't have an OSA key, contact one of the Microsoft Partners that are listed in [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
