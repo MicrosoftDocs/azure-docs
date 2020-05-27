@@ -190,7 +190,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
 
 ## Best practices
 
-* Ensure that the elastic query endpoint database has been given access to the remote database by enabling access for Azure Services in its SQL Database firewall configuration. Also ensure that the credential provided in the external data source definition can successfully log into the remote database and has the permissions to access the remote table.  
+* Ensure that the elastic query endpoint database has been given access to the remote database by enabling access for Azure Services in its Azure SQL Database firewall configuration. Also ensure that the credential provided in the external data source definition can successfully log into the remote database and has the permissions to access the remote table.  
 * Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly.
 
 ## Next steps

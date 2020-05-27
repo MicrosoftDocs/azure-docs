@@ -22,9 +22,9 @@ A skillset is a reusable resource in Azure Cognitive Search that specifies a col
 
 A skillset has three properties:
 
-+	```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill
-+	```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
-+	```knowledgeStore```, the storage account where your enriched documents will be projected
++    ```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill
++    ```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
++    ```knowledgeStore```, the storage account where your enriched documents will be projected
 
 
 
@@ -32,7 +32,7 @@ Skillsets are authored in JSON. You can build complex skillsets with looping and
 
 ### Enrichment tree
 
-To envision how a skillset progressively enriches your document, let’s start with what the document looks like before any enrichment. The output of document cracking is dependent on the data source and the specific parsing mode selected. This is also the state of the document that the [field mappings](search-indexer-field-mappings.md) can source content from when adding data to the search index.
+To envision how a skillset progressively enriches your document, let's start with what the document looks like before any enrichment. The output of document cracking is dependent on the data source and the specific parsing mode selected. This is also the state of the document that the [field mappings](search-indexer-field-mappings.md) can source content from when adding data to the search index.
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
 Once a document is in the enrichment pipeline, it is represented as a tree of content and associated enrichments. This tree is instantiated as the output of document cracking. The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types, it is not a valid JSON object but can be projected into a valid JSON format. The following table shows the state of a document entering into the enrichment pipeline:
@@ -50,14 +50,14 @@ For the rest of this document, we will assume we are working with [hotel reviews
 
 ### Context
 Each skill requires a context. A context determines:
-+	The number of times the skill executes, based on the nodes selected. For context values of type collection, adding an ```/*``` at the end will result in the skill being invoked once for each instance in the collection. 
-+	Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node. 
-+	Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries, each enriched with a list of states containing a list of zipcodes.
++    The number of times the skill executes, based on the nodes selected. For context values of type collection, adding an ```/*``` at the end will result in the skill being invoked once for each instance in the collection. 
++    Where in the enrichment tree the skill outputs are added. Outputs are always added to the tree as children of the context node. 
++    Shape of the inputs. For multi level collections, setting the context to the parent collection will affect the shape of the input for the skill. For example if you have an enrichment tree with a list of countries/regions, each enriched with a list of states containing a list of zipcodes.
 
 |Context|Input|Shape of Input|Skill Invocation|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of all zipcodes in the country |Once per country |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of zipcodes in the state | Once per combination of country and state|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of all zipcodes in the country/region |Once per country/region |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |A list of zipcodes in the state | Once per combination of country/region and state|
 
 ### SourceContext
 
@@ -73,7 +73,7 @@ The diagram above describes the selector you work with based on where you are in
 
 ## Generate enriched data 
 
-Let’s now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) the skillset. We are going to look at:
+Let's now step through the hotel reviews skillset, you can follow the [tutorial](knowledge-store-connect-powerbi.md) to create the skillset or [view](https://github.com/Azure-Samples/azure-search-postman-samples/) the skillset. We are going to look at:
 
 * how the enrichment tree evolves with the execution of each skill 
 * how the context and inputs work to determine how many times a skill executes 

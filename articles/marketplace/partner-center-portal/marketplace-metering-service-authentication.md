@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 05/13/2020
 ---
 
 # Marketplace metering service authentication strategies
@@ -146,7 +146,7 @@ For example, follow the steps below to authenticate using a Windows VM,
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage.
+1. Use the [Marketplace metering service API](./marketplace-metering-service-apis.md) to emit usage.
 
 ## Next steps
 

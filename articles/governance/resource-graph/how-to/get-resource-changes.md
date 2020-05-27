@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
 ---
 # Get resource changes
@@ -313,3 +313,4 @@ you compare the snapshots, the **timestamp** always shows as a difference despit
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
 - Learn more about how to [explore resources](../concepts/explore-resources.md).
+- For guidance on working with queries at a high frequency, see [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md).

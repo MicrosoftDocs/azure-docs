@@ -1,6 +1,6 @@
 ---
-title: Using elastic database client library with Dapper
-description: Using elastic database client library with Dapper.
+title: Using the elastic database client library with Dapper
+description: Using the elastic database client library with Dapper.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 12/04/2018
 ---
-# Using elastic database client library with Dapper
+# Using the elastic database client library with Dapper
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](elastic-scale-introduction.md) to create applications that implement sharding to scale out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data-dependent routing with Dapper. 
@@ -32,7 +32,7 @@ Another benefit of Dapper and also DapperExtensions is that the application cont
 
 To get the Dapper assemblies, see [Dapper dot net](https://www.nuget.org/packages/Dapper/). For the Dapper extensions, see [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
-## A quick Look at the elastic database client library
+## A quick look at the elastic database client library
 With the elastic database client library, you define partitions of your application data called *shardlets*, map them to databases, and identify them by *sharding keys*. You can have as many databases as you need and distribute your shardlets across these databases. The mapping of sharding key values to the databases is stored by a shard map provided by the library’s APIs. This capability is called **shard map management**. The shard map also serves as the broker of database connections for requests that carry a sharding key. This capability is referred to as **data-dependent routing**.
 
 ![Shard maps and data-dependent routing][1]
@@ -50,7 +50,7 @@ When working with both the elastic database client library and the Dapper APIs, 
 
 The following section provides guidance for these requirements for applications based on **Dapper** and **DapperExtensions**.
 
-## Technical Guidance
+## Technical guidance
 ### Data-dependent routing with Dapper
 With Dapper, the application is typically responsible for creating and opening the connections to the underlying database. Given a type T by the application, Dapper returns query results as .NET collections of type T. Dapper performs the mapping from the T-SQL result rows to the objects of type T. Similarly, Dapper maps .NET objects into SQL values or parameters for data manipulation language (DML) statements. Dapper offers this functionality via extension methods on the regular [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) object from the ADO .NET SQL Client libraries. The SQL connection returned by the Elastic Scale APIs for DDR are also regular [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objects. This allows us to directly use Dapper extensions over the type returned by the client library’s DDR API, as it is also a simple SQL Client connection.
 

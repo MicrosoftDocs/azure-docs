@@ -117,9 +117,6 @@ DEVSUBNET_NAME="${PREFIX}dev"
 Next, set subscription IDs.
 
 ```azure-cli
-# Get ARM Access Token and Subscription ID - This will be used for AuthN later.
-
-ACCESS_TOKEN=$(az account get-access-token -o tsv --query 'accessToken')
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID

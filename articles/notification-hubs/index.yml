@@ -94,5 +94,5 @@ landingContent:
             url: notification-hubs-push-notification-faq.md
           - text: Support options
             url: https://azure.microsoft.com/support/options/
-          - text: MSDN forums
-            url: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
+          - text: Microsoft Q&A question page
+            url: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html

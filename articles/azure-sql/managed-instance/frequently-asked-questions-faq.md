@@ -58,7 +58,7 @@ Expected time to create a managed instance or change service tier (vCores, stora
 
 Changing a managed instance name is not supported.
 
-The default DNS zone for a managed instance *.database.windows.net* could be changed. 
+The default DNS zone *.database.windows.net* for a managed instance could be changed. 
 
 To use another DNS zone instead of the default, for example, *.contoso.com*: 
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or a script as well.
