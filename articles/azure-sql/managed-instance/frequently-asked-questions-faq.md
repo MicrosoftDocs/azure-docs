@@ -96,7 +96,7 @@ If both hardware generations are not supported in the same region, changing the 
 
 **What if there are no enough IP addresses for performing update operation?**
 
-In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses alocated so future update operations will avoid similar situation (for propper subnet size, check [how to determine size of vnet subnet](vnet-subnet-determine-size.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
+In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses allocated so future update operations will avoid similar situation (for proper subnet size, check [how to determine size of vnet subnet](vnet-subnet-determine-size.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## Tune performance

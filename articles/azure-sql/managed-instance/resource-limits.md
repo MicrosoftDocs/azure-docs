@@ -92,7 +92,7 @@ Find more information about the [resource limits in SQL Managed Instance pools i
 
 ### File IO characteristics in General Purpose tier
 
-In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Bigger data files get mroe IOPS and throughput. IO characteristics of the database files are shown in the following table:
+In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Bigger data files get more IOPS and throughput. IO characteristics of the database files are shown in the following table:
 
 | File size | >=0 and <=128 GiB | >128 and <=256 GiB | >256 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
