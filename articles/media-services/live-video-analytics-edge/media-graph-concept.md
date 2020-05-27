@@ -72,7 +72,7 @@ The motion detection processor enables you to detect motion in live video. It ex
 
 The frame rate filter processor enables you to sample frames from the incoming video stream at a specified frame rate. This enables you to reduce the number of frames sent to down-stream components (such as HTTP graph extension processor) for further processing.
 
-#### HTTP graph extension processor 
+#### <a id="http-graph-extension-processor"/>HTTP graph extension processor 
 
 The HTTP graph extension processor enables you to connect your own IoT Edge module to a media graph. The Http graph extension processor takes as input decoded video frames and relays such frames to a Http REST endpoint exposed by your module. The processor has the capability to authenticate with the REST endpoint if required. Additionally, the processor has in-built image formatter that allows scaling and encoding of video frames before they are relayed forward. Scaling has options for the image aspect ratio to be preserved, padded or stretched while encoding provides options for different image encoding such as jpeg, png, or bmp.
 
