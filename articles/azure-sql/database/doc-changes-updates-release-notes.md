@@ -23,20 +23,20 @@ Documentation for Azure SQL Database and Azure SQL Managed Instance has been spl
 
 We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Managed Instance in individual 'shared' articles.
 
-This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully-fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
+This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
 
-Consider that this is a work in progress and not every article has been updated yet. For example, documentation for Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so please bear with us!
+Consider that this is a work in progress and not every article has been updated yet. For example, documentation for Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so we thank you for your patience as we continue clarifying the content. 
 
 This table provides a quick comparison for the change in terminology: 
 
-|Previous term  |New term  |Explanation |
-|---------|---------|---------|
-|Azure SQL Database managed instance | Azure SQL Managed Instance | Azure SQL Managed Instance is its own product within the Azure SQL family, rather than just a deployment option within Azure SQL Database. | 
-|Azure SQL Database single database| Azure SQL Database| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool. |
-|Azure SQL Database elastic pool| Azure SQL Database| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool.  |
-|Azure SQL Database | Azure SQL Database | Though the term stays the same, it now only applies to single database and elastic pool deployments, and does not include managed instance. |
-| N/A | Azure SQL | This refers to the family of SQL Server database engine products that are available in Azure: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs. | 
 
+|**New term**  | **Previous term**  |**Explanation** |
+|---------|---------|---------|
+|**Azure SQL Managed Instance** | Azure SQL Database managed instance| Azure SQL Managed Instance is its own product within the Azure SQL family, rather than just a deployment option within Azure SQL Database. | 
+|**Azure SQL Database**|Azure SQL Database single database| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool. |
+|**Azure SQL Database**|Azure SQL Database elastic pool| Unless explicitly specified otherwise, the product name Azure SQL Database includes both single databases and databases deployed to an elastic pool.  |
+|**Azure SQL Database** |Azure SQL Database | Though the term stays the same, it now only applies to single database and elastic pool deployments, and does not include managed instance. |
+| **Azure SQL**| N/A | This refers to the family of SQL Server database engine products that are available in Azure: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs. | 
 
 ## Features in public preview
 
@@ -97,7 +97,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Has Workaround| |
-|[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Automatically mitigated| |
+|[Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Automatically mitigated| |
 |[Permissions on resource group not applied to SQL Managed Instance](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
@@ -107,7 +107,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
 |[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround||
 |[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Has Workaround||
 |[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround||
-|[Cross-database Service Broker dialogs must be re-initialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
+|[Cross-database Service Broker dialogs must be reinitialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
 |[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround||
 |[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround||
 |[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround||
@@ -126,11 +126,11 @@ The following features are enabled in SQL Managed Instance deployment model in H
 
 ### Restoring manual backup without CHECKSUM might fail
 
-In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored. In such case please retry restoring the backup until successful.
+In certain circumstances manual backup of databases that was made on managed instance without CHECKSUM might fail to be restored. In such cases, please retry restoring the backup until successful.
 
 **Workaround**: Take manual backups of databases on managed instance with CHECKSUM enabled.
 
-### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
+### Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs
 
 In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. The issue is automatically mitigated upon detection resulting in restart of the agent process.
 
@@ -164,7 +164,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### SQL Agent jobs can be interrupted by Agent process restart
 
-**(Resolved in March 2020)** SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
+**(Resolved in March 2020)** SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit, which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
 
 ### In-memory OLTP memory limits are not applied
 
@@ -174,7 +174,7 @@ Business Critical service-tier will not correctly apply [max memory limits for m
  
 ### Wrong error returned while trying to remove a file that is not empty
 
-SQL Server/SQL Managed Instance [don't allow user to drop a file that is not empty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. SQL Managed Instance will keep trying to drop the file and the operation will fail after 30min with `Internal server error`.
+SQL Server/SQL Managed Instance [don't allow user to drop a file that is not empty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. SQL Managed Instance will keep trying to drop the file and the operation will fail after 30 min with `Internal server error`.
 
 **Workaround**: Remove the content of the file using `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` command. If this is the only file in the filegroup you would need to delete data from the table or partition associated to this filegroup before you shrink the file, and optionally load this data into another table/partition.
 
@@ -192,11 +192,11 @@ Restore process will block these operations on the Managed instances and instanc
 **Workaround**: Run `ALTER RESOURCE GOVERNOR RECONFIGURE` periodically or as part of SQL Agent Job that executes the SQL task when the instance starts if you are using 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
-### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
+### Cross-database Service Broker dialogs must be reinitialized after service tier upgrade
 
 Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in SQL Managed Instance, will cause `service_broke_guid` value in [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages to the target service.
 
-**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
+**Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and reinitialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
 ### Impersonification of Azure AD login types is not supported
 
@@ -232,7 +232,7 @@ The `tempdb` database is always split into 12 data files and the file structure 
 
 Each General Purpose SQL Managed Instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a SQL Managed Instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
 
-For example, a General Purpose SQL Managed Instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
+For example, a General Purpose SQL Managed Instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1-GB size each that are placed on separate 128-GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
