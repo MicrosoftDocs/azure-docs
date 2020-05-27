@@ -34,7 +34,6 @@ Live Video Analytics on IoT Edge exposes the following module twin properties.
 |logCategories|No|Yes|A comma separated list of the following: Application, MediaPipeline, Events <br/>Default: Application, Events|
 |debugLogsDirectory|No|Yes|Directory for debug logs. If present logs are generated, if not present debug logs are disabled.
 
-
 <sup>*</sup>You MUST provide either service principal certificate or password. 
 
 Dynamic properties can be updated without the restarting the module. You can obtain the values for several of these properties by following the instruction in the [Getting access to Media Services API](../latest/access-api-cli-how-to.md) article. 

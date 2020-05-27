@@ -23,7 +23,7 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
 ## Configuration and deployment
 
 * Can I deploy the media edge module to a Windows IOT device?
-    *No. Only Linux devices are supported.
+    * No. Only Linux devices are supported.
 
 ## IoT Edge configuration
 
@@ -35,13 +35,13 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
 ## IP Camera ingest and RTSP settings
 
 * Do I need to use a special SDK on my device to send in a video stream?
-    *No. Media graph supports standard RTSP video streaming protocol.
+    * No. Media graph supports standard RTSP video streaming protocol.
 * Can I also use RTMP or Smooth ingest like a Media Services Live Event?
     * No. Media graph only support RTSP for capturing video from IP cameras.
 * What camera models are supported?
     * Any camera that supports RTSP streaming over TCP/HTTP should work. Report any issues with RTSP compatibility as bugs on the preview service.
 * Can I connect to a secure RTSP camera source?
-    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source in the preview release. X.509 RTSP over TLS/HTTPS certificates are not supported currently. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
+    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source in the preview release. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
 * Can I reset or update the RTSP source URL on a graph instance?
     * Yes, when the graph instance is in inactive state.  
 * Is there a simulated RTSP camera signal available to use during testing and development?
@@ -87,4 +87,4 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
 
 ## Next steps
 
-[Quickstart: Get started](get-started-detect-motion-emit-events-quickstart.md)
+[Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

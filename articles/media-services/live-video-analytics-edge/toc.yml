@@ -76,6 +76,6 @@
     href: quotas-limitations.md
   - name: FAQs
     href: faq.md
-  - name: Production readiness
+  - name: Production readiness and best practices
     href: production-readiness.md
 

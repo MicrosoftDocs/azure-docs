@@ -158,4 +158,4 @@ The Linux VM that you are using as an edge device can become unresponsive if it 
 
 ## Next steps
 
-[Quickstart: Get started](get-started-detect-motion-emit-events-quickstart.md)
+[Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
