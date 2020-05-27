@@ -26,7 +26,7 @@ If you wish to disable cloud-init, you have the option here. For example, create
 
 2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here cloud-init will look for the local "Azure" datasource, which will enable cloud-init to interface with Azure, and apply a networking configuration, including fallback.
 
-3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online and the nic and route table information should be generated. At this stage, the modules in `cloud_init_modules` will be executed in /etc/cloud/cloud.cfg, so a VM in Azure will mount and format the ephemeral disk, set the hostname an do other tasks.
+3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in /etc/cloud/cloud.cfg will be run. The VM in Azure will be mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
 
 These are some of the cloud_init_modules:
 - `migrator`
@@ -42,14 +42,14 @@ These are some of the cloud_init_modules:
 - `ssh`
 
 
-After this stage, cloud-init will signal to the Azure platform that the VM has provisioned successfully.But, not all module failures result in a fatal provisioning failure.
+After this stage, cloud-init will signal to the Azure platform that the VM has been provisioned successfully. Some modules may have failed, not all module failures will result in a provisioning failure.
 
-4. [Cloud-init Config Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): At this stage, the modules in `cloud_config_modules` defined and listed in /etc/cloud/cloud.cfg will be executed.
+4. [Cloud-init Config Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): At this stage, the modules in `cloud_config_modules` defined and listed in /etc/cloud/cloud.cfg will be run.
 
 
-5. [Cloud-init Final Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): At this final stage, the modules in `cloud_final_modules` (defined and listed in /etc/cloud/cloud.cfg) will be executed. Here modules that need to be run late in the boot process run, such as package installations and run scripts etc. 
+5. [Cloud-init Final Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): At this final stage, the modules in `cloud_final_modules`, listed in /etc/cloud/cloud.cfg, will be run. Here modules that need to be run late in the boot process run, such as package installations and run scripts etc. 
 
-During this stage, you can run scripts by placing them in the directories within `/var/lib/cloud/scripts`:
+During this stage, you can run scripts by placing them in the directories under `/var/lib/cloud/scripts`:
 - `per-boot` - scripts within this directory, run on every reboot
 - `per-instance` - scripts within this directory run when a new instance is first booted
 - `per-once` - scripts within this directory run only once
