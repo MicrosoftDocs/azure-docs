@@ -61,7 +61,7 @@ Notice the `optional` parameter passed into the `AddAzureAppConfiguration` funct
 
 It's important that your geo-redundant configuration stores all have the same set of data. There are two ways to achieve this:
 
-### Export key-values from primary config store
+### Backup manually using the Export function
 
 You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on demand. This function is available through both the Azure portal and the CLI.
 
@@ -75,19 +75,16 @@ From the Azure portal, you can push a change to another configuration store by f
 
 1. Repeat the previous steps whenever your configuration changes.
 
-To automate this export process, use the Azure CLI. The following command shows how to export all configurations from the primary store to the secondary:
+The export process can also be achieved using the Azure CLI. The following command shows how to export all configurations from the primary store to the secondary:
 
 ```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
 
-### Use Azure Event Grid
+### Backup automatically using Azure Functions
 
-You can also automate the backup process with a one-time setup, leveraging Azure App Configuration's integration with Azure Event Grid.
-Any changes in key values will publish an event to Azure Event Grid, which can then be consumed by one of the many event handlers supported by Azure Event Grid.
-For a detailed tutorial on how to automate the backup process, see [Automatically backup key values from Azure App Configuration store](./howto-backup-app-configuration-store.md).
+The backup process can be automated by using Azure Functions. It leverages the integration with Azure Event Grid in App Configuration. Once set up, App Configuration will publish events to Event Grid for any changes made to key-values in a configuration store. Thus, an Azure Functions app can listen to these events and backup data accordingly. For details, see the tutorial on [how to backup App Configuration stores automatically](./howto-backup-app-configuration-store.md).
 
 ## Next steps
 
-In this article, you learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. For automating this setup, you can refer to [Automatically backup key values from Azure App Configuration store](./howto-backup-app-configuration-store.md).
-You also can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
+In this article, you learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. You also can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
