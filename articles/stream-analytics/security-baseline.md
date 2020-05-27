@@ -4,7 +4,7 @@ description: Azure security baseline for Stream Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -440,7 +440,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Utilize Azure RBAC to control access to resources
 
-**Guidance**: &lt;---documentation reference missing---&gt;Use role-based access control (RBAC) to control how users interact with the service.
+**Guidance**: Use role-based access control (RBAC) to control how users interact with the service.
+
+* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -773,9 +777,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.11: Securely manage Azure secrets
 
-**Guidance**: &lt;---NEED to Validate how source credentials are stored----&gt;
-
-Connection details of input or output resources, which are used by your Stream Analytics job, are stored in the configured storage account. Encrypt your storage account to secure all of your data. Also, regularly rotate credentials for an input or output of a Stream Analytics job.
+**Guidance**: Connection details of input or output resources, which are used by your Stream Analytics job, are stored in the configured storage account. Encrypt your storage account to secure all of your data. Also, regularly rotate credentials for an input or output of a Stream Analytics job.
 
 * [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection)
 
