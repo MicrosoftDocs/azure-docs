@@ -28,11 +28,19 @@ If you don't have an [Azure subscription](../guides/developer/azure-developer-gu
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The `FunctionName` method attribute sets the name of the function, which by default is `Function1`. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. The boilerplate code sends an HTTP response that includes a value from the request body or query string.
+Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
 
-Expand the capabilities of your function with input and output bindings by applying the appropriate attributes to the method. For more information, see the [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) section of the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
+## Rename the function
 
-Now that you've created your function project and an HTTP trigger function, you can test it on your local computer.
+The `FunctionName` method attribute sets the name of the function, which by default is `Function1`. Since the Functions template doesn't let you override the default function name when you create your project, let's take a minute to create a better name for the function class, file, and metadata.
+
+1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
+
+1. In the code, rename the Function1 class to `HttpExample'.
+
+1. In the `HttpTrigger`, rename the `FunctionName` method attribute to `HttpExample`.
+
+Now that you've renamed the function, you can test it on your local computer.
 
 ## Run the function locally
 
