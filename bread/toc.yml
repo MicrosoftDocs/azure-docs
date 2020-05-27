@@ -798,9 +798,26 @@
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
-  - name: SQL Database
-    tocHref: /azure/sql-database/
-    topicHref: /azure/sql-database/
+  - name: Azure SQL 
+    tocHref: /azure/azure-sql/
+    topicHref: /azure/azure-sql/
+    items: 
+      - name: SQL Database
+        tocHref: /azure/azure-sql/database
+        topicHref: /azure/azure-sql/database
+      - name: SQL Managed Instance
+        tocHref: /azure/azure-sql/managed-instance
+        topicHref: /azure/azure-sql/managed-instance
+      - name: SQL Server on Azure VM 
+        tocHref: /azure/azure-sql/virtual-machines
+        topicHref: /azure/azure-sql/virtual-machines
+        items: 
+          - name: Windows
+            tocHref: /azure/azure-sql/virtual-machines/windows
+            topicHref: /azure/azure-sql/virtual-machines/windows
+          - name: Linux
+            tocHref: /azure/azure-sql/virtual-machines/linux
+            topicHref: /azure/azure-sql/virtual-machines/linux
   - name: Azure SQL Edge
     tocHref: /azure/azure-sql-edge/
     topicHref: /azure/azure-sql-edge/

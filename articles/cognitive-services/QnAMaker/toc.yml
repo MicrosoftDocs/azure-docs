@@ -44,7 +44,7 @@
       href: Concepts/knowledge-base.md
     - name: Content types imported
       href: Concepts/content-types.md
-    - name: Question and answer sets
+    - name: Question and answer pairs
       href: Concepts/question-answer-set.md
   - name: Knowledge base lifecycle
     items:
