@@ -78,7 +78,7 @@ The HTTP graph extension processor enables you to connect your own IoT Edge modu
 
 #### Signal gate processor  
 
-The signal gate processor allows for media to be conditionally forwarded from one node to another. It also acts as a buffer, allowing for synchronization of media and events. An example use case is to insert a signal gate processor between the RTSP Source and asset sink and using the output of motion detector processor to trigger the gate. With such a Media Graph, you can trigger recording of media only when motion is detected in the incoming video feed. 
+The signal gate processor allows for media to be conditionally forwarded from one node to another. It also acts as a buffer, allowing for synchronization of media and events. An example use case is to insert a signal gate processor between the RTSP Source and asset sink and using the output of motion detector processor to trigger the gate. With such a media graph, you can trigger recording of media only when motion is detected in the incoming video feed. 
 
 ### Sinks  
 

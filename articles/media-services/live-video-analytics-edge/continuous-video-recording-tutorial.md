@@ -50,7 +50,7 @@ As explained in the [media graph](media-graph-concept.md) article, a media graph
 
 ![Media graph](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
 
-In this tutorial, we will use one Edge module built using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the Media Graph, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed, and send that video to the [asset sink node](media-graph-concept.md#asset-sink) which will record the video to an asset.
+In this tutorial, we will use one Edge module built using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed, and send that video to the [asset sink node](media-graph-concept.md#asset-sink) which will record the video to an asset.
 
 ## Set up the environment
 
@@ -103,7 +103,7 @@ Next, browse to "src/cloud-to-device-console-app" folder. Here you will see the 
 * Program.cs - the sample program code which does the following:
 
     * Loads the app settings.
-    * Invokes the Live Video Analytics on IoT Edge Direct Methods <!--<TODO Link>--> to create a topology, instantiate a Media Graph and activate the Media Graph.
+    * Invokes the Live Video Analytics on IoT Edge Direct Methods <!--<TODO Link>--> to create a topology, instantiate a media graph and activate the media graph.
     * Pauses for you to examine the output in the terminal window and the events sent to IoT Hub in the “output” window.
     * Deactivate the graph instance, delete the graph instance, and delete the graph topology.
 
@@ -144,20 +144,20 @@ Right click on the Edge device (“lva-sample-device”) and click on “Start M
 1. GraphInstanceSet – creates an instance of the above topology, substituting parameters
 
     Of interest is the rtspUrl parameter. It points to an MKV file which has been downloaded to the Linux VM, to a location from which the RTSP simulator reads it
-1. GraphInstanceActivate – starts the Media Graph, causing video to flow through
+1. GraphInstanceActivate – starts the media graph, causing video to flow through
 1. GraphInstanceList – to show that you now have an instance in the module that is running
 
     > [!NOTE]
     > At this point, you should pause, and *not* hit Enter.
 1. In the OUTPUT window, you will see operational and diagnostic messages that are being sent to the IoT Hub, by the Live Video Analytics on IoT Edge module
-1. The Media Graph will continue to run, and print events – the RTSP simulator will keep looping the source video. In order to stop the Media Graph, you can hit Enter again in the TERMINAL window. The program will send:
+1. The media graph will continue to run, and print events – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can hit Enter again in the TERMINAL window. The program will send:
 
     1. GraphInstanceDeactivate - to stop the Graph Instance, and stop the video recording
     1. GraphInstanceDelete – to delete the instance from the module
     1. GraphInstanceList – to show that there are now no instances on the module
 
     > [!NOTE]
-    > The Graph Topology has not been deleted. If you need to do so, run this step with the following JSON body code:
+    > The graph topology has not been deleted. If you need to do so, run this step with the following JSON body code:
     
     ```
     {
@@ -179,7 +179,7 @@ In the messages below, the application properties and the content of the body ar
 
 ### MediaSessionEstablished event
 
-When the Media Graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
