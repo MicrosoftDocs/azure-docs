@@ -226,15 +226,15 @@
     - name: Partner integration
       items:
       - name: Custom policy partners
-        href: custom-policy-partner-ipification.md
-      - name: IPification
-        href: custom-policy-partner-ipification.md
-      - name: Itsme
-        href: custom-policy-partner-itsme.md
-      - name: Trusona
-        href: custom-policy-partner-trusona.md
+        href: custom-policy-partner-gallery.md
       - name: Twilio
         href: custom-policy-partner-twilio.md
+      - name: Itsme
+        href: custom-policy-partner-itsme.md
+      - name: IPification
+        href: custom-policy-partner-ipification.md
+      - name: Trusona
+        href: custom-policy-partner-trusona.md
     - name: Tokens and session management
       items:
       - name: Customize tokens
