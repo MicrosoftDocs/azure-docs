@@ -78,7 +78,7 @@ Since the initial public preview release in 2017, Data Factory has added the fol
 
 -    Support for three more configurations/variants of Azure SQL Database to host the SSIS database (SSISDB) of projects/packages:
 -    SQL Database with virtual network service endpoints
--    Managed instance
+-    SQL Managed instance
 -    Elastic pool
 -    Support for an Azure Resource Manager virtual network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access. For more information, see also [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Support for Azure Active Directory (Azure AD) authentication and SQL authentication to connect to the SSISDB, allowing Azure AD authentication with your Data Factory managed identity for Azure resources

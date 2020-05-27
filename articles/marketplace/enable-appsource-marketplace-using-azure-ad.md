@@ -1,6 +1,6 @@
 ---
-title: Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory | Azure
-description: Enable a listing type by using Azure Active Directory in the Azure Marketplace and AppSource for app and service publishers.
+title: Integrate your Microsoft commercial marketplace offer with Azure Active Directory
+description: Use Azure Active Directory to authenticate your Microsoft AppSource and Azure Marketplace offers.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,13 +9,13 @@ ms.date: 04/15/2020
 ms.author: dsindona
 
 ---
-# Enable an AppSource and Marketplace listing by using Azure Active Directory
+# Integrate your commercial marketplace listing with Azure Active Directory
 
- Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft account. Azure AD uses industry-standard frameworks. [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ This article explains requirements for integrating a commercial marketplace listing or offer with Azure Active Directory (Azure AD). Azure AD is a cloud identity service that uses industry-standard frameworks to enable authentication with a Microsoft account. [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## Azure AD benefits
 
-Microsoft AppSource and Azure Marketplace customers use in-product experiences to search the listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
+Microsoft AppSource and Azure Marketplace customers use in-product experiences to search storefront listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
 
 - Faster engagement and an optimized customer experience
 - Single sign-on (SSO) for millions of enterprise users
@@ -24,7 +24,7 @@ Microsoft AppSource and Azure Marketplace customers use in-product experiences t
 
 ## Offers that require Azure AD
 
-The various [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for AppSource and Azure Marketplace have different requirements for Azure AD implementation. See the following table for details:
+The various commercial marketplace [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) have different requirements for Azure AD implementation. See the following table for details.
 
 | **Offer type**    | **Azure AD SSO required?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|

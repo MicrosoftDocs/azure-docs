@@ -72,7 +72,7 @@ landingContent:
             url: tutorial-creator-indoor-maps.md
       - linkListType: how-to-guide
         links:
-          - text: Manage Creator indoor maps
+          - text: Manage Creator
             url: how-to-manage-creator.md
           - text: Implement Dynamic styling for indoor maps
             url: indoor-map-dynamic-styling.md
