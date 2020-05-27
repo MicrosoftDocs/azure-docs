@@ -38,10 +38,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
       + Default value for process_count_per_node is changed to 1. User should tune this value for better performance. Best practice is to set as the number of GPU or CPU node has.
       + ParallelRunStep does not inject any packages, user needs to include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages in environment definition. If custom docker image is used with user_managed_dependencies then user need to install conda on the image.
       
-    
-  + **Preview features**
-    + [Contrib features below] 
-
 + **Breaking changes**
   + **azureml-pipeline-steps**
     + Deprecated the use of azureml.dprep.Dataflow as a valid type of input for AutoMLConfig
