@@ -87,7 +87,6 @@ You must have an account admin role on the support plan subscription to download
 
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-supportplan.png)
 
-
 ## Allow users with permission on the subscription to download its invoice
 
 The instructions below are for a subscription that belongs to a billing account for a Microsoft Online Services Program (MOSP). [Check your access to a Microsoft Online Services Program (MOSP) account](view-all-accounts.md#check-the-type-of-your-account). If you have a billing account for a Microsoft Customer Agreement, see [Give others access to your Microsoft Customer Agreement invoices](#give-others-access-to-your-microsoft-customer-agreement-invoices).
@@ -102,7 +101,7 @@ The PDF version of the invoice contains personal information about the account a
 
 3.  Select **Invoices** from the left-hand side.
 
-4.  Select your Azure subscription and then click **Access to invoice**.
+4.  Select your Azure subscription and then click **Allow others to download invoice**.
 
     [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 
@@ -124,15 +123,15 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 3.  Select **Invoices** from the left-hand side.
 
-4.  Select your Azure subscription or support plan subscription and then select **Email invoice**.
+4.  Select your Azure subscription or support plan subscription and then select **Receive invoice by email**.
 
     [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-emailinvoice.png)](./media/download-azure-invoice/cmb-emailinvoice-zoomed-in.png#lightbox)
 
-5. Click **Opt in** and accept the terms.
+5. Click **Email invoice** and accept the terms.
 
     ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoicearticlestep02.png)
 
-6. The invoice is sent to your preferred communication email. You can update the email in the [contact info of your billing account](https://https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).
+6. The invoice is sent to your preferred communication email. Select **Update profile** to update the email.
 
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
@@ -164,13 +163,13 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 
 3. Select **Invoices** from the left-hand side.
 
-    ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-invoices.png)
+    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-invoices.png)](./media/download-azure-invoice/mca-billingprofile-invoices-zoomed-in.png#lightbox)
 
 4. In the invoices table, select the invoice that you want to download.
 
 5. Click on the **Download invoice pdf** button at the top of the page.
 
-    ![Screenshot that shows downloading invoice pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)
+    [![Screenshot that shows downloading invoice pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)](./media/download-azure-invoice/mca-billingprofile-download-invoice-zoomed-in.png#lightbox)
 
 6. You can also download your daily breakdown of consumed quantities and estimated charges by clicking **Download Azure usage**. It may take a few minutes to prepare the csv file.
 
@@ -188,7 +187,7 @@ You must have an owner or a contributor role on the billing profile or its billi
 
 3.  Select **Invoices** from the left-hand side and then select **Email Invoice** from the top of the page.
 
-    ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)
+    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
 
 4.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.
 
@@ -210,7 +209,7 @@ Give others access to view, download, and pay invoices by assigning them invoice
 
 1. Select **Billing profiles** from the left-hand side. From the billing profiles list, select a billing profile for which you want to assign an invoice manager role.
 
-   [![Screenshot that shows billing profile list](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   ![Screenshot that shows billing profile list](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
 
 1. Select **Access Control (IAM)** from the left-hand side and then select **Add** from the top of the page.
 
@@ -225,13 +224,45 @@ Give others access to view, download, and pay invoices by assigning them invoice
 
 There could be several reasons that you don't see an invoice:
 
-- It's less than 30 days from the day you subscribed to Azure. 
+- The invoice is not ready yet
+    
+    - It's less than 30 days from the day you subscribed to Azure. 
 
-- Azure bills you a few days after the end of your billing period. So, an invoice might not have been generated yet.
+    - Azure bills you a few days after the end of your billing period. So, an invoice might not have been generated yet.
 
-- You don't have permission to view invoices. If you have an MCA or MPA billing account, you must have an Owner, Contributor, Reader, or Invoice manager role on a billing profile or an Owner, Contributor, or Reader role on the billing account to view invoices. For other subscriptions, you might not see the invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
+- You don't have permission to view invoices. 
+    
+    - If you have an MCA or MPA billing account, you must have an Owner, Contributor, Reader, or Invoice manager role on a billing profile or an Owner, Contributor, or Reader role on the billing account to view invoices. 
+    
+    - For other billing accounts, you might not see the invoices if you aren't the Account Administrator.
 
-- If you have a billing account for Microsoft Online Services Program (MOSP) and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount. If you have a billing account for a Microsoft Customer Agreement (MCA) or a Microsoft Partner Agreement (MPA), you always receive an invoice.
+- Your account doesn't support an invoice.
+
+    - If you have a billing account for Microsoft Online Services Program (MOSP) and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount.
+
+    - If you have a billing account for a Microsoft Customer Agreement (MCA) or a Microsoft Partner Agreement (MPA), you always receive an invoice.
+
+- You have access to the invoice through one of your other accounts.
+
+    - This typically happens when you click on a link in the email, asking you to view your invoice in the portal. You click on the link and you see an error message - *We can't display your invoices. Please try again*. Verify that you're signed in with the email address that has permissions to view the invoices.
+
+- You have access to the invoice through a different identity. 
+
+    - Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to view invoices. If they sign in with the identity that doesn't have permission, they would not see the invoices. Verify that you're using the correct identity to sign in.
+
+- You have signed in to the incorrect Azure Active Directory (AAD) tenant. 
+
+    - Your billing account is associated with an AAD tenant. If you're signed in to an incorrect tenant, you won't see the invoice for subscriptions in your billing account. Verify that you're signed in to the correct Azure Active directory (AAD) tenant. If you aren't signed in the correct tenant, use the following to switch the tenant in the Azure portal:
+
+        1. Select your email from the top right of the page.
+
+        2. Select **Switch directory**.
+
+           ![Screenshot that shows selecting switch directory in the portal](./media/download-azure-invoice/select-switch-directory.png)
+
+        3. Select a directory from the **All directories** section.
+
+           ![Screenshot that shows selecting a directory in the portal](./media/download-azure-invoice/select-directory.png)
 
 ## Need help? Contact us.
 
