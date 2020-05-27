@@ -17,15 +17,17 @@ ms.service: digital-twins
 
 # What is Azure Digital Twins?
 
-Azure Digital Twins is an IoT platform that enables enterprises to create digital representations of their assets, environments and business systems. By leveraging your domain expertise on top of Azure Digital Twins' flexible modeling system, your enterprise can build contextually aware solutions to address scenarios such as workflow modeling in manufacturing, energy efficiency in smart spaces, digital twin simulation in oil and gas, and more. 
+Azure Digital Twins is an IoT platform that enables the creation of comprehensive digital representations of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. Digital representations can be used to gain insights that drive better products, optimized operations, cost reduction, and breakthrough customer experiences.
 
 Here are some more uses of Azure Digital Twins:
 
 :::image type="content" source="media/overview/use-cases.png" alt-text="Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management" border="false":::
 
-Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
-
-With Azure Digital Twins next generation IoT solutions, customers are better able to track the past, control the present, and predict the future. 
+Leverage your domain expertise on top of Azure Digital Twins to build connected solutions that:
+* Model any environment, and bring digital twins to life in a scalable and secure manner
+* Connect assets such as IoT devices and existing business systems
+* Use a robust event system to build dynamic business logic and data processing
+* Integrate with Azure data, analytics and AI services to help you track the past, and then predict the future
 
 ## Azure Digital Twins capabilities
 
