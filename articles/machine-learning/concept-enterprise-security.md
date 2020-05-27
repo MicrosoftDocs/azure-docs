@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
+ms.date: 05/19/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -140,8 +140,6 @@ Azure Machine Learning stores metrics and metadata in an Azure Cosmos DB instanc
 To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, you can create a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. 
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
-
-* Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
 
 * Register the Azure Machine Learning and Azure Cosmos DB resource providers in your subscription, if not done already.
 

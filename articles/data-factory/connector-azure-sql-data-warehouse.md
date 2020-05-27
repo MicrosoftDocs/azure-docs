@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2020
+ms.date: 05/26/2020
 ---
 
 # Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory
@@ -130,9 +130,9 @@ To use service principal-based Azure AD application token authentication, follow
    - Application key
    - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](../azure-sql/database/aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+3. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -176,9 +176,9 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps:
 
-1. **[Provision an Azure Active Directory administrator](../azure-sql/database/aad-authentication-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-2. **[Create contained database users](../azure-sql/database/aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
+2. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -619,9 +619,9 @@ Using COPY statement supports the following configuration:
       5. `skipLineCount` is left as default or set to 0.
       6. `compression` can be **no compression** or **GZip**.
 
-3. If your source is a folder, `recursive` in copy activity must be set to true.
+3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. COPY statement retrieves all files from the folder and all its subfolders, and it ignores hidden folders and the files that begin with an underline (_) or a period (.) unless explicitly specified in the path. 
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 

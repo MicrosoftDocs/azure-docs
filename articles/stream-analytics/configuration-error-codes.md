@@ -12,18 +12,6 @@ ms.service: stream-analytics
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every configuration error code. Configuration errors are related to your job configuration, or input and output configurations.
 
-## KafkaInvalidPermission
-
-* **Cause**: The Stream Analytics job doesn't have the proper permission to perform certain actions.
-
-## KafkaInvalidConfiguration
-
-* **Cause**: Certain configurations on the Kafka adapter are invalid.
-
-## KafkaInvalidTimestampType
-
-* **Cause**: The timestamp type used by Kafka is invalid.
-
 ## EventHubUnauthorizedAccess
 
 * **Cause**: Event Hub threw an *Unauthorized Access* error.

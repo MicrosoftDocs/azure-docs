@@ -9,7 +9,7 @@ ms.service: service-bus-relay
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 ms.author: spelluru
 
 ---
@@ -135,4 +135,3 @@ To learn about other network security-related features, see [Network security](n
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]: 

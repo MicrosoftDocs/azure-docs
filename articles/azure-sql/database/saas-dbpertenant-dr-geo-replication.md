@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](active-geo-replication-overview.md) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
 

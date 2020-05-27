@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you create and train a predictive model using R, save the model to a table in your database, then use the model to predict values from new data using Machine Learning Services (with R) in Azure SQL Database.
 

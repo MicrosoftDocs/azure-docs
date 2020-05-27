@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # Monitor and manage performance of sharded multi-tenant Azure SQL Database in a multi-tenant SaaS app
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across sharded multi-tenant databases, the built-in monitoring and alerting features of Azure SQL Database are demonstrated.
 

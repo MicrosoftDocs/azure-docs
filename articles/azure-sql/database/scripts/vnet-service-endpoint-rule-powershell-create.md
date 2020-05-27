@@ -14,6 +14,7 @@ ms.custom: sqldbrb=1
 tags: azure-synapse
 ---
 # PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 *Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](../logical-servers.md) for your [Azure SQL Database](../sql-database-paas-overview.md) databases, elastic pools, or databases in [Azure Synapse](../../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
 

@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Tutorial: Build a clustering model in R with Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In part two of this three-part tutorial series, you'll build a K-Means model in R to perform clustering. In the next part of this series, you'll deploy this model in a SQL database with Azure SQL Database Machine Learning Services (preview).
 
@@ -71,7 +72,7 @@ In the following R script, you'll use the function **rxKmeans**, which is the K-
 return_cluster = RxSqlServerData(table = "return_cluster", connectionString = connStr);
 # Set the seed for the random number generator for predictability
 set.seed(10);
-# Generate clusters using rxKmeans and output key / cluster to a table in SQL database
+# Generate clusters using rxKmeans and output key / cluster to a table in a database in SQL Database
 # called return_cluster
 clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
                    customer_returns,

@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 10/16/2018
 ---
 # Deploy and explore a sharded multi-tenant application
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you deploy and explore a sample  multi-tenant SaaS application that is named Wingtip Tickets. The Wingtip Tickets app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
 

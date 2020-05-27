@@ -99,16 +99,16 @@ Image Builder will use the [user-identity](https://docs.microsoft.com/azure/acti
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
@@ -131,7 +131,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -202,7 +202,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -316,19 +316,19 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 Delete role assignment
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 remove definitions
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 delete identity
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 delete the resource group.

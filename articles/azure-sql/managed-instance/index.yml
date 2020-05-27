@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Find documentation about Azure SQL Managed Instance
+title: Azure SQL Managed Instance documentation
 summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server.
 
 metadata:
@@ -26,7 +26,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create SQL Database
+          - text: Create SQL Managed Instance
             url: instance-create-quickstart.md
       - linkListType: concept
         links:
@@ -58,7 +58,7 @@ landingContent:
           - text: Logins, user accounts, roles, and permissions
             url: ../database/logins-create-manage.md
           - text: Azure Active Directory
-            url: ../database/aad-authentication-overview.md
+            url: ../database/authentication-aad-overview.md
           - text: Auditing
             url: auditing-configure.md 
           - text: Transparent Data Encryption (TDE)

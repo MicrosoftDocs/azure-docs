@@ -244,10 +244,10 @@ SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where Geo
   
 #### Specifying numeric expressions and scalar system functions as number and date
 
-This example uses a numeric expression (-`(10/2))`, and scalar system functions (`SYSDATETIME`) as arguments for *number* and *date*.
+This example uses a numeric expression ((10/2)), and scalar system functions (SYSDATETIME) as arguments for number and date.
   
 ```sql
-SELECT Date_Bucket(week,-(10/2), SYSDATETIME());
+SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 ```
 
 #### Specifying an aggregate window function as number

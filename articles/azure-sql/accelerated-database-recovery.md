@@ -10,10 +10,10 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 03/24/2020
+ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery in Azure SQL 
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Accelerated Database Recovery (ADR)** is a SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VMs, and databases in Azure Synapse (currently in preview). The primary benefits of ADR are:
 
@@ -29,7 +29,7 @@ ms.date: 03/24/2020
 
   With ADR, the transaction log is aggressively truncated, even in the presence of active long-running transactions, which prevents it from growing out of control.
 
-## The current database recovery process
+## Standard database recovery process
 
 Database recovery follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
 

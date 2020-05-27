@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
  
 As a database application evolves, changes inevitably need to be made to the database schema or reference data.  Database maintenance tasks are also needed periodically. Managing an application that uses the database per tenant pattern requires that you apply these changes or maintenance tasks across a fleet of tenant databases.
 

@@ -13,6 +13,7 @@ ms.reviewer: mathoma
 ms.date: 04/28/2020
 ---
 # Replication to Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology.
 

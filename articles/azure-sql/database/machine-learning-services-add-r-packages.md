@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Add an R package to Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article explains how to add an R package to Azure SQL Database Machine Learning Services (preview).
 

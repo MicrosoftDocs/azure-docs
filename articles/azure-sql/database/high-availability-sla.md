@@ -76,7 +76,7 @@ Because the zone redundant databases have replicas in different datacenters with
 
 > [!IMPORTANT]
 > Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md).  
-> This feature is not available in Managed instance.
+> This feature is not available in SQL Managed Instance.
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
 
