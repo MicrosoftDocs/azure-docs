@@ -1,5 +1,5 @@
 ---
-title: Add tiles to your IoT Central dashboard | Microsoft Docs
+title: Add tiles to your Azure IoT Central dashboard | Microsoft Docs
 description: As a builder, learn how to configure the default Azure IoT Central application dashboard with tiles.
 author: Haley-Rowland
 ms.author: harowl
