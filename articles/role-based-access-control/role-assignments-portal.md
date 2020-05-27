@@ -62,7 +62,7 @@ In Azure RBAC, to grant access to an Azure resource, you add a role assignment. 
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add role assignment menu](./media/role-assignments-portal/add-role-assignment-menu.png)
+   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
@@ -96,7 +96,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add role assignment menu](./media/role-assignments-portal/add-role-assignment-menu.png)
+   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment pane opens.
 
