@@ -211,7 +211,7 @@ var typeList = new List<string>();
 string dtdl = File.ReadAllText("SampleModel.json");
 typeList.Add(dtdl);
 // Upload the model to the service
-client.CreateModelsAsync(typeList);
+await client.CreateModelsAsync(typeList);
 ```
 
 In your command window, run the program with this command: 
