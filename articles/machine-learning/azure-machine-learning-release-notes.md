@@ -17,6 +17,119 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-05-26
+
+### Azure Machine Learning SDK for Python v1.6.0
+
++ **New features**
+  + **azureml-automl-runtime**
+    + AutoML Forecasting now supports customers forecast beyond the pre-specified max-horizon without re-training the model. When the forecast destination is farther into the future than the specified maximum horizon, the forecast() function will still make point predictions out to the later date using a recursive operation mode. For the illustration of the new feature, please see the "Forecasting farther than the maximum horizon" section of "forecasting-forecast-function" notebook in [folder](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)."
+  
+  + **azureml-pipeline-steps**
+    + ParallelRunStep is now released and is part of **azureml-pipeline-steps** package. Existing ParallelRunStep in **azureml-contrib-pipeline-steps** package is deprecated. Changes from public preview version:
+      + Added `run_max_try` optional configurable parameter to control max call to run method for any given batch, default value is 3.
+      + No PipelineParameters are auto-generated anymore. Following configurable values can be set as PipelineParameter explicitly.
+        + mini_batch_size
+        + node_count
+        + process_count_per_node
+        + logging_level
+        + run_invocation_timeout
+        + run_max_try
+      + Default value for process_count_per_node is changed to 1. User should tune this value for better performance. Best practice is to set as the number of GPU or CPU node has.
+      + ParallelRunStep does not inject any packages, user needs to include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages in environment definition. If custom docker image is used with user_managed_dependencies then user need to install conda on the image.
+      
++ **Breaking changes**
+  + **azureml-pipeline-steps**
+    + Deprecated the use of azureml.dprep.Dataflow as a valid type of input for AutoMLConfig
+  + **azureml-train-automl-client**
+    + Deprecated the use of azureml.dprep.Dataflow as a valid type of input for AutoMLConfig
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Fixed the bug where a warning may be printed during `get_output` that asked user to downgrade client.
+    + Updated Mac to rely on cudatoolkit=9.0 as it is not available at version 10 yet.
+    + Removing restrictions on phrophet and xgboost models when trained on remote compute.
+    + Improved logging in AutoML
+    + The error handling for custom featurization in forecasting tasks was improved.
+    + Added functionality to allow users to include lagged features to generate forecasts.
+    + Updates to error message to correctly display user error.
+    + Support for cv_split_column_names to be used with training_data
+    + Update logging the exception message and traceback.
+  + **azureml-automl-runtime**
+    + Enable guardrails for forecasting missing value imputations.
+    + Improved logging in AutoML
+    + Added fine grained error handling for dataprep exceptions
+    + Removing restrictions on phrophet and xgboost models when trained on remote compute.
+    + `azureml-train-automl-runtime` and `azureml-automl-runtime` have updated dependencies for `pytorch`, `scipy`, and `cudatoolkit`. we now support `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1`, and `cudatoolkit==10.1.243`.
+    + The error handling for custom featurization in forecasting tasks was improved.
+    + The forecasting data set frequency detection mechanism was improved.
+    + Fixed issue with Prophet model training on some data sets.
+    + The auto detection of max horizon during the forecasting was improved.
+    + Added functionality to allow users to include lagged features to generate forecasts.
+    +  Adds functionality in the forecast function to enable providing forecasts beyond the trained horizon without re-training the forecasting model.
+    + Support for cv_split_column_names to be used with training_data
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Improved logging in AutoML
+  + **azureml-contrib-mir**
+    + Added support for Windows services in ManagedInferencing
+    + Remove old MIR workflows such as attach MIR compute, SingleModelMirWebservice class - Clean out model profiling placed in contrib-mir package
+  + **azureml-contrib-pipeline-steps**
+    + Minor fix for YAML support
+    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps
+  + **azureml-contrib-reinforcementlearning**
+    + RL Load testing tool
+    + RL estimator has smart defaults
+  + **azureml-core**
+    + Remove old MIR workflows such as attach MIR compute, SingleModelMirWebservice class - Clean out model profiling placed in contrib-mir package
+    + Fixed the information provided to the user in case of profiling failure: included request id and reworded the message to be more meaningful. Added new profiling workflow to profiling runners
+    + Significantly Improved error text in case of Dataset execution failures.
+    + Workspace private link cli support added.
+    + Added an optional parameter `invalid_lines` to `Dataset.Tabular.from_json_lines_files` that allows for specifying how to handle lines that contain invalid JSON.
+    + We will be deprecating the run based creation of compute in the next release. We recommend creating an actual Amlcompute cluster as a persistent compute target, and using the cluster name as the compute target in your run configuration. See example notebook here: aka.ms/amlcomputenb
+    + Significantly improved error messages in case of Dataset execution failures.
+  + **azureml-dataprep**
+    + Made warning to upgrade pyarrow version more explicit.
+    + Improved error handling and message returned in case of failure to execute dataflow.
+  + **azureml-interpret**
+    + Documentation updates to azureml-interpret package.
+    + Fixed interpretability packages and notebooks to be compatible with latest sklearn update
+  + **azureml-opendatasets**
+    + return None when there is no data returned.
+    + Improve the performance of to_pandas_dataframe.
+  + **azureml-pipeline-core**
+    + Quick fix for ParallelRunStep where loading from YAML was broken
+    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include: 1. Datasets as PipelineParameter 2. New parameter run_max_retry 3. Configurable append_row output file name
+  + **azureml-pipeline-steps**
+    + Deprecated azureml.dprep.Dataflow as a valid type for input data.
+    + Quick fix for ParallelRunStep where loading from YAML was broken
+    + ParallelRunStep is released to General Availability - azureml.contrib.pipeline.steps has a deprecation notice and is move to azureml.pipeline.steps - new features include:
+      + Datasets as PipelineParameter
+      + New parameter run_max_retry
+      + Configurable append_row output file name
+  + **azureml-telemetry**
+    + Update logging the exception message and traceback.
+  + **azureml-train-automl-client**
+    + Improved logging in AutoML
+    + Updates to error message to correctly display user error.
+    + Support for cv_split_column_names to be used with training_data
+    + Deprecated azureml.dprep.Dataflow as a valid type for input data.
+    + Updated Mac to rely on cudatoolkit=9.0 as it is not available at version 10 yet.
+    + Removing restrictions on phrophet and xgboost models when trained on remote compute.
+    + `azureml-train-automl-runtime` and `azureml-automl-runtime` have updated dependencies for `pytorch`, `scipy`, and `cudatoolkit`. we now support `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1`, and `cudatoolkit==10.1.243`.
+    + Added functionality to allow users to include lagged features to generate forecasts.
+  + **azureml-train-automl-runtime**
+    + Improved logging in AutoML
+    + Added fine grained error handling for dataprep exceptions
+    + Removing restrictions on phrophet and xgboost models when trained on remote compute.
+    + `azureml-train-automl-runtime` and `azureml-automl-runtime` have updated dependencies for `pytorch`, `scipy`, and `cudatoolkit`. we now support `pytorch==1.4.0`, `scipy>=1.0.0,<=1.3.1`, and `cudatoolkit==10.1.243`.
+    + Updates to error message to correctly display user error.
+    + Support for cv_split_column_names to be used with training_data
+  + **azureml-train-core**
+    + Added a new set of HyperDrive specific exceptions. azureml.train.hyperdrive will now throw detailed exceptions.
+  + **azureml-widgets**
+    + AzureML Widgets is not displaying in JupyterLab
+  
+
 ## 2020-05-11
 
 ### Azure Machine Learning SDK for Python v1.5.0
@@ -1776,7 +1889,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
 + **New features**
   + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (notebook), and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
-  +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+  +  DataTranferStep updated to work with Azure SQL Database and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
 
 + **Changes**
   + Deprecated `PublishedPipeline.get_published_pipeline` in favor of `PublishedPipeline.get`.
