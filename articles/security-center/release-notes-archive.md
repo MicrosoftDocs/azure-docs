@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Archive for what's new in Azure Security Center?
 
-The primary [What's new in Azure Active Directory?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
+The primary [What's new in Azure Security Center?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
 
 This page provides you with information about:
 
