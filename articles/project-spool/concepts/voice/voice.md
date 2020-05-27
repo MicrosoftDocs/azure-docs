@@ -113,7 +113,7 @@ If client SDK for some reason cannot use UDP for Media, for example firewall pre
 
 The charges for use of TURN will occur in this case (unless TURN service manually disabled)
 
-IP addresses, ports, protocols and FDDNs (next section under “About Voice”)
+### IP addresses, ports, protocols and FDDNs (next section under “About Voice”)
 
 In progress
 
