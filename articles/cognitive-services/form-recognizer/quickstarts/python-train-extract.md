@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
 ---
@@ -63,7 +63,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body = 	{
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,
