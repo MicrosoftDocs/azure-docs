@@ -64,7 +64,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **SQL Server**. You use an on-premises SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one. 
+* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
@@ -306,7 +306,7 @@ In the last step, you create a linked service to link your source SQL Server dat
 1. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
-    1. For **Server name**, select the name of your Azure SQL server from the drop-down list. 
+    1. For **Server name**, select the name of your logical SQL server from the drop-down list. 
     1. For **Database name**, select the Azure SQL database in which you created customer_table and project_table as part of the prerequisites. 
     1. For **User name**, enter the name of user that has access to the Azure SQL database. 
     1. For **Password**, enter the **password** for the user. 

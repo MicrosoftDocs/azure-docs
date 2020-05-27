@@ -139,7 +139,7 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 
 Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
 > [!NOTE]
 > The instructions to enable this are the same as for Azure SQL database.
@@ -761,7 +761,7 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 
 Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -771,7 +771,7 @@ Azure SQL Database can be used in Azure Government supporting Impact Level 5 wor
 
 Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |

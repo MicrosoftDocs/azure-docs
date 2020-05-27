@@ -14,8 +14,6 @@ ms.date: 03/13/2017
 ---
 # Perform analytics with Azure Machine Learning Studio (classic) using an on-premises SQL Server database
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio (classic) now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio (classic) can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
 This article provides an overview of how to ingress on-premises SQL server data into Azure Machine Learning Studio (classic). It assumes that you're familiar with Studio (classic) concepts like workspaces, modules, datasets, experiments, *etc.*.

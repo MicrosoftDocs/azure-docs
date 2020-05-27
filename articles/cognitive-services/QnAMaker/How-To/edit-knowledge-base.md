@@ -104,7 +104,7 @@ You can't link QnA pairs in the answer's metadata.
 
 ## Add metadata
 
-Add metadata sets by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata set. This set consists of one key and one value.
+Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
 
 ## Save changes to the QnA pairs
 
