@@ -39857,6 +39857,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/how-to/helm-3.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/monitoring/monitoring-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
@@ -48503,6 +48508,11 @@
     {
       "source_path": "articles/cognitive-services/form-recognizer/quickstarts/python-receipts-v1.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/python-receipts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/form-recognizer/quickstarts/dotnet-sdk.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
