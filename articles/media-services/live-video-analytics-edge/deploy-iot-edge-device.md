@@ -121,7 +121,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     }
     ```
 
-    These are the additional recommended properties that will help in monitoring the module (link to the monitoring and logging doc):
+    These are the additional recommended properties that will help in monitoring the module. For more information, see [monitoring and logging](monitoring-logging.md):
     
     ```
     "diagnosticsEventsOutputName": "lvaEdgeDiagnostics",
