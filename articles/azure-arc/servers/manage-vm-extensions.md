@@ -65,11 +65,11 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
     ![Select VM extension for selected machine](./media/manage-vm-extensions/add-vm-extensions.png)
 
-The following example shows the installation of the Log Analytics VM extension from the Azure portal:
+    The following example shows the installation of the Log Analytics VM extension from the Azure portal:
 
-![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
+    ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-After confirming the settings and selecting **Create**, a summary of the deployment is displayed.
+4. After confirming the required information provided, select **Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
 ## Azure Resource Manager templates
 
