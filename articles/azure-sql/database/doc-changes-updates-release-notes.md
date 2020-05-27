@@ -107,7 +107,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
 |[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround||
 |[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Has Workaround||
 |[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround||
-|[Cross-database Service Broker dialogs must be reinitialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
+|[Cross-database Service Broker dialogs must be reinitialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
 |[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround||
 |[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround||
 |[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround||
