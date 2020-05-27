@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 05/19/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -13,7 +13,7 @@ ms.author: magoedte
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs. 
 
-VM extensions can be run with the Azure REST API, PowerShell, Azure Resource Manager templates, the Azure portal, or Azure policies on hybrid servers managed by Arc for servers (preview).
+VM extensions can be run with the Azure REST API, Azure Resource Manager templates, the Azure portal, or Azure policies on hybrid servers managed by Arc for servers (preview).
 
 In this preview, we are supporting the following VM extensions on Windows and Linux machines.
 
@@ -67,22 +67,81 @@ The following example shows the installation of the Log Analytics VM extension f
 
 ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-## Enable extensions with PowerShell
-
-Several PowerShell commands exist for running individual extensions and managing them. To see a list, use Get-Command and filter on *ArcExtension*:
-
-```powershell
-Get-Command Get-Arc*Extension* -Module ArcExtension
-```
-
-This provides output similar to the following:
-
-The following example shows the installation of the Log Analytics VM extension onto the target virtual machine.
-
-```powershell
-
-```
-
 ## Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), w 
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample includes a template file and a parameters file with sample values to provide to the template.
+
+### Deploy the Log Analytics VM extension
+
+The following sample enables the Log Analytics agent for Windows.
+
+#### Template file
+
+```json
+{ 
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json", 
+    "contentVersion": "1.0.0.0", 
+    "parameters": { 
+        "vmName": { 
+            "type": "String" 
+        }, 
+        "location": { 
+            "type": "String" 
+        }, 
+        "workspaceId": { 
+            "type": "String" 
+        }, 
+        "workspaceKey": { 
+            "type": "String" 
+        } 
+    }, 
+    "resources": [ 
+        { 
+            "type": "Microsoft.HybridCompute/machines/extensions", 
+            "apiVersion": "2019-08-02-preview",			 
+            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]", 
+            "location": "[parameters('location')]", 
+            "properties": { 
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring", 
+                "type": "MicrosoftMonitoringAgent",                 
+                "autoUpgradeMinorVersion": true, 
+                "settings": { 
+                    "workspaceId": "[parameters('workspaceId')]" 
+                }, 
+                "protectedSettings": { 
+                    "workspaceKey": "[parameters('workspaceKey')]" 
+                } 
+            } 
+        } 
+    ] 
+}
+```
+
+#### Parameter file
+
+```json
+{ 
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#", 
+    "contentVersion": "1.0.0.0", 
+    "parameters": { 
+        "vmName": { 
+            "value": "<vmName>" 
+        }, 
+        "location": { 
+            "value": "<region>" 
+        }, 
+        "workspaceId": { 
+            "value": "<MyWorkspaceID>"
+        }, 
+        "workspaceKey": { 
+            "value": "<MyWorkspaceKey>" 
+        } 
+    } 
+} 
+```
+
+This command creates a new deployment by using a custom template and a template file on disk. The command uses the *TemplateFile* parameter to specify the template and the *TemplateParameterFile* parameter to specify a file that contains parameters and parameter values.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
+```
