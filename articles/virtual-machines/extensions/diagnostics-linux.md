@@ -44,19 +44,19 @@ These installation instructions and a [downloadable sample configuration](https:
 
 The downloadable configuration is just an example; modify it to suit your own needs.
 
-### Supported Linux Distributions
+### Supported Linux distributions
 
-Please note that the distros/versions listed below apply only to Azure-endorsed Linux vendor images. 3rd party BYOL/BYOS images (e.g., appliances) are not generally supported for the Linux Diagnostic extension. 
+The Linux Diagnostic Extension supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. Third-party BYOL and BYOS images, like appliances, are generally not supported for the Linux Diagnostic Extension.
 
-Any distro specified below with major version only (e.g. Debian 7) is supported for all minor versions as well. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than that specified version are supported.
+A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than the specified version are supported.
 
-- Ubuntu 14.04, 16.04, 18.04
-- CentOS 6.5+, 7
-- Oracle Linux 6.4+, 7
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5+
+- Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
-- Debian 7, 8, 9
-- RHEL 6.7+, 7
+- Debian 9, 8, 7
+- RHEL 7, 6.7+
 
 ### Prerequisites
 
