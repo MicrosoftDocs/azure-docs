@@ -13,7 +13,7 @@ ms.date: 04/17/2020
 
 Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
 
-Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md), below. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
+Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md). Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
 
 ## Prerequisites for examples
 
