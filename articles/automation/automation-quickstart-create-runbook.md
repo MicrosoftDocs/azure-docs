@@ -93,4 +93,4 @@ When no longer needed, delete the runbook. To do so, select the runbook in the r
 In this quickstart, you’ve created, edited, tested, and published a runbook and started a runbook job. To learn more about Automation runbooks, continue to the article on the different runbook types that you can create and use in Automation.
 
 > [!div class="nextstepaction"]
-> [Automation How To - Runbook Types](./automation-runbook-types.md)
+> [Azure Automation runbook types](./automation-runbook-types.md)

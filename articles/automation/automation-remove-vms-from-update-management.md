@@ -34,12 +34,7 @@ When you're finished deploying updates to VMs in your environment, you can remov
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
-* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md)
-* [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md)
-* [Enable Update Management from the Azure portal](automation-onboard-solutions-from-browse.md)
-* [Enable Update Management from a runbook](automation-onboard-solutions.md)
-* [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
-* [Troubleshoot Update Management issues](troubleshoot/update-management.md)
-* [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md)
-* [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md)
+* To continue working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To resolve general feature problems, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* For issues with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* For issues with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
