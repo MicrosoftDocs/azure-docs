@@ -69,6 +69,8 @@ The following example shows the installation of the Log Analytics VM extension f
 
 ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
+After confirming the settings and selecting **Create**, a summary of the deployment is displayed.
+
 ## Azure Resource Manager templates
 
 VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample includes a template file and a parameters file with sample values to provide to the template.
