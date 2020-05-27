@@ -147,6 +147,9 @@
     href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    items:
+    - name: Resource Manager templates
+      href: template-description.md
   - name: Regions
     href: regions.md
     items:
@@ -334,8 +337,6 @@
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: Resource Manager templates
-    href: template-description.md
   - name: Cloud adoption framework
     href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Architecture center
