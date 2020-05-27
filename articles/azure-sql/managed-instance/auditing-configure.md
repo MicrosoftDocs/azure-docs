@@ -1,5 +1,5 @@
 ---
-title: Managed instance auditing
+title: SQL Managed Instance auditing
 description: Learn how to get started with Azure SQL Managed Instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
