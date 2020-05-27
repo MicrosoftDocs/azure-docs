@@ -40,11 +40,11 @@ This feature depends on the following Azure resource providers in your subscript
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
-If they are not already registered, follow the steps under [Register Azure resource providers](overview.md#register-azure-resource-providers). 
+If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers). 
 
 ### Connected Machine agent
 
-Verify your machine matches the [supported versions](overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent. 
+Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent. 
 
 The minimum version of the Connected Machine agent that is supported with this feature is:
 
