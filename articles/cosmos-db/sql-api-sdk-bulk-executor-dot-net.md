@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 05/27/2020
 ms.author: anfeldma
 ---
 
@@ -68,6 +68,10 @@ ms.author: anfeldma
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
+
+### <a name="1.8.9"/>1.8.9
+
+* Fixed an issue with BulkDeleteAsync when values with escaped quotes were passed as input parameters.
 
 ### <a name="1.8.8"/>1.8.8
 

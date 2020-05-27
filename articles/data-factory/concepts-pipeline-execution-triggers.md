@@ -231,14 +231,14 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
 The following table provides a high-level overview of the major schema elements that are related to recurrence and scheduling a trigger:
 
 | JSON property | Description |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | A date-time value. For basic schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. |
 | **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. <!-- This property is optional. --> |
 | **timeZone** | The time zone. Currently, only the UTC time zone is supported. |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute", "hour", "day", "week", and "month". |
 | **interval** | A positive integer that denotes the interval for the **frequency** value. The **frequency** value determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week", the trigger recurs every three weeks. |
-| **schedule** | The recurrence schedule for the trigger. A trigger with a specified **frequency** value alters its recurrence based on a recurrence schedule. The **schedule** property contains modifications for the recurrence that are based on minutes, hours, weekdays, month days, and week number.
+| **schedule** | The recurrence schedule for the trigger. A trigger with a specified **frequency** value alters its recurrence based on a recurrence schedule. The **schedule** property contains modifications for the recurrence that are based on minutes, hours, weekdays, month days, and week number. |
 
 ### Schedule trigger example
 
@@ -277,7 +277,7 @@ The following table provides a high-level overview of the major schema elements 
 ### Schema defaults, limits, and examples
 
 | JSON property | Type | Required | Default value | Valid values | Example |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Yes | None | ISO 8601 date-times | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Yes | None | A recurrence object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | No | 1 | 1 to 1000 | `"interval":10` |
@@ -288,7 +288,7 @@ The following table provides a high-level overview of the major schema elements 
 The following table shows you how the **startTime** property controls a trigger run:
 
 | startTime value | Recurrence without schedule | Recurrence with schedule |
-|:--- |:--- |:--- |
+| --- | --- | --- |
 | **Start time is in the past** | Calculates the first future execution time after the start time, and runs at that time.<br /><br />Runs subsequent executions calculated from the last execution time.<br /><br />See the example that follows this table. | The trigger starts _no sooner than_ the specified start time. The first occurrence is based on the schedule,  calculated from the start time.<br /><br />Runs subsequent executions based on the recurrence schedule. |
 | **Start time is in the future or the current time** | Runs once at the specified start time.<br /><br />Runs subsequent executions calculated from the last execution time. | The trigger starts _no sooner_ than the specified start time. The first occurrence is based on the schedule, calculated from the start time.<br /><br />Runs subsequent executions based on the recurrence schedule. |
 
@@ -310,20 +310,17 @@ If multiple **schedule** elements are specified, the order of evaluation is from
 The following table describes the **schedule** elements in detail:
 
 | JSON element | Description | Valid values |
-|:--- |:--- |:--- |
-| **minutes** | Minutes of the hour at which the trigger runs. |- Integer<br />- Array of integers|
-| **hours** | Hours of the day at which the trigger runs. |- Integer<br />- Array of integers|
-| **weekDays** | Days of the week the trigger runs. The value can be specified only with a weekly frequency.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Array of day values (maximum array size is 7)<br /><br />Day values aren't case-sensitive|
-| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Array of **monthlyOccurrence** objects: `{ "day": day, "occurrence": occurrence }`<br />- The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.<br />- The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.|
-| **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31<br />- Array of values|
+| --- | --- | --- |
+| **minutes** | Minutes of the hour at which the trigger runs. |- Integer<br />- Array of integers |
+| **hours** | Hours of the day at which the trigger runs. |- Integer<br />- Array of integers |
+| **weekDays** | Days of the week the trigger runs. The value can be specified only with a weekly frequency.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Array of day values (maximum array size is 7)<br /><br />Day values aren't case-sensitive |
+| **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Array of **monthlyOccurrence** objects: `{ "day": day, "occurrence": occurrence }`<br />- The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.<br />- The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional. |
+| **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. |- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31<br />- Array of values |
 
 ## Tumbling window trigger
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals.
 
 For more information about tumbling window triggers and, for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
-
-> [!NOTE]
-> The tumbling window trigger run *waits for the triggered pipeline run* to finish. Its run state reflects the state of the triggered pipeline run. For example, if a triggered pipeline run is cancelled, the corresponding tumbling window trigger run is marked cancelled. This is different from the "fire and forget" behavior of the schedule trigger, which is marked successful as long as a pipeline run started.
 
 ## Event-based trigger
 
@@ -337,7 +334,7 @@ This section provides examples of recurrence schedules. It focuses on the **sche
 The examples assume that the **interval** value is 1 and that the **frequency** value is correct according to the schedule definition. For example, you can't have a **frequency** value of "day" and also have a **monthDays** modification in the **schedule** object. These kinds of restrictions are described in the table in the preceding section.
 
 | Example | Description |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | Run at 5:00 AM every day. |
 | `{"minutes":[15], "hours":[5]}` | Run at 5:15 AM every day. |
 | `{"minutes":[15], "hours":[5,17]}` | Run at 5:15 AM and 5:15 PM every day. |
@@ -368,15 +365,18 @@ The examples assume that the **interval** value is 1 and that the **frequency** 
 ## Trigger type comparison
 The tumbling window trigger and the schedule trigger both operate on time heartbeats. How are they different?
 
+> [!NOTE]
+> The tumbling window trigger run *waits for the triggered pipeline run* to finish. Its run state reflects the state of the triggered pipeline run. For example, if a triggered pipeline run is cancelled, the corresponding tumbling window trigger run is marked cancelled. This is different from the "fire and forget" behavior of the schedule trigger, which is marked successful as long as a pipeline run started.
+
 The following table provides a comparison of the tumbling window trigger and schedule trigger:
 
-|  | Tumbling window trigger | Schedule trigger |
-|:--- |:--- |:--- |
+| Item | Tumbling window trigger | Schedule trigger |
+| --- | --- | --- |
 | **Backfill scenarios** | Supported. Pipeline runs can be scheduled for windows in the past. | Not supported. Pipeline runs can be executed only on time periods from the current time and the future. |
 | **Reliability** | 100% reliability. Pipeline runs can be scheduled for all windows from a specified start date without gaps. | Less reliable. |
 | **Retry capability** | Supported. Failed pipeline runs have a default retry policy of 0, or a policy that's specified by the user in the trigger definition. Automatically retries when the pipeline runs fail due to concurrency/server/throttling limits (that is, status codes 400: User Error, 429: Too many requests, and 500: Internal Server error). | Not supported. |
 | **Concurrency** | Supported. Users can explicitly set concurrency limits for the trigger. Allows between 1 and 50 concurrent triggered pipeline runs. | Not supported. |
-| **System variables** | Supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `triggerOutputs().windowStartTime` and `triggerOutputs().windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` and `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Not supported. |
+| **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `triggerOutputs().windowStartTime` and `triggerOutputs().windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` and `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
 | **Pipeline-to-trigger relationship** | Supports a one-to-one relationship. Only one pipeline can be triggered. | Supports many-to-many relationships. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines. |
 
 ## Next steps
