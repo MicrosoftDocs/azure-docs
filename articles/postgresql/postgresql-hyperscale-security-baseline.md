@@ -20,11 +20,17 @@ The baseline for this service is drawn from the [Azure Security Benchmark versio
 
 For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+
 ## Network security
 
 *For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22549).
 
 **Guidance**: Azure Database for PostgreSQL server firewall prevents all access to your Hyperscale (Citus) coordinator node until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request. To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
 
@@ -36,6 +42,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.2: <div>Monitor and log the configuration and traffic of virtual networks, subnets, and NICs</div>
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22550).
+
 **Guidance**: Not applicable; Azure Database for PostgreSQL - Hyperscale (Citus) cannot be associated with a virtual network, subnet, or network security group.
 
 **Azure Security Center monitoring**: Not applicable
@@ -43,6 +52,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.3: Protect critical web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22551).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -52,6 +64,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.4: Deny communications with known malicious IP addresses
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22552).
+
 **Guidance**: [For service owner review.] The endpoints used by Azure Azure Database for PostgreSQL - Hyperscale (Citus) are all managed by Microsoft. You are responsible for any additional controls you wish to deploy to your on-premises systems.
 
 **Azure Security Center monitoring**: Not applicable
@@ -59,6 +74,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Customer
 
 ### 1.5: Record network packets
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22553).
 
 **Guidance**: Not applicable; Azure Database for PostgreSQL - Hyperscale (Citus) cannot be associated with a virtual network, subnet, or network security group.
 
@@ -68,6 +86,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22554).
+
 **Guidance**: Not applicable; [For service owner review]
 
 **Azure Security Center monitoring**: Not applicable
@@ -75,6 +96,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.7: Manage traffic to web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22555).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -84,6 +108,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22556).
+
 **Guidance**: Not applicable; Azure Database for PostgreSQL - Hyperscale (Citus) cannot be associated with a virtual network, subnet, or network security group and therefore virtual network service tags cannot be used.
 
 **Azure Security Center monitoring**: Not applicable
@@ -91,6 +118,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.9: Maintain standard security configurations for network devices
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22557).
 
 **Guidance**: Define and implement standard security configurations for network settings and network resources associated with your Azure Database for PostgreSQL instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Database for PostgreSQL instances. You may also make use of built-in policy definitions related to networking or your Azure Database for PostgreSQL instances, such as:
 
@@ -110,6 +140,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.10: Document traffic configuration rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22558).
+
 **Guidance**: Use tags for resources related to network security and traffic flow for your Hyperscale (Citus) instances to provide metadata and logical organization. [Is this N/A? I can't identify anything related to traffic flow?]
 
 Use any of the built-in Azure policy definitions related to tagging, such as, "Require tag and its value," to ensure that all resources are created with tags and to notify you of existing untagged resources.
@@ -123,6 +156,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 **Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22559).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Hyperscale (Citus) instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
@@ -140,6 +176,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ### 2.1: Use approved time synchronization sources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22560).
+
 **Guidance**: Microsoft maintains the time source used for Azure resources, such as Azure Database for PostgreSQL - Hyperscale (Citus) for timestamps in the logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -147,6 +186,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 **Responsibility**: Microsoft
 
 ### 2.2: Configure central security log management
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22561).
 
 **Guidance**: For control plane audit logging, enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure resources.
 
@@ -164,6 +206,9 @@ Also, ingest logs via Azure Monitor to aggregate security data generated by Hype
 
 ### 2.3: Enable audit logging for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22562).
+
 **Guidance**: For control plane audit logging, enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure resources.
 
 Also, ingest logs via Azure Monitor to aggregate security data generated by Hyperscale (Citus). Within the Azure Monitor, use Log Analytics workspace(s) to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you may enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
@@ -180,6 +225,9 @@ Also, ingest logs via Azure Monitor to aggregate security data generated by Hype
 
 ### 2.4: Collect security logs from operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22563).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -187,6 +235,9 @@ Also, ingest logs via Azure Monitor to aggregate security data generated by Hype
 **Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22564).
 
 **Guidance**: Within Azure Monitor, for the Log Analytics workspace being used to hold your Hyperscale (Citus) logs, set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
@@ -199,6 +250,9 @@ Also, ingest logs via Azure Monitor to aggregate security data generated by Hype
 **Responsibility**: Customer
 
 ### 2.6: Monitor and review Logs
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22565).
 
 **Guidance**: Analyze and monitor logs from your Hyperscale (Citus) instances for anomalous behavior. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
@@ -213,6 +267,9 @@ Also, ingest logs via Azure Monitor to aggregate security data generated by Hype
 **Responsibility**: Customer
 
 ### 2.7: Enable alerts for anomalous activities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22566).
 
 **Guidance**: You may enable diagnostic settings for Hyperscale (Citus) and send logs to a Log Analytics workspace You can configure and receive an alert based on monitoring metrics for your Azure services [are metrics okay to bring up here?]. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
@@ -230,6 +287,9 @@ Onboard your Log Analytics workspace to Azure Sentinel as it provides a security
 
 ### 2.8: Centralize anti-malware logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22567).
+
 **Guidance**: Not applicable; Azure Database for PostgreSQL - Hyperscale (Citus) does not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -238,6 +298,9 @@ Onboard your Log Analytics workspace to Azure Sentinel as it provides a security
 
 ### 2.9: Enable DNS query logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22568).
+
 **Guidance**: Not applicable; Azure Database for PostgreSQL does not process or produce DNS related logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -245,6 +308,9 @@ Onboard your Log Analytics workspace to Azure Sentinel as it provides a security
 **Responsibility**: Not applicable
 
 ### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22569).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -257,6 +323,9 @@ Onboard your Log Analytics workspace to Azure Sentinel as it provides a security
 *For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22570).
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of your Hyperscale (Citus) instances. In addition, maintain an inventory of the administrative accounts that have access to the data plane (within the database itself) of your Hyperscale (Citus) instances.
 
@@ -278,6 +347,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 ### 3.2: Change default passwords where applicable
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22571).
+
 **Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
 **Azure Security Center monitoring**: Not applicable
@@ -285,6 +357,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 **Responsibility**: Customer
 
 ### 3.3: Use dedicated administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22572).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts that have access to your Hyperscale (Citus) instances. Use Azure Security Center Identity and access management to monitor the number of administrative accounts.
 
@@ -298,6 +373,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22573).
+
 **Guidance**: [For internal/service owner review]
 
 **Azure Security Center monitoring**: N/A
@@ -305,6 +383,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 **Responsibility**: N/A
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22574).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations. When utilizing Azure AD tokens for signing into your database, this allows you to require multi-factor authentication for database sign-ins.
 
@@ -320,6 +401,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22575).
+
 **Guidance**: Use Privileged Access Workstations (PAWs) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
 * [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
@@ -331,6 +415,9 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 **Responsibility**: Customer
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22576).
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -346,6 +433,9 @@ Use Azure AD Risk Detections to view alerts and reports on risky user behavior.
 
 ### 3.8: Manage Azure resources from only approved locations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22577).
+
 **Guidance**: Use Conditional Access Named Locations to allow portal and Azure Resource Manager access from only specific logical groupings of IP address ranges or countries/regions.
 
 * [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
@@ -355,6 +445,9 @@ Use Azure AD Risk Detections to view alerts and reports on risky user behavior.
 **Responsibility**: Customer
 
 ### 3.9: Use Azure Active Directory
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22578).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -370,6 +463,9 @@ Azure AD credentials may also be used for administration at the management plane
 
 ### 3.10: Regularly review and reconcile user access
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22579).
+
 **Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Hyperscale (Citus) administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Hyperscale (Citus), and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right Users have continued access.
 
 * [Understand Azure AD Reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
@@ -383,6 +479,9 @@ Azure AD credentials may also be used for administration at the management plane
 **Responsibility**: Customer
 
 ### 3.11: Monitor attempts to access deactivated credentials
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22580).
 
 **Guidance**: [Only metric logs. Is this still applicable?]
 
@@ -400,6 +499,9 @@ Enable Diagnostic Settings for Azure Database for PostgreSQL and Azure Active Di
 
 ### 3.12: Alert on account login behavior deviation
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22581).
+
 **Guidance**: Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions. You may enable automated responses through Azure Sentinel to implement your organization's security responses.
 
 You can also ingest logs into Azure Sentinel for further investigation.
@@ -416,6 +518,9 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22582).
+
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Hyperscale (Citus).
 
 * [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
@@ -430,6 +535,9 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 ### 4.1: Maintain an inventory of sensitive Information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22583).
+
 **Guidance**: Use tags to assist in tracking Hyperscale (Citus) instances or related resources that store or process sensitive information.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -439,6 +547,9 @@ You can also ingest logs into Azure Sentinel for further investigation.
 **Responsibility**: Customer
 
 ### 4.2: Isolate systems storing or processing sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22584).
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Use a combination of administrative roles and firewall rules to isolate and limit network access to your Azure Database for PostgreSQL instances.
 
@@ -456,6 +567,9 @@ You can also ingest logs into Azure Sentinel for further investigation.
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22585).
+
 **Guidance**: When using Azure virtual machines to access Hyperscale (Citus) instances, make use of Private Link, [PostgreSQL network configurations], network security groups, and service tags to mitigate the possibility of data exfiltration.
 
 Microsoft manages the underlying infrastructure for Azure Database for PostgreSQL - Hyperscale (Citus) and has implemented strict controls to prevent the loss or exposure of customer data.
@@ -467,6 +581,9 @@ Microsoft manages the underlying infrastructure for Azure Database for PostgreSQ
 **Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22586).
 
 **Guidance**: Client application connections to the Hyperscale (Citus) coordinator node require Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
 
@@ -480,6 +597,9 @@ For all Azure Database for PostgreSQL servers provisioned through the Azure port
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22587).
+
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Hyperscale (Citus). Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
@@ -491,6 +611,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Shared
 
 ### 4.6: Use Role-based access control to control access to resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22588).
 
 **Guidance**: Use Azure role-based access control (RBAC) to control access to the Hyperscale (Citus) control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions [?]. RBAC does not affect user permissions within the database.
 
@@ -504,6 +627,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22589).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has implemented strict controls to prevent the loss or exposure of customer data.
@@ -516,6 +642,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 4.8: Encrypt sensitive information at rest
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22590).
+
 **Guidance**: [Does Hyperscale Citus hold data at rest?]
 
 **Azure Security Center monitoring**: N/A
@@ -523,6 +652,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 **Responsibility**: N/A
 
 ### 4.9: Log and alert on changes to critical Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22591).
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Hyperscale (Citus) and other critical or related resources.
 
@@ -538,6 +670,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 5.1: Run automated vulnerability scanning tools
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22592).
+
 **Guidance**: Currently not available; Azure Security Center does not yet support vulnerability assessment for Azure Database for PostgreSQL - Hyperscale (Citus).
 
 * [Feature coverage for Azure PaaS services in Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
@@ -547,6 +682,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 **Responsibility**: Currently not available
 
 ### 5.2: Deploy automated operating system patch management solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22593).
 
 **Guidance**: Use Azure "Update Management" to ensure the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
 
@@ -560,6 +698,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22594).
+
 **Guidance**: Use a third-party patch management solution. Customers already leveraging System Center Configuration Manager in their environment may leverage System Center Updates Publisher, allowing them to publish custom updates into Windows Server Update Service. This allows Update Manager to patch machines that use System Center Configuration Manager as their update repository with third-party software.
 
 **Azure Security Center monitoring**: Not applicable
@@ -568,6 +709,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 5.4: Compare back-to-back vulnerability scans
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22595).
+
 **Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you may pivot into the selected solution's portal to view historical scan data.
 
 **Azure Security Center monitoring**: Not applicable
@@ -575,6 +719,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 **Responsibility**: Customer
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22596).
 
 **Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Database for PostgreSQL - Hyperscale (Citus).
 
@@ -587,6 +734,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 *For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated Asset Discovery solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22597).
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Hyperscale (Citus) instances) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -602,6 +752,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 6.2: Maintain asset metadata
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22598).
+
 **Guidance**: Apply tags to Hyperscale (Citus) instances and other related resources giving metadata to logically organize them into a taxonomy.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -611,6 +764,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 **Responsibility**: Customer
 
 ### 6.3: Delete unauthorized Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22599).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Hyperscale (Citus) instances and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -626,6 +782,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 
 ### 6.4: Define and Maintain an inventory of approved Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22600).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
 **Azure Security Center monitoring**: Not applicable
@@ -633,6 +792,9 @@ Microsoft manages the underlying infrastructure for Hyperscale (Citus) and has i
 **Responsibility**: Not applicable
 
 ### 6.5: Monitor for unapproved Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22601).
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -650,6 +812,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22602).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -657,6 +822,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 6.7: Remove unapproved Azure resources and software applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22603).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
@@ -666,6 +834,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.8: Use only approved applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22604).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -673,6 +844,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22605).
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -688,6 +862,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.10: Maintain an inventory of approved software titles
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22606).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -695,6 +872,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22607).
 
 **Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as instances of Hyperscale (Citus) containing sensitive information.
 
@@ -706,6 +886,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22608).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -713,6 +896,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22609).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -725,6 +911,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 *For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22610).
 
 **Guidance**: Define and implement standard security configurations for your Hyperscale (Citus) instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" namespace to create custom policies to audit or enforce the network configuration of your Azure Database for PostgreSQL instances. You may also make use of built-in policy definitions related to your Azure Database for PostgreSQL instances, such as:
 - Enforce SSL connection should be enabled for PostgreSQL database servers
@@ -740,6 +929,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.2: Establish secure operating system configurations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22611).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -747,6 +939,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 7.3: Maintain secure Azure resource configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22612).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -760,6 +955,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.4: Maintain secure operating system configurations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22613).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -767,6 +965,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22614).
 
 **Guidance**: If using custom Azure policy definitions for your Hyperscale (Citus) instances and related resources, use Azure Repos to securely store and manage your code.
 
@@ -780,6 +981,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.6: Securely store custom operating system images
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22615).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -787,6 +991,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22616).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -798,6 +1005,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.8: Deploy configuration management tools for operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22617).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -805,6 +1015,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22618).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Database for PostgreSQL instances and related resources.
 
@@ -816,6 +1029,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22619).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -823,6 +1039,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22620).
 
 **Guidance**: Not applicable; [For service owner review]
 
@@ -832,6 +1051,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.12: Manage identities securely and automatically
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22621).
+
 **Guidance**: [For internal review -- managed identities not applicable]
 
 **Azure Security Center monitoring**: N/A
@@ -839,6 +1061,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: N/A
 
 ### 7.13: Eliminate unintended credential exposure
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22622).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -854,6 +1079,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 8.1: Use centrally managed anti-malware software
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22623).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
@@ -864,6 +1092,9 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22624).
+
 **Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services -- for example, Hyperscale (Citus) -- however, it does not run on customer content.
 
 Pre-scan any content being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, Azure Database for PostgreSQL, etc. Microsoft cannot access your data in these instances.
@@ -873,6 +1104,9 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 **Responsibility**: Customer
 
 ### 8.3: Ensure anti-malware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22625).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -888,6 +1122,9 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ### 9.1: Ensure regular automated back ups
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22626).
+
 **Guidance**: Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates backups of each node and stores them in locally redundant storage. Backups can be used to restore your Hyperscale (Citus) cluster to a specified time.
 
 * [How to backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
@@ -897,6 +1134,9 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 **Responsibility**: Customer
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22627).
 
 **Guidance**: At least once a day, Azure Database for PostgreSQL takes snapshot backups of data files and the database transaction log. The backups allow you to restore a server to any point in time within the retention period. (The retention period is currently 35 days for all clusters.) All backups are encrypted using AES 256-bit encryption.
 
@@ -910,6 +1150,9 @@ In Azure regions that support availability zones, backup snapshots are stored in
 
 ### 9.3: Validate all backups including customer managed keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22628).
+
 **Guidance**: In Azure Database for PostgreSQL, restoring a Hyperscale (Citus) cluster creates a new cluster from the original nodes' backups. You can restore a cluster to any point in time within the last 35 days. The restore process creates a new cluster in the same Azure region, subscription, and resource group as the original. The cluster has the original's configuration: the same number of nodes, number of vCores, storage size, user roles, PostgreSQL version, and version of the Citus extension.
 
 Firewall settings and PostgreSQL server parameters are not preserved from the original server group, they are reset to default values. The firewall will prevent all connections. You will need to manually adjust these settings after restore.
@@ -921,6 +1164,9 @@ Firewall settings and PostgreSQL server parameters are not preserved from the or
 **Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22629).
 
 **Guidance**: Deleted Hyperscale (Citus) clusters can't be restored. If you delete the cluster, all nodes that belong to the cluster are deleted and can't be recovered. To protect cluster resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage management locks.
 
@@ -935,6 +1181,9 @@ Firewall settings and PostgreSQL server parameters are not preserved from the or
 *For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22630).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -952,6 +1201,9 @@ Firewall settings and PostgreSQL server parameters are not preserved from the or
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22631).
+
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
@@ -961,6 +1213,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.3: Test security response procedures
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22636).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
@@ -972,6 +1227,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22632).
+
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 * [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -981,6 +1239,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22633).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
@@ -993,6 +1254,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22634).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
@@ -1007,6 +1271,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/22635).
 
 **Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
