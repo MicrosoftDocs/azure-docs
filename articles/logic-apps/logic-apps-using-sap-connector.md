@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 05/27/2020
 tags: connectors
 ---
 
@@ -49,23 +49,38 @@ To follow along with this article, you need these items:
 
 * Your [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Download and install the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) on any on-premises computer. Make sure you set up your gateway in the Azure portal before you continue. The gateway helps you securely access on-premises data and resources. For more information, see [Install an on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources. 
+
+  * As a best practice, make sure to use a supported version of the on-premises data gateway. Microsoft releases a new version every month. Currently, Microsoft supports the last six versions. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
+
+* [Download, install, and configure the latest SAP client library](#sap-client-library-prerequisites) on the same computer as the on-premises data gateway.
+
+* Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
+
+### SAP client library prerequisites
+
+* By default, the SAP installer puts the assembly files in the default installation folder. Copy the assembly files from the default installation folder to the gateway installation folder.
+
+    * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you've copied the assembly files to the gateway installation folder. Then, [use the .NET assembly binding log viewer for troubleshooting](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location.
+
+    * Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
+
+* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), for these reasons:
+
+    * Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+    * The on-premises data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+
+    * Both the data gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1. The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest on-premises data gateway.
+
+### SNC prerequisites
+
+Configure these settings if you use SNC (optional):
 
 * If you use SNC with SSO, make sure the gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
   ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
-
-* Download and install the latest SAP client library, which is currently [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), on the same computer as the on-premises data gateway. Install this version or later for these reasons:
-
-  * Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
-  
-  * The on-premises data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
-  
-  * Both the data gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1. The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest on-premises data gateway.
-
-* Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
 
 <a name="migrate"></a>
 
@@ -88,6 +103,10 @@ This example uses a logic app that you can trigger with an HTTP request. The log
 ### Add an HTTP Request trigger
 
 In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance and starts running your app's workflow.
+
+> [!NOTE]
+> When a logic app receives IDoc packets from SAP, the [request trigger](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) doesn't support the "plain" XML schema generated by SAP's WE60 IDoc documentation. However, the "plain" XML schema is supported for scenarios that send messages from logic apps *to* SAP. 
+> You can use the request trigger with SAP's IDoc XML, but not with IDoc over RFC. Or, you can transform the XML to the necessary format. 
 
 In this example, you create a logic app with an endpoint in Azure so that you can send *HTTP POST requests* to your logic app. When your logic app receives these HTTP requests, the trigger fires and runs the next step in your workflow.
 
@@ -265,7 +284,7 @@ This example uses a logic app that triggers when the app receives a message from
 
       Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
-1. Provide the required parameters based on your SAP system configuration.
+1. Provide the [required parameters](#parameters) based on your SAP system configuration.
 
    You can optionally provide one or more SAP actions. This list of actions specifies the messages that the trigger receives from your SAP server through the data gateway. An empty list specifies that the trigger receives all messages. If the list has more than one message, the trigger receives only the messages specified in the list. Any other messages sent from your SAP server are rejected by the gateway.
 
@@ -290,6 +309,16 @@ Your logic app is now ready to receive messages from your SAP system.
 > [!NOTE]
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
 > The trigger is called from the gateway only when a message exists, so no polling is necessary.
+
+<a name="parameters"></a>
+
+#### Parameters
+
+Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
+
+* Table direction parameters, both input and output, for older SAP releases.
+* Changing parameters, which replace the table direction parameters for newer SAP releases.
+* Hierarchical table parameters
 
 ### Test your logic app
 

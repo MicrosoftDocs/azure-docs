@@ -79,7 +79,7 @@ Create an experiment and a folder to hold your training scripts. In this example
 project_folder = './sklearn-iris'
 os.makedirs(project_folder, exist_ok=True)
 
-exp = Experiment(workspace=ws, name='sklearn-iris')
+experiment = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
 ### Prepare training script
