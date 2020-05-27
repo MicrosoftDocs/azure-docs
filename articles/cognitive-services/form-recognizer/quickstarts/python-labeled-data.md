@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least six forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -31,15 +31,15 @@ To complete this quickstart, you must have:
 
 ## Set up training data
 
-Next you'll need to set up the required input data. The labeled data feature has special input requirements beyond those needed to train a custom model. 
+Next you'll need to set up the required input data. The labeled data feature has special input requirements beyond what's needed to train a custom model without labels.
 
 Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
 
 In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
 * **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, PDF, or TIFF.
-* **OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
-* **Label files** - JSON files that describe data labels which a user has entered manually.
+* **OCR layout files** - these are JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
+* **Label files** - these are JSON files that describe the data labels that a user has entered manually.
 
 All of these files should occupy the same sub-folder and be in the following format:
 
@@ -113,7 +113,7 @@ You need OCR result files in order for the service to consider the corresponding
 
 ### Create the label files
 
-Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training.
+Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like the [sample labeling tool](./label-tool.md) to generate these files.
 
 When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
 
@@ -184,8 +184,8 @@ For each source form, the corresponding label file should have the original file
                 ...
 ```
 
-> [!NOTE]
-> You can only apply one label to each text element, and each label can only be applied once per page. You cannot currently apply a label across multiple pages.
+> [!IMPORTANT]
+> You can only apply one label to each text element, and each label can only be applied once per page. You cannot apply a label across multiple pages.
 
 
 ## Train a model using labeled data
@@ -551,4 +551,7 @@ We understand this scenario is essential for our customers, and we are working o
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer REST API with Python to train a model with manually labeled data. Next, see the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) to explore the Form Recognizer API in more depth.
+In this quickstart, you learned how to use the Form Recognizer REST API with Python to train a model with manually labeled data. Next, see the API reference documentation to explore the Form Recognizer API in more depth.
+
+> [!div class="nextstepaction"]
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
