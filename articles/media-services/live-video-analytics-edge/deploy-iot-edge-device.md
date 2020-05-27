@@ -26,7 +26,7 @@ Alternatively, we provide a setup script that will [create new resources](get-st
 
 ### Create custom Azure Resource Manager role
 
-Create custom Azure Resource Manager role and assign it to a service principal for Live Video Analytics use.
+See [Create custom Azure Resource Manager role](create-custom-azure-resource-manager-role.md) and assign it to a service principal for Live Video Analytics use.
 
 ### Set up a premium streaming endpoint
 

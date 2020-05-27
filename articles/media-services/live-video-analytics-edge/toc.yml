@@ -64,6 +64,8 @@
     href: monitoring-logging.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
+  - name: Create custom Azure Resource Manager role
+    href: create-custom-azure-resource-manager-role-how-to.md
 - name: Reference
   items:
   - name: Direct methods
@@ -72,4 +74,8 @@
     href: module-twin-configuration-schema.md
   - name: Quotas and limitations
     href: quotas-limitations.md
+  - name: FAQs
+    href: faq.md
+  - name: Production readiness
+    href: production-readiness.md
 
