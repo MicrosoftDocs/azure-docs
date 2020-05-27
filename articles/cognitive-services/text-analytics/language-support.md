@@ -21,23 +21,23 @@ ms.author: aahi
 
 | Language              | Language code | v2 support | v3 support | Starting v3 model version: |              Notes |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         10-01-2019         | `zh` also accepted |
-| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         10-01-2019         |                    |
-| Danish*               |     `da`      |     ✓      |            |                            |                    |
+| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` also accepted |
+| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Danish               |     `da`      |     ✓      |            |                            |                    |
 | Dutch                 |     `nl`      |     ✓      |            |                            |                    |
-| English               |     `en`      |     ✓      |     ✓      |         10-01-2019         |                    |
+| English               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Finnish               |     `fi`      |     ✓      |            |                            |                    |
-| French                |     `fr`      |     ✓      |     ✓      |         10-01-2019         |                    |
-| German                |     `de`      |     ✓      |     ✓      |         10-01-2019         |                    |
+| French                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| German                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Greek                 |     `el`      |     ✓      |            |                            |                    |
-| Italian               |     `it`      |     ✓      |     ✓      |         10-01-2019         |                    |
-| Japanese              |     `ja`      |     ✓      |     ✓      |         10-01-2019         |                    |
-| Korean                |     `ko`      |            |     ✓      |         10-01-2019         |                    |
+| Italian               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Japanese              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Korean                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norwegian  (Bokmål)   |     `no`      |     ✓      |            |                            |                    |
 | Polish                |     `pl`      |     ✓      |            |                            |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         10-01-2019         | `pt` also accepted |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` also accepted |
 | Russian               |     `ru`      |     ✓      |            |                            |                    |
-| Spanish               |     `es`      |     ✓      |     ✓      |         10-01-2019         |                    |
+| Spanish               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Swedish               |     `sv`      |     ✓      |            |                            |                    |
 | Turkish               |     `tr`      |     ✓      |            |                            |                    |
 
@@ -45,7 +45,7 @@ ms.author: aahi
 
 | Language              | Language code | Starting with v3 model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
-| English               |     `en`      |              04-01-2020              |                    |
+| English               |     `en`      |              2020-04-01              |                    |
 
 
 #### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
@@ -56,56 +56,56 @@ ms.author: aahi
 
 | Language               | Language code | v2.1 support | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
-| Arabic*                |     `ar`      |     ✓      |            |                                 |                    |
-| Czech*                 |     `cs`      |     ✓      |            |                                 |                    |
+| Arabic                |     `ar`      |     ✓      |            |                                 |                    |
+| Czech                 |     `cs`      |     ✓      |            |                                 |                    |
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` also accepted |
-| Chinese-Traditional*   |   `zh-hant`   |     ✓      |            |                                 |                    |
-| Danish*                |     `da`      |     ✓      |            |                                 |                    |
-| Dutch*                 |     `nl`      |     ✓      |            |                                 |                    |
-| English                |     `en`      |     ✓      |     ✓      |           10-01-2019            |                    |
-| Finnish*               |     `fi`      |     ✓      |            |                                 |                    |
+| Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Danish                |     `da`      |     ✓      |            |                                 |                    |
+| Dutch                 |     `nl`      |     ✓      |            |                                 |                    |
+| English                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
+| Finnish               |     `fi`      |     ✓      |            |                                 |                    |
 | French                 |     `fr`      |     ✓      |            |                                 |                    |
 | German                 |     `de`      |     ✓      |            |                                 |                    |
-| Hebrew*                |     `he`      |     ✓      |            |                                 |                    |
-| Hungarian*             |     `hu`      |     ✓      |            |                                 |                    |
-| Italian*               |     `it`      |     ✓      |            |                                 |                    |
-| Japanese*              |     `ja`      |     ✓      |            |                                 |                    |
-| Korean*                |     `ko`      |     ✓      |            |                                 |                    |
-| Norwegian  (Bokmål)*   |     `no`      |     ✓      |            |                                 | `nb` also accepted |
-| Polish*                |     `pl`      |     ✓      |            |                                 |                    |
-| Portuguese (Portugal)* |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
-| Portuguese (Brazil)*   |    `pt-BR`    |     ✓      |            |                                 |                    |
-| Russian*               |     `ru`      |     ✓      |            |                                 |                    |
-| Spanish*               |     `es`      |     ✓      |            |                                 |                    |
-| Swedish*               |     `sv`      |     ✓      |            |                                 |                    |
-| Turkish*               |     `tr`      |     ✓      |            |                                 |                    |
+| Hebrew                |     `he`      |     ✓      |            |                                 |                    |
+| Hungarian             |     `hu`      |     ✓      |            |                                 |                    |
+| Italian               |     `it`      |     ✓      |            |                                 |                    |
+| Japanese              |     `ja`      |     ✓      |            |                                 |                    |
+| Korean                |     `ko`      |     ✓      |            |                                 |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` also accepted |
+| Polish                |     `pl`      |     ✓      |            |                                 |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Russian              |     `ru`      |     ✓      |            |                                 |                    |
+| Spanish               |     `es`      |     ✓      |            |                                 |                    |
+| Swedish               |     `sv`      |     ✓      |            |                                 |                    |
+| Turkish               |     `tr`      |     ✓      |            |                                 |                    |
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Dutch                 |     `nl`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| English               |     `en`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Finnish               |     `fi`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| French                |     `fr`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| German                |     `de`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Italian               |     `it`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Japanese              |     `ja`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Korean                |     `ko`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                10-01-2019                 | `nb` also accepted |
-| Polish                |     `pl`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                10-01-2019                 | `pt` also accepted |
-| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Russian               |     `ru`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Spanish               |     `es`      |     ✓      |     ✓      |                10-01-2019                 |                    |
-| Swedish               |     `sv`      |     ✓      |     ✓      |                10-01-2019                 |                    |
+| Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| French                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| German                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` also accepted |
+| Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Russian               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Spanish               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Swedish               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 
 #### [Entity linking](#tab/entity-linking)
 
 | Language | Language code | v2 support | v3 support | Available starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |     ✓      |     ✓      |                10-01-2019                 |       |
-| Spanish  |     `es`      |     ✓      |     ✓      |                10-01-2019                 |       |
+| English  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Spanish  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
 
 #### [Language Detection](#tab/language-detection)
 
