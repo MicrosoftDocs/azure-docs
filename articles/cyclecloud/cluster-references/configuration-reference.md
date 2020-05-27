@@ -60,21 +60,14 @@ CycleCloud supports the parameterized configuration of many system services.
 ::: moniker range=">=cyclecloud-8"
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
-| node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true`
-| timezone | String | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example `PST`, `EST`. Default: `UTC` |
 | keepalive.timeout | Integer | The amount of time in seconds to keep a node "alive" if it has not finished installing/configuring software. Default: `14400` (4 hours) |
 | discoverable | Boolean | Whether or not this node can be "discovered" (searched for) by other nodes started by CycleCloud. Default: `false` |
-| autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |                                                                                             |
 | security.limits  | Integer | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: `security.limits.\*.hard.nofile = 524288` and `security.limits.\*.soft.nofile = 1048576` |
 | mounts | Nested  | For [NFS exporting and mounting](~/how-to/mount-fileserver.md) and volume mounting.  |
-| selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Already disabled on core CycleCloud images. |
-| install_epel | Boolean | Add the extended packages repo for yum on RedHat variant image.  Default: `true` |
-| disable_rhui | Boolean | Opt-out of Red Hat repository configs. Default : `false` |
-| ganglia.install | Boolean | Opt-out of ganglia installation by setting `false`. Default: `true` |
-| fail2ban.enabled | Boolean | Opt-out of fail2ban installation by setting `false`. Default: `true` |
+| selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Defaults to enforcing |
 | dns.domain | String | Use nsupdate to force a dynamic DNS record update. Useful ONLY when allowed by DNS policy, and the cluster is using a DNS server that allows dynamic updates. Default: `nil` |
 | dns.alias | String | Use nsupdate to force a dynamic DNS record update. Useful ONLY when allowed by DNS policy, and the cluster is using a DNS server that allows dynamic updates. Default: `nil` |
-| replace_sudoers | Boolean | Allow Cyclecloud to managed the sudoers configuration. Disabling can interfere with user or scheduler services. Default: `true` |
+| samba.enabled | Boolean | Linux only. Installs Samba on a filer for use with Windows execute nodes. Default: `false` |
 ::: moniker-end
 
 ### `[[[configuration cyclecloud.cluster]]]`
