@@ -23,7 +23,7 @@ The following is officially supported with Azure Monitor for containers.
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-- Container Runtime supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+- The following container runtimes are supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
 
 - Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat Enterprise Linux CoreOS 43.81.
 

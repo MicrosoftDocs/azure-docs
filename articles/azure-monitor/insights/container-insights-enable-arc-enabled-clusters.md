@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 05/26/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -11,7 +11,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Azure Monitor for containers can be enabled for one or more existing deployments of Kubernetes using either a PowerShell or Bash script.
 
-## Supported and unsupported features
+## Supported configurations
 
 Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
@@ -19,9 +19,11 @@ Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (p
 
 - [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 
+The following is officially supported with Azure Monitor for containers:
+
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-- Container Runtime supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+- The following container runtimes are supported: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
 
 - Linux OS release for master and worker nodes supported are: Ubuntu (18.04 LTS and 16.04 LTS).
 
