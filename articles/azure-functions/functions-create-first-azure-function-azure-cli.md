@@ -97,14 +97,14 @@ Provide the following values when prompted:
 
 | Prompt | Value | Description |
 | ------ | ----- | ----------- |
-| **groupId** | `com.functions` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
-| **artifactId** | `azure-functions-sample` | A value that is the name of the jar, without a version number. |
+| **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+| **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
 | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-| **package** | `com.functions` | A value that is the Java package for the generated function code. Use the default. |
+| **package** | `com.fabrikam` | A value that is the Java package for the generated function code. Use the default. |
 
 Type `Y` or press Enter to confirm.
 
-Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `azure-functions-sample`. 
+Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 ::: zone-end  
 Navigate into the project folder:
 
@@ -115,7 +115,7 @@ cd LocalFunctionProj
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 ```
-cd azure-functions-sample
+cd fabrikam-functions
 ```
 ::: zone-end  
 This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
