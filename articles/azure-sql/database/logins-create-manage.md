@@ -51,8 +51,8 @@ When a user attempts to connect to a database, they provide a user account and a
 
 When you first deploy Azure SQL, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
 
-- an Azure SQL login   with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user accounts for logging on to SQL Database, SQL Managed Instance, and Azure Synapse.
-- This login is granted full administrative permissions on all databases as a [server-level principal](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). This login has all available permissions and cannot be limited. In a SQL Managed Instance, this login is added to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (this role does not exist in Azure SQL Database).
+- A SQL login with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user account for logging in to SQL Database, SQL Managed Instance, and Azure Synapse.
+- This login is granted full administrative permissions on all databases as a [server-level principal](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). The login has all available permissions and can't be limited. In a SQL Managed Instance, this login is added to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (this role does not exist in Azure SQL Database).
 - A [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) called `dbo` is created for this login in each user database. The [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) user has all database permissions in the database and is mapped to the `db_owner` fixed database role. Additional fixed database roles are discussed later in this article.
 
 To identify the administrator accounts for a database, open the Azure portal, and navigate to the **Properties** tab of your server or managed instance.
@@ -62,27 +62,27 @@ To identify the administrator accounts for a database, open the Azure portal, an
 ![SQL Server Admins](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> The admin login name cannot be changed after it has been created. To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
+> The admin login name can't be changed after it has been created. To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
 ## Create additional logins and users having administrative permissions
 
-At this point, your server or managed instance is only configured for access using a single Azure SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
+At this point, your server or managed instance is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
 
-- **Create an Azure Active Directory administrator account having full administrative permissions**
+- **Create an Azure Active Directory administrator account with full administrative permissions**
 
   Enable Azure Active Directory authentication and create an Azure AD administrator login. One Azure Active Directory account can be configured as an administrator of the Azure SQL deployment with full administrative permissions. This account can be either an individual or security group account. An Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database, SQL Managed Instance, or Azure Synapse. For detailed information on enabling Azure AD authentication for all Azure SQL deployment types, see the following articles:
   - [Use Azure Active Directory Authentication for authentication with SQL](authentication-aad-overview.md)
   - [Configure and manage Azure Active Directory authentication with SQL](authentication-aad-configure.md)
 
-- **In SQL Managed Instance, create Azure SQL logins having full administrative permissions**
+- **In SQL Managed Instance, create SQL logins with full administrative permissions**
 
-  - Create an additional Azure SQL login in the master database.
+  - Create an additional SQL login in the master database.
   - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
   - Alternatively, create an [Azure AD login](authentication-aad-configure.md)#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
 
-- **In SQL Database, create Azure SQL logins having limited administrative permissions**
+- **In SQL Database, create SQL logins with limited administrative permissions**
 
-  - Create an additional Azure SQL login in the master database.
+  - Create an additional SQL login in the master database.
   - Create a user account in the master database associated with this new login.
   - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement (for Azure Synapse, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
 
@@ -92,7 +92,7 @@ At this point, your server or managed instance is only configured for access usi
   Members of these [special master database roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) for Azure SQL Database have authority to create and manage databases or to create and manage logins. In databases created by a user that is a member of the `dbmanager` role, the member is mapped to the `db_owner` fixed database role and can log into and manage that database using the `dbo` user account. These roles have no explicit permissions outside of the master database.
 
   > [!IMPORTANT]
-  > You cannot create an additional Azure SQL login with full administrative permissions in SQL Database.
+  > You can't create an additional SQL login with full administrative permissions in SQL Database.
 
 ## Create accounts for non-administrator users
 
@@ -100,7 +100,7 @@ You can create accounts for non-administrative users using one of two methods:
 
 - **Create a login**
 
-  Create an Azure SQL login in the master database. Then create a user account in each database to which that user needs access and associate the user account with that login. This approach is preferred when the user must access multiple databases and you wish to keep the passwords synchronized. However, this approach has complexities when used with geo-replication as the login must be created on both the primary server and the secondary server(s). For more information, see [Configure and manage Azure SQL Database security for geo-restore or failover](active-geo-replication-security-configure.md).
+  Create a SQL login in the master database. Then create a user account in each database to which that user needs access and associate the user account with that login. This approach is preferred when the user must access multiple databases and you wish to keep the passwords synchronized. However, this approach has complexities when used with geo-replication as the login must be created on both the primary server and the secondary server(s). For more information, see [Configure and manage Azure SQL Database security for geo-restore or failover](active-geo-replication-security-configure.md).
 - **Create a user account**
 
   Create a user account in the database to which a user needs access (also called a [contained user](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
@@ -111,7 +111,7 @@ You can create accounts for non-administrative users using one of two methods:
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using Azure SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
 > [!IMPORTANT]
-> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, an Azure SQL login with `sysadmin` permissions can also create an Azure AD login or user.
+> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, an SQL login with `sysadmin` permissions can also create an Azure AD login or user.
 
 For examples showing how to create logins and users, see:
 
