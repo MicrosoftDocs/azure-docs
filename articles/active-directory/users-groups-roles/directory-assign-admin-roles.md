@@ -219,7 +219,7 @@ This administrator manages federation between Azure AD organizations and externa
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure AD organization becomes a global administrator. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Admins can [elevate their access](https://docs.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) to manage all Azure subscriptions and management groups. This allows Global Admins to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a global administrator. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
