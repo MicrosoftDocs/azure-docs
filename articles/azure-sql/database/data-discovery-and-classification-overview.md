@@ -36,7 +36,7 @@ Data Discovery & Classification introduces a set of advanced services and new ca
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
-- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL Database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
+- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL Server database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
 
 - **Query result-set sensitivity:** The sensitivity of a query result set is calculated in real time for auditing purposes.
 
@@ -60,7 +60,7 @@ Data Discovery & Classification comes with a built-in set of sensitivity labels 
 
 You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
-As part of policy management for Azure SQL information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
+As part of policy management for information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
 Learn more about customizing and managing your policy in the [Azure SQL Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 

@@ -114,9 +114,9 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 Publisher and distributor are configured within a single managed instance and distributing changes to other Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
 
-### Publisher with remote distributor on Managed Instance
+### Publisher with remote distributor on SQL Managed Instance
 
-In this configuration, one managed instance publishes changes to distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
+In this configuration, one managed instance publishes changes to a distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
 
 ![Separate instances for Publisher and Distributor](./media/replication-transactional-overview/02-separate-instances-asdbmi-pubdist.png)
 

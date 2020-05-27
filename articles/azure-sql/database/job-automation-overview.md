@@ -134,7 +134,7 @@ RECONFIGURE
 ```
 
 You can notify the operator that something happened with your SQL Agent jobs. An operator defines contact information for an individual responsible for the maintenance of one or more instances in SQL Managed Instance. Sometimes, operator responsibilities are assigned to one individual.
-In systems with multiple instances in Azure SQL Managed Instance or multiple SQL Server instances, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
+In systems with multiple instances in SQL Managed Instance or SQL Server, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
 
 You can create operators using SSMS or the Transact-SQL script shown in the following example:
 
@@ -193,7 +193,7 @@ An Elastic Job agent is the Azure resource for creating, running, and managing j
 
 Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
 
-The Elastic Job agent is free. The job database is billed at the same rate as any databae in Azure SQL Database.
+The Elastic Job agent is free. The job database is billed at the same rate as any database in Azure SQL Database.
 
 #### Job database
 
