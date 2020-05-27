@@ -8,10 +8,9 @@ ms.date: 04/27/2020
 
 # Create custom Azure Resource Manager role and assign to service principal
 
-This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Live Video Analytics on IoT Edge using Azure CLI.
+Live Video Analytics on IoT Edge module instance needs an active Azure Media Services account for it to function properly. The relationship between the LVA on IoT Edge module and the Azure Media Service account is established via a set of module twin properties. One of those twin properties is a [service principal]() that enables the module instance to communicate with and trigger necessary operations on the Media Services account. To minimize potential misuse and/or accidental data exposure from the edge device, this service principal should have the least amount of privileges.
 
-Live Video Analytics on IoT Edge module instance needs an active Azure Media Services account for it to function properly. The relationship between the LVA on IoT Edge module and the AMS account is established via a set of module twin properties. One of those twin properties is a service principal that enables the module instance to communicate with and trigger necessary operations on the Media Services account. To minimize potential misuse and/or accidental data exposure from the edge device, this service principal should have the least amount of privileges.
-This article shows you the steps for creating a custom ARM role with Azure Cloud Shell, which then is used to create a service principal.
+This article shows you the steps for creating a custom Azure Resource Manager role with Azure Cloud Shell, which then is used to create a service principal.
 
 ## Prerequisites  
 
@@ -20,24 +19,24 @@ Prerequisites for this article are as follows:
 * Azure subscription with owner subscription.
 * An Azure Active Directory with privileges to create an app and assign service principal to a role.
 
-The easiest way to check whether your account has adequate permissions is through the portal. See Check required permission.
+The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission]().
 
 ## Overview  
 
 We will go over the steps to creating a custom role and linking it with a service principal in the following order:
 
-1. Create an AMS account if you don’t already have one.
-1. Create a service principal.
-1. Create a custom ARM role with limited privileges.
-1. “Restrict” the service principal privileges using the custom role created.
-1. Run a simple test to see if we are able to successfully restrict the service principal.
-1. Capture the parameters that will be used in the IoT Edge deployment manifests.
+1. [Create a Media Service account]() if you don’t already have one.
+1. [Create a service principal]().
+1. [Create a custom Azure Resource Manager role with limited privileges]().
+1. [“Restrict” the service principal privileges using the custom role created]().
+1. [Run a simple test to see if we are able to successfully restrict the service principal]().
+1. [Capture the parameters that will be used in the IoT Edge deployment manifests]().
 
 ### Create a Media Services account  
 
-If you don’t have an AMS account, use the following steps to create one.
+If you don’t have a Media Service  account, use the following steps to create one.
 
-1. Browse to Cloud Shell
+1. Browse to the [Cloud Shell]().
 1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
 
     ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
@@ -46,8 +45,8 @@ If you don’t have an AMS account, use the following steps to create one.
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Create a resource group and a storage account
-1. Now, create an Azure Media Service (AMS) account by using the following command template in Cloud Shell:
+1. Create a [resource group]() and a [storage account]().
+1. Now, create an Azure Media Service account by using the following command template in Cloud Shell:
 
     ```
     az ams account create --name <yourAMSAccountName>  --resource-group <yourResouceGroup>  --storage-account <yourStorageAccountName>
@@ -55,7 +54,7 @@ If you don’t have an AMS account, use the following steps to create one.
 
 ### Create service principal  
 
-We will now create a new service principal and link it to your AMS account.
+We will now create a new service principal and link it to your Media Service account.
 
 Without any authentication parameters, password-based authentication is used with a random password for your service principal. In Cloud Shell, use the following command template:
 
@@ -82,7 +81,7 @@ This command produces a response like this:
 ```
 1. The output for a service principal with password authentication includes the password key that in this case is the “AadSecret” parameter. 
 
-    Make sure you copy this value - it can't be retrieved. If you forget the password, reset the service principal credentials.
+    Make sure you copy this value - it can't be retrieved. If you forget the password, [reset the service principal credentials]().
 1. The appId and tenant key appear in the output as “AadClientId” and “AadTenantId” respectively. They are used in service principal authentication. Record their values, but they can be retrieved at any point with az ad sp list.
 
 ### Create a custom role definition  
@@ -112,6 +111,7 @@ To create a custom role, here are steps you should follow:
           "AssignableScopes": [
             "/subscriptions/<yourSubscriptionId>"
           ]
+        }
         ```  
           
 1. Once created, run the following command template to create the new role definition in the subscription:
@@ -217,7 +217,8 @@ The result should look like:
     "roleDefinitionName": "LVAEdge User",
     "scope": "/subscriptions/<yourSubscription ID>",
     "type": "Microsoft.Authorization/roleAssignments
-
+  }
+]  
 ```
  
 Look for the “roleDefinitionName” and see that its value is set to “LVAEdge User”. 
