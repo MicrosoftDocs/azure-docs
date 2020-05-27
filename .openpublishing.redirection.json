@@ -53387,7 +53387,7 @@
     {
         "source_path": "articles/sql-database/sql-database-glossary-terms.md",
         "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/sql-database/sql-database-high-availability.md",
