@@ -33,17 +33,15 @@ To help with the move to hybrid authentication, you can now configure Azure AD t
 
 ## Overview of Azure AD sign-in approaches
 
-User Principal Names (UPNs) are unique identifiers for a user account in both your on-premises directory, and in Azure AD. Each user account in a directory is represented by a UPN, such as `balas@contoso.com`. By default, when you synchronize an on-premises Active Directory Domain Services (AD DS) environment with Azure AD, the Azure AD UPN is to set to match the on-premises UPN.
+To sign in to Azure AD, users enter a name that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in name.
 
-In many organizations, it's fine to set the on-premises UPN and Azure AD UPN to match. When users sign in to Azure applications and services, they use their Azure AD UPN. However, some organizations can't use matching UPNs for sign-in due to business policies or user experience issues.
+For organizations that set the on-premises UPN to the user's preferred sign-in email, this  approach was great. Those organizations would set the Azure AD UPN to be the exact same value as the on-premises UPN, and users would have a consistent sign in experience.
 
-Organizations that can't use matching UPNs in Azure AD have a few options:
+In some organizations, the on-premises UPN is not used as a sign-in name. In these on-premise environments, you would configure the local AD DS environment to allow sign in with an alternate login ID. However, when you synchronize the local directory to the cloud, setting the Azure AD UPN to the same value as the on-premises UPN was not an option as Azure AD would then require users sign in with that value.
 
-* One approach is to set the Azure AD UPN to something different based on the business needs, such as `balas@fabrikam.com`.
-    * However, not all applications and services are compatible with using a different value for the on-premises UPN and the Azure AD UPN.
-* A better approach is to ensure the Azure AD and on-premises UPNs are set to the same value, and configure Azure AD to let users sign into Azure with their email as an alternate login ID.
+The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premise AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
-With email as an alternate login ID, users can still sign in to Azure by entering their UPN, but can also sign in using their email. To support this, you define an email address in the user's *ProxyAddresses* attribute in the on-premises directory. This *ProxyAddress* attribute supports one or more email addresses.
+A different approach is to synchronize the Azure AD and on-premises UPNs to the same exact value, which is the default sync behavior, and then configure Azure AD to allow users sign in to Azure AD with any verified email associated with their account. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
 
 ## Synchronize sign-in email addresses to Azure AD
 
