@@ -66,7 +66,7 @@ The following limits apply to Blob Index tags:
 - Tag keys must be between 1 to 128 characters
 - Tag values must be between 0 to 256 characters
 - Tag keys and values are case-sensitive
-- Tag keys and values only support string data types; any numbers, datetimes, or special characters will be saved as strings
+- Tag keys and values only support string data types; any numbers, date, times, or special characters will be saved as strings
 - Tag keys and values must adhere to the following naming rules:
   - Alpha numeric characters: a-z, A-Z, 0-9
   - Special characters: space, plus, minus, period, colon, equals, underscore, forward slash
@@ -104,7 +104,7 @@ The below table shows all the valid operators for FindBlobsByTags:
 | @container |	Scope to a specific container	| @container = 'videofiles' AND "status" = 'done' |
 
 > [!NOTE]
-> It is recommended to be familiar with lexicographical ordering when setting and querying on tags. 
+> Be familiar with lexicographical ordering when setting and querying on tags.
 > - Numbers are sorted before letters. Numbers are sorted based on the first digit.
 > - Uppercase letters are sorted before lowercase letters.
 > - Symbols are not standard. Some symbols are sorted before numeric values. Other symbols are sorted before or after letters.
