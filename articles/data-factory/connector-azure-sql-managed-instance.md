@@ -362,7 +362,7 @@ GO
 ### SQL Managed Instance as a sink
 
 > [!TIP]
-> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into SQL Managed Instance](#best-practice-for-loading-data-into-azure-sql-managed-instance).
+> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into SQL Managed Instance](#best-practice-for-loading-data-into-sql-managed-instance).
 
 To copy data to SQL Managed Instance, the following properties are supported in the copy activity sink section:
 
@@ -514,7 +514,7 @@ The steps to write data with custom logic are similar to those described in the 
 When you copy data into SQL Managed Instance, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into SQL Managed Instance](#best-practice-for-loading-data-into-azure-sql-managed-instance).
+> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into SQL Managed Instance](#best-practice-for-loading-data-into-sql-managed-instance).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
 
