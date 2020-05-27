@@ -22,7 +22,7 @@ The Azure Monitor pricing model is primarily based on the amount of data ingeste
 >[!NOTE]
 >All sizes and pricing are for sample estimation only. Please refer to the Azure Monitor [pricing](https://azure.microsoft.com/pricing/details/monitor/) page for the most recent pricing based on your Azure Monitor Log Analytics pricing model and Azure region.
 
-The following is a summary of what types of data is collected from a Kubernetes cluster with Azure Monitor for containers that influences cost and can be customized based on your usage:
+The following is a summary of what types of data are collected from a Kubernetes cluster with Azure Monitor for containers that influences cost and can be customized based on your usage:
 
 - Stdout, stderr container logs from every monitored container in every Kubernetes namespace in the cluster
 
@@ -136,7 +136,7 @@ Consider a scenario where your organization's different business unit shares Kub
 
 - Billable diagnostic data ingested by diagnostic master node logs
 
-After completing your analysis to determine which source or sources are generating the most data or more data that is exceeding your requirements, you can reconfigure data collection. Details on configuring collection of stdout, stderr, and environmental variables is described in the [Configure agent data collection settings](container-insights-agent-config.md) article.
+After completing your analysis to determine which source or sources are generating the most data or more data that are exceeding your requirements, you can reconfigure data collection. Details on configuring collection of stdout, stderr, and environmental variables is described in the [Configure agent data collection settings](container-insights-agent-config.md) article.
 
 The following are examples of what changes you can apply to your cluster by modifying the ConfigMap file to help control cost.
 
@@ -166,7 +166,7 @@ The following are examples of what changes you can apply to your cluster by modi
         enabled = false
     ```
 
-4. To cleanup completed jobs, by specifying cleanup policy in the job definition, modify the following in the ConfigMap file:
+4. To clean up completed jobs, specify the clean up policy in the job definition by modifying the following in the ConfigMap file:
 
     ```
     apiVersion: batch/v1
