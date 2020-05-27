@@ -124,7 +124,7 @@ This creates the following resources in Azure, based on the values in the build.
 
 The deployment also packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy), with run-from-package mode enabled.
 
-The authLevel for HTTP Trigger in sample proejct is `ANONYMOUS`, which will skip the authentication. However, if you uses other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
+The authLevel for HTTP Trigger in sample project is `ANONYMOUS`, which will skip the authentication. However, if you use other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
