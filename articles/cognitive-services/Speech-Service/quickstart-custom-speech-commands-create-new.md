@@ -135,9 +135,8 @@ Now add a completion rule that has the following configuration. This rule tells 
 1. In the **Name** box, enter a name.
 1. Add an action.
    1. Create an action by selecting **Add an action** in the **Actions** section.
-   1. In the **New Action** window, in the **Type** list, select **Send speech response**.
-   1. Under **Response**, select **Simple editor**.
-       - In the **First variation** box, enter **Ok, turning on the tv**:
+   1. In the **Edit Action** window, in the **Type** list, select **Send speech response**.
+   1. Under **Response**, select **Simple editor**. In the **First variation** box, enter **Ok, turning on the tv**.
 
    > [!div class="mx-imgBorder"]
    > ![Create a response](media/custom-speech-commands/create-speech-response-action.png)
