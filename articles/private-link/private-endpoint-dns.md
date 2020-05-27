@@ -99,6 +99,9 @@ This model can be extended to multiple peered virtual networks that are associat
 > [!IMPORTANT]
 > A single private DNS zone is required for this configuration, creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records
 
+> [!IMPORTANT]
+> if you are using using a private endpoint in a hub and spoke model from a different subscriptions, reuse the same private dns zone.
+
 In this scenario, there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke virtual network are linked to the same private dns zone. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub and spoke with Azure-provided DNS":::
@@ -153,7 +156,7 @@ The following scenario is appropriate for an on-premises network that has
 This DNS forwarder is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
 
 > [!IMPORTANT]
-> A single private DNS zone is required for this configuration, all client connections made from [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) also must use the same private DNS zone
+> A single private DNS zone is required for this configuration, all client connections made from on-premises and [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) also must use the same private DNS zone
 
 > [!NOTE]
 > This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
