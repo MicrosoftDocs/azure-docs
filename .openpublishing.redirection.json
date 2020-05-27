@@ -53386,8 +53386,8 @@
     },
     {
         "source_path": "articles/sql-database/sql-database-glossary-terms.md",
-        "redirect_url": "/azure/azure-sql/glossary-terms",
-        "redirect_document_id": true
+        "redirect_url": "/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview",
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/sql-database/sql-database-high-availability.md",
@@ -54338,6 +54338,8 @@
         "source_path": "articles/data-factory/connector-azure-sql-database-managed-instance.md",
         "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
         "redirect_document_id": true
-    }
+    },
+
+
   ]
 }
