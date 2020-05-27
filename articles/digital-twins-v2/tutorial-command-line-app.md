@@ -34,25 +34,6 @@ In this tutorial, you will...
  
 Now that the instance and sample app are configured, you will use the sample project and some pre-written example code to build out and explore a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
  
-### Get started with the command-line app
- 
-In your Visual Studio window where the _**AdtE2ESample**_ project is open, run the project with this button in the toolbar:
- 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
- 
-A console window will open, carry out authentication, and wait for a command. 
-* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
- 
-Here is a screenshot of what the project console looks like:
- 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Welcome message from the command-line app":::
- 
-> [!TIP]
-> For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
- 
-Keep the project console running for the rest of the steps in this tutorial.
- 
 ### Model a physical environment with DTDL
  
 The first step in creating an Azure Digital Twins solution is defining twin [**models**](concepts-models.md) for your environment. 
@@ -62,7 +43,7 @@ Models are similar to classes in object-oriented programming languages; they pro
 > [!NOTE]
 > DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
  
-Using the *Solution Explorer* pane in your Visual Studio window, navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
+In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
  
 Select *Room.json* to open it in the editing window, and change it in the following ways:
  
@@ -99,10 +80,29 @@ Make sure to save the file before moving on.
  
 > [!TIP] 
 > There is a language-agnostic [DTDL Validator tool](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+
+### Get started with the command-line app
+ 
+Now that you've defined a model, the remaining steps involve using the sample app to interact with your Azure Digital Twins instance. Run the project with this button in the toolbar:
+ 
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
+ 
+A console window will open, carry out authentication, and wait for a command. 
+* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
+ 
+Here is a screenshot of what the project console looks like:
+ 
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Welcome message from the command-line app":::
+ 
+> [!TIP]
+> For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Output of the help command":::
+ 
+Keep the project console running for the rest of the steps in this tutorial.
  
 #### Upload models to Azure Digital Twins
  
-Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
  
 In the project console window, run the following command to upload your updated *Room* model, as well as a *Floor* model that you'll also use in the next section to create different types of twins.
  
