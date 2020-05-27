@@ -65,7 +65,7 @@ The public key that you place on your Linux VM in Azure is by default stored in 
 
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub	az vm create \
+az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --image UbuntuLTS \
