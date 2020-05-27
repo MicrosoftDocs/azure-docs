@@ -20,11 +20,17 @@ The baseline for this service is drawn from the [Azure Security Benchmark versio
 
 For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+
 ## Network security
 
 *For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23642).
 
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
@@ -34,6 +40,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.2: Monitor and log theconfiguration and traffic of virtual networks, subnets, and NICs
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23643).
+
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
@@ -41,6 +50,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.3: Protect critical web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23644).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -50,6 +62,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.4: Deny communications with known malicious IP addresses
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23645).
+
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
@@ -58,6 +73,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.5: Record network packets
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23646).
+
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
@@ -65,6 +83,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23647).
 
 **Guidance**: Not applicable; the endpoints used by Azure Data Box are all managed by Microsoft. You are responsible for any additional controls you wish to deploy to your on-premises systems.
 
@@ -76,6 +97,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.7: Manage traffic to web applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23648).
+
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -83,6 +107,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23649).
 
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network.
 
@@ -92,6 +119,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.9: Maintain standard security configurations for network devices
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23650).
+
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network.
 
 **Azure Security Center monitoring**: Not applicable
@@ -100,6 +130,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.10: Document traffic configuration rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23651).
+
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network.
 
 **Azure Security Center monitoring**: Not applicable
@@ -107,6 +140,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23652).
 
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network.
 
@@ -120,6 +156,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.1: Use approved time synchronization sources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23653).
+
 **Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Sentinel, for timestamps in the logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -127,6 +166,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 **Responsibility**: Not applicable
 
 ### 2.2: Configure central security log management
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23654).
 
 **Guidance**: Corresponding to each step in your Data Box order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
@@ -141,6 +183,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 **Responsibility**: Customer
 
 ### 2.3: Enable audit logging for Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23655).
 
 **Guidance**: Corresponding to each step in your Data Box order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
@@ -158,6 +203,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 
 ### 2.4: Collect security logs from operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23656).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -165,6 +213,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 **Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23657).
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Data Box according to your organization's compliance regulations. [can't tell if logs can go to LA or if they're housed inside the Data Box UI]
 
@@ -175,6 +226,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 **Responsibility**: Customer
 
 ### 2.6: Monitor and review Logs
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23658).
 
 **Guidance**: [] Corresponding to each step in your Data Box order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
@@ -190,6 +244,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 
 ### 2.7: Enable alerts for anomalous activities
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23659).
+
 **Guidance**: [] Corresponding to each step in your Data Box order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
 You can view some of this data by streaming it from the Azure Activity log into a Log Analytic workspace where you can then perform research and analytics on it. Optionally, you may onboard your Log Analytics workspace to Azure Sentinel.
@@ -204,6 +261,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 
 ### 2.8: Centralize anti-malware logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23660).
+
 **Guidance**: Not applicable; Azure Data Box does not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -212,6 +272,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 
 ### 2.9: Enable DNS query logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23661).
+
 **Guidance**: Not applicable; Azure Data Box does not process or produce DNS-related logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -219,6 +282,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 **Responsibility**: Not applicable
 
 ### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23662).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -231,6 +297,9 @@ You can view some of this data by streaming it from the Azure Activity log into 
 *For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23663).
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to your Azure Data Box. You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
@@ -248,6 +317,9 @@ You can control who can access your order when the order is first created. Set u
 
 ### 3.2: Change default passwords where applicable
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23664).
+
 **Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
 **Azure Security Center monitoring**: Not applicable
@@ -255,6 +327,9 @@ You can control who can access your order when the order is first created. Set u
 **Responsibility**: Customer
 
 ### 3.3: Use dedicated administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23665).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -273,6 +348,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23666).
+
 **Guidance**: Not applicable; access to your Data Box order is through the Azure portal and reserved for accounts with the tenant role of owner or contributor [not sure if this is accurate]. Single sign-on is not supported.
 
 **Azure Security Center monitoring**: Not applicable
@@ -280,6 +358,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 **Responsibility**: Customer
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23667).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -293,6 +374,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23668).
+
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Data Box orders.
 
 * [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
@@ -304,6 +388,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 **Responsibility**: Customer
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23669).
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -319,6 +406,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.8: Manage Azure resources from only approved locations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23670).
+
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
 * [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
@@ -329,6 +419,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.9: Use Azure Active Directory
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23671).
+
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
 * [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
@@ -338,6 +431,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 **Responsibility**: Customer
 
 ### 3.10: Regularly review and reconcile user access
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23672).
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -350,6 +446,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 **Responsibility**: Customer
 
 ### 3.11: Monitor attempts to access deactivated credentials
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23673).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -367,6 +466,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 3.12: Alert on account login behavior deviation
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23674).
+
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 * [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
@@ -380,6 +482,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Responsibility**: Customer
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23675).
 
 **Guidance**: Not yet available; Customer Lockbox is not yet supported for Azure Data Box. [will it ever be?]
 
@@ -395,6 +500,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.1: Maintain an inventory of sensitive Information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23676).
+
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -404,6 +512,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Responsibility**: Customer
 
 ### 4.2: Isolate systems storing or processing sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23677).
 
 **Guidance**: Not applicable; Azure Data Box will be provisioned in the subscription where the resources that you are giving access to reside. There is no public endpoint to protect or isolate. Data Box access is available to users with owner or contributor access to the subscription.
 
@@ -415,6 +526,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23678).
+
 **Guidance**: Microsoft manages the underlying infrastructure for Azure Data Box and has implemented strict controls to prevent the loss or exposure of customer data.
 
 * [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
@@ -424,6 +538,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23679).
 
 **Guidance**: There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. Encrypted protocols can be used for data-in-flight.
 
@@ -437,6 +554,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23680).
+
 **Guidance**: [For service owner review: Currently not available; data identification, classification, and loss prevention features are not yet available for Azure Data Box.]
 
 Microsoft manages the underlying infrastructure for Azure Data Box and has implemented strict controls to prevent the loss or exposure of customer data.
@@ -448,6 +568,9 @@ Microsoft manages the underlying infrastructure for Azure Data Box and has imple
 **Responsibility**: Shared
 
 ### 4.6: Use Role-based access control to control access to resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23681).
 
 **Guidance**: Ensure that you have owner or contributor access to the subscription to create a Data Box order. You can also define Data Box Reader and Data Box Contributor roles at the resource level.
 
@@ -461,6 +584,9 @@ Microsoft manages the underlying infrastructure for Azure Data Box and has imple
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23682).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Data Box and has implemented strict controls to prevent the loss or exposure of customer data.
 
 * [Azure customer data protection](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
@@ -470,6 +596,9 @@ Microsoft manages the underlying infrastructure for Azure Data Box and has imple
 **Responsibility**: Not applicable
 
 ### 4.8: Encrypt sensitive information at rest
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23683).
 
 **Guidance**: Azure Data Box implements AES 256-bit encryption for Data-at-rest.
 
@@ -485,6 +614,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23684).
+
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Data Box as well as other critical or related resources.
 
 * [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
@@ -499,6 +631,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 
 ### 5.1: Run automated vulnerability scanning tools
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23685).
+
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Data Box.
 
 **Azure Security Center monitoring**: Not applicable
@@ -506,6 +641,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 **Responsibility**: Customer
 
 ### 5.2: Deploy automated operating system patch management solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23686).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -515,6 +653,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23687).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -523,6 +664,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 
 ### 5.4: Compare back-to-back vulnerability scans
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23688).
+
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Data Box.
 
 **Azure Security Center monitoring**: Not applicable
@@ -530,6 +674,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 **Responsibility**: Not applicable
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23689).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Data Box.
 
@@ -542,6 +689,9 @@ Additionally, Azure Data Box protects the device unlock key (also known as devic
 *For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated Asset Discovery solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23690).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -559,6 +709,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.2: Maintain asset metadata
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23691).
+
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -568,6 +721,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Responsibility**: Customer
 
 ### 6.3: Delete unauthorized Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23692).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Cache for Redis instances and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -587,6 +743,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.4: Define and Maintainan inventory of approved Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23693).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
 **Azure Security Center monitoring**: Not applicable
@@ -594,6 +753,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 6.5: Monitor for unapproved Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23694).
 
 **Guidance**: [I don't think there are any Data Box policies or a namespace.]
 
@@ -603,6 +765,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23695).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -610,6 +775,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 6.7: Remove unapproved Azure resources and software applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23696).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -619,6 +787,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.8: Use only approved applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23697).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -626,6 +797,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23698).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -641,6 +815,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.10: Maintain an inventory of approved software titles
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23699).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -648,6 +825,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23700).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -659,6 +839,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23701).
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -666,6 +849,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23702).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -679,6 +865,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.1: Establish secure configurations for all Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23703).
+
 **Guidance**: [Not applicable, Azure Data Box does not have configurable security settings.]
 
 **Azure Security Center monitoring**: Not applicable
@@ -686,6 +875,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.2: Establish secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23704).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -695,6 +887,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.3: Maintain secure Azure resource configurations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23705).
+
 **Guidance**: [Not applicable, Azure Data Box does not have configurable security settings.]
 
 **Azure Security Center monitoring**: Not applicable
@@ -702,6 +897,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23706).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -711,6 +909,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.5: Securely store configuration of Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23707).
+
 **Guidance**: [Not applicable, Azure Data Box does not have configurable security settings.]
 
 **Azure Security Center monitoring**: Not applicable
@@ -718,6 +919,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.6: Securely store custom operating system images
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23708).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -727,6 +931,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23709).
+
 **Guidance**: [Not applicable, Azure Data Box does not have configurable security settings.]
 
 **Azure Security Center monitoring**: Not applicable
@@ -734,6 +941,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.8: Deploy configuration management tools for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23710).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -743,6 +953,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23711).
+
 **Guidance**: [Not applicable, Azure Data Box does not have configurable security settings.]
 
 **Azure Security Center monitoring**: Not applicable
@@ -751,6 +964,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23712).
+
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -758,6 +974,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23713).
 
 **Guidance**: Customer-managed keys must be created and stored in an Azure Key Vault.
 
@@ -769,6 +988,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 7.12: Manage identities securely and automatically
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23714).
+
 **Guidance**: Not applicable; Azure Data Box does not make use of managed identities.
 
 * [Azure services that support managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
@@ -778,6 +1000,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 7.13: Eliminate unintended credential exposure
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23715).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -793,6 +1018,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 8.1: Use centrally managed anti-malware software
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23716).
+
 **Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
@@ -800,6 +1028,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Not applicable
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23717).
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Customer Lockbox), however it does not run on customer content.
 
@@ -810,6 +1041,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Responsibility**: Customer
 
 ### 8.3: Ensure anti-malware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23718).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
@@ -823,6 +1057,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 9.1: Ensure regular automated back ups
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23719).
+
 **Guidance**: [For internal/service owner review]
 
 **Azure Security Center monitoring**: Not applicable
@@ -830,6 +1067,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Responsibility**: Customer
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23720).
 
 **Guidance**: [For internal/service owner review]
 
@@ -839,6 +1079,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 9.3: Validate all backups including customer managed keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23721).
+
 **Guidance**: [For internal/service owner review]
 
 **Azure Security Center monitoring**: Not applicable
@@ -846,6 +1089,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23722).
 
 **Guidance**: [For internal/service owner review]
 
@@ -858,6 +1104,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 *For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23723).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -873,6 +1122,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23724).
+
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
@@ -887,6 +1139,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test security response procedures
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23729).
+
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 * [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
@@ -897,6 +1152,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23725).
+
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 * [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -906,6 +1164,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23726).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -918,6 +1179,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 **Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23727).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
@@ -932,6 +1196,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23728).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
