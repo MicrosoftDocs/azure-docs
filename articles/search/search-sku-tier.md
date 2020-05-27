@@ -37,7 +37,7 @@ Tiers are differentiated by:
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
 
-**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
 **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
 

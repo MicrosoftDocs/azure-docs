@@ -4,7 +4,7 @@ description: Learn how to use change feed in the Azure Cosmos DB API for Cassand
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
 ---
