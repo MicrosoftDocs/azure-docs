@@ -87,10 +87,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     1. In the **Reply URL** box, enter a URL having the pattern
     `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
-    > [!NOTE]
-    > The **Reply URL** value isn't real. Update this value with the actual reply URL. Contact the [Trelica Client support team](mailto:support@trelica.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> [!NOTE]
+	> The Reply URL value is not real. Update this value with the actual Reply URL (also known as the ACS).
+    > You can find this by logging in to Trelica and going to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the copy button next to the **Assertion Consumer Service (ACS) URL** to put this onto the clipboard, ready for pasting into the **Reply URL** text box in Azure AD.
+    > Read the [Trelica help documentation](https://docs.trelica.com/admin/saml/azure-ad) or contact the [Trelica Client support team](mailto:support@trelica.com) if you have questions.
 
-1. On the **Set up Single Sign-on with SAML** page, go to the **SAML Signing Certificate** section. To the right of **App Federation Metadata Url**, select the copy button to copy the URL. Save the URL on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and save it on your computer.
 
     ![The SAML Signing Certificate section, with the copy button highlighted next to App Federation Metadata Url](common/copy-metadataurl.png)
 
@@ -126,11 +128,11 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure Trelica SSO
 
-To configure single sign-on on the **Trelica** side, send the copied **App Federation Metadata Url** value to the [Trelica support team](mailto:support@trelica.com). They configure this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Trelica** side, go to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the **New** button. Enter **Azure AD** as the Name and choose **Metadata from url** for the Metadata type. Paste the **App Federation Metadata Url** you took from Azure AD into the **Metadata url** field in Trelica.
+
+Read the [Trelica help documentation](https://docs.trelica.com/admin/saml/azure-ad) or contact the [Trelica Client support team](mailto:support@trelica.com) if you have questions.
 
 ### Create a Trelica test user
-
-In this section, you create a user called B.Simon in Trelica.
 
 Trelica supports just-in-time user provisioning, which is enabled by default. There's no action for you to take in this section. If a user doesn't already exist in Trelica, a new one is created after authentication.
 
