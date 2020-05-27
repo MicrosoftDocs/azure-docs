@@ -27,7 +27,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 * Create the tables and other necessary objects in your Azure SQL Database deployment.
 
-* Create the necessary tables and objects in your Azure SQL Edge deployment. For more information, see [Using SQL Database DAC packages with SQL Edge](stream-analytics.md).
+* Create the necessary tables and objects in your Azure SQL Edge deployment. For more information, see [Using SQL Database DAC packages with SQL Edge](deploy-dacpac.md).
 
 * Register the Azure SQL Edge instance with the Data Sync Agent for Azure SQL Data Sync. For more information, see [Add an on-premises SQL Server database](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
 

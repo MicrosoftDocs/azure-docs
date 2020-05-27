@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -18,8 +18,6 @@ ms.custom: fasttrack-edit
 # Register a SAML application in Azure AD B2C
 
 In this article, you learn how to configure Azure Active Directory B2C (Azure AD B2C) to act as a Security Assertion Markup Language (SAML) identity provider (IdP) to your applications.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Scenario overview
 
@@ -367,7 +365,6 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Multiple logout URLs or POST binding for logout URL in application/service principal object.
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
-* Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 

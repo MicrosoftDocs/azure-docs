@@ -68,7 +68,7 @@ The DDM recommendations engine, flags certain fields from your database as poten
 
 You can use the REST API to programmatically manage data masking policy and rules. The published REST API supports the following operations:
 
-### Data Masking Policies
+### Data Masking Policy
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates the sensitivity label of the specified column.
 - [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 

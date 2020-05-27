@@ -33,9 +33,6 @@ The following roles can access insights and reporting:
 
 Users also need one of the following Log Analytics workspace roles:  
 
-- Reader 
-- Monitoring reader 
-- Log Analytics reader 
 - Contributor  
 - Owner 
 
@@ -98,6 +95,19 @@ View the breakdown of users or sign-ins for each of the conditions. You can filt
 You can also investigate the sign-ins of a specific user by searching for sign-ins at the bottom of the dashboard. The query on the left displays the most frequent users. Selecting a user will filter the query to the right.  
 
 ## Troubleshooting
+
+### Why are queries failing due to a permissions error?
+
+In order to access the workbook, you need the proper Azure AD permissions as well as Log Analytics workspace permissions. To test whether you have the proper workspace permissions by running a sample log analytics query:
+
+1. Sign in to the **Azure portal**.
+1. Browse to **Azure Active Directory** > **Logs**.
+1. Type `SigninLogs` into the query box and select **Run**.
+1. If the query does not return any results, your workspace may not have been configured correctly. 
+
+![Troubleshoot failing queries](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ### Why is the workbook taking a long time to load?  
 

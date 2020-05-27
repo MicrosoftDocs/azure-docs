@@ -1,7 +1,7 @@
 ---
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
 ---
@@ -127,10 +127,10 @@ Batch pools in the Virtual Machine Configuration deployed in an Azure virtual ne
 These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
-## Related topics
-* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
-* [Azure Batch feature overview](batch-api-basics.md)
-* [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## Next steps
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
