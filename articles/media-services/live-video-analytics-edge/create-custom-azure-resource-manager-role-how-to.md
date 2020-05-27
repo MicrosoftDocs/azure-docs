@@ -177,8 +177,8 @@ Parameters:
 
 |Parameters|Description| 
 |---|---|
-|--role	|Custom Role name or id. In our case: “LVAEdge User”.|
-|--assignee-object-id|Object id of the service principal you will use.|
+|--role	|Custom Role name or ID. In our case: “LVAEdge User”.|
+|--assignee-object-id|Object ID of the service principal you will use.|
 
 The result will look like:
 
