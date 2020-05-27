@@ -31,11 +31,11 @@ Leverage your domain expertise on top of Azure Digital Twins to build connected 
 
 ## Azure Digital Twins capabilities
 
-Here is a summary of what you can do with Azure Digital Twins.
+Here is a summary of the features that Azure Digital Twins provides.
 
-### Represent your real-world business environment
+### Open modeling language
 
-In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called [**models**](concepts-models.md). You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
+In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called [**models**](concepts-models.md). You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md), and expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
 
 Once you have defined the vocabulary for your business, you can represent your concrete environment by creating digital twins from the models you previously defined, and connecting them into a graph. For example, using the models described above for a building management solution, you can create a [**twin graph**](concepts-twins-graph.md) that represents the office building you are in with its many floors, rooms, etc.
 
