@@ -274,7 +274,7 @@ the Virtual Machine that you created to deploy the MABS server.
 
 3.  Click **Extract** to begin the extraction process.
 
-   ![Microsoft Azure Backup Setup Wizard](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+    ![Microsoft Azure Backup Setup Wizard](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1.  Once extracted, select the option to **Execute setup.exe** and then click **Finish**.
 
@@ -357,7 +357,7 @@ the Virtual Machine that you created to deploy the MABS server.
     > [!NOTE]
     > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
 
-   ![Microsoft Azure Backup PreReq2](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Microsoft Azure Backup PreReq2](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1.  Review the *Summary of Settings* and click **Install**.
 
