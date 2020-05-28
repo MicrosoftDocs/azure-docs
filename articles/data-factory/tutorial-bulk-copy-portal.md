@@ -28,7 +28,7 @@ At a high level, this tutorial involves following steps:
 > * Create a data factory.
 > * Create Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Storage linked services.
 > * Create Azure SQL Database and Azure Synapse Analytics (formerly SQL DW) datasets.
-> * Create a  pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
+> * Create a pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
@@ -63,11 +63,12 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 ## Azure services to access SQL server
 
-For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your logical SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
+For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
 
-To verify and turn on this setting, go to your logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
+To verify and turn on this setting, go to your server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
 
 ## Create a data factory
+
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. On the left of the Azure portal menu, select **Create a resource** > **Analytics** > **Data Factory**. 
@@ -110,7 +111,7 @@ at the bottom of the left column under **Factory Resources**).
 
     a. Enter **AzureSqlDatabaseLinkedService** for **Name**.
     
-    b. Select your logical SQL server for **Server name**
+    b. Select your server for **Server name**
     
     c. Select your Azure SQL database for **Database name**. 
     
@@ -131,7 +132,7 @@ at the bottom of the left column under **Factory Resources**).
    
     a. Enter **AzureSqlDWLinkedService** for **Name**.
      
-    b. Select your logical SQL server for **Server name**
+    b. Select your server for **Server name**
      
     c. Select your Azure SQL database for **Database name**. 
      

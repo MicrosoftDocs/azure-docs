@@ -14,11 +14,13 @@ When you add a new file or registry key to track, Azure Automation enables it fo
 Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs using one of these techniques:
 
 * [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md)
-* [Enable Change Tracking and Inventory by browsing in Azure portal](automation-enable-changes-from-browse.md)
+* [Enable Change Tracking and Inventory by browsing the Azure portal](automation-enable-changes-from-browse.md)
 * [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
 * [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md)
 
 ## Track files
+
+You can use Change Tracking and Inventory to track changes to files and folders/directories. This section tells how to configure file tracking on Windows and on Linux.
 
 ### Configure file tracking on Windows
 
@@ -27,7 +29,7 @@ Use the following steps to configure file tracking on Windows computers:
 1. In your Automation account, select **Change tracking** under **Configuration Management**. 
 2. Click **Edit Settings** (the gear symbol).
 3. On the Workspace Configuration page, select **Windows Files**, then click **+ Add** to add a new file to track.
-4. On the Add Windows File for Change Tracking pane, enter the information for the file to track and click **Save**. The following table defines the properties that you can use for the information.
+4. On the Add Windows File for Change Tracking pane, enter the information for the file or folder to track and click **Save**. The following table defines the properties that you can use for the information.
 
     |Property  |Description  |
     |---------|---------|
@@ -58,8 +60,8 @@ Use the following steps to configure file tracking on Linux computers:
     |Enter Path     | The path to check for the file, for example, **/etc/*.conf**.       |
     |Path Type     | The type of path. Possible values are File and Directory.        |
     |Recursion     | True if recursion is used when looking for the item to be tracked, and False otherwise.        |
-    |Use Ludo     | True to use sudo when checking for the item, and False otherwise.         |
-    |Links     | Setting that determines how to deal with symbolic links when traversing directories. Possible values are:<br> Ignore - Ignores symbolic links and doesn't include the files/directories referenced.<br>Follow - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>Manage - Follows the symbolic links and allows altering of returned content.<br>**Note:** The Manage option isn't recommended, as it doesn't support file content retrieval.    |
+    |Use Sudo     | True to use sudo when checking for the item, and False otherwise.         |
+    |Links     | Setting that determines how to deal with symbolic links when traversing directories. Possible values are:<br> Ignore - Ignores symbolic links and doesn't include the files/directories referenced.<br>Follow - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>Manage - Follows the symbolic links and allows alteration of returned content.<br>**Note:** The Manage option isn't recommended, as it doesn't support file content retrieval.    |
     |Upload file content | True to upload file content on tracked changes, and False otherwise. |
 
 5. Ensure that you specify True for **Upload file content**. This setting enables file content tracking for the indicated file path.
@@ -68,17 +70,16 @@ Use the following steps to configure file tracking on Linux computers:
 
 ## Track file contents
 
-File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a storage account after each change occurs. Here are some rules to follow for tracking file contents:
+File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. 
-
 * Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-create-storage-account.md).
-
-* The storage account that you use can be connected to only one Automation account.
-
-* [Change Tracking and Inventory](change-tracking.md) is enabled in your Automation account.
+* You can connect the storage account to only one Automation account.
+* [Change Tracking and Inventory](change-tracking.md) must be enabled in your Automation account.
 
 ### Enable tracking for file content changes
+
+Use the following steps to enable tracking for changes to file contents:
 
 1. In the Azure portal, open your Automation account, and then select **Change tracking** under **Configuration Management**.
 2. Click **Edit Settings** (the gear symbol).
@@ -114,7 +115,7 @@ Once Change Tracking and Inventory detects a change for a tracked file, you can 
 
 Use the following steps to configure registry key tracking on Windows computers:
 
-1. In your Automation account, select **Change tracking** under **Configuration Management**. 
+1. In the Azure portal, open your Automation account, and then select **Change tracking** under **Configuration Management**. 
 2. Click **Edit Settings** (the gear symbol).
 3. On the Workspace Configuration page, select **Windows Registry**.
 4. Click **+ Add** to add a new registry key to track.
@@ -125,7 +126,7 @@ Use the following steps to configure registry key tracking on Windows computers:
     |Enabled     | True if a setting is applied, and False otherwise.        |
     |Item Name     | Friendly name of the registry key to track.        |
     |Group     | Group name for logically grouping registry keys.        |
-    |Windows Registry Key   | Key name with path, for example,  **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup**.      |
+    |Windows Registry Key   | Key name with path, for example, `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup`.      |
 
 ## Search logs for change records
 
@@ -138,14 +139,14 @@ You can do various searches against the Azure Monitor logs for change records. W
 
 ## Create alerts on changes
 
-The following example shows that the file **C:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues. It can also lead to redirection of traffic to malicious or otherwise dangerous websites.
+The following example shows that the file **c:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues. It can also lead to redirection of traffic to malicious or otherwise dangerous websites.
 
 ![Chart showing the hosts file change](./media/change-tracking-file-contents/changes.png)
 
 Let's use this example to discuss the steps for creating alerts on a change.
 
 1. In your Automation account, select **Change tracking** under **Configuration Management**, then select **Log Analytics**. 
-2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for a content change for files with a fully qualified path containing the word `hosts`. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
+2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for content changes for files with fully qualified path names containing the word `hosts`. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
 
 3. After the query returns its results, click **New alert rule** in the log search to open the alert creation page. You can also navigate to this page through **Azure Monitor** in the Azure portal. 
 
