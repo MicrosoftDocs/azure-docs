@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the pre-defined metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 
 ---
 
@@ -14,13 +14,24 @@ To alert on performance issues with Azure Monitor for containers, you would crea
 
 To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
 
-|Name| Description |
-|----|-------------|
-| Average CPU % | Calculates average CPU used per node.<br> Alerts when average CPU usage per node is greater than 80%.| 
-| Average Working set memory % | Calculates average working set memory used per node.<br> Alerts when average working set memory usage per node is greater than 80%. |
-| Failed Pod Counts | Calculates if any pod in failed state.<br> Alerts when a number of pods in failed state are greater than 0. |
-| Node NotReady status | Calculates if any node is in NotReady state.<br> Alerts when a number of nodes in NotReady state are greater than 0. |
-| Metric heartbeat | Alerts when all nodes are down and metric data is not received.<br> Alerts when a number of nodes not sending metric data are less than or equal to 0.|
+|Namespace|Name|Description |
+|---------|----|------------|
+|Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
+|Insights.container/nodes |cpuUsagePercentage |CPU usage percentage by node.|
+|Insights.container/nodes |memoryRssBytes |Memory RSS utilization in bytes by host.|
+|Insights.container/nodes |memoryRssPercentage |Memory RSS usage percentage by host.|
+|Insights.container/nodes |memoryWorkingSetBytes |Memory Working Set utilization in bytes by host.|
+|Insights.container/nodes |memoryWorkingSetPercentage |Memory Working Set usage percentage by host.|
+|Insights.container/nodes |nodesCount |Count of nodes by status.|
+|Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
+|Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
+|Insights.container/pods |completedJobsCount |Completed jobs count older user configurable threshold (default is six hours) by controller, Kubernetes namespace. |
+|Insights.container/pods |containerRestartCount |Count of container restarts by controller, Kubernetes namespace.|
+|Insights.container/pods | oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
+|Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
+|Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name. |
+|Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 
 There are common properties across all of these alert rules:
 
@@ -32,7 +43,19 @@ There are common properties across all of these alert rules:
 
 * Alerts rules do not have an action group assigned to them by default. You can add an [action group](../platform/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
 
-* You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying the threshold
+* You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying the threshold.
+
+The following alert-based metrics have unique behavior characteristics compared to the other metrics:
+
+* *completedJobsCount* metric is only sent when there are jobs that are completed greater than six hours ago.
+
+* *containerRestartCount* metric is only sent when there are containers restarting.
+
+* *oomKilledContainerCount* metric is only sent when there are OOM killed containers.
+
+* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%).
+
+These settings can be overridden in the ConfigMaps file under the section [alertable_metrics_configuration_settings.container_resource_utilization_thresholds](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml). 
 
 ## Enable alert rules
 
