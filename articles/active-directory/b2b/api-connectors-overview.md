@@ -20,10 +20,10 @@ ms.collection: M365-identity-device-management
 
 As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you might want to extend your user flow by integrating with a user approval system, validate user input data, or run custom business logic. For example, you can use API connectors to:
 
+- **Validate user input data**. Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user-provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing who successfully signs up to your tenant.
 - **Overwrite input claims**. Reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data**. Integrate with your cloud systems that have user information. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
-- **Validate user input data**. Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user-provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 
 An API connector represents a contract between Azure AD and an API endpoint by defining the HTTP **endpoint**, **authentication**, **request** and **expected response**. Once you configure an API connector, you can enable it for a specific step in a user flow. 
@@ -40,7 +40,7 @@ There are two places in a sign-up user flow where you can enable an API connecto
 
 ### After signing in with an identity provider
 
-When you configure an API connector at this step in the sign-up process, it's invoked immediately after the user signs in with an identity provider (Google, Facebook, Azure AD). This step precedes the **attribute collection page**, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
+When you configure an API connector at this step in the sign-up process, it's invoked immediately after the user signs in for the first time with an identity provider (Google, Facebook, Azure AD). This step precedes the **attribute collection page**, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
 
 - Use the email or federated identity that the user just provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
 - Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow.
