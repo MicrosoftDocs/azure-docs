@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -101,7 +101,7 @@ This section provides you with information about common device identity manageme
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune the "Manage" option will be greyed out.
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune, the "Manage" option will be greyed out.
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
@@ -168,6 +168,27 @@ To view or copy the BitLocker keys, you need to be either the owner of the devic
 
 > [!NOTE]
 > Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
+
+### Device list filtering (preview)
+
+Previously, you could only filter the devices list by activity and enabled state. This preview now allows you to filter the devices list by the following attributes on a device:
+
+- Enabled state
+- Compliant state
+- Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
+- Activity timestamp
+- OS
+- Device type (Printers, Secure VMs, Shared devices, Registered devices)
+
+To enable the preview filtering functionality in the **All devices** view:
+
+![Enable filtering preview functionality](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
+1. Select the banner that says, **Try out the new devices filtering improvements. Click to enable the preview.**
+
+You will now have the ability to **Add filters** to your **All devices** view.
 
 ## Audit logs
 
