@@ -37,7 +37,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of `JOINS` in a query | 1 |
 
 > [!NOTE]
-> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can  request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Rate limits
 
@@ -49,6 +49,12 @@ This table reflects the rate limits of different APIs.
 | Digital Twins API | Number of requests per second | 1,000 |
 | Query API | Number of requests per second | 500 |
 | Event Routes API | Number of requests per second | 100 |
+
+## Other limits
+
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec: [Digital Twin Definition Language](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md).
+
+Query latency and limits on querying during preview can be found in [How-to: Query the twin graph](how-to-query-graph.md).
 
 ## Next steps
 

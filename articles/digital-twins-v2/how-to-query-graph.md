@@ -124,9 +124,11 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
-### Preview limitations on querying
+### Query limitations
 
-These are the current limitations on using `JOIN` in the Azure Digital Twins Query Store language:
+There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
+
+There are additional limitations on using `JOIN` during preview.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
