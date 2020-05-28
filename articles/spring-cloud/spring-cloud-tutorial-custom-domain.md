@@ -33,6 +33,30 @@ To upload your certificate to key vault:
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
+To grant Azure Spring Cloud access to your key vault before you import certificate:
+1. Go to your key vault instance.
+1. In the left navigation pane, click **Access Police**.
+1. On the upper menu, click **Add Access Policy**.
+1. Fill in the info, and click **Add** button, then **Save** access police.
+
+| Secret permission | Certificate permission | Select principal |
+|--|--|--|
+| Get, List | Get, List | Azure Spring Cloud Domain-Management |
+
+![Import certificate 2](./media/custom-dns-tutorial/import-certificate-b.png)
+
+Or, you can use the Azure CLI to grant Azure Spring Cloud access to key vault.
+
+Get the object id via the following command.
+```
+az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+```
+
+Grant Azure Spring Cloud read access to key vault, replace the object id in the following command.
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+``` 
+
 To import certificate to Azure Spring Cloud:
 1. Go to your service instance. 
 1. From the left navigation pane of your app, select **TLS/SSL settings**.

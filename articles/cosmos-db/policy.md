@@ -1,6 +1,6 @@
 ---
 title: Use Azure Policy to implement governance and controls for Azure Cosmos DB resources
-description: Learn how to use Azure Policy to implement governance and controls for Cosmos DB resources.
+description: Learn how to use Azure Policy to implement governance and controls for Azure Cosmos DB resources.
 author: plzm
 ms.author: paelaz
 ms.service: cosmos-db
@@ -28,7 +28,7 @@ At the step to select a policy definition, enter `Cosmos DB` in the Search field
 > [!TIP]
 > You can also use the built-in policy definition names shown in the **Available Definitions** pane with Azure PowerShell, Azure CLI, or ARM templates to create policy assignments.
 
-:::image type="content" source="./media/policy/available-definitions.png" alt-text="Search for Cosmos DB built-in policy definitions":::
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Search for Azure Cosmos DB built-in policy definitions":::
 
 ## Create a custom policy definition
 
@@ -111,7 +111,7 @@ The screenshot shows the following compliance evaluation results:
 - Zero out of one Azure Cosmos DB accounts in the specified scope are compliant with the policy assignment to check that resources were deployed to allowed regions.
 - One out of two Azure Cosmos DB database or collection resources in the specified scope are compliant with the policy assignment to check for provisioned throughput exceeding the specified maximum limit.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Search for Cosmos DB built-in policy definitions":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Search for Azure Cosmos DB built-in policy definitions":::
 
 To remediate the non-compliant resources, see the [remediated with Azure Policy](../governance/policy/how-to/remediate-resources.md) article.
 

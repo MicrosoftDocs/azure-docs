@@ -12,6 +12,7 @@ ms.author: babanisa
 
 # Auth0 Partner Topics
 ![Auth0 Logo](./media/auth0-overview/auth0-logo.png)
+
 Auth0, the identity platform for application builders, provides developers and enterprises with the building blocks they need to secure their applications.
 
 The Auth0 Partner Topic allows you to use events that are emitted by Auth0’s system to accomplish a number of tasks. Engage with users in meaningful ways after the authentication or automate security and infrastructure tasks.
@@ -41,6 +42,6 @@ Combining security monitoring and incident response procedures is important when
 
 - [Partner topics overview](partner-topics-overview.md)
 - [How to use the Auth0 Partner Topic](auth0-how-to.md)
-- [Auth0 Documentation](https://auth0.com/docs/logs/streams/azure-eventgrid)
+- [Auth0 Documentation](https://auth0.com/docs/azure-tutorial)
 - [Become an Event Grid partner](partner-onboarding-overview.md)
 

@@ -65,7 +65,7 @@ This error is caused by incorrect or missing permissions on the VM or workspace,
 
 #### Resolution
 
-Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#onboarding-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure that you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is enabled for a workspace.
+Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#feature-setup-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure that you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is enabled for a workspace.
 
 ### <a name="diagnostic-logging"></a>Scenario: Feature deployment fails with the message "Failed to configure automation account for diagnostic logging"
 

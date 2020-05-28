@@ -34,7 +34,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 Before you begin, make sure that:
 
-- The device fits through standard doorways and entryways. However, do make sure that the device can fit through all your entryways. Device dimensions are: width: 26” length: 48” height: 28”.
+- The device fits through standard doorways and entryways. However, do make sure that the device can fit through all your entryways. Device dimensions are: width: 26" length: 48" height: 28".
 - If installed on a floor other than the ground floor, you need access for the device via an elevator or a ramp. The device weighs approximately ~500 lbs.
 - Make sure that you have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
 
@@ -72,7 +72,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
-    |Source country     | Select the country/region where your data currently resides.         |
+    |Source country/region     | Select the country/region where your data currently resides.         |
     |Destination Azure region     | Select the Azure region where you want to transfer data.        |
 
     [![Select Data Box family availability](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)

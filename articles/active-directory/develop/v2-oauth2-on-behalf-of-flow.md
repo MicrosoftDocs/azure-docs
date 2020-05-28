@@ -1,5 +1,6 @@
 ---
 title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
+titleSuffix: Microsoft identity platform
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 author: hpsin
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -152,7 +153,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as [multi-factor authentication](../authentication/concept-mfa-howitworks.md)) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```json
 {

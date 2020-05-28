@@ -814,7 +814,7 @@ Policy, use one of the following methods:
 - REST API / ARMClient
 
   ```http
-  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  GET https://management.azure.com/providers/?api-version=2019-10-01&$expand=resourceTypes/aliases
   ```
 
 ### Understanding the [*] alias

@@ -101,7 +101,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 *.services.visualstudio.com | Upload app logs used for internal monitoring.
-*.vault.azure.net | Manage secrets in the Azure Key Vault.
+*.vault.azure.net | Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
@@ -336,7 +336,7 @@ Here's the full list of Linux server metadata that the appliance collects and se
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 Processor core count |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
-BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}’
+BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
 Boot type | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 OS name/version | We access these files for the OS version and name:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
@@ -436,12 +436,12 @@ To check in the Control Panel:
 If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
 
 1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
-2.	After downloading, open the LatestComponents.json file in Notepad.
+2.    After downloading, open the LatestComponents.json file in Notepad.
 3. Find the latest service version in the file, and the download link for it. For example:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.	Download the latest version of an outdated service, using the download link in the file.
+4.    Download the latest version of an outdated service, using the download link in the file.
 5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```

@@ -188,6 +188,6 @@ The following image shows example activities to update a variable with a simple 
 
 ## Next steps
 
-* [Manage modules in Azure Automation](modules.md)
-* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
-* [Azure Automation State Configuration overview](../automation-dsc-overview.md) 
+* To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).

@@ -182,6 +182,9 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
    This step generates the URL to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
+   
+   > [!NOTE]
+   > The URL permits using the "at" symbol (**@**), but not the hash symbol (**#**).
 
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
