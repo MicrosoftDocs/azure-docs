@@ -93,7 +93,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Microsoft Q&A for Azure Policy
-            url: /answers/topics/azure-policy.html.html
+            url: /answers/topics/azure-policy.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
