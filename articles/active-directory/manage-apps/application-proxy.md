@@ -36,7 +36,7 @@ Application Proxy works with:
 * Web applications that use form-based or [header-based](application-proxy-configure-single-sign-on-with-ping-access.md) access
 * Web APIs that you want to expose to rich applications on different devices
 * Applications hosted behind a [Remote Desktop Gateway](application-proxy-integrate-with-remote-desktop-services.md)
-* Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
+* Rich client apps that are integrated with the Microsoft Authentication Library (MSAL)
 
 Application Proxy supports single sign-on. For more information on supported methods, see [Choosing a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
