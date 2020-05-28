@@ -66,7 +66,7 @@ az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
 ## Install Azure CLI and Arc enabled Kubernetes extensions
-Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI with version 2.3+ before executing the following commands for installing the CLI extensions.
+Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI with version 2.3+.
 
 Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
 
