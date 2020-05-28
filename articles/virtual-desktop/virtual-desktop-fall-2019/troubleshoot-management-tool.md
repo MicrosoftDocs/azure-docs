@@ -13,7 +13,7 @@ manager: lizross
 # Troubleshoot the Windows Virtual Desktop management tool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article describes issues that can occur while deploying the Windows Virtual Desktop management tool and how to fix them.
 

@@ -14,7 +14,7 @@ manager: lizross
 # Deploy a management tool with PowerShell
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article will show you how to deploy the management tool using PowerShell.
 
