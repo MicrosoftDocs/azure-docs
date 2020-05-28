@@ -20,7 +20,7 @@ ms.service: digital-twins
 Azure Digital twins uses **event routes** to send its data. 
 
 During preview, there are two major cases for sending Azure Digital Twins data:
-* Sending data from one part of Azure Digital Twins to another. For instance, when a property on one digital twins changes, you may want to notify and update another digital twin accordingly.
+* Sending data from one part of Azure Digital Twins to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin accordingly.
 * Sending data to downstream data services for additional storage or processing (also known as *data egress*). For instance,
   - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
   - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
