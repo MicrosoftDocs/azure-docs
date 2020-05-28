@@ -51,7 +51,7 @@ You must have an account admin role for a subscription to download its invoice. 
 1. Select **Invoices** from the billing section.  
     ![Screenshot that shows a user selecting invoices option for a subscription](./media/download-azure-invoice/select-subscription-invoice.png)
 1. Select **Download** to download a PDF version of your invoice and then select **Download** under the invoice section.  
-    [![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/download-invoice-subscription.png)](./media/download-azure-invoice/download-invoice-subscription-zoomed.png#lightbox)
+    ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-subscription.png)
 1. You can also download a daily breakdown of consumed quantities and charges by selecting **Download** under the usage details section. It may take a few minutes to prepare the CSV file.  
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
@@ -63,13 +63,13 @@ An invoice is only generated for a support plan subscription that belongs to an 
 
 You must have an account admin role on the support plan subscription to download its invoice.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-1.  Search for **Cost Management + Billing**.  
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows search in portal for cost management + billing](./media/download-azure-invoice/search-cmb.png)
-1.  Select **Invoices** from the left-hand side.
-1.  Select your support plan subscription and then select **Download**.  
+1. Select **Invoices** from the left-hand side.
+1. Select your support plan subscription and then select **Download**.  
     [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1.  Select **Download** to download a PDF version of your invoice.  
+1. Select **Download** to download a PDF version of your invoice.  
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/download-invoice-support-plan.png)
 
 ## Allow others to download the your subscription invoice
