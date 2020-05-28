@@ -18,7 +18,7 @@ ms.service: azure-project-spool
 <br>
 <br>
 
-##  Voice
+## About Voice
 
 You can use Azure Communication Services to make and receive calls, analyze call metadata, record calls, and even build call trees. Your calls can be made to other internet-connected devices and to plain-old telephones. You can use JS, Android or iOS Client SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services also supports calls to and from Bots. 
 

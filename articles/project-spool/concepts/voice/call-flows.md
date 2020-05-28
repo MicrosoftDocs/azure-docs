@@ -64,7 +64,7 @@ PSTN media traffic flows through a component called Media Processor.
 ![alt text for image](../media/about-voice-pstn.png)
 
 > [!NOTE]
-> For those familiar with media processing, our Media Processor is also a Back to Back User Agent, as defined in RFC 3261 .SIP: Session Initiation Protocol, meaning it can translate codecs when handling calls between Microsoft and Carrier networks. The Azure Communication Services Signaling Controller is Microsoft's implementation of an SIP Proxy per the same RFC.
+> For those familiar with media processing, our Media Processor is also a Back to Back User Agent, as defined in [RFC 3261 SIP: Session Initiation Protocol](https://tools.ietf.org/html/rfc3261), meaning it can translate codecs when handling calls between Microsoft and Carrier networks. The Azure Communication Services Signaling Controller is Microsoft's implementation of an SIP Proxy per the same RFC.
 
 
 For group calls, media and signaling always flow via the Azure Communication Services backend. The audio and/or video from all participants need to be mixed. The mixing happens in the Media Processor component. All members of a group call send their audio and/or video streams to the media processor, which returns mixed media streams.
