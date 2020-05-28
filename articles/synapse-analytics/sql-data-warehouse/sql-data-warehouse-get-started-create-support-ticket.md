@@ -48,31 +48,36 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![Select a quota type](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
-1. In the **Details** window, select **Provide details** to enter additional information.
+1. In the **Details** window, select **Enter details** to enter additional information.
 
    ![The "Provide details" link](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
 ## Quota request types
 
-Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different quota requests available for Azure Synapse Analytics.
+Selecting **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different quota requests available for Azure Synapse Analytics.
 
 ### Data Warehouse Units (DWUs) per server
 
 Use the following steps to request an increase in the DWUs per server.
 
-1. Select the **Data Warehouse Units (DTUs) per server** quota type.
+1. Select the **Synapse SQL Pool (data warehouse) region access** quota type.
 
-1. In the **Resource** list, select the resource to target.
+1. Select the Azure region from the **Location** dropdown list.
 
-1. In the **Request quota** field, enter the new DWU limit that you are requesting.
+1. Indicate the new **DWU required** that you are requesting.
+
+1. Give a **Description of your business requirements**.
+
+1. Select **Save and continue**.
 
    ![DWU quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
+
 ### Servers per subscription
 
-Use the following steps to request an increase in the number of servers per subscription.
+To request an increase in the number of servers per subscription, you'll need to do the following:
 
-1. Select the **Servers per subscription** quota type.
+1. Select the **SQL Servers per subscription** as the quota type.
 
 1. In the **Location** list, select the Azure region to use. The quota is per subscription in each region.
 
@@ -80,19 +85,29 @@ Use the following steps to request an increase in the number of servers per subs
 
    ![Servers quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
+1. Select **Save and continue**.
+
 ### Enable subscription access to a region
 
 Some offer types are not available in every region. You may see an error such as the following:
 
 `This location is not available for subscription`
 
-If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
+
+To explore the offering and SKU options, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 ![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## Submit your request
 
-The final step is to fill in the remaining details of your SQL Database support request. Then select **Next: Review + create>>**, and after reviewing the request details, click **Create** to submit the request.
+The final step is to fill in the remaining details of your SQL Database support request. Then select **Next: Review + create>>**.
+
+![Review create details](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
+
+After reviewing the request details, click **Create** to submit the request.
+
+![Create ticket](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## Monitor a support ticket
 
