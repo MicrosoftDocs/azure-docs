@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -15,13 +15,16 @@ services: iot-edge
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 
 * `$edgeAgent` contains health and connectivity data about both the IoT Edge agent and IoT Edge hub runtime modules, and your custom modules. The IoT Edge agent is responsible for deploying the modules, monitoring them, and reporting connection status to your Azure IoT hub.
-* `$edgeHub` contains data about communications between the IoT Edge hub running on a device and your Azure IoT hub. This includes processes incoming messages from downstream devices. IoT Edge hub is responsible for processing the communications between the Azure IoT Hub and the IoT Edge devices and modules.
+* `$edgeHub` contains data about communications between the IoT Edge hub running on a device and your Azure IoT hub. This includes processing incoming messages from downstream devices. IoT Edge hub is responsible for processing the communications between the Azure IoT Hub and the IoT Edge devices and modules.
 
-The data is organized into metadata, tags, and desired and reported property sets in the module twins' JSON structures. The desired properties you specified in your deployment.json file are copied to the module twins. The IoT Edge agent and the IoT Edge hub each update the reported properties for their modules.
+The data is organized into metadata, tags, along with desired and reported property sets in the module twins' JSON structures. The desired properties you specified in your deployment.json file are copied to the module twins. The IoT Edge agent and the IoT Edge hub each update the reported properties for their modules.
 
-Similarly, the desired properties specified for your custom modules in the deployment.json file are copied to its module twin, but your solution is responsible for providing reported property values.
+Similarly, the desired properties specified for your custom modules in the deployment.json file are copied to its module twin, but your solution is responsible for providing reported its property values.
 
 This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For an overview on the concept of module twins, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+
+> [!TIP]
+> The reported properties of a runtime module could be stale if an IoT Edge device gets disconnected from its IoT hub. You can [ping](how-to-edgeagent-direct-method.md#ping) the `$edgeAgent` module to determine if the connection was lost.
 
 ## Monitor runtime module twins
 
@@ -74,8 +77,8 @@ The JSON can be described in the following sections, starting from the top:
 
 * Metadata - Contains connectivity data. Interestingly, the connection state for the IoT Edge agent is always in a disconnected state: `"connectionState": "Disconnected"`. The reason being the connection state pertains to device-to-cloud (D2C) messages and the IoT Edge agent doesn't send D2C messages.
 * Properties - Contains the `desired` and `reported` subsections.
-* Properties.Desired - (shown collapsed) Expected property values set by the operator in the deployment.json file.
-* Properties.Reported - Latest property values reported by IoT Edge agent.
+* Properties.desired - (shown collapsed) Expected property values set by the operator in the deployment.json file.
+* Properties.reported - Latest property values reported by IoT Edge agent.
 
 Both the `properties.desired` and `properties.reported` sections have a similar structure and contain additional metadata for schema, version, and runtime information. Also included is the `modules` section for any custom modules (such as `SimulatedTemperatureSensor`), and the `systemModules` section for `$edgeAgent` and the `$edgeHub` runtime modules.
 
@@ -104,7 +107,7 @@ See [EdgeAgent reported properties](module-edgeagent-edgehub.md#edgeagent-report
 
 ### Monitor IoT Edge hub module twin
 
-The following JSON shows the `$edgeHub` module twin in Visual Studio code with most of the JSON sections collapsed.
+The following JSON shows the `$edgeHub` module twin in Visual Studio Code with most of the JSON sections collapsed.
 
 ```json
 {
@@ -150,14 +153,14 @@ The JSON can be described in the following sections, starting from the top:
 * Metadata - Contains connectivity data.
 
 * Properties - Contains the `desired` and `reported` subsections.
-* Properties.Desired - (shown collapsed) Expected property values set by the operator in the deployment.json file.
-* Properties.Reported - Latest property values reported by IoT Edge hub.
+* Properties.desired - (shown collapsed) Expected property values set by the operator in the deployment.json file.
+* Properties.reported - Latest property values reported by IoT Edge hub.
 
 If you're experiencing issues with your downstream devices, examining this data would be a good place to start.
 
 ## Monitor custom module twins
 
-The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for the maintaining data for your solution. The desired properties you defined in your deployment.json file are reflected in the module twin, and your module can update reported property values as needed.
+The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for maintaining data for your solution. The desired properties you defined in your deployment.json file are reflected in the module twin, and your module can update reported property values as needed.
 
 You can use your preferred programming language with the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
 
@@ -190,7 +193,7 @@ If you see the message "A module identity doesn't exist for this module", this e
 
 To review and edit a module twin:
 
-1. If not already installed, install the [Azure IoT Tools Extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code.
+1. If not already installed, install the [Azure IoT Tools Extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
 1. In the **Explorer**, expand the **Azure IoT Hub**, and then expand the device with the module you want to monitor.
 1. Right-click the module and select **Edit Module Twin**. A temporary file of the module twin is downloaded to your computer and displayed in Visual Studio Code.
 
