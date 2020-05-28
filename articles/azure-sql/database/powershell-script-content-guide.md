@@ -71,7 +71,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Configure a failover group for a managed instance](../managed-instance/scripts/add-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. |
 |||
 
-Learn more about [PowerShell cmdlets for Azure SQL Managed Instance](../managed-instance/api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances).
+Learn more about [PowerShell cmdlets for Azure SQL Managed Instance](../managed-instance/api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances).
 
 ---
 
