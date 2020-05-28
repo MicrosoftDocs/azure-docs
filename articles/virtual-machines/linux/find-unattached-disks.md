@@ -100,6 +100,6 @@ done
 
 ## Next steps
 
-For more information, see [Delete a storage account](../../storage/common/storage-account-create.md#delete-a-storage-account)
+For more information, see [Delete a storage account](../../storage/common/storage-account-create.md#delete-a-storage-account).
 
 
