@@ -40,7 +40,7 @@ If you can't find an answer to your problem via search, submit a new question to
 - [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
 - [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
 - [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
-- [Azure Time Series Insights](https://docs.microsoft.com/en-us/answers/topics/azure-time-series-insights.html)
+- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 - [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
 
 ## Post a question on Stack Overflow
