@@ -40,8 +40,9 @@ To get started, you need the following items:
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-* Smart Global Governance supports SP-initiated and IDP-initiated SSO.
-* After you configure Smart Global Governance, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Smart Global Governance supports SP-initiated and IDP-initiated SSO.
+
+After you configure Smart Global Governance, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Smart Global Governance from the gallery
 
@@ -56,15 +57,15 @@ To configure the integration of Smart Global Governance into Azure AD, you need 
 
 ## Configure and test Azure AD SSO for Smart Global Governance
 
-You'll configure and test Azure AD SSO with Smart Global Governance by using a test user called B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Smart Global Governance.
+You'll configure and test Azure AD SSO with Smart Global Governance by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Smart Global Governance.
 
 To configure and test Azure AD SSO with Smart Global Governance, you'll take these high-level steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#assign-the-azure-ad-test-user)** to enable the user to use Azure AD single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
 1. **[Configure Smart Global Governance SSO](#configure-smart-global-governance-sso)** on the application side.
-    1. **[Create a Smart Global Governance test user](#create-smart-global-governance-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Smart Global Governance test user](#create-a-smart-global-governance-test-user)** as a counterpart to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
@@ -119,48 +120,48 @@ In this section, you'll create a test user called B.Simon in the Azure portal.
 1. In the **User** properties, complete these steps:
    1. In the **Name** box, enter **B.Simon**.  
    1. In the **User name** box, enter \<username>@\<companydomain>.\<extension>. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
+   1. Select **Create**.
 
-### Assign the Azure AD test user
+### Grant access to the test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Smart Global Governance.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to Smart Global Governance.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
 1. In the applications list, select **Smart Global Governance**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the app's overview page, in the **Manage** section, select **Users and groups**:
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![Select Users and groups](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box:
 
-	![The Add User link](common/add-assign-user.png)
+	![Select Add user](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Smart Global Governance SSO
 
-To configure single sign-on on **Smart Global Governance** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Smart Global Governance support team](mailto:support.tech@smartglobal.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the Smart Global Governance side, you need to send the downloaded raw certificate and the appropriate URLs that you copied from Azure portal to the [Smart Global Governance support team](mailto:support.tech@smartglobal.com). They configure the SAML SSO connection to be correct on both sides.
 
-### Create Smart Global Governance test user
+### Create a Smart Global Governance test user
 
 In this section, you create a user called Britta Simon in Smart Global Governance. Work with [Smart Global Governance support team](mailto:support.tech@smartglobal.com) to add the users in the Smart Global Governance platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you'll test your Azure AD SSO configuration by using Access Panel.
 
-When you click the Smart Global Governance tile in the Access Panel, you should be automatically signed in to the Smart Global Governance for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Smart Global Governance with Azure AD](https://aad.portal.azure.com/)
 
