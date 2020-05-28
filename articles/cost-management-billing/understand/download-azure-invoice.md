@@ -15,8 +15,6 @@ ms.author: banders
 
 You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoice. Instead, invoices are sent to the person set to receive invoices for the enrollment.
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
-
 ## When invoices are generated
 
 An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
@@ -74,7 +72,7 @@ You must have an account admin role on the support plan subscription to download
 1.  Select **Download** to download a PDF version of your invoice.  
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## Allow users with subscription permission to download invoice
+## Allow others to download the your subscription invoice
 
 To download an invoice:
 
@@ -97,31 +95,13 @@ To download an invoice:
 You must have an account admin role on a subscription or a support plan to opt in to receive its invoice by email. Email invoices are available only for subscriptions and support plans, not for reservations or Azure Marketplace purchases. Once you've opted-in you can add additional recipients, who receive the invoice by email as well.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
-1.  Search for **Cost Management + Billing**.  
-1.  Select **Invoices** from the left-hand side.
-1.  Select your Azure subscription or support plan subscription and then select **Email invoice**.  
-    [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-1. Select **Opt in** and accept the terms.  
-    ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoice-article-step02.png)
-1. The invoice is sent to your preferred communication email address. You can update the email address in the [contact info of your billing account](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
-    ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoice-article-step03-verify-email.png)
-
-2.  Search for **Cost Management + Billing**.
-
-    ![Screenshot that shows search in portal for cost management + billing](./media/download-azure-invoice/search-cmb.png)
-
+2.  Search for **Cost Management + Billing**.  
 3.  Select **Invoices** from the left-hand side.
-
-4.  Select your Azure subscription or support plan subscription and then select **Receive invoice by email**.
-
+4.  Select your Azure subscription or support plan subscription and then select **Receive invoice by email**.  
     [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-
-5. Click **Email invoice** and accept the terms.
-
+5. Click **Email invoice** and accept the terms.  
     ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoicearticlestep02.png)
-
-6. The invoice is sent to your preferred communication email. Select **Update profile** to update the email.
-
+6. The invoice is sent to your preferred communication email. Select **Update profile** to update the email.  
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
 ## Share subscription and support plan invoices
@@ -214,7 +194,9 @@ You give others access to view, download, and pay invoices by assigning them the
    [![Screenshot that shows adding a user as an invoice manager](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
    
    
-## <a name="noinvoice"></a> Why you might not see an invoice
+##  Why you might not see an invoice
+
+<a name="noinvoice"></a>
 
 There could be several reasons that you don't see an invoice:
 
