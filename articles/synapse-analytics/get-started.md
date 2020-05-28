@@ -25,7 +25,6 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |Basics|**Account kind**|Must be set to `StorageV2`||
     |Basics|**Location**|You can pick any location| We recommend your Synapse workspace and Azure Data Lake Storage (ADLS) Gen2 account are in the same region.|
     |Advanced|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse only works with storage accounts where this setting is enabled.|
-    |||||
 
 1. Once the storage account is created, select **Access control (IAM)** from the left navigation. Then assign the following roles or ensure they are already assigned. 
     a. * Assign yourself to the **Owner** role on the storage account
@@ -42,7 +41,6 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |---|---|---|---|
     |Basics|**Workspace name**|You can call it anything.| In this document, we will use `myworkspace`|
     |Basics|**Region**|Match the region of the storage account|
-    ||||
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
     > [!NOTE]
@@ -75,10 +73,9 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 1. Select **+New** and enter these settings:
 
     |Setting | Suggested value | 
-    |---|---|---|
+    |---|---|
     |**SQL pool name**| `SQLDB1`|
     |**Performance level**|`DW100C`|
-    |||
 
 1. Select **Review+create** and then select **Create**.
 1. Your SQL pool will be ready in a few minutes.
@@ -96,11 +93,10 @@ When your SQL pool is created, it will be associated with a SQL pool database al
 1. Select **+New** and enter these settings:
 
     |Setting | Suggested value | 
-    |---|---|---|
+    |---|---|
     |**Apache Spark pool name**|`Spark1`
     |**Node size**| `Small`|
     |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
-    |||
 
 1. Select **Review+create** and then select **Create**.
 1. Your Apache Spark pool will be ready in a few seconds.
@@ -332,11 +328,10 @@ You can link a Power BI workspace to your Synapse workspace. This allows you to 
 1. Select **+ New** and select **Connect to Power BI** and set these fields:
 
     |Setting | Suggested value | 
-    |---|---|---|
+    |---|---|
     |**Name**|`NYCTaxiWorkspace1`|
     |**Workspace name**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Select **Create**.
 
 ### Create a Power BI dataset that uses data in your Synapse workspace
