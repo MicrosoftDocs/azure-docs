@@ -267,10 +267,10 @@ You should see the image was customized with a *Message of the Day* as soon as y
 
 ## Clean up resources
 
-If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
+If you want to now try recustomizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
 
-This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
+The following deletes the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
 When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
@@ -283,7 +283,7 @@ az resource delete \
     -n existingVNETLinuxTemplate01
 ```
 
-Delete permissions assignments, roles and identity
+Delete permissions assignments, roles, and identity
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
