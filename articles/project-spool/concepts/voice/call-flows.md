@@ -76,12 +76,11 @@ The default real-time protocol (RTP) for group calls is User Datagram Protocol (
 
 ![alt text for image](../media/about-voice-group-calls.png)
 
-If the client SDK can't use UDP for Media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the ACS TURN service will be added to the group call to translate TCP to UDP.
+If the client SDK can't use UDP for Media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the ACS TURN service will be added to the group call to translate TCP to UDP. TURN charges will be incurred in this case unless TURN capabilities are manually disabled (todo).
 
 ![alt text for image](../media/about-voice-group-calls-2.png)
 
-TURN charges will be incurred in this case unless TURN capabilities are manually disabled (todo).
 
-### IP addresses, ports, protocols and FDDNs (next section under “About Voice”)
+### IP addresses, ports, protocols and FQDNs (next section under “About Voice”)
 
 In progress
