@@ -24,6 +24,9 @@ In a typical scenario, you may have your virtual machines running in a proximity
 -  If an Availability Set is pinned to a Proximity Placement Group and during failover/failback VMs in the availability set have an allocation constraint, then the virtual machines will be created outside of both the availability set and proximity placement group.
 -  Site Recovery for Proximity Placement Groups is not supported for unmanaged disks.
 
+> [!Note]
+> Azure Site Recovery does not support failback from managed disks for Hyper-V to Azure scenarios. Hence, failback from Proximity Placement Group in Azure to Hyper-V is not supported.
+
 ## Prerequisites
 
 1. Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -135,9 +138,6 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 11. Failover to Azure using [these](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#fail-over-to-azure) steps.
 
 ### Hyper-V to Azure
-
-> [!Note]
-> Failback from managed disks is not supported for Hyper-V to Azure scenarios. So, if you failover Hyper-V virtual machines to a proximity placement group in Azure, then you will lose the ability to failback.
 
 1. Make sure that you [prepare your on-premises Hyper-V servers](https://docs.microsoft.com/azure/site-recovery/hyper-v-prepare-on-premises-tutorial) for disaster recovery to Azure.
 2. [Sign in](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-1-sign-in-to-your-azure-account) to Azure.
