@@ -4,7 +4,7 @@ description: How to authenticate downstream devices or leaf devices to IoT Hub, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/13/2019
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -16,9 +16,9 @@ In a transparent gateway scenario, downstream devices (sometimes called leaf dev
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
 
-1. The gateway device needs to be able to securely connect to downstream devices, receive communications from downstream devices, and route messages to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
-2. **The downstream device needs to have a device identity to be able to authenticate with IoT Hub, and know to communicate through its gateway device.**
-3. The downstream device needs to connect to its gateway device securely. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
+1. Configure the gateway device as a server so that downstream devices can connect to it securely. Set up the gateway to receive messages from downstream devices and route them to the proper destination. For more information, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
+2. **Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device.**
+3. Connect the downstream device to the gateway device and start sending messages. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
 Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes referred to as shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are similar to the steps used to set up any non-IoT-Edge device with IoT Hub, with small differences to declare the gateway relationship.
 
