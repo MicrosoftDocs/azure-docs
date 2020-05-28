@@ -4,7 +4,7 @@ description: This article describes how to use MongoDB extension commands to man
 author: LuisBosquez
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 05/28/2020
 ms.author: lbosq
 ---
 
