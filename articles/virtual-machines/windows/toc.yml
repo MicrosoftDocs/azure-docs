@@ -147,6 +147,9 @@
     href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    items:
+    - name: Resource Manager templates
+      href: template-description.md
   - name: Regions
     href: regions.md
     items:
