@@ -32,6 +32,12 @@ Finding unattached disks in the Azure portal is easy.
 
 Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
+If you have unmanaged disks that aren't attached and would like to delete them, the following process explains how:
+
+1. Sign in to the Azure portal.
+1. Search for and select **Disks(Classic)**.
+1. Select the unattached disk you'd like to delete, and select delete.
+1. Enter deletion information.
 
 ## Next steps
 
