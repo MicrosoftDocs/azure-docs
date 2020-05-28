@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Your first ML model with R"
+title: "Tutorial: Use R to create a machine learning model"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
+description: In this tutorial you'll use the Azure Machine Learning R SDK to create a logistic regression model that predicts the likelihood of a fatality in a car accident.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,27 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
+ms.date: 02/07/2020
 ---
 
-# Tutorial: Train and deploy your first model in R with Azure Machine Learning
+# Tutorial: Use R to create a machine learning model
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a **caret** model to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
+In this tutorial you'll use the Azure Machine Learning R SDK to create a logistic regression model that predicts the likelihood of a fatality in a car accident. You'll see how the Azure Machine Learning cloud resources work with R to provide a scalable environment for training and deploying a model.  
 
-In this tutorial, you learn the following tasks:
-
+In this tutorial, you perform the following tasks:
 > [!div class="checklist"]
-> * Connect your workspace
+> * Create an Azure Machine Learning workspace
+> * Clone a notebook folder with the files necessary to run this tutorial into your workspace
+> * Open RStudio from your workspace
 > * Load data and prepare for training
-> * Upload data to the datastore so it is available for remote training
-> * Create a compute resource
-> * Train a caret model to predict probability of fatality
+> * Upload data to a datastore so it is available for remote training
+> * Create a compute resource to train the model remotely
+> * Train a `caret` model to predict probability of fatality
 > * Deploy a prediction endpoint
 > * Test the model from R
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 
 ## Create a workspace
@@ -45,7 +46,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## <a name="azure"></a>Clone a notebook folder
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) if you prefer to have control over your environment, packages and dependencies.
 
 You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
@@ -61,13 +62,11 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Open the folder with a version number on it.  This number represents the current release for the R SDK.
 
-1. Open the **vignettes** folder.
-
-1. Select the **"..."** at the right of the **train-and-deploy-to-aci** folder and then select **Clone**.
+1. Select the **"..."** at the right of the **vignettes** folder and then select **Clone**.
 
     ![Clone folder](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **train-and-deploy-to-aci**  folder there.
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **vignettes**  folder there.
 
 ## <a name="open">Open RStudio
 
@@ -79,11 +78,12 @@ Use RStudio on a compute instance or Notebook VM to run this tutorial.
 
 1. Once the compute is running, use the **RStudio** link to open RStudio.
 
-1. In RStudio, your **train-and--deploy-to-aci** folder is a few levels down from **Users** in the **Files** section on the lower right.  Select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
+1. In RStudio, your *vignettes* folder is a few levels down from *Users* in the **Files** section on the lower right.  Under *vignettes*, select the *train-and-deploy-to-aci* folder to find the files needed in this tutorial.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
+> The rest of this article contains the same content as you see in the  *train-and-deploy-to-aci.Rmd* file. 
 > If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.  
+
 
 ## Set up your development environment
 The setup for your development work in this tutorial includes the following actions:
@@ -94,16 +94,27 @@ The setup for your development work in this tutorial includes the following acti
 * Create a remote compute target to use for training
 
 ### Install required packages
-This tutorial assumes you already have the Azure ML SDK installed. Go ahead and import the **azuremlsdk** package.
+
+ * Install the latest version from CRAN.
+
+    ```R
+    # install the latest version from CRAN
+    install.packages("azuremlsdk")
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+    
+* Or install the development version from GitHub.
+
+    ```R
+    # or install the development version from GitHub
+    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+    azuremlsdk::install_azureml(envname = 'r-reticulate')
+    ```
+
+Now go ahead and import the **azuremlsdk** package.
 
 ```R
 library(azuremlsdk)
-```
-
-The tutorial uses data from the [**DAAG** package](https://cran.r-project.org/package=DAAG). Install the package if you don't have it.
-
-```R
-install.packages("DAAG")
 ```
 
 The training and scoring scripts (`accidents.R` and `accident_predict.R`) have some additional dependencies. If you plan on running those scripts locally, make sure you have those required packages as well.
@@ -143,15 +154,21 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## Prepare data for training
-This tutorial uses data from the **DAAG** package. This dataset includes data from over 25,000 car crashes in the US, with variables you can use to predict the likelihood of a fatality. First, import the data into R and transform it into a new dataframe `accidents` for analysis, and export it to an `Rdata` file.
+This tutorial uses data from the US [National Highway Traffic Safety Administration](https://cdan.nhtsa.gov/tsftables/tsfar.htm) (with thanks to [Mary C. Meyer and Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
+This dataset includes data from over 25,000 car crashes in the US, with variables you can use to predict the likelihood of a fatality. First, import the data into R and transform it into a new dataframe `accidents` for analysis, and export it to an `Rdata` file.
 
 ```R
-library(DAAG)
-data(nassCDS)
-
+nassCDS <- read.csv("nassCDS.csv", 
+                     colClasses=c("factor","numeric","factor",
+                                  "factor","factor","numeric",
+                                  "factor","numeric","numeric",
+                                  "numeric","character","character",
+                                  "numeric","numeric","character"))
 accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
 accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
 accidents$occRole <- factor(accidents$occRole)
+accidents$dvcat <- ordered(accidents$dvcat, 
+                          levels=c("1-9km/h","10-24","25-39","40-54","55+"))
 
 saveRDS(accidents, file="accidents.Rd")
 ```
@@ -317,7 +334,7 @@ inference_config <- inference_config(
 ```
 
 ### Deploy to ACI
-In this tutorial, you will deploy your service to ACI. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. See [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) for additional configurable options. (For production-scale deployments, you can also [deploy to Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html).)
+In this tutorial, you will deploy your service to ACI. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. See [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) for additional configurable options. (For production-scale deployments, you can also [deploy to Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html).)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
@@ -390,5 +407,6 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
+* Now that you've completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
+* Learn more about Azure Machine Learning with R from the examples in the other *vignettes* folders.

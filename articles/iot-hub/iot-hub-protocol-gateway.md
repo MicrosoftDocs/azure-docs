@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
+ms.custom: [amqp, mqtt]
 ---
 
 # Support additional protocols for IoT Hub

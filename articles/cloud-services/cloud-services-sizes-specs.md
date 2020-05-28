@@ -142,6 +142,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_D8_v3  | 8         | 32            | 200                  | 4 / high |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremely high |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremely high |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8 / extremely high |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremely high |
 
 ## Ev3-series
@@ -153,6 +154,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_E8_v3  | 8         | 64            | 200                  | 4 / high |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremely high |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8 / extremely high |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
 
 

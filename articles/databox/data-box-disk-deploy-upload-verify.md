@@ -54,7 +54,7 @@ Verify that your data is in the storage account(s) before you delete it from the
   - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
-    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+    Alternatively, you can go to your Azure storage account in Azure portal and navigate from there.
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 
@@ -98,7 +98,7 @@ To verify that the data has uploaded into Azure, take the following steps:
 
 ## Erasure of data from Data Box Disk
 
-After the copy is complete and you have verified that data is in the Azure storage account, disks are securely erased as per the NIST standard.
+Once the upload to Azure is complete, the Data Box Disk erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
 
 ::: zone target="docs"
 

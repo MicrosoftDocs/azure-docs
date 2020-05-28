@@ -1,11 +1,10 @@
 ---
-title: How Azure AD uses the SAML protocol | Microsoft Docs
+title: How Azure AD uses the SAML protocol
 description: This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -33,4 +32,4 @@ Azure Active Directory exposes tenant-specific and common (tenant-independent) s
 * The tenant-independent endpoint is located at
   `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. In this endpoint address, **common** appears instead of a tenant domain name or ID.
 
-For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](azure-ad-federation-metadata.md).
+For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](../azuread-dev/azure-ad-federation-metadata.md).

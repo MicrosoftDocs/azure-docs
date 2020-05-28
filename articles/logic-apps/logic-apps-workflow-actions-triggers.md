@@ -2313,7 +2313,7 @@ This loop action contains actions that run until the specified condition is true
 | <*action-type*> | String | The action type you want to run | 
 | <*action-inputs*> | Various | The inputs for the action to run | 
 | <*condition*> | String | The condition or expression to evaluate after all the actions in the loop finish running | 
-| <*loop-count*> | Integer | The limit on the most number of loops that the action can run. The default `count` value is 60. | 
+| <*loop-count*> | Integer | The limit on the most number of loops that the action can run. For more information about the default limit and maximum limit, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
@@ -2392,7 +2392,7 @@ You can change the default runtime behavior for triggers and actions by adding t
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that must wait to run when your logic app is already running the maximum concurrent instances. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time (concurrently or in parallel). <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <p>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
-| `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <p>To secure this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
+| `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <p>To learn more about safeguarding this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
 | `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <p>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <p>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 ||||| 
 
@@ -2416,11 +2416,17 @@ You can change the default behavior for triggers and actions with the `operation
 
 By default, logic app workflow instances all run at the same time (concurrently or in parallel). This behavior means that each trigger instance fires before the previously active workflow instance finishes running. However, the number of concurrently running instances has a [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When the number of concurrently running workflow instances reaches this limit, any other new instances must wait to run. This limit helps control the number of requests that backend systems receive.
 
-To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations for when you want to enable the concurrency control:
+When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
+
+Here are some considerations for when you want to enable concurrency on a trigger:
 
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
-* While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
+* You can't disable concurrency after you enable the concurrency control.
+
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+
+* When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
   * To interrupt this state, cancel the earliest instances that are *still running*.
 

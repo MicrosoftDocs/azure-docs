@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 
@@ -37,7 +37,7 @@ When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. 
 
 2. Connect it to any module that outputs a dataset.   
   
-3.  Run the pipeline.
+3.  Submit the pipeline.
 
 ### Results
   

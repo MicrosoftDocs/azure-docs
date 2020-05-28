@@ -28,7 +28,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/howto-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -56,7 +56,7 @@ In case the previous suggestions do not work, it could be the case that a change
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
 
 ## The extension works in Chrome and Firefox, but not in Internet Explorer
 
@@ -70,7 +70,7 @@ There are two main causes to this issue:
 
   * Unfortunately, this situation can vary depending on the browser version, computer speed, or site visited. In this case, we suggest that you contact support so we can fix the integration for this specific application.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -78,7 +78,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
 
 ## How to install the Access Panel Browser extension
 

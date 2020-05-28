@@ -17,6 +17,8 @@ ms.date: 02/20/2019
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Current version](transform-data-using-machine-learning.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the Azure Machine Learning Studio (classic). Azure Machine Learning Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
@@ -185,7 +187,7 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 ### Scenario 2: Experiments using Reader/Writer Modules to refer to data in various storages
 Another common scenario when creating Azure Machine Learning Studio (classic) experiments is to use Import Data and Output Data modules. The Import Data module is used to load data into an experiment and the Output Data module is to save data from your experiments. For details about Import Data and Output Data modules, see [Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Output Data](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
 
-When using the Import Data and Output Data modules, it is good practice to use a Web service parameter for each property of these modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with an Import Data module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another Azure SQL Server called `YYY.database.windows.net`. You can use a Web service parameter to allow this value to be configured.
+When using the Import Data and Output Data modules, it is good practice to use a Web service parameter for each property of these modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with an Import Data module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called `YYY.database.windows.net`. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
 > Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure Machine Learning Studio (classic) Web service. In this scenario, you pass parameters for a Web service that correspond to properties of Import Data/Output Data modules.

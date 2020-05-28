@@ -1,12 +1,12 @@
 ---
-title: Windows 10 roaming settings reference | Microsoft Docs
-description: A complete list of all the settings that will be roamed or backed up in Windows 10.
+title: Windows 10 roaming settings reference - Azure Active Directory
+description: Settings that will be roamed or backed up in Windows 10 with ESR
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,9 +16,11 @@ ms.reviewer: na
 ms.collection: M365-identity-device-management
 ---
 # Windows 10 roaming settings reference
-The following is a complete list of all the settings that will be roamed or backed up in Windows 10. 
+
+The following is a list of the settings that will be roamed or backed up in Windows 10. 
 
 ## Devices and endpoints
+
 See the following table for a summary of the devices and account types that are supported by the sync, backup, and restore framework in Windows 10.
 
 | Account type and operation | Desktop | Mobile |
@@ -29,10 +31,12 @@ See the following table for a summary of the devices and account types that are 
 | Microsoft account: backup/restore |No |Yes |
 
 ## What is backup?
+
 Windows settings generally sync by default, but some settings are only backed up, such as the list of installed applications on a device. Backup is for mobile devices only and currently not available for Enterprise State Roaming users. Backup uses a Microsoft account and stores the settings and application data into OneDrive. If a user disables sync on the device using the Settings app, application data that normally syncs becomes backup only. Backup data can only be accessed through the restore operation during the first run experience of a new device. Backups can be disabled via the device settings, and can be managed and deleted through the user’s OneDrive account.
 
 ## Windows Settings overview
-The following settings groups are available for end-users to enable/disable settings sync on Windows 10 devices.
+
+The following settings groups are available for end users to enable/disable settings sync on Windows 10 devices.
 
 * Theme: desktop background, user tile, taskbar position, etc. 
 * Internet Explorer Settings: browsing history, typed URLs, favorites, etc. 
@@ -44,6 +48,9 @@ The following settings groups are available for end-users to enable/disable sett
 
 ![Sync your settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
+> [!NOTE]
+> This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+
 Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
 
 ![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
@@ -53,7 +60,8 @@ For Windows 10 version 1803 or later, Internet Explorer setting group (favorites
 ![Settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## Windows Settings details
-In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
+
+In the following table, Other entries in the Settings Group column refer to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
 
 Internal entries in the Settings Group column refer to settings and apps that can only be disabled from syncing within the app itself or by disabling sync for the entire device using mobile device management (MDM) or Group Policy settings.
 Settings that don't roam or sync will not belong to a group.
@@ -62,7 +70,7 @@ Settings that don't roam or sync will not belong to a group.
 | --- | --- | --- | --- |
 | **Accounts**: account picture |sync |X |Theme |
 | **Accounts**: other account settings |X |X | |
-| **Advanced mobile broadband**: Internet connection sharing network name (enables auto-discovery of mobile Wi-Fi hotspots via Bluetooth) |X |X |Passwords |
+| **Advanced mobile broadband**: Internet connection sharing network name (enables autodiscovery of mobile Wi-Fi hotspots via Bluetooth) |X |X |Passwords |
 | **App data**: individual apps can sync data |sync backup |sync backup |internal |
 | **App list**: list of installed apps |X |backup |Other |
 | **Bluetooth**: all Bluetooth settings |X |X | |
@@ -170,6 +178,7 @@ Settings that don't roam or sync will not belong to a group.
 | **Wi-Fi**: Wi-Fi profiles (only WPA) |sync |sync |Passwords |
 
 ###### Footnote 1
+
 Minimum supported OS version of Windows Creators Update (Build 15063). 
 
 ## Next steps

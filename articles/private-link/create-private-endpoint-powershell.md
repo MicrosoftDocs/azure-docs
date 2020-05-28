@@ -13,7 +13,7 @@ ms.author: allensu
 # Create a private endpoint using Azure PowerShell
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
 
-In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using Azure PowerShell. Then, you can securely access the  SQL Database Server from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a logical SQL server with an Azure private endpoint using Azure PowerShell. Then, you can securely access SQL Database from the VM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -94,9 +94,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## Create a SQL Database Server 
+## Create a logical SQL server 
 
-Create a  SQL Database Server by using the New-AzSqlServer command. Remember that the name of your SQL Database server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create a logical SQL server by using the New-AzSqlServer command. Remember that the name of your server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -116,7 +116,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## Create a Private Endpoint
 
-Private Endpoint for the SQL Database Server in your Virtual Network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+Private Endpoint for the server in your Virtual Network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -133,12 +133,12 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
 ## Configure the Private DNS Zone 
-Create a private DNS zone for SQL Database Server domain and create an association link with the virtual network: 
+Create a private DNS zone for SQL Database domain and create an association link with the virtual network: 
 
 ```azurepowershell
 
@@ -191,12 +191,13 @@ mstsc /v:<publicIpAddress>
 3. Select **OK**. 
 4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
-## Access SQL Database Server privately from the VM
+## Access SQL Database privately from the VM
 
 1. In the Remote Desktop of myVM, open PowerShell.
-2. Enter `nslookup myserver.database.windows.net`. 
+2. Enter `nslookup myserver.database.windows.net`. Remember to replace `myserver` with your SQL server name.
 
     You'll receive a message similar to this:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -205,21 +206,25 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Install SQL Server Management Studio
-4. In Connect to server, enter or select this information:
-  	Setting	Value
-	  Server type	Select Database Engine.
-	  Server name	Select myserver.database.windows.net
-	  Username	Enter a username provided during creation.
-	  Password	Enter a password provided during creation.
-	  Remember password	Select Yes.
-5. Select Connect.
-6. Browse Databases from left menu. 
-7. (Optionally) Create or query information from mydatabase
+    
+3. Install SQL Server Management Studio.
+4. In **Connect to server**, enter or select this information:
+
+    | Setting | Value |
+    | --- | --- |
+    | Server type | Database Engine |
+    | Server name | myserver.database.windows.net |
+    | Username | Enter the username provided during creation |
+    | Password | Enter the password provided during creation |
+    | Remember Password | Yes |
+    
+5. Select **Connect**.
+6. Browse **Databases** from the left menu. 
+7. (Optionally) Create or query information from mydatabase.
 8. Close the remote desktop connection to *myVM*. 
 
 ## Clean up resources 
-When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
+When you're done using the private endpoint, SQL Database and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

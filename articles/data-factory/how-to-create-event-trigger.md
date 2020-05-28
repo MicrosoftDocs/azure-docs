@@ -14,6 +14,7 @@ ms.date: 10/18/2018
 ---
 
 # Create a trigger that runs a pipeline in response to an event
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes the event-based triggers that you can create in your Data Factory pipelines.
 
@@ -63,11 +64,11 @@ This section shows you how to create an event trigger within the Azure Data Fact
 
 1. To attach a pipeline to this trigger, go to the pipeline canvas and click **Add trigger** and select **New/Edit**. When the side nav appears, click on the **Choose trigger...** dropdown and select the trigger you created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
 
-1. If your pipeline has parameters, you can specify them on the trigger runs parameter side nav. The event trigger captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. Click **Finish** once you are done.
+1. If your pipeline has parameters, you can specify them on the trigger runs parameter side nav. The event trigger captures the folder path and file name of the blob into the properties `@trigger().outputs.body.folderPath` and `@trigger().outputs.body.fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. Click **Finish** once you are done.
 
     ![Mapping properties to pipeline parameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder event-testing in the container sample-data. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@triggerBody().folderPath` has a value of `sample-data/event-testing` and `@triggerBody().fileName` has a value of `moviesDB.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile` which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
+In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder event-testing in the container sample-data. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@trigger().outputs.body.folderPath` has a value of `sample-data/event-testing` and `@trigger().outputs.body.fileName` has a value of `moviesDB.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile` which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
 
 ## JSON schema
 
@@ -99,4 +100,4 @@ This section provides examples of event-based trigger settings.
 | **Blob path ends with** | `foldername/file.txt` | Receives events for a blob named `file.txt` in `foldername` folder under any container. |
 
 ## Next steps
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).

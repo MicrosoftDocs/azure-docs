@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,12 +45,12 @@ Identity Protection identifies risks in the following classifications:
 
 | Risk detection type | Description |
 | --- | --- |
-| Atypical travel | Sign in from an atypical location based on the user’s recent sign-ins. |
+| Atypical travel | Sign in from an atypical location based on the user's recent sign-ins. |
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). |
-| Unfamiliar sign-in properties | Sign in with properties we‘ve not seen recently for the given user. |
+| Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
 | Malware linked IP address | Sign in from a malware linked IP address |
 | Leaked Credentials | This risk detection indicates that the user's valid credentials have been leaked |
-| Azure AD threat intelligence | Microsoft’s internal and external threat intelligence sources have identified a known attack pattern |
+| Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern |
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
 
@@ -75,6 +75,17 @@ Information about integrating Identity Protection information with Azure Sentine
 ## Permissions
 
 Identity Protection requires users be a Security Reader, Security Operator, Security Administrator, Global Reader, or Global Administrator in order to access.
+
+| Role | Can do | Can't do |
+| --- | --- | --- |
+| Global administrator | Full access to Identity Protection |   |
+| Security administrator | Full access to Identity Protection | Reset password for a user |
+| Security operator | View all Identity Protection reports and Overview blade <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
+| Security reader | View all Identity Protection reports and Overview blade | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
+
+Currently, the security operator role cannot access the Risky sign-ins report.
+
+Conditional Access administrators can also create policies that factor in sign-in risk as a condition, find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## License requirements
 

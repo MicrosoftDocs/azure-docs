@@ -4,9 +4,9 @@ description: Describes recommended approaches for authoring Azure Resource Manag
 ms.topic: conceptual
 ms.date: 12/02/2019
 ---
-# Azure Resource Manager template best practices
+# ARM template best practices
 
-This article gives recommendations about how to construct your Resource Manager template. These recommendations help you avoid common problems when using a template to deploy a solution.
+This article gives recommendations about how to construct your Azure Resource Manager (ARM) template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
 
 For recommendations about how to govern your Azure subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
@@ -150,7 +150,7 @@ The following information can be helpful when you work with [variables](template
 
 * Include variables for resource names that must be unique.
 
-* Use a [copy loop in variables](create-multiple-instances.md#variable-iteration) to create a repeated pattern of JSON objects.
+* Use a [copy loop in variables](copy-variables.md) to create a repeated pattern of JSON objects.
 
 * Remove unused variables.
 
@@ -273,5 +273,5 @@ The following information can be helpful when you work with [resources](template
 
 ## Next steps
 
-* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](template-syntax.md).
-* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+* For information about the structure of the template file, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop ARM templates for cloud consistency](templates-cloud-consistency.md).

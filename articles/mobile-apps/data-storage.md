@@ -1,12 +1,12 @@
 ---
 title: Store, manage, and persist application data in the cloud with Visual Studio App Center and Azure services
 description: Learn about services such as Visual Studio App Center that let you store, manage, and persist mobile application data in the cloud.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Store, sync, and query mobile application data from the cloud
@@ -17,21 +17,6 @@ Your application users won't always have internet connectivity. Applications are
 Microsoft provides a variety of services that eliminate the need to spin up servers, pick your database, or worry about scale or security to provide as rich experience as possible. These services provide a great developer experience that lets you store application data in the cloud by using SQL or NoSQL APIs. You can also sync data on all devices and enable the application to work with or without a network connection to help build scalable and robust applications.
 
 Use the following services to manage and store mobile application data in the cloud.
-
-## Visual Studio App Center
-[App Center Data](/appcenter/data/) is a data management service. It enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in online and offline scenarios. Built on top of Azure Cosmos DB, App Center Data scales as your user base and number of applications grow. It ensures low latency, high availability, and high scalability for all of your data.
-
-**Key features**
-- Easy provisioning to a new Azure Cosmos DB database or an existing Azure Cosmos DB database from the Visual Studio App Center portal.
-- NoSQL database support to easily store, sync, and query application data.
-- Built on top of Azure Cosmos DB, this service inherits most of the key features offered by Azure Cosmos DB and can scale globally to meet your business needs.
-- Online and offline sync capabilities to synchronize data across devices.
-- Mobile client SDKs that you can use to easily manage private application data.
-- Platform support for iOS, Android, Xamarin, and React Native.
-
-**References**
-- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Get started with App Center Data](/appcenter/data/getting-started)
 
 ## Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service. You can use it to build planet-scale applications. With Azure Cosmos DB, you can elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can take advantage of fast, single-digit-millisecond data access by using your favorite API surfaces. These surfaces include SQL, MongoDB, Cassandra, Tables, or Gremlin. Azure Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.

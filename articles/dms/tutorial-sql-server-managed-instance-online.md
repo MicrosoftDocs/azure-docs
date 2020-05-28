@@ -16,7 +16,7 @@ ms.date: 01/10/2020
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
 
-You can use Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database managed instance](../sql-database/sql-database-managed-instance.md) with minimal downtime. For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-migrate.md).
+You can use Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database managed instance](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
 In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to a SQL Database managed instance with minimal downtime by using Azure Database Migration Service.
 
@@ -158,7 +158,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
@@ -262,5 +262,5 @@ After the full database backup is restored on the target instance of SQL Databas
 ## Next steps
 
 * For a tutorial showing you how to migrate a database to a managed instance using the T-SQL RESTORE command, see [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-* For information about managed instance, see [What is a managed instance](../sql-database/sql-database-managed-instance.md).
-* For information about connecting apps to a managed instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
+* For information about managed instance, see [What is a managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* For information about connecting apps to a managed instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).

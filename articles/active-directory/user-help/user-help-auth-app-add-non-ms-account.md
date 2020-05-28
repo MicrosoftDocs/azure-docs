@@ -2,15 +2,15 @@
 title: Add non-Microsoft accounts to the Microsoft Authenticator app - Azure AD
 description: Add non-Microsoft accounts, such as for Google or Facebook to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
 ---
 

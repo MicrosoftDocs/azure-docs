@@ -3,14 +3,14 @@ title: Application types supported by Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about the types of applications you can use with Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 
 ---
@@ -121,7 +121,7 @@ To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth
 
 #### Web API chains (on-behalf-of flow)
 
-Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API or Azure AD Graph API.
+Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
 

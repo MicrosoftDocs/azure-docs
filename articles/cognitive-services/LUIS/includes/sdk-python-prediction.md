@@ -5,10 +5,10 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
 ---
 
@@ -24,6 +24,7 @@ Use the Language Understanding (LUIS) prediction client library for Python to:
 
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Setting up
 

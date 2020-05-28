@@ -1,13 +1,13 @@
 ---
 title: Azure Cosmos DB .NET change feed Processor API, SDK release notes 
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
+ms.date: 05/11/2020
+ms.author: anfeldma
 ---
 
 # .NET Change Feed Processor SDK: Download and release notes
@@ -18,8 +18,9 @@ ms.author: maquaran
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -41,6 +42,10 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.3.0"/>2.3.0
+* Added a new method `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` and corresponding public interface `ICheckpointPartitionProcessorFactory`. This allows an implementation of the `IPartitionProcessor` interface to use built-in checkpointing mechanism. The new factory is similar to the existing `IPartitionProcessorFactory`, except that its `Create` method also takes the `ILeaseCheckpointer` parameter.
+* Only one of the two methods, either `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` or `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, can be used for the same `ChangeFeedProcessorBuilder` instance.
+
 ### <a name="2.2.8"/>2.2.8
 * Stability and diagnosability improvements:
   * Added support to detect reading change feed taking long time. When it takes longer than the value specified by the `ChangeFeedProcessorOptions.ChangeFeedTimeout` property, the following steps are taken:
@@ -53,7 +58,7 @@ ms.author: maquaran
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
   * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
-  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and posponing acquiring expired lease to next load balancing iteration.
+  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and postponing acquiring expired lease to next load balancing iteration.
 
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
@@ -177,6 +182,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |April 2, 2020 |--- |
 | [2.2.8](#2.2.8) |October 28, 2019 |--- |
 | [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |

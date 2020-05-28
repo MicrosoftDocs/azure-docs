@@ -2,13 +2,9 @@
 title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
 ---
 
@@ -39,7 +35,7 @@ First, Microsoft cancels the existing reservation and refunds the pro-rated amou
 
 ### Enterprise agreement customers
 
-Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. Any overage invoices since the original purchases are reopened and rerated to make sure the monetary commitment is used. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date fo refund. Unused credit expires at the end of 90 days.
+Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. Any overage invoices since the original purchases are reopened and rerated to make sure the monetary commitment is used. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
 If the original purchase was made as an overage, Microsoft issues a credit memo.
 
@@ -67,12 +63,10 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - There's no penalty or annual limits for exchanges.
 
 **Refund policies**
-- If you cancel a reservation, there may be a 12% early termination fee.
-- The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
+- There may be a 12% early termination fee for cancellations in future. We are currently not charging this penalty.
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft reserves the right to charge a 12% penalty for any returns. The penalty isn't currently charged, but will be charged in future.
+- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## Exchange non-premium storage for premium storage
 

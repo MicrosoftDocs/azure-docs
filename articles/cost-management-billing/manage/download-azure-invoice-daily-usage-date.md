@@ -1,19 +1,13 @@
 ---
-title: Download Azure billing invoice and daily usage data | Microsoft Docs
+title: Download Azure billing invoice and daily usage data
 description: Describes how to download or view your Azure billing invoice and daily usage data.
 keywords: billing invoice,invoice download,azure invoice,azure usage
-services: 'billing'
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/12/2020
 ms.author: banders
 
 ---

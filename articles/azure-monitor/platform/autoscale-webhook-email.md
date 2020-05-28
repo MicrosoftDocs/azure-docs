@@ -14,8 +14,8 @@ Webhooks allow you to route the Azure alert notifications to other systems for p
 ## Email
 Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
 
-## Cloud Services and Web Apps
-You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
+## Cloud Services and App Services
+You can opt-in from the Azure portal for Cloud Services and Server Farms (App Services).
 
 * Choose the **scale by** metric.
 

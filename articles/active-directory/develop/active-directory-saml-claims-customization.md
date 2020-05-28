@@ -5,7 +5,6 @@ description: Learn how to customize the claims issued in the SAML token for ente
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -165,9 +164,9 @@ To add a claim condition:
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
 
-For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
 
-First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
+First, Azure AD verifies if Britta's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Britta's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
 ![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
@@ -175,4 +174,4 @@ First, Azure AD verifies if Brita's user type is `All guests`. Since, this is tr
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

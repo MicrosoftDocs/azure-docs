@@ -22,7 +22,7 @@ For example, consider the following orchestrator function that transfers funds f
 [FunctionName("TransferFunds")]
 public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-    var transferDetails = ctx.GetInput<TransferOperation>();
+    var transferDetails = context.GetInput<TransferOperation>();
 
     await context.CallActivityAsync("DebitAccount",
         new
@@ -111,7 +111,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
+    await context.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
 
     // ...
 }

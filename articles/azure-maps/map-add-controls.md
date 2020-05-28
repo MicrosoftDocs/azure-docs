@@ -1,8 +1,8 @@
 ---
 title: Add controls to a map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -70,7 +70,20 @@ Below is the complete running code sample of the above functionality.
 
 ## A Map with all controls
 
-The following code sample adds the style picker, zoom, pitch, and compass controls to the bottom-right corner of the map. Notice how they automatically stack. The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the script.
+Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following adds the standard navigation controls to the map using this approach.
+
+```javascript
+map.controls.add([
+	new atlas.control.ZoomControl(),
+	new atlas.control.CompassControl(),
+	new atlas.control.PitchControl(),
+	new atlas.control.StyleControl()
+], {
+	position: "top-right"
+});
+```
+
+The following code sample adds the zoom, compass, pitch, and style picker controls to the top-right corner of the map. Notice how they automatically stack. The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the array.
 
 <br/>
 

@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 03/05/2020
 
 ---
 
@@ -25,14 +25,6 @@ You don't have to think about differentiating request units between reads and wr
 |100 KB |10 RUs |50 RUs |
 
 Reading an item that is 1 KB in size costs one RU. Writing an item that is 1-KB costs five RUs. The read and write costs are applicable when using the default session [consistency level](consistency-levels.md).  The considerations around RUs include: item size, property count, data consistency, indexed properties, indexing, and query patterns.
-
-## Normalized cost for 1 million reads and writes
-
-Provisioning 1,000 RU/s translates to 3.6 million RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB item, you can perform 3.6 million reads or 0.72 million writes, (this value is calculated as: `3.6 million RU / 5`) per hour with this provisioned throughput. Normalized to a million reads and writes, the cost would be $0.022 for 1 million reads (this value is calculated as: $0.08/3.6 million) and $0.111 for 1 million writes (this value is calculated as: $0.08/0.72 million).
-
-## Number of regions and the request units cost
-
-The cost of writes is constant irrespective of the number of regions associated with the Azure Cosmos account. In other words, a 1 KB write will cost five RUs independent of the number of regions that are associated with the account. There's a non-trivial amount of resources spent in replicating, accepting, and processing the replication traffic on every region. For details about multi-region cost optimization, see [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md) article.
 
 ## Optimize the cost of writes and reads
 

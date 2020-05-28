@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 02/14/2020
 ms.author: diberry
 ---
 
@@ -23,49 +23,11 @@ ms.author: diberry
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-
 ## Change model programmatically
-
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
 
 1. Create a new file named `model.py`. Add the following code:
 
-    ```python
-    ########### Python 3.6 #############
-    import requests
-
-    # 32 character Authoring key
-    LUIS_authoringKey  = "YOUR-KEY"
-
-    LUIS_APP_ID = "YOUR-APP-ID"
-
-    # Authoring endpoint, example: your-resource-name.api.cognitive.microsoft.com
-    LUIS_ENDPOINT = "YOUR-ENDPOINT"
-
-    # The version number of your LUIS app
-    LUIS_APP_VERSION = "0.1"
-
-    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/examples'
-    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/train'
-
-    HEADERS = {'Ocp-Apim-Subscription-Key': LUIS_authoringKey}
-
-    def addUtterances():
-        r = requests.post(URI_AddUtterances,headers=HEADERS)
-        print(r.json())
-
-    def train():
-        r = requests.post(URI_Train,headers=HEADERS)
-        print(r.json())
-
-    def trainStatus():
-        r = requests.get(URI_Train,headers=HEADERS)
-        print(r.json())
-
-    addUtterances()
-    train()
-    trainStatus()
-    ```
+    [!code-python[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
 1. Replace the values starting with `YOUR-` with your own values.
 

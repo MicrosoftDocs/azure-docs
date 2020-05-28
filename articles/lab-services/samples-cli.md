@@ -22,6 +22,6 @@ The following table includes links to bash scripts built using the Azure CLI scr
 
 | | |
 |---|---|
-| [Create and verify availability of a VM](scripts/create-verify-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a Windows virtual machine with minimal configuration. |
-| [Start a VM](scripts/start-connect-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Starts a VM. |
-| [Stop and delete a VM](scripts/stop-delete-virtual-machine-in-lab-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Stops and deletes a VM. |
+| [Create and verify availability of a VM](scripts/create-verify-virtual-machine-in-lab-cli.md) | Creates a Windows virtual machine with minimal configuration. |
+| [Start a VM](scripts/start-connect-virtual-machine-in-lab-cli.md) | Starts a VM. |
+| [Stop and delete a VM](scripts/stop-delete-virtual-machine-in-lab-cli.md) | Stops and deletes a VM. |

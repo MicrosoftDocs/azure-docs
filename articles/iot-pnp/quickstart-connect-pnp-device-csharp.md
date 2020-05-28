@@ -22,7 +22,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+To complete this quickstart, you need to install .NET Core 3.0 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 
@@ -69,7 +69,7 @@ You use the cloned sample code to build an application simulating a device that 
 1. Run a sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 You see messages saying that the device has successfully registered and is waiting for updates from the cloud. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.

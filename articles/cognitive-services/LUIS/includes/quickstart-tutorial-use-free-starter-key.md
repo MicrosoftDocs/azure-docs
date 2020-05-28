@@ -1,14 +1,14 @@
 ---
 title: include file
-description: include file 
+description: include file
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 11/05/2019
 ms.author: diberry
 ---
 

@@ -8,7 +8,7 @@ ms.date: 03/01/2019
 
 All Azure services include certain default limits and quotas for resources and features. This article details the default quotas and limits for Azure Container Instances.
 
-For the availability of Azure Container Instances features and resources in Azure regions, see [Resource availability for Azure Container Instances](container-instances-region-availability.md).
+Availability of compute, memory, and storage resources for Azure Container Instances varies by region and operating system. For details, see [Resource availability for Azure Container Instances](container-instances-region-availability.md).
 
 ## Service quotas and limits
 

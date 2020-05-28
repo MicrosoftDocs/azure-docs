@@ -10,11 +10,11 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-The following example shows how to create an Exchange connection at Equinix Internet Exchange in Seattle . If you're using a different provider and different settings, substitute that information when you make your request.
+The following example shows how to create an Exchange connection at Equinix Internet Exchange in Seattle. If you're using a different provider and different settings, substitute that information when you make your request.
 
-Use PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** to create PowerShell Connection Objects which will be used to generate the new peering request:
+Use the PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** to create PowerShell connection objects, which will be used to generate the new peering request.
 
-Below is an example to create a Exchange Connection:
+This example shows how to create an Exchange connection.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -25,7 +25,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Create another connection in case you need redundancy at given peering location:
+Create another connection in case you need redundancy at the given peering location.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -36,7 +36,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-PowerShell cmdlet **New-AzPeering** can be used to create a new Exchange peering:
+The PowerShell cmdlet **New-AzPeering** can be used to create a new Exchange peering.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -49,7 +49,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Below is an example response when the request was executed using one connection:
+This example response shows when the request was executed by using one connection.
 
 ```powershell
 
@@ -68,10 +68,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft will start provisioning the requested peering and the `ConnectionState` will reflect the progress.
-> Refer to the [Exchange peering walkthrough](../walkthrough-exchange-all.md) document for provisioning related steps.
+> Microsoft starts provisioning the requested peering, and `ConnectionState` reflects the progress.
+> For more information on provisioning-related steps, see the [Exchange peering walkthrough](../walkthrough-exchange-all.md).
 
-You can check the ConnectionState as shown below:
+You can check the connection state, as shown here.
 
 ```powershell
 

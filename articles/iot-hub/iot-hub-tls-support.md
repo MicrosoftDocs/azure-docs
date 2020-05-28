@@ -49,18 +49,20 @@ The created IoT Hub resource using this configuration will refuse device and ser
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
 
-### Supported regions
+## Supported regions
 
 IoT Hubs that require the use of TLS 1.2 can be created in the following regions:
 
 * East US
 * South Central US
 * West US 2
+* US Gov Arizona
+* US Gov Virginia
 
 > [!NOTE]
 > Upon failovers, the `minTlsVersion` property of your IoT Hub will remain effective in the geo-paired region post-failover.
 
-### Recommended ciphers
+## Recommended ciphers
 
 IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of the following recommended ciphers:
 
@@ -69,19 +71,34 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-### Use TLS 1.2 in your IoT Hub SDKs
+For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with the following ciphers:
+
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_CBC_SHA256`
+* `TLS_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+## Use TLS 1.2 in your IoT Hub SDKs
 
 Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client SDKs.
 
-| Language | TLS 1.2 supported | Documentation |
-|----------|-------------------|---------------|
-| C        | Yes               | [Link](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Yes               | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Yes               | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Yes               | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Yes               | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| Language | Versions supporting TLS 1.2 | Documentation |
+|----------|------------------------------------|---------------|
+| C        | Tag 2019-12-11 or newer            | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Version 2.0.0 or newer             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Version 1.21.4 or newer            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
-### Use TLS 1.2 in your IoT Edge setup
+## Use TLS 1.2 in your IoT Edge setup
 
 IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hub. For this purpose, use the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
