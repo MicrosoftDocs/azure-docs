@@ -476,6 +476,8 @@
         href: image-builder-overview.md
       - name: Create VM - CLI
         href: image-builder.md
+      - name: Create VM using VNET - CLI
+        href: image-builder-vnet.md
       - name: Configure permissions - CLI
         href: image-builder-permissions-cli.md
       - name: Configure permissions - PowerShell
