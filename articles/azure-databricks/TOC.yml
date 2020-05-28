@@ -7,12 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Databricks workspace - Portal
-    href: quickstart-create-databricks-workspace-portal.md
-  - name: Create Databricks workspace - Resource Manager template
-    href: quickstart-create-databricks-workspace-resource-manager-template.md
-  - name: Create Databricks workspace - Virtual network
-    href: quickstart-create-databricks-workspace-vnet-injection.md
+  - name: Create a workspace
+    items:
+    - name: Portal
+      href: quickstart-create-databricks-workspace-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
+    - name: Virtual network
+      href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Tutorials
   items:
   - name: Query SQL Server running in Docker container
@@ -1623,20 +1626,6 @@
           - name: Azure AD token authentication overview
             href: /azure/databricks/dev-tools/api/latest/aad/index
             maintainContext: true
-          - name: Get an Azure AD token using the Azure AD Authentication Library
-            href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-            maintainContext: true
-          - name: Get an Azure AD token using a service principal
-            href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-            maintainContext: true
-          - name: Troubleshoot Azure AD access tokens
-            href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-          maintainContext: true
-        - name: Azure Active Directory tokens
-          items:
-          - name: Azure AD token authentication overview
-            href: /azure/databricks/dev-tools/api/latest/aad/index
-            maintainContext: true
           - name: Get an Azure AD token using the AAD Authentication Library
             href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
             maintainContext: true
@@ -1996,8 +1985,8 @@
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Ask a question - MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks
+  - name: Ask a question - Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-databricks.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-databricks
   - name: Region availability

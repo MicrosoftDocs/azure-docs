@@ -60,4 +60,4 @@ After the policy assignment is created, for any new `connectedCluster` resource 
 
 ## Next steps
 
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](./deploy-azure-monitor-for-containers.md)
