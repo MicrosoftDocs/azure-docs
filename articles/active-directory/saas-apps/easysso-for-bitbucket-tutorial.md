@@ -149,11 +149,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EasySSO for BitBucket SSO
 
-Login into your Atlassian BitBucket instance with Administrator privileges and navigate to the **Manage Apps** section. 
+Login into your Atlassian BitBucket instance with Administrator privileges and navigate to the **Administration** section. 
 
 ![Manage Apps](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-1.png)
 
-On the left side locate **EasySSO** and click it.
+On the page locate **EasySSO** and click it.
 
 ![Easy SSO](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-2.png)
 
