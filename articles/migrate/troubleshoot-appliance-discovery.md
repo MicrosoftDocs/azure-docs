@@ -140,6 +140,23 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## Error: The file uploaded is not in the expected format
+Some tools have regional settings that create the CSV file with semi-colon as a delimiter. Please change the settings to ensure the delimiter is a comma.
+
+## I imported a CSV but I see "Discovery is in progress"
+This status appears if your CSV upload failed due to a validation failure. Try to import the CSV again. You can download the error report of the previous upload and follow the remediation guidance in the file to fix the errors. The error report can be downloaded from the 'Import Details' section on 'Discover machines' page.
+
+## Do not see application details even after updating guest credentials
+The application discovery runs once every 24 hours. If you would like to see the details immediately, refresh as follows. This may take a few minutes depending on the no. of VMs discovered.
+
+1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
+2. Under **Manage**, select **Agent Health**.
+3. Select **Refresh agent**.
+4. Wait for the refresh operation to complete. You should now see up-to-date information.
+
+## Unable to export application inventory
+Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
+
 ## Common app discovery errors
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
