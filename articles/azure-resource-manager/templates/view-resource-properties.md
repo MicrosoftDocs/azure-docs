@@ -2,7 +2,7 @@
 title: View resource properties
 description: Describes how to search for resource schemas.
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 ---
 
 # View resource properties
@@ -56,10 +56,10 @@ To find the mapping resource provider names for Azure services that you want to 
 
 ## Use template reference
 
-The Azure Resource Manager template reference is the most comprehensive resource for creating templates. You can find API versions, template format, and property information.
+The Azure Resource Manager template reference is the most comprehensive resource for template schema. You can find API versions, template format, and property information.
 
 1. Browse to [Azure Resource Manager template reference](/azure/templates/).
-1. From the left navigation, select **Storage**, and then select **All resources**. The All resources page summarizes the resource types and the versions. The **storageAccounts** resource type has these versions when the article is written.
+1. From the left navigation, select **Storage**, and then select **All resources**. The All resources page summarizes the resource types and the versions.
 
     ![template reference resource versions](./media/view-resource-properties/resource-manager-template-reference-resource-versions.png)
 
@@ -118,7 +118,7 @@ Resource Explorer is embedded in the Azure portal. Before using this method, you
     ![Azure portal Resource Explorer](./media/view-resource-properties/azure-portal-resource-explorer-home.png)
 
     - **Providers**: expand **Providers** -> **Microsoft.Storage** -> **storageAccounts**, and then select your storage account.
-    - **ResourceGroups**: select the resource group which contains the storage account, select **Resources**, and then select the storage account.
+    - **ResourceGroups**: select the resource group, which contains the storage account, select **Resources**, and then select the storage account.
 
     On the right, you see the SKU configuration for the existing storage account similar to:
 
@@ -126,7 +126,7 @@ Resource Explorer is embedded in the Azure portal. Before using this method, you
 
 ## Use Resources.azure.com
 
-Resources.azure.com is a public website can be accessed by anyone with an Azure subscription. This tool provides these functionalities:
+Resources.azure.com is a public website can be accessed by anyone with an Azure subscription. It is in preview.  Consider using [Resource Explorer](#resource-explorer) instead. This tool provides these functionalities:
 
 - Discover the Azure Resource Management APIs.
 - Get API documentation and schema information.
@@ -141,11 +141,11 @@ To demonstrate how to retrieve schema information by using this tool, you need a
 
     ![resource.azure.com api mapping](./media/view-resource-properties/resources-azure-com-api-mapping.png)
 
-    The node on the left matches the API call on the right.
+    The node on the left matches the API call on the right. You can make the API call by selecting the **GET** button.
 1. From left, expand **Subscriptions**, and then expand your Azure subscription. You can find the storage account under either **Providers** or **ResourceGroups**.
 
-    - **Providers**: expand **Providers** -> **Microsoft.Storage** -> **storageAccounts**, and then select your storage account.
-    - **ResourceGroups**: select the resource group which contains the storage account, select **Resources**, and then select the storage account.
+    - **Providers**: expand **Providers** -> **Microsoft.Storage** -> **storageAccounts**, and then browse to the storage account.
+    - **ResourceGroups**: select the resource group, which contains the storage account, and then select **Resources**.
 
     On the right, you see the sku configuration for the existing storage account similar to:
 
@@ -171,7 +171,7 @@ Azure Quickstart Templates is a repository of community contributed templates. T
 
     You can filter the templates by selecting a resource type.  You can also sort the results.
 
-1. From the left, select **Microsoft.Storage**, and then select **Most popular**.  All of the templates contains the **Microsoft.Storage** resource type.
+1. From the left, select **Microsoft.Storage**, and then select **Most popular**.  All of the templates contain the **Microsoft.Storage** resource type.
 1. Select the tile with the title **Create Storage Account and Blob Container** or any of the templates.
 
     ![Azure Quickstart Templates storage account](./media/view-resource-properties/azure-quickstart-templates-storage.png)
