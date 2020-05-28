@@ -1,5 +1,5 @@
 ---
-title: Use the Azure portal to configure customer-managed keys
+title: Customer-Managed Keys for Cognitive Services
 titleSuffix: Cognitive Services
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: cognitive-services
@@ -7,7 +7,7 @@ author: erindormier
 
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: egeaney
 ---
 

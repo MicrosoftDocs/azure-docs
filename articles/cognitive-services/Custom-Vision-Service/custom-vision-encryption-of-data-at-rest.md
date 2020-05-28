@@ -22,7 +22,7 @@ Azure Custom Vision automatically encrypts your data when persisted it to the cl
 > [!IMPORTANT]
 > Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Custom Vision, you will need to create a new Custom Vision resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
-### Regional availability
+## Regional availability
 
 Customer-managed keys are currently available in these regions:
 
@@ -31,11 +31,5 @@ Customer-managed keys are currently available in these regions:
 * East US
 * US Gov Virginia
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
-
-## Next steps
-
-* [Custom Vision Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
