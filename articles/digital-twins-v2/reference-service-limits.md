@@ -8,19 +8,19 @@ ms.author: baanders # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-
+ 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
-
+ 
 # Service limits in public preview
-
+ 
 ## Functional limits
-
+ 
 The table below lists the functional limits of Azure Digital Twins in the current preview.
-
+ 
 | Area | Capability | Limit |
 | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
@@ -35,14 +35,14 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 |
 | Query | Number of characters in a query | 8,000 |
 | Query | Number of `JOINS` in a query | 1 |
-
+ 
 > [!NOTE]
-> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can  request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
+> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+ 
 ## Rate limits
-
+ 
 This table reflects the rate limits of different APIs.
-
+ 
 | API | Capability | Limit |
 | --- | --- | --- |
 | Models API | Number of requests per second | 100 |
@@ -50,7 +50,11 @@ This table reflects the rate limits of different APIs.
 | Query API | Number of requests per second | 500 |
 | Event Routes API | Number of requests per second | 100 |
 
-## Next steps
+## Other limits
 
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec: [Digital Twin Definition Language](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md).
+ 
+## Next steps
+ 
 Learn more about the current preview release of Azure Digital Twins in the service overview:
 * [Overview: What is Azure Digital Twins?](overview.md)
