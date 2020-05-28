@@ -203,157 +203,187 @@ A successful response is returned in JSON. The sample application parses and dis
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-05-23T23:01:26Z",
-  "lastUpdatedDateTime": "2020-05-23T23:01:27Z",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
     "version": "3.0.0",
     "readResults": [
       {
         "page": 1,
-        "language": "",
-        "angle": 0.1108,
-        "width": 634,
-        "height": 228,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
         "unit": "pixel",
         "lines": [
           {
             "boundingBox": [
-              64,
-              96,
-              581,
-              97,
-              581,
-              124,
-              64,
-              123
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
             ],
-            "text": "A quick brown fox jumps over the lazy dog",
+            "text": "The quick brown fox jumps",
             "words": [
               {
                 "boundingBox": [
-                  65,
-                  97,
-                  82,
-                  97,
-                  82,
-                  123,
-                  65,
-                  123
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
                 ],
-                "text": "A",
-                "confidence": 0.987
+                "text": "The",
+                "confidence": 0.958
               },
               {
                 "boundingBox": [
-                  88,
-                  97,
-                  155,
-                  97,
-                  154,
-                  124,
-                  87,
-                  123
+                  540,
+                  665,
+                  926,
+                  679,
+                  926,
+                  825,
+                  541,
+                  823
                 ],
                 "text": "quick",
-                "confidence": 0.986
+                "confidence": 0.57
               },
               {
                 "boundingBox": [
-                  160,
-                  97,
-                  238,
-                  97,
-                  237,
-                  124,
-                  160,
-                  124
+                  1125,
+                  686,
+                  1569,
+                  700,
+                  1569,
+                  838,
+                  1125,
+                  828
                 ],
                 "text": "brown",
-                "confidence": 0.986
+                "confidence": 0.799
               },
               {
                 "boundingBox": [
-                  243,
-                  97,
-                  281,
-                  97,
-                  280,
-                  124,
-                  242,
-                  124
+                  1674,
+                  703,
+                  1966,
+                  711,
+                  1966,
+                  851,
+                  1674,
+                  841
                 ],
                 "text": "fox",
-                "confidence": 0.987
+                "confidence": 0.442
               },
               {
                 "boundingBox": [
-                  286,
-                  97,
-                  366,
-                  97,
-                  365,
-                  124,
-                  285,
-                  124
+                  2083,
+                  714,
+                  2580,
+                  725,
+                  2579,
+                  876,
+                  2083,
+                  855
                 ],
                 "text": "jumps",
-                "confidence": 0.986
-              },
+                "confidence": 0.878
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              187,
+              1062,
+              485,
+              1056,
+              486,
+              1120,
+              189,
+              1126
+            ],
+            "text": "over",
+            "words": [
               {
                 "boundingBox": [
-                  371,
-                  97,
-                  424,
-                  98,
-                  423,
-                  124,
-                  370,
-                  124
+                  190,
+                  1064,
+                  439,
+                  1059,
+                  441,
+                  1122,
+                  192,
+                  1126
                 ],
                 "text": "over",
-                "confidence": 0.983
-              },
+                "confidence": 0.37
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              664,
+              1008,
+              1973,
+              1023,
+              1969,
+              1178,
+              664,
+              1154
+            ],
+            "text": "the lazy dog!",
+            "words": [
               {
                 "boundingBox": [
-                  430,
-                  98,
-                  469,
-                  98,
-                  468,
-                  124,
-                  429,
-                  124
+                  668,
+                  1008,
+                  923,
+                  1015,
+                  923,
+                  1146,
+                  669,
+                  1117
                 ],
                 "text": "the",
-                "confidence": 0.987
+                "confidence": 0.909
               },
               {
                 "boundingBox": [
-                  475,
-                  98,
-                  525,
-                  98,
-                  524,
-                  124,
-                  474,
-                  124
+                  1107,
+                  1018,
+                  1447,
+                  1023,
+                  1445,
+                  1178,
+                  1107,
+                  1162
                 ],
                 "text": "lazy",
-                "confidence": 0.983
+                "confidence": 0.853
               },
               {
                 "boundingBox": [
-                  530,
-                  98,
-                  580,
-                  98,
-                  579,
-                  124,
-                  529,
-                  124
+                  1639,
+                  1024,
+                  1974,
+                  1023,
+                  1971,
+                  1170,
+                  1636,
+                  1178
                 ],
-                "text": "dog",
-                "confidence": 0.987
+                "text": "dog!",
+                "confidence": 0.41
               }
             ]
           }
