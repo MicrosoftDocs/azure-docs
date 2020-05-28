@@ -38,9 +38,9 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 ## Azure SQL Analytics options
 
-The below table outlines supported options for two versions of the Azure SQL Analytics dashboard, one for single and pooled databases and elastic pools, and the other one for managed instances and instance databases.
+The below table outlines supported options for two versions of the Azure SQL Analytics dashboard, one for Azure SQL Database, and the other one for Azure SQL Managed Instance databases.
 
-| Azure SQL Analytics option | Description | Single and pooled database and elastic pools support | Managed instances and instances database support |
+| Azure SQL Analytics option | Description | SQL Database support | SQL Managed Instance support |
 | --- | ------- | ----- | ----- |
 | Resource by type | Perspective that counts all the resources monitored. | Yes | Yes |
 | Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
@@ -69,13 +69,13 @@ When you add Azure SQL Analytics to your workspace, the Azure SQL Analytics tile
 
 ![Azure SQL Analytics summary tile](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Once loaded, the tile shows the number of single and pooled databases, elastic pools, managed instances, and managed instance databases from which Azure SQL Analytics is receiving diagnostics telemetry.
+Once loaded, the tile shows the number of databases and elastic pools in SQL Database and managed instances and instance databases in SQL Managed Instance from which Azure SQL Analytics is receiving diagnostics telemetry.
 
 ![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-Azure SQL Analytics provides two separate views -- one for monitoring single databases and pooled databases and elastic pools, and the other view for monitoring managed instances and instance databases.
+Azure SQL Analytics provides two separate views -- one for monitoring SQL Database, and the other view for monitoring SQL Managed Instance.
 
-To view Azure SQL Analytics monitoring dashboard for single and pooled databases and elastic pools, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for managed instances and instance databases, click on the lower part of the tile.
+To view Azure SQL Analytics monitoring dashboard for SQL Database, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for SQL Managed Instance, click on the lower part of the tile.
 
 ### Viewing Azure SQL Analytics data
 
@@ -83,7 +83,7 @@ The dashboard includes the overview of all databases that are monitored through 
 
 If some metrics or logs are not streamed into Azure Monitor, the tiles in Azure SQL Analytics are not populated with monitoring information.
 
-### Single and pooled databases and elastic pools view
+### SQL Database view
 
 Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
@@ -95,7 +95,7 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 
 Each perspective in this view provides summaries at the subscription, server, elastic pool, and database levels. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
-### Managed instance and instances databases view
+### SQL Managed Instance view
 
 Once the Azure SQL Analytics tile for the databases is selected, the monitoring dashboard is shown.
 
@@ -103,7 +103,7 @@ Once the Azure SQL Analytics tile for the databases is selected, the monitoring 
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-Selecting the managed instance view, shows details on the managed instance utilization, databases it contains, and telemetry on the queries executed across the instance.
+Selecting the SQL Managed Instance view, shows details on the managed instance utilization, databases it contains, and telemetry on the queries executed across the instance.
 
 ![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -175,7 +175,7 @@ Automated alerting in Azure SQL Analytics is based on writing a Log Analytics qu
 
 You can easily [create alerts](../platform/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../log-query/log-query-overview.md) that you can use with a log alert:
 
-#### High CPU on Azure SQL Database
+#### High CPU
 
 ```
 AzureMetrics
@@ -191,7 +191,7 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to Azure SQL Analytics.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-#### High CPU on Azure SQL Database elastic pools
+#### High CPU on elastic pools
 
 ```
 AzureMetrics
@@ -207,7 +207,7 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to Azure SQL Analytics.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-#### Azure SQL Database storage in average above 95% in the last 1 hr
+#### Storage in average above 95% in the last 1 hr
 
 ```
 let time_range = 1h;
@@ -251,9 +251,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### Creating alerts for managed instances
+### Creating alerts for SQL Managed Instance
 
-#### Managed instance storage is above 90%
+#### Storage is above 90%
 
 ```
 let storage_percentage_threshold = 90;
@@ -269,7 +269,7 @@ AzureDiagnostics
 > - Pre-requirement of setting up this alert is that monitored the managed instance has the streaming of ResourceUsageStats log enabled to Azure SQL Analytics.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the managed instance. The output is storage percentage consumption on the managed instance.
 
-#### Managed instance CPU average consumption is above 95% in the last 1 hr
+#### CPU average consumption is above 95% in the last 1 hr
 
 ```
 let cpu_percentage_threshold = 95;

@@ -236,7 +236,7 @@
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
-    - name: Azure SQL Managed instance
+    - name: Azure SQL Managed Instance
       href: connector-azure-sql-managed-instance.md
     - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
@@ -589,7 +589,7 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
-    - name: Run SSIS packages with Azure SQL Managed instance Agent
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
       href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
@@ -697,7 +697,7 @@
     items:
     - name: SSIS migration overview
       href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Managed instance
+    - name: SSISDB migration to Azure SQL Managed Instance
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
