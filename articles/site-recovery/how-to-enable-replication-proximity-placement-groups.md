@@ -136,6 +136,9 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 
 ### Hyper-V to Azure
 
+> [!Note]
+> Failback from managed disks is not supported for Hyper-V to Azure scenarios. So, if you failover Hyper-V virtual machines to a proximity placement group in Azure, then you will lose the ability to failback.
+
 1. Make sure that you [prepare your on-premises Hyper-V servers](https://docs.microsoft.com/azure/site-recovery/hyper-v-prepare-on-premises-tutorial) for disaster recovery to Azure.
 2. [Sign in](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-1-sign-in-to-your-azure-account) to Azure.
 3. [Set up](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-2-set-up-the-vault) your vault and [set](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-3-set-the-recovery-services-vault-context) the Recovery Services Vault context.
