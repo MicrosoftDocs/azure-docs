@@ -161,7 +161,7 @@ Subscription Key:
 
 Image to read:
 <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg" />
+    value="https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg" />
 <button onclick="processImage()">Read image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
@@ -190,302 +190,187 @@ A successful response is returned in JSON. The sample webpage parses and display
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-02-11T20:56:33Z",
-  "lastUpdatedDateTime": "2020-02-11T20:56:34Z",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
     "version": "3.0.0",
     "readResults": [
       {
         "page": 1,
         "language": "en",
-        "angle": 0.8206,
-        "width": 800,
-        "height": 154,
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
         "unit": "pixel",
         "lines": [
           {
-            "language": "en",
             "boundingBox": [
-              6,
-              4,
-              774,
-              14,
-              773,
-              61,
-              5,
-              49
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
             ],
-            "text": "The quick brown fox jumps over the lazy",
+            "text": "The quick brown fox jumps",
             "words": [
               {
                 "boundingBox": [
-                  14,
-                  5,
-                  76,
-                  6,
-                  74,
-                  49,
-                  12,
-                  48
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
                 ],
                 "text": "The",
-                "confidence": 0.83
+                "confidence": 0.958
               },
               {
                 "boundingBox": [
-                  84,
-                  6,
-                  182,
-                  7,
-                  180,
-                  51,
-                  82,
-                  49
+                  540,
+                  665,
+                  926,
+                  679,
+                  926,
+                  825,
+                  541,
+                  823
                 ],
                 "text": "quick",
-                "confidence": 0.762
+                "confidence": 0.57
               },
               {
                 "boundingBox": [
-                  191,
-                  7,
-                  312,
-                  9,
-                  309,
-                  54,
-                  189,
-                  51
+                  1125,
+                  686,
+                  1569,
+                  700,
+                  1569,
+                  838,
+                  1125,
+                  828
                 ],
                 "text": "brown",
-                "confidence": 0.67
-              },
-              {
-                "boundingBox": [
-                  320,
-                  9,
-                  382,
-                  10,
-                  379,
-                  55,
-                  317,
-                  54
-                ],
-                "text": "fox",
-                "confidence": 0.849
-              },
-              {
-                "boundingBox": [
-                  390,
-                  10,
-                  497,
-                  11,
-                  493,
-                  57,
-                  387,
-                  55
-                ],
-                "text": "jumps",
-                "confidence": 0.703
-              },
-              {
-                "boundingBox": [
-                  506,
-                  11,
-                  596,
-                  12,
-                  591,
-                  59,
-                  502,
-                  57
-                ],
-                "text": "over",
                 "confidence": 0.799
               },
               {
                 "boundingBox": [
-                  604,
-                  12,
-                  666,
-                  13,
-                  661,
-                  60,
-                  600,
-                  59
+                  1674,
+                  703,
+                  1966,
+                  711,
+                  1966,
+                  851,
+                  1674,
+                  841
+                ],
+                "text": "fox",
+                "confidence": 0.442
+              },
+              {
+                "boundingBox": [
+                  2083,
+                  714,
+                  2580,
+                  725,
+                  2579,
+                  876,
+                  2083,
+                  855
+                ],
+                "text": "jumps",
+                "confidence": 0.878
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              187,
+              1062,
+              485,
+              1056,
+              486,
+              1120,
+              189,
+              1126
+            ],
+            "text": "over",
+            "words": [
+              {
+                "boundingBox": [
+                  190,
+                  1064,
+                  439,
+                  1059,
+                  441,
+                  1122,
+                  192,
+                  1126
+                ],
+                "text": "over",
+                "confidence": 0.37
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              664,
+              1008,
+              1973,
+              1023,
+              1969,
+              1178,
+              664,
+              1154
+            ],
+            "text": "the lazy dog!",
+            "words": [
+              {
+                "boundingBox": [
+                  668,
+                  1008,
+                  923,
+                  1015,
+                  923,
+                  1146,
+                  669,
+                  1117
                 ],
                 "text": "the",
-                "confidence": 0.923
+                "confidence": 0.909
               },
               {
                 "boundingBox": [
-                  674,
-                  13,
-                  773,
-                  14,
-                  768,
-                  62,
-                  670,
-                  60
+                  1107,
+                  1018,
+                  1447,
+                  1023,
+                  1445,
+                  1178,
+                  1107,
+                  1162
                 ],
                 "text": "lazy",
-                "confidence": 0.863
-              }
-            ]
-          },
-          {
-            "language": "en",
-            "boundingBox": [
-              5,
-              53,
-              79,
-              56,
-              77,
-              95,
-              4,
-              92
-            ],
-            "text": "dog",
-            "words": [
-              {
-                "boundingBox": [
-                  6,
-                  53,
-                  74,
-                  56,
-                  72,
-                  95,
-                  5,
-                  92
-                ],
-                "text": "dog",
-                "confidence": 0.418
-              }
-            ]
-          },
-          {
-            "language": "en",
-            "boundingBox": [
-              0,
-              90,
-              787,
-              95,
-              787,
-              145,
-              0,
-              136
-            ],
-            "text": "Pack my box with five dozen liquor jugs",
-            "words": [
-              {
-                "boundingBox": [
-                  1,
-                  96,
-                  79,
-                  93,
-                  79,
-                  135,
-                  0,
-                  136
-                ],
-                "text": "Pack",
-                "confidence": 0.835
+                "confidence": 0.853
               },
               {
                 "boundingBox": [
-                  87,
-                  93,
-                  151,
-                  92,
-                  151,
-                  135,
-                  87,
-                  135
+                  1639,
+                  1024,
+                  1974,
+                  1023,
+                  1971,
+                  1170,
+                  1636,
+                  1178
                 ],
-                "text": "my",
-                "confidence": 0.88
-              },
-              {
-                "boundingBox": [
-                  162,
-                  92,
-                  226,
-                  91,
-                  225,
-                  135,
-                  161,
-                  135
-                ],
-                "text": "box",
-                "confidence": 0.301
-              },
-              {
-                "boundingBox": [
-                  234,
-                  91,
-                  335,
-                  90,
-                  335,
-                  135,
-                  233,
-                  135
-                ],
-                "text": "with",
-                "confidence": 0.959
-              },
-              {
-                "boundingBox": [
-                  346,
-                  91,
-                  418,
-                  91,
-                  417,
-                  136,
-                  345,
-                  135
-                ],
-                "text": "five",
-                "confidence": 0.489
-              },
-              {
-                "boundingBox": [
-                  426,
-                  91,
-                  527,
-                  93,
-                  527,
-                  138,
-                  425,
-                  136
-                ],
-                "text": "dozen",
-                "confidence": 0.727
-              },
-              {
-                "boundingBox": [
-                  554,
-                  94,
-                  687,
-                  98,
-                  687,
-                  143,
-                  553,
-                  139
-                ],
-                "text": "liquor",
-                "confidence": 0.377
-              },
-              {
-                "boundingBox": [
-                  701,
-                  99,
-                  787,
-                  103,
-                  787,
-                  146,
-                  700,
-                  143
-                ],
-                "text": "jugs",
-                "confidence": 0.693
+                "text": "dog!",
+                "confidence": 0.41
               }
             ]
           }
