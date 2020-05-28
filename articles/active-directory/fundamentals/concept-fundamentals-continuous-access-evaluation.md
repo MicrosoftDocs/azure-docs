@@ -47,13 +47,13 @@ In the future we hope to add more events, including events like location and dev
 Before continuous access evaluation, clients would always try to replay the access token from its cache as long as it was not expired. With CAE, we are introducing a new case that a resource provider can reject a token even when it is not expired. In order to inform clients to bypass their cache even though the cached tokens have not expired, we introduce a mechanism called **claim challenge**. CAE requires a client update to understand claim challenge. The latest version of the following applications below support claim challenge:
 
 - Outlook for Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook for iOS 
+- Outlook for Android 
+- Outlook for Mac 
 - Teams for Windows
-- Teams iOS 
-- Teams Android 
-- Teams Mac 
+- Teams for iOS 
+- Teams for Android 
+- Teams for Mac 
 
 ## Token Lifetime
 
