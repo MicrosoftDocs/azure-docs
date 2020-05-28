@@ -82,6 +82,8 @@ If you use SNC (optional), you need to also configure these settings:
 
 * If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
+<a name="sap-ise"></a>
+
 ### SAP connector for integration service environments (ISE)
 
 If you use a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) so that your logic apps have access to resources in an Azure virtual network, and you want to use the ISE-specific SAP connector, you have a few more setup steps.
