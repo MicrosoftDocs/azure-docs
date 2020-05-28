@@ -328,11 +328,10 @@ You can link a Power BI workspace to your Synapse workspace. This allows you to 
 1. Select **+ New** and select **Connect to Power BI** and set these fields:
 
     |Setting | Suggested value | 
-    |---|---|---|
+    |---|---|
     |**Name**|`NYCTaxiWorkspace1`|
     |**Workspace name**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Select **Create**.
 
 ### Create a Power BI dataset that uses data in your Synapse workspace
