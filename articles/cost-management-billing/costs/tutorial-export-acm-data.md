@@ -52,7 +52,7 @@ To create or view a data export or to schedule an export, open the desired scope
 
 Select **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Select **Next**.
 
-[![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)]
+[![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to. Select **Next**.
 
