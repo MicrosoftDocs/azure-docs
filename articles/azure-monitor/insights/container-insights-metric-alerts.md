@@ -55,7 +55,7 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%).
 
-These settings can be overridden in the ConfigMaps file under the section [alertable_metrics_configuration_settings.container_resource_utilization_thresholds](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml). 
+To modify the settings for these four alert metrics, they can be overridden in the ConfigMaps file under the section [alertable_metrics_configuration_settings.container_resource_utilization_thresholds](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml).
 
 ## Enable alert rules
 
