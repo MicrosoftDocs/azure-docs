@@ -48,12 +48,12 @@ For Microsoft Graph only, the `user.read` scope maps to `https://graph.microsoft
 
 Certain web APIs such as the Azure Resource Manager API (https://management.core.windows.net/) expect a trailing forward slash ('/') in the audience claim (`aud`) of the access token. In this case, pass the scope as `https://management.core.windows.net//user_impersonation`, including the double forward slash ('//').
 
-Other APIs might require that *no scheme or host is included in the scope value, and expect only the app ID (a GUID) and the scope name, for example:
+Other APIs might require that *no scheme or host* is included in the scope value, and expect only the app ID (a GUID) and the scope name, for example:
 
 `11111111-1111-1111-1111-111111111111/api.read`
 
 > [!TIP]
-> If the downstream resource is not under your control, you might need to try the different scope value formats (for example with/without scheme and host) if you receive `401` or other errors when requesting an access token.
+> If the downstream resource is not under your control, you might need to try different scope value formats (for example with/without scheme and host) if you receive `401` or other errors when passing the access token to the resource.
 
 ### Request dynamic scopes for incremental consent
 
