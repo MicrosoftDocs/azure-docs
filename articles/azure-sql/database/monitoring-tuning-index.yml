@@ -61,9 +61,9 @@ landingContent:
             url: resource-limits-vcore-elastic-pools.md
           - text: Elastic pool DTU resource limits
             url: resource-limits-dtu-elastic-pools.md
-          - text: Managed instance resource limits
+          - text: SQL Managed Instance resource limits
             url: ../managed-instance/resource-limits.md
-          - text: Managed instance pools resource limits
+          - text: Instance pools resource limits
             url: ../managed-instance/instance-pools-overview.md#resource-limitations
 
   # Card (optional)

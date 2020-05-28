@@ -117,7 +117,7 @@ For details about JSON properties, see [Azure Storage linked service](data-facto
 
 ### azuresqllinkedservice.json
 > [!IMPORTANT]
-> Replace **servername**, **databasename**, **username**, and **password** with name of your logical SQL server, name of SQL database, user account, and password for the account.  
+> Replace **servername**, **databasename**, **username**, and **password** with name of your server, name of SQL database, user account, and password for the account.  
 > 
 >
 

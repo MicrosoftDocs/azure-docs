@@ -92,3 +92,7 @@ You can use the following command to disable soft delete on your storage account
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## Next steps
+
+To learn about another form of data protection and recovery, see our article [Overview of share snapshots for Azure Files](storage-snapshots-files.md).

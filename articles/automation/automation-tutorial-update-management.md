@@ -17,7 +17,7 @@ This article describes how you can use the Azure Automation [Update Management](
 Before using the procedures in this article, ensure that you've enabled Update Management on your VMs using one of these techniques:
 
 * [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md)
-* [Enable Update Management by browsing in the Azure portal](automation-onboard-solutions-from-browse.md)
+* [Enable Update Management by browsing the Azure portal](automation-onboard-solutions-from-browse.md)
 * [Enable Update Management from a runbook](automation-onboard-solutions.md)
 * [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
 
@@ -25,48 +25,52 @@ Before using the procedures in this article, ensure that you've enabled Update M
 
 To view an update assessment:
 
-1. From your Automation account, select **Update management** under **Update management**. 
+1. In your Automation account, select **Update management** under **Update management**. 
 
 2. The updates for your environment are listed on the Update management page. If any updates are identified as missing, a list of missing updates is shown on the **Missing updates** tab.
 
-3. Under **Information link**, select the update link to open the support article for the update. You can use this article to learn important information about the update.
+3. Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
     ![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-4. Click anywhere else on the update to open the Log Search pane for the selected update. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
+4. Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
     ![View update status](./media/automation-tutorial-update-management/logsearch.png)
 
 ## Configure alerts
 
-In this step, you learn how to set up alerts to let you know the status of an update deployment.
+Follow the steps below to set up alerts to let you know the status of an update deployment:
 
 1. In your Automation account, go to **Alerts** under **Monitoring**, then click **New alert rule**.
 
-2. On the Create alert rule page, your Automation account is already selected as the resource. If you want to change it, click **Edit resource**. On the Select a resource page, choose **Automation Accounts** from the **Filter by resource type** dropdown menu. Select the Automation account, and then click **Done**.
+2. On the Create alert rule page, your Automation account is already selected as the resource. If you want to change it, click **Edit resource**. 
 
-3. Click **Add condition** to select the signal that's appropriate for your update deployment. The following table shows the details of the two available signals.
+3. On the Select a resource page, choose **Automation Accounts** from the **Filter by resource type** dropdown menu. 
+
+4. Select the Automation account that you want to use, and then click **Done**.
+
+5. Click **Add condition** to select the signal that's appropriate for your update deployment. The following table shows the details of the two available signals.
 
     |Signal Name|Dimensions|Description
     |---|---|---|
-    |`Total Update Deployment Runs`|- Update Deployment Name<br>-  Status    |This signal alerts on the overall status of an update deployment.|
-    |`Total Update Deployment Machine Runs`|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run ID    |This signal alerts on the status of an update deployment targeted at specific machines.|
+    |`Total Update Deployment Runs`|- Update Deployment Name<br>-  Status    |Alerts on the overall status of an update deployment.|
+    |`Total Update Deployment Machine Runs`|- Update Deployment Name</br>- Status</br>- Target Computer</br>- Update Deployment Run ID    |Alerts on the status of an update deployment targeted at specific machines.|
 
-4. For a dimension, select a valid value from the list. If the value you want isn't in the list, click **\+** next to the dimension and type in the custom name. Then select the value to look for. If you want to select all values for a dimension, click the **Select \*** button. If you don't choose a value for a dimension, Update Management ignores that dimension.
+6. For a dimension, select a valid value from the list. If the value you want isn't in the list, click **\+** next to the dimension and type in the custom name. Then select the value to look for. If you want to select all values for a dimension, click the **Select \*** button. If you don't choose a value for a dimension, Update Management ignores that dimension.
 
     ![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
 
-5. Under **Alert logic**, enter values in the **Time aggregation** and **Threshold** fields, and then click **Done**.
+7. Under **Alert logic**, enter values in the **Time aggregation** and **Threshold** fields, and then click **Done**.
 
-6. On the next pane, enter a name and a description for the alert.
+8. On the next pane, enter a name and a description for the alert.
 
-7. Set the **Severity** field to **Informational(Sev 2)** for a successful run or **Informational(Sev 1)** for a failed run.
+9. Set the **Severity** field to **Informational(Sev 2)** for a successful run or **Informational(Sev 1)** for a failed run.
 
     ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
-8. Click **Yes** or **No**, depending on how you want to enable the alert rule.
+10. Click **Yes** or **No**, depending on how you want to enable the alert rule.
 
-9. If you don't want to have alerts for this rule, select **Suppress Alerts**.
+11. If you don't want to have alerts for this rule, select **Suppress Alerts**.
 
 ## Configure action groups for your alerts
 
@@ -82,15 +86,15 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 5. Click **Edit details**.
 
-7. Fill in the pane for your action type. For example, if using **Email/SMS/Push/Voice**, enter an action name, select the **Email** checkbox, enter a valid email address, and then click **OK**.
+6. Fill in the pane for your action type. For example, if using **Email/SMS/Push/Voice**, enter an action name, select the **Email** checkbox, enter a valid email address, and then click **OK**.
 
     ![Configure an email action group](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-8. In the Add action group pane, click **OK**.
+7. In the Add action group pane, click **OK**.
 
-9. For an alert email, you can customize the subject of the alert email. Select **Customize actions** under **Create rule**, then select **Email subject**. 
+8. For an alert email, you can customize the email subject. Select **Customize actions** under **Create rule**, then select **Email subject**. 
 
-10. When you're finished, select **Create alert rule**. 
+9. When you're finished, click **Create alert rule**. 
 
 ## Schedule an update deployment
 
@@ -99,11 +103,11 @@ Scheduling an update deployment creates a [schedule](shared-resources/schedules.
 >[!NOTE]
 >If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
 
-To schedule a new update deployment for a VM:
+To schedule a new update deployment:
 
-1. Go to **Update management** under **Update management** and then select **Schedule update deployment**.
+1. In your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**.
 
-2. Under **New update deployment**, use the **Name** field to enter a unique name for your update deployment.
+2. Under **New update deployment**, use the **Name** field to enter a unique name for your deployment.
 
 3. Select the operating system to target for the update deployment.
 
@@ -111,15 +115,15 @@ To schedule a new update deployment for a VM:
 
 5. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
-6. Use the **Update classifications** field to specify [update classifications](automation-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
+6. Use the **Update classifications** region to specify [update classifications](automation-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
 7. Use the **Include/exclude updates** region to select specific updates for deployment. The Include/Exclude page displays the updates by KB article ID numbers to include or exclude. 
     
-    > [!IMPORTANT]
-    > Remember that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management installs no patches or packages, as they're all excluded. Excluded patches still show as missing from the machine. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
+   > [!IMPORTANT]
+   > Remember that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management excludes all patches or packages from the installation. Excluded patches still show as missing from the machines. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
 
-    > [!NOTE]
-    > You can't specify updates that have been superseded for inclusion in the update deployment.
+   > [!NOTE]
+   > You can't specify updates that have been superseded to include in the update deployment.
 
 8. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
@@ -135,7 +139,7 @@ To schedule a new update deployment for a VM:
     * If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
     > [!NOTE]
-    > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the `Unattended-Upgrade` package to disable automatic updates. For information about how to configure the package, see [Automatic updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+    > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the `Unattended-Upgrade` package to disable automatic updates. For information about how to configure the package, see the [Automatic updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 12. Use the **Reboot options** field to specify the way to handle reboots during deployment. The following options are available: 
     * Reboot if necessary (default)
@@ -168,14 +172,14 @@ When the deployment is finished, you can select it to see its dashboard.
 
 ![Update deployment status dashboard for a specific deployment](./media/automation-tutorial-update-management/manageupdates-view-results.png)
 
-Under **Update results**, a summary provides the total number of updates and deployment results on the VM. The table on the right shows a detailed breakdown of the updates and the installation results for each.
+Under **Update results**, a summary provides the total number of updates and deployment results on the target VMs. The table on the right shows a detailed breakdown of the updates and the installation results for each.
 
 The available values are:
 
 * **Not attempted** - The update wasn't installed because there was insufficient time available, based on the defined maintenance window duration.
 * **Not selected** - The update wasn't selected for deployment.
-* **Succeeded**: The update succeeded.
-* **Failed**: The update failed.
+* **Succeeded** - The update succeeded.
+* **Failed** - The update failed.
 
 Select **All logs** to see all log entries that the deployment has created.
 
@@ -191,4 +195,5 @@ When your update deployment is finished, you receive the alert that you've speci
 
 ## Next steps
 
-* For details of Update Management, see [Update Management overview](automation-update-management.md).
+* If finished with deployments, see [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
+* To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
