@@ -19,7 +19,7 @@ ms.custom: seoapril2019, sqldbrb=1
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Managed Instance and SQL Server. 
 
 
-SQL Managed Instance provides high compatibility with the on-premises SQL Server Database Engine, and most features are supported in a SQL Managed Instance.
+SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
 ![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -135,7 +135,7 @@ A SQL Managed Instance can't access files, so cryptographic providers can't be c
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
 
-    Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
+    SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
 - The Azure AD user who created the instance has [unrestricted admin privileges](../database/logins-create-manage.md).

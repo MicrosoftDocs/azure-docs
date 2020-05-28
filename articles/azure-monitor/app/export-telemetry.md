@@ -30,8 +30,6 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 * Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjunction with Azure Blob storage.
 
-* [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
-
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Create a Continuous Export
