@@ -4,11 +4,11 @@ title: Send push notifications to Android using Azure Notification Hubs and Fire
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 5/18/2020
+ms.date: 5/28/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
-ms.lastreviewed: 05/18/2020
+ms.lastreviewed: 05/27/2020
 ---
 
 # Tutorial: Send push notifications to Android devices using Firebase SDK version 1.0.0-preview1
@@ -189,7 +189,7 @@ also have the connection strings that are necessary to send notifications to a d
 
 ### Add code
 
-1. Create a ***NotificationHubListener** object, which handles intercepting the messages from Azure Notification Hubs.
+1. Create a **NotificationHubListener** object, which handles intercepting the messages from Azure Notification Hubs.
 
    ```csharp
    public class CustomNotificationListener implements NotificationHubListener {
@@ -212,7 +212,7 @@ also have the connection strings that are necessary to send notifications to a d
    }
    ```
 
-2. In the OnCreate method of the MainActivity class, add the following code to start the Notification Hubs initialization process when the activity is created:
+2. In the `OnCreate` method of the `MainActivity` class, add the following code to start the Notification Hubs initialization process when the activity is created:
 
    ```java
    @Override
