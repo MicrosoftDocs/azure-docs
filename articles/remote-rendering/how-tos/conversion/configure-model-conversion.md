@@ -208,7 +208,7 @@ Instancing is a concept where meshes are reused for parts with distinct spatial 
 Example use cases for instancing are the screws in an engine model or chairs in architectural models.
 
 > [!NOTE]
-> Instancing decreases the memory footprint of a model but has non-significant impact on rendering performance.
+> Instancing can improve the memory consumption (and thus loading times) significantly, however the improvements on the rendering performance side are insignificant.
 
 The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion does not perform additional deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup. For example, [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regards to instancing in the exported `.fbx` file.
 
