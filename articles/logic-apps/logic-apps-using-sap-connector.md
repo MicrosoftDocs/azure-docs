@@ -49,13 +49,54 @@ To follow along with this article, you need these items:
 
 * Your [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources. 
+* Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
 
-  * As a best practice, make sure to use a supported version of the on-premises data gateway. Microsoft releases a new version every month. Currently, Microsoft supports the last six versions. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
+<a name="multi-tenant"></a>
+
+### Multi-tenant Azure prerequisites
+
+These prerequisites apply when your logic apps run in public, global multi-tenant Azure or when you use the SAP connector that's not specific to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE provides access to resources that are protected by an Azure virtual network and supports an [ISE-specific SAP connector](#sap-ise).
+
+* [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources.
+
+  As a best practice, make sure to use a supported version of the on-premises data gateway. Microsoft releases a new version every month. Currently, Microsoft supports the last six versions. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
 
 * [Download, install, and configure the latest SAP client library](#sap-client-library-prerequisites) on the same computer as the on-premises data gateway.
 
-* Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
+<a name="sap-ise"></a>
+
+### Integration service environment (ISE) prerequisites
+
+These prerequisites apply when your logic apps run in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use ISE-specific SAP connector. An ISE provides access to resources that are protected by an Azure virtual network.
+
+1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+
+1. Make sure that you've [downloaded and installed the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
+
+   * libicudecnumber.dll
+   * rscp4n.dll
+   * sapnco.dll
+   * sapnco_utils.dll
+
+1. Create a .zip file that includes these assemblies and upload this package to your blob container in Azure Storage.
+
+1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token.
+
+1. Before you can use the SAP ISE connector, you must install the connector in your ISE, if you haven't already done so.
+
+   1. In the Azure portal, find and open your ISE.
+   
+   1. On the ISE menu, select **Managed connectors** > **Add**. From the connectors list, find and select **SAP**.
+   
+   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. *Make sure that you include the SAS token.*
+
+   1. When you're done, select **Create**.
+
+   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
+
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer or connect those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is peered to your SAP instance's virtual network.
+
+<a name="sap-client-library-prerequisites"></a>
 
 ### SAP client library prerequisites
 
@@ -81,39 +122,6 @@ If you use SNC (optional), you need to also configure these settings:
   ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
-
-<a name="sap-ise"></a>
-
-### SAP connector for integration service environments (ISE)
-
-If you use a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) so that your logic apps have access to resources in an Azure virtual network, and you want to use the ISE-specific SAP connector, you have a few more setup steps.
-
-1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
-
-1. Make sure that you've [downloaded and installed the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
-
-   * libicudecnumber.dll
-   * rscp4n.dll
-   * sapnco.dll
-   * sapnco_utils.dll
-
-1. Create a .zip file that includes these assemblies and upload this package to your blob container in Azure Storage.
-
-1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file. Copy the URL for that location.
-
-1. Before you can use the SAP ISE connector, you must install the connector in your ISE, if you haven't already done so.
-
-   1. In the Azure portal, find and open your ISE.
-   
-   1. On the ISE menu, select **Managed connectors** > **Add**. From the connectors list, find and select **SAP**.
-   
-   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL to the .zip file that has the SAP assemblies.
-   
-   1. When you're done, select **Create**.
-
-   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
-
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer or connect those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is peered to your SAP instance's virtual network.
 
 <a name="migrate"></a>
 
