@@ -787,6 +787,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/business-continuity.md",
+      "redirect_url": "/azure/cognitive-services/how-to/set-up-qnamaker-service-azure#business-continuity-with-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/integrate-qnamaker-luis.md",
       "redirect_url": "/azure/cognitive-services/luis/choose-natural-language-processing-service",
       "redirect_document_id": false
@@ -53843,7 +53848,7 @@
         "source_path": "articles/sql-database/replication-to-sql-database.md",
         "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
         "redirect_document_id": true
-    },   
+    },
     {
         "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
         "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
