@@ -86,7 +86,7 @@ An asset sink enables a media graph to write media (video and/or audio) data to 
 
 #### File sink  
 
-The file sink enables a media graph to write media (video and/or audio) data to a location on the local file system of the IoT edge device. The file sink must be downstream of a signal gate processor. This limits the duration of the output files to values specified in the signal gate processor properties.
+The file sink enables a media graph to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. The file sink must be downstream of a signal gate processor. This limits the duration of the output files to values specified in the signal gate processor properties.
 
 #### IoT Hub message sink  
 
