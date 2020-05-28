@@ -5,7 +5,7 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ---
 
 # Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
@@ -150,9 +150,6 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
   These values are passed through a relative path in the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
 
-> [!NOTE]
-> The URL permits using the "at" symbol (**@**), but not the hash symbol (**#**).
-
 <a name="get-parameters"></a>
 
 ### Accept values through GET parameters
@@ -213,6 +210,10 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    * 2nd position: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
+> [!NOTE]
+> If you want to include the hash or pound symbol (**#**) in the URI, 
+> use this encoded version instead: `%25%23`
+
 <a name="relative-path"></a>
 
 ### Accept values through a relative path
@@ -256,6 +257,10 @@ When you want to accept parameter values through the endpoint's URL, you have th
    The browser returns a response with this text: `Postal Code: 123456`
 
    ![Response from sending request to callback URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> If you want to include the hash or pound symbol (**#**) in the URI, 
+> use this encoded version instead: `%25%23`
 
 ## Call logic app through endpoint URL
 
