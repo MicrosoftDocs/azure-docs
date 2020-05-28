@@ -44,7 +44,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disks limitations
 
-Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting a the target pod.
+Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting the target pod.
 
 If you must run stateful workloads, use node pool taints and tolerations in  pod specs to group pod scheduling in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
 
