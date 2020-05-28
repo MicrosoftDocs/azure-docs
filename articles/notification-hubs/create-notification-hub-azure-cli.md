@@ -186,11 +186,16 @@ When no longer needed, use the [az group delete](/cli/azure/group) command to re
 az group delete --name spnhubrg
 ```
 
-## See also
+## Next steps
 
-Discover full capabilities for managing notifications hubs with the Azure CLI.
+* In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Set up push notifications in a notification hub](configure-notification-hub-portal-pns-settings.md)
 
-* [Notification Hubs full Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub)
-* [Notification Hubs namespace Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/namespace)
-* [Notification Hubs authorization rule Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
-* [Notification Hubs credential Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/credential)
+* Discover the extensive capabilities for managing notifications hubs with the Azure CLI.
+
+  [Notification Hubs full reference list](/cli/azure/ext/notification-hub/notification-hub)
+
+  [Notification Hubs namespace reference list](/cli/azure/ext/notification-hub/notification-hub/namespace)
+
+  [Notification Hubs authorization rule reference list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
+
+  [Notification Hubs credential reference list](/cli/azure/ext/notification-hub/notification-hub/credential)
