@@ -20,7 +20,7 @@
     href: quick-create-python.md
 - name: Tutorials 
   items:
-  - name: Import HSM-protected keys (Overview)
+  - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
   - name: Import HSM-protected keys (BYOK)
     href: hsm-protected-keys-byok.md
@@ -53,7 +53,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
-  - name: Bring Your Own Key Specification
+  - name: Bring your own key specification
     href: byok-specification.md
 
 

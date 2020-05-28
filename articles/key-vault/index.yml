@@ -66,7 +66,7 @@ conceptualContent:
           text:  Set and retrieve a key from Azure Key Vault using the Azure portal
         - url: ./keys/hsm-protected-keys.md
           itemType: overview
-          text:  Import HSM-protected keys (Overview)
+          text:  Import HSM-protected keys (overview)
       footerLink:
         url: ./keys/index.yml
         text: See more

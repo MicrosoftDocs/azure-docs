@@ -16,6 +16,8 @@ ms.author: ambapat
 
 # Bring your own key specification
 
+This document describes specifications for importing HSM-protected keys from customers' on-premises HSMs into Key Vault.
+
 ## Scenario
 
 A Key Vault customer would like to securely transfer a key from their on-premises HSM outside Azure, into the HSM backing Azure Key Vault. The process of importing a key generated outside Key Vault is generally referred to as Bring Your Own Key (BYOK).
@@ -42,13 +44,10 @@ Target Key|RSA, EC, AES|Vendor HSM|The key to be transferred to the Azure Key Va
 
 To perform a key transfer, a user performs following steps:
 
-**Step 1:** Generate KEK
-
-**Step 2:** Retrieve the public key of the KEK 
-
-**Step 3:** Using HSM vendor provided BYOK tool - Import the KEK into the target HSM and exports the Target Key protected by the KEK
-
-**Step 4:** Import the protected Target Key to Azure Key Vault
+1. Generate KEK.
+2. Retrieve the public key of the KEK.
+3. Using HSM vendor provided BYOK tool - Import the KEK into the target HSM and exports the Target Key protected by the KEK.
+4. Import the protected Target Key to Azure Key Vault.
 
 Customers use the BYOK tool and documentation provided by HSM vendor to complete Steps 3. It produces a Key Transfer Blob (a ".byok" file).
 

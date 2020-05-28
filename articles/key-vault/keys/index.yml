@@ -46,7 +46,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Import HSM-protected keys (Overview)
+          - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
 
   # Card
