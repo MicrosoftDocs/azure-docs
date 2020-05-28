@@ -17,7 +17,7 @@ ms.lastreviewed:
 
 # Azure CLI for Azure Data Share
 
-The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for datashare giving you the ability to work effectively with data share from a command-line.
+The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for data share!  These commands give you the ability to work effectively with the service from a command-line.
 
 ## Azure CLI references for Data Share
 
@@ -25,7 +25,7 @@ The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is 
 |-|-|-|
 | [az datashare](/cli/azure/ext/datashare/datashare) | Public preview | Commands to manage datashare
 | [az datashare account](/cli/azure/ext/datashare/datashare/consumer) | Public preview | Commands to manage datashare accounts.
-| [az datashare consumer](/cli/azure/ext/datashare/datashare/consumer) | GA | Commands for consumers to manage datashare.
+| [az datashare consumer](/cli/azure/ext/datashare/datashare/consumer) | Public preview | Commands for consumers to manage datashare.
 | [az datashare dataset](/cli/azure/ext/datashare/datashare/dataset) | Public preview | Commands for providers to manage datashare datasets.
 | [az datashare invitation](/cli/azure/ext/datashare/datashare/invitation) | Public preview | Commands for consumers to manage datashare invitations.
 | [az datashare provider-share-subscription](/cli/azure/ext/datashare/datashare/provider-share-subscription) | Public preview | Commands for providers to manage datashare share subscriptions.
@@ -34,12 +34,14 @@ The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is 
 
 ## Azure CLI conceptual articles for Data Share
 
-The following Azure CLI articles are available for Azure Data Share:
+There are several popular Azure CLI articles that will help you work through Azure Data Share concepts:
 
-(These are here for demo only and will be removed until there are published articles for Azure Data Share.)
+_(This will be a list of no more than three articles.  The examples below are provided for demo only and will be removed until there are published articles for Azure Data Share._
+
+_I'll request from the service home page doc owner that the Azure CLI article with the **highest number of page reads** also be added to one of the service landing page cards / boxes.)_
 
 * [Name of quickstart 1]()
-* [Name of How-to guide 2]()
+* [Name of How-to guide 1]()
 * [Name of Tutorial 1]()
 * [Name of Tutorial 2]()
 
@@ -49,19 +51,19 @@ Examples of the Azure CLI commands are provided throughout the documentation.  H
 
 To work with Azure Data Share, you will first need to setup a data share account.  You can complete this task through the Azure portal, or you can execute a single Azure CLI command.
 
-```axure-cli
+```azurecli
 az datashare account create --location "West US 2" --tags tag1=Red tag2=White --name MyAccount --resource-group MyResourceGroup
 ```
 
 Your next step is to create the actual data share.
 
-```axure-cli
+```azurecli
 az datashare create --account-name MyAccount --resource-group MyResourceGroup --description "share description" --share-kind "CopyBased" --terms "Confidential" --name MyShare
 ```
 
 Are you excited about what you see?  Do you have an idea that will help to make the Azure CLI even better?  Send us your feedback!
 
-```azure-cli
+```azurecli
 az feedback "Your message"
 ```
 
