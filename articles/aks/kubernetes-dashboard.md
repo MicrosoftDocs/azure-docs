@@ -64,7 +64,6 @@ You have the following options to sign in to your cluster's dashboard:
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
--->
 
 > [!IMPORTANT]
 > If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
@@ -76,8 +75,12 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > ```
 > 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+-->
 
 ## Login to the dashboard
+
+> [!IMPORTANT]
+> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer used to retrieve resources. As a result, previous steps to create new cluster role bindings no longer function. A token retrieved from a service account can still be used.
 
 As of version 2.0 for the Kubernetes dashboard, the first screen presented requires an admin kubeconfig or a token.
 
