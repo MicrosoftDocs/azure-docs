@@ -237,4 +237,4 @@ If you delete any of the Azure resources used for your QnA Maker knowledge bases
 Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Learn how to author with others](../how-to/collaborate-knowledge-base)
+> [Learn how to author with others](../how-to/collaborate-knowledge-base.md)
