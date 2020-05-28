@@ -20,7 +20,7 @@ ms.custom: "seo-lt-2019"
 ---
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/azure-key-vault-integration-configure.md)
 > * [Classic](../classic/ps-sql-keyvault.md)
 > 
 > 
