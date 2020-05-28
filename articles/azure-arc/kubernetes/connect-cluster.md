@@ -65,7 +65,8 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## Install Azure CLI extensions
+## Install Azure CLI and Arc enabled Kubernetes extensions
+Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI with version 2.3+ before executing the following commands for installing the CLI extensions.
 
 Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
 
@@ -85,6 +86,9 @@ Run the following commands to update the extensions to the latest versions.
 az extension update --name connectedk8s
 az extension update --name k8sconfiguration
 ```
+
+## Install Helm
+Helm 3 is required for the onboarding the cluster using connectedk8s extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
 
 ## Create a Resource Group
 
@@ -150,7 +154,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest -o table
+az connectedk8s list -g AzureArcTest
 ```
 
 **Output:**
@@ -206,11 +210,18 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 
 You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azure CLI or Azure portal.
 
-The Azure CLI command `az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
-The Azure portal deletes the `Microsoft.Kubernetes/connectedcluster` resource in Azure, and deletes any associated `sourcecontrolconfiguration` resources in Azure.
+* **Deletion using Azure CLI**: The following Azure CLI command can be used to initiate deletion of the Azure Arc enabled Kubernetes resource.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  This removes the `Microsoft.Kubernetes/connectedCluster` resource and any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents running on the cluster as well.
 
-To remove the agents in the cluster you need to run `az connectedk8s delete` or `helm uninstall azurearcfork8s`.
+* **Deletion on Azure Portal**: Deletion of the Azure Arc enabled Kubernetes resource on Azure portal deletes the `Microsoft.Kubernetes/connectedcluster` resource and any associated `sourcecontrolconfiguration` resources in Azure, but it doesn't delete the agents running on the cluster. To delete the agents running on the cluster, run the following command.
+
+  ```console
+  helm delete azure-arc
+  ```
 
 ## Next steps
 
