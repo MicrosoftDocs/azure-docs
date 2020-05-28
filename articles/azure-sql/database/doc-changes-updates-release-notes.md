@@ -23,7 +23,7 @@ Documentation for Azure SQL Database and Azure SQL Managed Instance has been spl
 
 We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Managed Instance in individual 'shared' articles.
 
-This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
+This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar SQL Server product hosted on a virtual machine in Azure.
 
 Consider that this is a work in progress and not every article has been updated yet. For example, documentation for Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so we thank you for your patience as we continue clarifying the content. 
 

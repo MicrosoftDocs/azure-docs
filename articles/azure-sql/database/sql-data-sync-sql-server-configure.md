@@ -90,9 +90,9 @@ In the **Member Database** section, optionally add an Azure SQL Database to the 
 
 <a name="add-on-prem"></a>
 
-### To add an on-premises SQL Server database
+### To add a SQL Server database
 
-In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
+In the **Member Database** section, optionally add a SQL Server database to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
 
 1. Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 
