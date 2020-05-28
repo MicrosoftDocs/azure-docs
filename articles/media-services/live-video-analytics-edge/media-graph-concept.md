@@ -51,13 +51,13 @@ Live Video Analytics on IoT Edge supports the following types of nodes within a 
 
 #### RTSP source 
 
-An RTSP source enables capturing media from a [RTSP](https://tools.ietf.org/html/rfc2326) server. RTSP is used for establishing and controlling the media sessions between a server and a client. The RTSP source node in the media graph acts as a client and can establish a session with the specified RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node in media graph requires you to specify a RTSP URL, along with credentials to enable an authenticated connection.
+An RTSP source enables capturing media from a [RTSP](https://tools.ietf.org/html/rfc2326) server. RTSP is used for establishing and controlling the media sessions between a server and a client. The RTSP source node in the media graph acts as a client and can establish a session with the specified RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node in media graph requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
 
 #### IoT Hub message source 
 
 Like other [IoT Edge modules](../../iot-edge/iot-edge-glossary.md#iot-edge-module), Live Video Analytics on IoT Edge module can receive messages via the [IoT Edge hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). These messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](../../iot-edge/module-composition.md#sink) on the module. An IoT Hub Message source allows such messages to be routed to a media graph instance. These messages or signals can then be used internally in the media graph, typically to activate signal gates (see [signal gate processor](#signal-gate-processor) below). 
 
-For example, you can have an IoT Edge module that generates a message when a door is opened. The message from that module can be routed to IoT Edge hub, from where it can be then routed to the IoT hub message source of a media graph. Within the media graph, the IoT hub message source can pass the event to a signal gate processor, which can then turn on recording of the video from a RTSP source into a file. 
+For example, you can have an IoT Edge module that generates a message when a door is opened. The message from that module can be routed to IoT Edge hub, from where it can be then routed to the IoT hub message source of a media graph. Within the media graph, the IoT hub message source can pass the event to a signal gate processor, which can then turn on recording of the video from an RTSP source into a file. 
 
 ### Processors  
 
@@ -72,11 +72,11 @@ The frame rate filter processor enables you to sample frames from the incoming v
 
 #### HTTP extension processor 
 
-The HTTP extension processor enables you to plug your own AI to a media graph. The HTTP extension processor takes as input decoded video frames and relays such frames to a HTTP endpoint. The processor has the capability to authenticate with the HTTP endpoint if required. Additionally, the processor has in-built image formatter that allows scaling and encoding of video frames before they are relayed forward. Scaling has options for the image aspect ratio to be preserved, padded or stretched while encoding provides options for different image encoding such as jpeg, png, or bmp.
+The HTTP extension processor enables you to plug your own AI to a media graph. The HTTP extension processor takes as input decoded video frames and relays such frames to an HTTP endpoint. The processor has the capability to authenticate with the HTTP endpoint if required. Additionally, the processor has in-built image formatter that allows scaling and encoding of video frames before they are relayed forward. Scaling has options for the image aspect ratio to be preserved, padded or stretched while encoding provides options for different image encoding such as jpeg, png, or bmp.
 
 #### Signal gate processor  
 
-The signal gate processor allows for media to be conditionally forwarded from one node to another. It also acts as a buffer, allowing for synchronization of media and events. An example use case is to insert a signal gate processor between a RTSP source and an asset sink and using the output of motion detector processor to trigger the gate. With such a media graph, you can trigger recording of media only when motion is detected in the incoming video. 
+The signal gate processor allows for media to be conditionally forwarded from one node to another. It also acts as a buffer, allowing for synchronization of media and events. An example use case is to insert a signal gate processor between an RTSP source and an asset sink and using the output of motion detector processor to trigger the gate. With such a media graph, you can trigger recording of media only when motion is detected in the incoming video. 
 
 ### Sinks  
 
