@@ -35,14 +35,12 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Apply policies using Azure Policy for Kubernetes
 
-
 ## Supported Regions
 
 Azure Arc enabled Kubernetes is currently supported in the following regions:
 
 * East US
 * West Europe
-
 
 ## Next steps
 
