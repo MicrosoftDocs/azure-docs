@@ -893,7 +893,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-sqldw/
+    href: https://stackoverflow.com/questions/tagged/azure-synapse/
   - name: Support
     href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Customer self-help
