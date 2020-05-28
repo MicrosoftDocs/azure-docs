@@ -24,7 +24,7 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information related to WVD GA release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). For information related to WVD sprig update, see [Create a host pool with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace).
+- A functioning Windows Virtual Desktop deployment. For information related to WVD GA release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). For information related to WVD sprig update, see [Create a host pool with the Azure portal](./virtual-desktop/create-host-pools-azure-marketplace.md).
 
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
@@ -60,7 +60,7 @@ To get the OS image from the Azure portal:
 4. Complete the **Create virtual machine**.
 
 >[!NOTE]
-     >This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
+     This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
 
 ## Prepare the VHD image for Azure 
 
