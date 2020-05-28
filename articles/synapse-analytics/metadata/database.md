@@ -35,6 +35,9 @@ If the name of a Spark database conflicts with the name of an existing SQL on-de
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
+> [!CAUTION]
+> Caution: You should not take a dependency on this behavior.
+
 ## Security model
 
 The Spark databases and tables, along with their synchronized representations in the SQL engine will be secured at the underlying storage level.
