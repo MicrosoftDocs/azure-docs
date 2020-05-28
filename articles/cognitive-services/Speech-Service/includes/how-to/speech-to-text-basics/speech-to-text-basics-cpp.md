@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -214,7 +214,7 @@ config->EnableDictation();
 A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), then add this line directly below it.
 
 ```cpp
-config->SetSpeechRecognitionLanguage("fr-FR");
+config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
 [`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](../../../language-support.md).

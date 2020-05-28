@@ -27,7 +27,7 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > [!NOTE]
 > **Prerequisites**
 > * XCode 10+
-> * iOS 10+ 
+> * iOS 10+
 > * macOS 10.12+
 
 > [!div renderon="docs"]
@@ -80,7 +80,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 #### Step 4: Configure your project
 
 > [!div renderon="docs"]
-> If you selected Option 1 above, you can skip these steps. 
+> If you selected Option 1 above, you can skip these steps.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
@@ -146,9 +146,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >          </array>
 >       </dict>
 >    </array>
-> 
+>
 >    ```
-> 1. Build & run the app! 
+> 1. Build & run the app!
 
 ## More Information
 
@@ -189,7 +189,7 @@ Then, initialize MSAL using the following code:
 
 ```swift
 let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
-            
+
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
@@ -206,7 +206,7 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
 
@@ -218,21 +218,21 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
  ```
 
-Finally, your app must have an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included. 
+Finally, your app must have an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included.
 
-   ```xml 
+   ```xml
    <key>LSApplicationQueriesSchemes</key>
    <array>
       <string>msauthv2</string>
@@ -246,10 +246,10 @@ MSAL has two methods used to acquire tokens: `acquireToken` and `acquireTokenSil
 
 #### acquireToken: Get a token interactively
 
-Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
+Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example,
 
 * The first time users sign in to the application
-* If a user resets their password, they'll need to enter their credentials 
+* If a user resets their password, they'll need to enter their credentials
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
@@ -260,19 +260,19 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |Where:||
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs  (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs  (`api://<Application ID>/access_as_user`) |
 
 #### acquireTokenSilent: Get an access token silently
 
-Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently. 
+Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently.
 
 ```swift
 self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
-            
+
    guard let account = currentAccount else {
       return
    }
-            
+
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }
@@ -280,7 +280,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > |Where: ||
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (`api://<Application ID>/access_as_user`) |
 > | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `accountsFromDeviceForParameters:completionBlock:` and passing correct `accountIdentifier` |
 
 ## Next steps

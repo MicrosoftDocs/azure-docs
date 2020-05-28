@@ -37,6 +37,9 @@ ms.date: 03/18/2019
 ## Release notes for 1.0.0 series
 1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
+### <a name="1.0.7"/>1.0.7
+* Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config
+
 ### <a name="1.0.5"/>1.0.5
 * Introduce new config under TableClientConfiguration to use Rest Executor to communicate with Cosmos DB Table API
 

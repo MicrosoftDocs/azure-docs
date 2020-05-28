@@ -7,7 +7,7 @@ ms.date: 03/24/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-manager: gwallace
+ms.reviewer: cynthn
 ---
 # Preview: Create an Azure Image Builder template 
 
@@ -422,13 +422,24 @@ If Azure Image Builder creates a Windows custom image successfully, and you crea
 
 #### Default Sysprep command
 ```powershell
-echo '>>> Waiting for GA to start ...'
+Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
+while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-echo '>>> Sysprepping VM ...'
-if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
-while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
+Write-Output '>>> Sysprepping VM ...'
+if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
+}
+& $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
+while($true) {
+  $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
+  Write-Output $imageState
+  if ($imageState -eq 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { break }
+  Start-Sleep -s 5
+}
+Write-Output '>>> Sysprep complete ...'
 ```
 #### Default Linux deprovision command
 

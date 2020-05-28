@@ -37,7 +37,7 @@ Tiers are differentiated by:
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
 
-**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
 **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
 
@@ -85,6 +85,8 @@ For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [atta
 | Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
 | [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
 | Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
+
+The [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) feature allows you to provide a cache that enables the indexer to be more efficient at running only the cognitive skills that are necessary if you modify your skillset in the future, saving you time and money.
 
 <a name="search-units"></a>
 

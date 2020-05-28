@@ -4,28 +4,23 @@ titleSuffix: Azure Cognitive Search
 description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
 
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 05/06/2020
 ---
 # Add scoring profiles to an Azure Cognitive Search index
 
-  Scoring refers to the computation of a *search score* for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.  
+*Scoring* computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest.
 
  Azure Cognitive Search uses default scoring to compute an initial score, but you can customize the calculation through a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
+
+ The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## Scoring profile definitions
 
  A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters.  
 
@@ -280,6 +275,7 @@ The search score is computed based on statistical properties of the data and the
  For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
 ## See also  
- [Azure Cognitive Search REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+
++ [REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

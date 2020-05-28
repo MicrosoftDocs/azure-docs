@@ -66,5 +66,5 @@ If your permissions don't permit access to the CloudSimple portal, contact the g
 
 ## Next steps
 
-* Learn how to [Create a private cloud](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Learn how to [Create a private cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
 * Learn how to [Configure a private cloud environment](quickstart-create-private-cloud.md)

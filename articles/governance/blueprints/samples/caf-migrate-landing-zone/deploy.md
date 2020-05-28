@@ -1,7 +1,7 @@
 ---
 title:  Deploy CAF Migration landing zone blueprint sample
 description: Deploy steps for the CAF Migration landing zone blueprint sample including blueprint artifact parameter details.
-ms.date: 08/20/2019
+ms.date: 05/06/2020
 ms.topic: sample
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure migrate landing zone blueprint sample

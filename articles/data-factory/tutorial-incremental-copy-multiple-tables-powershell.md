@@ -15,6 +15,8 @@ ms.date: 01/30/2020
 
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL Database
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL Database.    
 
 You perform the following steps in this tutorial:
@@ -63,7 +65,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 
 * **SQL Server**. You use an on-premises SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one. 
+* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 

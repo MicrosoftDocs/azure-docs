@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
 ---
 

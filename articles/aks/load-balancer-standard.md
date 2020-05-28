@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. Instead of a service principal, you can also use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md). For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ### Moving from a Basic SKU Load Balancer to Standard SKU
 
@@ -86,12 +86,17 @@ When using a *Standard* SKU load balancer, the AKS cluster automatically creates
 
 By bringing multiple IP addresses or prefixes, you are able to define multiple backing services when defining the IP address behind a single load balancer object. The egress endpoint of specific nodes will depend on what service they are associated with.
 
-> [!IMPORTANT]
-> You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### Pre-requisites to bring-your-own IP addresses or IP prefixes
+1. You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+ 1. The public IPs and IP prefixes cannot be IPs created by AKS as a managed IP. Ensure any IPs specified as custom IPs were created manually and not be the AKS service.
+ 1. The public IPs and IP prefixes cannot be used by another resource or service.
+
+ ### Define your own public IP or prefixes on an existing cluster
 
 Use the [az network public-ip show][az-network-public-ip-show] command to list the IDs of your public IPs.
 
@@ -128,9 +133,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster. 
 
 ### Define your own public IP or prefixes at cluster create time
 
@@ -280,7 +282,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
-[azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
+[azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports

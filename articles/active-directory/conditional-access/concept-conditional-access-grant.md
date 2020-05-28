@@ -80,7 +80,6 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Microsoft Office Hub
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

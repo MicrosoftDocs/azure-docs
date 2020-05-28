@@ -285,4 +285,4 @@ Links to the documentation for T-SQL language elements supported in Synapse SQL 
 
 ## Next steps
 
-For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](sql-data-warehouse-reference-tsql-system-views.md).
+For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](../sql/reference-tsql-system-views.md).

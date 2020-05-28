@@ -13,6 +13,8 @@ ms.author: abnarain
 manager: anandsub
 ---
 # How to create and configure Azure Integration Runtime
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
 
 Azure IR provides a fully managed compute to natively perform data movement and dispatch data transformation activities to compute services like HDInsight. It is hosted in Azure environment and supports connecting to resources in public network environment with public accessible endpoints.
@@ -52,10 +54,10 @@ Use the following steps to create an Azure IR using Azure Data Factory UI.
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
 1. On the following page, select **Azure** to create an Azure IR, and then select **Continue**.
-   ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Create an integration runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Enter a name for your Azure IR, and select **Create**.
-   ![Create an Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Create an Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. You'll see a pop-up notification when the creation completes. On the **Integration runtimes** page, make sure that you see the newly created IR in the list.
 

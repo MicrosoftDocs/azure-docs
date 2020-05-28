@@ -61,7 +61,7 @@ Now you are ready to build and test your application.
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

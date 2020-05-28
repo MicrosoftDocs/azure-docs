@@ -36,16 +36,12 @@ Connectors establish their connections based on principles for high availability
 1. A user on a client device tries to access an on-premises application published through Application Proxy.
 2. The request goes through an Azure Load Balancer to determine which Application Proxy service instance should take the request. Per region, there are tens of instances available to accept the request. This method helps to evenly distribute the traffic across the service instances.
 3. The request is sent to [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus checks if the connection previously used an existing connector in the connector group. If so, it reuses the connection. If no connector is paired with the connection yet, it chooses an available connector at random to signal to. The connector then picks up the request from Service Bus.
-
+4. Service Bus signals to an available connector. The connector then picks up the request from Service Bus.
    - In step 2, requests go to different Application Proxy service instances, so connections are more likely to be made with different connectors. As a result, connectors are almost evenly used within the group.
-
-   - A connection is only reestablished if the connection is broken or an idle period of 10 minutes occurs. For example, the connection may be broken when a machine or connector service restarts or there's a network disruption.
-
 5. The connector passes the request to the application’s back-end server. Then the application sends the response back to the connector.
 6. The connector completes the response by opening an outbound connection to the service instance from where the request came. Then this connection is immediately closed. By default, each connector is limited to 200 concurrent outbound connections.
 7. The response is then passed back to the client from the service instance.
-8. Subsequent requests from the same connection repeat the steps above until this connection is broken or is idle for 10 minutes.
+8. Subsequent requests from the same connection repeat the steps above.
 
 An application often has many resources and opens multiple connections when it's loaded. Each connection goes through the steps above to become allocated to a service instance, select a new available connector if the connection has not yet previously paired with a connector.
 

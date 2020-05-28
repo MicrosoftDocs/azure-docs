@@ -161,7 +161,7 @@ series, the request is denied.
    on [policy definition structure fields](../concepts/definition-structure.md#fields). An example
    of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure Policy samples, see [Azure Policy samples](../samples/index.md).
 
 1. Select **Save**.
 

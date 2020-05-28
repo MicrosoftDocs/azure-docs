@@ -90,11 +90,11 @@ If you have secure boundaries within your organization, and don't want to use th
 
 1. Copy and paste the following text into a .txt file.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. Save the file on the Azure Backup Server machine with the name **DisableSecureAuthentication.reg**.
 
@@ -124,27 +124,49 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
 ### Role permissions
 
-| **Privileges for vCenter  6.7 user account**              | **Privileges for vCenter  6.5 user account**             |
-| --------------------------------------------------------- | -------------------------------------------------------- |
-| Datastore.Allocate Space                                  | Datastore.Allocate Space                                 |
-| Global.Log Event                                          | Global.Log Event                                         |
-| Global.Manage Custom Attributes                           | Global.Manage Custom Attributes                          |
-| Network.Assign                                            | Network.Assign                                           |
-| Resource. Assign virtual Machine to  Resource pool        | Resource. Assign virtual Machine to  Resource pool       |
-| VirtualMachine.Configuration.AddNewDisk                   | VirtualMachine.Configuration.AddNewDisk                  |
-| VirtualMachine.Configuration. Add Or  Remove Device       | VirtualMachine.Configuration. Add Or  Remove Device      |
-| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
-| VirtualMachine.Configuration.Toggle Disk  Change Tracking | VirtualMachine.Configuration.Disk  Change Tracking       |
-| VirtualMachine.Configuration.Configure Host  USB Device   | VirtualMachine.Configuration.Host USB  Device            |
-| VirtualMachine.Configuration.Query  Unowned Files         | VirtualMachine.Configuration.Query  Unowned Files        |
-| VirtualMachine.Configuration.Change  Swapfile Placement   | VirtualMachine.Configuration.Swapfile  Placement         |
-| VirtualMachine.Interaction.Power Off                      | VirtualMachine.Interaction.Power Off                     |
-| VirtualMachine.Inventory.Create New                       | VirtualMachine.Inventory.Create New                      |
-| VirtualMachine.Provisioning.Allow  Disk Access            | VirtualMachine.Provisioning.Allow  Disk Access           |
-| VirtualMachine.Provisioning.Allow  File Access            | VirtualMachine.Provisioning.Allow  File Access           |
-| VirtualMachine.Provisioning.Allow  Read-only Disk Access  | VirtualMachine.Provisioning.Allow  Read-only Disk Access |
-| VirtualMachine.Snapshot  Management.Create Snapshot       | VirtualMachine.Snapshot  Management.Create Snapshot      |
-| VirtualMachine.Snapshot  Management.Remove Snapshot       | VirtualMachine.Snapshot  Management.Remove Snapshot      |
+| Privileges for vCenter  6.7 user account                     | Privileges for vCenter  6.5 user account                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Datastore cluster.Configure a datatstore  cluster            | Datastore cluster.Configure a datatstore  cluster            |
+| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
+| Datastore.Browse datastore                                   | Datastore.Browse datastore                                   |
+| Datastore.Low-level file operations                          | Datastore.Low-level file operations                          |
+| Global.Disable methods                                       | Global.Disable methods                                       |
+| Global.Enable methods                                        | Global.Enable methods                                        |
+| Global.Licenses                                              | Global.Licenses                                              |
+| Global.Log event                                             | Global.Log event                                             |
+| Global.Manage custom attributes                              | Global.Manage custom attributes                              |
+| Global.Set custom attribute                                  | Global.Set custom attribute                                  |
+| Host.Local operations.Create virtual  machine                | Host.Local operations.Create virtual  machine                |
+| Network.Assign network                                       | Network.Assign network                                       |
+| Resource. Assign virtual machine to  resource pool           | Resource. Assign virtual machine to  resource pool           |
+| vApp.Add virtual machine                                     | vApp.Add virtual machine                                     |
+| vApp.Assign resource pool                                    | vApp.Assign resource pool                                    |
+| vApp.Unregister                                              | vApp.Unregister                                              |
+| VirtualMachine.Configuration. Add Or Remove  Device          | VirtualMachine.Configuration. Add Or Remove  Device          |
+| Virtual machine.Configuration.Acquire disk  lease            | Virtual machine.Configuration.Disk lease                     |
+| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Add new disk                   |
+| Virtual machine.Configuration.Advanced  configuration        | Virtual machine.Configuration.Advanced                       |
+| Virtual machine.Configuration.Toggle disk  change tracking   | Virtual machine.Configuration.Disk change  tracking          |
+| Virtual machine.Configuration.Configure  Host USB device     | Virtual machine.Configuration.Host USB  device               |
+| Virtual machine.Configuration.Extend  virtual disk           | Virtual machine.Configuration.Extend  virtual disk           |
+| Virtual machine.Configuration.Query unowned  files           | Virtual machine.Configuration.Query unowned  files           |
+| Virtual machine.Configuration.Change  Swapfile placement     | Virtual machine.Configuration.Swapfile  placement            |
+| Virtual machine.Guest Operations.Guest  Operation Program Execution | Virtual machine.Guest Operations.Guest  Operation Program Execution |
+| Virtual machine.Guest Operations.Guest  Operation Modifications | Virtual machine.Guest Operations.Guest  Operation Modifications |
+| Virtual machine.Guest Operations.Guest  Operation Queries    | Virtual machine.Guest Operations.Guest  Operation Queries    |
+| Virtual machine .Interaction .Device  connection             | Virtual machine .Interaction .Device  connection             |
+| Virtual machine .Interaction .Guest  operating system management by VIX API | Virtual machine .Interaction .Guest  operating system management by VIX API |
+| Virtual machine .Interaction .Power Off                      | Virtual machine .Interaction .Power Off                      |
+| Virtual machine .Inventory.Create new                        | Virtual machine .Inventory.Create new                        |
+| Virtual machine .Inventory.Remove                            | Virtual machine .Inventory.Remove                            |
+| Virtual machine .Inventory.Register                          | Virtual machine .Inventory.Register                          |
+| Virtual machine .Provisioning.Allow disk  access             | Virtual machine .Provisioning.Allow disk  access             |
+| Virtual machine .Provisioning.Allow file  access             | Virtual machine .Provisioning.Allow file  access             |
+| Virtual machine .Provisioning.Allow read-only  disk access   | Virtual machine .Provisioning.Allow  read-only disk access   |
+| Virtual machine .Provisioning.Allow virtual  machine download | Virtual machine .Provisioning.Allow virtual  machine download |
+| Virtual machine .Snapshot management.  Create snapshot       | Virtual machine .Snapshot management.  Create snapshot       |
+| Virtual machine .Snapshot management.Remove  Snapshot        | Virtual machine .Snapshot management.Remove  Snapshot        |
+| Virtual machine .Snapshot management.Revert  to snapshot     | Virtual machine .Snapshot management.Revert  to snapshot     |
 
 <br>
 
@@ -168,8 +190,6 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 | Virtual  machine.Provisioning. Allow read-only disk access |                                             |
 | Virtual  machine.Snapshot management.Create snapshot       |                                             |
 | Virtual  machine.Snapshot management.Remove Snapshot       |                                             |
-
-
 
 ## Create a VMware account
 

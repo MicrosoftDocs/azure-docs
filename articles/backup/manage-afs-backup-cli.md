@@ -7,7 +7,7 @@ ms.date: 01/15/2020
 
 # Manage Azure file share backups with the Azure CLI
 
-The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). You can also perform these steps with the [Azure portal](https://portal.azure.com/). 
+The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). You can also perform these steps with the [Azure portal](https://portal.azure.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

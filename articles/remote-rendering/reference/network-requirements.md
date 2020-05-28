@@ -15,13 +15,16 @@ A stable, low-latency network connection to an Azure data center is critical for
 
 The exact network requirements depend on your specific use case, such as the number and frequency of modifications to the remote scene graph as well as the complexity of the rendered view, but there are a number of guidelines to ensure that your experience is as good as possible:
 
-* Your internet connectivity needs to support at least **50 Mbps downstream** and **10 Mbps upstream** consistently for a single user session of Azure Remote Rendering, assuming there is no competing traffic on the network. We recommend higher rates for better experiences. With more users on the same network, these requirements scale up correspondingly.
+* Your internet connectivity needs to support at least **40 Mbps downstream** and **5 Mbps upstream** consistently for a single user session of Azure Remote Rendering, assuming there is no competing traffic on the network. We recommend higher rates for better experiences. With more users on the same network, these requirements scale up correspondingly.
 * Using the **5-GHz Wi-Fi band** will usually produce better results than the 2.4-GHz Wi-Fi band, though both should work.
 * If there are other Wi-Fi networks nearby, avoid using Wi-Fi channels in use by these other networks. You can use network scanning tools like [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) to verify whether the channels your Wi-Fi network uses, are free of competing traffic.
 * Strictly **avoid using Wi-Fi repeaters** or LAN-over-powerline forwarding.
 * **Avoid competing bandwidth-intense traffic** – such as video or game streaming – on the same Wi-Fi network.
 * Having **good Wi-Fi signal strength** is essential. If possible, stay close to your Wi-Fi access point and avoid obstacles between your client device and the access points.
 * Make sure that you always connect to the **nearest Azure data center** for your [region](regions.md). The closer the data center, the lower the network latency, which has a huge effect on hologram stability.
+
+> [!NOTE]
+> The downstream bandwidth is mostly consumed by the video stream, which in turn is split between color- and depth information (both 60 Hz, stereo).
 
 ## Network performance tests
 
@@ -34,7 +37,7 @@ Pick a server closest to you and run the test. While the server will not be the 
    * **Minimum requirement** for Azure Remote Rendering: Approx. 40 Mbps downstream and 5 Mbps upstream.
    * **Recommended** for Azure Remote Rendering: Approx. 100 Mbps downstream and 10 Mbps upstream.
 We recommend running the test multiple times and taking the worst results.
-1. **Use a tool like www.azurespeed.com that measures latency to Azure data centers**. Select the Azure data center supported by Azure Remote Rendering that is closest to you (see [supported regions](regions.md))and run a **latency test**. If there is variation in the numbers you see, give the results some time to stabilize.
+1. **Use a tool like www.azurespeed.com that measures latency to Azure data centers**. Select the Azure data center supported by Azure Remote Rendering that is closest to you (see [supported regions](regions.md)) and run a **latency test**. If there is variation in the numbers you see, give the results some time to stabilize.
    * **Minimum requirement** for Azure Remote Rendering: Latency should consistently be less than 100 ms.
    * **Recommended** for Azure Remote Rendering: Latency should consistently be less than 70 ms.
 

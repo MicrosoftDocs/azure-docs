@@ -116,7 +116,7 @@ Your text is converted to speech, and saved in the audio data specified.
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

@@ -21,6 +21,8 @@ In this tutorial, you learn how to create a basic classification model without w
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
+For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
+
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
@@ -219,7 +221,8 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.+ Learn more about [featurization](how-to-use-automated-ml-for-ml-models.md#featurization).
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
 + Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

@@ -23,7 +23,7 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 ## Event computing and notifications
 
-The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or a call to an API based on a certain event. You can use the [Change Feed Process Library](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there is a write or update.
+The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or send a call to an API based on a certain event. You can use the [Change Feed Process Library](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there is a write or update.
 
 You can also selectively trigger a notification or send a call to an API based on specific criteria. For example, if you are reading from the change feed using [Azure Functions](change-feed-functions.md), you can put logic into the function to only send a notification if a specific criteria has been met. While the Azure Function code would execute during each write and update, the notification would only be sent if specific criteria had been met.
 
@@ -93,7 +93,7 @@ For example, consider a retail application using the event sourcing design patte
 
 1. Customer adds Item A to their shopping cart
 2. Customer adds Item B to their shopping cart
-3. Customer adds removes Item A from their shopping cart
+3. Customer removes Item A from their shopping cart
 4. Customer checks out and shopping cart contents are shipped
 
 A materialized view of current shopping cart contents is maintained for each customer. This application must ensure that these events are processed in the order in which they occur. If, for example, the cart checkout were to be processed before Item A's removal, it is likely that the customer would have had Item A shipped, as opposed to the desired Item B. In order to guarantee that these four events are processed in order of their occurrence, they should fall within the same partition key value. If you select **username** (each customer has a unique username) as the partition key, you can guarantee that these events show up in the change feed in the same order in which they are written to Azure Cosmos DB.

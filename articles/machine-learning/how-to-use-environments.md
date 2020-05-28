@@ -139,7 +139,7 @@ Add packages to an environment by using Conda, pip, or private wheel files. Spec
 
 If a package is available in a Conda package repository, then we recommend that you use the Conda installation rather than the pip installation. Conda packages typically come with prebuilt binaries that make installation more reliable.
 
-The following example adds to the environment. It adds version 0.21.3 of `scikit-learn`. It also adds the `pillow` package, `myenv`. The example uses the [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) method and the [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) method, respectively.
+The following example adds to the environment. It adds version 1.17.0 of `numpy`. It also adds the `pillow` package, `myenv`. The example uses the [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) method and the [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) method, respectively.
 
 ```python
 from azureml.core.environment import Environment
@@ -148,8 +148,11 @@ from azureml.core.conda_dependencies import CondaDependencies
 myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
 
-# Installs scikit-learn version 0.21.3 conda package
-conda_dep.add_conda_package("scikit-learn==0.21.3")
+# Installs numpy version 1.17.0 conda package
+conda_dep.add_conda_package("numpy==1.17.0")
+
+# Installs pillow package
+conda_dep.add_pip_package("pillow")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep

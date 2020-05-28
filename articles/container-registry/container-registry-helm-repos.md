@@ -26,8 +26,8 @@ You can use either Helm 3 or Helm 2 to host Helm charts in Azure Container Regis
 ### Additional information
 
 * For most scenarios, we recommend using the Helm 3 workflow with native `helm chart` commands to manage charts as OCI artifacts.
-* You can use legacy [az acr helm][az-acr-helm] Azure CLI commands and workflow with the Helm 3 client and charts. However, certain commands such as `az acr helm list` aren't compatible with Helm 3 charts.
-* As of Helm 3, [az acr helm][az-acr-helm] commands are supported mainly for compatibility with the Helm 2 client and chart format. Future development of these commands isn't currently planned.
+* As of Helm 3, [az acr helm][az-acr-helm] commands are supported for compatibility with the Helm 2 client and chart format. Future development of these commands isn't currently planned. See the [product roadmap](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
+* Helm 2 charts cannot be viewed or managed using the Azure portal.
 
 ## Use the Helm 3 client
 
@@ -72,18 +72,21 @@ helm create hello-world
 As a basic example, change directory to the `templates` folder and first delete the contents there:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 In the `templates` folder, create a file called `configmap.yaml` with the following contents:
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 For more about creating and running this example, see [Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/) in the Helm Docs.

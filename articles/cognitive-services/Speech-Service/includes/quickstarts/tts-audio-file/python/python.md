@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -30,7 +30,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# [RHEL / CentOS 8](#tab/rhel-centos)
+# [RHEL/CentOS](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -38,7 +38,8 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> On RHEL/CentOS 7/8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
@@ -143,7 +144,7 @@ If you have issues following these instructions, refer to the more extensive [Vi
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

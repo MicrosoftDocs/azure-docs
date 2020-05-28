@@ -8,7 +8,7 @@ ms.topic: sample
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with [Azure Data
-Explorer](../../../data-explorer/data-explorer-overview.md), it's recommended to review the basics
+Explorer](/azure/data-explorer/data-explorer-overview), it's recommended to review the basics
 to understand how to compose requests for the resources you're looking for.
 
 We'll walk through the following advanced queries:
