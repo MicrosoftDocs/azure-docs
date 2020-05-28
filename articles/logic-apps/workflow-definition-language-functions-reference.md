@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/28/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -121,6 +121,10 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 ## Logical comparison functions
 
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> If you're using these logical comparison functions with a null value, it will be converted into an empty [string](#string) value.
+> The behavior of conditions differs when you compare with an empty string instead of a null value. 
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -3939,6 +3943,9 @@ string(<value>)
 | ------------ | ---- | ----------- |
 | <*string-value*> | String | The string version for the specified value |
 ||||
+
+> [!NOTE]
+> If the *value* parameter is null, or evaluates to null, it will be converted to an empty string in the returned value, *string-value*.
 
 *Example 1*
 
