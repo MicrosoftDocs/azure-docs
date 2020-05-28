@@ -72,7 +72,7 @@
     - name: DevOps Deployment to Azure Spring Cloud
     - name: Integrate Azure Spring Cloud with Azure Load Balance Solutions
       href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Enable system-assigned managed identity for application
+    - name: Enable system-assigned managed identity for Azure Spring Cloud application
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
 - name: DevOps Deployment to Azure Spring Cloud
   items:
