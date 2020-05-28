@@ -2,7 +2,7 @@
 title: Assessments in Azure Migrate Server Assessment
 description: Learn about assessments in Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/27/2020
 ---
 
 # Assessments in Azure Migrate: Server Assessment
@@ -105,7 +105,7 @@ Property | Details
 **Target location** | The location to which you want to migrate. Server Assessment currently supports these target Azure regions:<br/><br/> Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US 2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US 2.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br/><br/> Specify the target storage disk as Premium-managed, Standard SSD-managed, or Standard HDD-managed.
 **Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, or Standard SSD-managed.<br/><br/> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br/><br/>**Premium or Standard**:  The assessment recommends a disk SKU within the storage type selected.<br/><br/> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br/><br/> Azure Migrate supports only managed disks for migration assessment.
-**Azure Reserved Virtual Machine Instances** | Specifies [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) so that cost estimations in the assessment take them into account.<br/><br/> Azure Migrate currently supports Azure Reserved VM Instances only for pay-as-you-go offers.
+**Azure Reserved VM Instances** | Specifies [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) so that cost estimations in the assessment take them into account.<br/><br/> If reserved instances are selected, leave the default settings in discount (%) and VM uptime properties.<br/><br/> Azure Migrate currently supports Azure Reserved VM Instances only for pay-as-you-go offers.
 **Sizing criteria** | Used to rightsize the Azure VM.<br/><br/> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
@@ -116,6 +116,8 @@ Property | Details
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br/><br/> The default values are 31 days per month and 24 hours per day.
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting has the default value "Yes," Azure prices for operating systems other than Windows are considered for Windows VMs.
+**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
+
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Server Assessment.
 

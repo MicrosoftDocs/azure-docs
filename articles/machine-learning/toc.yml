@@ -67,15 +67,17 @@
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items: 
+        - name: Train & deploy with CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Create workspaces with Resource Manager templates
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
           href: tutorial-setup-vscode-extension.md
         - name: Train and deploy a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Create a workspace using a Resource Manager template
-      href: tutorial-resource-manager-workspace.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks
