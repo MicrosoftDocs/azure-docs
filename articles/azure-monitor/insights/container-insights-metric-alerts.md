@@ -57,7 +57,7 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%).
 
-To modify the settings for these four alert metrics, they can be overridden in the ConfigMaps file under the section [alertable_metrics_configuration_settings.container_resource_utilization_thresholds](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml).
+To modify the settings for the container resource utilization thresholds, they can be overridden in the ConfigMaps file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for detailed steps to configure your ConfigMap configuration file.
 
 ## Enable alert rules
 
@@ -90,3 +90,27 @@ You can view and manage Azure Monitor for containers alert rules, to edit its th
 
 To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. This redirects you to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
 
+## Configure alertable metrics in ConfigMaps
+
+Perform the following steps to configure your ConfigMap configuration file to override the default container resource utilization thresholds. This is only applicable for the following alertable metrics.
+
+* *cpuExceededPercentage*
+* *memoryRssExceededPercentage*
+* *memoryWorkingSetExceededPercentage* 
+
+1. Edit the ConfigMap yaml file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. 
+2. To to modify the *cpuExceededPercentage* threshold to 90%, configure the ConfigMap file using the following example.
+
+    ```
+    container_cpu_threshold_percentage = 90.0
+    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+    container_memory_rss_threshold_percentage = 95.0
+    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+    container_memory_working_set_threshold_percentage = 95.0
+    ```
+
+3. Run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+
+    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
+
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
