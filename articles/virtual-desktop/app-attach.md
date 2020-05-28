@@ -59,8 +59,8 @@ To get the OS image from the Azure portal:
       
 4. Complete the **Create virtual machine**.
 
->[!NOTE]
-     This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
+     >[!NOTE]
+     >This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
 
 ## Prepare the VHD image for Azure 
 
