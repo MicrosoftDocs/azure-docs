@@ -71,7 +71,7 @@ The following table describes the options that can be configured for Automated P
 | **Maintenance window duration** |30-180 |The number of minutes permitted to complete the download and installation of updates. |
 | **Patch Category** |Important | The category of Windows updates to download and install.|
 
-## configure Automated Patching in the Azure portal
+## Configure in the Azure portal
 You can use the Azure portal to configure Automated Patching during provisioning or for existing VMs.
 
 ### New VMs
@@ -96,7 +96,7 @@ When you're finished, click the **OK** button on the bottom of the **SQL Server 
 
 If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed and configured. After that the Azure portal reflects the new settings.
 
-## Configure Automated Patching with PowerShell
+## Configure with PowerShell
 After provisioning your SQL VM, use PowerShell to configure Automated Patching.
 
 In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM. The **New-AzVMSqlServerAutoPatchingConfig** command configures a new maintenance window for automatic updates.
