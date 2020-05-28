@@ -19,7 +19,7 @@ If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-s
 
 In this article, we'll show how to set up a class that uses MATLAB client software with a license server.
 
-## License Server
+## License server
 
 Before modifying the template machine for your lab, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software.  These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys.  You'll also need to save the license file and file installation key for later.  For detailed instructions on how to download a license file, see the first step in the [install Network License Manager with internet connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html) article.
 
@@ -32,6 +32,7 @@ Assuming the license server is located in an on-premise network or a private net
 To set up this lab, you need an Azure subscription to get started.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account.  To create a new lab account, see the [setup a lab account tutorial](tutorial-setup-lab-account.md).
 
 To create a new lab, follow [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).  Apply the following settings:
+
 | Virtual machine size | Image |
 | -------------------- | ----- |
 | Medium | Windows 10 |
