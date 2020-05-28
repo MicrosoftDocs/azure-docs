@@ -454,8 +454,6 @@
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: ML at scale
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference
