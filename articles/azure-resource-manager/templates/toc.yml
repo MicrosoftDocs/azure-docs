@@ -156,6 +156,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Deployment history deletions
+    href: deployment-history-deletions.md
   - name: Complete mode deletion
     href: complete-mode-deletion.md
   - name: Deployment Manager
