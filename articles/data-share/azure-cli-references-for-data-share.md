@@ -34,19 +34,21 @@ The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is 
 
 ## Reference examples
 
-Examples of the Azure CLI commands are provided throughout the documentation.  Here are a few examples to give you an idea of how easy it is to use the Azure CLI.
+Examples are provided with every Azure CLI reference.  Here are a few examples to give you an idea of how easy it is to use the Azure CLI.  Although you can also complete these tasks through the Azure portal, using the Azure CLI requires a single command-line.
 
-To work with Azure Data Share, you will first need a resource group.  Azure resource groups are easy to create and manage using the Azure CLI.
+To work with Azure Data Share, you will first need a resource group.  Azure resource groups are easy to create and manage using the Azure CLI.  
 
 ```azurecli
 #create a resource group
 az group create -location westus -name MyResourceGroup
+```
 
+```azurecli
 #get a list of resource groups for a subscription
 az group list --subscription MySubscription --output table
 ```
 
-It is just as easy to create a data share account.  Although you can also complete this task through the Azure portal, using the Azure CLI requires a single command-line.
+It is just as easy to create a data share account.
 
 ```azurecli
 az datashare account create --location "West US 2" --tags tag1=Red tag2=White --name MyAccount --resource-group MyResourceGroup
