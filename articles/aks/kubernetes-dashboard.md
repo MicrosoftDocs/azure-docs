@@ -22,7 +22,7 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 
 ## Start the Kubernetes dashboard
 
-> ![WARNING]
+> [!WARNING]
 > The builtin dashboard add-on is set for deprecation in the future. Today, the Kubernetes dashboard is enabled by default for all clusters running a Kubernetes version less than 1.18. The dashboard add-on will be disabled by default for all new clusters created on K8s 1.18 or greater. Existing clusters with the add-on already installed will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
 
 To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster which is included by default on clusters running any version older than K8s 1.18.
