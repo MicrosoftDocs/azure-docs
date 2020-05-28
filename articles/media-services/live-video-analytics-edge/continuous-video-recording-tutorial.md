@@ -2,7 +2,7 @@
 title: Continuous video recording to cloud and playback from cloud tutorial - Azure
 description: In this tutorial, you will learn how to use Live Video Analytics on IoT Edge to continuously record video to the cloud, and stream any portion of that video using Azure Media Services.
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 05/27/2020
 
 ---
 # Tutorial: Continuous video recording to cloud and playback from cloud  
@@ -208,7 +208,7 @@ Note the following:
 
 ### RecordingStarted event
 
-When the Asset Sink node starts to record video, it emits this event of type Microsoft.Media.Graph.Operational.RecordingStarted
+When the asset sink node starts to record video, it emits this event of type Microsoft.Media.Graph.Operational.RecordingStarted
 
 ```
 [IoTHubMonitor] [4:33:10 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -260,7 +260,7 @@ The body contains information about the output location, which in this case is t
 
 ### RecordingStopped event
 
-When you deactivate the Graph Instance, the Asset Sink node stops recording video to the Asset, it emits this event of type Microsoft.Media.Graph.Operational.RecordingStopped.
+When you deactivate the Graph Instance, the asset sink node stops recording video to the asset, it emits this event of type Microsoft.Media.Graph.Operational.RecordingStopped.
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -283,11 +283,11 @@ This event indicates that recording has stopped.
 
 The "subject" in applicationProperties references the AssetSink node in the graph, which generated this message.
 
-The body contains information about the output location, which in this case is the name of the Azure Media Service Asset into which video is recorded.
+The body contains information about the output location, which in this case is the name of the Azure Media Service asset into which video is recorded.
 
 ## Media Services asset  
 
-You can examine the Media Services Asset that was created by the graph by logging in to the Azure portal, and viewing the video.
+You can examine the Media Services asset that was created by the graph by logging in to the Azure portal, and viewing the video.
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Media Services account among the resources you have in your subscription, and open the account blade
