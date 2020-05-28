@@ -52,7 +52,9 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 By default, AKS configures upgrades to surge with one additional node. This default enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max surge parameter can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing this value, an upgrade operation provisions that many additional nodes to facilitate node replacement during an upgrade.
 
-AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. Setting a value of 100% provides the fastest upgrade, but will also cause all 
+AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. 
+
+Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%. After successful registration, run the following command to increase maxSurge.
 
 Register for the Node surge upgrade feature by issuing the following Azure CLI command:
 
@@ -60,7 +62,17 @@ Register for the Node surge upgrade feature by issuing the following Azure CLI c
 az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
 ```
 
-Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%. After successful registration, run the following command to increase maxSurge.
+## Install latest AKS CLI preview extension
+
+To use customer-managed keys, you need the *aks-preview* CLI extension using the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ```azurecli-interactive
 az aks nodepool update|upgrade --max_surge 33%
