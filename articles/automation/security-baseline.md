@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Automation
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23818).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23730).
 
 **Guidance**: Azure Automation Account does not yet support private link for restricting access to the service through private endpoints. The multi-tenant Runbook Workers leverage shared backend resoruces which Microsoft is responsibly for isolating from each other, their networking is unrestricted and can access public resources.The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -51,7 +51,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then wh
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23819).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23731).
 
 **Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -70,7 +70,7 @@ While NSG rules and user defined routes do not apply to private endpoint, NSG fl
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23820).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23732).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -81,7 +81,7 @@ While NSG rules and user defined routes do not apply to private endpoint, NSG fl
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23821).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23733).
 
 **Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -106,7 +106,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 ### 1.5: Record network packets
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23822).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23734).
 
 **Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -123,7 +123,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23823).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23735).
 
 **Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -142,7 +142,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23824).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23736).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -153,7 +153,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23825).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23737).
 
 **Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall configured in Azure which require access to your Automation Resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., 'GuestAndHybridManagement') in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
@@ -166,7 +166,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23826).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23738).
 
 **Guidance**: Define and implement standard security configurations for network resources used by Azure Automation with Azure Policy.
 
@@ -185,7 +185,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23827).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23739).
 
 **Guidance**: Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
@@ -206,7 +206,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23828).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23740).
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
@@ -225,7 +225,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 ### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23829).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23741).
 
 **Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for any Hybrid Runbook workers running on Windows Virtual Machines.
 
@@ -238,7 +238,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23830).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23742).
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure Automation resources. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage. Azure Automation can send runbook job status, job streams, automation state configuration data, update management, and change tracking or inventory logs to your Log Analytics workspace, this information is visibile in the Azure portal or with PowerShell which enables you to perform simple investigations.
 
@@ -265,7 +265,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23831).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23743).
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
@@ -280,7 +280,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23832).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23744).
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
 
@@ -295,7 +295,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23833).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23745).
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
@@ -310,7 +310,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23834).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23746).
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
@@ -329,7 +329,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23835).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23747).
 
 **Guidance**: Use Azure Security Center with Log Analytics Workspace for monitoring and alerting on anomalous activity found in security logs and events.
 
@@ -348,7 +348,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23836).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23748).
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
 
@@ -365,7 +365,7 @@ However when using the Hybrid Runbook Worker feature, you may use Microsoft Anti
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23837).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23749).
 
 **Guidance**: Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.
 
@@ -376,7 +376,7 @@ However when using the Hybrid Runbook Worker feature, you may use Microsoft Anti
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23838).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23750).
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
 
@@ -395,7 +395,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23839).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23751).
 
 **Guidance**: Use Azure Active Directory(Azure AD) built-in administrator roles which can be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
@@ -414,7 +414,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23840).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23752).
 
 **Guidance**: Azure Automation Account does not have the concept of default passwords. Customers are responsible for third party applications and marketplace services that may use default passwords that run on top on the service or its Hybrid Runbook Workers.
 
@@ -425,7 +425,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23841).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23753).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions, scope these identities with the least priviledged permissions they need to do their automation work. Delete any unused Run As accounts to minimize your exposed attack surface.
 
@@ -444,7 +444,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23842).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23754).
 
 **Guidance**: Wherever possible, use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
@@ -461,7 +461,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23843).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23755).
 
 **Guidance**: Enable Azure AD multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -476,7 +476,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23844).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23756).
 
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure Azure Automation Account resources in production environments.
 
@@ -491,7 +491,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23845).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23757).
 
 **Guidance**: Utilize Azure AD Risk Detections to view alerts and reports on risky user behavior. Optionally, customer may ingest Azure Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
@@ -508,7 +508,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.8: Manage Azure resources from only approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23846).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23758).
 
 **Guidance**: Customer to use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -521,7 +521,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23847).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23759).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials. If using Hybrid Runbook Workers you may leverage managed identities instead of Run As Accounts to enable more seamless secure permissioning.
 
@@ -536,7 +536,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23848).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23760).
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
@@ -555,7 +555,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 ### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23849).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23761).
 
 **Guidance**: You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool.
 
@@ -570,7 +570,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23850).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23762).
 
 **Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your network resource. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -587,7 +587,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23851).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23763).
 
 **Guidance**: For Azure Automation Accounts, Microsoft support can access platform resource metadata during an open support case without usage of another tool.
 
@@ -606,7 +606,7 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23852).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23764).
 
 **Guidance**: Use Tags to assist in tracking Azure Automation resources which store or process sensitive information.
 
@@ -619,7 +619,7 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23853).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23765).
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production, isolate environments by using separate Automation Account resources. Resources llike Hybrid Runbook Workers should be separated by virtual network/subnet, tagged appropriately, and secured within an network security group (NSG) or Azure Firewall. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
@@ -644,7 +644,7 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23854).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23766).
 
 **Guidance**: When using the Hybrid Runbook Worker feature, leverage a third-party solution from Azure Marketplace on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
@@ -659,7 +659,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23855).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23767).
 
 **Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or greater. Azure Automation fully supports and enforces transport layer (TLS) 1.2 and all client callsor later versions for all external HTPPS endpoints (through webhooks, DSC nodes, hybrid worker).
 
@@ -676,7 +676,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23856).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23768).
 
 **Guidance**: Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
 
@@ -687,7 +687,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 ### 4.6: Use Role-based access control to control access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23857).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23769).
 
 **Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least priviledged or 'just-enough' acccess model. When using Hybrid Runbook Workers leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
 
@@ -704,7 +704,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23858).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23770).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -717,7 +717,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23859).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23771).
 
 **Guidance**: Use customer managed keys with Azure Automation , the offering support the usage of customer managed keys to encrypt all 'Secure assets' used such as : credentials, certificates, connections, and encrpyted variables. Leverage encrypted variables with your runbooks for all of your persistent variable lookup needs to prevent unintended exposure.
 
@@ -738,7 +738,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23860).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23772).
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources like networking components, Azure Automation accounts, and runbooks.
 
@@ -757,7 +757,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23861).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23773).
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure resources
 
@@ -772,7 +772,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23862).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23774).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -789,7 +789,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then us
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23863).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23775).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -806,7 +806,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23864).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23776).
 
 **Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Azure Security Center, customer may pivot into the selected solution's portal to view historical scan data.
 
@@ -817,7 +817,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23865).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23777).
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center to help prioritize the remediation of discovered vulnerabilities.
 
@@ -834,7 +834,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 6.1: Use automated Asset Discovery solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23866).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23778).
 
 **Guidance**: Use Azure Resource Graph to query and discover all Azure Automation resources within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -851,7 +851,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23867).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23779).
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
@@ -864,7 +864,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23868).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23780).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Automation resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner. Delete any unused Run As accounts to minimize your exposed attack surface.
 
@@ -885,7 +885,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 6.4: Define and Maintainan inventory of approved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23869).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23781).
 
 **Guidance**: You will need to create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
@@ -896,7 +896,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23870).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23782).
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -917,7 +917,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23871).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23783).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install,remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
@@ -936,7 +936,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23872).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23784).
 
 **Guidance**: Customer may prevent resource creation or usage with Azure Policy as required by the customer's company guidelines. You can implement your own process for removing unauthorized resources. Within the Azure Automation offering it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
@@ -951,7 +951,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23873).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23785).
 
 **Guidance**: When using the Hybrid Runbook Worker feature, you may use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
@@ -964,7 +964,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23874).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23786).
 
 **Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -981,7 +981,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 ### 6.10: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23875).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23787).
 
 **Guidance**: When using the Hybrid Runbook Worker feature, you may use the Azure Security Center Adaptive Application Controls feature with your hybrid worker virtual machines.
 
@@ -996,7 +996,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23876).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23788).
 
 **Guidance**: Use Azure Conditional Access policies to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App from unsecured or unapproved locations, or devices.
 
@@ -1009,7 +1009,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23877).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23789).
 
 **Guidance**: When using the Hybrid Runbook Worker feature, and depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
@@ -1024,7 +1024,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23878).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23790).
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
@@ -1053,7 +1053,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23879).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23791).
 
 **Guidance**: Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure Automation and related resources. You may also use built-in Azure Policy definitions.
 
@@ -1078,7 +1078,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23880).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23792).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1095,7 +1095,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23881).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23793).
 
 **Guidance**: Use Azure Resource Manager templates and Azure Policies to securely configure Azure resources associated with Azure Automation. Azure Resource Manager templates are JSON based files used to deploy Azure resources, any custom templates will need to be stored and maintained securely in a code repository. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -1118,7 +1118,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23882).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23794).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1145,7 +1145,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23883).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23795).
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
@@ -1162,7 +1162,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23884).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23796).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1179,7 +1179,7 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23885).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23797).
 
 **Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources.
 
@@ -1196,7 +1196,7 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 ### 7.8: Deploy configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23886).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23798).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1211,7 +1211,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23887).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23799).
 
 **Guidance**: Use Azure Policy to alert and audit Azure resource configurations, policy can be used to detect certain resource not configured with a private endpoint.
 
@@ -1232,7 +1232,7 @@ When using the Hybrid Runbook Worker feature, leverage Azure Security Center to 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23888).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23800).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1247,7 +1247,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23889).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23801).
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
@@ -1266,7 +1266,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23890).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23802).
 
 **Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
@@ -1281,7 +1281,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23891).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23803).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -1298,7 +1298,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 ### 8.1: Use centrally managed anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23892).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23804).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1313,7 +1313,7 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23893).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23805).
 
 **Guidance**: Not applicable; Azure Automation as a service does not store files. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Automation), however it does not run on your content.
 
@@ -1326,7 +1326,7 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23894).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23806).
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
@@ -1347,7 +1347,7 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 ### 9.1: Ensure regular automated back ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23895).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23807).
 
 **Guidance**: Use Azure Resource Manager to deploy Azure Automation Accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation Accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
 
@@ -1378,7 +1378,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23896).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23808).
 
 **Guidance**: Use Azure Resource Manager to deploy Azure Automation Accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation Accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Backup customer managed keys within Azure Key Vault. You can export your runbooks to script files using either Azure portal or PowerShell.
 
@@ -1407,7 +1407,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 ### 9.3: Validate all backups including customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23897).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23809).
 
 **Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up customer managed keys.
 
@@ -1424,7 +1424,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 ### 9.4: Ensure protection of backups and customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23898).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23810).
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
@@ -1447,7 +1447,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23899).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23811).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1464,7 +1464,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23900).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23812).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1481,7 +1481,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23901).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23813).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
@@ -1494,7 +1494,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23902).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23814).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
@@ -1507,7 +1507,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23903).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23815).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -1522,7 +1522,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23904).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23816).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
@@ -1539,7 +1539,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of allcritical security findings
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23905).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23817).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
