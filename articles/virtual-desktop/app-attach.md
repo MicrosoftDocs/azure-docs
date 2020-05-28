@@ -24,13 +24,14 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- A functioning Windows Virtual Desktop deployment. For information related to WVD GA release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). For information related to WVD sprig update, see [Create a host pool with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace).
+
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 
-## Get the OS image
+## Get the OS image from the TAP portal
 
-First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
+To get the OS image from the Windows Insider Portal:
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
@@ -45,6 +46,21 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
      >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
     
 4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
+
+## Get the OS image from the Azure portal
+
+To get the OS image from the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com) and sign in.
+
+2. Navigate to **Create a virtual machine** section.
+
+3. In the **Basic** blade, under **Image** select **Windows 10 enterprise multi-session, version 2004**.
+      
+4. Complete the **Create virtual machine**.
+
+>[!NOTE]
+     >This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
 
 ## Prepare the VHD image for Azure 
 
