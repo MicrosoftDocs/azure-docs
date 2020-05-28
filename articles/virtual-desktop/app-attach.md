@@ -13,7 +13,7 @@ manager: lizross
 # Set up MSIX app attach
 
 > [!IMPORTANT]
-> MSIX app attach is currently in private preview.
+> MSIX app attach is currently in public preview.
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -89,7 +89,7 @@ sc config wuauserv start=disabled
 After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mound-VHD command to stage and and Dismount-VHD to destage. 
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 >[!NOTE]
 >This change will require that you restart the virtual machine.
