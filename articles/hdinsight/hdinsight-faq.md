@@ -39,6 +39,14 @@ For more information, see [Capacity planning for HDInsight clusters](https://doc
 
 See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
 
+### What are the best practices for creating large HDInsight clusters?
+
+1. Recommend setting up HDInsight clusters with a [Custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) to improve the cluster scalability.
+2. Use [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) to create HDInsight clusters to take advantage of higher bandwidth and other performance characteristics of Azure Data Lake Storage Gen2.
+3. Headnodes should be sufficiently large to accommodate multiple master services running on these nodes.
+4. Some specific workloads such as Interactive Query will also need larger Zookeeper nodes. Please consider minimum of 8 core VMs.
+5. In the case of Hive and Spark, use [External Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+
 ## Individual Components
 
 ### Can I install additional components on my cluster?
