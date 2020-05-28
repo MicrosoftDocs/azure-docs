@@ -26,11 +26,11 @@ To add or remove role assignments, you must have:
 
 ## Access control (IAM)
 
-**Access control (IAM)** is the blade that you use to assign roles to grant access to Azure resources. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) blade for a subscription.
+**Access control (IAM)** is the page that you typically use to assign roles to grant access to Azure resources. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) page for a subscription.
 
-![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
+![Access control (IAM) page for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
-To be the most effective with the Access control (IAM) blade, it helps if you can answer the following three questions when you are trying to assign a role:
+To be the most effective with the Access control (IAM) page, it helps if you can answer the following three questions when you are trying to assign a role:
 
 1. **Who needs access?**
 
@@ -112,7 +112,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 ## Add a role assignment for a managed identity
 
-You can add role assignments for system-assigned and user-assigned managed identities at a particular scope by using the **Access control (IAM)** blade as described earlier. This section describes how to add role assignments by starting with the managed identity and then selecting the scope and role.
+You can add role assignments for managed identities by using the **Access control (IAM)** page as described earlier in this article. When you use the Access control (IAM) page, you start with the scope and then select the managed identity and then the role. This section describes an alternate way to add role assignments for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
 
 ### System-assigned managed identity
 
