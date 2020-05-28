@@ -104,7 +104,7 @@ You can look at the following examples.
 ## Download data from Data Lake Storage Gen1
 You might also want to download or move data from Azure Data Lake Storage Gen1 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen1 to Azure SQL Database or on-premises SQL Server.
+* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen1 to Azure SQL Database or SQL Server.
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 
 ![Egress data from Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen1")

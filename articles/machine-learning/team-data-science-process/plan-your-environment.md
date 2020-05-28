@@ -70,7 +70,7 @@ Consider using Azure Data Factory (ADF) when data needs to be continually migrat
 * a hybrid scenario that involves both on-premises and cloud resources
 * a scenario where the data is transacted, modified, or changed by business logic in the course of being migrated
 
-For more information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md).
+For more information, see [Move data from a SQL Server database to SQL Azure with Azure Data Factory](move-sql-azure-adf.md).
 
 ### How much of the data is to be moved to Azure?
 
