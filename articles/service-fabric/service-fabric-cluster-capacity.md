@@ -11,12 +11,11 @@ ms.custom: sfrev
 
 Cluster capacity planning is important for every Service Fabric production environment. Key considerations include:
 
-* The initial number and properties of cluster *node types*
+* **Initial number and properties of cluster *node types***
 
-* *Durability* level of each node type, which 
-determines Service Fabric VM privileges within Azure infrastructure
+* ***Durability* level of each node type**, which determines Service Fabric VM privileges within Azure infrastructure
 
-* *Reliability* level of the cluster, which determines the stability of Service Fabric system services and overall cluster function
+* ***Reliability* level of the cluster**, which determines the stability of Service Fabric system services and overall cluster function
 
 This article will walk you through the significant decision points for each of these areas.
 
@@ -42,7 +41,7 @@ The number of initial nodes types depends upon the purpose of you cluster and th
 
 * ***Do the services that make up your application have different infrastructure needs such as greater RAM or higher CPU cycles?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently.
+    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
 * ***Will any of your application services need to scale out beyond 100 nodes?***
 
@@ -144,9 +143,9 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 #### Virtual machine sizing
 
-**For production workloads, the recommended VM size (SKU) is Standard D2_V2 (or equivalent) with a minimum of 50 GB of local SSD.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other VM sizes for production workloads, keep in mind the following constraints:
+**For production workloads, the recommended VM size (SKU) is Standard D2_V2 (or equivalent) with a minimum of 50 GB of local SSD.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
 
-- The minimum supported VM sizes are Standard_D2_V3 or Standard D1_V2.
+- The minimum supported VM sizes are Standard_D2_V3 and Standard D1_V2.
 - Partial core VM sizes like Standard A0 are not supported.
 - *A-series* VM sizes are not supported for performance reasons.
 - Low-priority VMs are not supported.
