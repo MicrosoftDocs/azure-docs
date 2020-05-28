@@ -198,6 +198,42 @@ By default the converter has to assume that you may want to use PBR materials on
 
 Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per vertex. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
+## Memory optimizations
+
+Memory consumption of loaded content may become a bottleneck on the rendering systems. If the memory payload becomes too high, it may compromise rendering performance or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
+
+### Instancing
+
+Instancing is a concept where meshes are reused for parts with distinct spatial transformation, as opposed every part referencing its own unique geometry. Instancing has significant impact on the memory footprint.
+Example use cases for instancing are the screws in an engine model or chairs in architectural models.
+
+The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion does not perform additional deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup. For instance, [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`copy mode`** (geometry is unique) and **`instance mode`** (geometry is instanced).
+
+![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
+
+A simple way to test whether instancing information gets preserved during conversion is to have a look at the [output statistics](get-information.md#example-info-file), specifically the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, it indicates that meshes are shared across instances.
+
+> [!NOTE]
+> Instancing decreases the memory footprint of a model but has non-significant impact on rendering performance.
+
+### Depth-based composition mode
+
+If memory is a concern, configure the renderer with the [depth-based composition mode](../../concepts/rendering-modes.md#depthbasedcomposition-mode). In this mode, GPU payload is distributed across multiple GPUs.
+
+### Decrease vertex size
+
+As discussed in the [best practices for component format changes](configure-model-conversion.md#best-practices-for-component-format-changes) section, adjusting the vertex format can decrease the memory footprint. However, this option should be the last resort.
+
+### Texture sizes
+
+Depending on the type of scenario, the amount of texture data may outweigh the memory used for mesh data. Photogrammetry models are candidates.
+The conversion configuration does not provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+
+* `BC1` for opaque color textures
+* `BC7` for source color textures with alpha channel
+
+Since format `BC7` has twice the memory footprint compared to `BC1`, it is important to make sure that the input textures do not provide an alpha channel unnecessarily.
+
 ## Typical use cases
 
 Finding good import settings for a given use case can be a tedious process. On the other hand, conversion settings may have a significant impact on runtime performance.
