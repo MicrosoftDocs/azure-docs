@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 05/22/2020
 ---
 # Resolve errors for invalid template
 
@@ -109,7 +109,7 @@ Getting the segments right can be tricky with Resource Manager types that are ap
 
 ## Solution 3 - parameter is not valid
 
-If you provide a parameter value that is not one of the allowed values, you receive a message similar to the following error:
+If you provide a parameter value that isn't one of the allowed values, you receive a message similar to the following error:
 
 ```
 Code=InvalidTemplate;
@@ -124,7 +124,7 @@ Double check the allowed values in the template, and provide one during deployme
 
 ## Solution 4 - Too many target resource groups
 
-If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
@@ -137,7 +137,7 @@ To solve a circular dependency:
 1. In your template, find the resource identified in the circular dependency.
 2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on.
 3. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that are not needed. Remove those dependencies. If you are unsure that a dependency is needed, try removing it.
+5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
 6. Redeploy the template.
 
 Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.

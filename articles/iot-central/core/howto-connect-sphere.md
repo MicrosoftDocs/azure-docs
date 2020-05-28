@@ -15,7 +15,7 @@ ms.date: 04/30/2020
 
 This article shows you how to connect an Azure Sphere (DevKit) device to an Azure IoT Central application.
 
-Azure Sphere is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It includes a secured, connected, crossover microcontroller unit (MCU), a custom high-level Linux-based operating system (OS), and a cloud-based security service that provides continuous, renewable security. For more information, see[What is Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
+Azure Sphere is a secured, high-level application platform with built-in communication and security features for internet-connected devices. It includes a secured, connected, crossover microcontroller unit (MCU), a custom high-level Linux-based operating system (OS), and a cloud-based security service that provides continuous, renewable security. For more information, see [What is Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
 
 [Azure Sphere development kits](https://azure.microsoft.com/services/azure-sphere/get-started/) provide everything you need to start prototyping and developing Azure Sphere applications. Azure IoT Central with Azure Sphere enables an end-to-end stack for an IoT Solution. Azure Sphere provides the device support and IoT Central as a zero-code, managed IoT application platform.
 

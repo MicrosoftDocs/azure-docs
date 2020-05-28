@@ -2,7 +2,7 @@
 title: Test app in LUIS portal
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 ms.topic: conceptual
-ms.date: 05/17/2020
+ms.date: 05/20/2020
 ---
 
 # Test your LUIS app in the LUIS portal
@@ -37,7 +37,8 @@ The test utterance should not be exactly the same as any example utterances in t
 
 1. The utterance, its top intent, and score are added to the list of utterances under the text box.
 
-    ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## Inspect the prediction
 
@@ -45,9 +46,13 @@ You inspect details of the test result in the **Inspect** panel.
 
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare.
 
-    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
 1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the prediction of the selected utterance.
+
+    > [!div class="mx-imgBorder"]
+    > ![Partial screenshot of Test Inspect panel](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## Add to example utterances
 
@@ -71,12 +76,14 @@ If you are using [Patterns](luis-concept-patterns.md) and the utterance matched 
 
 You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance.
 
-![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## View endpoint JSON in test panel
 You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view**.
 
-![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## Additional settings in test panel
 

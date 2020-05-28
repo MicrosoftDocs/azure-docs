@@ -4,7 +4,7 @@ description: How to use Azure Batch rendering capabilities. Try using the Batch 
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Using Azure Batch rendering

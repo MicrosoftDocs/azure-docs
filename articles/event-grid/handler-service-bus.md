@@ -66,5 +66,96 @@ When sending an event to a Service Bus queue or topic as a brokered message, the
 
 The event ID will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
 
+## REST examples (for PUT)
+
+### Service Bus queue
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+			"endpointType": "ServiceBusQueue",
+            "properties": 
+            {
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus queue - delivery with managed identity
+
+```json
+{
+	"properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+				"type": "SystemAssigned"
+			},
+            "destination": 
+            {
+				"endpointType": "ServiceBusQueue",
+                "properties": 
+                {
+					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+				}
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus topic
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+			"endpointType": "ServiceBusTopic",
+            "properties": 
+            {
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus topic - delivery with managed identity
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+				"type": "SystemAssigned"
+			},
+            "destination": 
+            {
+				"endpointType": "ServiceBusTopic",
+                "properties": 
+                {
+					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+				}
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

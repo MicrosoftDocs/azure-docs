@@ -35,7 +35,7 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
-- `~/logs/user/<node_name>.log.txt`: These are the logs written from entry_script using EntryScript helper. Also contains print statement (stdout) from entry_script.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: These are the logs written from entry_script using EntryScript helper. Also contains print statement (stdout) from entry_script.
 
 For a concise understanding of errors in your script there is:
 

@@ -35,7 +35,7 @@ The following diagram shows the flow, from the author's perspective, for signing
 |3|QnA Maker API validates the token.|
 |4 |QnA Maker API calls QnAMaker Service.|
 
-If you intend to call the authoring APIs](../How-To/collaborate-knowledge-base.md), learn more about how to set up authentication.
+If you intend to call the [authoring APIs](../How-To/collaborate-knowledge-base.md), learn more about how to set up authentication.
 
 ## Authenticate by QnA Maker portal
 
