@@ -80,7 +80,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section, perform the following steps:
+
+   a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<tenantname>.fieldid.com/fieldid`
+
+   b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/tmna`
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Field iD support team](mailto:support@ecompliance.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
