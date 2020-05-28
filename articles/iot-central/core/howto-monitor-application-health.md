@@ -32,15 +32,6 @@ To view IoT Central metrics in the portal:
 1. Navigate to your IoT Central application resource in the portal. By default, IoT Central resources are located in a resource group called **IOTC**.
 1. To create a chart from your application's metrics, select **Metrics** in the **Monitoring** section.
 
-You can also choose to:
-
-- Collect your metrics in a [Log Analytics workspace](../../azure-monitor/platform/resource-logs-collect-workspace.md).
-- Archive your metrics to a [storage account](../../azure-monitor/platform/resource-logs-collect-storage.md).
-- Stream your metrics to [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) to integrate with other telemetry solutions.
-
-> [!NOTE]
-> You're billed separately for any Azure services you use outside of IoT Central.
-
 ### Azure portal permissions
 
 Access to metrics in the Azure portal is managed by [Azure role based access control](../../role-based-access-control/overview.md). Use the Azure portal to add users to the IoT Central application/resource group/subscription to grant them access. You must add a user in the portal even they're already added to the IoT Central application. Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for finer grained access control.
