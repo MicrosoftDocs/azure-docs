@@ -16,31 +16,19 @@ This article reviews the experience and provides guidance on configuring and man
 
 To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
 
-|Name| Description |
-| Average CPU % | Calculates average CPU used per node.<br> Default trigger threshold: When average CPU usage per node is greater than 80%.| 
-| Average Working set memory % | Calculates average working set memory used per node.<br> Default trigger threshold: When average working set memory usage per node is greater than 80%. |
-| Failed Pod Counts | Calculates if any pod in failed state.<br> Default trigger threshold: When a number of pods in failed state are greater than 0. |
-| Node NotReady status | Calculates if any node is in NotReady state.<br> Default trigger threshold: When a number of nodes in NotReady state are greater than 0. |
-| Metric heartbeat | Alerts when all nodes are down and are not sending any metric data.<br> Default trigger threshold: When a number of nodes not sending metric data are less than or equal to 0.|
-
-|Namespace|Name|Description |
-|---------|----|------------|
-|Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
-|Insights.container/nodes |cpuUsagePercentage |CPU usage percentage by node.|
-|Insights.container/nodes |memoryRssBytes |Memory RSS utilization in bytes by host.|
-|Insights.container/nodes |memoryRssPercentage |Memory RSS usage percentage by host.|
-|Insights.container/nodes |memoryWorkingSetBytes |Memory Working Set utilization in bytes by host.|
-|Insights.container/nodes |memoryWorkingSetPercentage |Memory Working Set usage percentage by host.|
-|Insights.container/nodes |nodesCount |Count of nodes by status.|
-|Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
-|Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
-|Insights.container/pods |completedJobsCount |Completed jobs count older user configurable threshold (default is six hours) by controller, Kubernetes namespace. |
-|Insights.container/pods |restartingContainerCount |Count of container restarts by controller, Kubernetes namespace.|
-|Insights.container/pods | oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
-|Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
-|Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name. |
-|Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
-|Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Name| Description |Default threshold |
+|----|-------------|------------------|
+|Average container CPU % |Calculates average CPU used per container.|When average CPU usage per container is greater than 95%.| 
+|Average container working set memory % |Calculates average working set memory used per container.|When average working set memory usage per container is greater than 95%. |
+|Average CPU % |Calculates average CPU used per node. |When average node CPU utilization is greater than 80% |
+|Average Disk Usage % |Calculates average disk usage for a node.|When disk usage for a node is greater than 80%. |
+|Average Working set memory % |Calculates average Working set memory for a node. |When average Working set memory for a node is greater than 80%. |
+|Container restart count |Calculates number of container restarts. | When container restarts are greater than 0. |
+|Failed Pod Counts |Calculates if any pod in failed state.|When a number of pods in failed state are greater than 0. |
+|Node NotReady status |Calculates if any node is in NotReady state.|When a number of nodes in NotReady state are greater than 0. |
+|OOM Killed Containers |Calculates number of OOM killed containers. |When a number of OOM killed containers is greater than 0. |
+|Pods ready % |Calculates the average ready state of pods. |When ready state of pods are less than 80%.|
+|Stale job count |Calculates number of stale jobs that were completed more than six hours ago. |When number of stale jobs older than six hours is greater than 0.|
 
 There are common properties across all of these alert rules:
 
@@ -62,9 +50,30 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *oomKilledContainerCount* metric is only sent when there are OOM killed containers.
 
-* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%).
+* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-getting-started), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
 
-To modify the settings for the container resource utilization thresholds, they can be overridden in the ConfigMaps file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for detailed steps to configure your ConfigMap configuration file.
+## Metrics collected
+
+The following metrics are enabled and collected, unless otherwise specified, as part of this feature:
+
+|Metric namespace |Metric |Description |
+|---------|----|------------|
+|Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
+|Insights.container/nodes |cpuUsagePercentage |CPU usage percentage by node.|
+|Insights.container/nodes |memoryRssBytes |Memory RSS utilization in bytes by host.|
+|Insights.container/nodes |memoryRssPercentage |Memory RSS usage percentage by host.|
+|Insights.container/nodes |memoryWorkingSetBytes |Memory Working Set utilization in bytes by host.|
+|Insights.container/nodes |memoryWorkingSetPercentage |Memory Working Set usage percentage by host.|
+|Insights.container/nodes |nodesCount |Count of nodes by status.|
+|Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
+|Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
+|Insights.container/pods |completedJobsCount |Completed jobs count older user configurable threshold (default is six hours) by controller, Kubernetes namespace. |
+|Insights.container/pods |restartingContainerCount |Count of container restarts by controller, Kubernetes namespace.|
+|Insights.container/pods | oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
+|Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
+|Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.<br> Collected  |
+|Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
+|Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 
 ## Enable alert rules
 
