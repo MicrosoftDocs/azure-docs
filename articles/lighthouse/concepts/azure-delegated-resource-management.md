@@ -35,7 +35,7 @@ At a high level, here's how Azure delegated resource management works:
 3. Once the customer has been onboarded, authorized users can sign in to your service provider tenant and perform management tasks at the given customer scope, based on the access that you defined.
 
 > [!NOTE]
-> While you can manage resources in multiple tenants spread across Azure public cloud regions, delegation of a subscription between two tenants across separate clouds (such as a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and Azure global, or two separate national  clouds) is not supported.
+> You can manage delegated resources that are located in different [regions](../availability-zones/az-overview.md#regions). However, delegation of subscriptions across separate clouds (such as a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or two separate national clouds) isn’t supported.
 
 ## Support for Azure delegated resource management
 
