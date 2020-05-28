@@ -38,7 +38,7 @@ There are two types of workbook resources that can be managed programmatically:
 2. Below is a sample Azure Resource Manager template that deploys a workbook template to Azure Monitor workbook gallery. Paste the JSON you copied in place of `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. A reference Azure Resource Manager template that creates a workbook template can be found [here](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
-          {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -110,7 +110,7 @@ There are two types of workbook resources that can be managed programmatically:
 | Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
 | Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
 | VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                | `insights`    |
-| VM Insights in virtual machine scale sets                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
 
 ## Azure Resource Manager template for deploying a workbook instance
 

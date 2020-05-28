@@ -117,7 +117,7 @@ For details about JSON properties, see [Azure Storage linked service](data-facto
 
 ### azuresqllinkedservice.json
 > [!IMPORTANT]
-> Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
+> Replace **servername**, **databasename**, **username**, and **password** with name of your server, name of SQL database, user account, and password for the account.  
 > 
 >
 
@@ -399,7 +399,7 @@ In this step, you link your Azure storage account to your data factory. You spec
     ```
 
 ### Create Azure SQL linked service
-In this step, you link your Azure SQL database to your data factory. You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
+In this step, you link your Azure SQL database to your data factory. You specify the logical SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
 
 1. Assign the command to variable named **cmd**. 
    

@@ -25,6 +25,9 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: View definition artifact

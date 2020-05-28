@@ -1,9 +1,15 @@
 ---
 title: Advanced Autoscale using Azure Virtual Machines
-description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
+description: Uses Resource Manager and VM scale sets with multiple rules and profiles, which send email and call webhook URLs with scale actions.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 02/22/2016
+ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
+ms.date: 02/22/2016
+ms.reviewer: jushiman
+ms.custom: mimckitt
+
 ---
 
 # Advanced autoscale configuration using Resource Manager templates for VM Scale Sets

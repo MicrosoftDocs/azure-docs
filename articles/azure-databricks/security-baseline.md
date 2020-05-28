@@ -142,7 +142,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: Use Tags for NSGs and other resources related to network security and traffic flow that are associated with your Azure Databricks instance. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-* [How to create and use Tags](httphttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -196,7 +196,7 @@ For audit logging, Azure Databricks provides comprehensive end-to-end diagnostic
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [How to enable Diagnostic Settings for Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -258,7 +258,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [How to configure alerts in Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 

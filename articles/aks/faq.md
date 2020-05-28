@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/14/2020
 
 ---
 
@@ -123,9 +123,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
-
-It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
+AKS provides SLA guarantees as an optional add on feature with [Uptime SLA][uptime-sla].
 
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
@@ -139,7 +137,7 @@ The `az aks update-credentials` command can be used to move an AKS cluster betwe
 
 Movement of clusters between subscriptions is currently unsupported.
 
-## Can I move my AKS clusters from the current azure subscription to another? 
+## Can I move my AKS clusters from the current Azure subscription to another? 
 
 Moving your AKS cluster and it's associated resources between Azure subscriptions is not supported.
 
@@ -205,6 +203,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
@@ -213,3 +212,4 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

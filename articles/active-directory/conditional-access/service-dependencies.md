@@ -22,6 +22,9 @@ With Conditional Access policies, you can specify access requirements to website
 
 When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires multi-factor authentication (MFA) for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy. 
 
+> [!TIP]
+> Using the [Office 365 (preview)](concept-conditional-access-cloud-apps.md#office-365-preview) app will target all Office apps to avoid issues with service dependencies in the Office stack.
+
 ## Policy enforcement 
 
 If you have a service dependency configured, the policy may be applied using early-bound or late-bound enforcement. 

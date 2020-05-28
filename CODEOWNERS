@@ -6,6 +6,12 @@
 articles/**/policy-samples.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
+# Azure Active Directory
+
+articles/active-directory-b2c/ @msmimart @yoelhor
+articles/active-directory/app-provisioning/ @CelesteDG
+articles/active-directory/manage-apps/ @CelesteDG
+
 # Cognitive Services
 articles/cognitive-services/ @diberry @erhopf @aahill @ievangelist @patrickfarley @nitinme
 

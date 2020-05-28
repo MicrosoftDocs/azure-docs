@@ -44,8 +44,6 @@ The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists 
 
 You can encrypt both boot and data volumes, but you can't encrypt the data without first encrypting the OS volume.
 
-After you've encrypted the OS volume, disabling encryption on the OS volume isn't supported.
-
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 
 No, Azure Disk Encryption only encrypts mounted volumes.
@@ -125,16 +123,13 @@ Azure Disk Encryption selects the encryption method in BitLocker based on the ve
 
 To determine Windows OS version, run the 'winver' tool in your virtual machine.
 
-## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
-No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 
-
 ## Can I backup and restore an encrypted VM? 
 
 Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 
-You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service, see the following articles:

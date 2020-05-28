@@ -20,15 +20,13 @@ Azure Cognitive Services offers many container images. The container registries 
 
 ## Anomaly Detector
 
-The [Anomaly Detector][ad-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-anomaly-detector`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`.
+The [Anomaly Detector][ad-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `anomaly-detector`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/anomaly-detector`.
 
 This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008500001-amd64-preview` |       |
 
 ## Computer Vision
 
@@ -101,6 +99,7 @@ This container image has the following tags available:
 | Image Tags            | Notes |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -126,6 +125,46 @@ This container image has the following tags available:
 | Image Tags                  | Notes                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Container image with the `en-US` locale. |
+| `2.2.0-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
+| `2.2.0-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
+| `2.2.0-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
+| `2.2.0-amd64-ar-qa-preview` | Container image with the `ar-QA` locale. |
+| `2.2.0-amd64-ar-sa-preview` | Container image with the `ar-SA` locale. |
+| `2.2.0-amd64-ca-es-preview` | Container image with the `ca-ES` locale. |
+| `2.2.0-amd64-da-dk-preview` | Container image with the `da-DK` locale. |
+| `2.2.0-amd64-de-de-preview` | Container image with the `de-DE` locale. |
+| `2.2.0-amd64-en-au-preview` | Container image with the `en-AU` locale. |
+| `2.2.0-amd64-en-ca-preview` | Container image with the `en-CA` locale. |
+| `2.2.0-amd64-en-gb-preview` | Container image with the `en-GB` locale. |
+| `2.2.0-amd64-en-in-preview` | Container image with the `en-IN` locale. |
+| `2.2.0-amd64-en-nz-preview` | Container image with the `en-NZ` locale. |
+| `2.2.0-amd64-en-us-preview` | Container image with the `en-US` locale. |
+| `2.2.0-amd64-es-es-preview` | Container image with the `es-ES` locale. |
+| `2.2.0-amd64-es-mx-preview` | Container image with the `es-MX` locale. |
+| `2.2.0-amd64-fi-fi-preview` | Container image with the `fi-FI` locale. |
+| `2.2.0-amd64-fr-ca-preview` | Container image with the `fr-CA` locale. |
+| `2.2.0-amd64-fr-fr-preview` | Container image with the `fr-FR` locale. |
+| `2.2.0-amd64-gu-in-preview` | Container image with the `gu-IN` locale. |
+| `2.2.0-amd64-hi-in-preview` | Container image with the `hi-IN` locale. |
+| `2.2.0-amd64-it-it-preview` | Container image with the `it-IT` locale. |
+| `2.2.0-amd64-ja-jp-preview` | Container image with the `ja-JP` locale. |
+| `2.2.0-amd64-ko-kr-preview` | Container image with the `ko-KR` locale. |
+| `2.2.0-amd64-mr-in-preview` | Container image with the `mr-IN` locale. |
+| `2.2.0-amd64-nb-no-preview` | Container image with the `nb-NO` locale. |
+| `2.2.0-amd64-nl-nl-preview` | Container image with the `nl-NL` locale. |
+| `2.2.0-amd64-pl-pl-preview` | Container image with the `pl-PL` locale. |
+| `2.2.0-amd64-pt-br-preview` | Container image with the `pt-BR` locale. |
+| `2.2.0-amd64-pt-pt-preview` | Container image with the `pt-PT` locale. |
+| `2.2.0-amd64-ru-ru-preview` | Container image with the `ru-RU` locale. |
+| `2.2.0-amd64-sv-se-preview` | Container image with the `sv-SE` locale. |
+| `2.2.0-amd64-ta-in-preview` | Container image with the `ta-IN` locale. |
+| `2.2.0-amd64-te-in-preview` | Container image with the `te-IN` locale. |
+| `2.2.0-amd64-th-th-preview` | Container image with the `th-TH` locale. |
+| `2.2.0-amd64-tr-tr-preview` | Container image with the `tr-TR` locale. |
+| `2.2.0-amd64-zh-cn-preview` | Container image with the `zh-CN` locale. |
+| `2.2.0-amd64-zh-hk-preview` | Container image with the `zh-HK` locale. |
+| `2.2.0-amd64-zh-tw-preview` | Container image with the `zh-TW` locale. |
+| `2.1.1-amd64-en-us-preview` | Container image with the `en-US` locale. |
 | `2.1.1-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
 | `2.1.1-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
 | `2.1.1-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
@@ -611,10 +650,20 @@ The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microso
 
 This container image has the following tags available:
 
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
+| Image Tags | Notes                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0-en`   | Sentiment Analysis v3 (English)               |
+| `3.0-es`   | Sentiment Analysis v3 (Spanish)               |
+| `3.0-fr`   | Sentiment Analysis v3 (French)                |
+| `3.0-it`   | Sentiment Analysis v3 (Italian)               |
+| `3.0-de`   | Sentiment Analysis v3 (German)                |
+| `3.0-zh`   | Sentiment Analysis v3 (Chinese - simplified)  |
+| `3.0-zht`  | Sentiment Analysis v3 (Chinese - traditional) |
+| `3.0-ja`   | Sentiment Analysis v3 (Japanese)              |
+| `3.0-pt`   | Sentiment Analysis v3 (Portuguese)            |
+| `3.0-nl`   | Sentiment Analysis v3 (Dutch)                 |
+| `1.1.009301-amd64-preview`    | Sentiment Analysis v2      |
 | `1.1.008510001-amd64-preview` |       |
 | `1.1.007750002-amd64-preview` |       |
 | `1.1.007360001-amd64-preview` |       |

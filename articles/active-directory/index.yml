@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 03/17/2020
+  ms.date: 05/19/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -83,36 +83,6 @@ conceptualContent:
           text: Enable Azure Multi-Factor Authentication
       footerLink:
         url: ./authentication/index.yml
-        text: See more
-
-    - title: Business-to-Business (B2B)
-      links:
-        - url: ./b2b/what-is-b2b.md
-          itemType: overview
-          text: What is Azure AD B2B?
-        - url: ./b2b/add-users-administrator.md
-          itemType: how-to-guide
-          text: Add guest users in the portal
-        - url: ./b2b/o365-external-user.md
-          itemType: concept
-          text: B2B and Office 365 sharing
-      footerLink:
-        url: ./b2b/index.yml
-        text: See more
-
-    - title: Business-to-Customer (B2C)
-      links:
-        - url: ../active-directory-b2c/active-directory-b2c-overview.md
-          itemType: overview
-          text:  What is Azure AD B2C?
-        - url: ../active-directory-b2c/tutorial-create-tenant.md
-          itemType: tutorial
-          text:  Create an Azure AD B2C tenant
-        - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
-          itemType: how-to-guide
-          text:  Custom policies in Azure AD B2C
-      footerLink:
-        url: ../active-directory-b2c/index.yml
         text: See more
 
     - title: Cloud provisioning
@@ -203,6 +173,21 @@ conceptualContent:
           text:  Azure AD service limits and restrictions
       footerLink:
         url: ./users-groups-roles/index.yml
+        text: See more
+
+    - title: External Identities
+      links:
+        - url: ./b2b/compare-with-b2c.md
+          itemType: overview
+          text: Compare solutions for external users
+        - url: ../active-directory-b2c/active-directory-b2c-overview.md
+          itemType: overview
+          text:  Scale your apps to consumers (B2C)
+        - url: ./b2b/what-is-b2b.md
+          itemType: overview
+          text: Collaborate with users outside your org (B2B)
+      footerLink:
+        url: ./b2b/index.yml
         text: See more
 
     - title: Hybrid identity

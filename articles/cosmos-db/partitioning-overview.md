@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 
 ---
 
@@ -52,7 +52,7 @@ However, if your container is small, you probably don't have enough physical par
 If your container could grow to more than a few physical partitions, then you should make sure you pick a partition key that minimizes cross-partition queries. Your container will require more than a few physical partitions when either of the following are true:
 
 * Your container will have over 30,000 RU's provisioned
-* You container will store over 100 GB of data
+* Your container will store over 100 GB of data
 
 ## Using item ID as the partition key
 

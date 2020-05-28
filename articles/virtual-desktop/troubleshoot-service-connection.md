@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -37,36 +37,6 @@ Get-AzRoleAssignment -SignInName <userupn>
 Confirm that the user is signing in with the correct credentials.
 
 If the web client is being used, confirm that there are no cached credentials issues.
-
-## Windows 10 Enterprise multi-session virtual machines don't respond
-
-If a virtual machine isn't responsive and you can't access it through RDP, you'll need to troubleshoot it with the diagnostics feature by checking the host status.
-
-To check the host status, run this cmdlet:
-
-```powershell
-Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
-```
-
-If the host status is `NoHeartBeat`, that means the VM isn't responding and the agent can't communicate with the Windows Virtual Desktop service.
-
-```powershell
-Name            : 0301HP/win10pd-0.contoso.com 
-LastHeartBeat   : 4/8/2020 1:48:35 AM 
-AllowNewSession : True 
-Status          : Available 
-
-Name            : 0301HP/win10pd-1.contoso.com 
-LastHeartBeat   : 4/8/2020 1:45:44 AM 
-AllowNewSession : True 
-Status          : NoHeartBeat
-```
-
-There are a few things you can do to fix the NoHeartBeat status.
-
-### Update FSLogix
-
-If your FSLogix isn't up to date, especially if it's version 2.9.7205.27375 of frxdrvvt.sys, it could cause a deadlock. Make sure to [update FSLogix to the latest version](https://go.microsoft.com/fwlink/?linkid=2084562).
 
 ## Next steps
 
