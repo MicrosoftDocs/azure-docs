@@ -13,18 +13,6 @@
     href: moving-from-paid-to-free-addins.md
   - name: Monetize your add-in
     href: monetize-addins-through-microsoft-commercial-marketplace.md
-  - name: License your add-ins
-    items:
-    - name: Overview
-      href: license-your-add-ins.md
-    - name: How add-in licenses work
-      href: how-licenses-work.md
-    - name: Add license checks to Office and SharePoint Add-ins
-      href: add-license-checks-to-office-and-sharepoint-add-ins.md
-    - name: Implement licensing to upsell add-ins
-      href: implement-licensing-for-add-in-services.md
-    - name: Add-in license schema
-      href: add-in-license-schema.md
   - name: Prepare localized solutions
     href: prepare-localized-solutions.md
   - name: Submit solutions via Partner Center
