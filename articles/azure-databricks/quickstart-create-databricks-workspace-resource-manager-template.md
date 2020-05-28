@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Databricks workspace with Azure Resource manager
+title: Quickstart - Create an Azure Databricks workspace by Azure Resource manager template
 description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
@@ -8,31 +8,45 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/23/2020
+ms.custom: mvc, subject-armqs
+ms.date: 05/27/2020
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
 
 In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace with an Apache Spark cluster. You run a job on the cluster and use custom charts to produce real-time reports from free/paid usage based on demographics.
 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+To complete this article, you need to:
 
-## Sign in to the Azure portal
+* Have an Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* [Create an Azure Blob storage account](../storage/common/storage-account-create.md).
+* Download a sample JSON file [from GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
-Sign in to the [Azure portal](https://portal.azure.com).
-
-> [!Note]
+> [!NOTE]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
 > If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+
+
+## Create an Azure Databricks workspace
+
+### Review the template
+
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace).
+
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-150" highlight="107-148":::
+
+The Azure resource defined in the template is Microsoft.Databricks/workspaces: create an Azure Databricks workspace. 
 
 ## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure Resource Manager template.
 
-1. Click the following image to open the template in the Azure portal.
+1. Select the following image to sign in to Azure and open a template. The template creates an Azure Databricks workspace.
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json)
 
@@ -81,12 +95,6 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ## Run a Spark SQL job
-
-Before you begin with this section, you must complete the following prerequisites:
-
-* [Create an Azure Blob storage account](../storage/common/storage-account-create.md).
-* Download a sample JSON file [from GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
