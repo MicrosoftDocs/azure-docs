@@ -109,7 +109,7 @@ Yes. Site Recovery converts from generation 2 to generation 1 during failover. A
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for replicating Hyper-V to Azure using PowerShell:
 
 - [Replicate Hyper-V without VMM using PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replicating Hyper-V with VMM using Powershell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replicating Hyper-V with VMM using PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## Replication
 
