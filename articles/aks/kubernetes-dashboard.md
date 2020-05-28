@@ -2,26 +2,32 @@
 title: Manage an Azure Kubernetes Service cluster with the web dashboard
 description: Learn how to use the built-in Kubernetes web UI dashboard to manage an Azure Kubernetes Service (AKS) cluster
 services: container-service
+author: mlearned
 ms.topic: article
-ms.date: 10/08/2018
-
+ms.date: 05/20/2020
+ms.author: mlearned
 ---
 
 # Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)
 
 Kubernetes includes a web dashboard that can be used for basic management operations. This dashboard lets you view basic health status and metrics for your applications, create and deploy services, and edit existing applications. This article shows you how to access the Kubernetes dashboard using the Azure CLI, then guides you through some basic dashboard operations.
 
-For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard][kubernetes-dashboard].
+For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard][kubernetes-dashboard]. AKS uses version 2.0 and greater of the open source dashboard.
 
 ## Before you begin
 
 The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need to create an AKS cluster, see the [AKS quickstart][aks-quickstart].
 
-You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.6.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Start the Kubernetes dashboard
 
-To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command. The following example opens the dashboard for the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:
+> ![WARNING]
+> The builtin dashboard add-on is set for deprecation in the future. Today, the Kubernetes dashboard is enabled by default for all clusters running a Kubernetes version less than 1.18. The dashboard add-on will be disabled by default for all new clusters created on K8s 1.18 or greater. Existing clusters with the add-on already installed will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
+
+To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster which is included by default on clusters running any version older than K8s 1.18.
+
+The following example opens the dashboard for the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -70,6 +76,26 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > ```
 > 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+
+## Login to the dashboard
+
+As of version 2.0 for the Kubernetes dashboard, the first screen presented requires an admin kubeconfig or a token.
+
+![login screen](./media/kubernetes-dashboard/login.png)
+
+To use your kubeconfig file, it requires admin rights to retrieve the required dashboard data.
+1. Set the admin kubeconfig with `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Select `Kubeconfig` and click `Choose kubeconfig file` to open file selector
+1. Select your kubeconfig file (defaults to $HOME/.kube/config)
+1. Click `Sign In`
+
+To use a token, it also requires admin rights.
+1. Run `kubectl config view`
+1. Copy the token associated with the admin account of your cluster
+1. Paste into the token option at login
+1. Click `Sign In`
+
+Once successful, a page similar to the below will be displayed.
 
 ![The overview page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-overview.png)
 
