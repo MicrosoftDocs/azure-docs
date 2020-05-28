@@ -253,8 +253,8 @@ This [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop)
 
    > [!NOTE]
    > By default, the maximum number of messages is set to `175`, but this limit 
-   > is affected by the message size and maximum message size property for the 
-   > service bus, currently 256K for Standard and 1MB for Premium.
+   > is affected by the message size and maximum message size property in Service Bus. 
+   > Currently, this limit is 256K for Standard and 1 MB for Premium.
 
    ![Service Bus action - "Get additional messages from session"](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
 
