@@ -15,7 +15,7 @@ ms.author: curtand
 
 # What is the Additional verification page?
 
-Your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra security verification is also known as two-factor verification. It consists of a combination of your username, password, and a mobile device or phone.
+Your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra security verification is also known as two-factor verification. It consists of a combination of your username, password, and a mobile device or phone. If all you want to do is turn off two-factor verification for a Microsoft account such as alain@outlook.com, use the instructions in [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 <center>
 
