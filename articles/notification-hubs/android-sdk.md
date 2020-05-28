@@ -15,7 +15,7 @@ ms.lastreviewed: 05/18/2020
 
 This tutorial shows how to use Azure Notification Hubs and the updated version of the Firebase Cloud Messaging (FCM) SDK (version 1.0.0-preview1) to send push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications using Firebase Cloud Messaging (FCM).
 
-You can download the completed code for this tutorial from GitHub.
+You can download the completed code for this tutorial from [GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/v1-preview/notification-hubs-test-app-refresh).
 
 This tutorial covers the following steps:
 
@@ -62,7 +62,7 @@ The first step is to create a project in Android Studio:
 3. On the **Add Firebase to your Android app** page, do the following:
 
    1. For **Android package name**, copy the value of the **applicationId** in your application's **build.gradle** file. In this example, it's `com.fabrikam.fcmtutorial1app`.
-      
+
       :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Specify package name":::
 
    2. Select **Register app**.
@@ -235,7 +235,7 @@ also have the connection strings that are necessary to send notifications to a d
 4. Ensure that you have a virtual device for running the app. If you do not have one, add one as follows:
 
    1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Device manager":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Virtual devices"::: 
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Virtual devices":::
    3. Run the app on your selected device, and verify that it registers successfully with the hub.
 
       :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Device registration":::

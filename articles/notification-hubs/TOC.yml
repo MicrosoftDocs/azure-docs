@@ -139,7 +139,7 @@
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
-    href: notification-hubs-push-notification-http2-token-authentification.md
+    href: notification-hubs-push-notification-http2-token-authentication.md
   - name: Troubleshoot dropped notifications
     href: notification-hubs-push-notification-fixer.md
   - name: Push notifications using Baidu cloud push
