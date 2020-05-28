@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 05/27/2020
 ms.author: sausin
 ---
 
@@ -23,14 +23,15 @@ In this article, you will learn about the language generation aspects of speech 
 You must have completed the steps in the following articles:
 
 > [!div class="checklist"]
-> * 
-> *
+> * [How To: Create an empty application](./how-to-custom-commands-create-basic-application.md)
+> * [How To: Add simple commands](./how-to-custom-commands-add-simple-commands.md)
+> * [How To: Add parameters to commands](./how-to-custom-commands-add-simple-commands.md)
 
 ## Language generation templates overview
 
-Custom Commands' templates are based on the BotFramework's [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
+Custom Commands templates are based on the BotFramework's [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
 
-Since Custom Commands creates a new LG template when required (i.e. for speech responses in parameters or actions) you do not have to specify the name of the LG template, i.e. instead of defining your template as.
+Since Custom Commands creates a new LG template when required (i.e. for speech responses in parameters or actions) you do not have to specify the name of the LG template. So, instead of defining your template as:
 
  ```
     # CompletionAction
@@ -43,45 +44,53 @@ You only need to define the body of the template without the name, i.e.
 
 ![template editor example](./media/custom-speech-commands/template-editor-example.png)
 
-Taking advantage of LG templates we can define complex speech responses for our commands, i.e.
+This change introduces variation to the speech responses being sent to the client.
+Taking advantage of LG templates we can also define complex speech responses for our commands using adaptive expressions.
 
-![advanced template editor example](./media/custom-speech-commands/advanced-template-editor-example.png)
+You can refer to the [LG templates format](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
 
-You can refer to the [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) documentation for more examples, just keep in mind the following restrictions.
-
-1. In the LG templates entities are represented as ${entityName}, in Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
-1. Template composition and expansion is not supported in Custom Commands.
-1. Functions injected by LG  is not supported in Custom Commands.
+1. In the LG templates entities are represented as ${entityName}. In Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
+1. Template composition and expansion is not supported in Custom Commands. This is because you never edit the .lg file directly, but only the responses of automatically created templates. 
+1. Custom functions injected by LG  are not supported in Custom Commands. Predefined functions are still supported.
 1. Options (strict, replaceNull & lineBreakStyle) are not supported in Custom Commands.
 
 ## Add template responses to TurnOnOff command
-Template editor is used to introduce variation to the speech responses being sent to the client.
 
-1. Let's go back to **TurnOnOff** command. Edit the **Actions** section of existing completion rule **ConfirmationResponse**.
+### Modify TurnOnOff command
+Let's modify the **TurnOnOff** command to add a new parameter to it with the following configuration:
+
+| Setting            | Suggested value       | 
+| ------------------ | --------------------- | 
+| Name               | `SubjectContext`         | 
+| Is Global          | unchecked             | 
+| Required           | unchecked               | 
+| Type               | String                |
+| Default value      | `all` |
+| Configuration      | Accept predefined input values from internal catalog | 
+| Predefined input values | `room`, `bathroom`, `all`|
+
+
+
+
+1. Edit the **Actions** section of existing completion rule **ConfirmationResponse**.
 1. In the **Edit action** pop-up, switch to **Template Editor** and replace the text with-
 
     ```
-    - Ok, turning {OnOff} the {SubjectDevice}
-    - Done, turning {OnOff} the {SubjectDevice}
-    - Proceeding to turn {OnOff} {SubjectDevice}
+    - IF: @{SubjectContext == "all" && SubjectDevice == "lights"}
+        - Ok, turning all the lights {OnOff}
+    - ELSEIF: @{SubjectDevice == "lights"}
+        - Ok, turning {OnOff} the {SubjectContext} {SubjectDevice}
+    - ELSE:
+        - Ok, turning the {SubjectDevice} {OnOff}
+        - Done, turning {OnOff} the {SubjectDevice}
     ```
 
-1. **Train** and **Test** your application
+1. **Train** and **Test** your application as follows. Notice the variation of responses owing to use of multiple alternatives of the template value and use of adaptive expressions.
     * Input: turn on the tv
-    * Output: Ok, turning on the tv
+    * Output: Ok, turning the tv on
     * Input: turn on the tv
     * Output: Done, turning on the tv
-    * Input: turn on the tv
-    * Output: Proceeding to turn on the tv
-
-
-## Add adaptive expressions to SetAlarms command
-1. For this, let's use the **FallbackCommand**. Select the command in the left pane.
-1. Modify the **DefaultResponse** completion rules and change the existing action to **Send speech response > hi {getTimeOfDay(utcNow())}**
-
- > [!NOTE]
-  > For details on supported adaptive expressions, click here []
-
-1. **Train** and **Test** your application
-    * Input: hi
-    * Output: hi morning
+    * Input: turn off the lights
+    * Output: Ok, turning all the lights off
+    * Input: turn off room lights
+    * Output: Ok, turning off the room lights

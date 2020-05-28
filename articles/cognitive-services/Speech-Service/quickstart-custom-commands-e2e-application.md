@@ -8,12 +8,12 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/27/2020
 ms.author: sausin
 ---
 
 # Create an end to end voice assistant using Custom Commands
-In this article you will create a Custom Commands application and integrate it to a UWP to have an end to end voice assistant.
+In this article you will create and test Custom Commands application using Speech Studio. You will also be able to access this application from a UWP client.
 
 ## Prerequisites
 
@@ -21,6 +21,8 @@ In this article you will create a Custom Commands application and integrate it t
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Download the sample
 [HospitalityDemo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands/hospitality/skill).
+> * Download the latest version of [Windows Voice Assistant Client](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/releases).
+
 
 
   > [!NOTE]
@@ -74,17 +76,43 @@ You should now see overview of your new Custom Commands application.
 ## Try out some voice commands
 1. Select **Train** present at the top of the right pane.
 1. Once training is completed, select **Test**.
-    1. Turn on the tv
-    1. Set the temperature to 80 degrees
-    1. Turn it off
-    1. Set an alarm
+    - Turn on the tv
+    - Set the temperature to 80 degrees
+    - Turn it off
+    - Set an alarm
 
 ## Integrate Custom Commands application in an assistant
+Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you will need to configure prediction Luis resource.  
 
-TODO - Refer to How-To speech sdk
-In the section above, you used the existing chat panel in the browser window. Next, let's access the Custom Commands application from a custom client.
+### Update prediction Luis resource
 
-1. For the application to be accessible outside the Custom Commands portal, it first needs to be published. Select **Publish** present on top of the right pane.
-1. Once publish completes, a new window will appear with the 
-1. If you are developing on windows, we recommend you first use the Windows Voice Assistant Client. Download it [here](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/releases/download/20200519.7/WindowsVoiceAssistantClient-20200519.7.zip).
-1. Next extract the files, and launch **VoiceAssistantClient.exe**
+1. Select **Settings** in the left pane and select  **LUIS resources** in the middle pane.
+1. Select a prediction resource, or create one by selecting **Create new resource**.
+1. Select **Save**.
+    
+    > [!div class="mx-imgBorder"]
+    > ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+
+
+### Publish the application
+Select  **Publish** present on the top of right panel. Once publish completes, a new window will appear. Note down the **Application id** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
+
+Alternatively, you can also get these values by selecting **Settings** > **General** section.
+
+### Access application from client
+In the scope of this article, we will be using the windows voice assistant client you downloaded as part of the pre-requisites. Unzip the folder.
+1. Launch **VoiceAssistantClient.exe**.
+1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app Id**.
+  > [!div class="mx-imgBorder"]
+  > ![WVAC Create profile](media/custom-speech-commands/wvac-create-profile.png)
+1. Select **Save and Apply Profile**.
+1. Now try out the following inputs via speech/text
+    > [!div class="mx-imgBorder"]
+  > ![WVAC Create profile](media/custom-speech-commands/wvac-conversation.png)
+
+
+> [!TIP]
+> You can click on entries in **Activity Log** to inspect the raw responses being sent from the Custom Commands service.
+
+## Next steps
+In this article, you used existing application and UWP client. Next, in the How-To sections, you will learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

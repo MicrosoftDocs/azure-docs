@@ -1,7 +1,7 @@
 ---
 title: 'How To: Create a Custom Commands application - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create and test a hosted Custom Commands application.
+description: In this article, you create and test a Custom Commands application.
 services: cognitive-services
 author: singhsaumya
 manager: yetian
@@ -12,10 +12,10 @@ ms.date: 05/20/2020
 ms.author: sausin
 ---
 
-# Create a Custom Commands app
+# Create a Custom Commands application
 
 In this article, you will learn how to create and test a basic Custom Commands application.
-The created application will have a default **Fallback command** and will process utterances like "Hi" and reply with a simple message "Hi back". You will also learn how to configure Luis resources for the application.
+The created application will have a default **Fallback command** and will process utterances like `Hi` and reply with a fallback message. You will also learn how to configure Luis resources for the application.
 
 ## Prerequisites
 

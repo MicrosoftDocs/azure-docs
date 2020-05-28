@@ -12,24 +12,23 @@ ms.date: 05/11/2020
 ms.author: sausin
 ---
 
-# Add simple commands to Custom Command application
+# Add simple commands
 
-In this article, you will learn how to add some basic commands to your application.
+In this article, you will learn how to add some basic commands to your Custom Commands application.
 
 ## Prerequisites
 > [!div class="checklist"]
-> * 
+> * [Create a Custom Commands application](./how-to-custom-commands-create-empty-project.md)
 
 ## Add TurnOn Command
 ### Create Command
-To the **smart room-lite** Custom Commands application, let's add a simple command that process an utterance, `turn on the tv`, and respond with the message `Ok, turning on the tv`.
+To the **smart room-lite** Custom Commands application, let's add a simple command that process an utterance, `turn on the tv`, and respond with the message `Ok, turning the tv on`.
 
 1. Create a new Command by selecting **New command** at the top of the left pane. The **New command** window opens.
 1. Provide value for the **Name** field as **TurnOn**.
 1. Select **Create**.
 
-The middle pane lists the different properties of the command. You will be configuring the following properties of the command. For explanation of all the configuration properties of a command, click here. [TODOVishesh1]
-
+The middle pane lists the different properties of the command. You will be configuring the following properties of the command. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md#Commands-configuration).
 
 | Configuration            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -60,14 +59,14 @@ For now, we don't have parameters, so we can move to the **Completion rules** se
 
 ### Add a completion rule
 
-Now add a completion rule that has the following configuration. This rule tells the user that a fulfillment action is being taken.
+Now add a completion rule that has the following configuration. This rule tells the user that a fulfillment action is being taken. To read more about rules and completion rules, go to [references](./custom-commands-references.md).
 
 
 | Setting    | Suggested value                          | Description                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
 | **Name**       | ConfirmationResponse                  | A name describing the purpose of the rule          |
 | **Conditions** | None                                     | Conditions that determine when the rule can run    |
-| **Actions**    | SpeechResponse -> "Ok, turning on the tv" | The action to take when the rule condition is true |
+| **Actions**    | SpeechResponse > `Ok, turning the tv on` | The action to take when the rule condition is true |
 
 1. You can create a completion rule by selecting the **Add** at the top of the middle pane. But for now, let's reuse the existing default **Done** rule.
 1. Provide value in **Name** section.
@@ -75,7 +74,7 @@ Now add a completion rule that has the following configuration. This rule tells 
    1. Create an action by selecting **Add an action** in the **Actions** section.
    1. In the **New Action** window, in the **Type** list, select **Send speech response**.
    1. Under **Response**, select **Simple editor**.
-       - In the **First variation** field, provide value for response as `Ok, turning on the tv`
+       - In the **First variation** field, provide value for response as `Ok, turning the tv on`.
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
@@ -92,7 +91,7 @@ Test the behavior using the Test chat panel
 1. Select **Train** icon present on top of the right pane.
 1. Once, training completes, select **Test**. Try out the following utterance.
     - Input: turn on the tv
-    - Output: Ok, turning on the tv
+    - Output: Ok, turning the tv on
 
 
 > [!div class="mx-imgBorder"]
@@ -114,7 +113,7 @@ Follow the steps as illustrated for the **TurnOn** command to create a new comma
 | ---------- | ---------------------------------------- |
 | Name  | ConfirmationResponse                  |
 | Conditions | None                                     |
-| Actions    | SpeechResponse > "Ok, setting temperature to 40 degrees" |
+| Actions    | SpeechResponse > Ok, setting temperature to 40 degrees |
 
 
 ## Add SetAlarm command
@@ -133,7 +132,7 @@ Create a new Command **SetAlarm** with configuration as defined below.
 | ---------- | ---------------------------------------- |
 | Rule Name  | ConfirmationResponse                  |
 | Conditions | None                                     |
-| Actions    | SpeechResponse > "Ok, setting an alarm for 9 am tomorrow" |
+| Actions    | SpeechResponse > `Ok, setting an alarm for 9 am tomorrow` |
 
 
 ## Try it out
