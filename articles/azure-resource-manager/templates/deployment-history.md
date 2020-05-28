@@ -3,11 +3,13 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 05/26/2020
 ---
 # View deployment history with Azure Resource Manager
 
-Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
+Azure Resource Manager enables you to view your deployment history. You can examine specific operations in past deployments and see which resources were deployed. This history contains information about any errors.
+
+The deployment history for a resource group is limited to 800 deployments. As you near the limit, deployments are automatically deleted from the history. For more information, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 
 For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
 
@@ -111,7 +113,7 @@ Each deployment can include multiple operations. To see more details about a dep
 
 1. On the summary for a deployment, select **Operation details**.
 
-    ![Select deployment operations](./media/deployment-history/get-operation-details.png)
+    ![Select operation details](./media/deployment-history/get-operation-details.png)
 
 1. You see the details for that step of the deployment. When an error occurs, the details include the error message.
 
@@ -204,6 +206,6 @@ The response includes an error message.
 ## Next steps
 
 * For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
-* To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](../management/view-activity-logs.md).
+* To learn about how deployments are managed in the history, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 * To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](deploy-powershell.md).
 

@@ -145,7 +145,7 @@ In this configuration, an Azure SQL Database or Azure SQL Managed Instance datab
 
 ## With failover groups
 
-[Active geo-replication](../database/active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](../database/auto-failover-group-overview.md), but note that the publication has to be [manually deleted](transact-sql-tsql-differences-sql-server.md#replication) from the primary SQL Managed instance and recreated on the secondary SQL Managed Instance after failover.
+[Active geo-replication](../database/active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](../database/auto-failover-group-overview.md), but note that the publication has to be [manually deleted](transact-sql-tsql-differences-sql-server.md#replication) from the primary managed instance and recreated on the secondary SQL Managed Instance after failover.
 
 If geo-replication is enabled on a **publisher** or **distributor** SQL Managed Instance in a [failover group](../database/auto-failover-group-overview.md), the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 
