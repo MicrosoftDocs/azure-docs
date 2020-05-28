@@ -19,7 +19,7 @@ ms.custom: seoapril2019, sqldbrb=1
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Managed Instance and SQL Server. 
 
 
-SQL Managed Instance provides high compatibility with the on-premises SQL Server Database Engine, and most features are supported in a SQL Managed Instance.
+SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
 ![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
