@@ -107,16 +107,9 @@ Rotating the key does not trigger re-encryption of data in the resource. There i
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource, as the encryption key is inaccessible by Cognitive Services.
 
-
 ## Disable customer-managed keys
 
 When you disable customer-managed keys, your Cognitive Services resource is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
 
 1. Navigate to your Cognitive Services resource and display the **Encryption** settings.
 1. Deselect the checkbox next to the **Use your own key** setting.
-
-## Next steps
-
-* For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
-* [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
