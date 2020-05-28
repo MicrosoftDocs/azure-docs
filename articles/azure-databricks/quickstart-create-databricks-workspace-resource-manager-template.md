@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Databricks workspace by Azure Resource manager template
+title: Quickstart - Create an Azure Databricks workspace by Azure Resource Manager template
 description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace.
 services: azure-databricks
 ms.service: azure-databricks
@@ -12,9 +12,9 @@ ms.custom: mvc, subject-armqs
 ms.date: 05/27/2020
 ---
 
-# Quickstart: Create an Azure Databricks workspace by using the Azure Resource manager template
+# Quickstart: Create an Azure Databricks workspace by using the Azure Resource Manager template
 
-In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace with an Apache Spark cluster. You run a job on the cluster and use custom charts to produce real-time reports from free/paid usage based on demographics.
+In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace. You run a job on the cluster and use custom charts to produce real-time reports from free/paid usage based on demographics.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -58,7 +58,7 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**.
 
-4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There's also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
    ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks deployment tile")
 
@@ -67,7 +67,6 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 ## Review deployed resources
 
 You can either use the Azure portal to check the Azure Databricks workspace or use the following Azure CLI or Azure PowerShell script to list the resource.
-
 
 # [CLI](#tab/CLI)
 
@@ -89,7 +88,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 ## Clean up resources
 
-If you plan to continue on to subsequent tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Azure Databricks workspace and the related managed resources. To delete the resource group by using Azure CLI or Azure Powershell:
+If you plan to continue on to subsequent tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Azure Databricks workspace and the related managed resources. To delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -106,6 +105,7 @@ echo "Press [ENTER] to continue ..."
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
+```
 
 ## Next steps
 
