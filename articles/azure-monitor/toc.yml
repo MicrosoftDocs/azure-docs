@@ -972,6 +972,8 @@
       href: insights/container-insights-update-metrics.md
     - name: Health monitoring configuration
       href: insights/container-insights-health-monitors-config.md
+    - name: Manage cost and usage
+      href: insights/container-insights-cost.md
     - name: Disable monitoring
       items:
         - name: Disable monitoring AKS
