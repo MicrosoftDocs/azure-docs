@@ -8,7 +8,9 @@ ms.date: 05/28/2020
 
 # Pre-defined metric alerts (preview) from Azure Monitor for containers
 
-To alert on performance issues with Azure Monitor for containers, you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview. This article reviews the experience and provides guidance on configuring and managing these alert rules.
+To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview. 
+
+This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
 ## Alert rules overview
 
@@ -81,10 +83,10 @@ You can view and manage Azure Monitor for containers alert rules, to edit its th
 
 1. From the command bar, select **Recommended alerts**.
 
-2. To modify the threshold, on the **Recommended alerts** pane, select the enabled alert. In the **Edit rule**, select the **Alert criteria** you want to edit. 
+2. To modify the threshold, on the **Recommended alerts** pane, select the enabled alert. In the **Edit rule**, select the **Alert criteria** you want to edit.
 
     * To modify the alert rule threshold, select the **Condition**.
     * To specify an existing or create an action group, select **Add** or **Create** under **ACION GROUPS**
 
-To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. This redirects you to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster. 
+To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. This redirects you to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
 
