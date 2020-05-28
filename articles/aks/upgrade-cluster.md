@@ -74,6 +74,9 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+> [!Important]
+> The max-surge setting on a node pool is permanent. Additional upgrades and other operations on node pools use this setting. You may change the value for max-surge at any time.
+
 Use the following commands to set max surge values for new or existing node pools.
 
 ```azurecli-interactive
