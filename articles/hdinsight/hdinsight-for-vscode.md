@@ -213,7 +213,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
 10. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
 
-   ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+    ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 The tool also supports the **Spark SQL** query:
 
