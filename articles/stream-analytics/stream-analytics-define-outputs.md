@@ -54,7 +54,7 @@ The following table lists the property names and their description for creating 
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The SQL Database server name. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
+| Server name | The logical SQL server name or managed instance name. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
 | Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |

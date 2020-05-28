@@ -9052,7 +9052,7 @@ Azure service: [Azure Managed Applications](../azure-resource-manager/managed-ap
 
 ## Microsoft.Sql
 
-Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -9330,7 +9330,7 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 > | Action | Microsoft.Sql/operations/read | Gets available REST operations |
 > |  | **servers** |  |
 > | Action | Microsoft.Sql/servers/tdeCertificates/action | Create/Update TDE certificate |
-> | Action | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Disable Azure Active Directory only authentication on logical Server |
+> | Action | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Disable Azure Active Directory only authentication on a server in Azure SQL Database|
 > | Action | Microsoft.Sql/servers/read | Return the list of servers or gets the properties for the specified server. |
 > | Action | Microsoft.Sql/servers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | Action | Microsoft.Sql/servers/delete | Deletes an existing server. |
@@ -9625,7 +9625,7 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 > |  | **servers/importExportOperationResults** |  |
 > | Action | Microsoft.Sql/servers/importExportOperationResults/read | Gets in-progress import/export operations |
 > |  | **servers/inaccessibleDatabases** |  |
-> | Action | Microsoft.Sql/servers/inaccessibleDatabases/read | Return a list of inaccessible database(s) in a logical server. |
+> | Action | Microsoft.Sql/servers/inaccessibleDatabases/read | Return a list of inaccessible database(s) in a server in Azure SQL Datbase. |
 > |  | **servers/interfaceEndpointProfiles** |  |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Creates a interface endpoint profile with the specified parameters or updates the properties or tags for the specified interface endpoint |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Returns the properties for the specified interface endpoint profile |
@@ -9696,7 +9696,7 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 
 ## Microsoft.SqlVirtualMachine
 
-Azure service: [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Azure service: [SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |

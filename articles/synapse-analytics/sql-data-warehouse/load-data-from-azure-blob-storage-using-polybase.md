@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank database
 
-A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Follow these steps to create a blank database.
 
@@ -70,7 +70,7 @@ Follow these steps to create a blank database.
     | **Password**           | Any valid password       | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location**           | Any valid location       | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
-    ![create database server](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+    ![create server](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. Select **Select**.
 
@@ -91,14 +91,14 @@ Follow these steps to create a blank database.
 
 ## Create a server-level firewall rule
 
-A firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
+A firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
 
 > [!NOTE]
-> SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your server unless your IT department opens port 1433.
 
 1. After the deployment completes, select **SQL databases** from the left-hand menu and then select **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then select on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then select the server name to open server settings.
 
     ![find server name](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -106,24 +106,24 @@ A firewall at the server-level that prevents external applications and tools fro
 
     ![server settings](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-4. Select **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens.
+4. Select **Show firewall settings**. The **Firewall settings** page for the server opens.
 
     ![server firewall rule](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
 5. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-6. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+6. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the server.
 
 7. Select **OK** and then close the **Firewall settings** page.
 
-You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
+You can now connect to the server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
-Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
+Get the fully qualified server name for your server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Synapse Analytics** from the left-hand menu, and select your database on the **Azure Synapse Analytics** page.
@@ -133,7 +133,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your server.
 
 1. Open SQL Server Management Studio.
 
@@ -565,7 +565,7 @@ Loading using PolyBase and authenticating through managed identities is the most
 
 #### Steps
 
-1. In PowerShell, **register your SQL server** with Azure Active Directory (AAD):
+1. In PowerShell, **register your server** with Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -578,7 +578,7 @@ Loading using PolyBase and authenticating through managed identities is the most
    > [!NOTE]
    > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your SQL Database server.
+3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your server.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -600,7 +600,7 @@ Loading using PolyBase and authenticating through managed identities is the most
 
 3. Query as normal using [external tables](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Refer to the following [documentation](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) if you'd like to set up virtual network service endpoints for Azure Synapse Analytics.
+Refer to the following [documentation](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) if you'd like to set up virtual network service endpoints for Azure Synapse Analytics.
 
 ## Clean up resources
 
@@ -619,7 +619,7 @@ Follow these steps to clean up resources as you desire.
 
 3. To remove the data warehouse so you won't be charged for compute or storage, select **Delete**.
 
-4. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
 5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
