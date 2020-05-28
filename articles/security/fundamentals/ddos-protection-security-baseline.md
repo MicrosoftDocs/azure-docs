@@ -4,7 +4,7 @@ description: Azure security baseline for Azure DDOS Protection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23466).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23378).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -41,7 +41,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23467).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23379).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -52,7 +52,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23468).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23380).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -63,7 +63,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23469).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23381).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.5: Record network packets
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23470).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23382).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -85,7 +85,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23471).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23383).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -96,7 +96,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23472).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23384).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -107,7 +107,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23473).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23385).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -118,7 +118,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23474).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23386).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -129,7 +129,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23475).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23387).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
 
@@ -140,7 +140,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23476).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23388).
 
 **Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group. There are no network configurations to make or monitor.
 
@@ -155,7 +155,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23477).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23389).
 
 **Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure DDoS Protection, for timestamps in the logs.
 
@@ -166,7 +166,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23478).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23390).
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure DDoS Protection plans at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
@@ -179,7 +179,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23479).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23391).
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
@@ -194,7 +194,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23480).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23392).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -205,7 +205,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23481).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23393).
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure DDoS Protection plans according to your organization's compliance regulations.
 
@@ -218,7 +218,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23482).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23394).
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Recovery Services vaults.
 
@@ -233,7 +233,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23483).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23395).
 
 **Guidance**: Onboard a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor.
 
@@ -248,7 +248,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23484).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23396).
 
 **Guidance**: Not applicable; Azure DDoS Protection does not process or produce anti-malware related logs.
 
@@ -259,7 +259,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23485).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23397).
 
 **Guidance**: Not applicable; Azure DDoS Protection does not process or produce DNS-related logs.
 
@@ -270,7 +270,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23486).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23398).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -285,7 +285,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23487).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23399).
 
 **Guidance**: Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
@@ -300,7 +300,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23488).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23400).
 
 **Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
@@ -311,7 +311,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23489).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23401).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -331,7 +331,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23490).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23402).
 
 **Guidance**: [For internal peer review -- is this applicable?]
 
@@ -350,7 +350,7 @@ Use an Azure app registration (service principal) to retrieve a token that can b
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23491).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23403).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -365,7 +365,7 @@ Use an Azure app registration (service principal) to retrieve a token that can b
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23492).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23404).
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
@@ -380,7 +380,7 @@ Use an Azure app registration (service principal) to retrieve a token that can b
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23493).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23405).
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -397,7 +397,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.8: Manage Azure resources from only approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23494).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23406).
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -410,7 +410,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23495).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23407).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -423,7 +423,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23496).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23408).
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -438,7 +438,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23497).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23409).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -457,7 +457,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23498).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23410).
 
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -474,7 +474,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23499).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23411).
 
 **Guidance**: This recommendation is not applicable to Azure DDoS Protection.
 
@@ -489,7 +489,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23500).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23412).
 
 **Guidance**: Use Tags to assist in tracking Azure resources that store or process sensitive information.
 
@@ -502,7 +502,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23501).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23413).
 
 **Guidance**: Not applicable; your DDoS Protection plan will be provisioned in the resource group you define. There is no public endpoint to protect or isolate.
 
@@ -513,7 +513,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23502).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23414).
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure DDoS Protection and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -526,7 +526,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23503).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23415).
 
 **Guidance**: Not applicable; Azure DDoS Protection does not hold customer data at rest.
 
@@ -537,7 +537,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23504).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23416).
 
 **Guidance**: Not applicable; Azure DDoS protection does not hold customer data.
 
@@ -548,7 +548,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.6: Use Role-based access control to control access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23505).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23417).
 
 **Guidance**: To work with DDoS protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
@@ -561,7 +561,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23506).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23418).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure DDoS Protection and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -574,7 +574,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23507).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23419).
 
 **Guidance**: Not applicable; Azure DDoS Protection does not hold customer data.
 
@@ -585,7 +585,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23508).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23420).
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure DDoS Protection plans as well as other critical or related resources.
 
@@ -602,7 +602,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23509).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23421).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
 
@@ -613,7 +613,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23510).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23422).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -624,7 +624,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23511).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23423).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -635,7 +635,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23512).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23424).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
 
@@ -646,7 +646,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23513).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23425).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
 
@@ -661,7 +661,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 6.1: Use automated Asset Discovery solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23514).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23426).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -680,7 +680,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23515).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23427).
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
@@ -693,7 +693,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23516).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23428).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -714,7 +714,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 ### 6.4: Define and Maintainan inventory of approved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23517).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23429).
 
 **Guidance**: Define approved Azure resources and approved software for compute resources.
 
@@ -725,7 +725,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23518).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23430).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
@@ -742,7 +742,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23519).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23431).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -753,7 +753,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23520).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23432).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -764,7 +764,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23521).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23433).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -775,7 +775,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23522).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23434).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -792,7 +792,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.10: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23523).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23435).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -803,7 +803,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23524).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23436).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -816,7 +816,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23525).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23437).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -827,7 +827,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23526).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23438).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -842,7 +842,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23527).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23439).
 
 **Guidance**: Define and implement standard security configurations for Azure DDos Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
@@ -857,7 +857,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23528).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23440).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -868,7 +868,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23529).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23441).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -883,7 +883,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23530).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23442).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -894,7 +894,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23531).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23443).
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
@@ -909,7 +909,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23532).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23444).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -920,7 +920,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23533).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23445).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -933,7 +933,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.8: Deploy configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23534).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23446).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -944,7 +944,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23535).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23447).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
@@ -957,7 +957,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23536).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23448).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -968,7 +968,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23537).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23449).
 
 **Guidance**: Not applicable; to work with DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned the appropriate actions. There are no passwords, secrets, or keys required to access DDoS Protection.
 
@@ -979,7 +979,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23538).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23450).
 
 **Guidance**: Not applicable; Azure DDoS Protection does not make use of managed identities.
 
@@ -992,7 +992,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23539).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23451).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -1009,7 +1009,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 8.1: Use centrally managed anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23540).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23452).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
 
@@ -1020,7 +1020,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23541).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23453).
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
 
@@ -1033,7 +1033,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23542).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23454).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
@@ -1048,7 +1048,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.1: Ensure regular automated back ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23543).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23455).
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -1059,7 +1059,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23544).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23456).
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -1070,7 +1070,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.3: Validate all backups including customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23545).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23457).
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -1081,7 +1081,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.4: Ensure protection of backups and customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23546).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23458).
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -1096,7 +1096,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23547).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23459).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1113,7 +1113,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23548).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23460).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1130,7 +1130,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23553).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23465).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
@@ -1143,7 +1143,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23549).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23461).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
@@ -1156,7 +1156,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23550).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23462).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -1171,7 +1171,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23551).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23463).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
@@ -1188,7 +1188,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23552).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23464).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
