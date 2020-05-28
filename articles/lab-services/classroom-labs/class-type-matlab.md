@@ -15,7 +15,7 @@ ms.author: enewman
 
 [MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is programming platform from [MathWorks](https://www.mathworks.com/).  It combines computational power and visualization making it popular tool in the fields of math, engineering, physics, and chemistry.
 
-If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-support-program/administrators.html), see directions at [download MATLAB installation files](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine) to download the Matlab installer files on the template machine.  
+If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-support-program/administrators.html), see directions at [download MATLAB installation files](https://www.mathworks.com/matlabcentral/answers/259632-how-can-i-get-matlab-installation-files-for-use-on-an-offline-machine) to download the MATLAB installer files on the template machine.  
 
 In this article, we'll show how to set up a class that uses MATLAB client software with a license server.
 
