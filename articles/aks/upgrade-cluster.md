@@ -51,6 +51,7 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 > Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 2 nodes * 5 pools = 10 is required to complete the upgrade.
 
 By default, AKS configures upgrades to surge with one additional node. This default enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max surge parameter can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing this value, an upgrade operation provisions that many additional nodes to facilitate node replacement during an upgrade.
+
 AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. Setting a value of 100% provides the fastest upgrade, but will also cause all 
 
 Register for the Node surge upgrade feature by issuing the following Azure CLI command:
