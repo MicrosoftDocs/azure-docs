@@ -111,7 +111,7 @@ If you use a Premium-level [integration service environment (ISE)](../logic-apps
    
    1. When you're done, select **Create**.
 
-   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment.md#add-ise-connectors-environment.md).
+   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment.md).
 
 1. If your SAP instance and ISE are in different virtual networks, you also need to [peer or connect those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is peered to your SAP instance's virtual network.
 
