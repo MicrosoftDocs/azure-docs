@@ -52430,6 +52430,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+      "redirect_url": "/articles/virtual-network/public-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-log",
       "redirect_document_id": false
