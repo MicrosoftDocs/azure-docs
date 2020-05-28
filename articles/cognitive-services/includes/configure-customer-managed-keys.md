@@ -99,7 +99,7 @@ To change the key used for encryption, follow these steps:
 
 ## Rotate customer-managed keys
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Cognitive Services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Cognitive Services by using the Azure portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md).
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Cognitive Services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see [Update the key version](#update-the-key-version).
 
 Rotating the key does not trigger re-encryption of data in the resource. There is no further action required from the user.
 

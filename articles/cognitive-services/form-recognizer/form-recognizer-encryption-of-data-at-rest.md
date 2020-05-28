@@ -24,7 +24,7 @@ Azure Form Recognizer automatically encrypts your data when persisted it to the 
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-[!INCLUDE [cognitive-services-cmk](../includes/configure=customer-managed-keys.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
 ## Next steps
 
