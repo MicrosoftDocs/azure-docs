@@ -20,7 +20,7 @@ ms.author: allensu
 
 Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with are:
+In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with:
 
 * Virtual machine network interfaces
 * Internet-facing load balancers
@@ -41,7 +41,7 @@ Public IP addresses are created with one of the following SKUs:
 
 ### Standard
 
-Standard SKU public IP addresses are:
+Standard SKU public IP addresses:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
@@ -61,7 +61,7 @@ All public IP addresses created before the introduction of SKUs are Basic SKU pu
 
 With the introduction of SKUs, specify which SKU you would like the public IP address to be. 
 
-Basic SKU addresses are:
+Basic SKU addresses:
 
 - Assigned with the static or dynamic allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
