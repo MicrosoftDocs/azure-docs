@@ -1,6 +1,6 @@
 ---
 title: Service Fabric cluster capacity planning considerations
-description: Node types, operations, Durability and Reliability tiers, and other things to consider when planning your Service Fabric cluster.
+description: Node types, durability, reliability, and other things to consider when planning your Service Fabric cluster.
 
 ms.topic: conceptual
 ms.date: 05/21/2020
@@ -25,7 +25,7 @@ A *node type* defines the size, number, and properties for a set of nodes (virtu
 
 Because each node type is a distinct scale set, it can be scaled up or down independently, have different sets of ports open, and have different capacity metrics. For more information about the relationship between node types and virtual machine scale sets, see [Service Fabric cluster node types](service-fabric-cluster-nodetypes.md).
 
-Each cluster requires one (and only one) **primary node type**, which runs critical system services that provide Service Fabric platform capabilities. Although it's possible to also use primary node types to run your applications, it's recommended to dedicate them solely to running system services.
+Each cluster requires one **primary node type**, which runs critical system services that provide Service Fabric platform capabilities. Although it's possible to also use primary node types to run your applications, it's recommended to dedicate them solely to running system services.
 
 **Non-primary node types** are used to define application roles (such as *front-end* and *back-end* services) for a set of cluster nodes. Service Fabric clusters can have zero or more non-primary node types.
 
@@ -94,7 +94,7 @@ Follow these recommendations for managing node types with Silver or Gold durabil
 
 * Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion.
 * Adopt safer ways to make a VM size change (scale up/down). Changing the VM size of a virtual machine scale set requires careful planning and caution. For details, see [Scale up a Service Fabric node type](service-fabric-scale-up-node-type.md)
-* Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
+* Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled. Your cluster will enter error state if you scale in below this threshold, and you'll need to manually clean up state (`Remove-ServiceFabricNodeState`) for the removed nodes.
 * Each virtual machine scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple virtual machine scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
 * Do not delete random VM instances, always use virtual machine scale set scale in feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across [upgrade domains](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) and [fault domains](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). This imbalance could adversely affect the systems ability to properly load balance among the service instances/Service replicas.
 * If using Autoscale, set the rules such that scale in (removing of VM instances) operations are done only one node at a time. Scaling down more than one instance at a time is not safe.
@@ -129,7 +129,7 @@ Here is the recommendation on choosing the reliability tier. The number of seed 
 
 | **Number of nodes** | **Reliability Tier** |
 | --- | --- |
-| 1 | *Do not specify the Reliability Tier parameter, the system calculates it* |
+| 1 | *Do not specify the `reliabilityLevel` parameter: the system calculates it.* |
 | 3 | Bronze |
 | 5 or 6| Silver |
 | 7 or 8 | Gold |
@@ -154,11 +154,14 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 **Production workloads** on Azure require a minimum of five primary nodes (VM instances) and reliability tier of Silver. It's recommended to dedicate the cluster primary node type to system services, and use placement constraints to deploy your application to secondary node types.
 
-**Test workloads** in Azure can run a minimum of one or three primary nodes. Be aware that one node clusters run with a special configuration without reliability and where scale out is not supported. To configure a one node cluster, be sure that the `reliabilityLevel` setting is completely omitted in your Resource Manager template (specifying empty string value for `reliabilityLevel` is not sufficient). If you set up the one node cluster set up with Azure portal, this configuration is done automatically.
+**Test workloads** in Azure can run a minimum of one or three primary nodes. To configure a one node cluster, be sure that the `reliabilityLevel` setting is completely omitted in your Resource Manager template (specifying empty string value for `reliabilityLevel` is not sufficient). If you set up the one node cluster set up with Azure portal, this configuration is done automatically.
+
+> [!WARNING]
+> One-node clusters run with a special configuration without reliability and where scale out is not supported.
 
 #### Non-primary node types
 
-The minimum number of nodes for non-primary node types is one. However, you should plan the number of nodes to run based on the number of replicas of applications or services that you want to run for the node type, and depending on whether the workload is stateful or stateless. Keep in mind you can increase or decrease the number of VMs in a node type anytime after you have deployed the cluster.
+The minimum number of nodes for a non-primary node type depends on the specific [durability level](#durability-characteristics-of-the-cluster) of the node type. You should plan the number of nodes (and durability level) based on the number of replicas of applications or services that you want to run for the node type, and depending on whether the workload is stateful or stateless. Keep in mind you can increase or decrease the number of VMs in a node type anytime after you have deployed the cluster.
 
 ##### Stateful workloads
 
