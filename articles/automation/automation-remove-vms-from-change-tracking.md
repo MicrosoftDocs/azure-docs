@@ -18,7 +18,7 @@ When you're finished deploying changes to VMs in your environment, you can remov
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. In your Log Analytics workspace under **General**, access the saved searches.
+3. In your Log Analytics workspace under **General**, access the saved searches for the scope configuration `MicrosoftDefaultScopeConfig-ChangeTracking`.
 
 4. For the saved search `MicrosoftDefaultComputerGroup`, click the ellipsis to the right and select **Edit**. 
 
