@@ -86,7 +86,7 @@ If you use SNC (optional), you need to also configure these settings:
 
 If you use a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) so that your logic apps have access to resources in an Azure virtual network, and you want to use the ISE-specific SAP connector, you have a few more setup steps.
 
-1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer).
+1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 1. Make sure that you've [downloaded and installed the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
 
@@ -109,7 +109,7 @@ If you use a Premium-level [integration service environment (ISE)](../logic-apps
    
    1. When you're done, select **Create**.
 
-   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment.md#add-ise-connectors-environment).
+   For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment.md#add-ise-connectors-environment.md).
 
 1. If your SAP instance and ISE are in different virtual networks, you also need to [peer or connect those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is peered to your SAP instance's virtual network.
 
