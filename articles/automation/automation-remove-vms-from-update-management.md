@@ -8,10 +8,6 @@ ms.custom: mvc
 ---
 # Remove VMs from Update Management
 
-## Sign in to Azure
-
-Sign in to the Azure portal at https://portal.azure.com.
-
 When you're finished deploying updates to VMs in your environment, you can remove them from the [Update Management](automation-update-management.md) feature.
 
 1. From your Automation account, select **Update management** under **Update management**.
@@ -22,7 +18,7 @@ When you're finished deploying updates to VMs in your environment, you can remov
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. In your Log Analytics workspace under **General**, access the saved searches.
+3. In your Log Analytics workspace under **General**, access the saved searches for the scope configuration `MicrosoftDefaultScopeConfig-Updates`.
 
 4. For the saved search `MicrosoftDefaultComputerGroup`, click the ellipsis to the right and select **Edit**. 
 
