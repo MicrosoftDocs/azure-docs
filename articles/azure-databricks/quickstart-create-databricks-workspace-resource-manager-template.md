@@ -68,7 +68,7 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 
 You can either use the Azure portal to check the Azure Databricks workspace or use the following Azure CLI or Azure PowerShell script to list the resource.
 
-# [CLI](#tab/CLI)
+### Azure CLI
 
 ```azurecli-interactive
 echo "Enter your Azure Databricks workspace name:" &&
@@ -78,7 +78,7 @@ read resourcegroupName &&
 az databricks workspace show -g $resourcegroupName -n $databricksWorkspaceName
 ```
 
-# [PowerShell](#tab/PowerShell)
+### Azure PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Databricks workspace exists"
@@ -90,7 +90,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 If you plan to continue on to subsequent tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Azure Databricks workspace and the related managed resources. To delete the resource group by using Azure CLI or Azure PowerShell:
 
-# [CLI](#tab/CLI)
+### Azure CLI
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -99,7 +99,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell](#tab/PowerShell)
+### Azure PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
