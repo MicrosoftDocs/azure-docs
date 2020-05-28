@@ -22,7 +22,7 @@ In this quickstart, you use an Azure Resource Manager template to create an Azur
 
 To complete this article, you need to:
 
-* Have an Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* Have an Azure subscription - [create one for free](https://azure.microsoft.com/free/).
 
 ## Create an Azure Stream Analytics job
 
@@ -42,7 +42,7 @@ In this section, you create an Azure Stream Analytics job using the Azure Resour
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
-2. Provide the required values to create your Azure Stream Analytics job
+2. Provide the required values to create your Azure Stream Analytics job.
 
    ![Create Azure Stream Analytics job using an Azure Resource Manager template](./media/quick-create-azure-resource-manager/create-stream-analytics-job-resource-manager-template.png "Create Azure Stream Analytics job using an Azure Resource Manager template")
 
