@@ -165,7 +165,7 @@ Select **Certificates** tab on the top and you will be presented with the follow
 
 ![Metadata URL](./media/easysso-for-bamboo-tutorial/bamboo-admin-4.png)
 
-Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configura tion. You have following options on how to proceed:
+Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
 
  * Use the App Federation **Metadata File** you downloaded to local file on your computer. Select **Upload** radio button and follow the upload file dialog specific to your operating system
 
