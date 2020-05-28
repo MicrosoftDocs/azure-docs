@@ -117,7 +117,7 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
 1. In the Azure portal, open a user-assigned managed identity.
 
-1. Click **Azure resources**.
+1. Click **Azure role assignments**.
 
     You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 

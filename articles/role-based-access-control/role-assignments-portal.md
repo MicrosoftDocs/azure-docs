@@ -152,7 +152,7 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
 1. In the Azure portal, open a user-assigned managed identity.
 
-1. Click **Azure resources**.
+1. Click **Azure role assignments**.
 
     If roles are already assigned to the selected user-assigned managed identity, you see the list of role assignments. This list includes all role assignments you have permission to read.
 
