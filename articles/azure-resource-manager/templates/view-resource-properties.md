@@ -43,6 +43,7 @@ This article introduces some resources where you can find the information:
 - [Resource.azure.com](#resource.azure.com)
 - [Export templates](#export-templates)
 - [Azure Quickstart Templates](#use-quickstart-templates)
+- [Azure Resource Manager tools extension for Visual Studio Code](#resource-manager-tools-extension)
 
 Some of these resources are listed on the [Azure Resource Manager documentation site](./overview.md):
 
@@ -78,6 +79,10 @@ The Azure Resource Manager template reference is the most comprehensive resource
     At the end of the page, the **Quickstart templates** section lists some [Azure Quickstart Templates](#Use-quickstart-templates) that contain the resource type:
 
     ![template reference storage account quickstart templates](./media/view-resource-properties/resource-manager-template-reference-quickstart-templates.png)
+
+The template reference is linked from each of the Azure service documentation sites.  For example, the [Key Vault documentation site](../../key-vault/general/overview.md):
+
+![Resource Manager template reference Key Vault](./media/view-resource-properties/resource-manager-template-reference-key-vault.png)
 
 ## Use REST API
 
@@ -186,6 +191,18 @@ Azure Quickstart Templates is a repository of community contributed templates. T
     ![Azure Quickstart Templates storage account sku](./media/view-resource-properties/azure-quickstart-templates-storage-sku.png)
 
 1. Select **Raw** to see the raw json file. You can deploy this template by using this URL from [Azure PowerShell](./deploy-powershell.md), [Azure CLI](./deploy-cli.md), and the [Azure portal](./deploy-to-azure-button.md).
+
+## Use Resource Manager tools extension
+
+The Resource Manager tools extension includes template snippets for many Azure resources.  These snippets can be used to add resources to your templates.  For more information, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md#add-an-azure-resource).
+
+The following screenshot shows a storage account resource is added to a template:
+
+![Resource Manager tools extension snippets](./media/view-resource-properties/resource-manager-tools-extension-snippets.png)
+
+The extension also provides a list of options for the configuration properties.
+
+![Resource Manager tools extension configurable values](./media/view-resource-properties/resource-manager-tools-extension-configurable-properties.png)
 
 ## Next steps
 
