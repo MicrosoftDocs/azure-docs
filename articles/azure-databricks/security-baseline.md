@@ -964,7 +964,7 @@ Pre-scan any files being uploaded to your Azure Databricks cluster nodes or rela
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
-**Guidance**: Backup any customer managed keys related to your Azure Databricks implementations within Azure Key Vault. You can also use REST API and CLI to create a daily backup of Databricks configurations. You can also use REST API/CLI to create a daily backup of Databricks configurations.
+**Guidance**: Backup any customer managed keys related to your Azure Databricks implementations within Azure Key Vault. You can also use REST API and/or CLI to create a daily backup of Databricks configurations.
 
 * [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
