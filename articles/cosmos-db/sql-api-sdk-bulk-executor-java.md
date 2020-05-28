@@ -39,23 +39,23 @@ ms.author: anfeldma
 
 ## Release notes
 
-### <a name="2.10.0"/>2.10.0
+### <a name="2.10.0"></a>2.10.0
 
 * Fix for DocumentAnalyzer.java to correctly extract nested partition key values from json.
 
-### <a name="2.9.4"/>2.9.4
+### <a name="2.9.4"></a>2.9.4
 
 * Add functionality in BulkDelete operations to retry on specific failures and also return a list of failures to the user that could be retried.
 
-### <a name="2.9.3"/>2.9.3
+### <a name="2.9.3"></a>2.9.3
 
 * Update for Cosmos SDK version 2.4.7.
 
-### <a name="2.9.2"/>2.9.2
+### <a name="2.9.2"></a>2.9.2
 
 * Fix for 'mergeAll' to continue on 'id' and partition key value so that any patched document properties which are placed after 'id' and partition key value get added to the updated item list.
 
-### <a name="2.9.1"/>2.9.1
+### <a name="2.9.1"></a>2.9.1
 
 * Update start degree of concurrency to 1 and added debug logs for minibatch.
 
