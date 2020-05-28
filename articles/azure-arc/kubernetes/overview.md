@@ -22,7 +22,6 @@ Azure Arc enabled Kubernetes supports industry-standard SSL to secure data in tr
  > [!NOTE]
 > Azure Arc enabled Kubernetes is in preview and is not recommended for production workloads.
 
-
 ## Supported Scenarios
 
 Azure Arc enabled Kubernetes supports the following scenarios:
