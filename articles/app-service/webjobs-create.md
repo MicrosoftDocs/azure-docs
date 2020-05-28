@@ -80,11 +80,11 @@ when making changes in one don't forget the other two.
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-5. Select **OK**. The new WebJob appears on the WebJobs page. If you see a message that says the WebJob was added, but you don't see it, **select Refresh**.
+5. Select **OK**. If you see a message that says the WebJob was added, but you don't see it, **select Refresh**.
 
    The new WebJob appears on the **WebJobs** page.
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![List of WebJobs](./media/web-sites-create-web-jobs/listcontinuouswebjob.png)
 
 6. To stop or restart a continuous WebJob, right-click the WebJob in the list and click **Stop** or **Start**.
 
@@ -118,11 +118,11 @@ when making changes in one don't forget the other two.
    | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Triggers** | Manual | |
 
-4. Click **OK**.
+4. Select **OK**.
 
    The new WebJob appears on the **WebJobs** page.
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![List of WebJobs](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
 
 7. To run the WebJob, right-click its name in the list and click **Run**.
    
@@ -157,11 +157,11 @@ when making changes in one don't forget the other two.
    | **Triggers** | Scheduled | For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.|
    | **CRON Expression** | 0 0/20 * * * * | [CRON expressions](#ncrontab-expressions) are described in the following section. |
 
-4. Click **OK**.
+4. Select **OK**.
 
    The new WebJob appears on the **WebJobs** page.
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
+   ![List of WebJobs](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
 
 ## NCRONTAB expressions
 
