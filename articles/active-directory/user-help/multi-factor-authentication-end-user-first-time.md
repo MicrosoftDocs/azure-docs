@@ -64,7 +64,7 @@ After your organization turns on two-factor verification, every time you sign in
 
 ## Next steps
 
-After you've accessed the **Additional security verification** page, you must select and set up your two-factor verification method:
+After you've selected a two-factor verification method on the **Additional security verification** page, you must set it up:
 
 - [Set up your mobile device as your verification method](multi-factor-authentication-setup-phone-number.md)
 
