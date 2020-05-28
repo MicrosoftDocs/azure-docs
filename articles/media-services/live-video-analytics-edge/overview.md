@@ -2,12 +2,12 @@
 title: What is Live Video Analytics on IoT Edge - Azure
 description: This topic provides an overview of Live Video Analytics on IoT Edge. The platform offers the capability that you can use to enhance your IoT solutions. For example, capture, record, analyze live video and publish the results (video and/or video analytics) to Azure services. 
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 05/27/2020
 
 ---
 # What is Live Video Analytics on IoT Edge? (Preview)
 
-Live Video Analytics on IoT Edge provides a platform to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, and analyze live video along with publishing the results (video and/or video analytics) to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Live Video Analytics on IoT Edge functionality can be combined with other Azure IoT edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge as well as Azure services in the cloud such as Media Services, Event Hub, Cognitive Services, etc. to build powerful hybrid (i.e. edge + cloud) applications.
+Live Video Analytics on IoT Edge provides a platform to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, and analyze live video along with publishing the results (video and/or video analytics) to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Live Video Analytics on IoT Edge functionality can be combined with other Azure IoT edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge as well as Azure services in the cloud such as Media Services, Event Hub, Cognitive Services, etc. to build powerful hybrid (for example, edge + cloud) applications.
 
 Live Video Analytics on IoT Edge is designed to be a pluggable platform, enabling you to plug video analysis edge modules (for example, Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) and use them to analyze live video without worrying about the complexity of building and running a live video pipeline.
 
