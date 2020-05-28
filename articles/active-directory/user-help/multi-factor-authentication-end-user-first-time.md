@@ -17,7 +17,9 @@ ms.author: curtand
 
 Your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra security verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
 
-<center>![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
 Two-factor verification is more secure than just a password because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password. The something you have with you is a phone or device that you commonly have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
 
