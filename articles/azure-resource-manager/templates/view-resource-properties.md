@@ -40,10 +40,10 @@ This article introduces some resources where you can find the information:
 - [Template reference](#use-template-reference)
 - [REST API](#use-rest-api)
 - [Resource Explorer](#use-resource-explorer)
-- [Resource.azure.com](#resource.azure.com)
+- [Resource.azure.com](#use-resourcesazurecom)
 - [Export templates](#export-templates)
 - [Azure Quickstart Templates](#use-quickstart-templates)
-- [Azure Resource Manager tools extension for Visual Studio Code](#resource-manager-tools-extension)
+- [Azure Resource Manager tools extension for Visual Studio Code](#use-resource-manager-tools-extension)
 
 Some of these resources are listed on the [Azure Resource Manager documentation site](./overview.md):
 
@@ -76,7 +76,7 @@ The Azure Resource Manager template reference is the most comprehensive resource
 
     ![template reference storage account SKU values](./media/view-resource-properties/resource-manager-template-reference-storage-account-sku-values.png)
 
-    At the end of the page, the **Quickstart templates** section lists some [Azure Quickstart Templates](#Use-quickstart-templates) that contain the resource type:
+    At the end of the page, the **Quickstart templates** section lists some [Azure Quickstart Templates](#use-quickstart-templates) that contain the resource type:
 
     ![template reference storage account quickstart templates](./media/view-resource-properties/resource-manager-template-reference-quickstart-templates.png)
 
@@ -131,7 +131,7 @@ Resource Explorer is embedded in the Azure portal. Before using this method, you
 
 ## Use Resources.azure.com
 
-Resources.azure.com is a public website can be accessed by anyone with an Azure subscription. It is in preview.  Consider using [Resource Explorer](#resource-explorer) instead. This tool provides these functionalities:
+Resources.azure.com is a public website can be accessed by anyone with an Azure subscription. It is in preview.  Consider using [Resource Explorer](#use-resource-explorer) instead. This tool provides these functionalities:
 
 - Discover the Azure Resource Management APIs.
 - Get API documentation and schema information.
