@@ -17,13 +17,13 @@ ms.lastreviewed:
 
 # Azure CLI for Azure Data Share
 
-The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for datashare giving you the ability to work effectively from a command-line.
+The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for datashare giving you the ability to work effectively with data share from a command-line.
 
 ## Azure CLI references for Data Share
 
 |Azure CLI Reference |Status |Description
 |-|-|-|
-| [az datashare](/azure/ext/datashare/datashare) | Public preview | Commands to manage datashare
+| [az datashare](/cli/azure/ext/datashare/datashare) | Public preview | Commands to manage datashare
 | [az datashare account](/cli/azure/ext/datashare/datashare/consumer) | Public preview | Commands to manage datashare accounts.
 | [az datashare consumer](/cli/azure/ext/datashare/datashare/consumer) | GA | Commands for consumers to manage datashare.
 | [az datashare dataset](/cli/azure/ext/datashare/datashare/dataset) | Public preview | Commands for providers to manage datashare datasets.
