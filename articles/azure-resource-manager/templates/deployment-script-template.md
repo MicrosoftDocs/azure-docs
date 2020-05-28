@@ -55,7 +55,7 @@ The deployment script resource is only available in the regions where Azure Cont
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # [PowerShell](#tab/PowerShell)
@@ -314,7 +314,7 @@ A storage account and a container instance are needed for script execution and t
     | Standard_RAGZRS | StorageV2          |
     | Standard_ZRS    | StorageV2          |
 
-    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share?tabs=azure-portal.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
 
