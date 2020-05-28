@@ -26,9 +26,9 @@ Data Sync is based around the concept of a sync group. A sync group is a group o
 
 Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the hub database. The rest of the databases are member databases. Sync occurs only between the hub and individual members.
 
-- The **hub database** must be an Azure SQL Database.
-- The **member databases** can be either Azure SQL Database, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
-- The **sync database** contains the metadata and log for Data Sync. The sync database has to be a database in Azure SQL Database located in the same region as the hub database. The sync database is customer created and customer owned.
+- The **Hub Database** must be an Azure SQL Database.
+- The **member databases** can be either databases in Azure SQL Database or in instances of SQL Server.
+- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -57,7 +57,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migration from SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 

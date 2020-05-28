@@ -203,7 +203,7 @@ If you want to clean up the records in the schema change tracking table, use DEL
 
 -   You can only make schema changes in the database where the DDL trigger is created.
 
--   If you are making a change in an on-premises SQL Server database, make sure the schema change is supported in Azure SQL Database.
+-   If you are making a change in a SQL Server database, make sure the schema change is supported in Azure SQL Database.
 
 -   If schema changes are made in databases other than the database where the DDL trigger is created, the changes are not replicated. To avoid this issue, you can create DDL triggers to block changes on other endpoints.
 
