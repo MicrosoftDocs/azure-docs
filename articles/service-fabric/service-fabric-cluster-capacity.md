@@ -47,6 +47,10 @@ The number of initial nodes types depends upon the purpose of you cluster and th
 
     A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
 
+* ***Will your cluster span across Availability Zones?***
+
+    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+
 When determining the number and properties of node types for the initial creation of your cluster, keep in mind that you can always add, modify, or remove (non-primary) node types once your cluster is deployed. [Primary node types can also be modified](service-fabric-scale-up-node-type.md) in running clusters (though such operations require a great deal of planning and caution in production environments).
 
 A further consideration for your node type properties is durability level, which determines privileges a node type's VMs have within Azure infrastructure. Use the size of VMs you choose for your cluster and the instance count you assign for individual node types to help determine the appropriate durability tier for each of your node types, as described next.
