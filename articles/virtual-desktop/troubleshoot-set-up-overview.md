@@ -48,6 +48,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Issues with third-party authentication methods | Verify that your third-party provider supports Windows Virtual Desktop scenarios and approach them regarding any known issues. |
 | Issues using Log Analytics for Windows Virtual Desktop | For issues with the diagnostics schema, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/).<br><br>For queries, visualization, or other issues in Log Analytics, select the appropriate problem type under Log Analytics. |
+| Issues using M365 apps | For experience issues with M365 apps please use [M365 admin center help options](https://docs.microsoft.com/en-us/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).|
 
 ## Next steps
 
