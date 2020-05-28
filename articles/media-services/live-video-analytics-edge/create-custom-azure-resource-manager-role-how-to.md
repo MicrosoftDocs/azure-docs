@@ -2,7 +2,7 @@
 title: Create custom Azure Resource Manager role and assign to service principal - Azure
 description: This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Live Video Analytics on IoT Edge using Azure CLI.
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 05/27/2020
 
 ---
 
@@ -91,7 +91,7 @@ To create a custom role, here are steps you should follow:
 1. Create a Role Definition JSON file on your local system and save the following text in the file. 
     1. Replace < yourSubscriptionId> with your Azure Subscription ID
     1. The only actions allowed for this role are:
-        * listContainerSas – helps the module list storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content.
+        * listContainerSas – helps the module list storage container URLs with shared access signatures (SAS) for uploading and downloading asset content.
         * Write assets – helps the module create or update any asset
         * listEdgePolicies – lists the policies that are applied to the edge device  
         
