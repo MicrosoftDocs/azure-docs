@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2020
+ms.date: 05/28/2020
 ms.author: diberry
 ---
 
@@ -27,7 +27,7 @@ ms.author: diberry
 
 1. Create a new file named `model.py`. Add the following code:
 
-    [!code-python[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
+    [!code-python[Add example utterances to Language Understanding in python](~/cognitive-services-quickstart-code/python/LUIS/python-model-with-rest/model.py)]
 
 1. Replace the values starting with `YOUR-` with your own values.
 
