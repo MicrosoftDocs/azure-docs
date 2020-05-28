@@ -13,6 +13,7 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* The network that your development machine is connected to should permit AMQP protocol over port 5671 (so that Azure IoT Tools can communicate with Azure IoT Hub).
 
 > [!TIP]
 > You might be prompted to install docker. Feel free to ignore it.
