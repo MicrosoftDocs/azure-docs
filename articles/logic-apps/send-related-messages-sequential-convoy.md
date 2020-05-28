@@ -14,8 +14,6 @@ When you need to send correlated messages in a specific order, you can follow th
 
 ![General sequential convoy pattern](./media/send-related-messages-sequential-convoy/sequential-convoy-pattern-general.png)
 
-For a more concrete example, suppose that you have an online company that receives new orders from direct clients and from dealers throughout the day. All orders received before 2:00 PM must go to the warehouse in a single batch, which must preserve the arrival sequence for those orders. That way, earlier orders get priority in case any items are low in stock at the warehouse. To build this batch order, you put all the orders for the day into a single file that has batch header information. At 2:00 PM, the day's orders go to the warehouse for processing. All orders received after 2:00 PM go into a new batch for processing the next day.
-
 This article shows how to create a logic app that implements this pattern by using the **Correlated in-order delivery using service bus sessions** template. This template defines a logic app workflow that starts with the Service Bus connector's **When a message is received in a queue (peek-lock)** trigger, which receives messages from a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Here are the high-level steps that this logic app performs:
 
 * Initialize a session based on a message that the trigger reads from the Service Bus queue.
@@ -194,13 +192,13 @@ To provide the values for the trigger and actions in the **Correlated in-order d
   > Initially, the polling interval is set to three minutes so that the logic app doesn't 
   > run more frequently than you expect and result in unanticipated billing charges. Ideally, 
   > set the interval and frequency to 30 seconds so that the logic app triggers immediately 
-  > when a message arrives. 
+  > when a message arrives.
 
   | Property | Required for this scenario | Value | Description |
   |----------|----------------------------|-------|-------------|
   | **Queue name** | Yes | <*queue-name*> | The name for your previously created Service Bus queue. This example uses "Fabrikam-Service-Bus-Queue". |
   | **Queue type** | Yes | **Main** | Your primary Service Bus queue |
-  | **Session id** | Yes | **Next available** | This option gets a session for each trigger run, based on the session ID from the message in the Service Bus queue. The session is also locked so that no other logic app or other client can process messages that are related to this session. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <br>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. |
+  | **Session id** | Yes | **Next available** | This option gets a session for each trigger run, based on the session ID from the message in the Service Bus queue. The session is also locked so that no other logic app or other client can process messages that are related to this session. The workflow's subsequent actions process all the messages that are associated with that session, as described later in this article. <p><p>Here is more information about the other **Session id** options: <p>- **None**: The default option, which results in no sessions and can't be used for implementing the sequential convoy pattern. <p>- **Enter custom value**: Use this option when you know the session ID that you want to use, and you always want to run the trigger for that session ID. <p>**Note**: The Service Bus connector can save a limited number of unique sessions at a time from Azure Service Bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Exchange messages in the cloud with Azure Logic Apps and Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
   | **Interval** | Yes | <*number-of-intervals*> | The number of time units between recurrences before checking for a message. |
   | **Frequency** | Yes | **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** | The unit of time for the recurrence to use when checking for a message. <p>**Tip**: To add a **Time zone** or **Start time**, select these properties from the **Add new parameter** list. |
   |||||
