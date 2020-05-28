@@ -83,7 +83,7 @@ SELECT dtu_logical_cpus,
 FROM dtu_vcore_map;
 ```
 
-### Additional factors in  vCore service objective choice
+### Additional factors in vCore service objective choice
 
 Besides the number of vCores (logical CPUs) and the hardware generation, several other factors may influence the choice of vCore service objective:
 
