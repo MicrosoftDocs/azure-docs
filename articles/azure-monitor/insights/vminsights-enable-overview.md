@@ -130,10 +130,9 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 | OS version | Kernel version |
 |:--|:--|
-| 18.04 | 5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
+| 18.04 | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 | 16.04.3 | 4.15.* |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| 18.04 | 5.3.0-1020 |
 
 #### SUSE Linux 12 Enterprise Server
 
