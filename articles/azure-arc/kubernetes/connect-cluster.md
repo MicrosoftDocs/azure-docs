@@ -220,7 +220,7 @@ You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azur
 * **Deletion on Azure Portal**: Deletion of the Azure Arc enabled Kubernetes resource on Azure portal deletes the `Microsoft.Kubernetes/connectedcluster` resource and any associated `sourcecontrolconfiguration` resources in Azure, but it doesn't delete the agents running on the cluster. To delete the agents running on the cluster, run the following command.
 
   ```console
-  helm delete azure-arc
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
 ## Next steps
