@@ -204,21 +204,26 @@ Memory consumption of loaded content may become a bottleneck on the rendering sy
 
 ### Instancing
 
-Instancing is a concept where meshes are reused for parts with distinct spatial transformation, as opposed to every part referencing its own unique geometry. Instancing has significant impact on the memory footprint.
-Example use cases for instancing are the screws in an engine model or chairs in architectural models.
+Instancing is a concept where meshes are reused for parts with distinct spatial transformations, as opposed to every part referencing its own unique geometry. Instancing has significant impact on the memory footprint.
+Example use cases for instancing are the screws in an engine model or chairs in an architectural model.
 
 > [!NOTE]
 > Instancing can improve the memory consumption (and thus loading times) significantly, however the improvements on the rendering performance side are insignificant.
 
-The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion does not perform additional deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup. For example, [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regards to instancing in the exported `.fbx` file.
+The conversion service respects instancing if parts are marked up accordingly in the source file. However, conversion does not perform additional deep analysis of mesh data to identify reusable parts. Thus the content creation tool and its export pipeline are the decisive criteria for proper instancing setup.
+
+A simple way to test whether instancing information gets preserved during conversion is to have a look at the [output statistics](get-information.md#example-info-file), specifically the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, it indicates that meshes are shared across instances.
+
+#### Example: Instancing setup in 3ds Max
+
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regards to instancing in the exported `.fbx` file.
 
 ![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`** : In this mode the mesh is cloned, so no instancing is used.
-* **`Instance`** : The two objects share the same mesh, so instancing is used.
-* **`Reference`** : Distinct modifiers can be applied to the geometries, so the exporter chooses a conservative approach and does not use instancing.
+* **`Copy`** : In this mode the mesh is cloned, so no instancing is used (`numMeshPartsInstanced` = 0).
+* **`Instance`** : The two objects share the same mesh, so instancing is used (`numMeshPartsInstanced` = 1).
+* **`Reference`** : Distinct modifiers can be applied to the geometries, so the exporter chooses a conservative approach and does not use instancing (`numMeshPartsInstanced` = 0).
 
-A simple way to test whether instancing information gets preserved during conversion is to have a look at the [output statistics](get-information.md#example-info-file), specifically the `numMeshPartsInstanced` member. If the value for `numMeshPartsInstanced` is larger than zero, it indicates that meshes are shared across instances. In the *3ds Max* sample above, the values are 0 in `Copy` mode, 1 in `Instance` mode, and 0 in `Reference` mode.
 
 ### Depth-based composition mode
 
