@@ -67,7 +67,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
 
 ### Set up the environment
 
-1. Clone the repo from here https://github.com/Azure-Samples/lva-edge-rc4.
+1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
 1. Launch Visual Studio Code and open the folder where the repo is downloaded to.
 1. In Visual Studio Code, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 1. Copy the contents from clouddrive/lva-sample/appsettings.json file into the appsettings.json file you created in Visual Studio Code.
