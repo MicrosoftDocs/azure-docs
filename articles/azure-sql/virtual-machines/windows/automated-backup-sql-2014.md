@@ -112,7 +112,7 @@ $resourcegroupname = "resourcegroupname"
 
 If the SQL Server IaaS Agent extension is installed, you should see it listed as "SqlIaaSAgent" or "SQLIaaSExtension." **ProvisioningState** for the extension should also show "Succeeded."
 
-If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+If it is not installed or it has failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
