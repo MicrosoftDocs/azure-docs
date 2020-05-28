@@ -3,9 +3,9 @@ title: Secure access and data
 description: Secure access to inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/28/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -22,7 +22,7 @@ To control access and protect sensitive data in Azure Logic Apps, you can set up
 
 ## Access to request-based triggers
 
-If your logic app uses a request-based trigger, which receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), protocol.
+If your logic app uses a request-based trigger, which receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Transport Layer Security (TLS) protocol, previously known as Secure Sockets Layer (SSL).
 
 Here are options that can help you secure access to this trigger type:
 
@@ -753,7 +753,7 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for TLS/SSL client certificates. Current limitations: <p><p>- For inbound calls, the Request trigger supports *only* TLS 1.2. For outbound calls, the Response action supports TLS 1.0, 1.1, and 1.2. For more information, see [Receive and respond to HTTPS requests](../connectors/connectors-native-reqres.md). <p>- Based on the target endpoint's capability, the HTTP connector supports TLS 1.0, 1.1, and 1.2 for outbound calls, but not intermediate TLS/SSL certificates. For more information, see [Call service endpoints](../connectors/connectors-native-http.md). <p>- Custom connectors don't support certificate-based authentication for both inbound and outbound calls. <p>- For the HTTP connector in global, multi-tenant Azure, you can generally use self-signed certificates for authentication, but not self-signed TLS/SSL certificates. So, if your logic app makes an HTTP call to a server and presents a self-signed TLS/SSl certificate, the HTTP call fails with a "trust failure" error. You can also manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p>- To use the HTTP connector with self-signed certificates in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), you must first [enable that capability on an existing ISE or when you create an ISE by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md). Otherwise, this capability won't work by just uploading the certificate in the required trusted root location. |
+| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. Current limitations: <p><p>- Custom connectors don't support certificate-based authentication for both inbound and outbound calls.  <p>- For the HTTP connector in global, multi-tenant Azure, you can generally use self-signed certificates for authentication, but not self-signed TLS/SSL certificates. So, if your logic app makes an HTTP call to a server and presents a self-signed TLS/SSL certificate, the HTTP call fails with a "trust failure" error. You can also manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). |
 | **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*password-for-pfx-file*> | The password for accessing the PFX file |
 |||||
