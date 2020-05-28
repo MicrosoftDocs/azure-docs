@@ -109,7 +109,7 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 ### Identify IP Address for ESXi hosts
 
-1.  Open the browser and sign in to the vCenter URLs. You can find the URLs in the [Connect to the local vCenter of your private cloud](https://review.docs.microsoft.com/en-us/azure/azure-vmware/tutorial-access-private-cloud?branch=release-preview-vmware#connect-to-the-local-vcenter-of-your-private-cloud) article.
+1.  Open the browser and sign in to the vCenter URLs. You can find the URLs in the [Connect to the local vCenter of your private cloud](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud) article.
 
 2.  In the vSphere Client, select the cluster that you plan to enable backup.
 
@@ -133,7 +133,7 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 ## Add the account on Azure Backup Server
 
-The user added must have the proper backup privileges to perform backup and restores from Backup Server. Ensure the user you are adding has the privileges required by reviewing the [Add a new user account in VMware server](https://docs.microsoft.com/en-us/system-center/dpm/back-up-vmware?view=sc-dpm-2019&branch=master#add-a-new-user-account-in-vmware-server).
+The user added must have the proper backup privileges to perform backup and restores from Backup Server. Ensure the user you are adding has the privileges required by reviewing the [Add a new user account in VMware server](https://docs.microsoft.com/system-center/dpm/back-up-vmware?view=sc-dpm-2019&branch=master#add-a-new-user-account-in-vmware-server).
 
 1.  Open Azure Backup Server, and in the Azure Backup Server console, select **Management** > **Production Servers** > **Manage VMware**.
 
@@ -392,4 +392,4 @@ In this tutorial, you learned how to:
 
 
 > [!div class="nextstepaction"]
-> [Troubleshooting guide for Azure Backup Server](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot)
+> [Troubleshooting guide for Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)

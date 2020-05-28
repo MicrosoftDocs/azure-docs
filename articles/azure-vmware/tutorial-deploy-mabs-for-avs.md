@@ -70,19 +70,19 @@ Consider the recommendations in this section when installing Azure Backup Server
 
 ### Azure Virtual Network
 
-Ensure that you have configured virtual network as mentioned in the [Configure networking for your VMWare private cloud in Azure](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-configure-networking) tutorial.
+Ensure that you have configured virtual network as mentioned in the [Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) tutorial.
 
 ### Determine size of virtual machine
 
-To install Microsoft Azure Backup Server, you must create a Windows virtual machine in the virtual network that you have created in the above step. When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2019 Datacenter. The [Create your first Windows virtual machine in the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=/azure/virtual-machines/windows/toc.json) tutorial gets you started with the recommended VM in Azure, even if you’ve never used Azure.
+To install Microsoft Azure Backup Server, you must create a Windows virtual machine in the virtual network that you have created in the above step. When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2019 Datacenter. The [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial gets you started with the recommended VM in Azure, even if you’ve never used Azure.
 
 The table summarizes the maximum number of protected workloads for each MABS virtual machine size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the MABS virtual machine.
 
 | Max protected workloads | Average workload size | Average workload churn (daily) | Min Storage IOPS | Recommended Disk Type / Size      | Recommended VM Size |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
 | 20                      | 100 GB                | Net 5% churn                   | 2000             | Standard HDD (8 TB or above size per disk)  | A4V2       |
-| 40                      | 150 GB                | Net 10% churn                  | 4500             | Premium SSD\* (1 TB or above size per disk) | DS3_V2     |
-| 60                      | 200 GB                | Net 10% churn                  | 10500            | Premium SSD\* (8 TB or above size per disk) | DS3_V2     |
+| 40                      | 150 GB                | Net 10% churn                  | 4500             | Premium SSD* (1 TB or above size per disk) | DS3_V2     |
+| 60                      | 200 GB                | Net 10% churn                  | 10500            | Premium SSD* (8 TB or above size per disk) | DS3_V2     |
 
 * To get the required IOPs use minimum recommended or higher size disks. Smaller size disk will offer lower IOPS.
 
@@ -101,9 +101,9 @@ MABS requires disks for MABS installation, including system files, installation 
 | Requirement                      | Recommended Size  |
 |----------------------------------|-------------------------|
 | MABS installation                | MABS installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL installation<br /><br />Additionally, you'll need space for MABS to copy the file catalog to a temporary MABS installation location when archiving. 2-3 GB of free space is recommended for the MABS installation volume.       |
-| Disk for storage pool<br />(Uses basic volumes, cannot be on a dynamic disk.) | 2 to 3 times the size of the protected data<br />For detailed storage calculation, refer [DPM Capacity Planner](https://www.microsoft.com/en-us/download/details.aspx?id=54301).   |
+| Disk for storage pool<br />(Uses basic volumes, cannot be on a dynamic disk.) | 2 to 3 times the size of the protected data<br />For detailed storage calculation, refer [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
-The [Attach a managed data disk to a Windows VM by using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal) articles shows you how to attach a new managed data disk to an existing Azure VM.
+The [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md) articles shows you how to attach a new managed data disk to an existing Azure VM.
 
 > [!NOTE]
 > A single Azure Backup Server has a soft limit of 120 TB for storage pool.
@@ -187,7 +187,7 @@ To create a Recovery Services vault, follow these steps.
 ## Set Storage Replication
 
 The storage replication option lets you choose between geo-redundant storage (the default) and locally redundant storage. Geo-redundant storage copies the data in your storage account to a secondary region, making your data durable. Locally redundant storage is a cheaper option that isn’t durable. Read more about
-[geo-redundant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs) and [locally redundant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs) storage options in the [Azure Storage replication overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy).
+geo-redundant and locally redundant storage options in the [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 > [!IMPORTANT]
 > Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault must be done before configuring backups in the vault. Once you configure backup, the option to modify it is disabled and you cannot change the **Storage Replication type**.
@@ -248,11 +248,7 @@ The storage replication option lets you choose between geo-redundant storage (th
 
     1.  Click the **Download** link to Install Azure Backup Server.
 
-    2.  Download the vault credentials by selecting the **Already Downloaded or
-        using the latest Azure Backup Server installation** checkbox and then
-        click **Download**. You use the vault credentials during registration of
-        Azure Backup Server to the recovery services vault. The links take you
-        to the Download Center where the software package can be downloaded.
+    2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
     ![Prepare Infrastructure – Azure Backup Server](./media/deploy-mabs/deploy-mabs-prepare-infrastructure2.png)
 
