@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 05/28/2020
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -54,6 +54,10 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 > [!NOTE]
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
 >
+
+## Why am I getting an error when I try to create a new Windows agent pool?
+
+If you created your cluster before February 2020 and have never did any cluster upgrade operations, the cluster still uses an old Windows image. To fix this, first [upgrade the cluster][upgrade-cluster]. Next, add new agent pools to migrate pods from the old agent pools to new ones.
 
 ## How do I rotate the service principal for my Windows node pool?
 
@@ -109,6 +113,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
