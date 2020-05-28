@@ -25,6 +25,7 @@ In this example, we connect to the external approval system so we can collect us
 Once an approval request has been created, someone in your organization approves, denies, or deletes the request. If a request is approved, the approval system uses Microsoft Graph to provision the user and notify the user that their account has been approved.
 
 ## Register an application for your approval system
+
 Your approval system will need to be registered as an App in your Azure AD tenant so that it can authenticate with Azure AD and have the permission to create a user. Learn more about [authenticating and authorization basics for Microsoft Graph](https://docs.microsoft.com/en-us/graph/auth/auth-concepts).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
@@ -33,14 +34,15 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 4. Select **New registration**.
 5. Enter a **Name**.
 
-   ![Register an application for the approvals system](./media/api-connectors/approvals/register-an-approvals-application.png)
+   ![Register an application for the approvals system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png)
 
 6. Select **Register**.
 7. Select **API permissions**.
 8. Select **Add a permission**.
 9. Select **Microsoft Graph** > **Application permissions**.
 10. Under *Select permissions*, expand **User**, and then select the **User.ReadWrite.All** check box.
-    - This permission is needed so that your approval system can create the user on approval. 
+    > [!NOTE]
+    > This permission is needed so your approval system can create the user upon approval.
 11. Select **Add permissions**.
 12. On the **API permissions** page, select **Grant admin consent for <tenant-name>**, and then select **Yes**.
 13. In the left menu, select **Certificates & Secrets**.
@@ -51,23 +53,21 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 
 ## Create the API connectors
 
-Learn to [create an API connector](api-connectors-set-up-api.md#create-an-api-connector).
-
-Your approval system API needs two API connectors and corresponding endpoints to:
+To create the API connectors for your user flow, see [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector). Your approval system API needs two API connectors and corresponding endpoints to:
 
 - **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request.
 
-![Check approval status  API connector configuration](./media/self-service-sign-up-approvals/check-approval-status-api-connector-config-alt.png)
+   ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
 
 - **Create approval request** - Send a call to the approval system after a user completes the attribute collection page, before the user is created, to create a new approval request.
 
-![Create approval request API connector configuration](./media/self-service-sign-up-approvals/create-approval-request-api-connector-config-alt.png)
+   ![Create approval request API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 
 ## Enable the API connectors in a user flow
 
-These steps show how to add the API connectors to a self-service sign-up user flow:
+Follow these steps to add the API connectors to a self-service sign-up user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -77,7 +77,7 @@ These steps show how to add the API connectors to a self-service sign-up user fl
    - **After signing in with an identity provider**: 'Check approval status'
    - **Before creating the user**: 'Create approval request'
 
-   ![Add APIs to the user flow](./media/self-service-sign-up-approvals/api-connectors-user-flow-select-approvals.png)
+   ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-select-approvals.png)
 
 6. Select **Save**.
 

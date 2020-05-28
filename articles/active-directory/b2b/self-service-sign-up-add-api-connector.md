@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Add an API connector to a user flow
 
-To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow. 
+To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 ## Create an API connector
 
@@ -27,39 +27,36 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 3. In the left menu, select **External Identities**.
 4. Select **All API connectors (Preview)**, and then select **New API connector**.
 
-    ![Add a new API connector](./media/api-connectors/create-new/api-connector-new.png)
+    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
-> [!NOTE]
-> Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, put in a dummy **Username** and **Password**, your API can ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( e.g. https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   > [!NOTE]
+   > Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, enter a dummy **Username** and **Password**, so that your API will ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
-   ![Add a new API connector](./media/api-connectors/create-new/api-connector-config.png)
+   ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
-8. Select the claims that you want to send to the API. 
-9. Select any claims that you plan to receive back from the API, if any.
+8. Select the claims you want to send to the API.
+9. Select any claims you plan to receive back from the API.
  
- ![Set API connector claims](./media/api-connectors/create-new/api-connectors-claims.png)
+    ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connectors-claims.png)
+
 10. Select **Save**.
 
 > [!TIP]
-> [**Identities ('identities')**](https://docs.microsoft.com/en-us/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. They are always sent.
+> [**Identities ('identities')**](https://docs.microsoft.com/en-us/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. These claims are always sent.
 
 > [!NOTE]
-> The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
-
-> [!NOTE]
-> If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
+> - The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
+> - If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
+> - Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information about custom and extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
 <!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
-
-> [!NOTE]
-> Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. More information regarding custom & extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
  
 ## Enable the API connector in a user flow
 
-These steps show how to add an API connector to a self-service sign-up user flow:
+Follow these steps to add an API connector to a self-service sign-up user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -69,7 +66,7 @@ These steps show how to add an API connector to a self-service sign-up user flow
    - **After signing in with an identity provider**
    - **Before creating the user**
 
-   ![Add APIs to the user flow](./media/api-connectors/create-new/api-connectors-user-flow-select.png)
+   ![Add APIs to the user flow](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
 

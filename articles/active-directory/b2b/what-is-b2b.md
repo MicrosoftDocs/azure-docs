@@ -95,9 +95,8 @@ Azure AD supports external identity providers like Facebook, Microsoft accounts,
 
 ## Create a self-service sign-up user flow (Preview)
 
-With a self-service sign-up user flow, you can create a sign-up experience for external users who want to access your apps. As part of the sign-up flow, you can provide options for different social or enterprise identity providers, and collect information about the user. Learn about self-service sign-up and how to set it up.
-
-![Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+With a [self-service sign-up user flow](self-service-sign-up-overview.md), you can create a sign-up experience for external users who want to access your apps. As part of the sign-up flow, you can provide options for different social or enterprise identity providers, and collect information about the user. You can also use [API connectors](api-connectors-overview.md) to integrate your user flows with external systems, for example user approval systems, user input validation systems, or custom business logic.
+[Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## Next steps
 
