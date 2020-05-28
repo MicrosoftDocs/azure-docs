@@ -1,8 +1,9 @@
 ---
-title: Create an Azure data factory using Resource Manager template 
-description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
+title: Create an Azure Data Factory using an ARM template
+description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 ms.service: data-factory
+tags: azure-resource-manager
 ms.workload: data-services
 ms.topic: quickstart
 author: djpmsft
@@ -13,7 +14,7 @@ ms.custom: subject-armqs
 ms.date: 05/28/2020
 ---
 
-# Quickstart: Create an Azure data factory using Azure Resource Manager template
+# Quickstart: Create an Azure Data Factory using Azure Resource Manager template
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -28,30 +29,17 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
-## Create an Azure data factory
+## Create an Azure Data Factory
 
-### Azure PowerShell
+### Review the template
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-create/).
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-create.json":::
 
-## Resource Manager templates
-
-To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md).
-
-The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
-
-To learn about the JSON syntax and properties for Data Factory resources in a template, see [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions).
-
-## Data Factory JSON
-
-Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (Create the ADFTutorial folder if it doesn't already exist) with the following content:
-
+Script 1 - Create:
 ```json
 {  
     "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -285,8 +273,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
     ]
 }
 ```
-## Parameters JSON
 
+Script 2 - parameters:
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
 
 > [!IMPORTANT]
@@ -322,10 +310,9 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 }
 ```
 
-> [!IMPORTANT]
-> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
+More Azure Data Factory template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
-## Deploy Data Factory entities
+### Deploy Data Factory entities
 
 In PowerShell, run the following command to deploy Data Factory entities in your resource group. Use ADFTutorialResourceGroup as an example for the Resource Manager template you created earlier in this quickstart.
 
@@ -700,10 +687,32 @@ Notice that the first command uses parameter file for the development environmen
 
 You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure Storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.
 
+## Clean up resources
+
+When no longer needed, delete the resource group, which deletes the Azure Data Factory and related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
 ## Next steps
 
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.
+In this quickstart, you created an Azure Data Factory using an Azure Resource Manager template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
 
-Tutorial: Create and deploy your first Azure Resource Manager template to go through the process of creating a template.
-
+- [Azure Data Factory documentation](index.yml)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+- Get other [Azure Data Factory Resource Manager templates](resource-manager-samples.md)
 
