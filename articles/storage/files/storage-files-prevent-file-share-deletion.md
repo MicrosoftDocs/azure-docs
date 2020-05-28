@@ -4,7 +4,7 @@ description: Learn about soft delete for Azure file shares and how you can use i
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
@@ -20,6 +20,8 @@ When soft delete for Azure file shares is enabled, if a file share is deleted, i
 
 Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete. 
 
+To permanently delete a file share in a soft delete state before their expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should re-enable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
+
 For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
 
 ## Availability
@@ -28,15 +30,15 @@ Soft delete for Azure file shares (preview) is available on all storage tiers, a
 
 ## Configuration settings
 
-Soft delete for file shares is enabled at the storage account level, because of this, the soft delete settings apply to all file shares within a storage account.
+### Enabling or disabling soft delete
 
-When you create a new storage account, soft delete for file shares is off by default. Soft delete is also off by default for existing storage accounts. You can enable or disable soft delete at any time.
+When you create a new storage account, soft delete for file shares is off by default. Soft delete is also off by default for existing storage accounts. You can enable or disable soft delete at any time. Soft delete for file shares is enabled at the storage account level, because of this, the soft delete settings apply to all file shares within a storage account.
 
 If you enable soft delete for file shares, delete some file shares, and then disable soft delete, if the shares were saved in that period you can still access and recover those file shares. When you enable soft delete, you also need to configure the retention period.
 
-The retention period is the amount of time that soft deleted file shares are stored and available for recovery. For file shares that are explicitly deleted, the retention period clock starts when the data is deleted. Currently you can specify a retention period between 1 and 365 days. You can change the soft delete retention period at any time. An updated retention period will only apply to shares deleted after the retention period has been updated. Shares deleted before the retention period update will expire based on the retention period that was configured when that data was deleted.
+### Retention period
 
-To permanently delete a file share in a soft delete state prior to its expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should reenable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
+The retention period is the amount of time that soft deleted file shares are stored and available for recovery. For file shares that are explicitly deleted, the retention period clock starts when the data is deleted. Currently you can specify a retention period between 1 and 365 days. You can change the soft delete retention period at any time. An updated retention period will only apply to shares deleted after the retention period has been updated. Shares deleted before the retention period update will expire based on the retention period that was configured when that data was deleted.
 
 ## Pricing and billing
 
