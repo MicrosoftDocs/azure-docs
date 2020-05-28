@@ -2,7 +2,7 @@
 title: Playback of multi-day recordings  - Azure
 description: In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 05/27/2020
 
 ---
 
@@ -17,8 +17,6 @@ The tutorial shows you how to:
 > [!div class="checklist"]
 > * Run the sample app that demonstrates how you can browse the contents of a multi-day recording
 > * View selected portions of that recording
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading  
 
