@@ -55,7 +55,7 @@ To follow along with this article, you need these items:
 
 ### Multi-tenant Azure prerequisites
 
-These prerequisites apply when your logic apps run in public, global multi-tenant Azure or when you use the SAP connector that's not specific to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE provides access to resources that are protected by an Azure virtual network and supports an [ISE-specific SAP connector](#sap-ise).
+These prerequisites apply when your logic apps run in multi-tenant Azure or when you use the SAP connector that's not specific to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE provides access to resources that are protected by an Azure virtual network, lets logic apps access on-premises resources without using the on-premises data gateway, and offers connectors that run natively in the ISE, such as the [SAP ISE connector](#sap-ise).
 
 * [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources.
 
@@ -67,7 +67,7 @@ These prerequisites apply when your logic apps run in public, global multi-tenan
 
 ### Integration service environment (ISE) prerequisites
 
-These prerequisites apply when your logic apps run in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use ISE-specific SAP connector. An ISE provides access to resources that are protected by an Azure virtual network.
+These prerequisites apply when your logic apps run in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use the SAP connector that runs natively in an ISE. An ISE provides access to resources that are protected by an Azure virtual network and lets logic apps access on-premises resources without using the on-premises data gateway.
 
 1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
