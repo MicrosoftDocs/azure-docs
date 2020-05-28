@@ -48,7 +48,7 @@ If the script completes successfully, you should see all the resources mentioned
 Run the following command from Cloud Shell
 
 ```
-az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content clouddrive/lva-sample/edge-deployment/deployment.amd64.json
+az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content ~/clouddrive/lva-sample/edge-deployment/deployment.amd64.json
 ```
 Note: As part of the script output, a table of resources will be generated which will list out the IoT hub name. Look for the resource type **"Microsoft.Devices/IotHubs"**.
 
