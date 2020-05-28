@@ -27,7 +27,7 @@ In this quickstart, you'll extract printed and handwritten text from an image us
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 - You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. 
-- [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+
 
 ## Create and run the sample
 
@@ -60,7 +60,7 @@ To create and run the sample, do the following steps:
         if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
         let language = document.getElementById("language").value;
         
-        var uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+        var uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
