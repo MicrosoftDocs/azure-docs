@@ -52,8 +52,8 @@ Deploy Resource Manager template to Azure:
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
 
-2. Select or create your resource group,
-3. Type the Sql Administrator login and password
+2. Select or create your resource group.
+3. Type the Sql Administrator login and password.
 3. Type the virtual machine administrator username and password.
 3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 20 minutes or longer to complete.
 
