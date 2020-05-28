@@ -48,4 +48,4 @@ When you initially enable soft delete, we recommend using a small retention peri
 
 ## Next steps
 
-To learn how to enable and use soft delete, continue to [Enable soft delete (preview)](storage-files-enable-soft-delete.md)
+To learn how to enable and use soft delete, continue to [Enable soft delete](storage-files-enable-soft-delete.md)
