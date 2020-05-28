@@ -36,8 +36,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## May 2020
- 
-[1023633](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1023633&triage=true&fullScreen=false&_a=edit)
 
 ### Upcoming changes to MFA email notifications
 
@@ -53,8 +51,6 @@ We are updating the content of fraud alert emails to better indicate the require
 
 ---
 
-[737177](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=737177&triage=true&fullScreen=false&_a=edit)
-
 ### New self service sign up for users in federated domains who can't access Microsoft Teams because they aren't synced to Azure Active Directory.
 
 **Type:** Plan for change  
@@ -66,22 +62,17 @@ Currently, users who are in domains federated in Azure AD, but who are not synce
  
 ---
 
-[1028951](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1028951&triage=true&fullScreen=false&_a=edit)
-
 ### Upcoming fix: The OIDC discovery document for the US national cloud is being updated to reference the correct Graph endpoints.
 
 **Type:** Plan for change  
 **Service category:** Sovereign Clouds  
 **Product capability:** User Authentication
  
-
 Starting in June, the OIDC discovery document [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) on the US [National cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) endpoints (login.microsoftonline.us), will begin to return the correct Graph endpoint for [National cloud deployments](https://docs.microsoft.com/graph/deployments), to https://graph.microsoft.us or https://dod-graph.microsoft.us0, based on the tenant provided.  It currently provides the incorrect Graph endpoint (graph.microsoft.com).  
 
 This bug fix will be rolled out gradually over approximately 2 months.  
 
 --- 
-
-[1028955](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1028955&triage=true&fullScreen=false&_a=edit)
 
 ### Public cloud users will be blocked from signing into the US Government cloud starting July.
 
@@ -89,7 +80,6 @@ This bug fix will be rolled out gradually over approximately 2 months.
 **Service category:** Sovereign Clouds  
 **Product capability:** User Authentication
  
-
 On 1 June 2018, the official Azure Active Directory (AAD) Authority for Azure Government changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government AAD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the .us endpoint.
 
 Starting in July, Azure AD will begin enforcing the endpoint change for public cloud users, blocking public cloud users from signing into apps hosted in US Government tenants (microsoftonline.us tenants). Impacted apps will begin seeing an error: AADSTS900450 - PublicTenantNotSupportedOnUSGovEndpoint. 
@@ -99,8 +89,6 @@ This error indicates that the app is attempting to sign in a public cloud user o
 For more details, please see the Azure [Government blog post on this migration](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/).
 
 ---
-
-[1028953](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1028953&triage=true&fullScreen=false&_a=edit)
 
 ### US Government users will no longer be able to sign in on login.microsoftonline.com
 
@@ -116,8 +104,6 @@ There will be a gradual rollout of this change with enforcement expected to be c
 
 ---
 
-[670157](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=670157&triage=true&fullScreen=false&_a=edit)
-
 ### SAML Single Logout request now sends NameID in correct format
 
 **Type:** Fixed  
@@ -130,8 +116,6 @@ When a user clicks on sign-out (e.g., in the MyApps portal), Azure AD sends a SA
 If the original SAML sign-in token used a different format for NameID (e.g. email/UPN), then the SAML app cannot correlate the NameID in the logout message to an existing session (as the NameIDs used in both messages are different), which caused the logout message to be discarded by the SAML app and the user to stay logged in. This fix makes the sign out message consistent with the NameID configured for the application.
 
 ---
- 
-[956070](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=956070&triage=true&fullScreen=false&_a=edit)
 
 ### Hybrid Identity Administrator role is now available with Cloud Provisioning
 
@@ -144,15 +128,12 @@ IT Admins can start using the new "Hybrid Admin" role as the least privileged ro
  
 ---
 
-[1028438](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1028438&triage=true&fullScreen=false&_a=edit)
-
 ### New Federated Apps available in Azure AD Application gallery - May 2020
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
  
-
 In May 2020, we have added following 36 new applications in our App gallery with Federation support:
 
 [Moula](https://moula.com.au/pay/merchants), [Surveypal](https://www.surveypal.com/app), [Kbot365](https://www.konverso.ai/virtual-assistant-for-digital-workplace/), [TackleBox](http://www.tacklebox.app/), [Powell Teams](https://powell-software.com/en/powell-teams-en/), [Talentsoft Assistant](https://msteams.talent-soft.com/), [ASC Recording Insights](https://teams.asc-recording.app/product), [GO1](https://www.go1.com/), [B-Engaged](https://b-engaged.se/), [Competella Contact Center Workgroup](http://www.competella.com/), [Asite](http://www.asite.com/), [ImageSoft Identity](https://identity.imagesoftinc.com/), [My IBISWorld](https://identity.imagesoftinc.com/), [insuite](https://docs.microsoft.com/azure/active-directory/saas-apps/insuite-tutorial), [Change Process Management](https://docs.microsoft.com/azure/active-directory/saas-apps/change-process-management-tutorial), [Cyara CX Assurance Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/cyara-cx-assurance-platform-tutorial), [Smart Global Governance](https://docs.microsoft.com/azure/active-directory/saas-apps/smart-global-governance-tutorial), [Prezi](https://docs.microsoft.com/azure/active-directory/saas-apps/prezi-tutorial), [Mapbox](https://docs.microsoft.com/azure/active-directory/saas-apps/mapbox-tutorial), [Datava Enterprise Service Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/datava-enterprise-service-platform-tutorial), [Whimsical](https://docs.microsoft.com/azure/active-directory/saas-apps/whimsical-tutorial), [Trelica](https://docs.microsoft.com/azure/active-directory/saas-apps/trelica-tutorial), [EasySSO for Confluence](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-confluence-tutorial), [EasySSO for BitBucket](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-bitbucket-tutorial), [EasySSO for Bamboo](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-bamboo-tutorial), [Torii](https://docs.microsoft.com/azure/active-directory/saas-apps/torii-tutorial), [Axiad Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/axiad-cloud-tutorial), [Humanage](https://docs.microsoft.com/azure/active-directory/saas-apps/humanage-tutorial), [ColorTokens ZTNA](https://docs.microsoft.com/azure/active-directory/saas-apps/colortokens-ztna-tutorial), [CCH Tagetik](https://docs.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial), [ShareVault](https://docs.microsoft.com/azure/active-directory/saas-apps/sharevault-tutorial), [Vyond](https://docs.microsoft.com/azure/active-directory/saas-apps/vyond-tutorial), [TextExpander](https://docs.microsoft.com/azure/active-directory/saas-apps/textexpander-tutorial), [Anyone Home CRM](https://docs.microsoft.com/azure/active-directory/saas-apps/anyone-home-crm-tutorial), [askSpoke](https://docs.microsoft.com/azure/active-directory/saas-apps/askspoke-tutorial), [ice Contact Center](https://docs.microsoft.com/azure/active-directory/saas-apps/ice-contact-center-tutorial)
@@ -162,8 +143,6 @@ You can also find the documentation of all the applications from here https://ak
 For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
 
 ---
- 
-[861216](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=861216&triage=true&fullScreen=false&_a=edit)
 
 ### Report-only mode for Conditional Access is now generally available
 
@@ -174,7 +153,17 @@ For listing your application in the Azure AD app gallery, please read the detail
 [Report-only mode for Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode—over 26M users are already in scope of a report-only policy. With the announcement today, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can [manage report-only policies programmatically](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta) as well. 
 
 ---
+
+### Self-service sign up for for guest users
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
  
+Leveraging the power of self-service sign up, customers can enable their LOB apps to support guest users to sign up and gain a guest account. The sign up flow can be created and and customized to support Azure AD and social identities, along with collecting additional information about the user signing up.
+
+---
+
  ### Conditional Access Insights and Reporting workbook is generally available
 
 **Type:** New feature  
@@ -208,21 +197,16 @@ We are currently in Public Preview, looking for feedback. Please send your comme
 
 ---
 
-[595574](https://identitydivision.visualstudio.com/IAM/_queries/edit/595574/?triage=true&fullScreen=false)
-
 ### Configure SAML-based single sign-on using Microsoft Graph API (Beta)
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-
 Support for creating and configuring an application from the Azure AD Gallery using MS Graph APIs in Beta is now available. 
 If you need to set up SAML-based single sign-on for multiple instances of an application, save time by using the Microsoft Graph APIs to [automate the configuration of SAML-based single sign-on](https://docs.microsoft.com/azure/active-directory/manage-apps/application-saml-sso-configure-api).
  
 ---
-
-[1024633](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1024633&triage=true&fullScreen=false&_a=edit)
 
 ### New provisioning connectors in the Azure AD Application Gallery - May 2020
 
@@ -230,7 +214,6 @@ If you need to set up SAML-based single sign-on for multiple instances of an app
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
  
-
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
 * [8x8](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial)
@@ -243,20 +226,15 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-[667128](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=667128&triage=true&fullScreen=false&_a=edit)
-
 ### SAML Token Encryption is Generally Available
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-
 [SAML token encryption](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption) allows applications to be configured to receive encrypted SAML assertions. The feature is now generally available in all clouds.
  
 ---
-
-[670140](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=670140&triage=true&fullScreen=false&_a=edit)
 
 ### Group name claims in application tokens is Generally Avalailable
 
@@ -264,12 +242,9 @@ For more information about how to better secure your organization by using autom
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-
 The group claims issued in a token can now be limited to just those groups assigned to the application.  This is especially important when users are members of large numbers of groups and there was a risk of exceeding token size limits. With this new capability in place the ability to [add group names to tokens](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) is generally available.
  
 ---
-
-[656476](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=656476&triage=true&fullScreen=false&_a=edit)
 
 ### Workday Writeback now supports setting work phone number attributes
 
@@ -277,12 +252,9 @@ The group claims issued in a token can now be limited to just those groups assig
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-
 We have enhanced the Workday Writeback provisioning app to now support writeback of work phone number and mobile number attributes. In addition to email and username, you can now configure the Workday Writeback provisioning app to flow phone number values from Azure AD to Workday. For more details on how to configure phone number writeback, refer to the [Workday Writeback](https://aka.ms/WorkdayWriteback) app tutorial. 
 
 ---
-
-[822688](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=822688&triage=true&fullScreen=false&_a=edit)
 
 ### Publisher Verification (preview)
 
@@ -290,12 +262,9 @@ We have enhanced the Workday Writeback provisioning app to now support writeback
 **Service category:** Other  
 **Product capability:** Developer Experience
  
-
 Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. For details, refer to [Publisher verification (preview)](https://docs.microsoft.com/azure/active-directory/develop/publisher-verification-overview)
  
 ---
-
-[790575](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=790575&triage=true&fullScreen=false&_a=edit)
 
 ### Authorization Code Flow for Single-page apps
 
@@ -306,7 +275,6 @@ Publisher verification (preview) helps admins and end users understand the authe
 Because of modern browser 3rd party cookie restrictions such as Safari ITP, SPAs will have to use the authorization code flow rather than the implicit flow to maintain SSO, MSAL.js v 2.x will now support the authorization code flow. There as corresponding updates to the Azure portal so you can update your SPA to be type "spa" and use the auth code flow. 
 
 ---
-[385714](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=385714&triage=true&fullScreen=false&_a=edit)
 
 ### Improved Filtering for Devices is in Public Preview
 
@@ -314,8 +282,29 @@ Because of modern browser 3rd party cookie restrictions such as Safari ITP, SPAs
 **Service category:**   
 **Product capability:** Device Lifecycle Management
  
-
 Previously, the only filters you could use were "Enabled" and "Activity date." Now, you can filter your list of devices on more properties, including OS type, join type, compliance, and more. These additions should simplify locating a particular device.
+
+---
+
+### The new App registrations experience for Azure AD B2C is now generally available
+
+**Type:** Changed Feature   
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** Identity Lifecycle Management
+ 
+The new App registrations experience for Azure AD B2C is now generally available. 
+
+Previously, you had to manage your B2C consumer-facing applications separately from the rest of your apps using the legacy 'Applications' experience. That meant different app creation experiences across different places in Azure.
+
+The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. Whether you need to manage a customer-facing app or an app that has access Microsoft Graph to programmatically manage Azure AD B2C resources, you only need to learn one way to do things.
+
+You can reach the new experience by navigating the Azure AD B2C service and selecting the App registrations blade. The experience is also accessible from the Azure Active Directory service.
+
+The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for Azure AD tenants, but is tailored for Azure AD B2C.
+
+For more information, visit [The new app registration experience for Azure AD B2C](https://aka.ms/b2cappregtraining).
+
+Note: The legacy "Applications" experience will be deprecated in the future.
 
 ---
 
