@@ -13,7 +13,7 @@ This article describes how to prepare machines running Windows Server 2003 for m
 - You can use agentless migration to migrate [Hyper-V VMs](tutorial-migrate-hyper-v.md) and [VMware VMs](tutorial-migrate-vmware.md) to Azure.
 - In order to connect to Azure VMs after migration, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default.
 - There's no direct download link to install Hyper-V Integration Services, so you need to do the following:
-    - For Hyper-V VMs that don't have it installed, you extract installation files for Integration Services on a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role, and then copy the installer to the Windows Server 2003 machine. The installation files are available on machines running Windows Server 2016.
+    - For Hyper-V VMs that don't have it installed, you extract installation files for Integration Services on a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role, and then copy the installer to the Windows Server 2003 machine. The installation files aren't available on machines running Windows Server 2016.
     - For VMware VMs, you create a startup task that installs Integration Services when the Azure VM starts after migration.
 
 
