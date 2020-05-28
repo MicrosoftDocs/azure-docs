@@ -18,32 +18,30 @@ The Azure Cognitive Service Speaker Recognition service provides algorithms that
 
 ## Speaker Verification
 
-Speaker Verification streamlines the process of verifying an enrolled speaker identity with either passphrases or free-form voice input. It can be used to verify individuals for secure, frictionless customer engagements in a wide range of solutions, from customer identity verification in call centers to contact-less facility access. See the Speaker Verification [quickstart]() to get started.
+Speaker Verification streamlines the process of verifying an enrolled speaker identity with either passphrases or free-form voice input. It can be used to verify individuals for secure, frictionless customer engagements in a wide range of solutions, from customer identity verification in call centers to contact-less facility access.
 
 ### How does Speaker Verification work?
 
+![How does speaker verification work](media/speaker-recognition/speaker-rec.png)
+
 Speaker verification can be either text-dependent or text-independent. **Text-dependent** verification means speakers need to choose the same passphrase to use during both enrollment and verification phases. **Text-independent** verification means speakers can speak in everyday language in the enrollment and verification phrases.
 
-For **text-dependent** verification, the speaker's voice is enrolled by saying a passphrase from a set of predefined phrases. Voice features are extracted from the audio recording to form a unique voice signature, while the chosen passphrase is also recognized. Together, the voice signature and the passphrase are used to verify the speaker. The response returns either `Accept` or `Reject` corresponding to the passphrase verification, and a similarity score ranging from 0-1, corresponding to the voice similarity. This allows you to easily customize your own thresholds and overrides when building a solution.
+For **text-dependent** verification, the speaker's voice is enrolled by saying a passphrase from a set of predefined phrases. Voice features are extracted from the audio recording to form a unique voice signature, while the chosen passphrase is also recognized. Together, the voice signature and the passphrase are used to verify the speaker. The response returns either `Accept` or `Reject`, and a similarity score ranging from 0-1. `Accept` is returned if *both* the passphrase is correct, and the similarity is greater than 0.5. This allows you to easily customize your own thresholds and overrides when building a solution.
 
-**Text-independent** verification has no restrictions on what the speaker says during enrollment or in the audio sample to be verified, as it only extracts voice features to score similarity. The response also returns either `Accept` or `Reject`, and a similarity score of 0-1. Instead of `Accept` or `Reject` corresponding to passphrase verification, `Accept` is returned for similarity greater than 0.5.
+**Text-independent** verification has no restrictions on what the speaker says during enrollment or in the audio sample to be verified, as it only extracts voice features to score similarity. The response also returns either `Accept` or `Reject`, and a similarity score of 0-1. `Accept` is returned for similarity greater than 0.5.
 
 The APIs are not intended to determine whether the audio is from a live person or an imitation/recording of an enrolled speaker. 
 
 ## Speaker Identification
 
-Speaker Identification is used to determine an unknown speaker’s identity within a group of enrolled speakers. Speaker Identification enables you to solve problems like:
+Speaker Identification is used to determine an unknown speaker’s identity within a group of enrolled speakers. Speaker Identification enables you to attribute speech to individual speakers, and unlock value from scenarios with multiple speakers, such as:
 
-* Attribute speech to individual speakers
-* Unlock value from scenarios with multiple speakers 
 * Support solutions for remote meeting productivity 
 * Build multi-user device personalization
 
-See the Speaker Identification [quickstart]() to get started.
-
 ### How does Speaker Identification work?
 
-Enrollment for speaker identification is **text-independent**, which means that there are no restrictions on what the speaker says in the audio. Similar to Speaker Verification, in the enrollment phase the speaker's voice is recorded, and voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request). The response contains the top five matches, with similarity scores ranging from 0-1.
+Enrollment for speaker identification is **text-independent**, which means that there are no restrictions on what the speaker says in the audio. Similar to Speaker Verification, in the enrollment phase the speaker's voice is recorded, and voice features are extracted to form a unique voice signature. In the identification phase, the input voice sample is compared to a specified list of enrolled voices (up to 50 in each request).
 
 ## Data security and privacy
 
@@ -55,5 +53,5 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 
 ## Next steps
 
-* Speaker Verification [quickstart]()
-* Speaker Identification [quickstart]()
+> [!div class="nextstepaction"]
+> * See the [video tutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) for text-independent speaker verification.

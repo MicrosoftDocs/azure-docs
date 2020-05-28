@@ -52503,6 +52503,11 @@
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speaker-recognition/Home.md",
+      "redirect_url": "azure/cognitive-services/speech-service/speaker-recognition-overview",
+      "redirect_document_id": false
     }
   ]
 }
