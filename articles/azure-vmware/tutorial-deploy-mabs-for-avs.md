@@ -17,6 +17,7 @@ MABS can store backup data to:
 
 When outages occur and source data is unavailable, you can use MABS to easily restore data to the original source or to an alternate location. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
 
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
