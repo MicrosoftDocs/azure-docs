@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: jgao
 
 ---
@@ -301,7 +301,20 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
 
-- Supported storage account kinds are: general-purpose v2, general-purpose v1 and FileStorage accounts. Only FileStorage supports premium SKU. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
+- Supported storage account kinds are:
+
+    | SKU             | Supported Kind     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share?tabs=azure-portal.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
 
