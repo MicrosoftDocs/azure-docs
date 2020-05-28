@@ -124,7 +124,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
     1. Under GraphTopologyDelete, ensure "name": " InferencingWithHttpExtension ".
 1. Right click on "src/edge/ deployment.yolov3.template.json" file and click on Generate IoT Edge Deployment Manifest.
 
-    ![Generate IoT Edge Deployment Manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)  
+    ![Generate IoT Edge Deployment Manifest](./media/quickstarts/generate-iot-edge-deployment-manifest-yolov3.png)  
 1. This should create a manifest file in src/edge/config folder named " deployment.yolov3.amd64.json".
 1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner. You can copy the string from the appsettings.json file. (Here is another recommended approach to ensure you have the proper IoT Hub configured within Visual Studio Code via the [Select Iot Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
     
