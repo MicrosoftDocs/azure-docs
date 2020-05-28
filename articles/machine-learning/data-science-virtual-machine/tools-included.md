@@ -10,7 +10,8 @@ ms.subservice: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: reference
-ms.date: 05/07/2020
+ms.date: 05/28/2020
+ms.custom: contperfq4
 
 ---
 
