@@ -31,9 +31,9 @@ Sign in to Azure at https://portal.azure.com.
 
     ![Enable Change Tracking and Inventory](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="scope-configuration"></a>Check the scope configuration
+## <a name="scope-configuration"></a>Limit the scope for the deployment
 
-Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. For more information, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
 
 ## Enable Azure VMs
 
@@ -41,7 +41,7 @@ Change Tracking and Inventory uses a scope configuration within the workspace to
 
 2. Click **+ Add Azure VMs** and select one or more VMs from the list. Virtual machines that can't be enabled are grayed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation account. 
 
-3. Click **Enable** to add the selected VMs to the computer group saved search for the feature. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+3. Click **Enable** to add the selected VMs to the computer group saved search for the feature. For more information, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
 
     ![Enable Azure VMs](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -74,7 +74,7 @@ Manually installed machines or machines already reporting to your workspace must
 ## Next steps
 
 * For details of the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* For information about scope configurations, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
+* For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
 * To learn how to use the feature to identify software installed in your environment, see [Discover what software is installed on your VMs](automation-tutorial-installed-software.md).
 * If you don't want to integrate your Automation account with a Log Analytics workspace when enabling the feature, see [Unlink workspace from Automation account](automation-unlink-workspace-change-tracking.md).
 * When finished deploying changes to VMs, you can remove them as described in [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
