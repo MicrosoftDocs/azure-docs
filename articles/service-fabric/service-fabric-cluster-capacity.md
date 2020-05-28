@@ -60,7 +60,7 @@ A further consideration for your node type properties is durability level, which
 The *durability level* designates the privileges your Service Fabric VMs have with the underlying Azure infrastructure. This privilege allows Service Fabric to pause any VM-level infrastructure request (such as reboot, reimage, or migration) that impacts the quorum requirements for Service Fabric system services and your stateful services.
 
 > [!IMPORTANT]
-> Durability level is set per node type. If there's none specified, the default *Bronze* tier will be used, however *Silver* or *Gold* durability is recommended for production workloads.
+> Durability level is set per node type. If there's none specified, *Bronze* tier will be used, however it doesn't provide automatic OS upgrades. *Silver* or *Gold* durability is recommended for production workloads.
 
 The table below lists Service Fabric durability tiers, their requirements, and affordances.
 
@@ -68,9 +68,12 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Gold             | 5                              | Full-node sizes dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per upgrade domain to allow additional time for replicas to recover from earlier failures |
 | Silver           | 5                              | VMs of single core or above with at least 50 GB of local SSD                      | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
-| Bronze (Default)          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
+| Bronze          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
 > [!WARNING]
+> With Bronze durability, the manual trigger for automatic OS image upgrade might not work as expected. [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* as a workaround.
+
+> [!IMPORTANT]
 > Regardless of durability level, running a [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the cluster.
 
 ### Bronze
