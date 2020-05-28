@@ -57,8 +57,7 @@ To create and run the sample, do the following steps:
 
         let subscriptionKey = document.getElementById("key").value;
         let endpoint = document.getElementById("endpoint").value;
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
-        let language = document.getElementById("language").value;
+        if (!subscriptionKey) { throw new Error('Please enter your subscription key and endpoint.'); }
         
         var uriBase = endpoint + "/vision/v3.0/read/analyze";
 
@@ -66,18 +65,13 @@ To create and run the sample, do the following steps:
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
 
-        const params = {
-            language: language,
-        };
-
-        const searchParams = new URLSearchParams(params);
 
         // This operation requires two REST API calls. One to submit the image
         // for processing, the other to retrieve the text found in the image.
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + searchParams.toString(),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){
@@ -164,12 +158,7 @@ Endpoint:
 Subscription Key:    
 <input type="text" name="key" id="key" value="" style="width: 300px;"/>
 <br><br>
-Language: 
-<input type="text" name="language" id="language"
-    value="en" />
-<div style="margin: 20px;">Accepted values are &quot;en&quot; and &quot;es&quot;</div>
 
-<br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"
     value="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg" />
@@ -189,7 +178,6 @@ Image to read:
     </div>
 </div>
 </body>
-</html>
 ```
 
 
