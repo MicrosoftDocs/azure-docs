@@ -150,6 +150,9 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
   These values are passed through a relative path in the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
 
+> [!NOTE]
+> The URL permits using the "at" symbol (**@**), but not the hash symbol (**#**).
+
 <a name="get-parameters"></a>
 
 ### Accept values through GET parameters

@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: This article provides an overview of the resource limits for Azure SQL Managed Instances. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
+ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
@@ -23,7 +23,7 @@ This article provides an overview of the technical characteristics and resource 
 
 ## Hardware generation characteristics
 
-SQL Managed instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics, as described in the following table:
+SQL Managed Instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics, as described in the following table:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -77,6 +77,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
+| Compute isolation | Gen5:<br/>-supported for 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 60, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
 
 
 A few additional considerations: 
@@ -91,7 +92,7 @@ Find more information about the [resource limits in SQL Managed Instance pools i
 
 ### File IO characteristics in General Purpose tier
 
-In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Bigger data files get mroe IOPS and throughput. IO characteristics of the database files are shown in the following table:
+In the General Purpose service tier every database file gets dedicated IOPS and throughput that depend on the file size. Bigger data files get more IOPS and throughput. IO characteristics of the database files are shown in the following table:
 
 | File size | >=0 and <=128 GiB | >128 and <=256 GiB | >256 and <= 512 GiB | >0.5 and <=1 TiB    | >1 and <=2 TiB    | >2 and <=4 TiB | >4 and <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|

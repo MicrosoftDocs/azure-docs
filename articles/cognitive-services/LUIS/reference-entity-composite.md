@@ -16,7 +16,7 @@ ms.author: diberry
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
 
 > [!CAUTION]
-> This entity is **deprecated**. Please migrate to the [machine-learned entity](reference-entity-machine-learned-entity.md).
+> This entity is **deprecated**. Please migrate to the [machine-learning entity](reference-entity-machine-learned-entity.md).
 
 **This entity is a good fit when the data:**
 

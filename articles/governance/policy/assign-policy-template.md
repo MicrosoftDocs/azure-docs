@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
-ms.date: 03/16/2020
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---

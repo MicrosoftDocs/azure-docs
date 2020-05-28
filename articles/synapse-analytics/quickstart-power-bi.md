@@ -65,4 +65,4 @@ New reports can be created clicking **+** at the top of the **Develop** tab. Exi
 
 ## Next steps
 
-Next, you can [create Power BI report on files stored on Azure Storage](sql/tutorial-connect-power-bi-desktop.md)
+Learn more about [creating Power BI report on files stored on Azure Storage](sql/tutorial-connect-power-bi-desktop.md).

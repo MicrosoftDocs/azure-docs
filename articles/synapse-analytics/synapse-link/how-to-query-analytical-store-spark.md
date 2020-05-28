@@ -1,5 +1,6 @@
 ---
-title: Query Azure Cosmos DB Analytical Store with Apache Spark for Azure Synapse Analytics
+
+title: Query Azure Cosmos DB Analytical Store (preview) with Apache Spark for Azure Synapse Analytics
 description: How to query Azure Cosmos DB analytical with Apache Spark for Azure Synapse Analytics
 services: synapse-analytics 
 author: ArnoMicrosoft
@@ -11,7 +12,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Query Azure Cosmos DB Analytical Store with Apache Spark for Azure Synapse Analytics
+# Query Azure Cosmos DB Analytical Store (preview) with Apache Spark for Azure Synapse Analytics
 
 This article gives some examples on how you can interact with the analytical store from Synapse gestures. Gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 

@@ -90,8 +90,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. In the **Reply URL** textbox, type the value using the following pattern:
 
-    b. In the **Identifier** textbox, type the value using the following pattern:
+    Enterprise account: `https://<subdomain>.my.salesforce.com`
+
+    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. In the **Identifier** textbox, type the value using the following pattern:
 
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 

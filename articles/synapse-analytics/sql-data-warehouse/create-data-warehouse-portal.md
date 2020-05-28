@@ -59,15 +59,19 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
    ![change data warehouse performance level](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
+   For more information about performance levels, see [Manage compute in Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
-5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
+5. Select **Additional Settings**, under **Use existing data**, choose **Sample** so that AdventureWorksDW will be created as the sample database.
+
+    ![select Use existing data](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+
+6. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
 
    ![select Review + Create](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
    ![select create](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. On the toolbar, select **Notifications** to monitor the deployment process.
+7. On the toolbar, select **Notifications** to monitor the deployment process.
 
    ![notification](./media/create-data-warehouse-portal/notification.png)
 
@@ -143,6 +147,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    ![database objects](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## Run some queries
+
+It is not recommended to run large queries while being logged as the server admin, as it uses a [limited resource class](resource-classes-for-workload-management.md). Instead configure [Workload Isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) as [illustrated in the tutorials](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
 SQL Data Warehouse uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
 

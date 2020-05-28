@@ -199,7 +199,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the database up and running?</li></ul>|
 
-## Microsoft.SQL/Server/databases
+## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
 |<ul><li>Have there been logins to the database?</li></ul>|

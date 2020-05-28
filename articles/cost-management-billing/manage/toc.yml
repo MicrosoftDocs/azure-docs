@@ -87,18 +87,26 @@
       href: understand-ea-roles.md
     - name: Azure EA portal administration
       href: ea-portal-administration.md
+    - name: Azure EA portal administration for partners
+      href: ea-partner-portal-administration.md
+    - name: Azure Enterprise transfers
+      href: ea-transfers.md
     - name: EA tasks in Microsoft Customer Agreement
       href: mca-enterprise-operations.md
     - name: Azure EA agreements and amendments
       href: ea-portal-agreements.md
     - name: Enterprise enrollment invoices
       href: ea-portal-enrollment-invoices.md
+    - name: Azure EA pricing
+      href: ea-pricing-overview.md
     - name: Azure Enterprise REST APIs
       href: ea-portal-rest-apis.md
     - name: Azure EA VM reserved instances
       href: ea-portal-vm-reservations.md
     - name: Troubleshoot Azure EA portal access
       href: ea-portal-troubleshoot.md
+    - name: Azure Marketplace
+      href: ea-azure-marketplace.md
 - name: Troubleshoot
   items:
   - name: No subscriptions found

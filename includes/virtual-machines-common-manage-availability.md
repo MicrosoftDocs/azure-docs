@@ -95,13 +95,6 @@ If you plan to use VMs with unmanaged disks, follow below best practices for Sto
 
 When you subscribe to [scheduled events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), your VM is notified about upcoming maintenance events that can impact your VM. When scheduled events are enabled, your virtual machine is given a minimum amount of time before the maintenance activity is performed. For example, Host OS updates that might impact your VM are queued up as events that specify the impact, as well as a time at which the maintenance will be performed if no action is taken. Schedule events are also queued up when Azure detects imminent hardware failure that might impact your VM, which allows you to decide when the healing should be performed. Customers can use the event to perform tasks prior to the maintenance, such as saving state, failing over to the secondary, and so on. After you complete your logic for gracefully handling the maintenance event, you can approve the outstanding scheduled event to allow the platform to proceed with maintenance.
 
-## Configure each application tier into separate availability zones or availability sets
-If your virtual machines are all nearly identical and serve the same purpose for your application, we recommend that you configure an availability zone or availability set for each tier of your application.  If you place two different tiers in the same availability zone or set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an availability zone or set for each tier, you guarantee that at least one virtual machine in each tier is available.
-
-For example, you could put all the virtual machines in the front end of your application running IIS, Apache, and Nginx in a single availability zone or set. Make sure that only front-end virtual machines are placed in the same availability zone or set. Similarly, make sure that only data-tier virtual machines are placed in their own availability zone or set, like your replicated SQL Server virtual machines, or your MySQL virtual machines.
-
-<!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## Combine a load balancer with availability zones or sets
 Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability zone or set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
@@ -113,7 +106,6 @@ For a tutorial on how to load balance across availability zones, see [Load balan
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
