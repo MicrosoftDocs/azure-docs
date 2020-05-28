@@ -18,7 +18,7 @@ ms.author: allensu
 
 # Public IP addresses
 
-Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses also enable Azure resources to communicate outbound to Internet and public-facing Azure services with an IP address assigned to the resource. The address is dedicated to the resource, until it's unassigned by you. If a public IP address isn't assigned to a resource, the resource can still communicate outbound to the Internet, but Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically assigns an available IP address that isn't dedicated to the resource. For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with are:
 
@@ -37,7 +37,7 @@ Public IP addresses are created with an IPv4 or IPv6 address.
 Public IP addresses are created with one of the following SKUs:
 
 >[!IMPORTANT]
-> Matching SKUs must be used for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ### Standard
 
@@ -45,8 +45,8 @@ Standard SKU public IP addresses are:
 
 - Always use static allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Are secure by default and closed to inbound traffic. You must explicit allow list allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
-- Assigned to network interfaces, Standard public Load Balancers, or Application Gateways. For more information about Standard Load Balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Secure by default and closed to inbound traffic. Allow list inbound traffic with a [network security group](security-overview.md#network-security-groups).
+- Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Standard load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Can be zone-redundant or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -57,22 +57,41 @@ Standard SKU public IP addresses are:
 
 ### Basic
 
-All public IP addresses created before the introduction of SKUs are Basic SKU public IP addresses. With the introduction of SKUs, you have the option to specify which SKU you would like the public IP address to be. Basic SKU addresses are:
+All public IP addresses created before the introduction of SKUs are Basic SKU public IP addresses. 
+
+With the introduction of SKUs, specify which SKU you would like the public IP address to be. 
+
+Basic SKU addresses are:
 
 - Assigned with the static or dynamic allocation method.
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.
-- Assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers.
-- Do not support Availability Zone scenarios.  You need to use Standard SKU public IP for Availability Zone scenarios. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assigned to any Azure resource that can be assigned a public IP address, such as:
+    * Network interfaces
+    * VPN Gateways
+    * Application Gateways
+    * Public load balancers
+- Don't support Availability Zone scenarios. Use Standard SKU public IP for Availability Zone scenarios. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Allocation method
 
-Both basic and standard SKU public IP addresses support the *static* allocation method.  The resource is assigned an IP address at the time it is created and the IP address is released when the resource is deleted.
+Basic and standard public IPs support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.
 
-Basic SKU public IP addresses also support a *dynamic* allocation method, which is the default if allocation method is not specified.  Selecting *dynamic* allocation method for a basic public IP address resource means the IP address is **not** allocated at the time of the resource creation.  The public IP address is allocated when you associate the public IP address with a virtual machine or when you place the first virtual machine instance into the backend pool of a basic load balancer.   The IP address is released when you stop (or delete) the resource.  After being released from resource A, for example, the IP address can be assigned to a different resource. If the IP address is assigned to a different resource while resource A is stopped, when you restart resource A, a different IP address is assigned. If you change the allocation method of a basic public IP address resource from *static* to *dynamic*, the address is released. To ensure the IP address for the associated resource remains the same, you can set the allocation method explicitly to *static*. A static IP address is assigned immediately.
+Basic SKU public IP addresses support a **dynamic** assignment. Dynamic is the default assignment method. The IP address **isn't** given to the resource at the time of creation when selecting dynamic.
+
+The IP is assigned when you associate the public IP address resource with a:
+
+* Virtual machine 
+* The first virtual machine is associated with the backend pool of a load balancer.
+
+The IP address is released when you stop (or delete) the resource.  
+
+For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned.
+
+The IP address is released when the allocation method is changed from **static** to **dynamic**. To ensure the IP address for the associated resource remains the same, set the allocation method explicitly to **static**. A static IP address is assigned immediately.
 
 > [!NOTE]
-> Even when you set the allocation method to *static*, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
+> Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 >
 
 Static public IP addresses are commonly used in the following scenarios:
@@ -87,33 +106,63 @@ Static public IP addresses are commonly used in the following scenarios:
 >
 
 ## DNS hostname resolution
-You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address in the Azure-managed DNS servers. For instance, if you create a public IP resource with **contoso** as a *domainnamelabel* in the **West US** Azure *location*, the fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource.
+
+Select the option to specify a DNS domain name label for a public IP resource. 
+
+This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
+
+For instance, creation of a public IP with:
+
+* **contoso** as a **domainnamelabel**
+* **West US** Azure **location**
+
+The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** resolves to the public IP address of the resource.
 
 > [!IMPORTANT]
 > Each domain name label created must be unique within its Azure location.  
 >
 
-## DNS Best Practices
-If you ever need to migrate to a different region, you cannot migrate the FQDN of your public IP Address. As a best practice, you can use the FQDN to create a custom domain CNAME record pointing to the public IP address in Azure. If you need to move to a different public IP, it will require an update to the CNAME record instead of having to manually update the FQDN to the new address. You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record. 
+## DNS Recommendations
+
+If a region move is needed, you can't migrate the FQDN of your public IP. Use the FQDN to create a custom CNAME record pointing to the public IP address. 
+
+If a move to a different public IP is required, update the CNAME record instead of updating the FQDN.
+
+You can use [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record. 
 
 ## Virtual machines
 
-You can associate a public IP address with a [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine by assigning it to its **network interface**. You can assign either a dynamic or a static public IP address to a virtual machine. Learn more about [assigning IP addresses to network interfaces](virtual-network-network-interface-addresses.md).
+You can associate a public IP address with a [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine by assigning it to its **network interface**. 
+
+Choose **dynamic** or **static** for the public IP address. Learn more about [assigning IP addresses to network interfaces](virtual-network-network-interface-addresses.md).
 
 ## Internet-facing load balancers
 
-You can associate a public IP address created with either [SKU](#sku) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with TLS-based websites. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+You can associate a public IP address of either [SKU](#sku) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP serves as a load-balanced IP. 
+
+You can assign either a dynamic or a static public IP address to a load balancer front end. You can assign multiple public IP addresses to a load balancer front end. This configuration enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with TLS-based websites. 
+
+For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## VPN gateways
 
-An [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connects an Azure virtual network to other Azure virtual networks, or to an on-premises network. A public IP address is assigned to the VPN Gateway to enable it to communicate with the remote network. You can only assign a *dynamic* basic public IP address to a VPN gateway.
+[Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connects an Azure virtual network to:
+
+* Azure virtual networks
+* On-premises network(s). 
+
+A public IP address is assigned to the VPN Gateway to enable communication with the remote network. You can only assign a *dynamic* basic public IP address to a VPN gateway.
 
 ## Application gateways
 
-You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. You can only assign a *dynamic* basic public IP address to an application gateway V1 front-end configuration, and only a *static* standard SKU address to a V2 front-end configuration.
+You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. 
+
+* Assign a **dynamic** basic public IP to an application gateway V1 front-end configuration. 
+* Assign a **static** standard SKU address to a V2 front-end configuration.
 
 ## At-a-glance
-The following table shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
+
+The following table shows the property through which a public IP can be associated to a top-level resource and the possible allocation methods.
 
 | Top-level resource | IP Address association | Dynamic | Static |
 | --- | --- | --- | --- |
@@ -123,9 +172,13 @@ The following table shows the specific property through which a public IP addres
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 
 ## Limits
-The limits imposed on IP addressing are indicated in the full set of [limits for networking](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. The limits are per region and per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+
+The limits for IP addressing are listed in the full set of [limits for networking](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. 
+
+The limits are per region and per subscription. [Contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Pricing
+
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 ## Next steps
