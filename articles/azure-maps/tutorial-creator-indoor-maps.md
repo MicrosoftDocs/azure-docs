@@ -35,7 +35,7 @@ To create indoor maps:
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 >[!IMPORTANT]
-> The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-creator#access-to-creator-services).
+> The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 ## Upload a Drawing package
 
