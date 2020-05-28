@@ -1,7 +1,7 @@
 ﻿---
 title: Run background tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
-author: ggailey777
+author: LauraKellerGitHub
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Run background tasks with WebJobs in Azure App Service
 
-This article shows how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. For information about how to develop and deploy WebJobs by using Visual Studio, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. If instead, you are using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
@@ -65,11 +65,11 @@ when making changes in one don't forget the other two.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In the **WebJobs** page, select **Add**.
+3. In the **WebJobs** page, select **Add**.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
+4. Use the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
@@ -80,13 +80,13 @@ when making changes in one don't forget the other two.
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-4. Click **OK**.
+5. Select **OK**. The new WebJob appears on the WebJobs page. If you see a message that says the WebJob was added, but you don't see it, **select Refresh**.
 
    The new WebJob appears on the **WebJobs** page.
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. To stop or restart a continuous WebJob, right-click the WebJob in the list and click **Stop** or **Start**.
+6. To stop or restart a continuous WebJob, right-click the WebJob in the list and click **Stop** or **Start**.
 
     ![Stop a continuous WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
 
