@@ -26,9 +26,9 @@ Speaker Verification streamlines the process of verifying an enrolled speaker id
 
 Speaker verification can be either text-dependent or text-independent. **Text-dependent** verification means speakers need to choose the same passphrase to use during both enrollment and verification phases. **Text-independent** verification means speakers can speak in everyday language in the enrollment and verification phrases.
 
-For **text-dependent** verification, the speaker's voice is enrolled by saying a passphrase from a set of predefined phrases. Voice features are extracted from the audio recording to form a unique voice signature, while the chosen passphrase is also recognized. Together, the voice signature and the passphrase are used to verify the speaker. The response returns either `Accept` or `Reject`, and a similarity score ranging from 0-1. `Accept` is returned if *both* the passphrase is correct, and the similarity is greater than 0.5. This allows you to easily customize your own thresholds and overrides when building a solution.
+For **text-dependent** verification, the speaker's voice is enrolled by saying a passphrase from a set of predefined phrases. Voice features are extracted from the audio recording to form a unique voice signature, while the chosen passphrase is also recognized. Together, the voice signature and the passphrase are used to verify the speaker. 
 
-**Text-independent** verification has no restrictions on what the speaker says during enrollment or in the audio sample to be verified, as it only extracts voice features to score similarity. The response also returns either `Accept` or `Reject`, and a similarity score of 0-1. `Accept` is returned for similarity greater than 0.5.
+**Text-independent** verification has no restrictions on what the speaker says during enrollment or in the audio sample to be verified, as it only extracts voice features to score similarity. 
 
 The APIs are not intended to determine whether the audio is from a live person or an imitation/recording of an enrolled speaker. 
 
