@@ -12,6 +12,6 @@ ms.author: aahi
 ---
 
 > [!IMPORTANT]
-> Text Analytics API v3 is not available in the following regions: Central India, UAE North, South Africa North, China North 2, China East.
+> Text Analytics API v3 is not available in the following regions: Central India, Fairfax, UAE North, South Africa North, China North 2, China East.
 
 
