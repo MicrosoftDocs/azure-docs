@@ -15,9 +15,13 @@ ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
-# Self-service password reset policies and restrictions in Azure Active Directory
+# Password policies and account restrictions in Azure Active Directory
 
-This article describes the password policies and complexity requirements associated with user accounts in your Azure Active Directory (Azure AD) tenant.
+In Azure Active Directory (Azure AD), there's a password policy that defines settings for things like the password complexity, length, or age. There's also a policy that defines acceptable characters and length for usernames.
+
+When self-service password reset (SSPR) is used to change or reset a password in Azure AD, the password policy is checked. If their password doesn't meet the policy requirements, the user is prompted for to try again. Azure administrators have some restrictions on using SSPR that are different than regular user accounts.
+
+This article describes the password policy settings and complexity requirements associated with user accounts in your Azure AD tenant, and how you can use PowerShell to check or set password expiration settings.
 
 ## Username policies
 <section id="userprincipalname-policies-that-apply-to-all-user-accounts"></section>
@@ -112,58 +116,58 @@ This guidance applies to other providers, such as Intune and Office 365, which a
 
 To get started, [download and install the Azure AD PowerShell module](/powershell/module/Azuread/?view=azureadps-2.0) and [connect it to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
 
-After the module is installed, use the following steps to configure each field.
+After the module is installed, use the following steps to complete each task as needed.
 
 ### Check the expiration policy for a password
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Run one of the following commands:
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Run one of the following commands for either an individual user or for all users:
 
    * To see if a single user's password is set to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*:
 
-   ```powershell
-   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
    * To see the **Password never expires** setting for all users, run the following cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
 ### Set a password to expire
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Execute one of the following commands:
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user so that the password expires, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+       ```
 
    * To set the passwords of all users in the organization so that they expire, use the following cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+       ```
 
 ### Set a password to never expire
 
-1. Connect to Windows PowerShell by using your user administrator or company administrator credentials.
-1. Execute one of the following commands:
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) using a *global administrator* or *user administrator* account.
+1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+       ```
 
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+       ```
 
    > [!WARNING]
    > Passwords set to `-PasswordPolicies DisablePasswordExpiration` still age based on the `pwdLastSet` attribute. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordPolicies None`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can affect a large number of users.
