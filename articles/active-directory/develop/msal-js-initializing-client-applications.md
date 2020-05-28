@@ -39,7 +39,7 @@ After registering your app, you'll need some or all of the following values that
 
 ## Initializing applications
 
-You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize the MSAL authentication context by instantiating a `UserAgentApplication` with a configuration object. The minimum required config to initialize MSAL.js is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
+You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize the MSAL authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required config to initialize MSAL.js is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
 
 For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows do not return promises like the methods with a pop-up experience do. Registering the callback is optional in MSAL.js version 1.3.x and later.
 
@@ -99,16 +99,16 @@ function authCallback(error, response) {
 msalInstance.handleRedirectCallback(authCallback);
 ```
 
-MSAL.js is designed to have a single instance and configuration of the [`PublicClientApplication`][msal-js-publicclientapplication] to represent a single authentication context. Multiple instances are not recommended because they cause conflicting cache entries and behavior in the browser.
+MSAL.js is designed to have a single instance and configuration of the [PublicClientApplication][msal-js-publicclientapplication] to represent a single authentication context. Multiple instances are not recommended because they cause conflicting cache entries and behavior in the browser.
 
 ## Configuration options
 
-The MSAL.js [`Configuration`][msal-js-configuration] object provides several configurable options for use in instantiating the [`PublicClientApplication`][msal-js-publicclientapplication].
+The MSAL.js [Configuration][msal-js-configuration] object provides several configurable options for use in instantiating the [PublicClientApplication][msal-js-publicclientapplication].
 
 For more information, see the MSAL.js API reference documentation for these types:
 
-- [`PublicClientApplication`][msal-js-publicclientapplication] in [`msal-browser`][msal-browser]
-- [`Configuration`][msal-js-configuration] in [`msal-core`][msal-core]
+- [PublicClientApplication][msal-js-publicclientapplication] in [msal-browser][msal-browser]
+- [Configuration][msal-js-configuration] in [msal-core][msal-core]
 
 ## Next steps
 
