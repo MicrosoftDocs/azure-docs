@@ -47,7 +47,7 @@ CycleCloud supports the parameterized configuration of many system services.
 | autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |                                                                                             |
 | security.limits  | Integer | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: `security.limits.\*.hard.nofile = 524288` and `security.limits.\*.soft.nofile = 1048576` |
 | mounts | Nested  | For [NFS exporting and mounting](~/how-to/mount-fileserver.md) and volume mounting.  |
-| selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Already disabled on core CycleCloud images. |
+| selinux.policy  | String  | Linux only. [Bypass an enforced `selinux` policy](~/how-to/selinux.md) for custom images. Already disabled on core CycleCloud images. |
 | install_epel | Boolean | Add the extended packages repo for yum on RedHat variant image.  Default: `true` |
 | disable_rhui | Boolean | Opt-out of Red Hat repository configs. Default : `false` |
 | ganglia.install | Boolean | Opt-out of ganglia installation by setting `false`. Default: `true` |
@@ -64,7 +64,7 @@ CycleCloud supports the parameterized configuration of many system services.
 | discoverable | Boolean | Whether or not this node can be "discovered" (searched for) by other nodes started by CycleCloud. Default: `false` |
 | security.limits  | Integer | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: `security.limits.\*.hard.nofile = 524288` and `security.limits.\*.soft.nofile = 1048576` |
 | mounts | Nested  | For [NFS exporting and mounting](~/how-to/mount-fileserver.md) and volume mounting.  |
-| selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Defaults to enforcing |
+| selinux.policy  | String  | Linux only. [Bypass an enforced `selinux` policy](~/how-to/selinux.md) on cluster instances. Default: `nil` |
 | dns.domain | String | Use nsupdate to force a dynamic DNS record update. Useful ONLY when allowed by DNS policy, and the cluster is using a DNS server that allows dynamic updates. Default: `nil` |
 | dns.alias | String | Use nsupdate to force a dynamic DNS record update. Useful ONLY when allowed by DNS policy, and the cluster is using a DNS server that allows dynamic updates. Default: `nil` |
 | samba.enabled | Boolean | Linux only. Installs Samba on a filer for use with Windows execute nodes. Default: `false` |
