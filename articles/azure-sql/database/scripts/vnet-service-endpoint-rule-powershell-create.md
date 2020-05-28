@@ -203,7 +203,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## Script 3: Create an endpoint and a rule
 
-This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your logical SQL server, thereby creating a rule.
+This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL), thereby creating a rule.
 
 ### PowerShell script 3 source code
 

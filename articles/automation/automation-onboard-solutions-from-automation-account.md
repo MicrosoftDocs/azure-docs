@@ -31,9 +31,9 @@ Sign in to Azure at https://portal.azure.com.
 
     ![Enable Update Management](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Check the scope configuration
+## <a name="scope-configuration"></a>Limit the scope for the deployment
 
-Update Management uses a scope configuration within the workspace to target the computers to enable for the feature. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
 
 ## Enable Azure VMs
 
@@ -74,7 +74,7 @@ Manually installed machines or machines already reporting to your workspace must
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* For scope configurations, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+* For scope configurations, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
 * If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
 * To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
