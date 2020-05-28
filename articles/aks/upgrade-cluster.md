@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/28/2020
 
 ---
 
@@ -11,7 +11,7 @@ ms.date: 05/31/2019
 
 As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
 
-For AKS clusters that use multiple node pools, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For AKS clusters that use multiple node pools or Windows Server nodes (currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Before you begin
 
@@ -19,7 +19,6 @@ This article requires that you are running the Azure CLI version 2.0.65 or later
 
 > [!WARNING]
 > An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail. See [increase quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) for more information.
-> If you are running your own cluster autoscaler deployment please disable it (you can scale it to zero replicas) during the upgrade as there is a chance it will interfere with the upgrade process. Managed autoscaler automatically handles this. 
 
 ## Check for available AKS cluster upgrades
 
@@ -44,6 +43,26 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 If no upgrade is available, you will get:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
+
+## Customize node surge upgrade (Preview)
+
+> [!Important]
+> Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 2 nodes * 5 pools = 10 is required to complete the upgrade.
+
+By default, AKS configures upgrades to surge with one additional node. This default enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max surge parameter can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing this value, an upgrade operation provisions that many additional nodes to facilitate node replacement during an upgrade.
+AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. Setting a value of 100% provides the fastest upgrade, but will also cause all 
+
+Register for the Node surge upgrade feature by issuing the following Azure CLI command:
+
+```azurecli-interactive
+az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
+```
+
+Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%. After successful registration, run the following command to increase maxSurge.
+
+```azurecli-interactive
+az aks nodepool update|upgrade --max_surge 33%
 ```
 
 ## Upgrade an AKS cluster
