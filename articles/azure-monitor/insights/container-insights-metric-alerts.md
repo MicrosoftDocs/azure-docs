@@ -16,6 +16,13 @@ This article reviews the experience and provides guidance on configuring and man
 
 To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
 
+|Name| Description |
+| Average CPU % | Calculates average CPU used per node.<br> Default trigger threshold: When average CPU usage per node is greater than 80%.| 
+| Average Working set memory % | Calculates average working set memory used per node.<br> Default trigger threshold: When average working set memory usage per node is greater than 80%. |
+| Failed Pod Counts | Calculates if any pod in failed state.<br> Default trigger threshold: When a number of pods in failed state are greater than 0. |
+| Node NotReady status | Calculates if any node is in NotReady state.<br> Default trigger threshold: When a number of nodes in NotReady state are greater than 0. |
+| Metric heartbeat | Alerts when all nodes are down and are not sending any metric data.<br> Default trigger threshold: When a number of nodes not sending metric data are less than or equal to 0.|
+
 |Namespace|Name|Description |
 |---------|----|------------|
 |Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
@@ -28,7 +35,7 @@ To alert on what matters, Azure Monitor for containers includes the following me
 |Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
 |Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
 |Insights.container/pods |completedJobsCount |Completed jobs count older user configurable threshold (default is six hours) by controller, Kubernetes namespace. |
-|Insights.container/pods |containerRestartCount |Count of container restarts by controller, Kubernetes namespace.|
+|Insights.container/pods |restartingContainerCount |Count of container restarts by controller, Kubernetes namespace.|
 |Insights.container/pods | oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
 |Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
 |Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name. |
@@ -114,3 +121,9 @@ Perform the following steps to configure your ConfigMap configuration file to ov
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+## Next steps
+
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+
+- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](container-insights-health.md).
