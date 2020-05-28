@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Quickstart: Extract printed and handwritten text using the Computer Vision REST API and JavaScript
 
-In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Batch](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
+In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
 
 
 
