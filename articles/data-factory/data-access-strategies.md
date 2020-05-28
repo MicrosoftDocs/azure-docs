@@ -12,7 +12,7 @@ ms.date: 05/28/2020
 
 # Data access strategies
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A vital security goal of an organization is to protect their data stores from random access over the internet, may it be an on-premise or a Cloud/ SaaS data store. 
 
