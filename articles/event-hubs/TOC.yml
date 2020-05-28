@@ -26,7 +26,7 @@
       href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Send and receive events
     items:
-    - name: .NET Core (Azure.Messaging.EventHubs)
+    - name: .NET (Azure.Messaging.EventHubs)
       href: get-started-dotnet-standard-send-v2.md
     - name: Java (azure-messaging-eventhubs)
       href: get-started-java-send-v2.md
