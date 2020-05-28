@@ -17,18 +17,18 @@ ms.collection: M365-identity-device-management
 ---
 # Password policies and account restrictions in Azure Active Directory
 
-In Azure Active Directory (Azure AD), there's a password policy that defines settings for things like the password complexity, length, or age. There's also a policy that defines acceptable characters and length for usernames.
+In Azure Active Directory (Azure AD), there's a password policy that defines settings like the password complexity, length, or age. There's also a policy that defines acceptable characters and length for usernames.
 
-When self-service password reset (SSPR) is used to change or reset a password in Azure AD, the password policy is checked. If their password doesn't meet the policy requirements, the user is prompted for to try again. Azure administrators have some restrictions on using SSPR that are different than regular user accounts.
+When self-service password reset (SSPR) is used to change or reset a password in Azure AD, the password policy is checked. If the password doesn't meet the policy requirements, the user is prompted to try again. Azure administrators have some restrictions on using SSPR that are different to regular user accounts.
 
 This article describes the password policy settings and complexity requirements associated with user accounts in your Azure AD tenant, and how you can use PowerShell to check or set password expiration settings.
 
 ## Username policies
 <section id="userprincipalname-policies-that-apply-to-all-user-accounts"></section>
 
-Every account that signs in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. In hybrid environments with an on-premises Active Directory Domain Services (AD DS) environment synchronized to Azure AD using Azure AD Connect, the Azure AD UPN is set to the on-prem UPN.
+Every account that signs in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. In hybrid environments with an on-premises Active Directory Domain Services (AD DS) environment synchronized to Azure AD using Azure AD Connect, by default the Azure AD UPN is set to the on-prem UPN.
 
-The following table outlines the username policies that apply to both on-premises AD DS accounts that are synchronized to Azure AD, and for cloud-only Azure AD user accounts:
+The following table outlines the username policies that apply to both on-premises AD DS accounts that are synchronized to Azure AD, and for cloud-only user accounts created directly in Azure AD:
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
@@ -39,7 +39,7 @@ The following table outlines the username policies that apply to both on-premise
 ## Azure AD password policies
 <section id="password-policies-that-only-apply-to-cloud-user-accounts"></section>
 
-A password policy is applied to all user accounts that are created and managed in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
+A password policy is applied to all user accounts that are created and managed directly in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
 
 The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
 
