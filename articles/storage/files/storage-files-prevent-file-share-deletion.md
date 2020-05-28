@@ -20,7 +20,7 @@ When soft delete for Azure file shares is enabled, if a file share is deleted, i
 
 Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete. 
 
-To permanently delete a file share in a soft delete state before their expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should re-enable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
+To permanently delete a file share in a soft delete state before its expiry time, you must undelete the share, disable soft delete, and then delete the share again. Then you should re-enable soft delete, since any other file shares in that storage account will be vulnerable to accidental deletion while soft delete is off.
 
 For soft-deleted premium file shares, the file share quota (the provisioned size of a file share) is used in the total storage account quota calculation until the soft-deleted share expiry date, when the share is fully deleted.
 
