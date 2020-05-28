@@ -62,9 +62,9 @@ Register for the Node surge upgrade feature by issuing the following Azure CLI c
 az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
 ```
 
-## Install latest AKS CLI preview extension
+### Install latest AKS CLI preview extension
 
-To use customer-managed keys, you need the *aks-preview* CLI extension using the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+You need the *aks-preview* CLI extension using the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -75,7 +75,7 @@ az extension update --name aks-preview
 ```
 
 ```azurecli-interactive
-az aks nodepool update|upgrade --max_surge 33%
+TODOs az aks nodepool add update|upgrade --max_surge 33%
 ```
 
 ## Upgrade an AKS cluster
