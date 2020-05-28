@@ -10,7 +10,7 @@ ms.topic: tutorial
 your Azure resources into a taxonomy. When following
 [best practices for tag management](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources),
 tags can be the basis for applying your business policies with Azure Policy or
-[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 No matter how or why you use tags, it's important that you can quickly add, change, and remove those
 tags on your Azure resources. To see if your Azure resource supports tagging, see
 [Tag support](../../../azure-resource-manager/management/tag-support.md).

@@ -714,6 +714,8 @@
         href: managed-instance/subnet-service-aided-configuration-enable.md
       - name: Public endpoint
         href: managed-instance/public-endpoint-configure.md
+      - name: Minimal TLS version
+        href: managed-instance/minimal-tls-version-configure.md
       - name: Client VM connection
         href: managed-instance/connect-vm-instance-configure.md
       - name: Point-to-site connection
@@ -754,6 +756,101 @@
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
+
+    - name: Machine Learning Services
+      items:
+      - name: Overview
+        href: managed-instance/machine-learning-services-overview.md
+      - name: Key differences
+        href: managed-instance/machine-learning-services-differences.md
+      - name: Quickstarts
+        items:
+        - name: Python
+          items:
+          - name: Run Python scripts
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Data structures and objects
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Python functions
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Train and score a model
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: R
+          items:
+          - name: Run R scripts
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Data types and objects
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: R functions
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Train and score a model
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+      - name: Tutorials
+        items:
+        - name: Python
+          items:
+          - name: Ski rental (linear regression)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Prepare data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Train model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Deploy model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Categorize customers (k-means clustering)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Prepare the data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Create the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Deploy the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: R
+          items:
+          - name: Ski rental (decision tree)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Prepare data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Train model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Deploy model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Categorize customers (k-means clustering)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Prepare the data
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Create the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Deploy the model
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+      - name: Manage Python, R packages
+        items:
+        - name: Python
+          items:
+          - name: Get Python package information
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Install with sqlmlutils
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: R
+          items:
+          - name: Get R package information
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Install with sqlmlutils
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Create a miniCRAN repo
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Tips for using R packages
+            href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+
+
     - name: Features
       items:
       - name: Linked servers
@@ -766,20 +863,20 @@
       items: 
       - name: Secure public endpoints
         href: managed-instance/public-endpoint-overview.md
-      - name: Managed instance auditing
+      - name: Auditing
         href: managed-instance/auditing-configure.md
 
   - name: How to
     items:
     - name: Overview
       href: managed-instance/how-to-content-reference-guide.md
-    - name: Migrate to Managed instance
+    - name: Migrate to SQL Managed Instance
       href: managed-instance/migrate-to-instance-from-sql-server.md
     - name: Customize time zone
       href: managed-instance/timezones-overview.md
     - name: Configure connection types
       href: managed-instance/connection-types-overview.md
-    - name: Migrate TDE cert to Managed instance
+    - name: Migrate TDE cert 
       href: managed-instance/tde-certificate-migrate.md
     - name: Restore to a point in time
       href: managed-instance/point-in-time-restore.md
@@ -1052,8 +1149,6 @@
 
 - name: Resources
   items:
-  - name: Glossary of terms
-    href: glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: SQL Server Blog
