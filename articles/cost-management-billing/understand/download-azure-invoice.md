@@ -7,7 +7,7 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/28/2020
 ms.author: banders
 ---
 
@@ -37,11 +37,11 @@ An MOSP billing account can have the following invoices:
 
 For example, John creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 March. The invoice for *Azure sub 01* will have charges from the fifth day of a month to the fourth day of next month. The invoice for *Azure sub 02* will have charges from the tenth day of a month to the ninth day of next month. The invoices for all Azure subscriptions are normally generated on the day of the month that the account was created but can be up to two days later. In this example, if John created his account on 2 February, the invoices for both *Azure sub 01* and *Azure sub 02* will normally be generated on the second day of each month but could be up to two days later.
 
-**Azure marketplace, reservations, and spot VMs** - An invoice is generated for reservations, marketplace products, and spot VMs purchased using a subscription. The invoice shows respective charges from the previous month. For example, John purchased a reservation on 1 March and another reservation on 30 March. A single invoice will be generated for both the reservations in April. The invoice for Azure marketplace, reservations, and spot VMs are always generated around the ninth day of the month.
+**Azure Marketplace, reservations, and spot VMs** - An invoice is generated for reservations, marketplace products, and spot VMs purchased using a subscription. The invoice shows respective charges from the previous month. For example, John purchased a reservation on 1 March and another reservation on 30 March. A single invoice will be generated for both the reservations in April. The invoice for Azure Marketplace, reservations, and spot VMs are always generated around the ninth day of the month.
 
-If you pay for Azure with a credit card and you buy reservation, Azure generates an immediate invoice. However, when billed by an invoice, you are charged for the reservation on your next monthly invoice.
+If you pay for Azure with a credit card and you buy reservation, Azure generates an immediate invoice. However, when billed by an invoice, you're charged for the reservation on your next monthly invoice.
 
-**Azure support plan** - An invoice is generated each month for your support plan subscription. The first invoice is generated on the day of purchase or up to two days later. Subsequent support plan invoices are normally generated on the same day of the month that the account was created but could be generated up to two days later.
+**Azure support plan** - An invoice is generated each month for your support plan subscription. The first invoice is generated on the day of purchase or up to two days later. Later support plan invoices are normally generated on the same day of the month that the account was created but could be generated up to two days later.
 
 ## Download your MOSP Azure subscription invoice
 
@@ -74,7 +74,7 @@ You must have an account admin role on the support plan subscription to download
 1.  Select **Download** to download a PDF version of your invoice.  
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## Allow users with permission on the subscription to download its invoice
+## Allow users with subscription permission to download invoice
 
 To download an invoice:
 
@@ -124,7 +124,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## Share your subscription's and support plan's invoices with others in email
+## Share subscription and support plan invoices
 
 You may want to share the invoices for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
 
@@ -238,7 +238,7 @@ There could be several reasons that you don't see an invoice:
 
 - You have access to the invoice through one of your other accounts.
 
-    - This typically happens when you click on a link in the email, asking you to view your invoice in the portal. You click on the link and you see an error message - *We can't display your invoices. Please try again*. Verify that you're signed in with the email address that has permissions to view the invoices.
+    - This situation typically happens when you click on a link in the email, asking you to view your invoice in the portal. You click on the link and you see an error message - `We can't display your invoices. Please try again`. Verify that you're signed in with the email address that has permissions to view the invoices.
 
 - You have access to the invoice through a different identity. 
 
