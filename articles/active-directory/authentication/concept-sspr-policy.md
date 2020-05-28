@@ -23,8 +23,7 @@ When self-service password reset (SSPR) is used to change or reset a password in
 
 This article describes the password policy settings and complexity requirements associated with user accounts in your Azure AD tenant, and how you can use PowerShell to check or set password expiration settings.
 
-## Username policies
-<section id="userprincipalname-policies-that-apply-to-all-user-accounts"></section>
+## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Username policies
 
 Every account that signs in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. In hybrid environments with an on-premises Active Directory Domain Services (AD DS) environment synchronized to Azure AD using Azure AD Connect, by default the Azure AD UPN is set to the on-prem UPN.
 
@@ -36,8 +35,7 @@ The following table outlines the username policies that apply to both on-premise
 | Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
 | Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |
 
-## Azure AD password policies
-<section id="password-policies-that-only-apply-to-cloud-user-accounts"></section>
+## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Azure AD password policies
 
 A password policy is applied to all user accounts that are created and managed directly in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
 
@@ -100,8 +98,7 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 * A custom domain hasn't been configured for your Azure AD tenant so is using the default **.onmicrosoft.com*. The default **.onmicrosoft.com* domain isn't recommended for production use; and
 * Azure AD Connect isn't synchronizing identities
 
-## Password expiration policies
-<section id="set-password-expiration-policies-in-azure-ad"></section>
+## <a name="set-password-expiration-policies-in-azure-ad"></a>Password expiration policies
 
 A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) to set user passwords not to expire.
 
