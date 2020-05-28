@@ -148,7 +148,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. (If you required Hugo Extended, Uncomment `extended: true`)
+1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. If you require Hugo Extended, uncomment `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
