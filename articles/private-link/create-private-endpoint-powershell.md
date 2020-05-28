@@ -207,7 +207,7 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
     
-3. Install SQL Server Management Studio.
+3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 4. In **Connect to server**, enter or select this information:
 
     | Setting | Value |
