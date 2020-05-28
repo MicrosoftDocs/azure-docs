@@ -64,7 +64,7 @@ az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespac
 
 ### Install latest AKS CLI preview extension
 
-You need the *aks-preview* CLI extension using the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+You need the *aks-preview* CLI extension to use max surge in preview. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -74,8 +74,18 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+Use the following commands to set max surge values for new or existing node pools.
+
 ```azurecli-interactive
-TODOs az aks nodepool add update|upgrade --max_surge 33%
+# Set max surge for a new node pool 
+
+az aks nodepool add -n mynodepool -g MyResourceGroup --name MyManagedCluster –max-surge 33%
+```
+
+```azurecli-interactive
+# Update max surge for an existing node pool 
+
+az aks nodepool update -n mynodepool -g MyResourceGroup --name MyManagedCluster –max-surge 5
 ```
 
 ## Upgrade an AKS cluster
