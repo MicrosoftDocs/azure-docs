@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/27/2020
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -130,11 +130,11 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 ## Protocols and tokens
 
-- For application, Azure AD B2C supports the [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md), and [SAML protocols](connect-with-saml-service-providers.md) for user journeys. Your application starts the user journey by issuing authentication requests to Azure AD B2C. The result of a request to Azure AD B2C is a security token, such as an [ID token, access token](tokens-overview.md), or SAML token. This security token defines the user's identity within the application.
+- For applications, Azure AD B2C supports the [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md), and [SAML protocols](connect-with-saml-service-providers.md) for user journeys. Your application starts the user journey by issuing authentication requests to Azure AD B2C. The result of a request to Azure AD B2C is a security token, such as an [ID token, access token](tokens-overview.md), or SAML token. This security token defines the user's identity within the application.
 
 - For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML identity providers.
 
-The following diagram shows how Azure AD B2C can communicate using variety of protocols within the same authentication flow:
+The following diagram shows how Azure AD B2C can communicate using a variety of protocols within the same authentication flow:
 
 ![Diagram of OIDC-based client app federating with a SAML-based IdP](media/technical-overview/protocols.png)
 
