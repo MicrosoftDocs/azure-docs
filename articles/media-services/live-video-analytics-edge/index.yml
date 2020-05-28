@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Live Video Analytics on IoT Edge (Preview)
+  - title: About Live Video Analytics on IoT Edge (preview)
     linkLists:
       - linkListType: overview
         links:
