@@ -424,8 +424,7 @@
         "articles/virtual-network/*.md": "networking",                       
         "articles/virtual-wan/*.md": "networking",
         "articles/vpn-gateway/*.md": "networking", 
-        "articles/web-application-firewall/*.md": "networking",
-       
+        "articles/web-application-firewall/*.md": "networking"       
       },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
