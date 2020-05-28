@@ -14,7 +14,7 @@ ms.date: 05/27/2020
 
 # Quickstart: Create an Azure Databricks workspace by using the Azure Resource Manager template
 
-In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace. Once it is created, you validate the deployment.
+In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace. Once the workspace is created, you validate the deployment.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
