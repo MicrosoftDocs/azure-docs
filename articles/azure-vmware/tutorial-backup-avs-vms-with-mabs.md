@@ -11,11 +11,11 @@ This tutorial provides the steps to back up VMware VMs running on Azure VMware S
 
 In this tutorial, you learn how to:
 
->   [!div class="checklist"] 
->   * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
->   * Add the account credentials to Azure Backup. 
->   * Add the vCenter to Azure Backup Server. 
->   * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
+> [!div class="checklist"] 
+> * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
+> * Add the account credentials to Azure Backup. 
+> * Add the vCenter to Azure Backup Server. 
+> * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
 
 ## Create a secure connection to the vCenter Server
 
@@ -383,11 +383,11 @@ You can restore individual files from a protected VM recovery point. This featur
 
 In this tutorial, you learned how to:
 
->   [!div class="checklist"] 
->   * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
->   * Add the account credentials to Azure Backup. 
->   * Add the vCenter to Azure Backup Server. 
->   * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
+> [!div class="checklist"] 
+> * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
+> * Add the account credentials to Azure Backup. 
+> * Add the vCenter to Azure Backup Server. 
+> * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
 
 
 
