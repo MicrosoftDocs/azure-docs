@@ -76,7 +76,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 ### Supportability Matrix
 
-  The transactional replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server on-premises.
+  The transactional replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server.
   
 | **Publisher**   | **Distributor** | **Subscriber** |
 | :------------   | :-------------- | :------------- |
@@ -112,11 +112,11 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ![Single instance as Publisher and Distributor](./media/replication-transactional-overview/01-single-instance-asdbmi-pubdist.png)
 
-Publisher and distributor are configured within a single managed instance and distributing changes to other Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
+Publisher and distributor are configured within a single SQL Managed Instance and distributing changes to another SQL Managed Instance, SQL Database, or SQL Server instance.
 
 ### Publisher with remote distributor on SQL Managed Instance
 
-In this configuration, one managed instance publishes changes to a distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
+In this configuration, one managed instance publishes changes to a distributor placed on another SQL Managed Instance that can serve many source SQL Managed Instances and distribute changes to one or many targets on Azure SQL Database, Azure SQL Managed Instance, or SQL Server.
 
 ![Separate instances for Publisher and Distributor](./media/replication-transactional-overview/02-separate-instances-asdbmi-pubdist.png)
 
@@ -145,7 +145,7 @@ In this configuration, a database in Azure SQL Database or Azure SQL Managed Ins
 
 ## With failover groups
 
-[Active geo-replication](../database/active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](../database/auto-failover-group-overview.md), but note that the publication has to be [manually deleted](transact-sql-tsql-differences-sql-server.md#replication) from the primary SQL Managed instance and re-created on the secondary SQL Managed Instance after failover.
+[Active geo-replication](../database/active-geo-replication-overview.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](../database/auto-failover-group-overview.md), but note that the publication has to be [manually deleted](transact-sql-tsql-differences-sql-server.md#replication) from the primary managed instance and re-created on the secondary SQL Managed Instance after failover.
 
 If geo-replication is enabled on a **publisher** or **distributor** SQL Managed Instance in a [failover group](../database/auto-failover-group-overview.md), the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 

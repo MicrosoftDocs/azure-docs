@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
+ms.custom: references_regions
 ---
 
 # Services that support managed identities for Azure resources
