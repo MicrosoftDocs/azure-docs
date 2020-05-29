@@ -29,8 +29,8 @@ This document provides guidance on how to solve common security requirements for
 ### Deployment offers not covered in this guide
 
 - Azure SQL Data Warehouse
-- Azure SQL Server on Azure VMs (IaaS)
-- SQL Server on-premises
+- Azure SQL VMs (IaaS)
+- SQL Server
 
 ### Audience
 
