@@ -78,6 +78,8 @@
     items:
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
+    - name: Use Azure Service Tags
+      href: signalr-howto-service-tags.md
     - name: Use Azure Private Endpoints
       href: signalr-howto-private-endpoints.md
     - name: Manage network access control
