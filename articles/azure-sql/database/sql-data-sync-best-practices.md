@@ -28,7 +28,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 ### Client agent
 
 -   Install the client agent by using the least privileged user account that has network service access.  
--   Install the client agent on a computer that isn't the on-premises SQL Server computer.  
+-   Install the client agent on a computer that isn't the SQL Server computer.  
 -   Don't register an on-premises database with more than one agent.    
     -   Avoid this even if you are syncing different tables for different sync groups.  
     -   Registering an on-premises database with multiple client agents poses challenges when you delete one of the sync groups.
@@ -191,7 +191,7 @@ In some circumstances, unregistering a database with a client agent might cause 
 
 #### Scenario
 
-1. Sync group A was created by using a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
+1. Sync group A was created by using a SQL Database instance and a SQL Server database, which is associated with local agent 1.
 2. The same on-premises database is registered with local agent 2 (this agent is not associated with any sync group).
 3. Unregistering the on-premises database from local agent 2 removes the tracking and meta tables for sync group A for the on-premises database.
 4. Sync group A operations fail, with this error: "The current operation could not be completed because the database is not provisioned for sync or you do not have permissions to the sync configuration tables."

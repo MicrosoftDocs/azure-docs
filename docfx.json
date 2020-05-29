@@ -405,6 +405,27 @@
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
 		"articles/remote-rendering/**/*.md": "jlyons"
    },
+      "ms.collection": {
+        "articles/application-gateway/*.md": "networking",
+        "articles/cdn/*.md": "networking",
+        "articles/bastion/*.md": "networking",
+        "articles/dns/*.md": "networking",
+        "articles/expressroute/*.md": "networking",
+        "articles/firewall/*.md": "networking",
+        "articles/firewall-manager/*.md": "networking",
+        "articles/frontdoor/*.md": "networking",
+        "articles/internet-peering/*.md": "networking",        
+        "articles/internet-analyzer/*.md": "networking",
+        "articles/networking/*.md": "networking",
+        "articles/network-watcher/*.md": "networking",
+        "articles/peering-service/*.md": "networking",        
+        "articles/private-link/*.md": "networking",
+        "articles/traffic-manager/*.md": "networking",
+        "articles/virtual-network/*.md": "networking",                       
+        "articles/virtual-wan/*.md": "networking",
+        "articles/vpn-gateway/*.md": "networking", 
+        "articles/web-application-firewall/*.md": "networking"       
+      },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
