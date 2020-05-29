@@ -835,6 +835,13 @@ productDirectory:
         - devops
       url: https://docs.microsoft.com/azure/devops/test/
     # Card
+    - title: GitHub Actions for Azure
+      summary: Build, test and deploy any app from GitHub to Azure
+      imageSrc: ./media/index/github-actions-icon.svg
+      azureCategories:
+        - devops
+      url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
+    # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
