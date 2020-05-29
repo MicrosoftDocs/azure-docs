@@ -41,7 +41,7 @@ The below table details different combinations and choices that data consumers h
 | Azure Synapse Analytics (formerly Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## Share from a storage account
-Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. When folders are shared in snapshot-based sharing, data consumer can can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Existing files with the same name will be overwritten.
+Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. When folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Existing files with the same name will be overwritten.
 
 ## Share from a SQL-based source
 Azure Data Share supports sharing of tables or views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW). Data consumers can choose to accept the data into Azure Data Lake Store Gen2 or Azure Blob Storage as csv or parquet file. Note that by default, file formats are csv. The data consumer can elect to receive the data in parquet format if desired. This can be done in the dataset mapping settings when receiving the data. 
