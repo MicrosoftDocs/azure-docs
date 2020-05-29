@@ -61,10 +61,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure WebApps (Microsoft.Web/sites) / site | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning(Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
-
  
-
-
 ## DNS configuration scenarios
 
 The FQDN of the services resolves automatically to a public IP address, so in order to resolve to the private IP address of the private endpoint you must change your DNS configuration accordingly.
@@ -75,11 +72,12 @@ Based on your preferences, the following scenarios are available for DNS resolut
 
 - [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
 - [On-premises workloads using a DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
+- [Virtual network and on-premises workloads using a DNS forwarder](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
+
 
 ## Virtual network workloads without custom DNS server
 
-This configuration is appropriate for virtual network workloads without custom DNS server. In this scenario the client queries for the private endpoint IP address to Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
-
+This configuration is appropriate for virtual network workloads without custom DNS server. In this scenario, the client queries for the private endpoint IP address to Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
 
 > [!NOTE]
 > This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -101,6 +99,9 @@ This model can be extended to multiple peered virtual networks that are associat
 > [!IMPORTANT]
 > A single private DNS zone is required for this configuration, creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records
 
+> [!IMPORTANT]
+> if you are using using a private endpoint in a hub and spoke model from a different subscriptions, reuse the same private dns zone on the hub.
+
 In this scenario, there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke virtual network are linked to the same private dns zone. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub and spoke with Azure-provided DNS":::
@@ -108,7 +109,6 @@ In this scenario, there's a [hub & spoke](https://docs.microsoft.com/azure/archi
 ## On-premises workloads using a DNS forwarder
 
 For on-premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a DNS forwarder to make the resolution of the Azure service [public DNS zone](#azure-services-dns-zone-configuration) deployed in Azure.
-
 
 The following scenario is appropriate for an on-premises network that has a DNS forwarder in Azure, which in turn is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
 
@@ -148,6 +148,31 @@ The following diagram illustrates the DNS resolution sequence from an 
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="On-premises forwarding to Azure DNS":::
 
+## Virtual network and on-premises workloads using a DNS forwarder
+
+For a general approach that is suitable for workloads that need access to a private endpoint from virtual and on-premises networks, you must use a shared DNS forwarder to make the resolution of the Azure service [public DNS zone](#azure-services-dns-zone-configuration) deployed in Azure.
+
+The following scenario is appropriate for an on-premises network that has a DNS forwarder in Azure, and virtual networks that need access to the private endpoint located in a shared hub network. 
+This DNS forwarder is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
+
+> [!IMPORTANT]
+> A single private DNS zone is required for this configuration, all client connections made from on-premises and [peered virtual networks](../virtual-network/virtual-network-peering-overview.md) also must use the same private DNS zone
+
+> [!NOTE]
+> This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
+
+To configure properly, you would need the following resources:
+
+- On-premises network
+- Virtual network [connected to on-premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- [Peered virtual network](../virtual-network/virtual-network-peering-overview.md) 
+- DNS forwarder deployed in Azure
+- Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A Record](../dns/dns-zones-records.md#record-types)
+- Private endpoint information (FQDN record name and Private IP Address)
+
+The following diagram illustrates the DNS resolution sequence from an on-premises and virtual network that uses a DNS forwarder deployed in Azure, where the resolution is made by a private DNS zone [linked to a virtual network.](../dns/private-dns-virtual-network-links.md)
+
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
 
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)
