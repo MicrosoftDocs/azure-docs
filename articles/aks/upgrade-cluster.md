@@ -50,11 +50,9 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 > [!Important]
 > Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
 
-By default, AKS configures upgrades to surge with one additional node. This default value enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max-surge parameter may be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max-surge value, the upgrade process completes faster, but a large value for max-surge may cause disruptions. 
+By default, AKS configures upgrades to surge with one additional node. This default value enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max-surge parameter may be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max-surge value, the upgrade process completes faster, but setting a large value for max-surge may cause disruptions during the upgrade process. 
 
-For example, a max-surge value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. You may wish to speed up upgrades for testing environments.
-
-For production node pools, we recommend a max_surge setting of 33%.
+For example, a max-surge value of 100% provides the fastest possible upgrade (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a value such as this for testing environments, but for production node pools, we recommend a max_surge setting of 33%.
 
 Max surge integer values can be a minimum of 1 and maximum of any valid int32 value. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count.
 
@@ -86,20 +84,20 @@ az extension update --name aks-preview
 ```
 
 > [!Important]
-> The max-surge setting on a node pool is permanent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max-surge value for your node pools at any time.
+> The max-surge setting on a node pool is permanent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max-surge value for your node pools at any time. For production node pools, we recommend a max_surge setting of 33%.
 
 Use the following commands to set max surge values for new or existing node pools.
 
 ```azurecli-interactive
 # Set max surge for a new node pool 
 
-az aks nodepool add -n mynodepool -g MyResourceGroup --name MyManagedCluster –max-surge 33%
+az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster –-max-surge 33%
 ```
 
 ```azurecli-interactive
 # Update max surge for an existing node pool 
 
-az aks nodepool update -n mynodepool -g MyResourceGroup --name MyManagedCluster –max-surge 5
+az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster –-max-surge 5
 ```
 
 ## Upgrade an AKS cluster
