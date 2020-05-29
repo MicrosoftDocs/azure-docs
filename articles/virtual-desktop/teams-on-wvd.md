@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -89,7 +89,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select your user profile image, then select **Settings**.
 
-      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still do not appear in the menu, check that all of the installation steps above were done. 
+      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still do not appear in the menu, check that all of the installation steps above were done.
 
 ## Known issues and limitations
 
@@ -131,4 +131,14 @@ To contact Microsoft Teams support, go to the [Microsoft 365 admin center](https
 
 ## Customize Remote Desktop Protocol properties for a host pool
 
-Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience or enabling microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs. To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
+Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience or enabling microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs.
+
+Set the following RDP properties to enable microphone and camera redirection:
+
+|RDP properties   | Description |
+|-----------------|-------------|
+|audiocapturemode:i:1  | Enable audio capture from the local device and redirection to an audio application in the remote session |
+|audiomode:i:0         | Play audio on the local computer |
+|camerastoredirect:s:* | Redirect all cameras |
+
+To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
