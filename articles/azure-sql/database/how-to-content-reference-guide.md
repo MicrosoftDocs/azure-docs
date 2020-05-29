@@ -1,5 +1,5 @@
 ---
-title: Configure and manage content reference
+title: Configure & manage content reference
 description: Find a reference of content that teaches you to configure and manage Azure SQL Database. 
 services: sql-database
 ms.service: sql-database

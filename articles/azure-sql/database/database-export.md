@@ -1,6 +1,6 @@
 ---
 title: Export an Azure SQL Database to a BACPAC file (the Azure portal)
-titleSuffix: Azure SQL Database and Azure SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Export an Azure SQL database to a BACPAC file using the Azure portal.
 services: sql-database
 ms.service: sql-database
