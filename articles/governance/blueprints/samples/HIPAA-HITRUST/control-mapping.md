@@ -43,7 +43,7 @@ definitions that monitor for missing endpoint protection on virtual machines in 
 The organization, based on the data classification level, registers media (including laptops) prior to use, places reasonable restrictions on how such media be used, and provides an appropriate level of physical and logical protection (including encryption) for media containing covered information until properly destroyed or sanitized.
 
 - Require encryption on Data Lake Store accounts
-- SQL managed instance TDE protector should be encrypted with your own key
+- SQL Managed Instance TDE protector should be encrypted with your own key
 - Disk encryption should be applied on virtual machines
 - Transparent Data Encryption on SQL databases should be enabled
 
@@ -80,7 +80,7 @@ An inventory of assets and services is maintained
 A hardened configuration standard exists for all system and network components.
 
 - Audit Virtual Machines without disaster recovery configured
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - Vulnerability should be remediated by a Vulnerability Assessment solution
 
 ## Segregation in Networks
@@ -102,7 +102,7 @@ For any public-facing Web applications, application-level firewalls are implemen
 Network traffic is controlled in accordance with the organization's access control policy through firewall and other network-related restrictions for each network access point or external telecommunication service's managed interface.
 
 - Access through Internet facing endpoints should be restricted
-- SQL managed instance TDE protector should be encrypted with your own key
+- SQL Managed Instance TDE protector should be encrypted with your own key
 - Remote debugging should be turned off for API apps
 
 ## Network Controls

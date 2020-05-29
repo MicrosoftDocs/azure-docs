@@ -155,8 +155,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 1144 Security vulnerabilities in applications and drivers assessed as extreme risk are patched, updated or mitigated within 48 hours of the security vulnerabilities being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -167,8 +167,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 0940 Security vulnerabilities in applications and drivers assessed as high risk are patched, updated or mitigated within two weeks of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -179,8 +179,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 1472 Security vulnerabilities in applications and drivers assessed as moderate or low risk are patched, updated or mitigated within one month of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -191,8 +191,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 1494 Security vulnerabilities in operating systems and firmware assessed as extreme risk are patched, updated or mitigated within 48 hours of the security vulnerabilities being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -203,8 +203,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 1495 Security vulnerabilities in operating systems and firmware assessed as high risk are patched, updated or mitigated within two weeks of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -215,8 +215,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 1496 Security vulnerabilities in operating systems and firmware assessed as moderate or low risk are patched, updated or mitigated within one month of the security vulnerability being identified by vendors, independent third parties, system managers or users
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -245,17 +245,17 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 ### 1537 The following events are logged for databases: access to particularly important information, addition of new users, especially privileged users, any query containing comments, any query containing multiple embedded queries, any query or database alerts or failures, attempts to elevate privileges, attempted access that is successful or unsuccessful, changes to the database structure, changes to user roles or database permissions, database administrator actions, database logons and logoffs, modifications to data, use of executable commands
 
-- Advanced data security should be enabled on your SQL servers
+- Advanced data security should be enabled on SQL Database
 - Audit diagnostic setting
-- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on SQL Managed Instance
 
 ## Guidelines for System Monitoring - Vulnerability management
 
 ### 0911 Vulnerability assessments and penetration tests are conducted by suitably skilled personnel before a system is deployed, after a significant change to a system, and at least annually or as specified by the system owner
 
 - Vulnerabilities on your SQL databases should be remediated
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution

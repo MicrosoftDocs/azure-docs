@@ -175,7 +175,7 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL managed instances and SQL servers.
+assessment on virtual machines, virtual machine scale sets, SQL Managed Instance and SQL Database.
 These policy definitions also audit configuration of diagnostic logs to provide insight into
 operations that are performed within Azure resources. These insights provide real-time information
 about the security state of your deployed resources and can help you prioritize remediation actions.
@@ -185,10 +185,10 @@ Azure Security Center as well.
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - \[Preview\]: Enable Azure Monitor for VMs
 - \[Preview\]: Enable Azure Monitor for VM Scale Sets (VMSS)
-- Vulnerability assessment should be enabled on your SQL servers
+- Vulnerability assessment should be enabled on SQL Database
 - Audit diagnostic setting
-- Vulnerability assessment should be enabled on your SQL managed instances
-- Vulnerability assessment should be enabled on your SQL servers
+- Vulnerability assessment should be enabled on your SQL Managed Instance
+- Vulnerability assessment should be enabled on your SQL Database
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution

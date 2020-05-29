@@ -124,10 +124,10 @@ Extensions** built-in policy initiative.
 ## 2.7 Enable alerts for anomalous activity
 
 - Security Center standard pricing tier should be selected
-- Advanced data security should be enabled on your SQL servers
-- Advanced data security should be enabled on your SQL managed instances
-- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
-- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Advanced data security should be enabled on SQL Database
+- Advanced data security should be enabled on SQL Managed Instance
+- Advanced Threat Protection types should be set to 'All' in SQL Database Advanced Data Security settings for your server
+- Advanced Threat Protection types should be set to 'All' in SQL Managed Instance Advanced Data Security settings
 
 ## 2.8 Centralize anti-malware logging
 
@@ -198,9 +198,9 @@ Extensions** built-in policy initiative.
 
 ## 4.5 Use an active discovery tool to identify sensitive data
 
-- Sensitive data in your SQL databases should be classified
-- Advanced data security should be enabled on your SQL servers
-- Advanced data security should be enabled on your SQL managed instances
+- Sensitive data in your Azure SQL databases should be classified
+- Advanced data security should be enabled on SQL Database
+- Advanced data security should be enabled on SQL Managed Instance
 
 ## 4.6 Use Azure RBAC to control access to resources
 
@@ -212,8 +212,8 @@ Extensions** built-in policy initiative.
 - Transparent Data Encryption on SQL databases should be enabled
 - Disk encryption should be applied on virtual machines
 - Unattached disks should be encrypted
-- SQL server TDE protector should be encrypted with your own key
-- SQL managed instance TDE protector should be encrypted with your own key
+- SQL Database TDE protector should be encrypted with your own key
+- SQL Managed Instance TDE protector should be encrypted with your own key
 - Automation account variables should be encrypted
 - Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
 
@@ -223,8 +223,8 @@ Extensions** built-in policy initiative.
 
 ## 5.1 Run automated vulnerability scanning tools
 
-- Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on SQL Managed Instance
 - \[Preview\] Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
 
@@ -317,7 +317,7 @@ Extensions** built-in policy initiative.
 
 ## 9.1 Ensure regular automated back ups
 
-- Long-term geo-redundant backup should be enabled for Azure SQL Databases
+- Long-term geo-redundant backup should be enabled for Azure SQL Database
 - Geo-redundant backup should be enabled for Azure Database for MySQL
 - Geo-redundant backup should be enabled for Azure Database for PostgreSQL
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
@@ -325,7 +325,7 @@ Extensions** built-in policy initiative.
 
 ## 9.2 Perform complete system backups and backup any customer managed keys
 
-- Long-term geo-redundant backup should be enabled for Azure SQL Databases
+- Long-term geo-redundant backup should be enabled for Azure SQL Database
 - Geo-redundant backup should be enabled for Azure Database for MySQL
 - Geo-redundant backup should be enabled for Azure Database for PostgreSQL
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
@@ -343,10 +343,10 @@ Extensions** built-in policy initiative.
 
 - A security contact email address should be provided for your subscription
 - A security contact phone number should be provided for your subscription
-- Advanced data security settings for SQL server should contain an email address to receive security alerts
-- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
-- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
-- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Advanced data security settings for SQL Database should contain an email address to receive security alerts
+- Advanced data security settings for SQL Managed Instance should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL Database advanced data security settings for your server
+- Email notifications to admins and subscription owners should be enabled in SQL Managed Instance advanced data security settings
 
 ## Next steps
 

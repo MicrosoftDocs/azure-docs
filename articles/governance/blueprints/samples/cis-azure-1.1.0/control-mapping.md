@@ -235,19 +235,19 @@ ensure SQL server logs are retained for at least 90 days.
 ## 4.4 Ensure that 'Advanced Data Security' on a SQL server is set to 'On'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure advanced data security is enabled on SQL servers and SQL managed instances.
+ensure advanced data security is enabled on SQL Database and SQL Managed Instance.
 
-- Advanced data security should be enabled on your SQL servers
-- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on SQL Database
+- Advanced data security should be enabled on SQL Managed Instance
 
 ## 4.5 Ensure that 'Threat Detection types' is set to 'All'
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
-advanced threat protection is properly configured on SQL servers and SQL managed instances.
+advanced threat protection is properly configured on SQL servers and SQL Managed Instance.
 
-- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security
-  settings
-- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data
+- Advanced Threat Protection types should be set to 'All' in SQL Database Advanced Data Security
+  settings for your server
+- Advanced Threat Protection types should be set to 'All' in SQL Managed Instance Advanced Data
   Security settings
 
 ## 4.6 Ensure that 'Send alerts to' is set
@@ -255,9 +255,9 @@ advanced threat protection is properly configured on SQL servers and SQL managed
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Advanced data security settings for SQL server should contain an email address to receive security
+- Advanced data security settings for SQL Database should contain an email address to receive security
   alerts
-- Advanced data security settings for SQL managed instance should contain an email address to
+- Advanced data security settings for SQL Managed Instance should contain an email address to
   receive security alerts
 
 ## 4.7 Ensure that 'Email service and co-administrators' is 'Enabled'
@@ -265,9 +265,9 @@ ensure advanced data security notifications are properly enabled.
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Email notifications to admins and subscription owners should be enabled in SQL server advanced
-  data security settings
-- Email notifications to admins and subscription owners should be enabled in SQL managed instance
+- Email notifications to admins and subscription owners should be enabled in SQL Database advanced
+  data security settings for your server
+- Email notifications to admins and subscription owners should be enabled in SQL Managed Instance
   advanced data security settings
 
 ## 4.8 Ensure that Azure Active Directory Admin is configured
@@ -287,11 +287,11 @@ ensure Transparent Data Encryption is enabled on SQL databases.
 ## 4.10 Ensure SQL server's TDE protector is encrypted with BYOK (Use your own key)
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
-the transparent data encrypted protector for SQL servers and SQL managed instances is encrypted with
+the transparent data encrypted protector for SQL Database and SQL Managed Instance is encrypted with
 your own key.
 
-- SQL server TDE protector should be encrypted with your own key
-- SQL managed instance TDE protector should be encrypted with your own key
+- SQL Database TDE protector should be encrypted with your own key
+- SQL Managed Instance TDE protector should be encrypted with your own key
 
 ## 4.11 Ensure 'Enforce SSL connection' is set to 'ENABLED' for MySQL Database Server
 
