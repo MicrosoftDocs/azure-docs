@@ -226,6 +226,7 @@ Cool and Hot Storage | Not supported | Virtual machine disks are not supported o
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
+NVMe disks | Not supported
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -268,6 +269,8 @@ VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRout
 VNET to VNET connection    | Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated networking | Supported | Accelerated networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Palo Alto Network Appliance | Not supported | With third party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions and outbound connectivity to be available. But the appliance does not let any outbound activity to be configured inside the Virtual Machine.
+IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are also not supported. Please free up the subnet of the IPv6 range before any Site Recovery operation.
 
 
 

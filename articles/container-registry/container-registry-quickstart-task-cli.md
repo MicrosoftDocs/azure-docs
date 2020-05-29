@@ -35,7 +35,7 @@ Create a container registry using the [az acr create][az-acr-create] command. Th
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 ## Build an image from a Dockerfile
 

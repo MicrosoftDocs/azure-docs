@@ -4,7 +4,7 @@ description: Learn how to determine the public IP address and port number range 
 author: emaher
 
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
 ---
@@ -19,7 +19,7 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 ## Find public IP for a lab
 
-The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [how to manage labs in a lab account](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [View labs in a lab account](manage-labs.md#view-labs-in-a-lab-account).  
 
 > [!div class="mx-imgBorder"]
 > ![All labs page](../media/how-to-configure-firewall-settings/all-labs-properties.png)

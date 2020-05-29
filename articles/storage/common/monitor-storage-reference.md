@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
+ms.custom: monitoring
 ---
 
 # Azure Storage monitoring data reference

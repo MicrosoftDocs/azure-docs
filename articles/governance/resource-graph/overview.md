@@ -112,17 +112,18 @@ For more information, see
 
 Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
 in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
-portal workflow. For more information, see [First query with Azure Resource Graph Explorer](first-query-portal.md).
+portal workflow. For more information, see [First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for .NET, and more. The query is
+Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
 structured the same for each language. Learn how to enable Resource Graph with:
 
-- [Azure portal and Resource Graph Explorer](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure portal and Resource Graph Explorer](./first-query-portal.md) 
+- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## Next steps
 
-- Run your first query by using the [Azure portal](first-query-portal.md).
-- Run your first query with [Azure CLI](first-query-azurecli.md).
-- Run your first query with [Azure PowerShell](first-query-powershell.md).
+- Learn more about the [query language](./concepts/query-language.md).
+- See the language in use in [Starter queries](./samples/starter.md).
+- See advanced uses in [Advanced queries](./samples/advanced.md).

@@ -22,23 +22,23 @@ As an example, consider the model of a car and you want to switch the whole car 
 
 The fixed set of states that can be overridden are:
 
-* **Hidden**: Respective meshes in the scene graph are hidden or shown.
-* **Tint color**: A rendered object can be color-tinted with its individual tint color and tint weight. The image below shows color tinting the rim of a wheel.
+* **`Hidden`**: Respective meshes in the scene graph are hidden or shown.
+* **`Tint color`**: A rendered object can be color-tinted with its individual tint color and tint weight. The image below shows color tinting the rim of a wheel.
   
   ![Color Tint](./media/color-tint.png)
 
-* **See-through**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
+* **`See-through`**: The geometry is rendered semi-transparently, for example to reveal the inner parts of an object. The following image shows the entire car being rendered in see-through mode, except for the red brake caliper:
 
   ![See-Through](./media/see-through.png)
 
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
-* **Selected**: The geometry is rendered with a [selection outline](outlines.md).
+* **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
   ![Selection Outline](./media/selection-outline.png)
 
-* **DisableCollision**: The geometry is exempt from [spatial queries](spatial-queries.md). The **Hidden** flag doesn't turn off collisions, so these two flags are often set together.
+* **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
 ## Hierarchical overrides
 
@@ -65,9 +65,24 @@ component.SetState(HierarchicalStates.SeeThrough, HierarchicalEnableState.Inheri
 component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollision, HierarchicalEnableState.ForceOff);
 ```
 
+```cpp
+ApiHandle<HierarchicalStateOverrideComponent> component = ...;
+
+// set one state directly
+component->HiddenState(HierarchicalEnableState::ForceOn);
+
+// set a state with the SetState function
+component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
+
+// set multiple states at once with the SetState function
+component->SetState(
+    (HierarchicalStates)((int32_t)HierarchicalStates::Hidden | (int32_t)HierarchicalStates::DisableCollision), HierarchicalEnableState::ForceOff);
+
+```
+
 ### Tint color
 
-The tint color override is slightly special in that there's both an on/off/inherit state and a tint color property. The alpha portion of the tint color defines the weight of the tinting effect: If set to 0.0, no tint color is visible and if set to 1.0 the object will be rendered with pure tint color. For in-between values, the final color will be mixed with the tint color. The tint color can be changed on a per-frame basis to achieve a color animation.
+The `tint color` override is slightly special in that there's both an on/off/inherit state and a tint color property. The alpha portion of the tint color defines the weight of the tinting effect: If set to 0.0, no tint color is visible and if set to 1.0 the object will be rendered with pure tint color. For in-between values, the final color will be mixed with the tint color. The tint color can be changed on a per-frame basis to achieve a color animation.
 
 ## Performance considerations
 

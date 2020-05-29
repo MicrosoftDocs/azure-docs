@@ -44,7 +44,7 @@ Languages:
 | Subtype name              | Description                                                                              | Available starting with model version |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A                       | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Geopolitical Entity (GPE) - English only| Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Geopolitical Entity (GPE) - English only| Cities, countries/regions, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### Organization  
 
@@ -179,6 +179,6 @@ Languages:
 | Percentage  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Age         | `90 day old`, `30 years old` |
-| Currency    | `$10.99`, `€30.00`           |
+| Currency    | `$10.99`, `&euro;30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Temperature | `32 degrees`, `10°C`         |
