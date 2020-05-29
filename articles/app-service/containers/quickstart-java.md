@@ -143,7 +143,7 @@ This command may take a minute to run.
 > [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configure Java app](configure-custom-container.md)
+> [Configure Java app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
