@@ -11,7 +11,7 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
-# Quickstart: Send an SMS message with the .NET SDK (C#)
+# Quickstart: Send an SMS message with .NET (C#)
 Azure Communication Services lets you easily send and receive SMS messages. In this quick start, learn how to use Communication Services to send SMS messages using the .NET SDK in C#.
 
 You can receive SMS messages in two ways explorered in seperate pages:
