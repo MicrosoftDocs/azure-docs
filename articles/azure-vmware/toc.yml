@@ -36,14 +36,14 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
-- name: Reference
-  items:
-- name: Azure Backup Server for AVS
-  items:
+  - name: Azure Backup Server for AVS
+    items:
     - name: Set up MABS for AVS
       href: set-up-mabs-for-avs.md
     - name: Backup AVS VMs with MABS
       href: backup-avs-vms-with-mabs.md
+- name: Reference
+  items:
 - name: Resources
   items: 
     - name: FAQ
