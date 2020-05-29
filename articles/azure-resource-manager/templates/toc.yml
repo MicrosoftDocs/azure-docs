@@ -26,8 +26,12 @@
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Cost Management budget
+      href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL
       href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Database for PostgreSQL
+      href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Hub
@@ -38,6 +42,8 @@
       href: ../../firewall/quick-create-ipgroup-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Firewall - multiple addresses
       href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Firewall Manager
+      href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Hadoop
@@ -56,6 +62,8 @@
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Managed application
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Notification Hubs
+      href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Resource Graph
@@ -154,6 +162,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Deployment history deletions
+    href: deployment-history-deletions.md
   - name: Complete mode deletion
     href: complete-mode-deletion.md
   - name: Deployment Manager
