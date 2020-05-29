@@ -42,7 +42,7 @@ In diagnostic details page, you can change the diagnostic time range with the co
 
  ![Diagnostics details](media/spring-cloud-diagnose/diagnostics-details.png)
 
-Some detectors also contain a related documentation to guide you the next step.
+Some detectors also contain related documentation.
 
  ![Related details](media/spring-cloud-diagnose/related-details.png)
 
