@@ -78,7 +78,7 @@ Connect to the VM *myConsumerVm{uniqueid}* from the internet as follows:
 
 In this section, you will connect to the http service from the VM using the Private Endpoint.
 
- 1. In the Remote Desktop of *myConsumerVm{uniqueid}*, 
+ 1. In the Remote Desktop of *myConsumerVm{uniqueid}* 
  2. Open a browser and enter the private endpoint address http://10.0.0.5/
  3. You'll see the default IIS page 
 
