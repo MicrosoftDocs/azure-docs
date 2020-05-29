@@ -1,6 +1,6 @@
 ---
 title: Playbook for addressing common security requirements 
-titleSuffix: Azure SQL Database and Azure SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance
 ms.service: sql-database
 ms.subservice: security

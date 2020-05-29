@@ -1,6 +1,6 @@
 ---
 title: General Purpose service tier
-titleSuffix: Azure SQL Database and Azure SQL Managed Instance 
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
 description: Learn about the General Purpose service tier for Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-database
