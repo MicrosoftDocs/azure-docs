@@ -110,9 +110,14 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
    After a few moments, the user is assigned the Owner role at the subscription scope.
 
-## Add a role assignment for a managed identity
+## Add a role assignment for a managed identity (Preview)
 
 You can add role assignments for a managed identity by using the **Access control (IAM)** page as described earlier in this article. When you use the Access control (IAM) page, you start with the scope and then select the managed identity and role. This section describes an alternate way to add role assignments for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
+
+> [!IMPORTANT]
+> Adding a role assignment for a managed identity using these alternate steps is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### System-assigned managed identity
 
