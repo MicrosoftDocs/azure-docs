@@ -16,10 +16,10 @@
   items:
   - name: Get started - Live Video Analytics on IoT Edge
     href: get-started-detect-motion-emit-events-quickstart.md
-  - name: Detect motion and emit events
-    href: detect-motion-emit-events-quickstart.md
   - name: Detect motion, record video to Media Services
     href: detect-motion-record-video-clips-media-services-quickstart.md  
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
   - name: Detect motion, record video on edge devices
     href: detect-motion-record-video-clips-edge-devices-quickstart.md
   - name: Run Live Video Analytics with your own model
