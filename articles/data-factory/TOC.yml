@@ -630,7 +630,7 @@
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
     - name: Manage packages with Azure-SSIS IR package store
-      href: azure-ssis-integration-runtime-package-store
+      href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
