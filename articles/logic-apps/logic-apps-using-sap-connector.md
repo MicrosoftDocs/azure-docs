@@ -71,7 +71,7 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
 1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-1. Make sure that you've [downloaded and installed the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
+1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
 
    * libicudecnumber.dll
    * rscp4n.dll
@@ -82,9 +82,9 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
 1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
 
-1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token. Otherwise, the SAS token won't get authorized and deployment for the SAP ISE connector will fail.
+1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token. Otherwise, the SAS token won't get authorized, and deployment for the SAP ISE connector will fail.
 
-1. Before you can use the SAP ISE connector, you must install the connector in your ISE, if you haven't already done so.
+1. Before you can use the SAP ISE connector, you must install and deploy the connector in your ISE.
 
    1. In the Azure portal, find and open your ISE.
    
@@ -102,23 +102,23 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
 ### SAP client library prerequisites
 
-* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). By default, the SAP installer puts the assembly files in the default installation folder.
+* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019).
 
-  > [!NOTE]
-  > Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. 
-  > This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+  By default, the SAP installer puts the assembly files in the default installation folder.
 
-  * If your logic apps run in an ISE, follow the [integration service environment prerequisites](#sap-ise).
+  * If your logic apps run in an ISE, follow the [integration service environment prerequisites](#sap-ise) instead.
 
   * If your logic apps run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the gateway installation folder.
-
-    * The on-premises data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
 
     * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you copied the assembly files to the gateway installation folder.
 
       To help you troubleshoot, [use the .NET assembly binding log viewer](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location. Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
 
     * Both the gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1. The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
+
+    * The data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+
+Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
 
 ### Secure Network Communications prerequisites
 
