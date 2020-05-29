@@ -20,10 +20,14 @@ This article describes how to move your organization domains from Active Directo
 
 > [!NOTE]
 > Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](how-to-connect-staged-rollout.md) provides an alternative way to test and gradually migrate from federation to cloud authentication using password hash synchronization.
+>
+> If you plan on using staged rollout you should remember to turn off the staged rollout features once you have finished cutting over.  For more information see [Migrate to cloud authentication using staged rollout](how-to-connect-staged-rollout.md)
+
 
 ## Prerequisites for migrating to password hash synchronization
 
 The following prerequisites are required to migrate from using AD FS to using password hash synchronization.
+
 
 ### Update Azure AD Connect
 
