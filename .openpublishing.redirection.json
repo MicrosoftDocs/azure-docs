@@ -2519,6 +2519,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/create-table-python.md",
+      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/lambda-architecture.md",
       "redirect_url": "/azure/cosmos-db/synapse-link",
       "redirect_document_id": false
@@ -54357,6 +54362,11 @@
     {
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/azure-ad-v2.md",
+      "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": true
     }
   ]
