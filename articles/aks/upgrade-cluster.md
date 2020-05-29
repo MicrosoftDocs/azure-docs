@@ -54,7 +54,9 @@ By default, AKS configures upgrades to surge with one additional node. This defa
 
 For example, a max-surge value of 100% provides a faster upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a value such as this for testing environments, but for production node pools, we recommend a max surge setting of 33%.
 
-Max surge integer values can be a minimum of 1 and maximum of any valid int32 value. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count.
+During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won’t be higher than the number of nodes in the pool at upgrade time.
+
+Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count.
 
 The upgrade operation provisions additional nodes to facilitate node replacement during an upgrade. AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. If the max surge value is lower than the current node count at the time of upgrade, the current node count is used for the max-surge value.
 
@@ -64,6 +66,11 @@ Register for the node surge upgrade feature by issuing the following Azure CLI c
 
 ```azurecli-interactive
 az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
+```
+
+```azurecli-interactive
+# Verify the feature is registered:
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
 ```
 
 After successful registration, run the following commands to increase max-surge:
