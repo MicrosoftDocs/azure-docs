@@ -177,9 +177,9 @@ SQL Data Sync is available in all regions.
 
 Yes. You must have a SQL Database account to host the hub database.
 
-### Can I use Data Sync to sync between SQL Server on-premises databases only
+### Can I use Data Sync to sync between SQL Server databases only
 
-Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a hub database in Azure, and then adding the on-premises databases to the sync group.
+Not directly. You can sync between SQL Server databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
 
