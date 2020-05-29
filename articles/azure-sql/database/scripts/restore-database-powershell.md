@@ -1,6 +1,6 @@
 ---
-title: "PowerShell: Restore backup for a database in SQL Database" 
-description: Azure PowerShell example script to restore a database in SQL Database to an earlier point in time from automatic backups
+title: "PowerShell: Restore an automatic backup of a database in SQL Database" 
+description: Use an Azure PowerShell example script to restore a database in SQL Database to an earlier point in time from automatic backups.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,7 +12,9 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ---
-# Use PowerShell to restore an Azure SQL Database to an earlier point in time
+
+# Use PowerShell to restore a database to an earlier point in time
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This PowerShell script example restores a database in SQL Database to a specific point in time.  
@@ -21,7 +23,7 @@ This PowerShell script example restores a database in SQL Database to a specific
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Az PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -37,7 +39,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -52,6 +54,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).
