@@ -161,7 +161,7 @@ If the key that is needed for restoring a backup is no longer available to the t
 
 To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
-To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to a SQL managed instance](../managed-instance/restore-sample-database-quickstart.md)
+To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Additional consideration for log files: Backed up log files remain encrypted with the original TDE protector, even if it was rotated and the database is now using a new TDE protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.
 
@@ -189,7 +189,7 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). It should be done on a regular basis to confirm the access permissions for SQL Database to both key vaults have been maintained.
+To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). Testing failover should be done on a regular bases to validate that SQL Database has maintained access permission to both key vaults.
 
 ## Next steps
 
@@ -199,4 +199,4 @@ You may also want to check the following PowerShell sample scripts for the commo
 
 - [Remove a Transparent Data Encryption (TDE) protector for SQL Database using PowerShell](transparent-data-encryption-byok-remove-tde-protector.md)
 
-- [Manage Transparent Data Encryption in a managed instance with your own key using PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Manage Transparent Data Encryption in SQL Managed Instance with your own key using PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)

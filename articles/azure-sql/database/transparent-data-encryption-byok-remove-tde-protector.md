@@ -1,6 +1,6 @@
 ---
-title: Remove TDE protector (PowerShell and the Azure CLI)
-titleSuffix: Azure SQL Database and Azure Synapse Analytics 
+title: Remove TDE protector (PowerShell & the Azure CLI)
+titleSuffix: Azure SQL Database & Azure Synapse Analytics 
 description: "Learn how to respond to a potentially compromised TDE protector for Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
 services: sql-database
 ms.service: sql-database
@@ -17,7 +17,7 @@ ms.date: 02/24/2020
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
-This topic describes how to respond to a potentially compromised TDE protector for a database in Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-overview.md).
+This topic describes how to respond to a potentially compromised TDE protect for Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
 > The procedures outlined in this article should only be done in extreme cases or in test environments. Review the steps carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database becoming unavailable**.
@@ -28,7 +28,7 @@ Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 mi
 
 This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
 
-- To keep databases in Azure SQL Database / Azure Synapse Analytics **accessible**.
+- To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
 - To make the databases in Azure SQL Database / Azure SQL Data Warehouse **inaccessible**.
 
 ## Prerequisites

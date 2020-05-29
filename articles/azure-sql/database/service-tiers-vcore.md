@@ -106,7 +106,7 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a database in SQL Database or a pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+In the Azure portal, you can select the hardware generation for a database or pool in SQL Database at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
 
 **To select a hardware generation when creating a SQL Database or pool**
 
@@ -131,15 +131,15 @@ For a pool, on the Overview page, select **Configure**.
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
-**To select a hardware generation when creating a managed instance**
+**To select a hardware generation when creating a SQL Managed Instance**
 
-For detailed information, see [Create a  managed instance](../managed-instance/instance-create-quickstart.md).
+For detailed information, see [Create a SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
 
   ![configure SQL Managed Instance](./media/service-tiers-vcore/configure-managed-instance.png)
   
-**To change the hardware generation of an existing managed instance**
+**To change the hardware generation of an existing SQL Managed Instance**
 
 # [The Azure portal](#tab/azure-portal)
 

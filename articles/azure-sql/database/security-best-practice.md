@@ -29,7 +29,7 @@ This document provides guidance on how to solve common security requirements for
 ### Deployment offers not covered in this guide
 
 - Azure SQL Data Warehouse
-- Azure SQL VMs (IaaS)
+- Azure SQL Server on Azure VMs (IaaS)
 - SQL Server on-premises
 
 ### Audience
@@ -543,10 +543,10 @@ In SQL Managed Instance:
 
 - You can access Azure SQL Database and SQL Managed Instance by connecting to a public endpoint (for example, using a public data path). The following best practices should be considered:
   - For a server in SQL Database, use [IP firewall rules](firewall-configure.md) to restrict access to only authorized IP addresses.
-  - For a managed instance in SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use a managed instance securely with public endpoints](../managed-instance/public-endpoint-overview.md).
+  - For SQL Managed Instance, use Network Security Groups (NSG) to restrict access over port 3342 only to required resources. For more information, see [Use a managed instance securely with public endpoints](../managed-instance/public-endpoint-overview.md).
 
 > [!NOTE]
-> A managed instance public endpoint is not enabled by default and it and must be explicitly enabled. If company policy disallows the use of public endpoints, use [Azure Policy](../../governance/policy/overview.md) to prevent enabling public endpoints in the first place.
+> The SQL Managed Instance public endpoint is not enabled by default and it and must be explicitly enabled. If company policy disallows the use of public endpoints, use [Azure Policy](../../governance/policy/overview.md) to prevent enabling public endpoints in the first place.
 
 - Set up Azure Networking components:
   - Follow [Azure best practices for network security](../../security/fundamentals/network-best-practices.md).
@@ -644,7 +644,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or a managed instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or managed instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -779,8 +779,8 @@ Today, Azure SQL Database and SQL Managed Instance offers the following techniqu
   - Allow Azure Services to OFF.
   - Only allow traffic from the subnet containing your Azure VM by setting up a VNet Firewall rule.
   - Use [Private Link](../../private-link/private-endpoint-overview.md)
-- For a managed instance, using private IP access by default addresses the first data exfiltration concern of a rogue VM. Turn on the subnet delegation feature on a subnet to automatically set the most restrictive policy on a SQL Managed Instance subnet.
-- The Rogue DBA concern is more exposed with a managed instance as it has a larger surface area and networking requirements are visible to customers. The best mitigation for this is applying all of the practices in this security guide to prevent the Rogue DBA scenario in the first place (not only for data exfiltration). Always Encrypted is one method to protect sensitive data by encrypting it and keeping the key inaccessible for the DBA.
+- For SQL Managed Instance, using private IP access by default addresses the first data exfiltration concern of a rogue VM. Turn on the subnet delegation feature on a subnet to automatically set the most restrictive policy on a SQL Managed Instance subnet.
+- The Rogue DBA concern is more exposed with SQL Managed Instance as it has a larger surface area and networking requirements are visible to customers. The best mitigation for this is applying all of the practices in this security guide to prevent the Rogue DBA scenario in the first place (not only for data exfiltration). Always Encrypted is one method to protect sensitive data by encrypting it and keeping the key inaccessible for the DBA.
 
 ## Security aspects of business continuity and availability
 

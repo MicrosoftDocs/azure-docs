@@ -52,7 +52,7 @@ Azure SQL Database offers the ability to dynamically scale your databases:
 
 Azure SQL Managed Instance allows you to scale as well: 
 
-- A managed instance of [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) uses [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the managed instance will share the resources allocated to the instance.
+- [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) uses [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the managed instance will share the resources allocated to the instance.
 
 Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](single-database-scale.md#impact).
 

@@ -16,7 +16,7 @@ ms.date: 04/10/2020
 # Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse SQL in Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed databases and must be manually enabled for older databases of Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics.
+[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed databases and must be manually enabled for older databases of Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics.
 
 TDE performs real-time I/O encryption and decryption of the data at the page level. Each page is decrypted when it's read into memory and then encrypted before being written to disk. TDE encrypts the storage of an entire database by using a symmetric key called the Database Encryption Key (DEK). On database startup, the encrypted DEK is decrypted and then used for decryption and re-encryption of the database files in the SQL Server database engine process. DEK is protected by the TDE protector. TDE protector is either a service-managed certificate (service-managed transparent data encryption) or an asymmetric key stored in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (customer-managed transparent data encryption).
 
@@ -55,13 +55,13 @@ You don't need to decrypt databases for operations within Azure. The TDE setting
 - Restore of backup file to Azure SQL Managed Instance
 
 > [!IMPORTANT]
-> Taking manual COPY-ONLY backup of a database encrypted by service-managed TDE is unsupported in Azure SQL Managed Instance, since the certificate used for encryption is not accessible. Use point-in-time-restore feature to move this type of database to another managed instance.
+> Taking manual COPY-ONLY backup of a database encrypted by service-managed TDE is unsupported in Azure SQL Managed Instance, since the certificate used for encryption is not accessible. Use point-in-time-restore feature to move this type of database to another SQL Managed Instance.
 
 When you export a TDE-protected database, the exported content of the database isn't encrypted. This exported content is stored in unencrypted BACPAC files. Be sure to protect the BACPAC files appropriately and enable TDE after import of the new database is finished.
 
 For example, if the BACPAC file is exported from a SQL Server instance, the imported content of the new database isn't automatically encrypted. Likewise, if the BACPAC file is imported to a SQL Server instance, the new database also isn't automatically encrypted.
 
-The one exception is when you export to and from a database in SQL Database. TDE is enabled in the new database, but the BACPAC file itself still isn't encrypted.
+The one exception is when you export a database to and from SQL Database. TDE is enabled on the new database, but the BACPAC file itself still isn't encrypted.
 
 ## Manage transparent data encryption
 

@@ -35,7 +35,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 [Virtual network rules](vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Controlling access with firewall rules does *not* apply to **a managed instance in SQL Managed Instance**. For more information about the networking configuration needed, see [Connecting to a managed instance](../managed-instance/connect-application-instance.md)
+> Controlling access with firewall rules does *not* apply to **SQL Managed Instance**. For more information about the networking configuration needed, see [Connecting to a managed instance](../managed-instance/connect-application-instance.md)
 
 ## Access management
 
@@ -59,11 +59,11 @@ Authentication is the process of proving the user is who they claim to be. Azure
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](authentication-mfa-ssms-overview.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **a managed instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
 
 ## Authorization
 
-Authorization refers to the permissions assigned to a user within a database in Azure SQL Database or a managed instance, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](logins-create-manage.md)
+Authorization refers to the permissions assigned to a user within a database in Azure SQL Database or Azure SQL Managed Instance, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](logins-create-manage.md)
 
 As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 
@@ -118,7 +118,7 @@ In Azure, all newly created databases are encrypted by default and the database 
 
 ![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in specific database columns from access (for example, credit card numbers, national identification numbers, or data on a _need to know_ basis). This includes database administrators or other privileged users who are authorized to access the database to perform management tasks, but have no business need to access the particular data in the encrypted columns. The data is always encrypted, which means the encrypted data is decrypted only for processing by client applications with access to the encryption key. The encryption key is never exposed to SQL Database and can be stored either in the [Windows Certificate Store](always-encrypted-certificate-store-configure.md) or in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in specific database columns from access (for example, credit card numbers, national identification numbers, or data on a _need to know_ basis). This includes database administrators or other privileged users who are authorized to access the database to perform management tasks, but have no business need to access the particular data in the encrypted columns. The data is always encrypted, which means the encrypted data is decrypted only for processing by client applications with access to the encryption key. The encryption key is never exposed to SQL Database or SQL Managed Instance and can be stored either in the [Windows Certificate Store](always-encrypted-certificate-store-configure.md) or in [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### Dynamic data masking
 

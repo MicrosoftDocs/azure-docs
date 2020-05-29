@@ -385,4 +385,4 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 ## Next steps
 
 - [Azure SQL Database connectivity architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Azure SQL Database and Azure SQL Data Warehouse network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Azure SQL Database and Azure Synapse Analytics network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
