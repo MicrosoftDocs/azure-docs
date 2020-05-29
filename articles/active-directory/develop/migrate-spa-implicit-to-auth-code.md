@@ -35,26 +35,28 @@ The following sections describe each step in additional detail.
 
 ## Switch redirect URIs to SPA platform
 
-If you'd like to continue using your existing app registration for your applications, use the Azure portal to update the registration's redirect URIs to the SPA platform. It is this action that enables the authorization code flow with PKCE and CORS for any apps using the registration.
+If you'd like to continue using your existing app registration for your applications, use the Azure portal to update the registration's redirect URIs to the SPA platform. Doing so enables the authorization code flow with PKCE and CORS support for apps that use the registration (you still need to update your application's code to MSAL.js v2.x).
 
 Follow these steps for app registrations that are currently configured with **Web** platform redirect URIs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your **Azure Active Directory** tenant.
 1. In **App registrations**, select your application, and then **Authentication**.
 1. In the **Web** platform tile, you should see a warning banner. Select **Migrate URIs**.
-    ![warning to migrate from 'web' to 'spa'](media/scenario-spa-app-registration/web-warning.png)
-1. Select **Only the redirect URIs used with MSAL.js**
-    ![screenshot of pane to migrate from web to spa](media/scenario-spa-app-registration/migration-pane.png)
+
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Implicit flow warning banner on web app tile in Azure portal":::
+1. Select *only* those redirect URIs whose applications will use MSAL.js 2.x
+
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Select redirect URI pane in SPA pane in Azure portal":::
 
 These redirect URIs should now appear in the **Single-page application** platform tile, showing that CORS support with the authorization code flow and PKCE is enabled for these URIs.
+
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Single-page application tile in app registration in Azure portal":::
 
 You can also [create a new app registration](scenario-spa-app-registration.md) instead of updating the redirect URIs in your existing registration, if you prefer.
 
 ## Update your code to MSAL.js 2.x
 
-Follow the steps in the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code) to add MSAL to your application. You will also have to make a few changes in your code. View the [migration guide](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/v1-migration.md) for more details.
-
-In MSAL 1.x, you created a application instance by initializing a `UserAgentApplication` as follows:
+In MSAL 1.x, you created a application instance by initializing a [UserAgentApplication][msal-js-useragentapplication] as follows:
 
 ```javascript
 // MSAL 1.x
@@ -63,7 +65,7 @@ import * as msal from "msal";
 const msalInstance = new msal.UserAgentApplication(config);
 ```
 
-In MSAL 2.x, you can instead initialize a `PublicClientApplication` object:
+In MSAL 2.x, initialize instead a [PublicClientApplication][msal-js-publicclientapplication]:
 
 ```javascript
 // MSAL 2.x
@@ -72,12 +74,22 @@ import * as msal from "@azure/msal-browser";
 const msalInstance = new msal.PublicClientApplication(config);
 ```
 
+For a full walk-through of adding MSAL 2.x to your application, see [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow](tutorial-v2-javascript-auth-code.md).
+
+For additional changes you might need to make to your code, see the [migration guide](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/v1-migration.md) on GitHub.
+
 ## Disable implicit grant settings
 
-Once all of your applications using this client ID in production have successfully integrated MSAL 2.0/the authorization code flow, you should uncheck the implicit settings. Note that these settings apply to the entire application registration. Ensure that this app registration is not using the [implicit flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) in production before unchecking these settings to avoid breaking this flow.
+Once you've updated all your production applications that use this app registration and its client ID to MSAL 2.x and the authorization code flow, you should uncheck the implicit grant settings in the app registration.
+
+When you uncheck the implicit grant settings in the app registration, the implicit flow is disabled for all applications using registration and its client ID. **Do not** disable the implicit grant flow before you've updated all your applications to MSAL.js 2.x and the [PublicClientApplication][msal-js-publicclientapplication].
 
 ## Next steps
 
 To learn more about the authorization code flow, including the differences between the implicit and auth code flows, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
+
+<!-- LINKS - external -->
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_app_publicclientapplication_.publicclientapplication.html
