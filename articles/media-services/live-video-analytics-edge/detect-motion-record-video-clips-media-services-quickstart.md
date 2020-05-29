@@ -189,7 +189,7 @@ Within a few seconds you will see the following response in the Output window.
     },
     "name": "EVRtoAssetsOnMotionDetecion",
     "properties": {
-      "description": "Event-based video recording to Assets based on motion events",
+      "description": "Event-based video recording to assets based on motion events",
       "parameters": [
         {
           "name": "rtspUserName",
@@ -824,7 +824,7 @@ Next, you can use the Azure portal to play back the video you recorded.
 1. Locate and select the Assets entry in the Media Services listing.
 
     ![Assets entry in the Media Services listing](./media/quickstarts/asset-entity.png)
-1. If this is your first use of Azure Media Services, only the asseta generated from this quickstart will be listed, and you can pick the oldest one.
+1. If this is your first use of Azure Media Services, only the assets generated from this quickstart will be listed, and you can pick the oldest one.
 1. Else, use the name of the asset that was provided as the outputLocation in the Operational events above.
 1. In the details page that opens, click on the "Create new" link just below the Streaming URL textbox.
 
@@ -839,7 +839,7 @@ Next, you can use the Azure portal to play back the video you recorded.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resources created in this quickstart.
+If you are not going to continue to use this application, delete the resources created in this quickstart.
 
 ## Next steps
 
