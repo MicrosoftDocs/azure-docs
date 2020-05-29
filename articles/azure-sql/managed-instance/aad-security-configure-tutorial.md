@@ -14,7 +14,7 @@ ms.date: 11/06/2019
 # Tutorial: Security in Azure SQL Managed Instance using Azure AD server principals (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-SQL Managed Instance provides nearly all security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
+SQL Managed Instance provides nearly all security features that the latest SQL Server (Enterprise Edition) database engine has:
 
 - Limiting access in an isolated environment
 - Use authentication mechanisms that require identity (Azure AD, SQL Authentication)
@@ -49,7 +49,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 ## Limit access 
 
-SQL Managed Instances can be accessed through a private IP address. Much like an isolated SQL Server on-premises environment, applications or users need access to the SQL Managed Instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a SQL Managed Instance](connect-application-instance.md).
+SQL Managed Instances can be accessed through a private IP address. Much like an isolated SQL Server environment, applications or users need access to the SQL Managed Instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a SQL Managed Instance](connect-application-instance.md).
 
 It is also possible to configure a service endpoint on a SQL Managed Instance, which allows for public connections, in the same fashion as for Azure SQL Database.
 For more information, see the following article, [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md).
@@ -212,7 +212,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
 ## Create an Azure AD user from the Azure AD server principal (login)
 
-Authorization to individual databases works much in the same way in SQL Managed Instance as it does with SQL Server on-premises. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
+Authorization to individual databases works much in the same way in SQL Managed Instance as it does with databases in SQL Server. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
 
 Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the SQL Managed Instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 

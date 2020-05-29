@@ -94,7 +94,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Source port ranges**     |* |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable |
     |**Destination**     |Any         |Leaving destination as Any to allow traffic into the managed instance subnet |
     |**Destination port ranges**     |3342         |Scope destination port to 3342, which is the managed instance public TDS endpoint |
-    |**Protocol**     |TCP         |Managed instance uses TCP protocol for TDS |
+    |**Protocol**     |TCP         |SQL Managed Instance uses TCP protocol for TDS |
     |**Action**     |Allow         |Allow inbound traffic to managed instance through the public endpoint |
     |**Priority**     |1300         |Make sure this rule is higher priority than the **deny_all_inbound** rule |
 
