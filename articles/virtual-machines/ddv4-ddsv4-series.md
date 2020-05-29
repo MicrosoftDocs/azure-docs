@@ -16,17 +16,14 @@ The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Casc
 
 D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
-> [!NOTE]
-> We are aware of an issue in the Azure host software that currently causes RHEL 7.x and CentOS 7.x Linux distributions to not boot or run on Ddv4/Ddsv4 VM sizes. Viewing the Azure serial console log of the VM will show a Linux kernel panic early in the boot process. Other Linux distributions or virtual appliances based on a Linux kernel version 4.6 or earlier will similarly not boot or run. An update to the Azure host is planned in the next few weeks that will resolve this issue and enable the full range of Linux distros and virtual appliances to operate properly.
+> [!IMPORTANT]
+> We are aware of an issue that causes RHEL 7.x and CentOS 7.x Linux distributions to not boot on the Ddv4/Ddsv4 VM sizes. Viewing the Azure serial console log of the VM will show a Linux kernel panic early in the boot process. Other Linux distributions or virtual appliances based on a Linux kernel version 4.6 or earlier will also not boot. An update is planned in the next few weeks that will resolve this issue and enable the full range of Linux distros and virtual appliances to operate properly.
 
 ## Ddv4-series
 
 Ddv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddv4-series offer a combination of vCPU, memory and temporary disk for most production workloads. Ddv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
-The new Ddv4 VM sizes will include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files.  You can attach Standard SSDs and Standard HDDs storage to the Ddv4 VMs. Remote Data disk storage is billed separately from virtual machines.
-
->[!NOTE]
-> To use Ultra Disk or Premium SSD disk storage use the Ddsv4 sizes. 
+The new Ddv4 VM sizes will include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. You can attach Standard SSDs and Standard HDDs storage to the Ddv4 VMs. Remote Data disk storage is billed separately from virtual machines.
 
 ACU: 195-210
 
