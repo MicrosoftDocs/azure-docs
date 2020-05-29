@@ -76,7 +76,7 @@ If an auto-failover group is not configured, then your application needs to acti
 
 ### How does my disaster recovery plan change from on-premises to SQL Database
 
-In summary, the traditional on-premises SQL Server setup required you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, or Log Shipping and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs).
+In summary, SQL Server setup requires you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, or Log Shipping and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs).
 
 To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
@@ -324,8 +324,8 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 You have several ways to achieve this:
 
-- **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
+- **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – This feature helps you synchronize data bi-directionally between multiple SQL Server databases and SQL Database. To sync with SQL Server databases, you need to install and configure sync agent on a local computer or a virtual machine and open the outbound TCP port 1433.
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from a SQL Server database to Azure SQL Database with the SQL Server instance being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from a SQL Server database to Azure SQL with minimal downtime, see: [Use Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
 ## Next steps
 

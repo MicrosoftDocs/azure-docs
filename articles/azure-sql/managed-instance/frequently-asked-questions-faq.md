@@ -24,7 +24,7 @@ This article contains the most common questions about [Azure SQL Managed Instanc
 
 For a list of supported features in SQL Managed Instance, see [Azure SQL Managed Instance features](../database/features-comparison.md).
 
-For differences in syntax and behavior between Azure SQL Managed Instance and on-premises SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
+For differences in syntax and behavior between Azure SQL Managed Instance and SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
 ## Tech spec & resource limits
@@ -54,7 +54,7 @@ Expected time to create a SQL Managed Instance or change service tier (vCores, s
 
 ## Naming convention
 
-**Can a SQL Managed Instance have the same name as on-premises SQL Server?**
+**Can a SQL Managed Instance have the same name as on-premises SQL Server instance?**
 
 Changing SQL Managed Instance name is not supported.
 

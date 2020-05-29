@@ -730,6 +730,13 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: azure-app-configuration/index.yml
+   # Card
+    - title: Azure Data Studio
+      summary: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Excel.
+      imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+      azureCategories:
+        - developer-tools
+      url: https://docs.microsoft.com/sql/azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
