@@ -51,6 +51,18 @@ To follow along with this article, you need these items:
 
 * Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
 
+* To use the **When a message is received from SAP** trigger, you also need to perform these setup steps:
+
+  * Set up your SAP gateway security permissions with this setting:
+
+    `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
+
+  * Set up your SAP gateway security logging, which helps find Access Control List (ACL) errors and isn't enabled by default. Otherwise, you get the following error:
+
+    `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
+
+    For more information, see the SAP help topic, [Setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
+
 <a name="multi-tenant"></a>
 
 ### Multi-tenant Azure prerequisites
