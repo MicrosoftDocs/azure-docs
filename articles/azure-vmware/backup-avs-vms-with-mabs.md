@@ -1,6 +1,6 @@
 ---
-title: Back up Azure VMware Solution (AVS) VMs with Microsoft Azure Backup Server (MABS)
-description: Configure your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
+title: Back up Azure VMware Solution (AVS) VMs with Microsoft Azure Backup Server
+description: Configure your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/02/2020
 ---
@@ -65,7 +65,7 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 1.  After the certificate import is confirmed, sign in to the vCenter Server to confirm that your connection is secure.
 
-### Enable TLS 1.2 on MABS Server
+### Enable TLS 1.2 on Azure Backup Server
 
 VMWare 6.7 onwards had TLS enabled as communication protocol. 
 
@@ -105,7 +105,7 @@ VMWare 6.7 onwards had TLS enabled as communication protocol.
 
 ## Add the provisioning IP Address for AVS ESXi hosts on Azure Backup Server
 
-During preview, AVS does not resolve the ESX host from the virtual machine deployed in the virtual network. You’ll need to perform additional step to add host file entry on the MABS virtual machine.
+During preview, AVS does not resolve the ESX host from the virtual machine deployed in the virtual network. You’ll need to perform additional step to add host file entry on the Azure Backup Server virtual machine.
 
 ### Identify IP Address for ESXi hosts
 
@@ -113,11 +113,11 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 2.  In the vSphere Client, select the cluster that you plan to enable backup.
 
-    ![vSphere Client - select host](./media/deploy-mabs/vsphere-client-select-host.png)
+    ![vSphere Client - select host](./media/backup-mabs/vsphere-client-select-host.png)
 
 1.  Select **Configure** > **Networking** > **VMKernel adapters**, and under the list of devices identify the network adapter that has **Provisioning** role enabled, note down the **IP Address** and ESXi hostname.
 
-    ![VMKernel adapters - provisioning enabled devices](./media/deploy-mabs/vmkernel-adapters-provisioning-enabled.png)
+    ![VMKernel adapters - provisioning enabled devices](./media/backup-mabs/vmkernel-adapters-provisioning-enabled.png)
 
 1.  Repeat the previous step for each ESXi host under every cluster that you plan to enable backup.
 
@@ -222,7 +222,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     -   **Express Full Backup** - how often disk recovery points are taken. Click **Modify** to change the times/dates when short-term backups occur.
 
-    ![Specify your short-term goals for disk-based protection](./media/deploy-mabs/new-protection-group-specify-short-term-goals.png)
+    ![Specify your short-term goals for disk-based protection](./media/azure-backup-server/new-protection-group-specify-short-term-goals.png)
 
 1.  In **Review Disk Allocation**, review the disk space provided for the VM backups. for the VMs.
 
@@ -234,7 +234,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     -   **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-    ![Review disk space allocated in the storage pool](./media/deploy-mabs/review-disk-allocation.png)
+    ![Review disk space allocated in the storage pool](./media/backup-mabs/review-disk-allocation.png)
 
     > [!NOTE]
     > In some scenarios, the Data Size reported is higher than actual VM size. We are aware of the issue and currently investigating it.
@@ -279,33 +279,33 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     ![Protection group member and setting summary](../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## Monitor with MABS console
+## Monitor with Azure Backup Server console
 
-Once you configure the protection group to back up AVS VMs, you can monitor the status of backup job and alert using the MABS console. Here is what you can monitor
+Once you configure the protection group to back up AVS VMs, you can monitor the status of backup job and alert using the Azure Backup Server console. Here is what you can monitor
 
 -   On the Alerts tab in the Monitoring pane, you can monitor errors, warnings, and general information for a protection group, for a specific protected computer, or by message severity. You can view active and inactive alerts and set up email notifications
 
--   On the Jobs tab in the Monitoring pane, you can view jobs initiated  by MABS for a specific protected data source or protection group. You can follow job progress or check resources consumed by jobs.
+-   On the Jobs tab in the Monitoring pane, you can view jobs initiated  by Azure Backup Server for a specific protected data source or protection group. You can follow job progress or check resources consumed by jobs.
 
 -   In the **Protection** task area, you can check the status of volumes and shares in protection group, and check configuration settings such as recovery settings, disk allocation, and backup schedule.
 
 -   In the **Management** task area you can view the **Disks, Online** and **Agents**, tab to check the status of disks in the storage pool, registration to Azure and deployed DPM agent status.
 
-![Monitor the status of backup jobs in MABS](./media/deploy-mabs/monitor-backup-jobs-in-mabs.png)
+![Monitor the status of backup jobs in Azure Backup Server](./media/backup-mabs/monitor-backup-jobs-in-mabs.png)
 
 ## Restore VMware virtual machines
 
-In the MABS Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you may, or may not want to restore data or a VM to the same location. For this reason, MABS supports three recovery options for VMware VM backups:
+In the Azure Backup Server Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you may, or may not want to restore data or a VM to the same location. For this reason, Azure Backup Server supports three recovery options for VMware VM backups:
 
 -   **Original location recovery (OLR)** - Use OLR to restore a protected VM to its original location. You can restore a VM to its original location only if no disks have been added or deleted, since the backup occurred. If disks have been added or deleted, you must use alternate location recovery.
 
--   **Alternate location recovery (ALR)** - When the original VM is missing, or you don't want to disturb the original VM, recover the VM to an alternate location. To recover a VM to an alternate location, you must provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, MABS appends "-Recovered" to the name of the VM.
+-   **Alternate location recovery (ALR)** - When the original VM is missing, or you don't want to disturb the original VM, recover the VM to an alternate location. To recover a VM to an alternate location, you must provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, Azure Backup Server appends "-Recovered" to the name of the VM.
 
--   **Individual file location recovery (ILR)** - If the protected VM is a Windows Server VM, individual files/folders inside the VM can be recovered using MABS’s ILR capability. To recover individual files, see the procedure later in this article. Restoring an individual file from a VM is available only for Windows VM and Disk Recovery Points.
+-   **Individual file location recovery (ILR)** - If the protected VM is a Windows Server VM, individual files/folders inside the VM can be recovered using Azure Backup Server’s ILR capability. To recover individual files, see the procedure later in this article. Restoring an individual file from a VM is available only for Windows VM and Disk Recovery Points.
 
 ### Restore a recovery point
 
-1.  In the MABS Administrator Console, click Recovery view. 
+1.  In the Azure Backup Server Administrator Console, click Recovery view. 
 
 2.  Using the Browse pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
 
@@ -318,7 +318,7 @@ In the MABS Administrator Console, there are two ways to find recoverable data -
 
 1.  Before recovering from an online recovery point, ensure the staging location contains enough free space to house the full uncompressed size of the VM you want to recover. The staging location can be viewed / changed by running the “configure subscription settings wizard” as seen on this page.
 
-    ![Azure Backup Server Recovery Folder Settings](./media/deploy-mabs/mabs-recovery-folder-settings.png)
+    ![Azure Backup Server Recovery Folder Settings](./media/backup-mabs/mabs-recovery-folder-settings.png)
 
 1.  On the tool ribbon, click **Recover** to open the **Recovery Wizard**.
 
@@ -346,7 +346,7 @@ You can restore individual files from a protected VM recovery point. This featur
 > [!NOTE]
 > Restoring an individual file from a VM is available only for Windows VM and Disk Recovery Points.
 
-1.  In the MABS Administrator Console, click **Recovery** view.
+1.  In the Azure Backup Server Administrator Console, click **Recovery** view.
 
 2.  Using the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a VM or folder, the Recovery points for pane displays the available recovery points.
 
@@ -371,7 +371,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 3.  On the **Select Recovery Type** screen, click **Next**. You can only recover your file(s) or folder(s) to a network folder.
 
-4.  On the **Specify Destination** screen, click **Browse** to find a network location for your files or folders. MABS creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided.
+4.  On the **Specify Destination** screen, click **Browse** to find a network location for your files or folders. Azure Backup Server creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided.
 
     ![Specify location to recover files](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 

@@ -1,21 +1,21 @@
 ---
-title: Set up Microsoft Azure Backup Server (MABS) for Azure VMware Solution (AVS)
-description: Set up your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
+title: Set up Microsoft Azure Backup Server for Azure VMware Solution (AVS)
+description: Set up your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/02/2020
 ---
 
 # Set up Microsoft Azure Backup Server for AVS
 
-Microsoft Azure Backup Server (MABS) is a robust enterprise backup and recovery system that contributes to your BCDR strategy by facilitating the backup and recovery of enterprise data. During the AVS preview, you can configure only Virtual Machine level backup using MABS. This article explains how to prepare your AVS environment to backup Virtual Machines using MABS.
+Microsoft Azure Backup Server is a robust enterprise backup and recovery system that contributes to your BCDR strategy by facilitating the backup and recovery of enterprise data. During the AVS preview, you can configure only Virtual Machine level backup using Azure Backup Server. This article explains how to prepare your AVS environment to backup Virtual Machines using Azure Backup Server.
 
-MABS can store backup data to:
+Azure Backup Server can store backup data to:
 
--  **Disk**: For short-term storage MABS backs up data to disk pools.
+-  **Disk**: For short-term storage, Azure Backup Server backs up data to disk pools.
 
--  **Azure**: For both short-term and long-term storage off-premises, MABS data stored in disk pools can be backed up to the Microsoft Azure cloud using the Azure Backup service.
+-  **Azure**: For both short-term and long-term storage off-premises, Azure Backup Server data stored in disk pools can be backed up to the Microsoft Azure cloud using the Azure Backup service.
 
-When outages occur and source data is unavailable, you can use MABS to easily restore data to the original source or to an alternate location. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
+When outages occur and source data is unavailable, you can use Azure Backup Server to easily restore data to the original source or to an alternate location. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
 
 
 In this article, we walk through the steps to:
@@ -28,27 +28,27 @@ In this article, we walk through the steps to:
 
 ## Supported VMware features
 
--   **Agentless backup:** MABS does not require an agent to be installed on the vCenter or ESXi server, to back up the virtual machine. Instead, just provide the IP address or fully qualified domain name (FQDN), and sign in credentials used to authenticate the VMware server with MABS.
+-   **Agentless backup:** Azure Backup Server does not require an agent to be installed on the vCenter or ESXi server, to back up the virtual machine. Instead, just provide the IP address or fully qualified domain name (FQDN), and sign in credentials used to authenticate the VMware server with Azure Backup Server.
 
--   **Cloud-Integrated Backup:** MABS protects workloads to disk and cloud. Backup and recovery workflow of MABS helps you manage long-term retention and offsite backup.
+-   **Cloud-Integrated Backup:** Azure Backup Server protects workloads to disk and cloud. Backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 
--   **Detect and protect VMs managed by vCenter:** MABS detects and protects VMs deployed on a VMware server (vCenter or ESXi server). MABS also detects VMs managed by vCenter, allowing you to protect large deployments.
+-   **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a VMware server (vCenter or ESXi server). Azure Backup Server also detects VMs managed by vCenter, allowing you to protect large deployments.
 
--   **Folder level auto protection:** vCenter lets you organize your VMs in VM folders. MABS detects these folders and lets you protect VMs at the folder level and includes all subfolders. When protecting folders, MABS not only protects the VMs in that folder, but also protects VMs added later. MABS detects new VMs daily and protects them automatically. As you organize your VMs in recursive folders, MABS automatically detects and protects the new VMs deployed in the recursive folders.
+-   **Folder level auto protection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders and lets you protect VMs at the folder level and includes all subfolders. When protecting folders, Azure Backup Server not only protects the VMs in that folder, but also protects VMs added later. Azure Backup Server detects new VMs daily and protects them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
 
--   **MABS continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, MABS automatically detects and continues VM protection.
+-   **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 
--   **Recover necessary files faster:** MABS can recover files/folders from a Windows VM without recovering the entire VM.
+-   **Recover necessary files faster:** Azure Backup Server can recover files/folders from a Windows VM without recovering the entire VM.
 
 ## Limitations
 
--   Update Rollup 1 for MABS v3 must be installed.
+-   Update Rollup 1 for Azure Backup Server v3 must be installed.
 
--   You cannot back up user snapshots before the first MABS backup. Once MABS completes the first backup, then you can back up user snapshots.
+-   You cannot back up user snapshots before the first Azure Backup Server backup. Once Azure Backup Server completes the first backup, then you can back up user snapshots.
 
--   MABS cannot protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
+-   Azure Backup Server cannot protect VMware VMs with pass-through disks and physical raw device mappings (pRDM).
 
--   MABS cannot detect or protect VMware vApps.
+-   Azure Backup Server cannot detect or protect VMware vApps.
 
 **To deploy the solution, you need to complete following five steps:**
 
@@ -56,12 +56,12 @@ In this article, we walk through the steps to:
 
 -   Create Azure Recovery Services Vault
 
--   Download and install the MABS server
+-   Download and install the Azure Backup Server server
 
--   Add storage to MABS server
+-   Add storage to Azure Backup Server server
 
 
-![Deploy MABS solution diagram](./media/deploy-mabs/deploy-mabs-avs-diagram.png)
+![Deploy Azure Backup Server solution diagram](./media/backup-mabs/deploy-mabs-avs-diagram.png)
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -76,7 +76,7 @@ Ensure that you have configured virtual network as mentioned in the [Configure n
 
 To install Microsoft Azure Backup Server, you must create a Windows virtual machine in the virtual network that you have created in the above step. When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2019 Datacenter. The [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial gets you started with the recommended VM in Azure, even if you’ve never used Azure.
 
-The table summarizes the maximum number of protected workloads for each MABS virtual machine size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the MABS virtual machine.
+The table summarizes the maximum number of protected workloads for each Azure Backup Server virtual machine size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server virtual machine.
 
 | Max protected workloads | Average workload size | Average workload churn (daily) | Min Storage IOPS | Recommended Disk Type / Size      | Recommended VM Size |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
@@ -96,11 +96,11 @@ The table summarizes the maximum number of protected workloads for each MABS vir
 
 ### Disks and storage
 
-MABS requires disks for MABS installation, including system files, installation files, prerequisite software, and database files. Also dedicated disks for storage pool.
+Azure Backup Server requires disks for installation, including system files, installation files, prerequisite software, and database files. Also dedicated disks for storage pool.
 
 | Requirement                      | Recommended Size  |
 |----------------------------------|-------------------------|
-| MABS installation                | MABS installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL installation<br /><br />Additionally, you'll need space for MABS to copy the file catalog to a temporary MABS installation location when archiving. 2-3 GB of free space is recommended for the MABS installation volume.       |
+| Azure Backup Server installation                | Installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL installation<br /><br />Additionally, you'll need space for Azure Backup Server to copy the file catalog to a temporary installation location when archiving. 2-3 GB of free space is recommended for the Azure Backup Server installation volume.       |
 | Disk for storage pool<br />(Uses basic volumes, cannot be on a dynamic disk.) | 2 to 3 times the size of the protected data<br />For detailed storage calculation, refer [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
 The [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md) articles shows you how to attach a new managed data disk to an existing Azure VM.
@@ -138,7 +138,7 @@ The VM must have .NET Framework 3.5 SP1 or higher installed.
 
 The Azure Backup Server VM must be joined to a domain and a domain user with administrator privileges on the VM must install Azure Backup Server.
 
-Though this is not supported at the time of preview, MABS deployed in an Azure VM can back up workloads on the VMs in AVS, but they should be in same domain to enable backup operation.
+Though this is not supported at the time of preview, Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in AVS, but they should be in same domain to enable backup operation.
 
 ## Create a Recovery Services vault
 
@@ -236,13 +236,13 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  From the **Where is your workload running** menu, select **On-premises**.
 
-       ![Where is your workload running?](./media/deploy-mabs/deploy-mabs-on-premises-workload.png)
+       ![Where is your workload running?](./media/backup-mabs/deploy-mabs-on-premises-workload.png)
 
     1.  From the **What do you want to back up** menu, select the workloads you want to protect using Azure Backup Server.
 
     1.  Click on **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-       ![Prepare Infrastructure](./media/deploy-mabs/deploy-mabs-prepare-infrastructure.png)
+       ![Prepare Infrastructure](./media/backup-mabs/deploy-mabs-prepare-infrastructure.png)
 
 1.  In the **Prepare infrastructure** window that opens, do the following:
 
@@ -250,7 +250,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
-    ![Prepare Infrastructure – Azure Backup Server](./media/deploy-mabs/deploy-mabs-prepare-infrastructure2.png)
+    ![Prepare Infrastructure – Azure Backup Server](./media/backup-mabs/deploy-mabs-prepare-infrastructure2.png)
 
 1.  On the download page, select all the files and click **Next** to download
     all the files.
@@ -262,8 +262,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
 ### Extracting the software package
 
-If you downloaded the software package to different server, copy the files onto
-the Virtual Machine that you created to deploy the MABS server.
+If you downloaded the software package to different server, copy the files onto the Virtual Machine that you created to deploy the Azure Backup Server.
 
 > [!WARNING]
 > At least 4 GB of free space is required to extract the setup files.
@@ -298,9 +297,9 @@ the Virtual Machine that you created to deploy the MABS server.
     ![Azure Backup Server - SQL check](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     > [!NOTE]
-    > If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017. All SQL Server versions should be Standard or Enterprise 64-bit. Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you are using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
+    > If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017. All SQL Server versions should be Standard or Enterprise 64-bit. Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you are using an existing SQL server for Azure Backup Server, the setup only supports the use of *named instances* of SQL server.
 
-    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
+    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade Azure Backup Server using the existing instance of SQL.
 
     **Manual configuration**
 
@@ -308,7 +307,7 @@ the Virtual Machine that you created to deploy the MABS server.
 
     **SSRS Configuration with SQL 2017**
 
-    When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When set to True, Azure Backup Server assumes that SSRS is already configured and will skip the SSRS configuration.
 
     To check the SSRS configuration status, you can use the following command.
 
@@ -336,7 +335,7 @@ the Virtual Machine that you created to deploy the MABS server.
 
     > [!NOTE]
 
-    > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products)  (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
+    > Licensing for SQL Server used as the database for Azure Backup Server is governed by [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products)  (OST). According to OST, SQL Server bundled with Azure Backup Server can be used only as the database for Azure Backup Server.
 
 1.  Once the prerequisites are successfully installed, click **Next**.
 
@@ -383,7 +382,7 @@ the Virtual Machine that you created to deploy the MABS server.
 
 ### Install Update Rollup 1
 
-Download and install the Update Rollup 1 for MABS v3 before protecting the workloads. You can download the update from this link. [still need the link to the download]
+Download and install the Update Rollup 1 for Azure Backup Server v3 before protecting the workloads. You can download the update from this link. [still need the link to the download]
 
 ## Add storage to Azure Backup Server
 
