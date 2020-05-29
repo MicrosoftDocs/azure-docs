@@ -56,9 +56,14 @@ For example, a max-surge value of 100% provides the fastest upgrade but also cau
 
 For production node pools, we recommend a max_surge setting of 33%.
 
+Max surge integer values can be a minimum of 1 and maximum of any valid int32 value. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count.
+
+If the max surge value is lower than the current node count at the time of upgrade, the current node count is used for the max-surge value.
+
 The upgrade operation provisions additional nodes to facilitate node replacement during an upgrade. AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. 
 
 Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%.
+
 
 Register for the Node surge upgrade feature by issuing the following Azure CLI command:
 
@@ -66,12 +71,11 @@ Register for the Node surge upgrade feature by issuing the following Azure CLI c
 az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, run the following command to increase max-surge
-
+After successful registration, run the following commands to increase max-surge:
 
 ### Install latest AKS CLI preview extension
 
-You need the *aks-preview* CLI extension to use max surge in preview. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+During preview, you need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -82,7 +86,7 @@ az extension update --name aks-preview
 ```
 
 > [!Important]
-> The max-surge setting on a node pool is permanent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the value for max-surge at any time.
+> The max-surge setting on a node pool is permanent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max-surge value for your node pools at any time.
 
 Use the following commands to set max surge values for new or existing node pools.
 
