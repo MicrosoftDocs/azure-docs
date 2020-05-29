@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/29/2020
 ms.author: rogarana
 ---
 
@@ -13,7 +13,7 @@ ms.author: rogarana
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with RBAC, you must assign proper Windows ACLs (also known as Windows ACLs) at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
+After you assign share-level permissions with RBAC, you must assign proper Windows ACLs (also known as NTFS permissions) at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
 
 After you assign share-level permissions with RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
@@ -21,7 +21,7 @@ After you assign share-level permissions with RBAC, you must configure proper Wi
 
 Azure Files supports the full set of basic and advanced Windows ACLs. You can view and configure Windows ACLs on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
 
-To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure Windows ACLs.
+To configure ACLs with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure Windows ACLs.
 
 The following permissions are included on the root directory of a file share:
 
@@ -45,9 +45,9 @@ If you experience issues in connecting to Azure Files, refer to [the troubleshoo
 
 ## Configure Windows ACLs
 
-Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as Windows ACLs). You can configure the Windows ACLs using either Windows File Explorer or icacls.
+Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as NTFS permissions). You can configure the Windows ACLs using either Windows File Explorer or icacls.
 
-If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or Azure AzCopy v 10.4+(https://github.com/Azure/azure-storage-azcopy/releases). If you directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in the native format.
+If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
 ### Configure Windows ACLs with Windows File Explorer
 

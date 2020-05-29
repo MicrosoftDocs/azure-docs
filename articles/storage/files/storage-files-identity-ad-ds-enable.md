@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/29/2020
 ms.author: rogarana
 ---
 
@@ -84,12 +84,9 @@ First, you must check the state of your environment. Specifically, you must chec
 
 ### Creating an identity representing the storage account in your AD manually
 
-To create this account manually, create a new Kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that Kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account.
-
-Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
+To create this account manually, create a new Kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that Kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account. Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
 
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
-
 Password: Kerberos key for your storage account.
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
@@ -114,6 +111,12 @@ Set-AzStorageAccount `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
+### Debugging
+
+You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
+
+```PowerShell
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose```
 
 ## Confirm the feature is enabled
 

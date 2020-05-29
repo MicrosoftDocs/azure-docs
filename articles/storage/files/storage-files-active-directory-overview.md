@@ -5,11 +5,11 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/29/2020
 ms.author: rogarana
 ---
 
-# Overview of Azure Files identity-based authentication support for SMB access
+# Overview of Azure Files identity-based authentication options for SMB access
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 To learn how to enable on-premises Active Directory Domain Services authentication for Azure file shares, see [Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
@@ -61,10 +61,10 @@ If you are keeping your primary file storage on-premises, Azure file shares can 
 
 ## Supported scenarios
 
-The following table summarizes the supported Azure file shares authentication scenarios for Azure AD DS and on-premises AD DS. We recommend selecting the domain service that you adopted for your client environment for integration with Azure Files. If you have AD DS already setup on-premises or in Azure where your devices are domain joined to your AD, you should choose to leverage AD DS for Azure file shares authentication. Similarly, if you've already adopted Azure AD DS (GA), you should use that for Azure file shares authentication.
+The following table summarizes the supported Azure file shares authentication scenarios for Azure AD DS and on-premises AD DS. We recommend selecting the domain service that you adopted for your client environment for integration with Azure Files. If you have AD DS already setup on-premises or in Azure where your devices are domain joined to your AD, you should choose to leverage AD DS for Azure file shares authentication. Similarly, if you've already adopted Azure AD DS, you should use that for authenticating to Azure file shares.
 
 
-|Azure AD DS authentication  | on-premises AD DS authentication  |
+|Azure AD DS authentication  | On-premises AD DS authentication  |
 |---------|---------|
 |Azure AD DS-joined Windows machines can access Azure file shares with Azure AD credentials over SMB.     |On-premises AD DS-joined or Azure AD DS-joined Windows machines can access Azure file shares with on-premises Active Directory credentials that are synched to Azure AD over SMB. Your client must have line of sight to your AD DS.        |
 
@@ -72,7 +72,7 @@ The following table summarizes the supported Azure file shares authentication sc
 
 - Azure AD DS and on-premises AD DS authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
 - Neither Azure AD DS authentication nor on-premises AD DS authentication is supported against Azure AD-joined devices or Azure AD-registered devices.
-- Azure file shares only support identity-based authentication against one domain service. Either [Azure Active Directory Domain Service (Azure AD DS)](#azure-ad-ds) or [on-premises Active Directory Domain Services (AD DS)](#ad-ds).
+- Azure file shares only support identity-based authentication against one of the following domain services, either [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) or [on-premises Active Directory Domain Services (AD DS)](#ad-ds).
 
 ## Advantages of identity-based authentication
 Identity-based authentication for Azure Files offers several benefits over using Shared Key authentication:
