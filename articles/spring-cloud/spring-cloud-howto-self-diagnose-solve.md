@@ -32,7 +32,7 @@ To find a detector, you can either search detectors by typing a keyword or click
 
 Selection of **Config Server Health Check**, **Config Server Health Status**, or **Config Server Update History** will display various results.
 
-![Detectors options](detectors-options.png)
+![Detectors options](media/spring-cloud-diagnose/detectors-options.png)
 
 Find your target detector, and click it to execute. A summary of diagnostics will be shown after you execute the detector. You can select **View Full Report** to check diagnostic details or click **Show Tile Menu** button to go back to detector list.
 
