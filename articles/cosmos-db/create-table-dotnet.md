@@ -72,6 +72,26 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 2. Navigate to the folder where you cloned the sample application and open the TableStorage.sln file.
 
+## Review the code
+
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [update the connection string](#update-your-connection-string) section of this doc.
+
+* The following code shows how to create a table within the Azure Storage table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* The following code shows how to insert data into the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* The following code shows how to query data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* The following code shows how to delete data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
+
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
