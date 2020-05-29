@@ -11,7 +11,7 @@ ms.date: 05/22/2020
 
 # Customize cluster egress with a User-Defined Route
 
-Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be setup and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
+Egress from an AKS cluster can be customized to fit specific scenarios. By default, AKS will provision a Standard SKU Load Balancer to be set up and used for egress. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress.
 
 This article walks through how to customize a cluster's egress route to support custom network scenarios, such as those which disallows public IPs and requires the cluster to sit behind a network virtual appliance (NVA).
 
@@ -21,6 +21,7 @@ This article walks through how to customize a cluster's egress route to support 
 
 
 ## Limitations
+* During preview, outboundType can only be defined at cluster create time and cannot be updated afterward.
 * Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
 * Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster. You can use your own [route table][byo-route-table].
 * Setting `outboundType` to a value of `UDR` implies the ingress source IP routed to the load-balancer may **not match** the cluster's outgoing egress destination address.
@@ -34,12 +35,12 @@ An AKS cluster can be customized with a unique `outboundType` of type load balan
 
 ### Outbound type of loadBalancer
 
-If `loadBalancer` is set, AKS completes the following setup automatically. The load balancer is used for egress through an AKS assigned public IP. An outbound type of `loadBalancer` supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
+If `loadBalancer` is set, AKS completes the following configuration automatically. The load balancer is used for egress through an AKS assigned public IP. An outbound type of `loadBalancer` supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
 
-The following setup is done by AKS.
+The following configuration is done by AKS.
    * A public IP address is provisioned for cluster egress.
    * The public IP address is assigned to the load balancer resource.
-   * Backend pools for the load balancer are setup for agent nodes in the cluster.
+   * Backend pools for the load balancer are set up for agent nodes in the cluster.
 
 Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
 
@@ -152,9 +153,9 @@ az network vnet subnet create \
     --address-prefix 100.64.3.0/24
 ```
 
-## Create and setup an Azure Firewall with a UDR
+## Create and set up an Azure Firewall with a UDR
 
-Azure Firewall inbound and outbound rules must be configured. The main purpose of the firewall is to enable organizations to setup granular ingress and egress traffic rules into and out of the AKS Cluster.
+Azure Firewall inbound and outbound rules must be configured. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS Cluster.
 
 ![Firewall and UDR](media/egress-outboundtype/firewall-udr.png)
 
@@ -177,7 +178,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC
 
 The IP address created earlier can now be assigned to the firewall frontend.
 > [!NOTE]
-> Setup of the public IP address to the Azure Firewall may take a few minutes.
+> Set up of the public IP address to the Azure Firewall may take a few minutes.
 > 
 > If errors are repeatedly received on the below command, delete the existing firewall and public IP and  provision the Public IP and Azure Firewall through the portal at the same time.
 
@@ -263,7 +264,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ## Deploy AKS with outbound type of UDR to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network setup. In order to set a cluster outbound type to user-defined routing, an existing subnet must be provided to AKS.
+Now an AKS cluster can be deployed into the existing virtual network. In order to set a cluster outbound type to user-defined routing, an existing subnet must be provided to AKS.
 
 ![aks-deploy](media/egress-outboundtype/outboundtype-udr.png)
 
@@ -300,7 +301,7 @@ Finally, the AKS cluster can be deployed into the existing subnet we have dedica
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
+Define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip set up and IP provisioning for the load balancer which can now be strictly internal.
 
 The AKS feature for [API server authorized IP ranges](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as the NSG which must be passed to access the control plane. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
@@ -324,7 +325,7 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
 
 ### Enable developer access to the API server
 
-Due to the authorized IP ranges setup for the cluster, you must add your developer tooling IP addresses to the AKS cluster list of approved IP ranges to access the API server. Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network.
+Due to the authorized IP ranges for the cluster, you must add your developer tooling IP addresses to the AKS cluster list of approved IP ranges to access the API server. Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network.
 
 Add another IP address to the approved ranges with the following command
 
@@ -343,9 +344,9 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
-### Setup the internal load balancer
+### Set up the internal load balancer
 
-AKS has deployed a load balancer with the cluster which can be setup as an [internal load balancer](internal-lb.md).
+AKS has deployed a load balancer with the cluster which can be set up as an [internal load balancer](internal-lb.md).
 
 To create an internal load balancer, create a service manifest named internal-lb.yaml with the service type LoadBalancer and the azure-load-balancer-internal annotation as shown in the following example:
 
