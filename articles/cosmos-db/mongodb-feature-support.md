@@ -68,7 +68,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 - listDatabases
 - whatsmyuri
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
 

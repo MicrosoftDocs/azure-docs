@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Security - Enable Customer Managed Key Encryption
+    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -39,7 +41,7 @@
         href: tutorial-copy-data-portal.md
       - name: .NET
         href: tutorial-copy-data-dot-net.md
-    - name: From an on-premises SQL Server database to Azure Blob Storage
+    - name: From a SQL Server database to Azure Blob Storage
       items:
       - name: Copy Data tool
         href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
           href: tutorial-incremental-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-powershell.md
-      - name: From multiple on-premises SQL Server tables
+      - name: From multiple SQL Server database tables
         items:
         - name: User interface (UI)
           href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -605,6 +607,10 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Connect to data with Windows Authentication
+      href: ssis-azure-connect-with-windows-auth.md
+    - name: Save files and connect to file shares
+      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Built-in and preinstalled components on Azure-SSIS IR
@@ -623,6 +629,8 @@
       href: how-to-use-sql-managed-instance-with-ir.md
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
+    - name: Manage packages with Azure-SSIS IR package store
+      href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger

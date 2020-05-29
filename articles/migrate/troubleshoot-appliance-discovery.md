@@ -140,6 +140,23 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## Error: The file uploaded is not in the expected format
+Some tools have regional settings that create the CSV file with semi-colon as a delimiter. Please change the settings to ensure the delimiter is a comma.
+
+## I imported a CSV but I see "Discovery is in progress"
+This status appears if your CSV upload failed due to a validation failure. Try to import the CSV again. You can download the error report of the previous upload and follow the remediation guidance in the file to fix the errors. The error report can be downloaded from the 'Import Details' section on 'Discover machines' page.
+
+## Do not see application details even after updating guest credentials
+The application discovery runs once every 24 hours. If you would like to see the details immediately, refresh as follows. This may take a few minutes depending on the no. of VMs discovered.
+
+1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
+2. Under **Manage**, select **Agent Health**.
+3. Select **Refresh agent**.
+4. Wait for the refresh operation to complete. You should now see up-to-date information.
+
+## Unable to export application inventory
+Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
+
 ## Common app discovery errors
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
@@ -147,7 +164,7 @@ Azure Migrate supports discovery of applications, roles, and features, using Azu
 Typical app discovery errors are summarized in the table. 
 
 **Error** | **Cause** | **Action**
---- | --- | --- | ---
+--- | --- | --- 
 10000: "Unable to discover the applications installed on the server". | This might occur if the machine operating system isn't Windows or Linux. | Only use app discovery for Windows/Linux.
 10001: "Unable to retrieve the applications installed the server". | Internal error - some missing files in appliance. | Contact Microsoft Support.
 10002: "Unable to retrieve the applications installed the server". | The discovery agent on the appliance might not be working properly. | If the issue doesn't resolve itself within 24 hours, contact support.
@@ -166,8 +183,8 @@ Typical app discovery errors are summarized in the table.
 9010: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
 9011: "File to download from guest is not found on the guest VM" | The issue can occur due to an internal error. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
 9012: "Result file contents are empty." | The issue can occur due to an internal error. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-9013: "A new temporary profile is created for every login to the VMware VM" | A new temporary profile is created for every login into the VM | Ensure the user name provided in the guest VM credentials is in UPN format.
-9015: "Unable to connect to VMware VMs due to insufficient privileges on vCenter" | Guest Operations role is not enabled on the vCenter user account | Ensure Guest Operations role is enabled on the vCenter user account.
+9013: "A new temporary profile is created for every login to the VMware VM" | A new temporary profile is created for every login into the VM. | Ensure that the user name that's provided in the guest VM credentials is in UPN format. After you change the user name that's provided in the guest VM credentials to UPN format, in Task Manager on the appliance, restart the Microsoft Azure VMWare Discovery Service to find the new discovery.
+9015: "Unable to connect to VMware VMs due to insufficient privileges on vCenter" | Guest Operations role is not enabled on the vCenter user account. | Ensure Guest Operations role is enabled on the vCenter user account.
 9016: "Unable to connect to VMware VMs as the guest operations agent is out of data" | VMware tools is not properly installed or is not up to date. | Ensure the VMware  tools is properly installed and up to date.
 9017: "File with discovered metadata is not found on the VM." | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution.
 9018: "PowerShell is not installed in the Guest VMs." | PowerShell is not available in the guest VM. | Install PowerShell in the guest VM.
