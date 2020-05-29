@@ -204,7 +204,7 @@ In the messages below, the application properties and the content of the body ar
 
 ### MediaSessionEstablished event 
 
-When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [2:02:54 PM] Message received from [lva-sample-device/lvaEdge]:

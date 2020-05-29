@@ -14,7 +14,7 @@ ms.date: 04/27/2020
 
 ## Overview  
 
-A media graph can be used to analyze live video, without record any portion of the video to a file or an asset. The media graphs shown below are similar to the ones in [Event-Based Video Recording](event-based-video-recording-concept.md) scenarios, but without an asset or file sink node.
+You can use a media graph to analyze live video, without recording any portions of the video to a file or an asset. The media graphs shown below are similar to the ones in [Event-based video recording](event-based-video-recording-concept.md) scenarios, but without an asset or file sink node.
 
 ### Motion detection
 
@@ -24,7 +24,7 @@ The media graph shown below consists of a [RTSP source](media-graph-concept.md#r
 
 ### Analyzing video using custom AI
 
-The media graph shown below enables you to analyze the video captured by the RTSP source using a custom AI packaged in a separate module. In this media graph, the frame rate filter processor samples video frames at a configured value and passes them to the HTTP extension processor, which in turn scales the video frame (per configured values) and encodes it before sending the frame to the AI module using HTTP. Inference results returned by the AI module are packaged in to IoT Hub messages by the IoT Hub message sink and relayed to IoT Edge Hub. This type of media graph can be used to build solutions for a variety of scenarios such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+The media graph shown below enables you to analyze the video captured by the RTSP source using a custom AI packaged in a separate module. In this media graph, the frame rate filter processor samples video frames at a configured value and passes them to the [HTTP extension processor](media-graph-concept.md#http-extension-processor), which in turn scales the video frame (per configured values) and encodes it before sending the frame to the AI module using HTTP. Inference results returned by the AI module are packaged in to IoT Hub messages by the IoT Hub message sink and relayed to IoT Edge Hub. This type of media graph can be used to build solutions for a variety of scenarios such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
 
 ![Live Video Analytics based on an external inferencing module](./media/analyze-live-video/external-inferencing-module.png)
 

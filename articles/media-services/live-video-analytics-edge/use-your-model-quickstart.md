@@ -23,7 +23,7 @@ This article builds on top of the [Getting started](get-started-detect-motion-em
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node captures the video feed from this server and sends the video to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The Http Extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node captures the video feed from this server and sends the video to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The HTTP extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 The [video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) you will use for this quickstart has been built into the rtspsim-live555 container. If you play this video, you will see that the footage is of traffic on a highway, with many vehicles moving on it. 
 
@@ -110,7 +110,7 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
     * Program.cs - This is the sample program code, which does the following:
 
         * Loads the app settings.
-        * Invoke the Live Video Analytics on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph.
+        * Invoke the Live Video Analytics on IoT Edge direct methods to create topology, instantiate the graph and activate the graph.
         * Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window.
         * Deactivate the graph instance, delete the graph instance, and delete the graph topology.
 
@@ -150,7 +150,7 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 ### Run the sample program
 
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. In the TERMINAL window, you will see the responses to the Direct Method calls.
+1. In the TERMINAL window, you will see the responses to the direct method calls.
 1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
 1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can do the following:
 
@@ -167,7 +167,7 @@ In the messages below, the application properties and the content of the body ar
 
 ### Connection Established event
 
-When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the rtspsim-live55 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the rtspsim-live55 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

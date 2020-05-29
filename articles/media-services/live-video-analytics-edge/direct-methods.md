@@ -1,21 +1,21 @@
 ---
 title: Use direct methods in Live Video Analytics on IoT Edge - Azure  
-description: Live Video Analytics on IoT Edge exposes several Direct Methods. The Direct Methods are based on the conventions described in this topic.
+description: Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
 # Direct methods
 
-Live Video Analytics on IoT Edge exposes several Direct Methods. For more information, see [Understand and invoke direct methods from IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Live Video Analytics on IoT Edge exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
 
 This topic describes these methods and conventions.
 
 ## Conventions
 
-The Direct Methods are based on the following conventions:
+The direct methods are based on the following conventions:
 
-1. Direct Methods have a version specified in MAJOR.MINOR format (as shown in the following example)
+1. Direct methods have a version specified in MAJOR.MINOR format (as shown in the following example):
 
     ```
     {
@@ -28,8 +28,8 @@ The Direct Methods are based on the following conventions:
     }
     ```
 
-2. A given version of Live Video Analytics on IoT Edge module will support all the Direct Methods up-to its current version. For example, module version 1.3 will support Direct Methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
-3. All Direct Methods are synchronous.
+2. A given version of Live Video Analytics on IoT Edge module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
+3. All direct methods are synchronous.
 4. Error results follow OData error schema.
 5. Names should observe the following constraints:
     
@@ -101,11 +101,11 @@ Detailed validations error, such as graph module validations, are added as error
 |409|	OperationNotAllowedInState|	Requested operation cannot be performed in the current state.|
 |409|	ResourceValidationError|	Referenced resource (example: asset) is not in a valid state.|
 
-## Direct Method - graph topology  
+## Direct method - graph topology  
 
 ### GraphTopologyGet
 
-This Direct Method retrieves a single graph topology.
+This direct method retrieves a single graph topology.
 
 #### Request
 

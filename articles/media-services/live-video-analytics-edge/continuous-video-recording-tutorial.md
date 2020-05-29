@@ -103,7 +103,7 @@ Next, browse to "src/cloud-to-device-console-app" folder. Here you will see the 
 * Program.cs - the sample program code which does the following:
 
     * Loads the app settings.
-    * Invokes the Live Video Analytics on IoT Edge Direct Methods <!--<TODO Link>--> to create a topology, instantiate a media graph and activate the media graph.
+    * Invokes the Live Video Analytics on IoT Edge [direct methods](direct-methods.md) to create a topology, instantiate a media graph and activate the media graph.
     * Pauses for you to examine the output in the terminal window and the events sent to IoT Hub in the “output” window.
     * Deactivate the graph instance, delete the graph instance, and delete the graph topology.
 
@@ -132,7 +132,7 @@ Right click on the Edge device (“lva-sample-device”) and click on “Start M
 
     `"topologyName" : "CVRToAMSAsset"`
 1. Press “F5”. This will start the debug session.
-1. In the TERMINAL window, you will see the responses to the Direct Method <!--<TODO Link to AMS docs>--> calls made by the program to the Live Video Analytics on IoT Edge module, which are:
+1. In the TERMINAL window, you will see the responses to the [direct methods](direct-methods.md) calls made by the program to the Live Video Analytics on IoT Edge module, which are:
 
     1. GraphTopologyList – retrieves a list of Graph Topologies that have been added to the module, if any
 
@@ -179,7 +179,7 @@ In the messages below, the application properties and the content of the body ar
 
 ### MediaSessionEstablished event
 
-When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the RTSP simulator container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

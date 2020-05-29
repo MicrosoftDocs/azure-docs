@@ -27,8 +27,6 @@ Recording policy refers to the policies that dictate the recording start/stop ti
 
 ## Next steps
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)
-<!--
 * [Detect motion, record video clips to Azure Media Services](detect-motion-record-video-clips-media-services-quickstart.md)
-* [Detect motion, record video to edge devices](detect-motion-record-video-edge-device-quickstart.md)
->
+* [Detect motion, record video clips to edge devices](detect-motion-record-video-clips-edge-devices-quickstart.md)
+
