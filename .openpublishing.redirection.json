@@ -54368,6 +54368,11 @@
       "source_path": "articles/aks/azure-ad-v2.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
     }
   ]
 }
