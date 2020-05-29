@@ -166,6 +166,16 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
 - [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
+### Azure Spring Cloud
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not Available | Not Available | Not Available | 
+| User assigned | Not Available | Not Available | Not Available | Not Available |
+
+
+For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
+
 ## Azure services that support Azure AD authentication
 
 The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
