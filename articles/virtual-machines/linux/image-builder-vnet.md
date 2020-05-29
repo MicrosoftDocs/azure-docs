@@ -1,17 +1,17 @@
 ---
-title: Use Azure Image Builder with an image gallery for Linux VMs (preview)
-description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
+title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET (preview)
+description: Create Linux VM images with Azure Image Builder allowing access to an existing Azure VNET
 author: cynthn
 ms.author: cynthn
-ms.date: 05/28/2019
+ms.date: 05/28/2020
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ---
-# Create a custom Linux image allowing access to an existing Azure VNET
+# Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 
-This article shows you how you can use the Azure Image Builder to create a basic customized image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
+This article shows you how you can use the Azure Image Builder to create a basic customized Linux image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -30,8 +30,7 @@ az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMac
 
 ## Set variables and permissions 
 
-We will be using some pieces of information repeatedly, so we will create some variables to store that information.
-
+You will be using some pieces of information repeatedly. Create some variables to store that information.
 
 ```azurecli-interactive
 # set your environment variables here!!!!

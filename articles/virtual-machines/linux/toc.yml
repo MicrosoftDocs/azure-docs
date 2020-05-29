@@ -471,8 +471,18 @@
       items:
       - name: Overview
         href: image-builder-overview.md
-      - name: Use Azure CLI
+      - name: Create VM - CLI
         href: image-builder.md
+      - name: Create VM using VNET - CLI
+        href: image-builder-vnet.md
+      - name: Configure permissions - CLI
+        href: image-builder-permissions-cli.md
+      - name: Configure permissions - PowerShell
+        href: image-builder-permissions-powershell.md
+      - name: Networking options
+        href: image-builder-networking.md
+      - name: DevOps task
+        href: image-builder-devops-task.md
       - name: ARM template reference
         href: image-builder-json.md
         displayName: ARM,Resource Manager
@@ -481,7 +491,7 @@
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
       - name: Troubleshoot
-        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
+        href: image-builder-troubleshoot.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
