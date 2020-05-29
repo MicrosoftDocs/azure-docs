@@ -40,6 +40,16 @@ The following diagram shows the basic steps you must follow when you transfer a 
 
     ![Transfer subscription diagram](./media/transfer-subscription/transfer-subscription.png)
 
+### Deciding whether to transfer a subscription to a different directory
+
+The following are some reasons why you might want to transfer a subscription:
+
+- You have acquired a company and you want to manage an acquired subscription in your primary Azure AD directory.
+- Someone in your organization created a subscription and you want to consolidate management to a particular Azure AD directory.
+- You have applications that depend on a particular subscription ID and it isn't easy to modify the application configuration or code.
+
+Transferring a subscription does require downtime to complete the process. Depending on your scenario, it might be better to just re-create the resources and copy data to the target directory and subscription.
+
 ### Understand the impact of transferring a subscription
 
 Several Azure resources have a dependency on a subscription or a directory. Depending on your situation, the following table lists the known impact of transferring a subscription. By performing the steps in this article, you can re-create some of the resources that existed prior to the subscription transfer.
@@ -62,16 +72,6 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure File Sync | Yes | Yes |  |  |
 
 If you are using encryption at rest for a resource such as a storage account or a SQL database that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
-
-### Deciding whether to transfer a subscription to a different directory
-
-The following are some reasons why you might want to transfer a subscription:
-
-- You have acquired a company and you want to manage an acquired subscription in your primary Azure AD directory.
-- Someone in your organization created a subscription and you want to consolidate management to a particular Azure AD directory.
-- You have applications that depend on a particular subscription ID and it isn't easy to modify the application configuration or code.
-
-Transferring a subscription does require downtime to complete the process. Depending on your scenario, it might be better to just re-create the resources and copy data to the target directory and subscription.
 
 ## Prerequisites
 
