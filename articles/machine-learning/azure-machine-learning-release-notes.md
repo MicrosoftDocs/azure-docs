@@ -2173,7 +2173,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   * Fixed run property retrieval performance issues.
   * Fixed continue run issue.
   * Fixed :::no-loc text="ensembling"::: iteration issues.
-  * Fixed training hanging bug on MAC OS.
+  * Fixed training bug on macOS that caused the system to stop responding.
   * Downsampling macro average PR/ROC curve in custom validation scenario.
   * Removed extra index logic.
   * Removed filter from get_output API.

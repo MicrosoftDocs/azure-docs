@@ -238,7 +238,7 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ### Q: What if I need to reboot my HSM?
 
-The HSM has a command-line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
+The HSM has a command-line reboot option, however, we are experiencing issues where the reboot stops responding intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 
