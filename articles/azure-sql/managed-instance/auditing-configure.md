@@ -227,7 +227,7 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Managed Instance and databases in SQL Server are:
 
 - With Azure SQL Managed Instance, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
+- In SQL Server, audit works at the server level, but stores events on files system/windows event logs.
 
 XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are **not supported**.
 
