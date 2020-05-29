@@ -2521,7 +2521,7 @@
     {
       "source_path": "articles/cosmos-db/create-table-python.md",
       "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/lambda-architecture.md",
