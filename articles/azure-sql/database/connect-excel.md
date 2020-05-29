@@ -1,6 +1,6 @@
 ---
 title: Connect with Excel
-description: Learn how to connect Microsoft Excel to Azure SQL Database. Import data into Excel for reporting and data exploration.
+description: Learn how to connect Microsoft Excel to a database in Azure SQL Database. Import data into Excel for reporting and data exploration.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,20 +12,22 @@ ms.author: craigg
 ms.reviewer: 
 ms.date: 02/12/2019
 ---
-# Connect Excel to Azure SQL Database and create a report
+
+# Connect Excel to a database in Azure SQL Database and create a report
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Connect Excel to Azure SQL Database and import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
+You can connect Excel to a database in Azure SQL Database and then import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 
-You'll need a SQL Database before you get started. If you don't have one, see [Create an Azure SQL Database](single-database-create-quickstart.md) and [Create server-level IP firewall](firewall-create-server-level-portal-quickstart.md) to get a SQL Database with sample data up and running in a few minutes.
+You'll need to create a database in SQL Database before you get started. If you don't have one, see [Create a database in Azure SQL Database](single-database-create-quickstart.md) and [Create server-level IP firewall](firewall-create-server-level-portal-quickstart.md) to get a database with sample data up and running in a few minutes.
 
 In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
 
 You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/).
 
-## Connect Excel to a SQL Database and load data
+## Connect Excel and load data
 
-1. To connect Excel to a SQL Database, open Excel and then create a new workbook or open an existing Excel workbook.
+1. To connect Excel to a database in SQL Database, open Excel and then create a new workbook or open an existing Excel workbook.
 2. In the menu bar at the top of the page, select the **Data** tab, select **Get Data**, select From Azure, and then select **From Azure SQL Database**.
 
    ![Select data source: Connect Excel to SQL Database.](./media/connect-excel/excel_data_source.png)
@@ -47,7 +49,7 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
 
 ## Import the data into Excel and create a pivot chart
 
-Now that you've established the connection, you have several different options with how to load the data. For example, the following steps create a pivot chart based on the data found in your SQL Database.
+Now that you've established the connection, you have several different options with how to load the data. For example, the following steps create a pivot chart based on the data found in your database in SQL Database.
 
 1. Follow the steps in the previous section, but this time, instead of selecting **Load**, select **Load to** from the **Load** drop-down.
 2. Next, select how you want to view this data in your workbook. We chose **PivotChart**. You can also choose to create a **New worksheet** or to **Add this data to a Data Model**. For more information on Data Models, see [Create a data model in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B).
