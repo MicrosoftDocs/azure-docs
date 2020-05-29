@@ -236,15 +236,18 @@ Once you make the encryption protector available to SQL Managed Instance, you ca
 
 SQL Managed Instance offers the same performance levels per compute and storage size as Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in SQL Managed Instance, you can migrate your data by using export/import (BACPAC) functionality.
 
-## SQL Managed Instance password policy 
+## Password policy 
 
-**What password policies are applied to SQL Managed instance?**
+**What password policies are applied for SQL Managed instance SQL logins?**
 
-SQL Managed Instance password policy is inheriting Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
+SQL Managed Instance password policy for SQL logins is inheriting Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
+
+ > [!IMPORTANT]
+ > Azure platform can change policy requirements without notifying services relying onto it
 
 **What are current Azure platform policies?**
 
-Each account must set it's password upon login and change its password after it reaches maximum age.
+Each login must set its password upon login and change its password after it reaches maximum age.
 
 | **Policy** | **Security Setting** |
 | --- | --- |
@@ -253,9 +256,9 @@ Each account must set it's password upon login and change its password after it 
 | Minimum password length | 10 characters |
 | Password must meet complexity requirements | Enabled |
 
-**Is it possible to disable password complexity and expiration in SQL Managed Instance on user level?**
+**Is it possible to disable password complexity and expiration in SQL Managed Instance on login level?**
 
-Yes, it is possible to control CHECK_POLICY and CHECK_EXPIRATION fields on user level. You can check current settings by executing following T-SQL command:
+Yes, it is possible to control CHECK_POLICY and CHECK_EXPIRATION fields on login level. You can check current settings by executing following T-SQL command:
 
 ```sql
 SELECT *
@@ -270,3 +273,6 @@ ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
 ```
 
 (replace 'test' with desired login name)
+
+ > [!Note]
+ > Default values for CHECK_POLICY and CHECK_EXPIRATION are set to OFF.
