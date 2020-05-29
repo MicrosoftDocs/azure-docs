@@ -221,7 +221,7 @@ Provider  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> H
 
 Here's the features data that the appliance collects from each VM enabled for application discovery. This data is sent to Azure.
 
-**Data**  | **Powershell cmdlet** | **Property**
+**Data**  | **PowerShell cmdlet** | **Property**
 --- | --- | ---
 Name  | Get-WindowsFeature  | Name
 Feature Type | Get-WindowsFeature  | FeatureType
@@ -250,7 +250,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 #### Linux VM apps data
 
-Here's the installed application data that the appliance collects from each VM enabled for application discovery. Based on the operating system of the VM, 0ne or more of the commands are run . This data is sent to Azure.
+Here's the installed application data that the appliance collects from each VM enabled for application discovery. Based on the operating system of the VM, one or more of the commands are run . This data is sent to Azure.
 
 Data  | Command
 --- | --- 
@@ -265,7 +265,7 @@ Here's the operating system data that the appliance collects each VM enabled for
 **Data**  | **Command** 
 --- | --- | ---
 Name <br/> version | Gathered from one or more of the following files:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architecure | uname
+Architecture | uname
 
 
 ### App dependencies metadata
