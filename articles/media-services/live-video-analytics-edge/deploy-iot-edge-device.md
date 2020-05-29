@@ -50,7 +50,7 @@ az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name 
 Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
 
 ## Create and use local user account for deployment
-To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. Run the following commands on your Linux machine:
+To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
 
 ```
 sudo groupadd -g 1010 localuser
@@ -61,7 +61,7 @@ sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
 
 Now that you have created a local user account, 
 
-* You will need a local folder to store the application configuration data. Create a folder and grant permissions to write to that folder using the following commands:
+* You will need a local folder to store the application configuration data. Create a folder and grant permissions to the localuser account write to that folder using the following commands:
 
 ```
 sudo mkdir /var/local/mediaservices
@@ -143,8 +143,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
                 }
             },
             "Binds": [
-            "/var/local/mediaservices:/var/lib/azuremediaservices",
-            "/var/local/media:/var/local/media"
+               "/var/local/mediaservices:/var/lib/azuremediaservices",
+               "/var/local/media:/var/local/media"
             ]
         }
     }
