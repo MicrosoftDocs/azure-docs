@@ -26,7 +26,7 @@ A few use cases related to event-based video recording are described in this art
 
 ### Video recording based on motion detection  
 
-In this use case, you can record video clips only when there is motion detected in the video and be alerted when such a video clip is generated. This could be relevant in commercial security scenarios involving protection of critical infrastructure. Generating alerts and recording video when unexpected motion is detected improves the efficiency of the human operator, since action is only needed when the alert is generated.
+In this use case, you can record video clips only when there is motion detected in the video and be alerted when such a video clip is generated. This could be relevant in commercial security scenarios involving protection of critical infrastructure. By generating alerts and recording video when unexpected motion is detected, you can improve the efficiency of the human operator, since action is only needed when the alert is generated.
 
 The diagram below shows a graphical representation of a media graph that addresses this use case. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
