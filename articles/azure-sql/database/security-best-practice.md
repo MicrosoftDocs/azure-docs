@@ -30,7 +30,7 @@ This document provides guidance on how to solve common security requirements for
 
 - Azure SQL Data Warehouse
 - Azure SQL VMs (IaaS)
-- SQL Server on-premises
+- SQL Server
 
 ### Audience
 
