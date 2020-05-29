@@ -130,7 +130,7 @@ Refer to the following list to configure managed identity for Azure Data Factory
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-### Azure Super Transport (XT)
+### Azure Import/Export
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
