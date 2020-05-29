@@ -65,7 +65,7 @@ Clicking this button will bring up the following screen with storage properties 
 Fill out the form in the following manner:
 
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is ready given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
 * **Performance** set to 'Standard'
 * **Account kind** set to 'StorageV2 (general purpose v2)'

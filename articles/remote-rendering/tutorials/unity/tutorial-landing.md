@@ -21,7 +21,7 @@ In this tutorial, you'll create a basic application capable of viewing remotely 
 
 #### [Interfaces and custom models](custom-models/custom-models.md)
 
-Next, you'll learn how to load your own models into Azure Remote Rendering and view them in your application. [Viewing a remotely rendered model](view-remote-models/view-remote-models.md) is a prerequisite for this tutorial. 
+Next, you'll learn how to load your own models into Azure Remote Rendering and view them in your application. [Viewing a remotely rendered model](view-remote-models/view-remote-models.md) is a prerequisite for this tutorial.
 
 #### [Manipulating models](manipulate-models/manipulate-models.md)
 
@@ -33,7 +33,7 @@ Next, we'll cover important concepts like modifying materials, altering the ligh
 
 #### [Securing Azure Remote Rendering and model storage](security/security.md)
 
-Here, you'll learn about securing your Azure Remote Rendering and Blob storage. This covers the first steps to releasing a commercial application that uses Azure Remote Rendering. This tutorial assumes you've completed the lessons above.
+Here, you'll learn about securing your Azure Remote Rendering account and Blob storage. This covers the first steps to releasing a commercial application that uses Azure Remote Rendering. This tutorial assumes you've completed the lessons above.
 
 
 #### [Creating a commercial ready Azure Remote Rendering application](commercial-ready/commercial-ready.md)
