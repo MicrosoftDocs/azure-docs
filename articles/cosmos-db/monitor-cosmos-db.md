@@ -49,7 +49,7 @@ Azure Monitor for Azure Cosmos DB is based on the [workbooks feature of Azure Mo
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
-## <a id="#monitoring-from-azure-cosmos-db"></a> Monitor data collected from Azure Cosmos DB portal
+## <a id="monitoring-from-azure-cosmos-db"></a> Monitor data collected from Azure Cosmos DB portal
 
 Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
 
@@ -57,7 +57,7 @@ The **Overview** page in the Azure portal for each Azure Cosmos database include
 
 ![Overview page](media/monitor-cosmos-db/overview-page.png)
 
-## <a id="#analyze-metric-data"></a> Analyzing metric data
+## <a id="analyze-metric-data"></a> Analyzing metric data
 
 Azure Cosmos DB provides a custom experience for working with metrics. See [Monitor and debug Azure Cosmos DB metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) for details on using this experience and for analyzing different Azure Cosmos DB scenarios.
 
