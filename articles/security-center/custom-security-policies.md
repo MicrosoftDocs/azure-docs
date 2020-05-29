@@ -98,8 +98,8 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 	"metadata": {
 		"securityCenter": {
 			"remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-			"severity": "High",
-		},
+			"severity": "High"
+		}
 	},
 	"parameters": {
 		"expressRouteLockLevel": {

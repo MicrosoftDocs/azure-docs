@@ -1,7 +1,7 @@
 ---
 title: "PowerShell: Add a managed instance to an auto-failover group"
 titleSuffix: Azure SQL Managed Instance 
-description: Azure PowerShell example script to create a managed instance of Azure SQL Managed Instance, add it to an auto-failover group, and test failover. 
+description: Azure PowerShell example script to create a managed instance, add it to an auto-failover group, and test failover. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -14,8 +14,9 @@ ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add a managed instance to a failover group 
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-This PowerShell script example creates two managed instances of Azure SQL Managed Instance, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. 
+This PowerShell script example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -56,7 +57,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Adds a route to a route table. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Updates a route table.  |
 | [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates a managed instance.  |
-| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returns information about SQL Managed Instance. |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returns information about Azure SQL Managed Instance. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Creates an IP Configuration for a Virtual Network Gateway |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Creates a Virtual Network Gateway |

@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 11/07/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you deploy and explore the Wingtip Tickets SaaS sample application developed using the standalone application, or app-per-tenant, pattern.  The application is designed to showcase features of Azure SQL Database that simplify enabling multi-tenant SaaS scenarios.
 

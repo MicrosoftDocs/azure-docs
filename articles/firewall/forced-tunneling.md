@@ -5,13 +5,13 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
 ---
 
 # Azure Firewall forced tunneling
 
-You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet.
+When you configure a new Azure Firewall, you can route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. However, you can't configure an existing firewall for forced tunneling.
 
 By default, forced tunneling isn't allowed on Azure Firewall to ensure all its outbound Azure dependencies are met. User Defined Route (UDR) configurations on the *AzureFirewallSubnet* that 
 have a default route not going directly to the Internet are disabled.
@@ -22,9 +22,9 @@ To support forced tunneling, Service Management traffic is separated from custom
 
 If you have a default route advertised via BGP to force traffic to on-premises, you must create the *AzureFirewallSubnet* and *AzureFirewallManagementSubnet* before deploying your firewall and have a UDR with a default route to the Internet, and **Virtual network gateway route propagation** disabled.
 
-Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premise firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
+Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premises firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
 
-For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premise device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premise network.
+For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premises device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premises network.
 
 ![Virtual network gateway route propagation](media/forced-tunneling/route-propagation.png)
 

@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In part three of this three-part tutorial, you'll deploy a predictive model, developed in R, into a SQL database using Azure SQL Database Machine Learning Services (preview).
 

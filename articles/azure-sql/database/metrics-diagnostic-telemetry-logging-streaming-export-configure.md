@@ -26,7 +26,7 @@ You will also learn about the destinations to which you can stream this diagnost
 
 ## Diagnostic telemetry for export
 
-Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](../intelligent-insights.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
+Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](intelligent-insights-overview.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
 
 In addition to streaming the export of the Intelligent Insights log, you can also export a variety of performance metrics and additional database logs. The following table describes the performance metrics and resources logs that you can configure for streaming export to one of several destinations. This diagnostic telemetry can be configured for single databases, elastic pools and pooled databases, and managed instances and instance databases.
 
@@ -42,7 +42,7 @@ In addition to streaming the export of the Intelligent Insights log, you can als
 | [Blocks](#blockings-dataset): Contains information about blocking events on a database. | Yes | No |
 | [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on a database. | Yes | No |
 | [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations for a database. | Yes | No |
-| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](../intelligent-insights.md). | Yes | Yes |
+| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](intelligent-insights-overview.md). | Yes | Yes |
 
 > [!NOTE]
 > Diagnostic settings cannot be configured for the **system databases**, such are master, msdb, model, resource and tempdb databases.
@@ -480,7 +480,7 @@ Details of telemetry available for all logs are documented in the following tabl
 |ResourceGroup|Name of the resource group for the database |
 |LogicalServerName_s|Name of the managed instance |
 |ResourceId|Resource URI |
-|SKU_s|Managed instance product SKU |
+|SKU_s|SQL Managed Instance product SKU |
 |virtual_core_count_s|Number of vCores available |
 |avg_cpu_percent_s|Average CPU percentage |
 |reserved_storage_mb_s|Reserved storage capacity on the managed instance |
@@ -736,7 +736,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 
 #### Intelligent Insights dataset
 
-Learn more about the [Intelligent Insights log format](../intelligent-insights-use-diagnostics-log.md).
+Learn more about the [Intelligent Insights log format](intelligent-insights-use-diagnostics-log.md).
 
 ## Next steps
 

@@ -14,6 +14,7 @@ ms.reviewer: carlrab
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled Azure SQL Database. For information on migrating to an Azure SQL Managed Instance, see [Migrate to SQL Server instance to Azure SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
@@ -107,7 +108,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](https://stackoverflow.com/).
+In addition to searching the Internet and using these resources, use the [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) or [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > Azure SQL Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).

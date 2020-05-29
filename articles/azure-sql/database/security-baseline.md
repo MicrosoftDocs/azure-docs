@@ -1,6 +1,6 @@
 ---
-title: Azure Security Baseline for Azure SQL Database
-description: Azure Security Baseline for Azure SQL Database
+title: Azure Security Baseline
+description: Azure Security Baseline for Azure SQL Database and Azure SQL Managed Instance
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -10,7 +10,8 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure Security Baseline for Azure SQL Database
+# Azure Security Baseline for Azure SQL Database & SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The Azure Security Baseline for Azure SQL Database contains recommendations that will help you improve the security posture of your deployment.
 
@@ -349,7 +350,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
+https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
 
 **Azure Security Center monitoring**: Yes
 
@@ -445,7 +446,7 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
+https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
 
 How to create and configure an AAD instance:
 
@@ -473,7 +474,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
+https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
 
 How to integrate Azure Activity Logs into Azure Monitor:
 

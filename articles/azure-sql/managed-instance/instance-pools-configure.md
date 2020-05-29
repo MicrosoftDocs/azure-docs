@@ -4,8 +4,8 @@ titleSuffix: Azure SQL Managed Instance
 description: This article describes how to create and manage Azure SQL Managed Instance pools (preview).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
+ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
@@ -40,9 +40,9 @@ Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.
 |Cmdlet |Description |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Creates a SQL Managed Instance pool. |
-|[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returns information about a SQL Managed Instance pool. |
-|[Set-AzSqlInstancePool](/powershell/module/az.sql/set-azsqlinstancepool/) | Sets properties for a SQL Managed Instance pool. |
-|[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Removes a SQL Managed instance pool. |
+|[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returns information about an instance pool. |
+|[Set-AzSqlInstancePool](/powershell/module/az.sql/set-azsqlinstancepool/) | Sets properties for an instance pool in SQL Managed Instance. |
+|[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Removes an instance pool in SQL Managed Instance. |
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returns information about SQL Managed Instance pool usage. |
 
 

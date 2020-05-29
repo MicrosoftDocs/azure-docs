@@ -1,5 +1,5 @@
 ---
-title: Best practices for Azure Data Sync
+title: Best practices for Azure SQL Data Sync
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,8 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
-# Best practices for SQL Data Sync 
+# Best practices for Azure SQL Data Sync 
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article describes best practices for Azure SQL Data Sync.
@@ -27,7 +28,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 ### Client agent
 
 -   Install the client agent by using the least privileged user account that has network service access.  
--   Install the client agent on a computer that isn't the on-premises SQL Server computer.  
+-   Install the client agent on a computer that isn't the SQL Server computer.  
 -   Don't register an on-premises database with more than one agent.    
     -   Avoid this even if you are syncing different tables for different sync groups.  
     -   Registering an on-premises database with multiple client agents poses challenges when you delete one of the sync groups.
@@ -49,9 +50,9 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 ### <a name="database-considerations-and-constraints"></a> Database considerations and constraints
 
-#### SQL Database size
+#### Database size
 
-When you create a new SQL Database, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database size limits.
+When you create a new database, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the database size limits.
 
 > [!IMPORTANT]
 > SQL Data Sync stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
@@ -64,7 +65,7 @@ You don't have to include all the tables that are in a database in a sync group.
 
 #### Primary keys
 
-Each table in a sync group must have a primary key. The SQL Data Sync service can't sync a table that doesn't have a primary key.
+Each table in a sync group must have a primary key. SQL Data Sync can't sync a table that doesn't have a primary key.
 
 Before using SQL Data Sync in production, test initial and ongoing sync performance.
 
@@ -190,7 +191,7 @@ In some circumstances, unregistering a database with a client agent might cause 
 
 #### Scenario
 
-1. Sync group A was created by using a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
+1. Sync group A was created by using a SQL Database instance and a SQL Server database, which is associated with local agent 1.
 2. The same on-premises database is registered with local agent 2 (this agent is not associated with any sync group).
 3. Unregistering the on-premises database from local agent 2 removes the tracking and meta tables for sync group A for the on-premises database.
 4. Sync group A operations fail, with this error: "The current operation could not be completed because the database is not provisioned for sync or you do not have permissions to the sync configuration tables."
@@ -225,11 +226,11 @@ To mitigate this issue, please scale up your sync metadata database to have a hi
 For more information about SQL Data Sync, see:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
--   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
+-   Set up SQL Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
-        -  [Use PowerShell to sync between a database in SQL Database and a databases in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+        -  [Use PowerShell to sync between a database in SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 -   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-data-sync-troubleshoot.md)

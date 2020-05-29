@@ -1,6 +1,6 @@
 ---
-title: Resource limits for Azure SQL Database and Azure Synapse Analytics servers | Microsoft Docs
-description: This article provides an overview of the resource limits for Azure SQL Database and Azure Synapse Analytics servers. It also provides information regarding what happens when those resource limits are hit or exceeded.
+title: Resource limits for logical servers in Azure 
+description: This article provides an overview of the resource limits for the logical server in Azure used by Azure SQL Database and Azure Synapse Analytics. It also provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -14,8 +14,9 @@ ms.date: 11/19/2019
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article provides an overview of the resource limits for Azure SQL Database and Azure Synapse Analytics servers. It provides information on what happens when those resource limits are hit or exceeded, and describes the resource governance mechanisms used to enforce these limits.
+This article provides an overview of the resource limits for the logical server used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded, and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
 > For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).

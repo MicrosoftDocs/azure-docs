@@ -1,11 +1,11 @@
 ---
 title: "PowerShell: Create a managed instance"
 titleSuffix: Azure SQL Managed Instance 
-description: Azure PowerShell example script to create a managed instance of Azure SQL Managed Instance 
+description: This article provides an Azure PowerShell example script to create a managed instance. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: sqldbrb=1
+ms.subservice: operations
+ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
@@ -14,6 +14,7 @@ ms.reviewer: carlrab
 ms.date: 03/25/2019
 ---
 # Use PowerShell to create a managed instance
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 This PowerShell script example creates a managed instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to Azure SQL Database Managed Instance](../connect-vm-instance-configure.md) and [Configure a point-to-site connection to Azure SQL Managed Instance from on-premises](../point-to-site-p2s-configure.md).
 

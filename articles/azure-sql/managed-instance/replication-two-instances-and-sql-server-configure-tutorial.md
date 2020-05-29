@@ -399,16 +399,25 @@ While it's possible that this error message is accurate, and there really aren't
 
 See the [What is Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md#advanced-security-and-compliance) article for a comprehensive list of ways to secure your database. The following security features are discussed:
 
+<<<<<<< HEAD
 - [Managed instance auditing](auditing-configure.md)
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+=======
+- [SQL Managed Instance auditing](auditing-configure.md)
+- [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+>>>>>>> 4a96795bac125a346dd57568eec183929d7bd952
 - [Threat detection](threat-detection-configure.md)
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)
 - [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### Managed instance capabilities
+### SQL Managed Instance capabilities
 
 For a complete overview of managed instance capabilities, see:
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD
 > [What is Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md)
+=======
+> [SQL Managed Instance capabilities](sql-managed-instance-paas-overview.md)
+>>>>>>> 4a96795bac125a346dd57568eec183929d7bd952

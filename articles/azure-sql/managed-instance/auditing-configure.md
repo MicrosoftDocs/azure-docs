@@ -1,5 +1,5 @@
 ---
-title: Managed instance auditing
+title: SQL Managed Instance auditing
 description: Learn how to get started with Azure SQL Managed Instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/27/2020
+ms.date: 05/26/2020
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,9 @@ The following section describes the configuration of auditing on your managed in
    1. Navigate to the Azure storage account where you would like to store your audit logs.
 
       > [!IMPORTANT]
-      > Use a storage account in the same region as the managed instance to avoid cross-region reads/writes.
+      > - Use a storage account in the same region as the managed instance to avoid cross-region reads/writes. 
+      > - If your storage account is behind a Virtual Network or a Firewall, please see [Grant access from a virtual network](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
    1. In the storage account, go to **Overview** and click **Blobs**.
 
@@ -225,7 +227,11 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Managed Instance and databases in SQL Server are:
 
 - With Azure SQL Managed Instance, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
+<<<<<<< HEAD
 - In SQL Server on-premises and SQL virtual machines, audit works at the server level, but stores events on files system/windows event logs.
+=======
+- In SQL Server, audit works at the server level, but stores events on files system/windows event logs.
+>>>>>>> 4a96795bac125a346dd57568eec183929d7bd952
 
 XEvent auditing in managed instances supports Azure Blob storage targets. File and windows logs are **not supported**.
 

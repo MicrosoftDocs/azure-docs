@@ -48,10 +48,10 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Feature configuration
 
-- [Configure Azure AD auth](../database/aad-authentication-configure.md)
+- [Configure Azure AD auth](../database/authentication-aad-configure.md)
 - [Configure conditional access](../database/conditional-access-configure.md)
-- [Multi-factor Azure AD auth](../mfa-authentication-ssms-overview.md)
-- [Configure multi-factor auth](../mfa-authentication-ssms-configure.md)
+- [Multi-factor Azure AD auth](../database/authentication-mfa-ssms-overview.md)
+- [Configure multi-factor auth](../database/authentication-mfa-ssms-configure.md)
 - [Configure a temporal retention policy](../database/temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](../database/transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](../database/transparent-data-encryption-byok-key-rotation.md)
@@ -67,8 +67,8 @@ In this article you can find a content reference to various guides, scripts, and
 - [Manual tuning](../database/performance-guidance.md)
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
 - [Use Query Store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
-- [Troubleshoot performance with Intelligent Insights](../intelligent-insights-troubleshoot-performance.md)
-- [Use the Intelligent Insights diagnostics log](../intelligent-insights-use-diagnostics-log.md)
+- [Troubleshoot performance with Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
+- [Use the Intelligent Insights diagnostics log](../database/intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-Memory OLTP space](../in-memory-oltp-monitoring.md)
 
 ### Extended events

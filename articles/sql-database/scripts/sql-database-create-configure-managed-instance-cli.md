@@ -3,7 +3,7 @@ title: "Azure CLI: Create a managed instance"
 description: Azure CLI example script to create a managed instance in Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
@@ -48,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands. |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |
 | [az network route-table](/cli/azure/network/route-table) | Network route table commands. |
-| [az sql mi](/cli/azure/sql/mi) | Managed instance commands. |
+| [az sql mi](/cli/azure/sql/mi) | SQL Managed Instance commands. |
 
 ## Next steps
 

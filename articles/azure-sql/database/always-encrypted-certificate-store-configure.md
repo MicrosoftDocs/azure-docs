@@ -1,6 +1,6 @@
 ---
-title: Configure Always Encrypted using Windows certificate store
-description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
+title: Configure Always Encrypted by using the Windows certificate store
+description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 ms.service: sql-database
@@ -13,16 +13,18 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 04/23/2020
 ---
-# Configure Always Encrypted using Windows certificate store
+
+# Configure Always Encrypted by using the Windows certificate store
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This tutorial shows you how to secure sensitive data in Azure SQL Database with database encryption by using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+This article shows you how to secure sensitive data in Azure SQL Database or Azure SQL Managed Instance with database encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 After configuring the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
-Follow the steps in this article to learn how to set up Always Encrypted for Azure SQL Database. In this article, you will learn how to perform the following tasks:
+Follow the steps in this article to learn how to set up Always Encrypted for SQL Database or SQL Managed Instance. In this article, you will learn how to perform the following tasks:
 
 * Use the Always Encrypted wizard in SSMS to create [Always Encrypted Keys](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Create a [Column Master Key (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -35,31 +37,25 @@ Follow the steps in this article to learn how to set up Always Encrypted for Azu
 For this tutorial, you'll need:
 
 * An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- A database in [Azure SQL Database](single-database-create-quickstart.md) or [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## Create a blank SQL database
+## Enable client application access
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL Database](single-database-create-quickstart.md).
+You must enable your client application to access SQL Database or SQL Managed Instance by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
-    ![Create a blank database](./media/always-encrypted-certificate-store-configure/create-database.png)
+To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-You will need the connection string later in the tutorial. After the database is created, go to the new **Clinic** database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
-1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
-2. Copy the connection string for **ADO.NET**.
 
-    ![Copy the connection string](./media/always-encrypted-certificate-store-configure/connection-strings.png)
+## Connect with SSMS
 
-## Connect to the database with SSMS
-
-Open SSMS and connect to the server with the Clinic database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
-2. Enter your server name and credentials. The server name can be found on the **SQL database** blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
+2. Enter your server name and credentials.
 
     ![Copy the connection string](./media/always-encrypted-certificate-store-configure/ssms-connect.png)
 

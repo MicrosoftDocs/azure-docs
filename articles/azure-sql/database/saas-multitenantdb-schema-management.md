@@ -13,6 +13,7 @@ ms.reviewer:
 ms.date: 12/18/2018
 ---
 # Manage schema in a SaaS application that uses sharded multi-tenant databases
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application. Solutions are demonstrated for fanning out schema changes across the fleet of databases.
 

@@ -3,7 +3,7 @@ title: T-SQL differences between SQL Server & Azure SQL Managed Instance
 description: This article discusses the Transact-SQL (T-SQL) differences between an Azure SQL Managed Instance and SQL Server. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
@@ -19,7 +19,7 @@ ms.custom: seoapril2019, sqldbrb=1
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Managed Instance and SQL Server. 
 
 
-SQL Managed Instance provides high compatibility with the on-premises SQL Server Database Engine, and most features are supported in a SQL Managed Instance.
+SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
 ![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -135,11 +135,11 @@ A SQL Managed Instance can't access files, so cryptographic providers can't be c
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
 
-    Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
+    SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
 - The Azure AD user who created the instance has [unrestricted admin privileges](../database/logins-create-manage.md).
-- Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](../database/aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+- Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](../database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 - Azure AD server principals (logins) support SQL features within one SQL Managed Instance only. Features that require cross-instance interaction, no matter whether they're within the same Azure AD tenant or different tenants, aren't supported for Azure AD users. Examples of such features are:
 
   - SQL transactional replication.
@@ -330,8 +330,7 @@ A SQL Managed Instance can't access file shares and Windows folders, so the file
 
 A SQL Managed Instance can't access file shares and Windows folders, so the following constraints apply:
 
-- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEM
-BLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
+- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](/sql/t-sql/statements/alter-assembly-transact-sql).
 
@@ -502,6 +501,9 @@ The following variables, functions, and views return different results:
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
 - After a SQL Managed Instance is created, moving the SQL Managed Instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and SQL Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access SQL Managed Instances in different regions if their VNets are connected using [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
+
+### Failover groups
+System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
 ### TEMPDB
 

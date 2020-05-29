@@ -59,7 +59,7 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 | Language | SDK | Example |
 | -------- | --- | ------ |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Quickstart](quickstart-send-telemetry-dotnet.md) |
- Java | https://github.com/Azure/azure-event-hubs-java | [Quickstart](quickstart-send-telemetry-java.md) |
+ Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 

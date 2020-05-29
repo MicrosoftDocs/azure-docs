@@ -17,6 +17,7 @@ ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this quickstart, you create and run a set of R scripts using Machine Learning Services (with R) in Azure SQL Database.
 

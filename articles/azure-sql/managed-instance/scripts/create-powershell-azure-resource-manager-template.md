@@ -1,11 +1,11 @@
 ---
 title: "Create a managed instance (ARM template & PowerShell)"
 titleSuffix: Azure SQL Managed Instance 
-description: Use this Azure PowerShell example script to create a managed instance of Azure SQL Managed Instance.
+description: Use this Azure PowerShell example script to create a managed instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: seo-dt-2019, sqldbrb=1
+ms.subservice: operations
+ms.custom: "seo-dt-2019"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
@@ -15,7 +15,7 @@ ms.date: 03/12/2019
 ---
 # Use PowerShell with an Azure Resource Manager template to create a managed instance
 
-A managed instance of Azure SQL Managed Instance can be created using the Azure PowerShell library and Azure Resource Manager templates.
+You can create a managed instance by using the Azure PowerShell library and Azure Resource Manager templates.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -132,4 +132,4 @@ Once the script completes, the managed instance can be accessed from all Azure s
 
 For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional PowerShell script samples for SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).
+Additional PowerShell script samples for Azure SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

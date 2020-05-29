@@ -8,15 +8,15 @@ ms.subservice: managed-instance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlr
+author: davidtrigano
+ms.author: datrigan
+ms.reviewer: vanto
 ms.date: 07/11/2019
 ---
 # Getting started with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers.
+[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers.
 
 In this article, you will find references to content that teach you how to quickly configure and create a SQL Managed Instance and migrate your databases.
 
@@ -35,13 +35,14 @@ As a first step, you would need to create your first SQL Managed Instance with t
   - Set up [point-to-site VPN connection to your SQL Managed Instance](point-to-site-p2s-configure.md) from your client computer on which you have SQL Server Management Studio and other client connectivity applications. This is other of two options for connectivity to your SQL Managed Instance and to its VNet.
 
   > [!NOTE]
-  > You can also use express route or site-to-site connection from your local network, but these approaches are out of the scope of these quickstarts.
+  > - You can also use express route or site-to-site connection from your local network, but these approaches are out of the scope of these quickstarts.
+  > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
 As an alternative to manual creation of SQL Managed Instance, you can use [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell with Resource Manager template](scripts/create-powershell-azure-resource-manager-template.md), or [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) to script and automate this process.
 
 ### Migrate your databases
 
-After you create a SQL Managed Instance and configure access, you can start migrating your databases from SQL Server on-premises or Azure VMs. Migration can fail f you have some unsupported features in the source database that you want to migrate. To avoid failures and check compatibility, you can use [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) to analyze your databases on SQL Server and find any issue that could block migration to a SQL Managed Instance, such as existence of [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) or multiple log files. If you resolve these issues, your databases are ready to migrate to SQL Managed Instance. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) is another useful tool that can record your workload on SQL Server and replay it on a SQL Managed Instance so you can determine are there going to be any performance issues if you migrate to a SQL Managed Instance.
+After you create a SQL Managed Instance and configure access, you can start migrating your SQL Server databases. Migration can fail f you have some unsupported features in the source database that you want to migrate. To avoid failures and check compatibility, you can use [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) to analyze your databases on SQL Server and find any issue that could block migration to a SQL Managed Instance, such as existence of [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) or multiple log files. If you resolve these issues, your databases are ready to migrate to SQL Managed Instance. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) is another useful tool that can record your workload on SQL Server and replay it on a SQL Managed Instance so you can determine are there going to be any performance issues if you migrate to a SQL Managed Instance.
 
 Once you are sure that you can migrate your database to a SQL Managed Instance, you can use the native SQL Server restore capabilities to restore a database into a SQL Managed Instance from a `.bak` file. You can use this method to migrate databases from SQL Server database engine installed on-premises or Azure VM. For a quickstart, see [Restore from backup to a SQL Managed Instance](restore-sample-database-quickstart.md). In this quickstart, you restore from a `.bak` file stored in Azure Blob storage using the `RESTORE` Transact-SQL command.
 

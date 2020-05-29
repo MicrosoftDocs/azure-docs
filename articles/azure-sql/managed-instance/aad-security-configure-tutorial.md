@@ -14,7 +14,7 @@ ms.date: 11/06/2019
 # Tutorial: Security in Azure SQL Managed Instance using Azure AD server principals (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance provides nearly all security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
+Azure SQL Managed Instance provides nearly all security features that the latest SQL Server (Enterprise Edition) database engine has:
 
 - Limit access in an isolated environment
 - Use authentication mechanisms that require identity: Azure Active Directory (Azure AD) and SQL Authentication
@@ -42,14 +42,14 @@ To complete the tutorial, make sure you have the following prerequisites:
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - A managed instance
   - Follow this article: [Quickstart: Create a managed instance](instance-create-quickstart.md)
-- Able to access your managed instance and [provisioned an Azure AD administrator for the managed instance](../database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
+- Able to access your managed instance and [provisioned an Azure AD administrator for the managed instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
   - [Connect your application to a managed instance](connect-application-instance.md)
   - [SQL Managed Instance connectivity architecture](connectivity-architecture-overview.md)
-  - [Configure and manage Azure Active Directory authentication with SQL](../database/aad-authentication-configure.md)
+  - [Configure and manage Azure Active Directory authentication with SQL](../database/authentication-aad-configure.md)
 
 ## Limit access 
 
-Managed instances can be accessed through a private IP address. Much like an isolated SQL Server on-premises environment, applications or users need access to the SQL Managed Instance network (VNet) before a connection can be established. For more information, see [Connect your application to SQL Managed Instance](connect-application-instance.md).
+Managed instances can be accessed through a private IP address. Much like an isolated SQL Server environment, applications or users need access to the SQL Managed Instance network (VNet) before a connection can be established. For more information, see [Connect your application to SQL Managed Instance](connect-application-instance.md).
 
 It is also possible to configure a service endpoint on a managed instance, which allows for public connections in the same fashion as for Azure SQL Database.
 For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md).
@@ -59,7 +59,7 @@ For more information, see [Configure public endpoint in Azure SQL Managed Instan
 
 ## Create an Azure AD server principal (login) using SSMS
 
-The first Azure AD server principal (login) can be created by the standard SQL admin account (non-Azure AD) that is a `sysadmin`, or the Azure AD admin for the managed instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for SQL Managed Instance](../database/aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+The first Azure AD server principal (login) can be created by the standard SQL admin account (non-Azure AD) that is a `sysadmin`, or the Azure AD admin for the managed instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 See the following articles for examples of connecting to SQL Managed Instance:
 
@@ -149,7 +149,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
      ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
-     For more information, see [Universal Authentication (SSMS support for Multi-Factor Authentication)](../mfa-authentication-ssms-overview.md).
+     For more information, see [Universal Authentication (SSMS support for Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication login window. Sign in with your Azure AD password.
 
@@ -212,7 +212,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
 ## Create an Azure AD user from the Azure AD server principal (login)
 
-Authorization to individual databases works much in the same way in SQL Managed Instance as it does with SQL Server on-premises. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
+Authorization to individual databases works much in the same way in SQL Managed Instance as it does with databases in SQL Server. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
 
 Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the managed instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 
