@@ -243,7 +243,7 @@ SQL Managed Instance offers the same performance levels per compute and storage 
 SQL Managed Instance password policy for SQL logins is inheriting Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
 
  > [!IMPORTANT]
- > Azure platform can change policy requirements without notifying services relying onto it
+ > Azure platform can change policy requirements without notifying services relying on that policies.
 
 **What are current Azure platform policies?**
 
