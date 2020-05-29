@@ -17,7 +17,7 @@ ms.custom: seodec2018
 
 Use this quickstart to learn how to send search requests to the Bing Image Search API. This Python application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Python, the API is a RESTful web service compatible with most programming languages.
 
-To run this example as a Jupyter notebook on [MyBinder](https://mybinder.org), select the launch Binder badge:
+To run this example as a Jupyter notebook on [MyBinder](https://mybinder.org), select the **launch binder** badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 

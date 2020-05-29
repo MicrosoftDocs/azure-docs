@@ -9,6 +9,7 @@ author: mlearned
 ms.author: mlearned
 description: "Connect an Azure Arc-enabled Kubernetes cluster with Azure Arc"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
+ms.custom: references_regions
 ---
 
 # Connect an Azure Arc-enabled Kubernetes cluster (Preview)
@@ -150,7 +151,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Output:**
