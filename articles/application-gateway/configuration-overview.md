@@ -96,18 +96,18 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
    You can create a UDR to send 0.0.0.0/0 traffic directly to the Internet. 
 
-  **Scenario 3**: UDR for Azure Kubernetes Service kubenet
+  **Scenario 3**: UDR for Azure Kubernetes Service with kubenet
 
-  If you're using kubenet with Azure Kubernetes Service (AKS) and Application Gateway Ingress Controller (AGIC), you need to set up a route table to allow traffic sent to the pods to be routed to the correct node. This won't be necessary if you use Azure CNI. 
+  If you're using kubenet with Azure Kubernetes Service (AKS) and Application Gateway Ingress Controller (AGIC), you'll need a route table to allow traffic sent to the pods from Application Gateway to be routed to the correct node. This won't be necessary if you use Azure CNI. 
 
-   To set up the route table to allow kubenet to work, use the following steps:
+  To use the route table to allow kubenet to work, follow the steps below:
 
-  1. Create a Route Table resource in Azure. 
-  2. Once it's created, go to the **Routes** page. 
-  3. Add a new route:
+  1. Go to the resource group created by AKS (the name of the resource group should begin with "MC_")
+  2. Find the route table created by AKS in that resource group. The route table should be populated with the following information:
      - Address prefix should be the IP range of the pods you want to reach in AKS. 
-     - Next hop type should be **Virtual Appliance**. 
-     - Next hop address should be the IP address of the node hosting the pods within the IP range defined in the address prefix field. 
+     - Next hop type should be Virtual Appliance. 
+     - Next hop address should be the IP address of the node hosting the pods.
+  3. Associate this route table to the Application Gateway subnet. 
     
   **v2 unsupported scenarios**
 
@@ -219,9 +219,7 @@ When you create a rule, you choose between [*basic* and *path-based*](https://do
 
 #### Order of processing rules
 
-For the v1 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
-
-For the v2 SKU, an exact match is higher priority than path order in the URL path map. If a request matches the pattern in two or more paths, the request is forwarded to the back end that's associated with the path that exactly matches the request. If the path in the incoming request doesn't exactly match any path in the map, pattern matching of the request is processed in the path map order list for the path-based rule.
+For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
 ### Associated listener
 

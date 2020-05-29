@@ -105,10 +105,11 @@ The following network security group rules are required for Azure AD DS to provi
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Synchronization with your Azure AD tenant. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Yes      | Management of your domain. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
-| 636         | TCP      | Any                                | Any         | Allow  | No       | Only enabled when you configure secure LDAP (LDAPS). |
 
 > [!WARNING]
 > Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which Azure AD DS is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your Azure AD DS managed domain is also disrupted.
+>
+> If you use secure LDAP, you can add the required TCP port 636 rule to allow external traffic if needed. Adding this rule doesn't place your network security group rules in an unsupported state. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
 > Default rules for *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, and *DenyAllOutBound* also exist for the network security group. Don't edit or delete these default rules.
 >

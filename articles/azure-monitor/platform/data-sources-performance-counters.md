@@ -171,7 +171,7 @@ Following is the default configuration for performance metrics.
 	</source>
 
 ## Data collection
-Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your subscription.
+Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your log analytics workspace.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.

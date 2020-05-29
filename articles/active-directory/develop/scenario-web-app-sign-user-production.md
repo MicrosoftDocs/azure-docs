@@ -23,12 +23,23 @@ Now that you know how to get a token to call web APIs, learn how to move it to p
 
 ## Next steps
 
+### Troubleshooting
+
+> [!NOTE]
+> When users sign-in to the web application for the first time, they will need to consent. However, in some organizations, users can see a message like the following:
+>
+> *AppName needs permissions to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.*
+>
+> This is because your tenant administrator has **disabled** the ability for users to consent. In that case, you need to contact your tenant administrators so that they do an admin-consent for the scopes required by the application.
+
 ### Same site
 
 Make sure you understand possible issues with new versions of the Chrome browser
 
 > [!div class="nextstepaction"]
 > [How to handle SameSite cookie changes in Chrome browser](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
+The Microsoft.Identity.Web NuGet package handles the most common SameSite issues.
 
 ### Scenario for calling web APIs
 

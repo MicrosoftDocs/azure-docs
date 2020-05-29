@@ -73,7 +73,7 @@ Enter a text and press the button in the application to begin a speech synthesis
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

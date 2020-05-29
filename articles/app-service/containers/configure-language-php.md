@@ -82,8 +82,8 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
-    RewriteRule ^.*$ /public/$1 [NC,L,QSA]
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
 

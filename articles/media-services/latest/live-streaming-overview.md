@@ -125,6 +125,6 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-* [Live streaming quickstart](live-events-wirecast-quickstart.md(
+* [Live streaming quickstart](live-events-wirecast-quickstart.md)
 * [Live streaming tutorial](stream-live-tutorial-with-api.md)
 * [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md)

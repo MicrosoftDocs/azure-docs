@@ -92,7 +92,7 @@ To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf'
 The resolv.conf file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
 
 **Ubuntu** (uses resolvconf)
-1. Add the options line to '/etc/resolveconf/resolv.conf.d/head'.
+1. Add the options line to '/etc/resolvconf/resolv.conf.d/head'.
 2. Run 'resolvconf -u' to update.
 
 **SUSE** (uses netconf)

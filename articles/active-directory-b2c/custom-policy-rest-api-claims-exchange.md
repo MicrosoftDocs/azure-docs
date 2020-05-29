@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -206,9 +206,6 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
   ...
 }
 ```
-
-## Next steps
-
 
 ## Next steps
 

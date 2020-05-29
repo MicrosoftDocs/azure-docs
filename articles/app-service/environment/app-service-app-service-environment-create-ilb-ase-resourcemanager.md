@@ -46,7 +46,7 @@ Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, t
 After the Azure Resource Manager template is submitted it will take a few hours for the ILB ASE to be created.  Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
 
 ## Uploading and Configuring the "Default" TLS/SSL Certificate
-Once the ILB ASE is created, a TLS/SSL certificate should be associated with the ASE as the "default" TLS/SSL certificate use for establishing TLS/SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal-contoso.com*, then a connection to *https://some-random-app.internal-contoso.com* requires a TLS/SSL certificate that is valid for **.internal-contoso.com*. 
+Once the ILB ASE is created, a TLS/SSL certificate should be associated with the ASE as the "default" TLS/SSL certificate use for establishing TLS/SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal-contoso.com*, then a connection to *`https://some-random-app.internal-contoso.com`* requires a TLS/SSL certificate that is valid for **.internal-contoso.com*. 
 
 There are a variety of ways to obtain a valid TLS/SSL certificate including internal CAs, purchasing a certificate from an external issuer, and using a self-signed certificate.  Regardless of the source of the TLS/SSL certificate, the following certificate attributes need to be configured properly:
 
@@ -118,7 +118,7 @@ Once the *azuredeploy.parameters.json* file has been filled in, the default TLS/
 
 After the Azure Resource Manager template is submitted it will take roughly forty minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
 
-Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default TLS/SSL certificate.  The default TLS/SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example *https://mycustomapp.internal-contoso.com* would use the default TLS/SSL certificate for **.internal-contoso.com*.
+Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default TLS/SSL certificate.  The default TLS/SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example *`https://mycustomapp.internal-contoso.com`* would use the default TLS/SSL certificate for **.internal-contoso.com*.
 
 However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI TLS/SSL certificate bindings for individual apps.  
 

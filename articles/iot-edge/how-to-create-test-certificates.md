@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -242,8 +242,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 The name that you pass in to this command will be the device ID for the IoT Edge device in IoT Hub.
 
-The new device identity command creates several certificate and key files, including two that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
+The new device identity command creates several certificate and key files, including three that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
@@ -257,8 +258,9 @@ Create the IoT Edge device identity certificate and private key with the followi
 
 The name that you pass in to this command will be the device ID for the IoT Edge device in IoT Hub.
 
-The script creates several certificate and key files, including two that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
+The script creates several certificate and key files, including three that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
@@ -306,7 +308,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
 3. Retrieve the SHA1 fingerprint (called a thumbprint in IoT Hub contexts) from each certificate. The fingerprint is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the fingerprint:
 
    ```PowerShell
-   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
+   openssl x509 -in <WRKDIR>\certs\iot-device-<device name>-primary.cert.pem -text -fingerprint
    ```
 
    Run this command twice, once for the primary certificate and once for the secondary certificate. You provide fingerprints for both certificates when you register a new IoT device using self-signed X.509 certificates.

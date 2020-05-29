@@ -34,7 +34,7 @@ This article shows you how to enable access to the developer portal for users fr
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
-6. Under **Security**, select **Identities**.
+6. Under **Developer portal**, select **Identities**.
 7. Select **+Add** from the top.
 
     The **Add identity provider** pane appears on the right.

@@ -90,8 +90,8 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |dataSize     |   No      |
 |dbHash    |    No     |
 |dbStats     |   Yes      |
-|explain     | No        |
-|explain: executionStats     |     No    |
+|explain     |   Yes      |
+|explain: executionStats     |   Yes      |
 |features     |    No     |
 |hostInfo     |   No      |
 |listDatabases         |   Yes      |
@@ -101,7 +101,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |top     |    No     |
 |whatsmyuri     |   Yes      |
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
 

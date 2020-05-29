@@ -11,7 +11,7 @@ ms.author: tomfitz
 # CreateUiDefinition functions
 This section contains the signatures for all supported functions of a CreateUiDefinition.
 
-To use a function, surround the declaration with square brackets. For example:
+To use a function, surround the invocation with square brackets. For example:
 
 ```json
 "[function()]"
@@ -480,6 +480,45 @@ Assume `element1` and `element2` are undefined. The following example returns `"
 ```json
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
+
+This function is especially useful in the context of optional invocation that happens due to user action after the page loads. An example is if the constraints placed on one field in the UI depend on the currently selected value of another, **initially non-visible** field. In this case, `coalesce()` can be used to allow the function to be syntactically valid at page load time while having the desired effect when the user interacts with the field.
+
+Consider this `DropDown`, which allows the user to choose from several different database types:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+To condition the action of another field on the current chosen value of this field, use `coalesce()`, as shown here:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+This is necessary because the `databaseType` is initially not visible and therefore does not have a value. This causes the entire expression to not evaluate correctly.
 
 ## Conversion functions
 These functions can be used to convert values between JSON data types and encodings.

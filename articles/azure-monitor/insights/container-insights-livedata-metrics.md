@@ -3,6 +3,7 @@ title: View metrics in real-time with Azure Monitor for containers | Microsoft D
 description: This article describes the real-time view of metrics without using kubectl with Azure Monitor for containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
+ms.custom: references_regions
 ---
 
 # How to view metrics in real-time

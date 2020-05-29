@@ -24,19 +24,22 @@ The following scenarios aren't yet supported:
 
 To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
 
-If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) or wait 14 days after deleting the restore points.
+If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
 
 ### Portal
 
-1. Select the virtual machine that is configured for backup.
+1. Temporarily stop the backup and retain backup data.
+2. To move virtual machines configured with Azure Backup, do the following steps:
 
-1. In the left pane, select **Backup**.
+   1. Find the location of your virtual machine.
+   2. Find a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1`. For example, *AzureBackupRG_westus2_1*
+   3. In the Azure portal, check **Show hidden types**.
+   4. Find the resource with type **Microsoft.Compute/restorePointCollections** that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   5. Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+   6. After the delete operation is complete, you can move your virtual machine.
 
-1. Select **Stop backup**.
-
-1. Select **Delete back data**.
-
-1. After delete is complete, you can move the vault and virtual machine to the target subscription. After the move, you can continue backups.
+3. Move the VM to the target resource group.
+4. Resume the backup.
 
 ### PowerShell
 

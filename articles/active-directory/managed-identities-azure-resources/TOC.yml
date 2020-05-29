@@ -136,13 +136,13 @@
   - name: Java
     href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
   - name: Python
-    href: /python/api/azure.mgmt.msi
+    href: https://docs.microsoft.com/windows/python/
   - name: Ruby
     href: https://rubygems.org/gems/azure_mgmt_msi
   - name: Node.js
-    href: /javascript/api/ms-rest-azure
+    href: https://nodejs.org/en/docs/
   - name: Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
+    href: https://golang.org/doc/
 
 - name: Resources
   items:

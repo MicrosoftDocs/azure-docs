@@ -21,6 +21,8 @@
         href: quickstart-netcore-visualstudio.md
     - name: Develop using the CLI
       href: quickstart-cli.md
+    - name: Develop using existing Helm chart
+      href: quickstart-existing-helm-chart.md
   - name: Tutorials
     items:
     - name: Java (VS Code & CLI)
@@ -111,8 +113,6 @@
       href: how-to/ingress-https-nginx.md
     - name: Connect your development computer to an AKS cluster (preview)
       href: how-to/connect.md
-    - name: Configure your Azure Dev Spaces cluster to use Helm 3 (preview)
-      href: how-to/helm-3.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

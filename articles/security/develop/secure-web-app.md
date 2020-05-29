@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
+ms.custom: has-adal-ref
 ---
 # Develop a secure web app
 
@@ -801,7 +802,7 @@ After you add the Azure AD configuration and secrets to Key Vault, users can be 
 In the app code, this is handled by the Azure Active Directory Authentication Library (ADAL).
 
 After the secrets are in Key Vault and the application has access to the secrets and the database, the application service can be reached through the gateway's
-application URL (https://GATEWAY_HASH.cloudapp.net), which you can get from its blade.
+application URL (https:\//GATEWAY_HASH.cloudapp.net), which you can get from its blade.
 
 If, when you sign in to Azure AD, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure AD and add the user manually by entering their details or invite the user by entering their email address as a guest user to Azure AD in the **Invite Guest** blade.
 
@@ -976,7 +977,7 @@ After you fix some of the code errors found by the linting tools, you have more 
 
 ### Find and fix vulnerabilities in app dependencies
 
-To find and fix application dependencies, you can use [OWASP's Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+To find and fix application dependencies, you can use [OWASP's Dependency Check](https://owasp.org/www-project-dependency-check/).
 
 Safety is a similar application that checks dependencies. You can find it on [GitHub](https://github.com/pyupio/safety). Safety scans for vulnerabilities found in well-known vulnerability databases.
 

@@ -65,6 +65,7 @@
       href: troubleshoot-vm-boot-error.md
   - name: Windows
     href: boot-error-troubleshoot.md
+
     items:
     - name: Boot diagnostics
       href: boot-diagnostics.md
@@ -78,8 +79,10 @@
       href: troubleshoot-guide-critical-process-died.md
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
-    - name: VM is unresponsive when applying local users and groups policy
-      href: troubleshoot-vm-unresponsive-group-policy-local-users.md
+    - name: Troubleshoot boot error - Status not found
+      href: boot-error-status-not-found.md
+    - name: Troubleshoot Windows Update installation capacity
+      href: windows-update-installation-capacity.md
     - name: Not a bootable disk
       href: troubleshoot-guide-not-bootable-disk.md
     - name: Reboot loop
@@ -92,6 +95,8 @@
       href: troubleshoot-guide-windows-boot-manager-menu.md
     - name: VM is unresponsive due to updating
       href: unresponsive-vm-apply-windows-update.md
+    - name: VM is unresponsive when applying group policy
+      href: unresponsive-vm-apply-group-policy.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -149,7 +154,7 @@
       href: https://support.microsoft.com/help/4091524
     - name: Recover LVM configured VMs and no boot 
       href: chroot-logical-volume-manager.md
-    - name: Troubleshoot fstab errors
+    - name: Troubleshoot fstab errors 
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Detailed SSH troubleshooting
       href: detailed-troubleshoot-ssh-connection.md

@@ -1,12 +1,14 @@
 ---
 title: Use extension sequencing with Azure virtual machine scale sets
 description: Learn how to sequence extension provisioning when deploying multiple extensions on virtual machine scale sets.
-author: mayanknayar
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: manayar
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Sequence extension provisioning in virtual machine scale sets

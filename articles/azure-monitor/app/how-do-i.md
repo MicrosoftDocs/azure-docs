@@ -12,7 +12,7 @@ ms.date: 04/04/2017
 Set an [availability web test](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### Email if my site is overloaded
-Set an [alert](../../azure-monitor/app/alerts.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
+Set an [alert](../../azure-monitor/platform/alerts-log.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -22,10 +22,10 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 
 ### Email on exceptions
 1. [Set up exception monitoring](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Set an alert](../../azure-monitor/app/alerts.md) on the Exception count metric
+2. [Set an alert](../../azure-monitor/platform/alerts-log.md) on the Exception count metric
 
 ### Email on an event in my app
-Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](../../azure-monitor/app/alerts.md).
+Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](../../azure-monitor/platform/alerts-log.md).
 
 Alerts can be set on [custom metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
@@ -41,7 +41,7 @@ Because alerts have two states, you have to send a low value when you consider t
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](../../azure-monitor/app/metrics-explorer.md) to see your alarm:
+Create a chart in [metric explorer](../../azure-monitor/platform/metrics-charts.md) to see your alarm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -61,11 +61,11 @@ Some points to consider:
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
 
 ### Set up alerts automatically
-[Use PowerShell to create new alerts](../../azure-monitor/app/alerts.md#automation)
+[Use PowerShell to create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Use PowerShell to Manage Application Insights
 * [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Create new alerts](../../azure-monitor/app/alerts.md#automation)
+* [Create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Separate telemetry from different versions
 
@@ -78,7 +78,7 @@ Some points to consider:
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
-* In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* In [Metric Explorer](../../azure-monitor/platform/metrics-charts.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
 * [Export telemetry to Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -155,5 +155,5 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * **Unix server** - [Install collectd](../../azure-monitor/app/java-collectd.md)
 
 ### To display more performance counters
-* First, [add a new chart](../../azure-monitor/app/metrics-explorer.md) and see if the counter is in the basic set that we offer.
+* First, [add a new chart](../../azure-monitor/platform/metrics-charts.md) and see if the counter is in the basic set that we offer.
 * If not, [add the counter to the set collected by the performance counter module](../../azure-monitor/app/performance-counters.md).
