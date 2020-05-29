@@ -17,7 +17,7 @@ In this article, you will be adding parameters to the commands.
 
 ## Prerequisites
 > [!div class="checklist"]
-> * [How To: Create an empty application](./how-to-custom-commands-create-basic-application.md)
+> * [How To: Create an empty application](./how-to-custom-commands-create-empty-project.md)
 > * [How To: Add simple commands](./how-to-custom-commands-add-simple-commands.md)
 
 ## Configure parameters for TurnOn command

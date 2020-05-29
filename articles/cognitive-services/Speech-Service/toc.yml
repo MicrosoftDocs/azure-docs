@@ -411,7 +411,7 @@
                   href: how-to-custom-commands-add-validations.md
                 - name: Add confirmations to a command
 				          href: how-to-custom-commands-add-confirmations.md
-                - name: Implementing corrections a command
+                - name: Implementing corrections in a command
                   href: how-to-custom-commands-add-one-step-correction.md
                 - name: Use language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
