@@ -62,7 +62,7 @@ You define and customize of your classification taxonomy in one central place fo
 
 As part of policy management for information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
-Learn more about customizing and managing your policy in the [Azure SQL Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+For more information, see [Customize the SQL information protection policy in Azure Security Center (Preview)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 After the organization-wide policy has been defined, you can continue classifying individual databases by using your customized policy.
 
