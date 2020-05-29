@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: references_regions
 ---
 
 # Azure Active Directory B2C: Region availability & data residency
