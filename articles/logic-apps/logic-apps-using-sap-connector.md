@@ -140,6 +140,8 @@ If you use the on-premises data gateway with the optional Secure Network Communi
 
 * If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
+For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#secure-network-communications).
+
 <a name="migrate"></a>
 
 ## Migrate to current connector
@@ -200,13 +202,15 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Select "Send message to SAP" action from Enterprise tab](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
-1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
+1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server.
 
    1. Provide a name for the connection.
 
-   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation. 
+   1. If you're using the data gateway, follow these steps:
    
-   1. Under **Connection Gateway**, select your gateway resource.
+      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation.
+   
+      1. Under **Connection Gateway**, select your gateway resource.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
    
@@ -324,9 +328,11 @@ This example uses a logic app that triggers when the app receives a message from
 
    1. Provide a name for the connection.
 
-   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation. 
+   1. If you're using the data gateway, follow these steps:
 
-   1. Under **Connection Gateway**, select your gateway resource.
+      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation.
+
+      1. Under **Connection Gateway**, select your gateway resource.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
 
@@ -346,13 +352,13 @@ This example uses a logic app that triggers when the app receives a message from
 
 1. Provide the [required parameters](#parameters) based on your SAP system configuration.
 
-   You can optionally provide one or more SAP actions. This list of actions specifies the messages that the trigger receives from your SAP server through the data gateway. An empty list specifies that the trigger receives all messages. If the list has more than one message, the trigger receives only the messages specified in the list. Any other messages sent from your SAP server are rejected by the gateway.
+   You can optionally provide one or more SAP actions. This list of actions specifies the messages that the trigger receives from your SAP server. An empty list specifies that the trigger receives all messages. If the list has more than one message, the trigger receives only the messages specified in the list. Any other messages sent from your SAP server are rejected.
 
    You can select an SAP action from the file picker:
 
    ![Add SAP action to logic app](media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
 
-   Or you can manually specify an action:
+   Or, you can manually specify an action:
 
    ![Manually enter SAP action](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
@@ -368,7 +374,7 @@ Your logic app is now ready to receive messages from your SAP system.
 
 > [!NOTE]
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
-> The trigger is called from the gateway only when a message exists, so no polling is necessary.
+> If you're using the data gateway, the trigger is called from the gateway only when a message exists, so no polling is necessary.
 
 <a name="parameters"></a>
 
@@ -551,12 +557,16 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
+<a name="secure-network-communications"></a>
+
 ## Enable Secure Network Communications
 
-Before you start, make sure that you met the previously listed [prerequisites](#pre-reqs):
+Before you start, make sure that you met the previously listed [prerequisites](#pre-reqs), which apply only when you use the data gateway and your logic apps run in multi-tenant Azure:
 
-* The on-premises data gateway is installed on a machine that's in the same network as your SAP system.
-* For SSO, the gateway is running as a user that's mapped to an SAP user.
+* Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
+
+* For Single Sign On (SSO), the gateway is running as a user that's mapped to an SAP user.
+
 * The SNC library that provides the additional security functions is installed on the same machine as the data gateway. Some examples include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
    To enable SNC for your requests to or from the SAP system, select the **Use SNC** check box in the SAP connection and provide these properties:
@@ -647,7 +657,7 @@ Here is an example that shows this pattern:
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the SAP connector:
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
 
 * The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
 
