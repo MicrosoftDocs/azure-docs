@@ -90,7 +90,7 @@ To configure properly, you need the following resources:
 
 - Private endpoint information (FQDN record name and private IP address)
 
-The following diagram illustrates the DNS resolution sequence from virtual network workloads using the private DNS zone:
+The following screenshot illustrates the DNS resolution sequence from virtual network workloads using the private DNS zone:
 
 :::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="Single virtual network and Azure-provided DNS":::
 
