@@ -40,7 +40,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
 
-### <a name="limitations"></a>Notes and Limitations
+### <a name="limitations"></a>Notes and limitations
 
 * The custom alert discussed in this article is an add-on to achieve better operation and control. It is not a replacement for the native alerts in ExpressRoute.
 * Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
@@ -98,7 +98,7 @@ In order to run PowerShell cmdlets in Azure Automation runbooks, you need to ins
 
 2. Select **Create** to create the runbook.
 
-   :::image type="content" source="./media/custom-route-alert-portal/createrb.png" alt-text="Select Create.":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-runbook2.png" alt-text="Select Create.":::
 
 3. Select the newly created runbook, then select **Edit**.
 
@@ -399,11 +399,11 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 7. Check the value for the number of network prefixes an ExpressRoute gateway advertises to the two BGP peers. The number of routes is available in "numRoutePeer1" and "numRoutePeer2" in **Dynamic content**. In the value box, type the value for **numRoutePeer1**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/peer1.png" alt-text="numRoutesPeer1":::
+   :::image type="content" source="./media/custom-route-alert-portal/peer-1.png" alt-text="numRoutesPeer1":::
 
 8. To add another row to your condition, choose **Add -> Add row**. In the second box, from **Dynamic content**, select **numRoutePeer2**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/peer2.png" alt-text="numRoutesPeer2":::
+   :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
 9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 160 (80% of max value of 200 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
 
@@ -433,9 +433,9 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
    :::image type="content" source="./media/custom-route-alert-portal/email-v2.png" alt-text="Send an email (V2)":::
 
-3. Sign in to create a connection to O365.
+3. Sign in to create a connection to Office 365 Outlook.
 
-   :::image type="content" source="./media/custom-route-alert-portal/o365-sign-in.png" alt-text="Sign in":::
+   :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Sign in":::
 
 4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the the variable **Emailbody**. Fill out the **Subject** and **To** fields.
 
@@ -445,7 +445,7 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
    :::image type="content" source="./media/custom-route-alert-portal/send-email-v2.png" alt-text="Send email v2" lightbox="./media/custom-route-alert-portal/send-email-v2-expand.png":::
 
-### <a name="validation"></a>8. Workflow validation
+### <a name="validation"></a>9. Workflow validation
 
 The final step is the workflow validation. In **Logic Apps Overview**, select **Run Trigger**. Select **Recurrence**. The workflow can be monitored and verified in the **Runs history**.
 
@@ -453,4 +453,4 @@ The final step is the workflow validation. In **Logic Apps Overview**, select **
 
 ## Next steps
 
-To learn more about customize the workflow, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md) pages
+To learn more about how to customize the workflow, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
