@@ -82,7 +82,8 @@ public class Main {
     private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
 
     private static String imageToAnalyze =
-            "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg";
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
+                    "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpTextClient = HttpClientBuilder.create().build();
