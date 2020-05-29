@@ -1,7 +1,7 @@
 ---
 title: Security Overview
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn about security in Azure SQL Database, and Azure SQL Managed Instance, including how it differs from on-premises SQL Server. 
+description: Learn about security in Azure SQL Database, and Azure SQL Managed Instance, including how it differs from SQL Server. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,6 +14,7 @@ ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
 ---
 # An overview of Azure SQL Database & SQL Managed Instance security capabilities
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article outlines the basics of securing the data tier of an application using [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
@@ -35,7 +36,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 [Virtual network rules](vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. For more information about the networking configuration needed, see [connecting to a SQL Managed Instance](../managed-instance/connect-application-instance.md)
+> Controlling access with firewall rules does *not* apply to **a SQL Managed Instance**. For more information about the networking configuration needed, see [connecting to a SQL Managed Instance](../managed-instance/connect-application-instance.md).
 
 ## Access management
 
