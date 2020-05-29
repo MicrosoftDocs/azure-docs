@@ -122,25 +122,31 @@ These prerequisites apply when your logic apps run in a Premium-level (not Devel
 
 ### SAP client library prerequisites
 
-* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). By default, the SAP installer puts the assembly files in the default installation folder.
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Earlier versions can result in compatibility problems. For more information, see [SAP client library versions](#sap-library-versions).
 
-  * If your logic apps run in an ISE, follow the [integration service environment prerequisites](#sap-ise).
+* By default, the SAP installer puts the assembly files in the default installation folder. You need to copy these assembly files to another location, based on your scenario as follows:
 
-  * If your logic apps run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the gateway installation folder.
+  For logic apps that run in an ISE, follow the steps described in the [integration service environment prerequisites](#sap-ise). For logic apps that run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the data gateway installation folder. If you run into problems with the data gateway, review the following issues:
 
-    * The data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+  * You must install the 64-bit version for the SAP client library because the data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
 
-    * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you copied the assembly files to the gateway installation folder.
+  * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you copied the assembly files to the data gateway installation folder.
 
-      To help you troubleshoot, [use the .NET assembly binding log viewer](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location. Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
+    To help you troubleshoot, [use the .NET assembly binding log viewer](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location. Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
 
-    * Both the gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5.
+<a name="sap-library-versions"></a>
 
-      * The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1.
+#### SAP client library versions
 
-      * The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
+Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
 
-  Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+Here are the relationships between the SAP client library, the .NET Framework, the .NET runtime, and the gateway:
+
+* Both the Microsoft SAP Adapter and the gateway host service use .NET Framework 4.5.
+
+* The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1.
+
+* The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
 
 ### Secure Network Communications prerequisites
 
@@ -148,9 +154,9 @@ If you use the on-premises data gateway with the optional Secure Network Communi
 
 * If you use SNC with Single Sign On (SSO), make sure the data gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
-  ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
+  ![Change data gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
 
-* If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
+* If you enable SNC with an external security product, copy the SNC library or files on the same computer where the data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
 For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#secure-network-communications).
 
@@ -220,9 +226,9 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    1. If you're using the data gateway, follow these steps:
    
-      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation.
+      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation.
    
-      1. Under **Connection Gateway**, select your gateway resource.
+      1. Under **Connection Gateway**, select your data gateway resource in Azure.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
    
@@ -342,9 +348,9 @@ This example uses a logic app that triggers when the app receives a message from
 
    1. If you're using the data gateway, follow these steps:
 
-      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation.
+      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation.
 
-      1. Under **Connection Gateway**, select your gateway resource.
+      1. Under **Connection Gateway**, select your data gateway resource in Azure.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
 
@@ -386,7 +392,8 @@ Your logic app is now ready to receive messages from your SAP system.
 
 > [!NOTE]
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
-> If you're using the data gateway, the trigger is called from the gateway only when a message exists, so no polling is necessary.
+> If you're using the data gateway, the trigger is called from the data gateway 
+> only when a message exists, so no polling is necessary.
 
 <a name="parameters"></a>
 
@@ -477,9 +484,9 @@ On the designer toolbar, select **Save**.
 
    1. Provide a name for the connection.
 
-   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation. 
+   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. 
    
-   1. Under **Connection Gateway**, select your gateway resource.
+   1. Under **Connection Gateway**, select your data gateway resource in Azure.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
    
@@ -577,7 +584,7 @@ Before you start, make sure that you met the previously listed [prerequisites](#
 
 * Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
 
-* For Single Sign On (SSO), the gateway is running as a user that's mapped to an SAP user.
+* For Single Sign On (SSO), the data gateway is running as a user that's mapped to an SAP user.
 
 * The SNC library that provides the additional security functions is installed on the same machine as the data gateway. Some examples include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
