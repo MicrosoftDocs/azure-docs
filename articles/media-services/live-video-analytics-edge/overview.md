@@ -40,4 +40,5 @@ Read the following concept articles, and then try a quickstart to run motion det
 
 * Follow the [Quickstart: Run Live Video Analytics with your own model](use-your-model-quickstart.md) article to see how you can run motion detection on a live video feed.
 * Review [terminology](terminology.md)
+* Explore [Live Video Analytics open source material](https://github.com/Azure/live-video-analytics)
 
