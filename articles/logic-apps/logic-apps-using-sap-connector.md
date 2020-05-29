@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 05/27/2020
+ms.date: 05/29/2020
 tags: connectors
 ---
 
@@ -28,7 +28,9 @@ This article shows how you can access your on-premises SAP resources from inside
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html) and provides these actions:
 
 * **Send message to SAP**: Send IDoc over tRFC, call BAPI functions over RFC, or call RFC/tRFC in SAP systems.
+
 * **When a message is received from SAP**: Receive IDoc over tRFC, call BAPI functions over tRFC, or call RFC/tRFC in SAP systems.
+
 * **Generate schemas**: Generate schemas for the SAP artifacts for IDoc, BAPI, or RFC.
 
 For these operations, the SAP connector supports basic authentication through usernames and passwords. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC can be used for SAP NetWeaver single sign-on (SSO) or for additional security capabilities provided by an external security product.
@@ -55,19 +57,23 @@ To follow along with this article, you need these items:
 
 ### Multi-tenant Azure prerequisites
 
-These prerequisites apply when your logic apps run in multi-tenant Azure or when you use the SAP connector that doesn't run natively in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE provides access to resources that are protected by an Azure virtual network, lets logic apps access on-premises resources without using the on-premises data gateway, and offers connectors that run natively in the ISE, such as the [SAP ISE connector](#sap-ise).
+These prerequisites apply when your logic apps run in multi-tenant Azure, and you want to use the managed SAP connector, which doesn't run natively in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Otherwise, if you're using a Premium-level ISE and want to use the SAP connector that runs natively in the ISE, see [Integration service environment (ISE) prerequisites](#sap-ise).
 
 * [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources.
 
   As a best practice, make sure to use a supported version of the on-premises data gateway. Microsoft releases a new version every month. Currently, Microsoft supports the last six versions. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
 
-* [Download, install, and configure the latest SAP client library](#sap-client-library-prerequisites) on the same computer as the on-premises data gateway.
+* [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same computer as the on-premises data gateway.
 
 <a name="sap-ise"></a>
 
 ### Integration service environment (ISE) prerequisites
 
-These prerequisites apply when your logic apps run in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use the SAP connector that runs natively in an ISE. An ISE provides access to resources that are protected by an Azure virtual network and lets logic apps access on-premises resources without using the on-premises data gateway.
+These prerequisites apply when your logic apps run in a Premium-level (not Developer-level) [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), and you want to use the SAP connector that runs natively in an ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
+
+> [!NOTE]
+> Although the SAP ISE connector is visible inside a Developer-level ISE, 
+> attempts to install the connector won't succeed.
 
 1. If you don't already have an Azure Storage account and a blob container, create that container by using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
@@ -82,11 +88,13 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
 1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
 
-1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token. Otherwise, the SAS token won't get authorized, and deployment for the SAP ISE connector will fail.
+1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token.
 
-1. Before you can use the SAP ISE connector, you must install and deploy the connector in your ISE.
+   Otherwise, the SAS token doesn't get authorized, and deployment for the SAP ISE connector will fail.
 
-   1. In the Azure portal, find and open your ISE.
+1. Before you can use the SAP ISE connector, you need to install and deploy the connector in your ISE.
+
+   1. In the [Azure portal](https://portal.azure.com), find and open your ISE.
    
    1. On the ISE menu, select **Managed connectors** > **Add**. From the connectors list, find and select **SAP**.
    
@@ -96,29 +104,31 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
    For more information, see [Add ISE connectors](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
 
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer or connect those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is peered to your SAP instance's virtual network.
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so that your ISE's virtual network is connected to your SAP instance's virtual network.
 
 <a name="sap-client-library-prerequisites"></a>
 
 ### SAP client library prerequisites
 
-* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019).
+* Make sure to install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). By default, the SAP installer puts the assembly files in the default installation folder.
 
-  By default, the SAP installer puts the assembly files in the default installation folder.
-
-  * If your logic apps run in an ISE, follow the [integration service environment prerequisites](#sap-ise) instead.
+  * If your logic apps run in an ISE, follow the [integration service environment prerequisites](#sap-ise).
 
   * If your logic apps run in multi-tenant Azure and use the on-premises data gateway, copy the assembly files from the default installation folder to the gateway installation folder.
+
+    * The data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
 
     * If your SAP connection fails with the error message "Please check your account info and/or permissions and try again", the assembly files might be in the wrong location. Make sure that you copied the assembly files to the gateway installation folder.
 
       To help you troubleshoot, [use the .NET assembly binding log viewer](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), which lets you check that the assembly files are in the correct location. Optionally, you can select the **Global Assembly Cache registration** option when you install the SAP client library.
 
-    * Both the gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1. The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
+    * Both the gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5.
 
-    * The data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+      * The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1.
 
-Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+      * The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest gateway.
+
+  Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
 
 ### Secure Network Communications prerequisites
 
