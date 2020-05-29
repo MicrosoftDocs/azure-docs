@@ -221,6 +221,8 @@
       href: resource-manager-exceptions.md
 - name: Reference
   items:
+  - name: SDKs
+    href: sdks.md  
   - name: .NET
     items:
     - name: Client library
