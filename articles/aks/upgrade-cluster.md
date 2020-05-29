@@ -48,19 +48,26 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 ## Customize node surge upgrade (Preview)
 
 > [!Important]
-> Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 2 nodes * 5 pools = 10 is required to complete the upgrade.
+> Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
 
-By default, AKS configures upgrades to surge with one additional node. This default enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max surge parameter can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing this value, an upgrade operation provisions that many additional nodes to facilitate node replacement during an upgrade.
+By default, AKS configures upgrades to surge with one additional node. This default value enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max-surge parameter may be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max-surge value, the upgrade process completes faster, but a large value for max-surge may cause disruptions. 
 
-AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. 
+For example, a max-surge value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. You may wish to speed up upgrades for testing environments.
 
-Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%. After successful registration, run the following command to increase maxSurge.
+For production node pools, we recommend a max_surge setting of 33%.
+
+The upgrade operation provisions additional nodes to facilitate node replacement during an upgrade. AKS accepts both integer values and a percentage value. An integer such as "5" indicates five additional nodes to surge. An input of "50%" indicates a surge value of half the current node count in the pool. 
+
+Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%.
 
 Register for the Node surge upgrade feature by issuing the following Azure CLI command:
 
 ```azurecli-interactive
 az feature register --name Microsoft.ContainerService/MaxSurgePreview --namespace Microsoft.ContainerService
 ```
+
+After successful registration, run the following command to increase max-surge
+
 
 ### Install latest AKS CLI preview extension
 
