@@ -125,15 +125,15 @@ On the **General settings** page of **Integration runtime setup** pane, complete
 
 On the **Deployment settings** page of **Integration runtime setup** pane, complete the following steps.
 
-   ![Deployment settings for SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
-
    1. Select the **Create SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance to store your projects/packages/environments/execution logs** check box to choose whether you want to deploy your packages into SSISDB (Project Deployment Model). Alternatively, no need to create SSISDB, if you want to deploy your packages into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model).
    
       Regardless of your deployment model, select this check box to choose whether you want to use SQL Server Agent hosted by Azure SQL Managed Instance to orchestrate/schedule your package executions, since it's enabled by SSISDB. For more information, see [Schedule SSIS package executions via  Azure SQL Managed Instance Agent](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
    
       If you select this check box, you'll need to bring your own database server to host SSISDB that we'll create and manage on your behalf.
+
+      ![Deployment settings for SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
-      1. For **Subscription**, select the Azure subscription that has your database server to host SSISDB. 
+      1. For **Subscription**, select the Azure subscription that has your database server to host SSISDB.
 
       1. For **Location**, select the location of your database server to host SSISDB. We recommend that you select the same location of your integration runtime. 
 
@@ -151,15 +151,17 @@ On the **Deployment settings** page of **Integration runtime setup** pane, compl
 
       1. For **Admin Password**, enter the SQL authentication password for your database server to host SSISDB. 
 
-      1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name. 
-
-   ![Deployment settings for MSDB/file system/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+      1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name.
 
    1. Select the **Create package stores to manage your packages that are deployed into file system/Azure Files/SQL Server database (MSDB) hosted by Azure SQL Managed Instance** check box to choose whether you want to manage your packages that are deployed into MSDB, file system, or Azure Files (Package Deployment Model) with Azure-SSIS IR package stores.
    
       Azure-SSIS IR package store allows you to import/export/delete/run packages and monitor/stop running packages via SSMS similar to the [legacy SSIS package store](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). For more information, see [Manage SSIS packages with Azure-SSIS IR package stores](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
    
-      If you select this check box, you can add multiple package stores to your Azure-SSIS IR by selecting **New**. Conversely, one package store can be shared by multiple Azure-SSIS IRs. On the **Add package store** pane, complete the following steps. 
+      If you select this check box, you can add multiple package stores to your Azure-SSIS IR by selecting **New**. Conversely, one package store can be shared by multiple Azure-SSIS IRs.
+
+      ![Deployment settings for MSDB/file system/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+
+      On the **Add package store** pane, complete the following steps.
    
       1. For **Package store name**, enter the name of your package store. 
 
