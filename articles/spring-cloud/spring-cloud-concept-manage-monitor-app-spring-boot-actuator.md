@@ -1,5 +1,5 @@
 ---
-title: "Manage and monitor app with Spring Boot Actuator"
+title: "Manage and monitor app with Azure Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
 author: MikeDodaro
 ms.author: brendm
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ---
 
-# Manage and monitor app with Spring Boot Actuator
+# Manage and monitor app with Azure Spring Boot Actuator
 
 After deploying new binary to your app, you may want to check the functionality and see information about your running application. This article explains how to access the API from a test endpoint provided by Azure Spring Cloud and expose the production-ready features for your app.
 
