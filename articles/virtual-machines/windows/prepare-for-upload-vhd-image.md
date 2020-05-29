@@ -33,20 +33,20 @@ For information about the support policy for Azure VMs, see
 
 ## Convert the virtual disk to a fixed size VHD
 
-Use one of the methods in this section to convert your virtual disk to the required format for Azure:
+Use one of the methods in this section to convert and resize your virtual disk to the required format for Azure:
 
-1. Back up the VM before you run the virtual disk conversion process.
+1. Back up the VM before you run the virtual disk conversion or resize process.
 
 1. Make sure that the Windows VHD works correctly on the local server. Resolve any errors within the
    VM itself before you try to convert or upload it to Azure.
 
 1. VHD Size:
 
-   1. Disks in Azure must have a virtual size aligned to 1 MB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD.
+   1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD.
    
    1. The maximum size allowed for the OS VHD is 2,048 GiB (2 TiB), for a data disk is 32,767 GiB (32 TiB).
 
-After you convert to a fixed disk, create a VM that uses the disk. Start and sign in to the VM to finish
+After you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM to finish
 preparing it for uploading.
 
 ### Use Hyper-V Manager to convert the disk
@@ -82,6 +82,29 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)
 to convert it to VHD format. For more information, see
 [How to convert a VMware VMDK to Hyper-V VHD](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
+
+### Use Hyper-V Manager to resize the disk
+
+1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer
+   list, select **Action** > **Edit Disk**.
+1. On the **Locate Virtual Hard Disk** page, select your virtual disk.
+1. On the **Choose Action** page, select **Expand** > **Next**.
+1. On the **Locate Virtual Hard Disk** page, enter the new size in GiB > **Next**.
+1. Select **Finish**.
+
+### Use PowerShell to resize the disk
+
+You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
+cmdlet in PowerShell.
+
+The following example resizes the disk from 100.5 MiB to 101 MiB to meet the Azure alignment requirement.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+In this example, replace the value for **Path** with the path to the virtual hard disk that you want
+to resize. Replace the value for **SizeBytes** with the new size in bytes for the disk.
 
 ## System File Checker
 
