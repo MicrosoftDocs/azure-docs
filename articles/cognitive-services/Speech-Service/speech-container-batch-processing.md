@@ -90,13 +90,13 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 `ONESHOT` Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.
 
-:::image type="content" source="../media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
 
 #### [Daemon](#tab/daemon)
 
 `DAEMON` Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
-:::image type="content" source="../media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
 
 #### [REST](#tab/rest)
 
