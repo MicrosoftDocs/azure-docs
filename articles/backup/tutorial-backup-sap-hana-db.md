@@ -24,9 +24,14 @@ Make sure you do the following before configuring backups:
 * Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](#set-up-network-connectivity) procedure below.
 * A key should exist in the **hdbuserstore** that fulfills the following criteria:
   * It should be present in the default **hdbuserstore**
-  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC it should point to the SQL port of **INDEXSERVER**
+  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC, it should point to the SQL port of **INDEXSERVER**
   * It should have credentials to add and delete users
 * Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup. Refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
+
+>[!NOTE]
+>Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
+>
+>Modify the policy manually as needed.
 
 ## Set up network connectivity
 
@@ -93,10 +98,14 @@ Running the pre-registration script performs the following functions:
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN: to create new databases during restore.
+  * DATABASE ADMIN (in case of MDC) and BACKUP ADMIN (in case of SDC): to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
-* The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
+* The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
+
+>[!NOTE]
+> You can explicitly pass the user key listed as part of the [prerequisites](#prerequisites) as a parameter to the pre-registration script: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>To learn what other parameters the script accepts, use the command `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 

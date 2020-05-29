@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
 ---
 
@@ -36,11 +36,11 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 ## Static IP addresses for outbound-only
 
-Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which [NAT gateway resource](./nat-gateway-resource.md) to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. 
+Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. 
 
-NAT is compatible with standard SKU [public IP address resources](./virtual-network-ip-addresses-overview-arm.md#standard) or [public IP prefix resources](./public-ip-address-prefix.md) or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP whitelisting of your deployments is now easy.
+NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP whitelisting of your deployments is now easy.
 
-All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other [outbound scenarios](../load-balancer/load-balancer-outbound-connections.md) and replaces the default Internet destination of a subnet.
+All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
 ## On-demand SNAT with multiple IP addresses for scale
 
@@ -56,9 +56,9 @@ Unlike load balancer outbound SNAT, NAT has no restrictions on which private IP 
 
 NAT is compatible with the following standard SKU resources:
 
-- [Load balancer](../load-balancer/load-balancer-overview.md)
-- [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Public IP prefix](../virtual-network/public-ip-address-prefix.md)
+- Load balancer
+- Public IP address
+- Public IP prefix
 
 When used together with NAT, these resources provide inbound Internet connectivity to your subnet(s). NAT provides all outbound Internet connectivity from your subnet(s).
 
@@ -84,9 +84,9 @@ The private side of NAT sends TCP Reset packets for attempts to communicate on a
 
 The public side of NAT doesn't generate TCP Reset packets or any other traffic.  Only traffic produced by the customer's virtual network is emitted.
 
-## Configurable idle timeout
+## Configurable TCP idle timeout
 
-A default idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
+A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
 ## Regional or zone isolation with availability zones
 
@@ -131,7 +131,9 @@ NAT gateway is billed with two separate meters:
 Resource hours accounts for the duration during which a NAT gateway resource exists.
 Data processed accounts for all traffic processed by a NAT gateway resource.
 
-During public preview, pricing is discounted at 50%.
+## Availability
+
+Virtual Network NAT and the NAT gateway resource are available in all Azure public cloud [regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## Support
 
@@ -144,7 +146,7 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 ## Limitations
 
-* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
+* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 * IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 * NSG flow logging isn't supported when using NAT.
 * NAT can't span multiple virtual networks.

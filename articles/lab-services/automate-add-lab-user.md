@@ -17,7 +17,7 @@ ms.author: spelluru
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
-Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. However, if you have several teams and several DevTest Labs instances, automating the creation process can save time. [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) allow you to create labs, lab VMs, custom images, formulas, and add users in an automated fashion. This article specifically focuses on adding users to a DevTest Labs instance.
+Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. However, if you have several teams and several DevTest Labs instances, automating the creation process can save time. [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Environments) allow you to create labs, lab VMs, custom images, formulas, and add users in an automated fashion. This article specifically focuses on adding users to a DevTest Labs instance.
 
 To add a user to a lab, you add the user to the **DevTest Labs User** role for the lab. This article shows you how to automate adding a user to a lab using one of the following ways:
 

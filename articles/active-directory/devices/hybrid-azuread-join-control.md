@@ -40,7 +40,7 @@ Use the Active Directory Services Interfaces Editor (ADSI Edit) to modify the SC
 1. Launch the **ADSI Edit** desktop application from and administrative workstation or a domain controller as an Enterprise Administrator.
 1. Connect to the **Configuration Naming Context** of your domain.
 1. Browse to **CN=Configuration,DC=contoso,DC=com** > **CN=Services** > **CN=Device Registration Configuration**
-1. Right click on the leaf object under **CN=Device Registration Configuration** and select **Properties**
+1. Right click on the leaf object **CN=62a0ff2e-97b9-4513-943f-0d221bd30080** and select **Properties**
    1. Select **keywords** from the **Attribute Editor** window and click **Edit**
    1. Select the values of **azureADId** and **azureADName** (one at a time) and click **Remove**
 1. Close **ADSI Edit**

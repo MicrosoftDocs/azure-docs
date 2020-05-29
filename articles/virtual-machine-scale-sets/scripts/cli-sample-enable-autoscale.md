@@ -1,13 +1,13 @@
 ---
 title: Azure CLI Samples - Enable host-based autoscale
 description: This script creates a virtual machine scale set running Ubuntu and uses host-based metrics to automatically scale as CPU load changes.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---
@@ -41,5 +41,3 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

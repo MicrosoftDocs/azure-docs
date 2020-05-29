@@ -5,7 +5,7 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 
-ms.custom: mvc
+ms.custom: mvc,subject-armqs
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -15,6 +15,8 @@ ms.custom: mvc
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template. A multi-container application that includes a web front end and a Redis instance is run in the cluster.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -26,7 +28,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Prerequisites
 
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. If you need either of these resources, see the following section; otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
+To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal.  Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
 
 ### Create an SSH key pair
 
@@ -44,7 +46,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ### Create a service principal
 
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned. By default, this service principal is valid for one year.
+To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned. By default, this service principal is valid for one year. Note that you can use a managed identity instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -66,13 +68,21 @@ Make a note of the *appId* and *password*. These values are used in the followin
 
 ## Create an AKS cluster
 
-The template used in this quickstart is to [deploy an Azure Kubernetes Service cluster](https://azure.microsoft.com/resources/templates/101-aks/). For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
+### Review the template
+
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-aks/).
+
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+
+For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
+
+### Deploy the template
 
 1. Select the following image to sign in to Azure and open a template.
 
-    [![Deploy to Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-2. Select or enter the following values.  
+2. Select or enter the following values.
 
     For this quickstart, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, *OS Type*, and *Kubernetes Version*. Provide your own values for the following template parameters:
 
@@ -93,7 +103,9 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
-## Connect to the cluster
+## Validate the deployment
+
+### Connect to the cluster
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
 
@@ -122,7 +134,7 @@ aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
 aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
-## Run the application
+### Run the application
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
 
@@ -231,7 +243,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## Test the application
+### Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
@@ -258,7 +270,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## Delete cluster
+## Clean up resources
 
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
@@ -267,7 +279,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Get the code
 

@@ -21,4 +21,4 @@ ms.author: rogarana
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |
 | Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |
 
-\* Available in most regions, see [Regional availability](../articles/storage/files/storage-files-planning.md#regional-availability) for the details on available regions.
+\* Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.

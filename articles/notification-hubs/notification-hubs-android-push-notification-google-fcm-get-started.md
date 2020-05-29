@@ -1,6 +1,6 @@
 ---
-title: Send push notifications to Android using Azure Notification Hubs and Firebase Cloud Messaging | Microsoft Docs
-description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to push notifications to Android devices.
+title: Send push notifications to Android using Azure Notification Hubs and Firebase SDK version 0.6 | Microsoft Docs
+description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices.
 services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification,fcm,firebase cloud messaging
@@ -17,17 +17,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/11/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
 ---
 
-# Tutorial: Send push notifications to Android devices using Google Firebase Cloud Messaging
+# Tutorial: Send push notifications to Android devices using Firebase SDK version 0.6
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-This tutorial shows you how to use Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
+This tutorial shows you how to use Azure Notification Hubs and the Firebase Cloud Messaging (FCM) SDK version 0.6 to send push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
 
-The completed code for this tutorial can be downloaded [from GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp).
+The completed code for this tutorial can be downloaded [from GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
 In this tutorial, you take the following steps:
 

@@ -45,7 +45,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.
 
 > [!NOTE]
-> If your AKS does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
+> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
 kubectl create ns traefik
@@ -212,11 +212,49 @@ Use `kubectl` to apply `letsencrypt-clusterissuer.yaml`.
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Upgrade traefik to use HTTPS using `helm`.
+Remove the previous *traefik* *ClusterRole* and *ClusterRoleBinding*, then upgrade traefik to use HTTPS using `helm`.
+
+> [!NOTE]
+> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
-helm upgrade traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0 --set ssl.enabled=true --set ssl.enforced=true --set ssl.permanentRedirect=true
+kubectl delete ClusterRole traefik
+kubectl delete ClusterRoleBinding traefik
+helm upgrade traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0 --set ssl.enabled=true --set ssl.enforced=true --set ssl.permanentRedirect=true
 ```
+
+Get the updated IP address of the traefik ingress controller service using [kubectl get][kubectl-get].
+
+```console
+kubectl get svc -n traefik --watch
+```
+
+The sample output shows the IP addresses for all the services in the *traefik* name space.
+
+```console
+NAME      TYPE           CLUSTER-IP    EXTERNAL-IP          PORT(S)                      AGE
+traefik   LoadBalancer   10.0.205.78   <pending>            80:32484/TCP,443:30620/TCP   20s
+...
+traefik   LoadBalancer   10.0.205.78   MY_NEW_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
+```
+
+Add an *A* record to your DNS zone with the new external IP address of the traefik service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record] and remove the previous *A* record using [az network dns record-set a remove-record][az-network-dns-record-set-a-remove-record].
+
+```azurecli
+az network dns record-set a add-record \
+    --resource-group myResourceGroup \
+    --zone-name MY_CUSTOM_DOMAIN \
+    --record-set-name *.traefik \
+    --ipv4-address MY_NEW_EXTERNAL_IP
+
+az network dns record-set a remove-record \
+    --resource-group myResourceGroup \
+    --zone-name  MY_CUSTOM_DOMAIN \
+    --record-set-name *.traefik \
+    --ipv4-address PREVIOUS_EXTERNAL_IP
+```
+
+The above example updates the *A* record in the *MY_CUSTOM_DOMAIN* DNS zone to use *PREVIOUS_EXTERNAL_IP*.
 
 Update [values.yaml][values-yaml] to include the details for using *cert-manager* and HTTPS. Below is an example of an updated `values.yaml` file:
 
@@ -252,10 +290,15 @@ gateway:
 Upgrade the sample application using `helm`:
 
 ```console
-helm upgrade bikesharing . --namespace dev --atomic
+helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Navigate to the sample application in the *dev/azureuser1* child space and notice you are redirected to use HTTPS. Also notice that the page loads, but the browser shows some errors. Opening the browser console shows the error relates to an HTTPS page trying to load HTTP resources. For example:
+Navigate to the sample application in the *dev/azureuser1* child space and notice you are redirected to use HTTPS.
+
+> [!IMPORTANT]
+> It may take 30 minutes or more for the DNS changes to complete and your sample application to be accessible.
+
+Also notice that the page loads, but the browser shows some errors. Opening the browser console shows the error relates to an HTTPS page trying to load HTTP resources. For example:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -286,7 +329,7 @@ Update [BikeSharingWeb/package.json][package-json] with a dependency for the *ur
 ...
 ```
 
-Update the *getApiHostAsync* method in [BikeSharingWeb/pages/helpers.js][helpers-js] to use HTTPS:
+Update the *getApiHostAsync* method in [BikeSharingWeb/lib/helpers.js][helpers-js] to use HTTPS:
 
 ```javascript
 ...
@@ -323,6 +366,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [qs-cli]: ../quickstart-cli.md
@@ -333,7 +377,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [cert-manager]: https://cert-manager.io/
 [helm-installed]: https://helm.sh/docs/intro/install/
 [helm-stable-repo]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
-[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
+[helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/lib/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [letsencrypt-staging-issuer]: https://cert-manager.io/docs/configuration/acme/#creating-a-basic-acme-issuer

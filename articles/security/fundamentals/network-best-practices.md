@@ -70,7 +70,7 @@ Networks need to evolve from traditional defenses because networks might be vuln
 Best practices are:
 
 **Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../role-based-access-control/conditional-access-azure-management.md).
+**Detail**: [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Azure Security Center](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
@@ -149,12 +149,12 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 - Accepts only a secure connection, so unencrypted communication to the server is not an acceptable option.
 - Requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-**Load-balancing option**: Use [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), an HTTP web traffic load balancer. Application Gateway supports end-to-end SSL encryption and [SSL termination](/azure/application-gateway/application-gateway-introduction) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic flowing unencrypted to the back-end servers.
+**Load-balancing option**: Use [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), an HTTP web traffic load balancer. Application Gateway supports end-to-end TLS encryption and [TLS termination](/azure/application-gateway/application-gateway-introduction) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic flowing unencrypted to the back-end servers.
 
 **Scenario**: You need to load balance incoming connections from the internet among your servers located in an Azure virtual network. Scenarios are when you:
 
 - Have stateless applications that accept incoming requests from the internet.
-- Don't require sticky sessions or SSL offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
+- Don't require sticky sessions or TLS offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
 
 **Load-balancing option**: Use the Azure portal to [create an external load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 

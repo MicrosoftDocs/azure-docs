@@ -19,7 +19,9 @@ ms.custom: accessibility
 ---
 # Supported devices
 
-The [Azure portal](https://portal.azure.com) is a web-based console and runs in the browser of all modern desktops and tablet devices. If you need to manage Azure resources from a mobile device, try the  [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). It's available for iOS and Android.
+The [Azure portal](https://portal.azure.com) is a web-based console and runs in the browser of all modern desktops and tablet devices. To use the portal, you must have JavaScript enabled on your browser.
+
+If you need to manage Azure resources from a mobile device, try the  [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). It's available for iOS and Android.
 
 ## Recommended browsers
 

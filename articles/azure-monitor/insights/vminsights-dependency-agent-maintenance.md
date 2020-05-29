@@ -1,11 +1,11 @@
 ---
-title: How to upgrade the Azure Monitor for VMs Dependency agent| Microsoft Docs
+title: How to upgrade the Azure Monitor for VMs Dependency agent
 description: This article describes how to upgrade the Azure Monitor for VMs Dependency agent using command-line, setup wizard, and other methods.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
+ms.date: 04/16/2020
 
 ---
 
@@ -56,7 +56,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
 
-You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentlinux).
+You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
 1. Sign on to the computer with an account that has administrative rights.
 

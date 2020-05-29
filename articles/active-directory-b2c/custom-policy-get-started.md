@@ -112,7 +112,7 @@ Next, expose the API by adding a scope:
 1. In **App registrations (Legacy)**, select **New application registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
 1. For **Application type**, choose **Native**.
-1. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant.
+1. For **Redirect URI**, enter `myapp://auth`.
 1. Select **Create**. After it's created, copy the application ID and save it to use later.
 1. Select **Settings**, then select **Required permissions**, and then select **Add**.
 1. Choose **Select an API**, search for and select **IdentityExperienceFramework**, and then click **Select**.
@@ -125,7 +125,7 @@ Next, expose the API by adding a scope:
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Under **Redirect URI**, use the drop-down to select **Public client/native (mobile & desktop)**.
-1. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant.
+1. For **Redirect URI**, enter `myapp://auth`.
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
@@ -134,7 +134,7 @@ Next, specify that the application should be treated as a public client:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:

@@ -25,6 +25,10 @@ To provide redundancy to your application, we recommend that you group two or mo
 
 Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
 
+## Known issue with Check Point Network Virtual Appliance image version
+
+Advisor can identify if your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. Advisor recommendation will help you upgrade to a newer version of the image that addresses this issue. This will ensure business continuity through better network connectivity.
+
 ## Ensure application gateway fault tolerance
 
 This recommendation ensures the business continuity of mission-critical applications that are powered by application gateways. Advisor identifies application gateway instances that are not configured for fault tolerance, and it suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways, and it recommends adding at least one more instance. It also identifies single- or multi-instance small application gateways and recommends migrating to medium or large SKUs. Advisor recommends these actions to ensure that your application gateway instances are configured to satisfy the current SLA requirements for these resources.
@@ -80,7 +84,7 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 

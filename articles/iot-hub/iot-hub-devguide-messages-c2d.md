@@ -8,6 +8,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
+ms.custom: mqtt
+
 ---
 
 # Send cloud-to-device messages from an IoT hub

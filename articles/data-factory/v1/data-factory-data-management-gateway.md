@@ -161,7 +161,7 @@ Ensure that the firewall rules are enabled properly on the corporate firewall, W
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
 
 * Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
-* Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
+* Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
 > If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
@@ -327,7 +327,7 @@ The Settings page allows you to do the following actions:
 * View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
 * Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
 * **Status** of the endpoint
-* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.
+* View **SSL certificate** is used for TLS/SSL communication between portal and the gateway to set credentials for data sources.
 
 ### Remote access from intranet
 This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials.

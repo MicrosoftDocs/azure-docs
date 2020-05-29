@@ -1,19 +1,17 @@
 ---
 title: Configure Facebook authentication
-description: Learn how to configure Facebook authentication as an identity provider for your App Service app.
-
+description: Learn how to configure Facebook authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-
+ms.custom: [seodec18, fasttrack-edit]
 ---
 
-# Configure your App Service app to use Facebook login
+# Configure your App Service or Azure Functions app to use Facebook login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows how to configure Azure App Service to use Facebook as an authentication provider.
+This article shows how to configure Azure App Service or Azure Functions to use Facebook as an authentication provider.
 
 To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 

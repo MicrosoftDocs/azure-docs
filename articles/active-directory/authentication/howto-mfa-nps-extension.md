@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
@@ -75,6 +76,7 @@ The NPS server needs to be able to communicate with the following URLs over port
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
@@ -139,6 +141,14 @@ Use these steps to get a test account started:
 2. Follow the prompts to set up a verification method.
 3. [Create a Conditional Access policy](howto-mfa-getstarted.md#create-conditional-access-policy) to require multi-factor authentication for the test account.
 
+> [!IMPORTANT]
+>
+> Make sure that users have successfully registered for Azure Multi-Factor Authentication. If users have previously only registered for self-service password reset (SSPR), *StrongAuthenticationMethods* is enabled for their account. Azure Multi-Factor Authentication is enforced when *StrongAuthenticationMethods* is configured, even if the user only registered for SSPR.
+>
+> Combined security registration can be enabled that configures SSPR and Azure Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> You can also [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options) if they previously only enabled SSPR.
+
 ## Install the NPS extension
 
 > [!IMPORTANT]
@@ -192,9 +202,12 @@ If your previous computer certificate has expired, and a new certificate has bee
 
 ### Microsoft Azure Government additional steps
 
-For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server:
+For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server.
 
-1. Open **Registry Editor** on the NPS server.
+> [!IMPORTANT]
+> Only configure these registry settings if you're an Azure Government customer.
+
+1. If you're an Azure Government customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
 
     | Registry key       | Value |
@@ -278,7 +291,7 @@ The following command will create a file named "npscertificate" on your "C:" dri
 ``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
 Once you run this command, go to your C drive, locate the file and double-click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
@@ -300,7 +313,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
+4. Verify that `https://login.microsoftonline.com/` is accessible from the server running the extension.
 
 ---
 

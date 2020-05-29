@@ -6,7 +6,7 @@ ms.date: 07/08/2019
 ---
 # Monitor and manage Recovery Services vaults
 
-This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
+This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
 
 ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -172,7 +172,7 @@ To explore a specific type of protected instance, click the item in the Backup M
 
 ![list of Backup type](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
+The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
 
 ![list of Backup type](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 

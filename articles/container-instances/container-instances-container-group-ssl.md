@@ -1,20 +1,20 @@
 ---
-title: Enable SSL with sidecar container
+title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
 ms.topic: article
 ms.date: 02/14/2020
 ---
-# Enable an SSL endpoint in a sidecar container
+# Enable a TLS endpoint in a sidecar container
 
-This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running an SSL provider. By setting up a container group with a separate SSL endpoint, you enable SSL connections for your application without changing your application code.
+This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running a TLS/SSL provider. By setting up a container group with a separate TLS endpoint, you enable TLS connections for your application without changing your application code.
 
 You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
-* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use SSL. 
+* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS. 
 
 In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. 
 
-See [Next steps](#next-steps) for other approaches to enabling SSL in a container group.
+See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -22,9 +22,9 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to co
 
 ## Create a self-signed certificate
 
-To set up Nginx as an SSL provider, you need an SSL certificate. This article shows how to create and set up a self-signed SSL certificate. For production scenarios, you should obtain a certificate from a certificate authority.
+To set up Nginx as a TLS provider, you need a TLS/SSL certificate. This article shows how to create and set up a self-signed TLS/SSL certificate. For production scenarios, you should obtain a certificate from a certificate authority.
 
-To create a self-signed SSL certificate, use the [OpenSSL](https://www.openssl.org/) tool available in Azure Cloud Shell and many Linux distributions, or use a comparable client tool in your operating system.
+To create a self-signed TLS/SSL certificate, use the [OpenSSL](https://www.openssl.org/) tool available in Azure Cloud Shell and many Linux distributions, or use a comparable client tool in your operating system.
 
 First create a certificate request (.csr file) in a local working directory:
 
@@ -42,11 +42,11 @@ openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 
 You should now see three files in the directory: the certificate request (`ssl.csr`), the private key (`ssl.key`), and the self-signed certificate (`ssl.crt`). You use `ssl.key` and `ssl.crt` in later steps.
 
-## Configure Nginx to use SSL
+## Configure Nginx to use TLS
 
 ### Create Nginx configuration file
 
-In this section, you create a configuration file for Nginx to use SSL. Start by copying the following text into a new file named `nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
+In this section, you create a configuration file for Nginx to use TLS. Start by copying the following text into a new file named `nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code nginx.conf
@@ -87,7 +87,7 @@ http {
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
         ssl_prefer_server_ciphers  on;
 
-        # Optimize SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive SSL handshakes.
+        # Optimize TLS/SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive TLS/SSL handshakes.
         # The handshake is the most CPU-intensive operation, and by default it is re-negotiated on every new/parallel connection.
         # By enabling a cache (of type "shared between all Nginx workers"), we tell the client to re-use the already negotiated state.
         # Further optimization can be achieved by raising keepalive_timeout, but that shouldn't be done unless you serve primarily HTTPS.
@@ -118,7 +118,7 @@ http {
 
 ### Base64-encode secrets and configuration file
 
-Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
+Base64-encode the Nginx configuration file, the TLS/SSL certificate, and the TLS key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -190,7 +190,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
@@ -215,7 +215,7 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## Verify SSL connection
+## Verify TLS connection
 
 Use your browser to navigate to the public IP address of the container group. The IP address shown in this example is `52.157.22.76`, so the URL is **https://52.157.22.76**. You must use HTTPS to see the running application, because of the Nginx server configuration. Attempts to connect over HTTP fail.
 
@@ -228,11 +228,11 @@ Use your browser to navigate to the public IP address of the container group. Th
 
 ## Next steps
 
-This article showed you how to set up an Nginx container to enable SSL connections to a web app running in the container group. You can adapt this example for apps that listen on ports other than port 80. You can also update the Nginx configuration file to automatically redirect server connections on port 80 (HTTP) to use HTTPS.
+This article showed you how to set up an Nginx container to enable TLS connections to a web app running in the container group. You can adapt this example for apps that listen on ports other than port 80. You can also update the Nginx configuration file to automatically redirect server connections on port 80 (HTTP) to use HTTPS.
 
-While this article uses Nginx in the sidecar, you can use another SSL provider such as [Caddy](https://caddyserver.com/).
+While this article uses Nginx in the sidecar, you can use another TLS provider such as [Caddy](https://caddyserver.com/).
 
-If you deploy your container group in an [Azure virtual network](container-instances-vnet.md), you can consider other options to enable an SSL endpoint for a backend container instance, including:
+If you deploy your container group in an [Azure virtual network](container-instances-vnet.md), you can consider other options to enable a TLS endpoint for a backend container instance, including:
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)

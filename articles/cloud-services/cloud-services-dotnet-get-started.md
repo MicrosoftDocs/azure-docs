@@ -147,7 +147,7 @@ When the app runs in the cloud, it will use a cloud-based database.
 8. Check **Allow azure services to access server**.
 9. Click **Select** for the new server.
 
-    ![New SQL Database server](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![New server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Click **Create**.
 
 ### Create an Azure storage account

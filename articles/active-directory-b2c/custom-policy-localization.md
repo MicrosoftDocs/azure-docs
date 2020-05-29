@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer' needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
+Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer' needs. Microsoft provides the translations for [36 languages](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
 
 This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of supported languages, provide language-specific strings and collections, and edit the [content definition](contentdefinitions.md) for the page. 
 
@@ -251,7 +251,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Switch your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authorization request. For example: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## Next steps

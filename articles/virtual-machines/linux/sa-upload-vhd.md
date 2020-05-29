@@ -1,21 +1,13 @@
 ---
 title: Upload a custom Linux disk with Azure CLI 
 description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
+ms.custom: storage accounts
 
 ---
 
@@ -149,7 +141,7 @@ az storage account keys list --resource-group myResourceGroup --account-name mys
 
 The output is similar to:
 
-```azurecli
+```output
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -158,6 +150,7 @@ data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINAp
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
 ```
+
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
 
 ## Create a storage container

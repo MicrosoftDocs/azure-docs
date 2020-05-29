@@ -1,8 +1,8 @@
 ---
-title: Search efficiently by using Azure Maps Search Service  | Microsoft Azure Maps 
-description: Learn how to apply best practices for Search Service by using Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Best practices for Azure Maps Search Service | Microsoft Azure Maps 
+description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -34,7 +34,7 @@ For information about authentication in Azure Maps, see [Manage authentication i
 
 When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*. 
 
-The ability to geocode in a country depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
 ### Limit search results
 
@@ -47,7 +47,7 @@ The ability to geocode in a country depends on the availability of road data and
 
 To geobias results to the relevant area for your user, always add as many location details as possible. You might want to restrict the search results by specifying some input types:
 
-* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, then the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries contain a city named *Bellevue*.
+* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, then the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries/regions contain a city named *Bellevue*.
 
 * You can use the `btmRight` and `topleft` parameters to set the bounding box. These parameters restrict the search to a specific area on the map.
 
@@ -64,12 +64,12 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 
 * Use the `idxSet` parameter to prioritize the exact set of result types. To prioritize an exact set of results, you can submit a comma-separated list of indexes. In your list, the item order doesn't matter. Azure Maps supports the following indexes:
 
-    * `Addr` - **Address ranges**: Address points that are interpolated from the beginning and end of the street. These points are represented as address ranges.
-    * `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country, state, or city, for example.
-    * `PAD` - **Point addresses**: Addresses that include a street name and number. Point addresses can be found in an index. An example is *Soquel Dr 2501*. A point address provides the highest level of accuracy available for addresses.  
-    * `POI` - **Points of interest**: Points on a map that are considered to be worth attention or that might be interesting. The [Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) doesn't return POIs.  
-    * `Str` - **Streets**: Streets on the map.
-    * `XStr` - **Cross streets or intersections**: Junctions or places where two streets intersect.
+* `Addr` - **Address ranges**: Address points that are interpolated from the beginning and end of the street. These points are represented as address ranges.
+* `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country/region, state, or city, for example.
+* `PAD` - **Point addresses**: Addresses that include a street name and number. Point addresses can be found in an index. An example is *Soquel Dr 2501*. A point address provides the highest level of accuracy available for addresses.  
+* `POI` - **Points of interest**: Points on a map that are considered to be worth attention or that might be interesting. The [Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) doesn't return POIs.  
+* `Str` - **Streets**: Streets on the map.
+* `XStr` - **Cross streets or intersections**: Junctions or places where two streets intersect.
 
 
 #### Usage examples
@@ -109,7 +109,6 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
                 "municipality": "Redmond",
                 "country": "United States",
                 "countryCodeISO3": "USA",
-                },
                 "countrySubdivisionName": "Washington"
             },
             "position": "47.639454,-122.130455",
@@ -476,7 +475,7 @@ url.QueryEscape(query)
 
 In a POI search, you can request POI results by name. For example, you can search for a business by name. 
 
-We strongly recommend that you use the `countrySet` parameter to specify countries where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
+We strongly recommend that you use the `countrySet` parameter to specify countries/regions where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
 
 ### Brand search
 
@@ -485,7 +484,6 @@ To improve the relevance of the results and the information in the response, a P
 In a request, you can submit a comma-separated list of brand names. Use the list to restrict the results to specific brands by setting the `brandSet` parameter. In your list, item order doesn't matter. When you provide multiple brand lists, the results that are returned must belong to at least one of your lists.
 
 To explore brand searching, let's make a [POI category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) request. In the following example, we look for gas stations near the Microsoft campus in Redmond, Washington. The response shows brand information for each POI that was returned.
-
 
 #### Sample query
 
@@ -766,7 +764,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Address Range**: The range of address points that are interpolated from the beginning and end of the street.  
 
-* **Geography**: Areas on a map that represent administrative divisions of a land, for example, country, state, or city. 
+* **Geography**: Areas on a map that represent administrative divisions of a land, for example, country/region, state, or city. 
 
 * **POI**: Points on a map that are worth attention and that might be interesting.
 
@@ -964,5 +962,10 @@ Responses for the [Search Address](https://docs.microsoft.com/rest/api/maps/sear
 
 ## Next steps
 
-* Learn [how to build Azure Maps Search Service requests](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
-* Explore the Azure Maps [Search Service API documentation](https://docs.microsoft.com/rest/api/maps/search). 
+To learn more, please see :
+
+> [!div class="nextstepaction"]
+> [How to build Azure Maps Search Service requests](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+
+> [!div class="nextstepaction"]
+> [Search Service API documentation](https://docs.microsoft.com/rest/api/maps/search)

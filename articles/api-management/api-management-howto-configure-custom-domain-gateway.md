@@ -11,16 +11,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
 ---
 
 # Configure a custom domain name
 
 When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md) it is not assigned host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) a self-hosted gateway.
-
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 ## Prerequisites
 
@@ -34,7 +31,7 @@ To perform the steps described in this article, you must have:
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md)
 -   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
 -   A DNS record hosted on a DNS server that maps the custom domain name to the self-hosted gateway's IP address. This topic does not provide instructions on how to host a DNS record.
--   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over SSL).
+-   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -42,7 +39,7 @@ To perform the steps described in this article, you must have:
 
 1. Select **Certificates** from under **Security**.
 2. Select **+ Add**.
-3. Enter a resource name for the certificate into **Id** field.
+3. Enter a resource name for the certificate into **ID** field.
 4. Select the file containing the certificate (.PFX) by selecting the **Certificate** field or the folder icon adjacent to it.
 5. Enter the password for the certificate into the **Password** field.
 6. Select **Create** to add the certificate to your API Management service.

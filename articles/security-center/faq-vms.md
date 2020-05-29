@@ -48,7 +48,7 @@ Below are the latency times for Security Center scans of vulnerabilities, update
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
 
 > [!NOTE]
-> Security Center uses the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
+> Security Center uses the Log Analytics agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
 
 
 ## Why do I get the message "VM Agent is Missing?"
