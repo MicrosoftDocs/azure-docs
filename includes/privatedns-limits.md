@@ -1,9 +1,9 @@
 ---
-author: sukhand
+author: sunilkh31
 ms.service: dns
 ms.topic: include
 ms.date: 5/25/2020    
-ms.author: sukhand
+ms.author: sunilkh31
 ---
 **Private DNS**
 
