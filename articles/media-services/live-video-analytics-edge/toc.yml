@@ -56,8 +56,8 @@
   items:
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
-  - name: Manage retention policy
-    href: manage-retention-policy-how-to.md
+  - name: Manage recording policy
+    href: manage-recording-policy-how-to.md
   - name: Playback a recording 
     href: playback-recordings-how-to.md 
   - name: Monitoring and logging

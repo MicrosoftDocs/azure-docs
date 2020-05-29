@@ -1,6 +1,7 @@
 ---
-title: Video recording - Azure
-description: In the context of a video management system for CCTV cameras, video recording refers to the process of capturing video from the cameras and recording it for viewing via mobile and browser apps. Video recording can be categorized as continuous video recording and event-based video recording. 
+title: Event-based video recording  - Azure
+description: Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, detection on motion) or could be from an independent source (for example, opening of a door).  A few use cases related to event-based video recording are described in this article.
+
 ms.topic: conceptual
 ms.date: 05/27/2020
 
