@@ -27,7 +27,7 @@ landingContent:
         url: ./marketplace-faq-publisher-guide.md
       - text: Release notes
         url: ./marketplace-roadmap.md
-      - text: Microsoft publisher agreement
+      - text: Microsoft Publisher Agreement
         url: https://go.microsoft.com/fwlink/?LinkID=699560
 
   - title: Common scenarios and tasks
