@@ -301,6 +301,15 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 > [!IMPORTANT]
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
 
+### Enable scenarios dependent on objects from the system databases
+System databases are not replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, on the secondary instance, make sure to create the same objects on the secondary. 
+For example, if you plan to use the same logins on the secondary instance, make sure to create them with the identical SID. 
+```SQL
+-- Sample code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = 'password', SID = 0x12345
+``` 
+
+
 ## Failover groups and network security
 
 For some applications the security rules require that the network access to the data tier is restricted to a specific component or components such as a VM, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. Consider the following options when implementing such restricted access.
@@ -381,6 +390,7 @@ Be aware of the following limitations:
 - Failover groups cannot be created between two servers or instances in the same Azure regions.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
+- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
 ## Programmatically managing failover groups
 
