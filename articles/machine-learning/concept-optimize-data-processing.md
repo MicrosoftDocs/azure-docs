@@ -48,9 +48,9 @@ If you can't add more RAM to your machine, you can apply the following technique
 
 Technique | Description
 ----|----
-Compression | Use a different representation for your data, in a way that uses less memory and ideally doesn't significantly impact the results of your calculation.<br><br>*Example:* Instead of storing entries as a string with about 10 bytes or more per entry, store them as a boolean, True or False, which you could store in 1 byte.
-Chunking | Load data into memory in subsets (chunks), processing the data one subset at time, or multiple subsets in parallel. This method works best if you need to process all the data, but don't need to load all the data into memory at once. <br><br>*Example:* Instead of processing a full year's worth of data at once, load and process the data one month at a time month.
-Indexing | Apply and use an index, a summary of the data that tells you where to find the data you care about. Indexing is useful when you only need to use a subset of the data, instead of the full set<br><br>*Example:* If you have a full year's worth of sales data sorted by month, an index helps you quickly search for the desired month that you wish to process data for.
+Compression | Use a different representation for your data, in a way that uses less memory and  doesn't significantly impact the results of your calculation.<br><br>*Example:* Instead of storing entries as a string with about 10 bytes or more per entry, store them as a boolean, True or False, which you could store in 1 byte.
+Chunking | Load data into memory in subsets (chunks), processing the data one subset at time, or multiple subsets in parallel. This method works best if you need to process all the data, but don't need to load all the data into memory at once. <br><br>*Example:* Instead of processing a full year's worth of data at once, load and process the data one month at a time.
+Indexing | Apply and use an index, a summary that tells you where to find the data you care about. Indexing is useful when you only need to use a subset of the data, instead of the full set<br><br>*Example:* If you have a full year's worth of sales data sorted by month, an index helps you quickly search for the desired month that you wish to process.
 
 ## Scale data processing
 
