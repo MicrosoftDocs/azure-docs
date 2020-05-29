@@ -12,10 +12,10 @@ ms.author: punagpal
 
 # Quickstart: Deploy IoMT connector (preview) using Azure portal
 
-IoMT connector is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. In this quickstart, you'll learn how to:
+IoMT connector is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. And during the preview phase, IoMT connector feature is being available for free. In this quickstart, you'll learn how to:
 - Deploy and configure IoMT connector using the Azure portal
 - Use a simulated device to send data to IoMT connector
-- View resources created by  IoMT connector on Azure API for FHIR
+- View resources created by IoMT connector on Azure API for FHIR
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ Open the [Azure portal](https://portal.azure.com) and go to the **Azure API for 
 
 <br>
 
-On the left-hand navigation menu, click on **IoMT connector** under **Add-ins** section to open **IoMT connectors** page.
+On the left-hand navigation menu, click on **IoMT connector** under the **Add-ins** section to open the **IoMT connectors** page.
 
 > [!div class="mx-imgBorder"]
 > ![IoMT connector feature](media/quickstart-iomt-fhir-portal/portal-iomt-connectors.jpg)
 
 ## Create new IoMT connector (preview)
 
-Click on the **Add** button to open **Create IoMT connector** page and enter settings for the new IoMT connector. Click on **Create** button and await IoMT connector deployment.
+Click on the **Add** button to open the **Create IoMT connector** page and enter settings for the new IoMT connector. Click on **Create** button and await IoMT connector deployment.
 
 > [!NOTE]
 > Must select **Create** as the value for the **Resolution type** drop down for this installation. 
@@ -53,14 +53,14 @@ Click on the **Add** button to open **Create IoMT connector** page and enter set
 
 ## Configure IoMT connector (preview)
 
-IoMT connector needs two mapping templates to transform device message into FHIR-based Observation resource(s): **device mapping** and **fhir mapping**. Select the newly deployed IoMT connector to open **IoMT connector** page.
+IoMT connector needs two mapping templates to transform device messages into FHIR-based Observation resource(s): **device mapping** and **fhir mapping**. Select the newly deployed IoMT connector to open the **IoMT connector** page.
 
 > [!div class="mx-imgBorder"]
 > ![IoMT connector instance](media/quickstart-iomt-fhir-portal/portal-iomt-connector.jpg)
 
 #### Device Mapping: 
 
-Device mapping template transforms device data into a normalized schema. Select **Configure device mapping** to open **Device mapping** page. 
+Device mapping template transforms device data into a normalized schema. Select **Configure device mapping** to open the **Device mapping** page. 
 
 > [!div class="mx-imgBorder"]
 > ![IoMT connector device mapping](media/quickstart-iomt-fhir-portal/portal-iomt-device-mapping.jpg)
@@ -95,7 +95,7 @@ Add the following script to the JSON editor on the page and select **Save**.
 #### FHIR Mapping:
 
 FHIR mapping template transforms a normalized message to a FHIR-based Observation resource. 
-Select **Configure FHIR mapping** to open **FHIR mapping** page. 
+Select **Configure FHIR mapping** to open the **FHIR mapping** page. 
 
 > [!div class="mx-imgBorder"]
 > ![IoMT connector fhir mapping](media/quickstart-iomt-fhir-portal/portal-iomt-fhir-mapping.jpg)
@@ -149,7 +149,7 @@ Preserve this connection string to be used at a later step.
 
 Set up a device simulator by creating a [continuous patient monitoring application](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template) on Azure IoT Central. 
 
-This application includes two device simulators: **Smart Vitals Patch** and **Smart Knee Brace**. The mapping templates configured in the previous section would transform heart rate value produced by Smart Vitals Patch to FHIR standard and save it in Azure API for FHIR. 
+This application includes two device simulators: **Smart Vitals Patch** and **Smart Knee Brace**. The mapping templates configured in the previous section would transform a heart rate value produced by the Smart Vitals Patch to FHIR standard and save it in Azure API for FHIR. 
 
 ## Connect device simulator with IoMT connector (preview)
 
@@ -168,7 +168,7 @@ You can view the FHIR-based Observation resource(s) created by IoMT connector on
 
 ## Clean up resources
 
-When no longer needed you can delete an instance of IoMT connector by removing associated resource group or Azure API for FHIR, or the instance itself. 
+When no longer needed, you can delete an instance of IoMT connector by removing the associated resource group, or the associated Azure API for FHIR service, or the IoMT connector instance itself. 
 
 To directly remove an IoMT connector instance, select the instance from **IoMT connectors** page and click on **Delete** button. Select **Yes** when asked for confirmation. 
 
