@@ -97,13 +97,14 @@ Once the files are downloaded, the second step is to run the installer. Once aga
 
 ## Cost estimate
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was medium, which is 55 lab units.
+Let's cover a possible cost estimate for this class.  This estimate does not include the cost of running the license server.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was medium, which is 55 lab units.
 
 Here is an example of a possible cost estimate for this class:
 
 25 students \* (20 scheduled hours + 10 quota hours) \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  This estimate does not include the cost of running the license server.
+>[!IMPORTANT]
+> Estimate is for example purposes only.  For more current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
 
 ## Next steps
 
