@@ -91,7 +91,7 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 * `Azure.Net.Http`
 * `Azure.Core`
 
-Depending on your tools of choice, you can do so with the Visual Studio package manager or the dotnet command line tool. 
+Depending on your tools of choice, you can do so with the Visual Studio package manager or the `dotnet` command line tool. 
 
 Add the following using statements to your Azure function.
 

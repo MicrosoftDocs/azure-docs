@@ -38,13 +38,13 @@ The capabilities of the parser include:
 > [!NOTE]
 > [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both PnP and Azure Digital Twins syntax.
 
-## Use the validator tool sample
+## Use the DTDL validator sample
 
-There is sample code for a tool available that can validate model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator tool sample](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+There is sample code available that can validate model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
 
 The validator sample can be used as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode. The source code shows examples for how to use the parser library.
 
-In the folder for the DTDL Validator tool, see the *readme.md* file for instructions on how to package the tools into a self-contained executable.
+In the folder for the DTDL Validator sample, see the *readme.md* file for instructions on how to package the sample into a self-contained executable.
 
 After you have built a self-contained package and added the executable to your path, you can run the validator with this command in a console on your machine:
 
@@ -52,19 +52,19 @@ After you have built a self-contained package and added the executable to your p
 DTDLValidator
 ```
 
-With the default options, the tool will search for `*.json` files in the current directory and all subdirectories. You can also add the following option to have the tool search in the indicated directory and all subdirectories for files with the extension *.dtdl*:
+With the default options, the sample will search for `*.json` files in the current directory and all subdirectories. You can also add the following option to have the sample search in the indicated directory and all subdirectories for files with the extension *.dtdl*:
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
 ```
 
-You can add the `-i` option for the tool to enter interactive mode:
+You can add the `-i` option for the sample to enter interactive mode:
 
 ```cmd/sh
 DTDLValidator -i
 ```
 
-For more information about this tool, see the source code or run `DTDLValidator --help`.
+For more information about this sample, see the source code or run `DTDLValidator --help`.
 
 ## Use the parser library in code
 
