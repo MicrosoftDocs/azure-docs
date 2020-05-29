@@ -147,7 +147,7 @@ To configure single sign-on on the Smart Global Governance side, you need to sen
 
 ### Create a Smart Global Governance test user
 
-In this section, you create a user called Britta Simon in Smart Global Governance. Work with [Smart Global Governance support team](mailto:support.tech@smartglobal.com) to add the users in the Smart Global Governance platform. Users must be created and activated before you use single sign-on.
+Work with the [Smart Global Governance support team](mailto:support.tech@smartglobal.com) to add a user named B.Simon in Smart Global Governance. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
