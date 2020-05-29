@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
 ---
 
@@ -175,13 +175,17 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this topic.
 
-   Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
+   Your logic app keeps the incoming request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
    This step generates the URL to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > If you want to include the hash or pound symbol (**#**) in the URI 
+   > when making a call to the Request trigger, use this encoded version instead: `%25%23`
 
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
@@ -205,7 +209,7 @@ Here's more information about the outputs from the Request trigger:
 
 You can use the Response action to respond with a payload (data) to an incoming HTTPS request but only in a logic app that's triggered by an HTTPS request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
+Your logic app keeps the incoming request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 > [!IMPORTANT]
 > If a Response action includes these headers, Logic Apps removes these headers 

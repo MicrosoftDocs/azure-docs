@@ -1,6 +1,6 @@
 ---
-title: Security controls for Azure Service Bus Relay
-description: This articles provides a checklist of built-in security controls for evaluating Azure Service Bus Relay.
+title: Security controls for Azure Relay
+description: This articles provides a checklist of built-in security controls for evaluating Azure Relay.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
@@ -10,9 +10,9 @@ ms.date: 01/21/2020
 ms.author: spelluru
 
 ---
-# Security controls for Azure Service Bus Relay
+# Security controls for Azure Relay
 
-This article documents the security controls built into Azure Service Bus Relay.
+This article documents the security controls built into Azure Relay.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 

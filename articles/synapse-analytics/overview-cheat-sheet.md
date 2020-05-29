@@ -26,7 +26,7 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 | Nouns and verbs                         | What it does       |
 |:---                                 |:---                 |
 | **Synapse Workspace (preview)** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group. |
-| **SQL Analytics**   | Run analytics with pools or with on-demand capabilities.  |
+| **Synapse SQL**   | Run analytics with pools or with on-demand capabilities.  |
 | **SQL pool**   | 0-to-N SQL provisioned resources with their corresponding databases can be deployed in a workspace. Each SQL pool has an associated database. A SQL pool can be scaled, paused and resumed manually or automatically. A SQL pool can scale from 100 DWU up to 30,000 DWU.       |
 | **SQL on-demand (preview)**   | Distributed data processing system built for large-scale data that lets you run T-SQL queries over data in data lake. It is serverless so you don't need to manage infrastructure.       |
 |**Apache Spark** | Spark run-time used in a Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  | 
@@ -50,7 +50,7 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 - [Use SQL on-demand](quickstart-sql-on-demand.md)
-- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
 

@@ -11,6 +11,11 @@ ms.topic: troubleshooting
 
 This page lists common issues interfering with Azure Remote Rendering, and ways to resolve them.
 
+## Can't link storage account to ARR account
+
+Sometimes during [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) the Remote Rendering account isn't listed. To fix this issue, go to the ARR account in the Azure portal and select **Identity** under the **Settings** group on the left. Make sure **Status** is set to **On**.
+![Unity frame debugger](./media/troubleshoot-portal-identity.png)
+
 ## Client can't connect to server
 
 Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
@@ -19,7 +24,7 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 * **8266 (TCP+UDP)** - required for data transfer
 * **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
 
-## Error 'Disconnected: VideoFormatNotAvailable'
+## Error '`Disconnected: VideoFormatNotAvailable`'
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
 
@@ -27,7 +32,7 @@ If you are working on a laptop with two GPUs, it is possible that the GPU you ar
 
 ## H265 codec not available
 
-There are two reasons why the server might refuse to connect with a **codec not available** error.
+There are two reasons why the server might refuse to connect with a `codec not available` error.
 
 **The H265 codec isn't installed:**
 
@@ -97,7 +102,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
 
-**The model is not inside the view frustum:**
+**The model is not inside the camera frustum:**
 
 In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
 
@@ -132,7 +137,7 @@ There can be two problems with this bounding box that lead to invisible geometry
 
 **The Unity render pipeline doesn't include the render hooks:**
 
-Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *Window > Analysis > Frame debugger*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
+Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *:::no-loc text="Window > Analysis > Frame debugger":::*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
@@ -145,7 +150,7 @@ Switch the *build type* of the Unity solution to **Debug**. When testing ARR in 
 ### Compile failures when compiling Unity samples for HoloLens 2
 
 We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp, ..) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they are there. If you hit this problem:
-* Remove all temporary Unity files from the project and try again.
+* Remove all temporary Unity files from the project and try again. That is, close Unity, delete the temporary *library* and *obj* folders in the project directory and load/build the project again.
 * Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
 * If that does not help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
     ```cmd

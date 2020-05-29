@@ -1,19 +1,14 @@
 ---
-title: Runbook input parameters
-description: Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to a runbook when it is started. This article describes different scenarios where input parameters are used in runbooks.
+title: Configure runbook input parameters in Azure Automation
+description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ---
-# Runbook input parameters
+# Configure runbook input parameters
 
 Runbook input parameters increase the flexibility of a runbook by allowing data to be passed to it when it's started. These parameters allow runbook actions to be targeted for specific scenarios and environments. This article describes the configuration and use of input parameters in your runbooks.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
-## Configuring input parameters
 
 You can configure input parameters for PowerShell, PowerShell Workflow, graphical, and Python runbooks. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can use default values for optional parameters.
 
@@ -114,7 +109,7 @@ Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks 
 For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md).
 
-## Assigning values to input parameters in runbooks
+## Assign values to input parameters in runbooks
 
 This section describes several ways to pass values to input parameters in runbooks. You can assign parameter values when you:
 
@@ -270,7 +265,7 @@ When you execute a runbook by using a webhook, the predefined input parameter `[
 
 ![WebhookData parameter](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
-## Passing a JSON object to a runbook
+## Pass a JSON object to a runbook
 
 It can be useful to store data that you want to pass to a runbook in a JSON file. For example, you might create a JSON file that contains all parameters that you want to pass to a runbook. To do this, you must convert the JSON code to a string and then convert the string to a PowerShell object before passing it to the runbook.
 
@@ -359,6 +354,5 @@ Now you can call the runbook from your local machine by using Azure PowerShell.
 
 ## Next steps
 
-* For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
-* To edit a textual runbook, refer to [Editing textual runbooks](automation-edit-textual-runbook.md).
-* To edit a graphical runbook, refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+* To prepare a textual runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
+* To prepare a graphical runbook, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).

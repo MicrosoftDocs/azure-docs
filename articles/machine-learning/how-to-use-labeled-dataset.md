@@ -5,8 +5,8 @@ description: Learn how to export data labels from your Azure Machine Learning la
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: how-to
-ms.date: 01/21/2020
+ms.topic: conceptual
+ms.date: 05/14/2020
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---

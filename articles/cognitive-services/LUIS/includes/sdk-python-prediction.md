@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
@@ -65,7 +65,7 @@ These code snippets show you how to do the following with the Language Understan
 
 From the project directory, open the `prediction_quickstart.py` file in your preferred editor or IDE. Add the following dependencies:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Dependencies)]
 
 ## Authenticate the client
 
@@ -75,16 +75,16 @@ From the project directory, open the `prediction_quickstart.py` file in your pre
 
     Create a variable to hold your resource name `LUIS_RUNTIME_ENDPOINT`.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
 1. Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Create a variable to set the `production` published slot.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
 1. Create a credentials object with your key, and use it with your endpoint to create an [LUISRuntimeClientConfiguration]https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() object.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 
 ## Get prediction from runtime
 
@@ -94,7 +94,7 @@ The user utterance is part of the [prediction_request](https://docs.microsoft.co
 
 The **[get_slot_prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional. The request returns a [PredictionResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionresponse?view=azure-python) object.
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=predict)]
 
 ## Main code for the prediction
 

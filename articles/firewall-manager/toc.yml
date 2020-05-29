@@ -4,8 +4,13 @@
   items:
   - name: What is Azure Firewall Manager?
     href: overview.md
-- name: Tutorials
+- name: Quickstarts
   expanded: true
+  items:
+  - name: Secure virtual hub - ARM template
+    displayName: Resource Manager
+    href: quick-secure-virtual-hub.md
+- name: Tutorials
   items:
   - name: Secure your virtual WAN - portal
     href: secure-cloud-network.md

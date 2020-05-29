@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -36,9 +36,9 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
-* Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD, Office 365, or Microsoft 365 licenses:
+* Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD, EMS, Microsoft 365 licenses:
     * [Azure AD Premium P1 or P2][azuread-licensing]
-    * [Microsoft 365 (M365) F1 or F3][m365-firstline-workers-licensing] or [Office 365 F1][o365-f1] or [F3][o365-f3]
+    * [Microsoft 365 (M365) F1 or F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 or E5][ems-licensing] or [Microsoft 365 (M365) E3 or E5][m365-licensing]
 
 ## Limitations
