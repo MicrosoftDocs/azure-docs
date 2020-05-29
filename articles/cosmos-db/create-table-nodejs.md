@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 05/28/2020
 ms.author: sngun
 
 ---
@@ -72,7 +72,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [update the connection string](#update-your-connection-string) section of this doc.
 
-* The following code shows how to create a table within the Azure Storage table:
+* The following code shows how to create a table within the Azure Storage:
 
   ```javascript
   storageClient.createTableIfNotExists(tableName, function (error, createResult) {
