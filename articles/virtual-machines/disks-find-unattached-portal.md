@@ -15,44 +15,44 @@ When you delete a virtual machine (VM) in Azure, by default, any disks that are 
 
 ## Managed disks: Find and delete unattached disks
 
-Finding unattached disks in the Azure portal is easy.
+If you have unattached managed disks and no longer need the data on them, the following process explains how to find them from the Azure portal:
 
-1. Sign in to the Azure portal
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Disks**.
 
     On this blade you are presented with a list of all your disks. Any disk which has **-** in the **Owner** column is an unattached disk.
 
 
 
-    :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Texthere" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
+    :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
 
 1. Select the unattached disk you'd like to delete, this opens the disk's blade.
 1. On the disk's blade, you can confirm the disk state is unattached, then select **Delete**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Confirmed":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Screenshot of an individual managed disks blade. This blade will show unattached in the disk state if it is unattached. You can delete this disk if you do not need to preserve its data any longer":::
 
 ## Unmanaged disks: Find and delete unattached disks
 
 Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure storage accounts](../storage/common/storage-account-overview.md).
 
-If you have unmanaged disks that aren't attached and would like to delete them, the following process explains how:
+If you have unmanaged disks that aren't attached to a VM, have no need for the the data on them, and would like to delete them, the following process explains how to do so from the Azure portal:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Disks(Classic)**.
 
     You are presented with a list of all your unmanaged disks. Any disk which has **-** in the **Attached to** column is an unattached disk.
 
-    :::image type="content" source="media/disks-find-unattached-portal/Unmanaged-disks-unattached.png" alt-text="texthere":::
+    :::image type="content" source="media/disks-find-unattached-portal/Unmanaged-disks-unattached.png" alt-text="Screenshot of the unmanaged disks blade. Disks in this blade which have - in the attached to column are unattached.":::
 
 1. Select the unattached disk you'd like to delete, this brings up the disk's blade.
 
 1. On the disk's blade, you can confirm it is unattached, since **Attached to** will still be **-**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="texthere":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot of an individual unmanaged disk blade. It will have - as the attached to value if it is unattached. If you no longer need this disks data, you can delete it.":::
 
 1. Select delete.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="sdafsdf":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot of an individual unmanaged disk blade, highlighting delete.":::
 
 ## Next steps
 
