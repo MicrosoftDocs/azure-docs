@@ -86,15 +86,15 @@ Next, you'll change the `GetMessage` function to return a message to the front-e
 
 1. Update the `GetMessage` function under _api/GetMessage/index.js_ with the following code.
 
-  ```javascript
-  module.exports = async function (context, req) {
-    context.res = {
-      body: {
-        text: "Hello from the API"
-      }
+    ```javascript
+    module.exports = async function (context, req) {
+      context.res = {
+        body: {
+          text: "Hello from the API"
+        }
+      };
     };
-  };
-  ```
+    ```
 
 1. Update the `GetMessage` configuration under `api/GetMessage/function.json` with the following settings.
 
@@ -141,9 +141,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-1. With Core Tools running, navigate to the following URL to verify the API is running correctly.
-
-   <http://localhost:7071/api/message>
+1. With Core Tools running, navigate to the following URL to verify the API is running correctly: <http://localhost:7071/api/message>.
 
    The response in the browser should look similar to the following example:
 
@@ -153,9 +151,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 ### Call the API from the application
 
-When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route.
-
-When working locally, you have you configure the application settings to proxy requests to the local API.
+When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have you configure the application settings to proxy requests to the local API.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
