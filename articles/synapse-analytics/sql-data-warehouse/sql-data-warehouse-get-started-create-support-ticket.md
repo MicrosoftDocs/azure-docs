@@ -56,17 +56,15 @@ Use the following steps to create a new support request from the Azure portal fo
 
 Selecting **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different quota requests available for Azure Synapse Analytics.
 
-### Data Warehouse Units (DWUs) per server
+### Synapse SQL pool Data Warehouse Units (DWUs) per server
 
 Use the following steps to request an increase in the DWUs per server.
 
-1. Select the **Synapse SQL Pool (data warehouse) region access** quota type.
+1. Select the **Synapse SQL pool DWUs per server** quota type.
 
-1. Select the Azure region from the **Location** dropdown list.
+1. Select the **Resource** you want to apply the quota increase to by using the dropdown list.
 
-1. Indicate the new **DWU required** that you are requesting.
-
-1. Give a **Description of your business requirements**.
+1. Enter your new quota into the **Request quota** section.
 
 1. Select **Save and continue**.
 
@@ -89,9 +87,24 @@ To request an increase in the number of servers per subscription, you'll need to
 
 ### Enable subscription access to a region
 
+To enable region access for a subscription, you'll need to do the following:  
+
+1. Select the **Synapse SQL pool (data warehouse) region access** quota type.
+
+1. Select the **Resource** you want to apply the quota increase to by using the dropdown list.
+
+1. Indicate your DWU performance requirement in the **DWU required** section.
+
+1. Enter your **Description of business requirements** 
+
+1. Select **Save and continue**.
+
+![Region access](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
+
 Some offer types are not available in every region. You may see an error such as the following:
 
-`This location is not available for subscription`
+![Region access error](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
+
 
 If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
 
