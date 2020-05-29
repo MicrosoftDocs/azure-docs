@@ -71,11 +71,7 @@ We offer license mobility benefits to SQL Server customers with Software Assuran
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL Server Enterprise Edition customers can get four cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility doesn't allow any special cost benefits for moving virtualized workloads to the cloud.
-<<<<<<< HEAD
-- It provides for a PaaS destination on Azure (SQL Managed Instance) that's highly compatible with SQL Server on-premises.
-=======
-- It provides for a PaaS destination on Azure (SQL Database Managed Instance) that's highly compatible with SQL Server.
->>>>>>> 88ee8a8ebd366b0db5be5ef92343ec8980bb1ca6
+- It provides for a PaaS destination on Azure (SQL Managed Instance) that's highly compatible with SQL Server.
 
 #### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 
