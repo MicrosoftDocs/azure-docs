@@ -16,17 +16,17 @@ ms.author: aahi
 
 Use the batch processing kit to complement and scale out workloads on Speech containers. Available as a container, this open-source utility helps facilitate batch transcription for large numbers of audio files, across any number of on-premises and cloud-based speech container endpoints. 
 
+The batch kit container is available for free [on GitHub](). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
+
 | Feature  | Description  |
 |---------|---------|
 | Batch audio file distribution     | Automatically dispatch large numbers of files to on-premises or cloud-based Speech container endpoints. Files can be on any POSIX-compliant volume, including network filesystems.       |
 | Speech SDK integration | Pass common flags to the Speech SDK, including: n-best hypotheses, diarization, language, profanity masking.  |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
-| Open source software | The batch kit container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use. | 
-| Fault tolerance | Automatically retry transcriptions without losing progress, and differentiate between which errors can, and can't be retried on. If an endpoint becomes unavailable, the batch client will continue using other endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
-| Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are used by the batch client immediately. |
-| Real-time logging | Real-time logging of attempted operations, transcription times, and failure reasons. |
-
-
+| Fault tolerance | Automatically retry and continue transcription without losing progress, and differentiate between which errors can, and can't be retried on. |
+| Endpoint availability detection | If an endpoint becomes unavailable, the batch client will continue transcribing, using other container endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
+| Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are immediate. |
+| Real-time logging | Real-time logging of attempted requests, timestamps, and failure reasons, with Speech SDK log files for each audio file. |
 
 ## Endpoint configuration
 
