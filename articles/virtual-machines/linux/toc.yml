@@ -69,8 +69,12 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Images
-    href: shared-image-galleries.md
+  - name: Imaging
+    items:
+    - name: Overview
+      href: imaging.md
+    - name: Shared image galleries
+      href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -460,7 +464,27 @@
       href: ../../azure-monitor/platform/alerts-log.md
   - name: Use Images
     displayName: SIG, AMI, image
-    items:
+    items: 
+    - name: Cloud-init
+      items:
+      - name: Cloud-init overview
+        href: using-cloud-init.md
+      - name: Deep dive
+        href: cloud-init-deep-dive.md
+      - name: Troubleshooting
+        href: cloud-init-troubleshooting.md
+      - name: Configure VM hostname
+        href: cloudinit-update-vm-hostname.md
+      - name: Update packages in a VM
+        href: cloudinit-update-vm.md
+      - name: Add a user on a VM
+        href: cloudinit-add-user.md
+      - name: Configure swapfile
+        href: cloudinit-configure-swapfile.md
+      - name: Run existing bash script
+        href: cloudinit-bash-script.md
+      - name: Prepare existing VM for cloud-init
+        href: cloudinit-prepare-custom-image.md
     - name: Shared Image Galleries
       items:
       - name: CLI
@@ -596,22 +620,6 @@
         href: /azure/developer/terraform/install-configure
       - name: Create a complete VM
         href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
-    - name: Cloud-init
-      items:
-      - name: Cloud-init overview
-        href: using-cloud-init.md
-      - name: Configure VM hostname
-        href: cloudinit-update-vm-hostname.md
-      - name: Update packages in a VM
-        href: cloudinit-update-vm.md
-      - name: Add a user on a VM
-        href: cloudinit-add-user.md
-      - name: Configure swapfile
-        href: cloudinit-configure-swapfile.md
-      - name: Run existing bash script
-        href: cloudinit-bash-script.md
-      - name: Prepare existing VM for cloud-init
-        href: cloudinit-prepare-custom-image.md
     - name: Jenkins
       href: /azure/developer/jenkins/overview
       items:
