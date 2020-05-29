@@ -16,7 +16,7 @@ The Edv4 and Edsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Casc
 
 
 > [!IMPORTANT]
-> If you are deploying a new Virtual Machine and intending to use a Linux Image with either Red Hat Enterprise Linux (RHEL), CentOS, or Oracle, you need to choose versions 8.x, 8.x, or 7.x or newer. If chosing version 7.x, 7.x, or 6.x there will be a Kernel Panic error that Microsoft is actively deploying a solution for. Other Linux Images (non-RHEL/CentOS/Oracle) are not impacted.
+> If you are deploying a new Virtual Machine using the Edv4 or Edsv4-series and intend to use a Linux Image, you need to use either RHEL 8.x, CentOS 8.x, or Oracle 7.x or newer. If choosing RHEL 7.x, CentOS 7.x or Orcale 6.x there will be a Kernel Panic error. Microsoft is actively deploying a fix. Only RHEL, CentOS and Oracle are impacted.
 
 ## Edv4-series
 
@@ -32,16 +32,16 @@ Live Migration: Supported
 
 Memory Preserving Updates: Supported
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2/1000 |
-| Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2/2000 |
-| Standard_E8d_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12800/192 | 4/4000 |
-| Standard_E16d_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25600/384 | 8/8000 |
-| Standard_E20d_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32000/480  | 8/10000 |
-| Standard_E32d_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8/16000 |
-| Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8/24000 |
-| Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8/30000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max NICs/Expected Network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|
+| Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2/1000 |
+| Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2/2000 |
+| Standard_E8d_v4 | 8 | 64 | 300 | 16 | 77000/485 | 4/4000 |
+| Standard_E16d_v4 | 16 | 128 | 600 | 32 | 154000/968 | 8/8000 |
+| Standard_E20d_v4 | 20 | 160 | 750 | 32 | 193000/1211  | 8/10000 |
+| Standard_E32d_v4 | 32 | 256 | 1200 | 32 | 308000/1936 | 8/16000 |
+| Standard_E48d_v4 | 48 | 384 | 1800 | 32 | 462000/2904 | 8/24000 |
+| Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8/30000 |
 
 
 ## Edsv4-series
@@ -69,7 +69,7 @@ Memory Preserving Updates: Supported
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8/24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> Constrained core sizes available.
+<sup>1</sup> [Constrained core sizes available)](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
