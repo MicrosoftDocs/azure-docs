@@ -45,7 +45,11 @@ If you have unmanaged disks that aren't attached and would like to delete them, 
 
 1. Select the unattached disk you'd like to delete, this brings up the disk's blade.
 
-1. On the disk's blade, you can confirm it is unattached, since **Assigned to** will still be **-**, and select delete.
+1. On the disk's blade, you can confirm it is unattached, since **Attached to** will still be **-**.
+
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="texthere":::
+
+1. Select delete.
 
     :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="sdafsdf":::
 
