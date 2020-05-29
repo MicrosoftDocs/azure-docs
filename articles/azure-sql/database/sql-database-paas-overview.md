@@ -27,7 +27,7 @@ SQL Database enables you to easily define and scale performance within two diffe
 
 ## Deployment models
 
-Azure SQL Database provides the following deployment options for an Azure SQL database:
+Azure SQL Database provides the following deployment options for a database:
 
 - [Single database](single-database-overview.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server Database Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Elastic pool](elastic-pool-overview.md) is a collection of [single databases](single-database-overview.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
@@ -185,18 +185,13 @@ SQL Database enables you to centrally manage identities of database user and oth
 
 SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. You can manage and develop in SQL Database by using tools and skills you already have.
 
-- [The Azure portal](https://portal.azure.com/):
-
-  A web-based application for managing all Azure services.
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms):
-
-  A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.
-- [SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt):
-
-  A free, downloadable client application for developing SQL Server relational databases, Microsoft Azure SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
-- [Visual Studio Code](https://code.visualstudio.com/docs):
-
-  A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.
+|Tool|Description|
+|:---|:---|
+|[The Azure portal](https://portal.azure.com/)|A web-based application for managing all Azure services.|
+|[Azure Data Studio](/sql/azure-data-studio/)|A cross-platform database tool that runs on Windows, MacOS, and Linux.|
+|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.|
+|[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|A free, downloadable client application for developing SQL Server relational databases, Microsoft Azure SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.|
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on macOS, Linux, and Windows. SQL Database supports the same [connection libraries](connect-query-content-reference-guide.md#libraries) as SQL Server.
 

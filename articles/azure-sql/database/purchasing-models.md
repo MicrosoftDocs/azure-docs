@@ -11,12 +11,12 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/09/2020
+ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
+Azure SQL Database & SQL Managed Instance lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
 - [Virtual core (vCore)-based purchasing model](service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
@@ -76,15 +76,7 @@ The vCore-based purchasing model lets you independently choose compute and stora
 
 If your Azure SQL Database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
 
-To convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size by using the following rules of thumb:
-
-- Every 100 DTUs in the standard tier require at least 1 vCore in the General Purpose service tier.
-- Every 125 DTUs in the premium tier require at least 1 vCore in the Business Critical service tier.
-
-> [!NOTE]
-> The DTU to vCore sizing guidelines are approximate, and are provided to help in the initial estimation of the target database service objective. The optimal configuration of the target database is workload-dependent.
->
-> Achieving the optimal price/performance ratio may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](service-tiers-vcore.md#hardware-generations), the [service](service-tiers-vcore.md#service-tiers) and [compute](service-tiers-vcore.md#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+To convert from the DTU-based purchasing model to the vCore-based purchasing model, see [Migrate from DTU to vCore](migrate-dtu-to-vcore.md).
 
 ## DTU-based purchasing model
 
