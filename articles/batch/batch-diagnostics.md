@@ -2,7 +2,7 @@
 title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 ms.topic: how-to
-ms.date: 05/27/2020
+ms.date: 05/29/2020
 ms.custom: seodec18
 
 ---
@@ -58,7 +58,10 @@ To configure a metric alert in the Azure portal:
 
 1. Select **All services** > **Batch accounts**, and then select the name of your Batch account.
 2. Under **Monitoring**, select **Alerts**, then select **New alert rule**.
-3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
+3. Click **Select condition**, then choose a metric. Confirm the values for **Chart period**, **Threshold type**, **Operator**, and **Aggregation type**, and enter a **Threshold value**. Then select **Done**.
+4. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+5. In the **Alert rule details** section, enter an **Alert rule name** and **Description** and select the **Severity**
+6. Select **Create alert rule**.
 
 For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
