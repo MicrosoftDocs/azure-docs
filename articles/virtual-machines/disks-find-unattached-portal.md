@@ -22,6 +22,7 @@ Finding unattached disks in the Azure portal is easy.
 
     You are presented with a list of all your disks. Any disk which has **-** in the **Owner** column is an unattached disk.
 
+
     :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Texthere" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
 
 1. Select the unattached disk you'd like to delete, this opens the disk's blade.
