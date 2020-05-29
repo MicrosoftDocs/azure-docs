@@ -10,7 +10,7 @@ ms.author: allensu
 ---
 # Create a private link service - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to create an private link service.
+In this quickstart, you use a Resource Manager template to create a private link service.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -20,7 +20,7 @@ You can also complete this quickstart using the [Azure portal](create-private-li
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create an private link service
+## Create a private link service
 
 this template creates a private link service.
 
