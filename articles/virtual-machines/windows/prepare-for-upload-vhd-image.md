@@ -31,32 +31,6 @@ For information about the support policy for Azure VMs, see
 > - The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/).
 > - If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required on the Guest OS to prepare the image before the migration.
 
-## System File Checker
-
-### Run Windows System File Checker utility before generalization of OS image
-
-The System File Checker (SFC) is used to verify and replace Windows system files.
-
-> [!IMPORTANT]
-> Use an elevated PowerShell session to run the examples in this article.
-
-Run the SFC command:
-
-```powershell
-sfc.exe /scannow
-```
-
-```Output
-Beginning system scan.  This process will take some time.
-
-Beginning verification phase of system scan.
-Verification 100% complete.
-
-Windows Resource Protection did not find any integrity violations.
-```
-
-After the SFC scan completes, install Windows Updates and restart the computer.
-
 ## Convert the virtual disk to a fixed size VHD
 
 Use one of the methods in this section to convert your virtual disk to the required format for Azure:
@@ -108,6 +82,32 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)
 to convert it to VHD format. For more information, see
 [How to convert a VMware VMDK to Hyper-V VHD](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
+
+## System File Checker
+
+### Run Windows System File Checker utility before generalization of OS image
+
+The System File Checker (SFC) is used to verify and replace Windows system files.
+
+> [!IMPORTANT]
+> Use an elevated PowerShell session to run the examples in this article.
+
+Run the SFC command:
+
+```powershell
+sfc.exe /scannow
+```
+
+```Output
+Beginning system scan.  This process will take some time.
+
+Beginning verification phase of system scan.
+Verification 100% complete.
+
+Windows Resource Protection did not find any integrity violations.
+```
+
+After the SFC scan completes, install Windows Updates and restart the computer.
 
 ## Set Windows configurations for Azure
 
