@@ -74,9 +74,9 @@ Start Visual Studio Code and follow the instructions below to connect to your Az
 
     ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
-## Use Direct Methods
+## Use direct methods
 
-You can use the module to analyze live video streams by invoking Direct Methods. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by the module. 
+You can use the module to analyze live video streams by invoking direct methods. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by the module. 
 
 ### Invoke GraphTopologyList
 This enumerates all the [graph topologies](media-graph-concept.md#media-graph-topologies-and-instances) in the module.
@@ -370,7 +370,7 @@ Note the following in the response payload:
 
 Next, create a graph instance that references the above graph topology. As explained [here](media-graph-concept.md#media-graph-topologies-and-instances), graph instances let you analyze live video streams from many cameras with the same graph topology.
 
-Invoke Direct Method GraphInstanceSet with the following payload.
+Invoke the direct method GraphInstanceSet with the following payload.
 
 ```
 {
@@ -430,7 +430,7 @@ Try the following as next steps:
 
 ### Invoke GraphInstanceActivate
 
-Now activate the graph instance - which starts the flow of live video through the module. Invoke the Direct Method GraphInstanceActivate with the following payload.
+Now activate the graph instance - which starts the flow of live video through the module. Invoke the direct method GraphInstanceActivate with the following payload.
 
 ```
 {
@@ -454,7 +454,7 @@ Status code of 200 in the response payload indicates that the graph instance was
 
 ### Invoke GraphInstanceGet
 
-Now invoke Direct Method GraphInstanceGet with the following payload:
+Now invoke the direct method GraphInstanceGet with the following payload:
 
 ```
  {
@@ -579,13 +579,13 @@ Note the following in the above message
 * "eventType" in applicationProperties indicates that this is a Diagnostic event.
 * "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body.
 
-## Invoke additional Direct Methods
+## Invoke additional direct methods to clean up
 
-Now, invoke Direct Methods to deactivate and delete the graph instance (in that order).
+Now, invoke direct methods to deactivate and delete the graph instance (in that order).
 
 ### Invoke GraphInstanceDeactivate
 
-Invoke Direct Method GraphInstanceDeactivate with the following payload.
+Invoke the direct method GraphInstanceDeactivate with the following payload.
 
 ```
 {
@@ -613,7 +613,7 @@ Try the following, as next steps.
 
 ### Invoke GraphInstanceDelete
 
-Invoke Direct Method GraphInstanceDelete with the following payload
+Invoke the direct method GraphInstanceDelete with the following payload
 
 ```
 {
@@ -637,7 +637,7 @@ Status code of 200 in the response indicates that the graph instance was success
 
 ### Invoke GraphTopologyDelete
 
-Invoke Direct Method GraphTopologyDelete with the following payload:
+Invoke the direct method GraphTopologyDelete with the following payload:
 
 ```
 {
