@@ -165,6 +165,8 @@
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute
       href: how-to-npm.md
+    - name: Configure custom alerts to monitor advertised routes
+      href: how-to-custom-route-alert.md
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
