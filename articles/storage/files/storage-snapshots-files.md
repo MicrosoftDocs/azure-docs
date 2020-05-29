@@ -82,8 +82,7 @@ share snapshots associated with the original destination file remain intact.
 
 ## General best practices
 
-When you're running infrastructure on Azure, automate backups for data recovery whenever possible. Automated actions are more reliable than manual processes,
-helping to improve data protection and recoverability. You can use the REST API, the Client SDK, or scripting for automation.
+We recommend using [Azure file share backup](../../backup/azure-file-share-backup-overview.md) as a backup solution for automating taking snapshots, as well as managing snapshots. When you're running infrastructure on Azure, automate backups for data recovery whenever possible. Automated actions are more reliable than manual processes, helping to improve data protection and recoverability. You can use the Azure file share backup, the REST API, the Client SDK, or scripting for automation.
 
 Before you deploy the share snapshot scheduler, carefully consider your share snapshot frequency and retention settings to avoid incurring unnecessary charges.
 
