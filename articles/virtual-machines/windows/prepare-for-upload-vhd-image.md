@@ -40,14 +40,17 @@ Use one of the methods in this section to convert and resize your virtual disk t
 1. Make sure that the Windows VHD works correctly on the local server. Resolve any errors within the
    VM itself before you try to convert or upload it to Azure.
 
-1. VHD Size:
+1. Convert the virtual disk to type fixed.
+
+1. Resize the virtual disk to meet Azure requirements:
 
    1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD.
    
    1. The maximum size allowed for the OS VHD is 2,048 GiB (2 TiB), for a data disk is 32,767 GiB (32 TiB).
 
-After you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM to finish
-preparing it for uploading.
+> [!NOTE]
+> - If you are preparing a Windows OS disk after you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM and continue with the sections in this article to finish preparing it for uploading.  
+> - If you are preparing a data disk you may stop with this section and proceed to uploading your disk.
 
 ### Use Hyper-V Manager to convert the disk
 
