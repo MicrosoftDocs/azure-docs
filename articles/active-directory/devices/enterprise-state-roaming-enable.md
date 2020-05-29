@@ -12,7 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
-
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
