@@ -115,7 +115,7 @@ The following steps will walk you through creating an app and assigning it an id
     New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
 
     # Create a function app with a system-assigned identity.
-    New-AzFunctionApp -Name functionappname -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
     ```
 
 You can also update an existing function app using `Update-AzFunctionApp` instead.
@@ -206,7 +206,7 @@ The following steps will walk you through creating an app and assigning it an id
 
 1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.
 
-2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). The below script also makes use of `New-AzUserAssignedIdentity` which must be installed separately as per [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -215,11 +215,11 @@ The following steps will walk you through creating an app and assigning it an id
     # Create a storage account.
     New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
 
-    # Create a user-assigned identity.
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
     $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
 
     # Create a function app with a user-assigned identity.
-    New-AzFunctionApp -Name functionappname -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
     ```
 
 You can also update an existing function app using `Update-AzFunctionApp` instead.
@@ -475,7 +475,11 @@ For Java applications and functions, the simplest way to work with a managed ide
 
 ## <a name="remove"></a>Remove an identity
 
-A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the type to "None" in the [ARM template](#using-an-azure-resource-manager-template):
+A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to "None".
+
+Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+
+To remove all identities in an [ARM template](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {
@@ -483,7 +487,12 @@ A system-assigned identity can be removed by disabling the feature using the por
 }
 ```
 
-Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+To remove all identities in Azure PowerShell (Azure Functions only):
+
+    ```azurepowershell-interactive
+    # Update an existing function app to have IdentityType "None".
+    Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+    ```
 
 > [!NOTE]
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
