@@ -526,6 +526,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-java-table",
+      "url": "https://github.com/Azure-Samples/storage-table-java-getting-started.git",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmos-java-sql-api-samples",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
       "branch": "master"
