@@ -104,7 +104,7 @@ Here is an example of a possible cost estimate for this class:
 25 students \* (20 scheduled hours + 10 quota hours) \* 55 lab units \*  0.01 USD per hour  = 412.50 USD
 
 >[!IMPORTANT]
-> Estimate is for example purposes only.  For more current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
+> Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
 
 ## Next steps
 
