@@ -24,8 +24,6 @@
     href: classroom-labs-concepts.md    
   - name: Classroom Labs architecture fundamentals
     href: classroom-labs-fundamentals.md  
-  - name: Capacity limits
-    href: capacity-limits.md  
   - name: Scenarios
     items:  
     - name: Use labs for conducting classes

@@ -51,7 +51,7 @@ After a shared image gallery is attached, a lab account admin or an educator can
     After you save the image to the shared image gallery, you can use that image from the gallery when creating another lab. You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared image gallery overview](../../virtual-machines/windows/shared-images.md). 
 
     > [!IMPORTANT]
-    > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.    
+    > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.    
 
 ## Use an image from the shared image gallery
 An educator can pick a custom image available in the shared image gallery for the template during new lab creation.
