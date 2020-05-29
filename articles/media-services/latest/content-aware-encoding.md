@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: 
 
@@ -76,6 +76,8 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
 
+Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
+  
 ## Next steps
 
 * [Tutorial: Upload, encode, and stream videos with Media Services v3](stream-files-tutorial-with-api.md)

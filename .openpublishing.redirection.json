@@ -787,6 +787,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/business-continuity.md",
+      "redirect_url": "/azure/cognitive-services/how-to/set-up-qnamaker-service-azure#business-continuity-with-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/integrate-qnamaker-luis.md",
       "redirect_url": "/azure/cognitive-services/luis/choose-natural-language-processing-service",
       "redirect_document_id": false
@@ -2511,6 +2516,11 @@
     {
       "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
       "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/create-table-python.md",
+      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
       "redirect_document_id": false
     },
     {
@@ -36079,12 +36089,17 @@
     },
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
-      "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_url": "/azure/notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-push-notification-http2-token-authentification.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentication",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
-      "redirect_url": "/azure//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
     },
     {
@@ -52445,6 +52460,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+      "redirect_url": "/azure/virtual-network/public-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-log",
       "redirect_document_id": false
@@ -53868,7 +53888,7 @@
         "source_path": "articles/sql-database/replication-to-sql-database.md",
         "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
         "redirect_document_id": true
-    },   
+    },
     {
         "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
         "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
@@ -54368,6 +54388,16 @@
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/azure-ad-v2.md",
+      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
     }
   ]
 }

@@ -99,6 +99,8 @@
         href: andromedascm-tutorial.md
       - name: AnswerHub
         href: answerhub-tutorial.md
+      - name: Anyone Home CRM
+        href: anyone-home-crm-tutorial.md
       - name: Apex Portal
         href: apexportal-tutorial.md
       - name: AppBlade
@@ -1775,6 +1777,8 @@
       items:
       - name: 4me
         href: 4me-provisioning-tutorial.md
+      - name: 8x8
+        href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
     - name: A - L
@@ -1971,8 +1975,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
-      - name: Workday
+      - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
+      - name: Workday to Azure AD
+        href: workday-inbound-cloud-only-tutorial.md
+      - name: Workday Writeback
+        href: workday-writeback-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook

@@ -98,7 +98,7 @@ All parent runbooks include the `WhatIf` parameter. When set to True, the parame
 |Runbook | Parameters | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called from the parent runbook. This runbook creates alerts on a per-resource basis for the Auto-Stop scenario.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True or False  | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> `VMList` is a comma-separated list of VMs. For example, `vm1, vm2, vm3`.<br> `WhatIf` enables validation of runbook logic without executing.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True or False  | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> `VMList` is a comma-separated list of VMs (with no whitespaces), for example, `vm1,vm2,vm3`.<br> `WhatIf` enables validation of runbook logic without executing.|
 |AutoStop_Disable | None | Disables Auto-Stop alerts and default schedule.|
 |AutoStop_VM_Child | WebHookData | Called from the parent runbook. Alert rules call this runbook to stop a classic VM.|
 |AutoStop_VM_Child_ARM | WebHookData |Called from the parent runbook. Alert rules call this runbook to stop a VM.  |
@@ -106,7 +106,7 @@ All parent runbooks include the `WhatIf` parameter. When set to True, the parame
 |ScheduledStartStop_Child | VMName <br> Action: Start or Stop <br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop.|
 |ScheduledStartStop_Child_Classic | VMName<br> Action: Start or Stop<br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop for classic VMs. |
 |ScheduledStartStop_Parent | Action: Start or Stop <br>VMList <br> WhatIf: True or False | Starts or stops all VMs in the subscription. Edit the variables `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` to only execute on these targeted resource groups. You can also exclude specific VMs by updating the `External_ExcludeVMNames` variable.|
-|SequencedStartStop_Parent | Action: Start or Stop <br> WhatIf: True or False<br>VMList| Creates tags named **sequencestart** and **sequencestop** on each VM for which you want to sequence start/stop activity. These tag names are case-sensitive. The value of the tag should be a positive integer (1, 2, 3) that corresponds to the order in which you want to start or stop. <br>**Note**: VMs must be within resource groups defined in `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` variables. They must have the appropriate tags for actions to take effect.|
+|SequencedStartStop_Parent | Action: Start or Stop <br> WhatIf: True or False<br>VMList| Creates tags named **sequencestart** and **sequencestop** on each VM for which you want to sequence start/stop activity. These tag names are case-sensitive. The value of the tag should be a list of positive integers, for example, `1,2,3`, that corresponds to the order in which you want to start or stop. <br>**Note**: VMs must be within resource groups defined in `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` variables. They must have the appropriate tags for actions to take effect.|
 
 ### Variables
 
@@ -164,7 +164,7 @@ For use of the feature with classic VMs, you need a Classic Run As account, whic
 If you have more than 20 VMs per cloud service, here are some recommendations:
 
 * Create multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specifying 20 VMs per schedule. 
-* In the schedule properties, use the `VMList` parameter to specify VM names as a comma-separated list. 
+* In the schedule properties, use the `VMList` parameter to specify VM names as a comma-separated list (no whitespaces). 
 
 Otherwise, if the Automation job for this feature runs more than three hours, it's temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 

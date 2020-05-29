@@ -38,7 +38,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="apiversion" />Show resource types and API versions
+## <a name="apiversion"></a>Show resource types and API versions
 
 Resource Graph primarily uses the most recent non-preview version of a Resource Provider's API to
 `GET` resource properties during an update. In some cases, the API version used has been overridden
@@ -74,7 +74,7 @@ Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(a
 
 ---
 
-## <a name="vmss-capacity" />Get virtual machine scale set capacity and size
+## <a name="vmss-capacity"></a>Get virtual machine scale set capacity and size
 
 This query looks for virtual machine scale set resources and gets various details including the
 virtual machine size and the capacity of the scale set. The query uses the `toint()` function to
@@ -111,7 +111,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ---
 
-## <a name="remove-column" />Remove columns from results
+## <a name="remove-column"></a>Remove columns from results
 
 The following query uses `summarize` to count resources by subscription, `join` to combine it with
 subscription details from _ResourceContainers_ table, then `project-away` to remove some of the
@@ -146,7 +146,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 ---
 
-## <a name="list-all-tags" />List all tag names
+## <a name="list-all-tags"></a>List all tag names
 
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
@@ -179,7 +179,7 @@ Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 
 ---
 
-## <a name="vm-regex" />Virtual machines matched by regex
+## <a name="vm-regex"></a>Virtual machines matched by regex
 
 This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference)
 (known as _regex_). The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`.
@@ -225,7 +225,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="mvexpand-cosmosdb" />List Cosmos DB with specific write locations
+## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
 
 The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for
 **properties.writeLocations**, then project specific fields and limit the results further to
@@ -263,7 +263,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 ---
 
-## <a name="join" />Key vault with subscription name
+## <a name="join"></a>Key vault with subscription name
 
 The following query shows a complex use of `join`. The query limits the joined table to
 subscriptions resources and with `project` to include only the original field _subscriptionId_ and
@@ -302,7 +302,7 @@ Search-AzGraph -Query "Resources | join (ResourceContainers | where type=='micro
 
 ---
 
-## <a name="join-sql" />List SQL Databases and their elastic pools
+## <a name="join-sql"></a>List SQL Databases and their elastic pools
 
 The following query uses **leftouter** `join` to bring together SQL Database resources and their
 related elastic pools, if they have any.
@@ -341,7 +341,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ---
 
-## <a name="join-vmpip" />List virtual machines with their network interface and public IP
+## <a name="join-vmpip"></a>List virtual machines with their network interface and public IP
 
 This query uses two **leftouter** `join` commands to bring together virtual machines, their related
 network interfaces, and any public IP address related to those network interfaces.
@@ -393,7 +393,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="join-findstoragetag" />Find storage accounts with a specific tag on the resource group
+## <a name="join-findstoragetag"></a>Find storage accounts with a specific tag on the resource group
 
 The following query uses an **inner** `join` to connect storage accounts with resource groups that
 have a specified case sensitive tag name and tag value.
@@ -472,7 +472,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ---
 
-## <a name="unionresults" />Combine results from two queries into a single result
+## <a name="unionresults"></a>Combine results from two queries into a single result
 
 The following query uses `union` to get results from the _ResourceContainers_ table and add them to
 results from the _Resources_ table.
@@ -505,7 +505,7 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
-## <a name="displaynames" />Include the tenant and subscription names with DisplayNames
+## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
 
 This query uses the new **Include** parameter with option _DisplayNames_ to add
 **subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
