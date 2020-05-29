@@ -23,10 +23,10 @@ Otherwise, create an instance now using one of these two methods:
 
         :::image type="content" source="../articles/digital-twins-v2/media/include-tutorial/upload-extension.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 
-        Navigate to the *deploy.ps1* file you just downloaded and hit "Open."
+        Navigate to the *deploy.ps1* file you just created and hit "Open."
     3. Run the script with the `./deploy.ps1` command. You will be asked to pass in the following values:
         * For the instance: the *subscription ID* of your Azure subscription to use
-        * For the instance: a *resource group* name (you can use an existing resource group or enter a new name here to create a new one)
+        * For the instance: a *resource group* name (you can use an existing resource group, or enter a new name of one to create)
         * For the instance: a *name* for your Azure Digital Twins instance
         * For the app registration: an *AAD application display name* to associate with the registration
         * For the app registration: an *AAD application reply URL* for the AAD application. You can use *http://localhost*.
