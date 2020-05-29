@@ -98,7 +98,7 @@ In order to run PowerShell cmdlets in Azure Automation runbooks, you need to ins
 
 2. Select **Create** to create the runbook.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-runbook2.png" alt-text="Select Create.":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-runbook-2.png" alt-text="Select Create.":::
 
 3. Select the newly created runbook, then select **Edit**.
 
