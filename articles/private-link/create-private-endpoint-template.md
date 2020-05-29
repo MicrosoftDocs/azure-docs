@@ -60,7 +60,7 @@ Deploy Resource Manager template to Azure:
 ## Validate the deployment
 
 > [!NOTE]
-> the ARM template generates unique name for the Virtual Machine myVm<b>{uniqueid}</b> resource and for the Azure SQL server sqlserver<b>{uniqueid}</b> resource, please replace <b>{uniqueid}</b> with your generated value.
+> The ARM template generates unique name for the Virtual Machine myVm<b>{uniqueid}</b> resource and for the Azure SQL server sqlserver<b>{uniqueid}</b> resource, please replace <b>{uniqueid}</b> with your generated value.
 
 ### Connect to a VM from the internet
 
@@ -95,14 +95,14 @@ In this section, you will connect to the SQL Database Server from the VM using t
 2.  Enter nslookup sqlserver{uniqueid}.database.windows.net 
     You'll receive a message similar to this:
 
-```
+    ```
       Server:  UnKnown
       Address:  168.63.129.16
       Non-authoritative answer:
       Name:    sqlserver.privatelink.database.windows.net
       Address:  10.0.0.5
       Aliases:  sqlserver.database.windows.net
-```
+    ```
 
 3.  Install SQL Server Management Studio
 4.  In Connect to server, enter or select this information:
