@@ -34,7 +34,27 @@ Azure Monitor for Azure Cosmos DB is based on the [workbooks feature of Azure Mo
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
-## View operation level metrics for Azure Cosmos DB
+## Monitoring data collected from Azure Cosmos DB
+
+Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
+
+The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
+
+![Overview page](media/monitor-cosmos-db/overview-page.png)
+
+## Analyzing metric data
+
+Azure Cosmos DB provides a custom experience for working with metrics. See [Monitor and debug Azure Cosmos DB metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) for details on using this experience and for analyzing different Azure Cosmos DB scenarios.
+
+You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
+
+- CollectionName
+- DatabaseName
+- OperationType
+- Region
+- StatusCode
+
+### View operation level metrics for Azure Cosmos DB
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -61,26 +81,6 @@ You can also filter metrics and the chart displayed by a specific **CollectionNa
 You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
 
 ![Add apply splitting filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
-
-## Monitoring data collected from Azure Cosmos DB
-
-Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
-
-The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
-
-![Overview page](media/monitor-cosmos-db/overview-page.png)
-
-## Analyzing metric data
-
-Azure Cosmos DB provides a custom experience for working with metrics. See [Monitor and debug Azure Cosmos DB metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) for details on using this experience and for analyzing different Azure Cosmos DB scenarios.
-
-You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
-
-- CollectionName
-- DatabaseName
-- OperationType
-- Region
-- StatusCode
 
 ## Analyzing log data
 Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties. Azure Cosmos DB stores data in the following tables.
