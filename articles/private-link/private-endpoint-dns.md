@@ -68,7 +68,7 @@ The FQDN of the services resolves automatically to a public IP address. To resol
 
 DNS is a critical component to make the application work correctly by successfully resolving the private endpoint IP address.
 
-Based on your preferences, the following scenarios are available for DNS resolution integrated:
+Based on your preferences, the following scenarios are available with DNS resolution integrated:
 
 - [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
 - [On-premises workloads using a DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
