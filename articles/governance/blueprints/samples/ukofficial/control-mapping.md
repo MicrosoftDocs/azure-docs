@@ -73,11 +73,11 @@ prioritize remediation actions.
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
-- Vulnerability assessment should be enabled on SQL Database
-- Vulnerability assessment should be enabled on SQL Managed Instance
-- Vulnerabilities in security configuration on virtual machine scale sets should be remediated
-- Advanced data security should be enabled on SQL Managed Instance
-- Advanced data security should be enabled on SQL Database
+- Vulnerability assessment should be enabled on your SQL servers
+- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on your SQL servers
 
 ## 5.3 Protective Monitoring
 
@@ -88,9 +88,9 @@ definitions that provide protective monitoring on unrestricted access, allow lis
 - Adaptive Application Controls should be enabled on virtual machines
 - Audit virtual machines without disaster recovery configured
 - DDoS Protection Standard should be enabled
-- Advanced Threat Protection types should be set to 'All' in SQL Managed Instance Advanced Data Security settings
-- Advanced Threat Protection types should be set to 'All' in SQL Database Advanced Data Security settings for your server
-- Deploy Threat Detection on SQL Database
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
+- Deploy Threat Detection on SQL servers
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
 ## 9 Secure User Management 

@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -137,15 +137,15 @@ This blueprint provides policy definitions that help you ensure data security no
 properly enabled. In addition, this blueprint ensures that auditing and advanced data security are
 configured on SQL Servers.
 
-- Advanced data security should be enabled on SQL Database
-- Advanced data security should be enabled on your SQL Managed Instance
-- Advanced Threat Protection types should be set to 'All' in SQL Database Advanced Data Security settings for your server
-- Advanced Threat Protection types should be set to 'All' in SQL Managed Instance Advanced Data Security settings
+- Advanced data security should be enabled on your SQL servers
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
 - Auditing should be enabled on advanced data security settings on SQL Server
-- Email notifications to admins and subscription owners should be enabled in SQL Database Advanced Data Security settings for your server
-- Email notifications to admins and subscription owners should be enabled in SQL Managed Instance Advanced Data Security settings
-- Advanced data security settings for SQL Database should contain an email address to receive security alerts
-- Advanced data security settings for SQL Managed Instance should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
 
 ## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
 
@@ -191,18 +191,18 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL Managed Instance and SQL Database.
-These policy definitions also audit configuration of diagnostic logs to provide insight into
-operations that are performed within Azure resources. These insights provide real-time information
-about the security state of your deployed resources and can help you prioritize remediation actions.
-For detailed vulnerability scanning and monitoring, we recommend you leverage Azure Sentinel and
-Azure Security Center as well.
+assessment on virtual machines, virtual machine scale sets, SQL Database servers, and SQL Managed
+Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
+insight into operations that are performed within Azure resources. These insights provide real-time
+information about the security state of your deployed resources and can help you prioritize
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
-- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on your SQL servers
 - Audit diagnostic setting
-- Vulnerability assessment should be enabled on SQL Managed Instances
-- Vulnerability assessment should be enabled on SQL Database
+- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on your SQL servers
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -216,7 +216,7 @@ This blueprint provides policy definitions that audit and enforce deployment of 
 agent on Azure virtual machines and configuration of audit settings for other Azure resource types.
 These policy definitions also audit configuration of diagnostic logs to provide insight into
 operations that are performed within Azure resources. Additionally, auditing and Advanced Data
-Security are configured on SQL Database at the server level.
+Security are configured on SQL servers.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
@@ -550,13 +550,13 @@ you can take appropriate action.
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
-- Advanced data security should be enabled on SQL Managed Instance
-- Advanced data security should be enabled on SQL Database
-- Deploy Advanced Data Security on SQL Database
+- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL servers
+- Deploy Advanced Data Security on SQL servers
 - Deploy Advanced Threat Protection on Storage Accounts
-- Deploy Auditing on SQL Database
+- Deploy Auditing on SQL servers
 - Deploy network watcher when virtual networks are created
-- Deploy Threat Detection on SQL Database
+- Deploy Threat Detection on SQL servers
 - Allowed locations
 - Allowed locations for resource groups
 
@@ -570,8 +570,8 @@ Azure Security Center.
 
 - Email notification to subscription owner for high severity alerts should be enabled
 - A security contact email address should be provided for your subscription 
-- Email notifications to admins and subscription owners should be enabled in SQL Managed Instance Advanced Data Security settings 
-- Email notifications to admins and subscription owners should be enabled in SQL Database Advanced Data Security settings 
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings 
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings 
 - A security contact phone number should be provided for your subscription
 - Advanced data security settings for SQL server should contain an email address to receive security alerts
 - Security Center standard pricing tier should be selected

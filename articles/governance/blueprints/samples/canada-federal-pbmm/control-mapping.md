@@ -121,8 +121,8 @@ security can help you ensure information as associated with the appropriate secu
 your organization. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to
 monitor and enforce use of advanced data security on SQL server.
 
-- Advanced data security should be enabled on SQL Managed Instance
-- Advanced data security should be enabled on SQL Database
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 
 ## AC-17 (1) Remote Access | Automated Monitoring / Control
