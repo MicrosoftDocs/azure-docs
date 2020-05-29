@@ -241,6 +241,8 @@ The tool also supports the **Spark SQL** query:
 
    ![Run IPYNB results](./media/hdinsight-for-vscode/run-ipynb-results.PNG)
 
+> [!NOTE]  
+> "Failed to connect to Jupyter notebook." is a known issue. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
 
 ## Submit PySpark batch job
 
