@@ -46,7 +46,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 10. Select **Save**.
 
 > [!TIP]
-> [**Identities ('identities')**](https://docs.microsoft.com/en-us/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. These claims are always sent.
+> [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. These claims are always sent.
 
 > [!NOTE]
 > - The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.

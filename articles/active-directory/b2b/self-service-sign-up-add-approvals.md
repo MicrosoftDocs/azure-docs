@@ -26,7 +26,7 @@ Once an approval request has been created, someone in your organization approves
 
 ## Register an application for your approval system
 
-Your approval system will need to be registered as an App in your Azure AD tenant so that it can authenticate with Azure AD and have the permission to create a user. Learn more about [authenticating and authorization basics for Microsoft Graph](https://docs.microsoft.com/en-us/graph/auth/auth-concepts).
+Your approval system will need to be registered as an App in your Azure AD tenant so that it can authenticate with Azure AD and have the permission to create a user. Learn more about [authenticating and authorization basics for Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -97,8 +97,8 @@ Response
 Status code: 200 
 { 
     "version": "1.0.0", 
-    "action": "Allow",  
-};  
+    "action": "Continue",  
+}
 ```
 
 #### Exit  response
@@ -114,7 +114,6 @@ Status code: 200
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.", 
-    "code": "CONTOSO-APPROVAL-PENDING", 
 } 
 ```
 
@@ -125,7 +124,6 @@ Status code: 200
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.", 
-    "code": "CONTOSO-APPROVAL-DENIED", 
 } 
 ```
 
@@ -141,7 +139,7 @@ Response
 Status code: 200 
 { 
     "version": "1.0.0", 
-    "action": "Allow",  
+    "action": "Continue"
 };  
 ```
 
@@ -160,8 +158,7 @@ Status code: 200
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.", 
-    "code": "CONTOSO-APPROVAL-REQUESTED", 
+    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved." 
 } 
 ```
 
@@ -171,8 +168,7 @@ Status code: 200
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.", 
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED", 
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error."
 } 
 ```
 
@@ -183,7 +179,7 @@ The way in which your approval systems provisions the user account depends on th
 
 ### For a federated Google or Facebook user
 
-If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/en-us/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
 
 The following HTTP POST request can be used to create a user account:
@@ -222,7 +218,7 @@ The following HTTP POST request can be used to create a user account:
 > Aside from `userPrincipalName`, `accountEnabled`, `mail`, and `mailNickname`, the rest of the user attributes, including custom attributes, are the same serialized format as that of the claims sent by the API connector.  
 
 ### For a federated Azure Active Directory user
-If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
 1. Create the invitation using the **email_address** provided by the API connector.
 
@@ -254,7 +250,7 @@ PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
     "surname": "Smith",
     "city": "Redmond",
     "country": "United States",
-    "extension_<app-id>_camelCaseAttributeName": "custom attribute value"
+    "extension_<app-id>_CamelCaseAttributeName": "custom attribute value"
 } 
 ```
 
@@ -265,7 +261,7 @@ PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
 > **mail** can't be set using the PATCH method, but it is already set by the **invitedUserEmailAddress** value.
 
 #### Custom Attributes
-Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
+Custom attributes can be created for the user using the **extension_\<app-id>_\<CamelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Add custom data to users using open extensions](user-flow-add-custom-attributes.md).
 
 ## Further reference
 - See an example approval system with the [Woodgrove self service sign up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->

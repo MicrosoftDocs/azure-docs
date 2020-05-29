@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 
 ms.author: edgomezc
-author: edgomezc
+author: edgomezc 
 manager: kexia
 ms.reviewer: mal
 ms.custom: "it-pro"                 
@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 
 As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you might want to extend your user flow by integrating with a user approval system, validate user input data, or run custom business logic. For example, you can use API connectors to:
 
-- **Validate user input data**. Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user-provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing who successfully signs up to your tenant.
+- **Validate user input data**. Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user-provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite input claims**. Reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data**. Integrate with your cloud systems that have user information. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
@@ -34,13 +34,14 @@ An API connector materializes as an **HTTP POST** request, sending the claims as
 
 There are two places in a sign-up user flow where you can enable an API connector: 
 
-- After signing in with an identity provider, and
-- Before creating the user.
+- After signing in with an identity provider
+- Before creating the user
 
+If enabled, Azure AD will initiate an HTTP call to the configured endpoint at the specific step in the user flow.
 
 ### After signing in with an identity provider
 
-When you configure an API connector at this step in the sign-up process, it's invoked immediately after the user signs in for the first time with an identity provider (Google, Facebook, Azure AD). This step precedes the **attribute collection page**, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
+An API connector at this step in the sign-up process is invoked immediately after the user signs in with an identity provider (Google, Facebook, Azure AD). This step precedes the **attribute collection page**, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
 
 - Use the email or federated identity that the user just provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
 - Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow.
@@ -82,7 +83,7 @@ Response
 Status code: 200 
 { 
     "version": "1.0.0", 
-    "action": "Allow",  
+    "action": "Continue",  
     "postalCode": "12349" // return claim 
 };  
 ```
@@ -103,7 +104,6 @@ Status code: 200
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
     "userMessage": "There was a problem with your request. You are not able to sign up at this time.", 
-    "code": "CONTOSO-EXIT-01", 
 } 
 ```
 
@@ -123,8 +123,7 @@ Status code: 400
 { 
     "version": "1.0.0", 
     "action": "ValidationError",  
-    "userMessage": "Please enter a valid Postal Code.", 
-    "code": "CONTOSO-VALIDATION-01", 
+    "userMessage": "Please enter a valid Postal Code."
 } 
 ```
 
@@ -138,7 +137,7 @@ The `version`, `action`, `userMessage`, and `code` are required in the response.
 ## Frequently asked questions (FAQ)
 
 ### How do I integrate with an existing API endpoint?
-You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) as a simple way to call and invoke other web APIs.
+You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) as a simple way to call and invoke other web APIs.
 
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
