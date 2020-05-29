@@ -148,7 +148,6 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 Windows Server containers that run the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers that run on the node. After a node is selected, the properties pane shows version information.
 
-## Update the image below to show the agent information
 ![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png)
 
 Azure Container Instances virtual nodes that run the Linux OS are shown after the last AKS cluster node in the list. When you expand a Container Instances virtual node, you can view one or more Container Instances pods and containers that run on the node. Metrics aren't collected and reported for nodes, only for pods.
@@ -215,8 +214,6 @@ In the selector, select **Controllers**.
 ![Select Controllers view](./media/container-insights-analyze/containers-controllers-tab.png)
 
 Here you can view the performance health of your controllers and Container Instances virtual node controllers or virtual node pods not connected to a controller.
-
-####Update this image to include the omsagent-win-preview name
 
 ![\<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
