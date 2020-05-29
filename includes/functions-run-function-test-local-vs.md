@@ -1,4 +1,4 @@
-    ---
+---
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
