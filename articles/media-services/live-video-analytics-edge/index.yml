@@ -49,14 +49,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Detect motion and emit events 
-            url: detect-motion-emit-events-quickstart.md
-          - text: Run Live Video Analytics with your own model
-            url: use-your-model-quickstart.md
+          - text: Get started - Live Video Analytics on IoT Edge
+            url: get-started-detect-motion-emit-events-quickstart.md        
           - text: Detect motion, record video clips to Azure Media Services
             url: detect-motion-record-video-clips-media-services-quickstart.md
+          - text: Detect motion and emit events 
+            url: detect-motion-emit-events-quickstart.md
           - text: Detect motion, record video to edge devices
             url: detect-motion-record-video-clips-edge-devices-quickstart.md
+          - text: Run Live Video Analytics with your own model
+            url: use-your-model-quickstart.md
       - linkListType: tutorial
         links:
           - text: Continuous video recording  
