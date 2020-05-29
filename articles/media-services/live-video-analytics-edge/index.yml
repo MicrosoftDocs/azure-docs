@@ -73,16 +73,18 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Create custom Azure Resource Manager role
+            url: create-custom-azure-resource-manager-role-how-to.md
           - text: Deploy to an IoT Edge device
             url: deploy-iot-edge-device.md
-          - text: Manage recording policy
-            url: manage-recording-policy-how-to.md
+          - text: Monitoring and logging
+            url: monitoring-logging.md  
           - text: Playback a recording 
             url: playback-recordings-how-to.md
-          - text: Monitoring and logging
-            url: monitoring-logging.md     
+          - text: Manage recording policy
+            url: manage-recording-policy-how-to.md            
           - text: Troubleshoot
-            url: troubleshoot-how-to.md
+            url: troubleshoot-how-to.md                  
       - linkListType: reference
         links:
           - text: Direct methods
