@@ -7,7 +7,7 @@ ms.date: 06/02/2020
 
 # Back up AVS VMs with Azure Backup Server
 
-In this article, we go through the procedures back up VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server. Before you begin, make sure to go through the [Set up Microsoft Azure Backup Server for AVS](set-up-mabs-for-avs.md). 
+In this article, we go through the procedures to back up VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server. Before you begin, make sure to go through the [Set up Microsoft Azure Backup Server for AVS](set-up-mabs-for-avs.md). 
 
 Them, we will walk through all of the necessary procedures to:
 
