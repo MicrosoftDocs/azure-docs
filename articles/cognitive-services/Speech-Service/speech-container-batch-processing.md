@@ -18,13 +18,15 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 
 | Feature  | Description  |
 |---------|---------|
-| Automatically distribute batches of audio files     | Automatically dispatch files to large numbers of Speech Services endpoints.         |
-| Use multiple endpoint types     | Use on-premises or cloud-based endpoints, in any ratio.         |
+| Batch audio file distribution     | Automatically dispatch large numbers of files to on-premises or cloud-based Speech container endpoints.        |
+| Speech SDK integration | Pass common flags to the Speech SDK, including: n-best hypotheses, diarization, language, profanity masking.  |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
 |POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
 | Open source software | The batch kit container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use. | 
-| Fault tolerance | Automatically retry transcriptions in the event of errors, and differentiate between which errors can, and can't be retried on. |
-| Real-time logging | real-time logging of attempted operations, transcription times, and failure reasons. |
+| Fault tolerance | Automatically retry transcriptions without losing progress, and differentiate between which errors can, and can't be retried on. If an endpoint becomes unavailable, the batch client will continue using other endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
+| Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are used by the batch client immediately. |
+| Real-time logging | Real-time logging of attempted operations, transcription times, and failure reasons. |
+
 
 
 ## Endpoint configuration
