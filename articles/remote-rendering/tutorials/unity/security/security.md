@@ -150,7 +150,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     >[!TIP]
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
 
-These steps have increased the security of the application by removing the SAS token from the local application.
+These steps have increased the security of the application by removing the SAS token from the local application. 
 
 Now the current state of the application and its access to your Azure resources looks like this:
 

@@ -40,7 +40,7 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 ## Create a new Unity project
 
 > [!TIP]
-> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
+> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains a project with all the tutorials completed, it can be used as a reference. Look in *Unity\Tutorial-Complete* for the complete Unity project.
 
 From the Unity Hub, create a new project.
 In this example, we'll assume the project is being created in a folder called **RemoteRendering**.

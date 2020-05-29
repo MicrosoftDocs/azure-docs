@@ -32,11 +32,11 @@ The following steps are needed to create an account for the Azure Remote Renderi
 The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the PowerShell sample scripts:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 See the [list of available regions](../reference/regions.md) for filling out the *region* option.
@@ -84,6 +84,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 > In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repeat adding new roles two more times for the respective selections from the **Role** dropdown:
+
 * **Storage Account Contributor**
 * **Storage Blob Data Contributor**
 

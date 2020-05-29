@@ -42,11 +42,11 @@ Those steps are:
 
 Starting in this chapter, we'll implement a simple [model-view-controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) for much of the material covered. The *model* part of the pattern is the Azure Remote Rendering specific code and the state management related to Azure Remote Rendering. The *view* and *controller* parts of the pattern are implemented using MRTK assets and some custom scripts. It is possible to use the *model* in this tutorial without the *view-controller* implemented here. This separation allows you to easily integrate the code found in this tutorial into your own application where it will take over the *view-controller* part of the design pattern.
 
-With the introduction of MRTK, there are a number of scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets, referred to as the **Tutorial Assets**, are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which can be downloaded \[here](todo\path\to\asset-package).
+With the introduction of MRTK, there are a number of scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets, referred to as the **Tutorial Assets**, are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which is included in the [Azure Remote Rendering Github](https://github.com/Azure/azure-remote-rendering) in '\Unity\TutorialAssets\TutorialAssets.unitypackage'.
 
-1. Download the package \[here](todo\path\to\asset-package)
+1. Clone or download the git repository [Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering), if downloading extract the zip to a known location.
 1. In your Unity project, choose *Assets -> Import Package -> Custom Package*.
-1. In the file explorer, select the asset package you downloaded in step 1.
+1. In the file explorer, navigate to the directory where you cloned or unzipped the Azure Remote Rendering repository, then select the .unitypackage found in **Unity -> TutorialAssets -> TutorialAssets.unitypackage**
 1. Select the **Import** button to import the contents of the package into your project.
 1. In the Unity Editor, select *Mixed Reality Toolkit -> Utilities -> Upgrade MRTK Standard Shader for Lightweight Render Pipeline* from the top menu bar and follow the prompts to upgrade the shader.
 

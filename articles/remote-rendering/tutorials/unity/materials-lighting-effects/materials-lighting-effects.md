@@ -225,8 +225,6 @@ This code ensures an **EntityOverrideController** component is added to the targ
 
 ![Pointer callbacks](./media/pointer-event-callbacks.png)
 
-At this point, if desired, you can remove all the callbacks added to `OnRemoteEntityClicked`.
-
 Now that these scripts have been added to the model, once connected to the runtime, the **AppMenu** view controller should have additional interfaces enabled to interact with the **EntityOverrideController** script. Check out the **Model Tools** menu to see the unlocked view controllers.
 
 At this point, your **TestModel** GameObject's components should look something like this:
@@ -370,19 +368,18 @@ The **AppMenu** includes a view controller that will automatically attach to you
 
    ![Cut Plane component configuration](./media/cut-plane-config.png)
 
-1. Ensure the **AppMenu** is in your scene.
 1. Press Play in the Unity Editor to load and connect to a remote session.
-1. Grab and drag the CutPlane to move it around the scene. Watch it slice into the **TestModel** to reveal internal components.
+1. Using MRTK's hand simulation, grab and rotate (hold Ctrl to rotate) the CutPlane to move it around the scene. Watch it slice into the **TestModel** to reveal internal components.
 
 ![Cut Plane example](./media/cut-plane-example-engine.png)
 
 ## Configuring the remote lighting
 
-The remote rendering session supports a full spectrum of [lighting options](../../../overview/features/lights.md). We'll create scripts for the Sky Light and a simple map for two Unity light types to use with remote rendering.
+The remote rendering session supports a full spectrum of [lighting options](../../../overview/features/lights.md). We'll create scripts for the [Sky Texture](../../../overview/features/sky.md) and a simple map for two Unity light types to use with remote rendering.
 
-### Sky Light
+### Sky Texture
 
-There are a number of built-in Cubemaps to choose from when changing the sky light. These are loaded into the session and applied to the sky light. It's also possible to [load in your own textures](../../../concepts/textures.md) to use as a sky light.
+There are a number of built-in Cubemaps to choose from when changing the sky texture. These are loaded into the session and applied to the sky texture. It's also possible to [load in your own textures](../../../concepts/textures.md) to use as a sky light.
 
 We'll create a **RemoteSky** script that has a list of the built-in available Cubemaps in the form of load parameters. Then, we'll allow the user to select and load one of the options.
 
@@ -402,7 +399,7 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
         public override Dictionary<string, LoadTextureFromSASParams> AvailableCubemaps => builtInTextures;
 
         private bool canSetSky;
-        public override bool CanSetSky 
+        public override bool CanSetSky
         {
             get => canSetSky;
             set
@@ -516,9 +513,9 @@ We'll create a **RemoteSky** script that has a list of the built-in available Cu
 1. Press Play in the Unity Editor and authorize a connection.
 1. After connecting the local runtime to a remote session, navigate **AppMenu -> Session Tools -> Remote Sky** to explore the different sky options and see how they affect the **TestModel**.
 
-### Lights
+### Scene Lights
 
-Other remote lights include: point, spot, and directional. Similar to the Cut Plane we created above, these lights are remote entities with components attached to them. An important consideration when lighting your remote scene is attempting to match the lighting in your local scene. This strategy isn't always possible because many Unity applications for the HoloLens 2 do not use physically-based rendering for locally rendered objects. However, to a certain level, we can simulate Unity's simpler default lighting.
+Remote scene lights include: point, spot, and directional. Similar to the Cut Plane we created above, these scene lights are remote entities with components attached to them. An important consideration when lighting your remote scene is attempting to match the lighting in your local scene. This strategy isn't always possible because many Unity applications for the HoloLens 2 do not use physically-based rendering for locally rendered objects. However, to a certain level, we can simulate Unity's simpler default lighting.
 
 1. Create a new script named **RemoteLight** and replace its code with the code below:
 
@@ -692,20 +689,23 @@ Other remote lights include: point, spot, and directional. Similar to the Cut Pl
 
     This script creates different types of remote lights depending on the type of local Unity light the script is attached to. The remote light will duplicate the local light in its: position, rotation, color, and intensity. Where possible, the remote light will also set additional configuration. This isn't a perfect match, since Unity lights are not PBR lights.
 
-2. Find the **DirectionalLight** GameObject in your scene. If you've removed the default **DirectionalLight** from your scene: from the top menu bar select *GameObject -> Light -> DirectionalLight* to create a new light in your scene.
+1. Find the **DirectionalLight** GameObject in your scene. If you've removed the default **DirectionalLight** from your scene: from the top menu bar select *GameObject -> Light -> DirectionalLight* to create a new light in your scene.
 
-3. Select the **DirectionalLight** GameObject and using the **Add Component** button, add the **RemoteLight** script.
+1. Select the **DirectionalLight** GameObject and using the **Add Component** button, add the **RemoteLight** script.
 
-4. Because this script implements the base class `BaseRemoteLight`, you can use the provided **AppMenu** view controller to interact with the remote light. Navigate to **AppMenu -> Session Tools -> Directional Light**.
+1. Because this script implements the base class `BaseRemoteLight`, you can use the provided **AppMenu** view controller to interact with the remote light. Navigate to **AppMenu -> Session Tools -> Directional Light**.
 
-> [!NOTE]
-> The UI in **AppMenu** has been limited to a single directional light for simplicity. However, it's still possible and encouraged to add point lights and attach the **RemoteLight** script to them. Those additional lights can be modified by editing the properties of the Unity light in the editor. You will need to manually sync the local changes to the remote light using the **RemoteLight** context menu in the inspector:
->
-> ![Remote light manual sync](./media/sync-remote-light.png)
+    > [!NOTE]
+    > The UI in **AppMenu** has been limited to a single directional light for simplicity. However, it's still possible and encouraged to add point lights and attach the **RemoteLight** script to them. Those additional lights can be modified by editing the properties of the Unity light in the editor. You will need to manually sync the local changes to the remote light using the **RemoteLight** context menu in the inspector:
+    >
+    > ![Remote light manual sync](./media/sync-remote-light.png)
 
-5. Press Play in the Unity Editor and authorize a connection.
+1. Press Play in the Unity Editor and authorize a connection.
 
-6. After connecting your runtime to a remote session, position and aim your camera (use WASD and right click + mouse move) to have the directional light view controller in view. Use the remote light view controller to modify the light's properties. Using MRTK's hand simulation, grab and rotate the directional light to see the effect on the scene's lighting.
+1. After connecting your runtime to a remote session, position and aim your camera (use WASD and right click + mouse move) to have the directional light view controller in view. 
+1. Use the remote light view controller to modify the light's properties. Using MRTK's hand simulation, grab and rotate (hold Ctrl to rotate) the directional light to see the effect on the scene's lighting.
+
+    ![Directional light](./media/directional-light-test.png)
 
 ## Editing materials
 
