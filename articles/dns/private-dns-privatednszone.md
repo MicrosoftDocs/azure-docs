@@ -22,7 +22,7 @@ You can also enable [auto-registration](./private-dns-autoregistration.md) featu
 
 The following default limits apply when using Azure DNS Private Zones:
 
-[!INCLUDE privatedns-limits]
+[!INCLUDE [notes](../privatedns-limits.md)]
 
 
 ## Restrictions
