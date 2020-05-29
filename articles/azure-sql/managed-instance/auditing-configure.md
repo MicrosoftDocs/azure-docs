@@ -17,7 +17,6 @@ ms.date: 05/26/2020
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-
 [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
@@ -227,11 +226,7 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Managed Instance and databases in SQL Server are:
 
 - With Azure SQL Managed Instance, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-<<<<<<< HEAD
-- In SQL Server on-premises and SQL virtual machines, audit works at the server level, but stores events on files system/windows event logs.
-=======
 - In SQL Server, audit works at the server level, but stores events on files system/windows event logs.
->>>>>>> 4a96795bac125a346dd57568eec183929d7bd952
 
 XEvent auditing in managed instances supports Azure Blob storage targets. File and windows logs are **not supported**.
 
