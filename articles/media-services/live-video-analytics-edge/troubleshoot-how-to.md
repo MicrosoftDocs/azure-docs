@@ -148,7 +148,7 @@ To fix this issue:
 
 As part of our release, we have provided some .NET sample code to get our developer community bootstrapped. In this section, we have captured errors you might face while running the sample code and how to debug such errors.
 
-1. Program.cs fails with the following error on Direct Method invocation
+1. Program.cs fails with the following error on the direct method invocation:
 
     ```
     Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedException: {"Message":"{\"errorCode\":401002,\"trackingId\":\"b1da85801b2e4faf951a2291a2c467c3-G:32-TimeStamp:04/06/2020 17:15:11\",\"message\":\"Unauthorized\",\"timestampUtc\":\"2020-04-06T17:15:11.6990676Z\"}","ExceptionMessage":""}

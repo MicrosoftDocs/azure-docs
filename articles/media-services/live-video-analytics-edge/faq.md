@@ -25,23 +25,15 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
 * Can I deploy the media edge module to a Windows IOT device?
     * No. Only Linux devices are supported.
 
-## IoT Edge configuration
-
-* Are there any tools to make it easier to monitor the Media Services IoT Edge module?
-    * Visual Studio Code supports the "Azure IoT Tools " extension that allows you to easily monitor the LVAEdge module endpoints. You can use this tool to quickly start monitoring the IoT Hub built-in endpoint for "events" and see the inference messages that are routed from the edge device to the cloud. 
-
-    In addition, you can use this extension to edit the Module Twin for the LVAEdge module to modify the media graph settings.
-
 ## IP Camera ingest and RTSP settings
 
 * Do I need to use a special SDK on my device to send in a video stream?
     * No. Media graph supports standard RTSP video streaming protocol.
 * Can I also use RTMP or Smooth ingest like a Media Services Live Event?
     * No. Media graph only support RTSP for capturing video from IP cameras.
-* What camera models are supported?
-    * Any camera that supports RTSP streaming over TCP/HTTP should work. Report any issues with RTSP compatibility as bugs on the preview service.
+    * Any camera that supports RTSP streaming over TCP/HTTP should work. 
 * Can I connect to a secure RTSP camera source?
-    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source in the preview release. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
+    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source<!-- in the preview release-->. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
 * Can I reset or update the RTSP source URL on a graph instance?
     * Yes, when the graph instance is in inactive state.  
 * Is there a simulated RTSP camera signal available to use during testing and development?
@@ -73,12 +65,18 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
 
     Content can be delivered using both Apple HTTP Live Streaming (HLS) or MPEG-DASH.
 
-## Monitoring and Metrics
+## Monitoring and metrics
 
 * Can I monitor the media graph on the edge using Event Grid?
     * No. Currently Event Grid is not supported.
 * Can I use Azure Monitor to view the health, metrics, and performance of my media graphs in the cloud or on the edge?
     * No.
+* Are there any tools to make it easier to monitor the Media Services IoT Edge module?
+    * Visual Studio Code supports the "Azure IoT Tools " extension that allows you to easily monitor the LVAEdge module endpoints. You can use this tool to quickly start monitoring the IoT Hub built-in endpoint for "events" and see the inference messages that are routed from the edge device to the cloud. 
+
+    In addition, you can use this extension to edit the Module Twin for the LVAEdge module to modify the media graph settings.
+
+For more information, see the [monitoring and logging](monitoring-logging.md) article.
 
 ## Billing and availability
 

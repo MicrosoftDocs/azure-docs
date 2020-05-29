@@ -112,7 +112,7 @@ The text should look like:
     * Program.cs - This is the sample program code, which does the following:
 
         * Loads the app settings
-        * Invokes the Live Video Analytics on IoT Edge Direct Methods to create topology, instantiate the graph and activate the graph
+        * Invokes the Live Video Analytics on IoT Edge direct methods to create topology, instantiate the graph and activate the graph
         * Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
         * Deactivate the graph instance, delete the graph instance, and delete the graph topology
 
@@ -151,7 +151,7 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 ### Run the sample program
 
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. In the TERMINAL window, you will see the responses to the Direct Method calls
+1. In the TERMINAL window, you will see the responses to the direct method calls
 
     ![Terminal](./media/quickstarts/terminal.png)
 1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module
@@ -165,7 +165,7 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 
 ### Monitoring the events sent to the IoT Edge Hub - Connection Established event
 
-When the media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the [rtspsim-live55](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the [rtspsim-live55](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
