@@ -48,13 +48,14 @@ This table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 |
 | Digital Twins API | Number of requests per second | 1,000 |
 | Query API | Number of requests per second | 500 |
+| Query API | Query units per second | 4,000 |
 | Event Routes API | Number of requests per second | 100 |
 
 ## Other limits
 
 Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec: [Digital Twin Definition Language](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md).
 
-Query latency and limits on querying during preview can be found in [How-to: Query the twin graph](how-to-query-graph.md).
+Query latency details and other guidelines on writing queries during preview can be found in [How-to: Query the twin graph](how-to-query-graph.md).
 
 ## Next steps
 
