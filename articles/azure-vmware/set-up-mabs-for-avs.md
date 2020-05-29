@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Deploy Microsoft Azure Backup Server (MABS) for Azure VMware Solution (AVS)
-description: Learn to configure your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
-ms.topic: tutorial
+title: Set up Microsoft Azure Backup Server (MABS) for Azure VMware Solution (AVS)
+description: Set up your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
+ms.topic: how-to
 ms.date: 06/02/2020
 ---
 
-# Tutorial: Deploy Microsoft Azure Backup Server for AVS
+# Set up Microsoft Azure Backup Server for AVS
 
 Microsoft Azure Backup Server (MABS) is a robust enterprise backup and recovery system that contributes to your BCDR strategy by facilitating the backup and recovery of enterprise data. During the AVS preview, you can configure only Virtual Machine level backup using MABS. This article explains how to prepare your AVS environment to backup Virtual Machines using MABS.
 
@@ -18,7 +18,7 @@ MABS can store backup data to:
 When outages occur and source data is unavailable, you can use MABS to easily restore data to the original source or to an alternate location. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
 
 
-In this tutorial, you learn how to:
+In this article, we walk through the steps to:
 
 > [!div class="checklist"]
 > * Determine the recommended VM disk type and size to use
@@ -417,17 +417,8 @@ Backup Server V3 only accepts storage volumes. When you add a volume, Backup Ser
 
 **Next Steps**
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Determine the recommended VM disk type and size to use
-> * Create a Recovery Services vault that stores the recovery points
-> * Set the storage replication for a Recovery Services vault
-> * Add storage to Azure Backup Server
-
-
 Continue to the next tutorial to learn how to configure back up of VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server.
 
 > [!div class="nextstepaction"]
-> [Configure backup of AVS VMs](tutorial-backup-avs-vms-with-mabs.md)
+> [Configure backup of AVS VMs](backup-avs-vms-with-mabs.md)
 

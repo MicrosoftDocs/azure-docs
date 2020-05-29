@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Back up Azure VMware Solution (AVS) VMs with Microsoft Azure Backup Server (MABS)
-description: Learn to configure your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
-ms.topic: tutorial
+title: Back up Azure VMware Solution (AVS) VMs with Microsoft Azure Backup Server (MABS)
+description: Configure your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server (MABS).
+ms.topic: how-to
 ms.date: 06/02/2020
 ---
 
-# Tutorial: Back up AVS VMs with Azure Backup Server
+# Back up AVS VMs with Azure Backup Server
 
-This tutorial provides the steps to back up VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server.
+In this article, we go through the procedures back up VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server. Before you begin, make sure to go through the [Set up Microsoft Azure Backup Server for AVS](set-up-mabs-for-avs.md). 
 
-In this tutorial, you learn how to:
+Them, we will walk through all of the necessary procedures to:
 
 > [!div class="checklist"] 
 > * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
@@ -381,13 +381,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"] 
-> * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
-> * Add the account credentials to Azure Backup. 
-> * Add the vCenter to Azure Backup Server. 
-> * Set up a protection group that contains the VMware VMs you want to back up, specify backup settings, and schedule the backup.
+For troubleshooting issues when setting up backups, review the troubleshooting guide for Azure Backup Server.
 
 
 
