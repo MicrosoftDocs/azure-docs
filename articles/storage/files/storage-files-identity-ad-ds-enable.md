@@ -76,7 +76,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ## Option 2: Manually perform the script actions
 
-If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm that the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
+If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the [Confirm the feature is enabled](#confirm-the-feature-is-enabled) section. You don't need to perform the following manual steps.
 
 ### Checking environment
 
@@ -116,7 +116,8 @@ Set-AzStorageAccount `
 You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) in the troubleshooting guide for Windows.
 
 ```PowerShell
-Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose```
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
 
 ## Confirm the feature is enabled
 
