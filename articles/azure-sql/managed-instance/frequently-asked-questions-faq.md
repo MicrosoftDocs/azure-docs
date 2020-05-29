@@ -265,7 +265,7 @@ SELECT *
 FROM sys.sql_logins
 ```
 
-After that, you can modify specified user settings by executing :
+After that, you can modify specified login settings by executing :
 
 ```sql
 ALTER LOGIN test WITH CHECK_POLICY = ON;
