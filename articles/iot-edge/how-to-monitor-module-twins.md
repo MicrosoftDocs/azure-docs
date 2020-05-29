@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -19,7 +19,7 @@ Module twins in Azure IoT Hub enable monitoring the connectivity and health of y
 
 The data is organized into metadata, tags, along with desired and reported property sets in the module twins' JSON structures. The desired properties you specified in your deployment.json file are copied to the module twins. The IoT Edge agent and the IoT Edge hub each update the reported properties for their modules.
 
-Similarly, the desired properties specified for your custom modules in the deployment.json file are copied to its module twin, but your solution is responsible for providing reported its property values.
+Similarly, the desired properties specified for your custom modules in the deployment.json file are copied to its module twin, but your solution is responsible for providing its reported property values.
 
 This article describes how to review the module twins in the Azure portal, Azure CLI, and in Visual Studio Code. For information on monitoring how your devices receive the deployments, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For an overview on the concept of module twins, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
