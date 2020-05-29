@@ -12,7 +12,7 @@ ms.date: 05/11/2020
 ms.author: sausin
 ---
 
-# References
+# Custom Commands concepts
 ## Commands configuration
 Commands are the basic building blocks of a Custom Commands application. A command is set of configurations required to complete a specific task defined by a user.
 

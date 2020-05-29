@@ -12,7 +12,7 @@ ms.date: 05/27/2020
 ms.author: sausin
 ---
 
-# Add a confirmation to a Command
+# Add confirmations to a Command
 
 In this article, you'll learn how to add a confirmation to a command using **Interaction Rules**. Go to [references](./custom-commands-references.md) section to learn more about interaction rules.
 

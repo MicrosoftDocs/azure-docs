@@ -14,7 +14,7 @@ ms.author: sausin
 
 # Use language generation templates for speech responses
 
-In this article, you will learn about the language generation aspects of speech responses. This can be achieved in two ways-
+In this article, you will learn about the language generation aspects of speech responses. This can be achieved in two ways:
 1. Use of language generation templates.
 1. Use of adaptive expressions.
 
@@ -40,11 +40,13 @@ Since Custom Commands creates a new LG template when required (i.e. for speech r
     - Proceeding to turn {OnOff} {SubjectDevice}
  ```
 
-You only need to define the body of the template without the name, i.e.
+You only need to define the body of the template without the name:
+> [!div class="mx-imgBorder"]
+> ![template editor example](./media/custom-commands/template-editor-example.png)
 
-![template editor example](./media/custom-speech-commands/template-editor-example.png)
 
-This change introduces variation to the speech responses being sent to the client.
+This change introduces variation to the speech responses being sent to the client. So, for the same utterance, the corresponding speech response would be randomly picked out of the options provided.
+
 Taking advantage of LG templates we can also define complex speech responses for our commands using adaptive expressions.
 
 You can refer to the [LG templates format](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
@@ -56,7 +58,7 @@ You can refer to the [LG templates format](https://docs.microsoft.com/en-us/azur
 
 ## Add template responses to TurnOnOff command
 
-### Modify TurnOnOff command
+### Add a new SubjectContext parameter
 Let's modify the **TurnOnOff** command to add a new parameter to it with the following configuration:
 
 | Setting            | Suggested value       | 
@@ -69,8 +71,7 @@ Let's modify the **TurnOnOff** command to add a new parameter to it with the fol
 | Configuration      | Accept predefined input values from internal catalog | 
 | Predefined input values | `room`, `bathroom`, `all`|
 
-
-
+### Modify completion rule
 
 1. Edit the **Actions** section of existing completion rule **ConfirmationResponse**.
 1. In the **Edit action** pop-up, switch to **Template Editor** and replace the text with-
@@ -89,7 +90,7 @@ Let's modify the **TurnOnOff** command to add a new parameter to it with the fol
     * Input: turn on the tv
     * Output: Ok, turning the tv on
     * Input: turn on the tv
-    * Output: Done, turning on the tv
+    * Output: Done, turned on the tv
     * Input: turn off the lights
     * Output: Ok, turning all the lights off
     * Input: turn off room lights

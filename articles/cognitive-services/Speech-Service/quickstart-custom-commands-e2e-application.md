@@ -47,16 +47,17 @@ In this article you will create and test Custom Commands application using Speec
 ## Import an existing application as a new Custom Commands project
 1. Select **New project** to create a project.
 
-   > [!div class="mx-imgBorder"]
-   > ![Create a project](media/custom-speech-commands/create-new-project.png)
-
 1. In the **Name** box, enter a project name.
 1. In the **Language** list, select a language.
-1. Select **Browse files** and in the browse window, select the HospitalityDemo.json file.
+1. Select **Browse files** and in the browse window, select the **Smart-Room-Lite.json** file.
+
+    > [!div class="mx-imgBorder"]
+   > ![Create a project](media/custom-commands/import-project.png)
+
 1.  In the **LUIS authoring resource** list, select an authoring resource. If there are no valid authoring resources,    create one by selecting  **Create new LUIS authoring resource**.
 
        > [!div class="mx-imgBorder"]
-       > ![Create a resource](media/custom-speech-commands/create-new-resource.png)
+       > ![Create a resource](media/custom-commands/create-new-luis-resource.png)
 
 
        1. In the **Resource Name** box, enter the name of the resource.
@@ -91,7 +92,7 @@ Before you can access this application from outside Speech Studio, you need to p
 1. Select **Save**.
     
     > [!div class="mx-imgBorder"]
-    > ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+    > ![Set LUIS Resources](media/custom-commands/set-luis-resources.png)
 
 
 ### Publish the application
@@ -104,11 +105,11 @@ In the scope of this article, we will be using the windows voice assistant clien
 1. Launch **VoiceAssistantClient.exe**.
 1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app Id**.
   > [!div class="mx-imgBorder"]
-  > ![WVAC Create profile](media/custom-speech-commands/wvac-create-profile.png)
+  > ![WVAC Create profile](media/custom-commands/wvac-create-profile.png)
 1. Select **Save and Apply Profile**.
 1. Now try out the following inputs via speech/text
     > [!div class="mx-imgBorder"]
-  > ![WVAC Create profile](media/custom-speech-commands/wvac-conversation.png)
+  > ![WVAC Create profile](media/custom-commands/wvac-conversation.png)
 
 
 > [!TIP]

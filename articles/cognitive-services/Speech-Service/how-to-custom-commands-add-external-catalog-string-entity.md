@@ -25,7 +25,7 @@ In this article, you will learn how to configure string type parameters to refer
 ## Use external string catalog entity configuration
 
 1. For this, let's reuse **SubjectDevice** parameter from the **TurnOnOff** command.
-1. The current configuration for this parameter is `Accept predefined inputs from internal catalog`. This refers to static list of devices as defined in the parameter configuration. We want to move out this content to an external data source which can be updated independently.
+1. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This refers to static list of devices as defined in the parameter configuration. We want to move out this content to an external data source which can be updated independently.
 
 ### Add an external catalog endpoint
 
@@ -33,33 +33,34 @@ In this article, you will learn how to configure string type parameters to refer
 
 1. Go to **Web endpoints** section in the left pane and add a new web endpoint with configuration as:
 
- | Setting                           | Suggested value                     |
+     | Setting                           | Suggested value                     |
    | --------------------------------- | -----------------------------------------------------|
    | Name                              | `getDevices`                                |
    | URL                          |`https://dscprodsu01sa01.blob.core.windows.net/samples/getDevices.json`                                |
    | Method                              | GET                                |
 
 
-You will need a simple web endpoint which returns json consisting of list of the devices which can be controlled. The web endpoint should return a json of below format:
+    In case, the suggest value for URL doesn't work for you - you need to configure and host a simple web endpoint which returns json consisting of list of the devices which can be controlled. The web endpoint should return a json of below format:
+        
+    ```json
+    {
+        "fan" : [],
+        "refrigerator" : [
+            "fridge"
+        ],
+        "lights" : [
+            "bulb",
+            "bulbs",
+            "light"
+            "light bulb"
+        ],
+        "tv" : [
+            "telly",
+            "television"
+            ]
+    }
     
-```json
-{
-    "fan" : [],
-    "refrigerator" : [
-        "fridge"
-    ],
-    "light" : [
-        "bulb",
-        "bulbs",
-        "light bulb"
-    ],
-    "tv" : [
-        "telly",
-        "television"
-        ]
-}
-
-```
+    ```
 
 
 1. Next go the **SubjectDevice** parameter settings page and change the properties as follows-
@@ -69,6 +70,9 @@ You will need a simple web endpoint which returns json consisting of list of the
    | Configuration                     | Accept predefined inputs from external catalog |                                |
    | Catalog endpoint                  | getDevices                                 |
    | Method                            | GET                             |
+1. Select **Save**.
+> [!IMPORTANT]
+> You wouldn't see an option to configure a parameter to accept inputs from an external catalog unless you have the web endpoint set in the **Web endpoint** section in the left pane.
 
 ## Try it out
 
@@ -77,14 +81,14 @@ You will need a simple web endpoint which returns json consisting of list of the
 1. Once, training completes, select **Test** and try a few interactions.
 
     * Input: turn on
-    * Output: which device?
-    * Input: telly
-    * Output: Ok, turning the tv on
+    * Output: Which device do you want to control?
+    * Input: lights
+    * Output: Ok, turning the lights on
 
 
 
 > [!NOTE]
->You still need to train the application for testing out the new changes and re-publish the application.
+>Notice how you can control all the devices hosted on the web endpoint now. You still need to train the application for testing out the new changes and re-publish the application.
 
 
 

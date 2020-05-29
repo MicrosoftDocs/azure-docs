@@ -36,17 +36,17 @@ Let's demonstrate validations using **SetTemperature** command. You will be addi
 1. Select **SetTemperature** command in the left pane.
 1. Select  **Temperature** in the middle pane.
 1. Select **Add a validation** present in the right pane.
-1. In the **New validation** window,  as follows, and select **Create**.
+1. In the **New validation** window, configure validation as follows, and select **Create**.
 
 
     | Parameter Configuration         | Suggested value                                          | Description                                                                        |
     | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
     | Min Value        | `60`               | For Number parameters, the minimum value this parameter can assume |
     | Max Value        | `80`               | For Number parameters, the maximum value this parameter can assume |
-    | Failure response > Simple editor |  First Variation > `Sorry, I can only set between 60 and 80 degrees`      | Prompt to ask for a new value if the validation fails                                       |
+    | Failure response |  Simple editor > First Variation > `Sorry, I can only set temperature between 60 and 80 degrees`      | Prompt to ask for a new value if the validation fails                                       |
 
     > [!div class="mx-imgBorder"]
-    > ![Add a range validation](media/custom-speech-commands/validations-add-temperature.png)
+    > ![Add a range validation](media/custom-commands/add-validations-temperature.png)
 
 
 
@@ -58,7 +58,7 @@ Let's demonstrate validations using **SetTemperature** command. You will be addi
     - Input: Set the temperature to 72 degrees
     - Output: Ok, setting temperature to 72 degrees
     - Input: Set the temperature to 45 degrees
-    - Output: Sorry, I can only set between 60 and 80 degrees
+    - Output: Sorry, I can only set temperature between 60 and 80 degrees
     - Input: make it 72 degrees instead
     - Output: Ok, setting temperature to 72 degrees
 

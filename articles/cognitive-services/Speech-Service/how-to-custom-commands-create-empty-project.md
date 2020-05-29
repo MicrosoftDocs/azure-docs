@@ -44,7 +44,7 @@ The created application will have a default **Fallback command** and will proces
 1. Select **New project** to create a project.
 
    > [!div class="mx-imgBorder"]
-   > ![Create a project](media/custom-speech-commands/create-new-project.png)
+   > ![Create a project](media/custom-commands/create-new-project.png)
 
 1. In the **Name** box, enter a project name.
 1. In the **Language** list, select a language.
@@ -76,7 +76,7 @@ You can update the authoring resource that you selected in the **New project** w
 1. Select **Save**.
     
     > [!div class="mx-imgBorder"]
-    > ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+    > ![Set LUIS Resources](media/custom-commands/set-luis-resources.png)
 
 
 > [!NOTE]

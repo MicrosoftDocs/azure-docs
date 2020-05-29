@@ -39,7 +39,7 @@ The middle pane lists the different properties of the command. You will be confi
 
 
 > [!div class="mx-imgBorder"]
-> ![Create a command](media/custom-speech-commands/create-add-command.png)
+> ![Create a command](media/custom-commands/add-new-command.png)
 
 
 ### Add example sentences
@@ -59,43 +59,47 @@ For now, we don't have parameters, so we can move to the **Completion rules** se
 
 ### Add a completion rule
 
-Now add a completion rule that has the following configuration. This rule tells the user that a fulfillment action is being taken. To read more about rules and completion rules, go to [references](./custom-commands-references.md).
+Next, the command needs to have a completion rule. This rule tells the user that a fulfillment action is being taken. To read more about rules and completion rules, go to [references](./custom-commands-references.md).
 
+1. Select default completion rule **Done** and edit it as follows: 
 
-| Setting    | Suggested value                          | Description                                        |
-| ---------- | ---------------------------------------- | -------------------------------------------------- |
-| **Name**       | ConfirmationResponse                  | A name describing the purpose of the rule          |
-| **Conditions** | None                                     | Conditions that determine when the rule can run    |
-| **Actions**    | SpeechResponse > `Ok, turning the tv on` | The action to take when the rule condition is true |
+    
+    | Setting    | Suggested value                          | Description                                        |
+    | ---------- | ---------------------------------------- | -------------------------------------------------- |
+    | **Name**       | ConfirmationResponse                  | A name describing the purpose of the rule          |
+    | **Conditions** | None                                     | Conditions that determine when the rule can run    |
+    | **Actions**    | Send speech response > Simple editor > First variation > `Ok, turning the tv on` | The action to take when the rule condition is true |
+    
 
-1. You can create a completion rule by selecting the **Add** at the top of the middle pane. But for now, let's reuse the existing default **Done** rule.
+1. Alternatively, you can delete the existing default completion rule and create a new one by selecting the **Add** at the top of the middle pane.
 1. Provide value in **Name** section.
-1. Add an action
-   1. Create an action by selecting **Add an action** in the **Actions** section.
-   1. In the **New Action** window, in the **Type** list, select **Send speech response**.
-   1. Under **Response**, select **Simple editor**.
+1. Add an action.
+   - Create an action by selecting **Add an action** in the **Actions** section.
+   - In the **New Action** window, in the **Type** list, select **Send speech response**.
+   - Under **Response**, select **Simple editor**.
        - In the **First variation** field, provide value for response as `Ok, turning the tv on`.
 
    > [!div class="mx-imgBorder"]
-   > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
+   > ![Create a Speech response](media/custom-commands/create-speech-response-action.png)
 
-1. Select **Save** to save the rule.
+1. Select **Save** to save the action.
 1. Back in the **Completion rules** section, select **Save** to save all changes. 
 
-> [!div class="mx-imgBorder"]
-> ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 ### Try it out
 
 Test the behavior using the Test chat panel
 1. Select **Train** icon present on top of the right pane.
-1. Once, training completes, select **Test**. Try out the following utterance.
+1. Once, training completes, select **Test**. Try out the following utterance via voice/text:
     - Input: turn on the tv
     - Output: Ok, turning the tv on
 
 
 > [!div class="mx-imgBorder"]
-> ![Test with web chat](media/custom-speech-commands/create-basic-test-chat.png)
+> ![Test with web chat](media/custom-commands/create-basic-test-chat.png)
+
+> [!TIP]
+> In the test panel, you can select **Turn details** for information as to how this voice/text input was processed.  
 
 ## Add SetTemperature command
 Now, let's add one more command **SetTemperature** that will take a single utterance, `set the temperature to 40 degrees`, and respond with the message `Ok, setting temperature to 40 degrees`.
@@ -108,13 +112,15 @@ Follow the steps as illustrated for the **TurnOn** command to create a new comma
     ```
 
 ### Completion rules
+Edit the existing **Done** completion as follows:
 
 | Setting    | Suggested value                          |
 | ---------- | ---------------------------------------- |
 | Name  | ConfirmationResponse                  |
 | Conditions | None                                     |
-| Actions    | SpeechResponse > Ok, setting temperature to 40 degrees |
+| Actions    | Send speech response > Simple editor > First variation > `Ok, setting temperature to 40 degrees` |
 
+Select **Save** to save all changes to the command.
 
 ## Add SetAlarm command
 Create a new Command **SetAlarm** with configuration as defined below.
@@ -126,19 +132,19 @@ Create a new Command **SetAlarm** with configuration as defined below.
 
     
 ### Completion rules
-
+Edit the existing **Done** completion as follows:
 
 | Setting    | Suggested value                          |
 | ---------- | ---------------------------------------- |
 | Rule Name  | ConfirmationResponse                  |
 | Conditions | None                                     |
-| Actions    | SpeechResponse > `Ok, setting an alarm for 9 am tomorrow` |
+| Actions    | Send speech response > Simple editor > First variation >`Ok, setting an alarm for 9 am tomorrow` |
 
-
+Select **Save** to save all changes to the command.
 ## Try it out
 
 Test the behavior using the Test chat panel
-1. Select **Train**. After training success, select **Test** 
+1. Select **Train**. After training success, select **Test** and try out:
     - You type: set the temperature to 40 degrees
     - Expected response: Ok, setting temperature to 40 degrees
     - You type: turn on the tv
