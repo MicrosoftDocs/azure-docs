@@ -144,6 +144,8 @@ If you use the on-premises data gateway with the optional Secure Network Communi
 
 ## Migrate to current connector
 
+To migrate from an earlier managed (non-ISE) SAP connector to the current managed SAP connector, follow these steps:
+
 1. If you haven't done so already, update your [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) so that you have the latest version. For more information, see [Install an on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 1. In the logic app that uses the older SAP connector, delete the **Send to SAP** action.
