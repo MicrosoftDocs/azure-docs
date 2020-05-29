@@ -38,7 +38,7 @@
     href: disaster-recovery.md
 - name: Reference
   items:
-- name: MABS for AVS
+- name: Azure Backup Server for AVS
   items:
     - name: Set up MABS for AVS
       href: set-up-mabs-for-avs.md
