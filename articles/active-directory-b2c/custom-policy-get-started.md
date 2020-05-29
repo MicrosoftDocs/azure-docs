@@ -134,7 +134,7 @@ Next, specify that the application should be treated as a public client:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:

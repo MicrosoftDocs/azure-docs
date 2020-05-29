@@ -10,6 +10,7 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
+ms.custom: designer
 ---
 # Example pipelines & datasets for Azure Machine Learning Designer
 

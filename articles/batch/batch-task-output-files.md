@@ -1,7 +1,7 @@
 ---
-title: Persist output data to Azure Storage with Batch service API - Azure Batch
+title: Persist output data to Azure Storage with Batch service API
 description: Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
 

@@ -143,7 +143,7 @@ Next, you'll configure federation with the identity provider configured in step 
 ### To configure direct federation in the Azure AD portal
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships** > **All identity providers** (or **External Identities** > **All identity providers**).
+2. Select **External Identities** > **All identity providers**.
 3. Select , and then select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
@@ -191,7 +191,7 @@ Now test your direct federation setup by inviting a new B2B guest user. For deta
 ## How do I edit a direct federation relationship?
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships** (or **External Identities**).
+2. Select **External Identities**.
 3. Select **All identity providers**
 4. Under **SAML/WS-Fed identity providers**, select the provider.
 5. In the identity provider details pane, update the values.
@@ -203,7 +203,7 @@ You can remove your direct federation setup. If you do, direct federation guest 
 To remove direct federation with an identity provider in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships** (or **External Identities**).
+2. Select **External Identities**.
 3. Select **All identity providers**.
 4. Select the identity provider, and then select **Delete**. 
 5. Select **Yes** to confirm deletion. 
