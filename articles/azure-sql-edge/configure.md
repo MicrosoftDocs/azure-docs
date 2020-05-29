@@ -67,7 +67,7 @@ Azure SQL Edge does not include the [mssql-conf configuration utility](/sql/linu
 ```
 
 The following mssql.conf options are not applicable to SQL Edge:
-</br></br>
+
 |Option|Description|
 |:---|:---|
 |**Customer feedback** | Choose whether or not SQL Server sends feedback to Microsoft. |
