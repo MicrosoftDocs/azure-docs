@@ -115,7 +115,7 @@ The following table shows a comparison of premium performance block blob storage
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Availability**                          | 99.9%                     | 99.9%        | 99%                 | Offline           |
 | **Availability** <br> **(RA-GRS reads)**  | N/A                       | 99.99%       | 99.9%               | Offline           |
-| **Usage charges**                         | Higher storage costs, lower access and transaction cost | Higher storage costs, lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
+| **Usage charges**                         | Higher storage costs, lower access, and transaction cost | Higher storage costs, lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
 | **Minimum object size**                   | N/A                       | N/A          | N/A                 | N/A               |
 | **Minimum storage duration**              | N/A                       | N/A          | 30 days<sup>1</sup> | 180 days
 | **Latency** <br> **(Time to first byte)** | Single-digit milliseconds | milliseconds | milliseconds        | hours<sup>2</sup> |
@@ -129,7 +129,7 @@ The following table shows a comparison of premium performance block blob storage
 
 ## Quickstart scenarios
 
-In this section, the following scenarios are demonstrated using the Azure portal and powershell:
+In this section, the following scenarios are demonstrated using the Azure portal and PowerShell:
 
 - How to change the default account access tier of a GPv2 or Blob storage account.
 - How to change the tier of a blob in a GPv2 or Blob storage account.
@@ -151,7 +151,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 ![Change storage account tier](media/storage-tiers/account-tier.png)
 
-# [Powershell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -181,7 +181,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Change storage account tier](media/storage-tiers/blob-access-tier.png)
 
-# [Powershell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
