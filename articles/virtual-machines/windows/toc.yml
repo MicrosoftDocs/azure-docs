@@ -480,6 +480,8 @@
         href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Use Azure CLI
         href: image-builder.md
+      - name: Create VM using VNET
+        href: image-builder-vnet.md
       - name: Build for image galleries
         href: image-builder-gallery.md
       - name: Update an existing image
