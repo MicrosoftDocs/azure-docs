@@ -13,35 +13,9 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that send requests to service endpoints over HTTP or HTTPS. For example, you can monitor the service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
 
-> [!NOTE]
-> Based the target endpoint's capability, the HTTP connector supports Transport Layer Security (TLS) 
-> versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported 
-> version possible. So for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
-> Otherwise, the connector uses the next highest supported version.
->
-> The HTTP connector doesn't support intermediate TLS/SSL certificates for authentication.
+* To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
-To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
-
-To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
-
-> [!IMPORTANT]
-> If an HTTP trigger or action includes these headers, Logic Apps removes these 
-> headers from the generated request message without showing any warning or error:
->
-> * `Accept-*`
-> * `Allow`
-> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
-> * `Cookie`
-> * `Expires`
-> * `Host`
-> * `Last-Modified`
-> * `Origin`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
->
-> Although Logic Apps won't stop you from saving logic apps that use an 
-> HTTP trigger or action with these headers, Logic Apps ignores these headers.
+* To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
 This article shows how to add an HTTP trigger or action to your logic app's workflow.
 
@@ -54,6 +28,45 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+
+## Certificates and authentication
+
+* Transport Layer Security (TLS) support
+
+  * Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS) versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
+
+    For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
+
+  * The HTTP connector doesn't support intermediate TLS (previously SSL) certificates for authentication.
+
+* Self-signed certificate support
+
+  * If your logic app runs in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector can use self-signed certificates, but you must first [enable that capability on an existing ISE or when you create an ISE by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
+
+    Without enabling this capability, just uploading the certificate in the required trusted root location won't work.
+
+  * In global, multi-tenant Azure, the HTTP connector can use self-signed certificates for authentication, but not self-signed TLS/SSL certificates.
+
+    So, if your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a "trust failure" error.
+
+## Known issues
+
+### Omitted HTTP headers
+
+If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
+
+* `Accept-*`
+* `Allow`
+* `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
 
 <a name="http-trigger"></a>
 
