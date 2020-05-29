@@ -14,15 +14,12 @@ ms.date: 02/04/2020
 
 The Edv4 and Edsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, and are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM.
 
-> [!NOTE]
-> We are aware of an issue in the Azure host software that currently causes RHEL 7.x and CentOS 7.x Linux distributions to not boot or run on Edv4/Edsv4 VM sizes. Viewing the Azure serial console log of the VM will show a Linux kernel panic early in the boot process.  Other Linux distributions or virtual appliances based on a Linux kernel version 4.6 or earlier will similarly not boot or run.  An update to the Azure host is planned in the next few weeks that will resolve this issue and enable the full range of Linux distros and virtual appliances to operate properly.
+> [!IMPORTANT]
+> We are aware of an issue that causes RHEL 7.x and CentOS 7.x Linux distributions to not boot on the Ddv4/Ddsv4 VM sizes. Viewing the Azure serial console log of the VM will show a Linux kernel panic early in the boot process. Other Linux distributions or virtual appliances based on a Linux kernel version 4.6 or earlier will also not boot. An update is planned in the next few weeks that will resolve this issue and enable the full range of Linux distros and virtual appliances to operate properly.
 
 ## Edv4-series
 
 Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors. The Edv4 virtual machine sizes feature up to 504 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to the Edv4 VMs. Edv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
-
-> [!NOTE]
-> To use Ultra Disk or Premium SSD disk storage, select the Edsv4-series.
 
 ACU: 195 - 210
 
