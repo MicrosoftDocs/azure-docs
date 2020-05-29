@@ -61,7 +61,7 @@ In this article, we walk through the steps to:
 -   Add storage to Azure Backup Server server
 
 
-![Deploy Azure Backup Server solution diagram](./media/backup-mabs/deploy-mabs-avs-diagram.png)
+![Deploy Azure Backup Server solution diagram](./media/deploy-mabs/deploy-mabs-avs-diagram.png)
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -236,13 +236,13 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  From the **Where is your workload running** menu, select **On-premises**.
 
-       ![Where is your workload running?](./media/backup-mabs/deploy-mabs-on-premises-workload.png)
+       ![Where is your workload running?](./media/deploy-mabs/deploy-mabs-on-premises-workload.png)
 
     1.  From the **What do you want to back up** menu, select the workloads you want to protect using Azure Backup Server.
 
     1.  Click on **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-       ![Prepare Infrastructure](./media/backup-mabs/deploy-mabs-prepare-infrastructure.png)
+       ![Prepare Infrastructure](./media/deploy-mabs/deploy-mabs-prepare-infrastructure.png)
 
 1.  In the **Prepare infrastructure** window that opens, do the following:
 
@@ -250,7 +250,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
-    ![Prepare Infrastructure – Azure Backup Server](./media/backup-mabs/deploy-mabs-prepare-infrastructure2.png)
+    ![Prepare Infrastructure – Azure Backup Server](./media/deploy-mabs/deploy-mabs-prepare-infrastructure2.png)
 
 1.  On the download page, select all the files and click **Next** to download
     all the files.
