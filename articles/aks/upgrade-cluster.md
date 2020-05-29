@@ -52,7 +52,7 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 By default, AKS configures upgrades to surge with one additional node. This default value enables AKS to minimize workload disruption by creating an additional node before the cordon/drain of existing applications to replace an older versioned node. The max-surge parameter may be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max-surge value, the upgrade process completes faster, but setting a large value for max-surge may cause disruptions during the upgrade process. 
 
-For example, a max-surge value of 100% provides a faster upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a value such as this for testing environments, but for production node pools, we recommend a max_surge setting of 33%.
+For example, a max-surge value of 100% provides a faster upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a value such as this for testing environments, but for production node pools, we recommend a max surge setting of 33%.
 
 Max surge integer values can be a minimum of 1 and maximum of any valid int32 value. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count.
 
