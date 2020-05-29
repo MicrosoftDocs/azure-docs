@@ -79,7 +79,7 @@ For more information, see the [monitoring and logging](monitoring-logging.md) ar
 ## Billing and availability
 
 * How is LiveVideo Analytics on IoT Edge billed?
-    * See [pricing page](https://azure.microsoft.com/en-us/pricing/details/media-services/) for details.
+    * See [pricing page](https://azure.microsoft.com/pricing/details/media-services/) for details.
 
 ## Next steps
 
