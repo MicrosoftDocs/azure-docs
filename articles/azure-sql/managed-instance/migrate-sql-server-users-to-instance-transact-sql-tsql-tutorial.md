@@ -1,6 +1,6 @@
 ---
 title: Migrate SQL Server Windows users and groups to SQL Managed Instance using T-SQL
-description: Learn about how to migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance
+description: Learn about how to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,7 +12,7 @@ ms.reviewer: vanto
 ms.date: 10/30/2019
 ---
 
-# Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance using T-SQL DDL syntax
+# Tutorial: Migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL DDL syntax
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
@@ -48,7 +48,7 @@ To complete this tutorial, the following prerequisites apply:
 
 ## T-SQL DDL syntax
 
-Below are the T-SQL DDL syntax used to support SQL Server on-premises Windows users and groups migration to SQL Managed Instance with Azure AD authentication.
+Below are the T-SQL DDL syntax used to support the migration of Windows users and groups from a SQL Server instance to SQL Managed Instance with Azure AD authentication.
 
 ```sql
 -- For individual Windows users with logins
@@ -72,7 +72,7 @@ Remaps a user to the Azure AD login
 _groupName_</br>
 Specifies the name of the group identified inside the database.
 
-## Part 1: Create logins for SQL Server on-premises users and groups
+## Part 1: Create logins in SQL Server for Windows users and groups
 
 > [!IMPORTANT]
 > The following syntax creates a user and a group login in your SQL Server. You'll need to make sure that the user and group exist inside your Active Directory (AD) before executing the below syntax. </br> </br>
