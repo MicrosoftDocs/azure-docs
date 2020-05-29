@@ -283,11 +283,9 @@ The new experience shows all B2C app registrations and Azure AD app registration
 
 You can reach the new experience by navigating the Azure AD B2C service and selecting the App registrations blade. The experience is also accessible from the Azure Active Directory service.
 
-The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for Azure AD tenants but is tailored for Azure AD B2C.
+The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for Azure AD tenants but is tailored for Azure AD B2C. The legacy "Applications" experience will be deprecated in the future.
 
 For more information, visit [The New app registration experience for Azure AD B2C](https://aka.ms/b2cappregtraining).
-
-Note: The legacy "Applications" experience will be deprecated in the future.
 
 ---
 
