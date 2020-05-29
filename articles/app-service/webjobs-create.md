@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Run background tasks with WebJobs in Azure App Service
 
-Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. If instead, you are using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+Deploy WebJobs by using the [Azure portal](https://portal.azure.com/?feature.customportal=false) to upload an executable or script. If instead, you are using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
@@ -59,7 +59,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
@@ -97,7 +97,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
@@ -135,7 +135,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
