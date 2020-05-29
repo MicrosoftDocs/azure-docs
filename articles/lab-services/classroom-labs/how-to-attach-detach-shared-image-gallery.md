@@ -22,7 +22,7 @@ This article shows you how to attach or detach a shared image gallery to a lab a
 > [!NOTE]
 > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a specialized image. [Specialized images](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services. 
 >
-> A lab creator can create a template VM Virtual based on both generalized and specialized images in Azure Lab Services. 
+> A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services. 
 
 ## Scenarios
 Here are the couple of scenarios supported by this feature: 
