@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
 ---
 
@@ -22,6 +22,7 @@ Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID i
 
 > [!IMPORTANT]
 > Time Series IDs are:
+>
 > * A *case-sensitive* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
 > * An *immutable* property: once created it cannot be changed.
 
@@ -51,7 +52,7 @@ The following scenarios describe selecting more than one key property as your Ti
 
 ### Example 2: Time Series ID with a composite key
 
-* You require multiple properties to be unique within the same fleet of assets. 
+* You require multiple properties to be unique within the same fleet of assets.
 * You're a manufacturer of smart buildings and deploy sensors in every room. In each room, you typically have the same values for **sensorId**. Examples are **sensor1**, **sensor2**, and **sensor3**.
 * Your building has overlapping floor and room numbers across sites in the property **flrRm**. These numbers have values such as **1a**, **2b**, and **3a**.
 * You have a property, **location**, that contains values such as **Redmond**, **Barcelona**, and **Tokyo**. To create uniqueness, you designate the following three properties as your Time Series ID keys: **sensorId**, **flrRm**, and **location**.
@@ -67,7 +68,7 @@ Example raw event:
 }
 ```
 
-In the Azure portal, you can then enter the composite key as follows: 
+In the Azure portal, you can then enter the composite key as follows:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

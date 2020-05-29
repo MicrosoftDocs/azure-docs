@@ -73,7 +73,7 @@ This bulk transfer completes the initial seeding phase.
 
 ### Ongoing feed with Data Box Gateway
 
-Follow these steps for ongoing ingestion by Data Box Gateway.
+Follow these steps for ongoing ingestion by Data Box Gateway. 
 
 1. Create a cloud share on Data Box Gateway. This share automatically uploads any data to the Azure Storage account. Go to **Shares** in your Data Box Gateway resource and click **+ Add share**.
 

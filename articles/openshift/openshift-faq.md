@@ -132,7 +132,7 @@ Customers can access the CPU/Memory metrics at the node level by using the comma
 
 ## What is the default pod scheduler configuration for ARO?
 
-ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) for more details.
+ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) for more details.
 
 Advanced/Custom scheduling is currently unsupported. Refer to the [Scheduling documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) for more details.
 

@@ -339,7 +339,6 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 
 ## Next steps
 
-Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
+If you're new to identity and access management, we have several articles to help you learn modern authentication concepts, starting with [authentication vs. authorization](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+If you'd like to dive deeper into single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.

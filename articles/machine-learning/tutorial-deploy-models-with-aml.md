@@ -146,7 +146,7 @@ model = Model(ws, 'sklearn_mnist')
 
 
 myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
-inference_config = InferenceConfig(entry_script="score.py", environment=tutorial-env)
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 service = Model.deploy(workspace=ws, 
                        name='sklearn-mnist-svc3', 

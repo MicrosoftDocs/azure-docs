@@ -171,8 +171,8 @@ Configure your router to advertise select prefixes to Microsoft by using the fol
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter 
-    <Prefix_to_be_advertised/Subnet_Mask> exact;
+                route-filter; 
+                <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -182,7 +182,7 @@ Configure your router to advertise select prefixes to Microsoft by using the fol
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
+                export <Policy_Name>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -201,7 +201,7 @@ You can use route maps and prefix lists to filter prefixes propagated into your 
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-                prefix-list MS_Prefixes;
+                    prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
@@ -212,8 +212,8 @@ You can use route maps and prefix lists to filter prefixes propagated into your 
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
-                import <MS_Prefixes_Inbound>
+                export <Policy_Name>;
+                import <MS_Prefixes_Inbound>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -236,6 +236,26 @@ Configure BFD under the protocol BGP section only.
         }                                   
     }
 
+### Configure MACSec
+For MACSec configuration, Connectivity Association Key (CAK) and Connectivity Association Key Name (CKN) must match with configured values via PowerShell commands.
+
+    security {
+        macsec {
+            connectivity-association <Connectivity_Association_Name> {
+                cipher-suite gcm-aes-xpn-128;
+                security-mode static-cak;
+                pre-shared-key {
+                    ckn <Connectivity_Association_Key_Name>;
+                    cak <Connectivity_Association_Key>; ## SECRET-DATA
+                }
+            }
+            interfaces {
+                <Interface_Number> {
+                    connectivity-association <Connectivity_Association_Name>;
+                }
+            }
+        }
+    }
 
 ## Next steps
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.

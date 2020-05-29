@@ -15,7 +15,9 @@ ms.date: 03/09/2020
 # Auto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. 
+In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+
+For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
 
 Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. 
 
@@ -35,7 +37,6 @@ Features extracted from the training data play a critical role. And, automated M
 
 ## Time-series and deep learning models
 
-
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
 Deep learning models have three intrinsic capabilities:
@@ -46,7 +47,6 @@ Deep learning models have three intrinsic capabilities:
 Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#configure-a-dnn-enable-forecasting-experiment).
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
-
 
 Models| Description | Benefits
 ----|----|---
@@ -112,7 +112,7 @@ For time series forecasting Rolling Origin Cross Validation (ROCV) is used to sp
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
 
-This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. 
+This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. Learn more about how auto ML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',

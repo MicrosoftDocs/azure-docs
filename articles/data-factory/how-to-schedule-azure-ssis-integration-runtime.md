@@ -128,7 +128,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
     
 2. To test the third pipeline, launch SQL Server Management Studio (SSMS). In **Connect to Server** window, do the following actions. 
 
-    1. For **Server name**, enter **&lt;your Azure SQL Database server name&gt;.database.windows.net**.
+    1. For **Server name**, enter **&lt;your server name&gt;.database.windows.net**.
     2. Select **Options >>**.
     3. For **Connect to database**, select **SSISDB**.
     4. Select **Connect**. 
@@ -348,7 +348,7 @@ The following section provides steps for creating a PowerShell runbook. The scri
 
 ## Create schedules for your runbook to start/stop Azure-SSIS IR
 
-In the previous section, you have created your Azure Automation runbook that can either start or stop Azure-SSIS IR. In this section, you will create two schedules for your runbook. When configuring the first schedule, you specify **START** for **OPERATION**. Similarly, when configuring the second one, you specify **STOP** for **OPERATION**. For detailed steps to create schedules, see [Create a schedule](../automation/shared-resources/schedules.md#creating-a-schedule) article.
+In the previous section, you have created your Azure Automation runbook that can either start or stop Azure-SSIS IR. In this section, you will create two schedules for your runbook. When configuring the first schedule, you specify **START** for **OPERATION**. Similarly, when configuring the second one, you specify **STOP** for **OPERATION**. For detailed steps to create schedules, see [Create a schedule](../automation/shared-resources/schedules.md#create-a-schedule) article.
 
 1. In **Runbook** window, select **Schedules**, and select **+ Add a schedule** on the toolbar. 
 

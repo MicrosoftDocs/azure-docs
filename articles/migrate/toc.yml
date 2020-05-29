@@ -92,6 +92,8 @@
     href: create-manage-projects.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
+  - name: Prepare to work with ISV tools/Movere
+    href: prepare-isv-movere.md
   - name: Add assessment tools
     href: how-to-assess.md
   - name: Deploy Azure Migrate appliance
@@ -126,6 +128,8 @@
     href: how-to-migrate.md
   - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
     href: how-to-migrate-vmware-vms-with-cmk-disks.md
+  - name: Prepare Windows 2003 servers for migration
+    href: prepare-windows-server-2003-migration.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project
@@ -166,8 +170,8 @@
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate

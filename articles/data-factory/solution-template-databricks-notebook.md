@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
+ms.date: 04/27/2020
 ---
 
 # Transformation with Azure Databricks
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you create an end-to-end pipeline that contains the **Validation**, **Copy data**, and **Notebook** activities in Azure Data Factory.
 
@@ -153,6 +153,9 @@ In the new pipeline, most settings are configured automatically with default val
   ![Pipeline parameters](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Connect to your datasets.
+
+    >[!NOTE]
+    >In below datasets, the file path has been automatically specified in the template. If any changes required, make sure that you specify the path for both **container** and **directory** in case any connection error.
 
    - **SourceAvailabilityDataset** - to check that the source data is available.
 

@@ -116,6 +116,7 @@ The status of an ongoing conversion started with one of the REST calls above can
 
 Returns a JSON document with a "status" field that can have the following values:
 
+- "Created"
 - "Running"
 - "Success"
 - "Failure"

@@ -112,7 +112,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | int |
-| fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (e.g) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | commandToExecute (e.g) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (e.g) | false | boolean |
