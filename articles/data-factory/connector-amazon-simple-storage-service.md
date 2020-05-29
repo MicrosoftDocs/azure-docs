@@ -65,7 +65,7 @@ The following properties are supported for an Amazon S3 linked service:
 | accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | serviceUrl | Specify the custom S3 endpoint if you're copying data from an S3-compatible storage provider other than the official Amazon S3 service. For example, to copy data from Google Cloud Storage, specify `https://storage.googleapis.com`. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use an Azure integration runtime or a self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!TIP]
 >Specify the custom S3 service URL if you're copying data from an S3-compatible storage other than the official Amazon S3 service.
@@ -331,8 +331,8 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the Copy activity source must be set to **FileSystemSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when **recursive** is set to **true** and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are: **true** (default), **false** | No |
+| type | The type property of the Copy activity source must be set to **FileSystemSource**. |Yes |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when **recursive** is set to **true** and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are **true** (default) and **false**. | No |
 | maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connections to the data store. | No |
 
 **Example:**
@@ -368,4 +368,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores that are supported as sources and sinks by the Copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that the Copy activity in Azure Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
