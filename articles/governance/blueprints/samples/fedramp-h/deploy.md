@@ -1,4 +1,4 @@
----
+--
 title: Deploy FedRAMP High blueprint sample
 description: Deploy steps for the FedRAMP High blueprint sample including blueprint artifact parameter details.
 ms.date: 01/31/2020
@@ -136,8 +136,8 @@ The following table provides a list of the blueprint artifact parameters:
 |Deploy diagnostic settings for Network Security Groups|Policy assignment|Storage account prefix for network security group diagnostics|This prefix will be combined with the network security group location to form the created storage account name.|
 |Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist)|The resource group that the storage account will be created in. This resource group must already exist.|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Allowed locations for resources and resource groups|List of Azure locations that your organization can specify when deploying resources. This provided value is also used by the 'Allowed locations' policy within the policy initiative.|
-|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerability assessment should be enabled on SQL Managed Instance|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
-|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerability assessment should be enabled on SQL Database|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
+|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerability assessment should be enabled on your SQL managed instances|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
+|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerability assessment should be enabled on your SQL servers|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Vulnerability assessment should be enabled on Virtual Machines|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Geo-redundant storage should be enabled for Storage Accounts|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Geo-redundant backup should be enabled for Azure Database for MariaDB|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
