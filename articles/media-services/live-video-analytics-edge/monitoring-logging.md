@@ -39,7 +39,7 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
         }
       }
       ```
-* Diagnostics: events that help diagnosing problems and/or performance.
+* Diagnostics: events that help to diagnose problems and/or issues with performance.
 
    * Volume: can be high (several times a minute).
    * Examples:
@@ -97,7 +97,7 @@ The events emitted by the module are sent to the [IoT Edge Hub](https://docs.mic
 
 ## Controlling events
 
-You can use the following module twin properties, as documented here, to control the operational and diagnostic events that are published by the Live Video Analytics on IoT Edge module.
+You can use the following module twin properties, as documented in [module twin JSON schema](module-twin-configuration-schema.md), to control the operational and diagnostic events that are published by the Live Video Analytics on IoT Edge module.
 
 `diagnosticsEventsOutputName` – include and provide (any) value for this property, in order to get diagnostic events from the module. Omit it, or leave it empty to stop the module from publishing diagnostic events.
    
@@ -209,7 +209,7 @@ Like with other IoT Edge modules, you can also [examine the container logs](http
 
    * A comma-separated list of one or more of the following: Application, Events, MediaPipeline.
    * Default: Application, Events.
-   * Application – this is high-level information from the module, such as module startup messages, environment errors, and Direct Method calls.
+   * Application – this is high-level information from the module, such as module startup messages, environment errors, and direct method calls.
    * Events – these are all the events that were described earlier in this article.
    * MediaPipeline – these are some low-level logs that may offer insight when troubleshooting issues, such as difficulties establishing a connection with an RTSP-capable camera.
    
@@ -233,6 +233,10 @@ Above lets the Edge module write logs to the (device) storage path “/var/local
 `"debugLogsDirectory": "/var/lib/azuremediaservices/debuglogs/",`
 
 Then, the module will write debug logs in a binary format to the (device) storage path /var/local/mediaservices/debuglogs/, which you can share with Azure Support.
+
+## FAQ
+
+[FAQs](faq.md#monitoring-and-metrics)
 
 ## Next steps
 

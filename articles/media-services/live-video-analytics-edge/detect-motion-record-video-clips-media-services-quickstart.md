@@ -27,9 +27,9 @@ When you complete the steps below, you will have used Live Video Analytics on Io
 
 ![Event-based video recording to Assets based on motion events](./media/quickstarts/topology.png)
 
-## Use Live Video Analytics on IoT Edge Direct Methods
+## Use Live Video Analytics on IoT Edge direct methods
 
-Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by the module.
+Read [direct methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by the module.
 
 ### Invoke GraphTopologyList
 
@@ -448,7 +448,7 @@ Note the following in the response payload:
 
 ### Invoke GraphInstanceSet
 
-Now invoke Direct Method GraphInstanceSet with the following payload:
+Now invoke the GraphInstanceSet direct method with the following payload:
 
 ```
 {
@@ -530,7 +530,7 @@ The media graph you created uses the Motion Detection Processor node to detect m
 
 ### Invoke GraphInstanceActivate
 
-Now invoke Direct Method GraphInstanceActivate with the following payload:
+Now invoke the GraphInstanceActivate direct method  with the following payload:
 
 ```
 {
@@ -554,7 +554,7 @@ Status code of 200 in the response payload indicates that the MediaGraph was suc
 
 ### Invoke GraphInstanceGet
 
-Now invoke Direct Method GraphInstanceGet with the following payload:
+Now invoke the GraphInstanceGet direct method with the following payload:
 
 ```
 {
@@ -727,13 +727,13 @@ If you let the media graph continue to run you will see this message.
 
 If you let the media graph continue to run, the RTSP simulator will reach the end of the video file and stop/disconnect. The RTSP Source node will then reconnect to the simulator, and the process will repeat.
     
-## Invoke additional Direct Methods
+## Invoke additional direct methods
 
-Now, lets invoke Direct Methods to deactivate the MediaGraph and delete the MediaGraph topology and instance.
+Now, lets invoke direct methods to deactivate the MediaGraph and delete the MediaGraph topology and instance.
 
 ### Invoke GraphInstanceDeactivate
 
-Invoke Direct Method GraphInstanceDeactivate with the following payload:
+Invoke the GraphInstanceDeactivate direct method with the following payload:
 
 ```
 {
@@ -761,7 +761,7 @@ Try the following, as next steps:
 
 ### Invoke GraphTopologyDelete
 
-Invoke Direct Method GraphTopologyDelete with the following payload:
+Invoke the GraphTopologyDelete direct method with the following payload:
 
 ```
 {
@@ -816,5 +816,5 @@ If you're not going to continue to use this application, delete resources create
 
 ## Next steps
 
-* Learn how to invoke Live Video Analytics on IoT Edge Direct Methods programmatically.
+* Learn how to invoke Live Video Analytics on IoT Edge [direct methods](direct-methods.md) programmatically.
 * Learn more about diagnostic messages.    

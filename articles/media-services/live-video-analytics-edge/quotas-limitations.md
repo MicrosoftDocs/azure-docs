@@ -11,7 +11,7 @@ This article enumerates the quotas and limitations of the Live Video Analytics o
 
 ## Maximum period of disconnected use
 
-The edge module can sustain temporary loss of network connectivity. If the module remains disconnected for more than 36 hours, it will deactivate any graph instances that were running, and further Direct Method calls will be blocked.
+The edge module can sustain temporary loss of network connectivity. If the module remains disconnected for more than 36 hours, it will deactivate any graph instances that were running, and further direct method calls will be blocked.
 
 To resume the edge module to an operational state, you will have to restore network connectivity, and the module needs to be able to successfully communicate with the Azure Media Service account.
 

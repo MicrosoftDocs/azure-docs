@@ -164,7 +164,7 @@ Status code: 200 –OK means that [the IoT Edge runtime](https://docs.microsoft.
 
 #### Invoke a direct method
 
-Next, lets test the sample by invoking a direct method. Read [Direct Methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the Direct Methods provided by our lvaEdge module.
+Next, lets test the sample by invoking a direct method. Read [direct methods for Live Video Analytics on IoT Edge](direct-methods.md) to understand all the direct methods provided by our lvaEdge module.
 
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
