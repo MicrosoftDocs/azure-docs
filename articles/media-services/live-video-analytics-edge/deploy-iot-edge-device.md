@@ -173,7 +173,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "diagnosticsEventsOutputName": "lvaEdgeDiagnostics",
     "OperationalEventsOutputName": "lvaEdgeOperational",
     "logLevel": "Information",
-    "logCategories": "Application,Event"
+    "logCategories": "Application,Events"
     ```
     
     These are optional properties to use:
@@ -181,9 +181,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```
     "aadEndpoint": "https://login.microsoftonline.com",
     "aadResourceId": "https://management.core.windows.net/",
-    "armEndpoint": "https://management.azure.com/"
+    "armEndpoint": "https://management.azure.com/",
+    "allowUnsecuredEndpoints": true
     ```
-    
+   [!Note]
+   The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
+   You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
+   
     Select Add to add the module twin properties.
 1. Select **Next: Routes** to continue to the routes section.
     Specify routes.
