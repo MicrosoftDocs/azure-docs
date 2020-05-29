@@ -69,7 +69,7 @@ Start Visual Studio Code and follow the instructions below to connect to your Az
 1. Right click to see the context menu and select the "Set IoT Hub Connection String" option.
 1. An input box will pop up, then enter your IoT Hub Connection String. You can get the connection string for your IoT Hub from ~/clouddrive/lva-sample/appsettings.json in Cloud Shell.
 1. If the connection succeeds, the list of edge devices will be shown. There should be at least one device, named "lva-sample-device".
-1. You can now manage your IoT edge devices and interact with Azure IoT Hub through context menu.
+1. You can now manage your IoT Edge devices and interact with Azure IoT Hub through context menu.
 1. You can view the modules deployed on the edge device by expanding the Modules node under "lva-sample-device".
 
     ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
