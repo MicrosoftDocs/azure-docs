@@ -21,9 +21,6 @@ ms.custom:
 
 In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
-> [!NOTE]
-> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
-  
 You should be aware of the content you are processing, and customize/tune the encoding ladder to the complexity of the individual video. At each resolution, there is a bitrate beyond which any increase in quality is not perceptive – the encoder operates at this optimal bitrate value. The next level of optimization is to select the resolutions based on the content – for example, a video of a PowerPoint presentation does not benefit from going below 720p. Going further, the encoder can be tasked to optimize the settings for each shot within the video. 
 
 Microsoft's [Adaptive Streaming](autogen-bitrate-ladder.md) preset partially addresses the problem of the variability in the quality and resolution of the source videos. Our customers have a varying mix of content, some at 1080p, others at 720p, and a few at SD and lower resolutions. Furthermore, not all source content is high-quality mezzanines from film or TV studios. The Adaptive Streaming preset addresses these problems by ensuring that the bitrate ladder never exceeds the resolution or the average bitrate of the input mezzanine. However, this preset does not examine source properties other than resolution and bitrate.
@@ -79,6 +76,8 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
 
+Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
+  
 ## Next steps
 
 * [Tutorial: Upload, encode, and stream videos with Media Services v3](stream-files-tutorial-with-api.md)
