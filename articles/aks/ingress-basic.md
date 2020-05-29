@@ -77,6 +77,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld-one
+  namespace: ingress-basic
 spec:
   replicas: 1
   selector:
@@ -100,6 +101,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld-one
+  namespace: ingress-basic
 spec:
   type: ClusterIP
   ports:
@@ -115,6 +117,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld-two
+  namespace: ingress-basic
 spec:
   replicas: 1
   selector:
@@ -138,6 +141,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld-two
+  namespace: ingress-basic
 spec:
   type: ClusterIP
   ports:
