@@ -98,7 +98,7 @@ specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 [Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes" />Resource Provider modes (preview)
+### <a name="resource-provider-modes"></a>Resource Provider modes (preview)
 
 The following Resource Provider modes are currently supported during preview:
 
