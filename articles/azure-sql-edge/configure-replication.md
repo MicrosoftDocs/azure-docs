@@ -20,7 +20,7 @@ Azure SQL Edge instance can be configured as the push subscriber for a one-way t
 - Azure SQL Edge instance must be a push subscriber for a publisher.
 - The publisher and the distributor can be either
    - An instance of SQL Server running on-premises or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instances must be using a version greater than SQL Server 2016.
-   - An instance of Azure SQL Database Managed Instance. Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - An instance of Azure SQL Managed Instance. Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - The distribution database and the replication agents cannot be placed on an Azure SQL Edge instance.  
 
@@ -39,7 +39,7 @@ To use all the features of Azure SQL Edge, you must be using the latest versions
 - Only push subscriptions to Azure SQL Edge are supported.  
 - Only `@subscriber_type = 0` is supported in **sp_addsubscription** for Azure SQL Edge.  
 - Azure SQL Edge does not support bi-directional, immediate, updatable, or peer to peer replication.
-- Azure SQL Edge only supports a subset of features available in SQL Server or Azure SQL Database Managed Instance, as such an attempt to replicate a database (or objects within the database) which contain one or more unsupported features will result in a failure. For example, attempting to replicate a database which contains objects with spatial data types will result in an error. For more information on features supported by Azure SQL Edge, see [Supported features of Azure SQL Edge](features.md).
+- Azure SQL Edge only supports a subset of features available in SQL Server or SQL Managed Instance, as such an attempt to replicate a database (or objects within the database) which contain one or more unsupported features will result in a failure. For example, attempting to replicate a database which contains objects with spatial data types will result in an error. For more information on features supported by Azure SQL Edge, see [Supported features of Azure SQL Edge](features.md).
 
 ## Scenarios  
 
