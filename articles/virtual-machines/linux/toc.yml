@@ -422,6 +422,8 @@
             href: ../image-version-another-gallery-cli.md
         - name: Create a VM
           items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
         - name: Update image resources
@@ -1079,6 +1081,8 @@
     displayName: ARM
 - name: Resources
   items:
+  - name: Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager, ARM
     href: /azure/azure-resource-manager/

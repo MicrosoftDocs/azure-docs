@@ -112,7 +112,7 @@ You can change the connectivity settings for your SQL Server virtual machine in 
 
 When changing SQL Server connectivity settings, Azure does not automatically enable the TCP/IP protocol for SQL Server Developer and Express editions. The steps below explain how to manually enable TCP/IP so that you can connect remotely by IP address.
 
-First, connect to the SQL Server machine with remote desktop.
+First, connect to the SQL Server virtual machine with remote desktop.
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
