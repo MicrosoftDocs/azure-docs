@@ -103,8 +103,9 @@ To cancel package execution from an Azure SQL Database Managed Instance Agent jo
 1. Find your SQL agent **jobId** from **msdb.dbo.sysjobs**.
 1. Find the corresponding SSIS **executionId** based on the job ID, by using this query:
    ```sql
-   select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
+   select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
+   If your SSIS packages are in SSISDB, then use **ssisdb.internal.execution_parameter_values** as table for job execution. If your SSIS packages are in file system, then use **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Right-click the SSISDB catalog, and then select **Active Operations**.
 
    !["Active Operations" on the shortcut menu for the SSISDB catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
