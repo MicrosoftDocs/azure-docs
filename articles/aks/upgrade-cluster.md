@@ -87,13 +87,11 @@ Use the following commands to set max surge values for new or existing node pool
 
 ```azurecli-interactive
 # Set max surge for a new node pool
-
 az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
 ```
 
 ```azurecli-interactive
 # Update max surge for an existing node pool 
-
 az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
 ```
 
