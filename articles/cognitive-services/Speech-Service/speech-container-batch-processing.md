@@ -22,8 +22,10 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 | Use multiple endpoint types     | Use on-premises or cloud-based endpoints, in any ratio.         |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
 |POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
+| Open source software | The batch kit container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use. | 
+| Fault tolerance | Automatically retry transcriptions in the event of errors, and differentiate between which errors can, and can't be retried on. |
+| Real-time logging | real-time logging of attempted operations, transcription times, and failure reasons. |
 
-The container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
 
 ## Endpoint configuration
 
@@ -86,13 +88,13 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 `ONESHOT` Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.
 
-:::image type="content" source=../media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
+:::image type="content" source="../media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
 
 #### [Daemon](#tab/daemon)
 
 `DAEMON` Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
-:::image type="content" source=../media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+:::image type="content" source="../media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
 
 #### [REST](#tab/rest)
 
