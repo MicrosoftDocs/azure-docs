@@ -17,7 +17,10 @@ ms.date: 05/21/2020
 
 This article teaches you how to use Azure Machine Learning to deploy a model for use with [Azure Cognitive Search](../search/search-what-is-azure-search.md).
 
-Cognitive Search provides a search-as-a-service cloud solution. It can be enhanced by adding _skills_. One such skill is the ability to use a model deployed as a web service by Azure Machine Learning.
+Cognitive Search performs content processing over heterogenous content, to make it queryable by humans or applications. This process can be enhanced by using a model deployed from Azure Machine Learning.
+
+Azure Machine Learning can deploy a trained model as a web service. The web service is then embedded in a Cognitive Search _skill_, which becomes part of the processing pipeline.
+
 
 > [!IMPORTANT]
 > The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
@@ -48,10 +51,12 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 ## Connect to your workspace
 
+An Azure Machine Learning workspace provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts.
+
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -68,6 +73,10 @@ except:
 ## Create a Kubernetes cluster
 
 **Time estimate**: Approximately 20 minutes.
+
+A Kubernetes cluster is a set of virtual machine instances (called nodes) that are used for running containerized applications.
+
+When you deploy a model from Azure Machine Learning to Azure Kubernetes Service, the model and all the assets needed to host it as a web service are packaged into a Docker container. This container is then deployed onto the cluster.
 
 The following code demonstrates how to create a new Azure Kubernetes Service (AKS) cluster for your workspace:
 
