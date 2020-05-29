@@ -76,7 +76,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 ### Supportability Matrix
 
-  The transactional replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server on-premises.
+  The transactional replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server.
   
 | **Publisher**   | **Distributor** | **Subscriber** |
 | :------------   | :-------------- | :------------- |
@@ -112,11 +112,11 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ![Single instance as Publisher and Distributor](./media/replication-transactional-overview/01-single-instance-asdbmi-pubdist.png)
 
-Publisher and distributor are configured within a single managed instance and distributing changes to other Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
+Publisher and distributor are configured within a single SQL Managed Instance and distributing changes to another SQL Managed Instance, SQL Database, or SQL Server instance.
 
 ### Publisher with remote distributor on SQL MI
 
-In this configuration, one managed instance publishes changes to distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on Azure SQL Server, Azure SQL Managed Instance, or SQL Server on-premises or in a VM.
+In this configuration, one managed instance publishes changes to distributor placed on another SQL Managed Instance that can serve many source SQL Managed Instances and distribute changes to one or many targets on Azure SQL Database, Azure SQL Managed Instance, or SQL Server.
 
 ![Separate instances for Publisher and Distributor](./media/replication-transactional-overview/02-separate-instances-asdbmi-pubdist.png)
 
