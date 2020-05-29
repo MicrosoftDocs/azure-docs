@@ -33,7 +33,7 @@ This topic gives answers to Live Video Analytics on IoT Edge FAQs.
     * No. Media graph only support RTSP for capturing video from IP cameras.
     * Any camera that supports RTSP streaming over TCP/HTTP should work. 
 * Can I connect to a secure RTSP camera source?
-    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source <!-- in the preview release-->. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
+    * No. You can only connect to a basic password authenticated camera, or open authentication RTSP camera source<!-- in the preview release-->. When connecting to an RTSP source, you must fill out the credentials section of the media graph RTSP source.
 * Can I reset or update the RTSP source URL on a graph instance?
     * Yes, when the graph instance is in inactive state.  
 * Is there a simulated RTSP camera signal available to use during testing and development?
