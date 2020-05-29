@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/29/2020
 ms.author: rogarana
 ---
 
@@ -39,6 +39,6 @@ If mounting your file share succeeded, then you have successfully enabled and co
 
 ## Next steps
 
-The following article contains instructions for updating your password, if your AD DS requires that you rotate your password, continue to the next article.
+If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, continue to the next article for instructions on updating your password:
 
 [Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)

@@ -22,7 +22,7 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 - Supports Kerberos authentication with AD with RC4-HMAC encryption. AES Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running on OS versions newer than Windows 7 or Windows Server 2008 R2.
-- Only supported against the AD forest that the storage account is registered. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.
+- Only supported against the AD forest that the storage account is registered. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-authentication) for details.
 - Does not support authentication against computer accounts created in AD DS. 
 
 When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
