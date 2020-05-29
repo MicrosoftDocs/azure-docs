@@ -36,12 +36,6 @@ Azure SignalR Service owners can manage consent requests and the private endpoin
 > [!TIP]
 > If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](signalr-howto-network-acl.md#managing-network-access-control) to deny or control access through the public endpoint.
 
-For more detailed information on creating a private endpoint for your Azure SignalR Service, see the following articles:
-
-- [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
-- [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
-
 ### Connecting to private endpoints
 
 Clients on a VNet using the private endpoint should use the same connection string for the Azure SignalR Service, as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to Azure SignalR Service over a private link.
@@ -86,6 +80,99 @@ For more information on configuring your own DNS server to support private endpo
 
 - [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [DNS configuration for private endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+
+## Create a private endpoint
+
+### Create a private endpoint along with a new Azure SignalR Service in the Azure Portal
+
+1. When creating a new Azure SignalR Service, select **Networking** tab. Choose **Private endpoint** as connectivity method.
+
+    ![Create Azure SignalR Service - Networking tab](media/signalr-howto-private-endpoints/portal-create-blade-networking-tab.jpg)
+
+1. Click **Add**. Fill in subscription, resource group, location, name for the new private endpoint. Choose a virtual network and subnet.
+
+    ![Create Azure SignalR Service - Add private endpoint](media/signalr-howto-private-endpoints/portal-create-blade-add-private-endpoint.jpg)
+
+1. Click **Review + create**.
+
+### Create a private endpoint for an existing Azure SignalR Service in the Azure Portal
+
+1. Go to the Azure SignalR Service.
+
+1. Click on the settings menu called **Private endpoint connections**.
+
+1. Click the button **+ Private endpoint** on the top.
+
+    ![Private endpoint connections blade](media/signalr-howto-private-endpoints/portal-private-endpoint-connections-blade.jpg)
+
+1. Fill in subscription, resource group, resource name and region for the new private endpoint.
+    
+    ![Create private endpoint - Basics](media/signalr-howto-private-endpoints/portal-create-private-endpoint-basics.jpg)
+
+1. Choose target Azure SignalR Service resource.
+
+    ![Create private endpoint - Resource](media/signalr-howto-private-endpoints/portal-create-private-endpoint-resource.jpg)
+
+1. Choose target virtual network
+
+    ![Create private endpoint - Configuration](media/signalr-howto-private-endpoints/portal-create-private-endpoint-configuration.jpg)
+
+1. Click **Review + create**.
+
+### Create a private endpoint using Azure CLI
+
+1. Login to Azure CLI
+    ```console
+    az login
+    ```
+1. Select your Azure Subscription
+    ```console
+    az account set --subscription {AZURE SUBSCRIPTION ID}
+    ```
+1. Create a new Resource Group
+    ```console
+    az group create -n {RG} -l {AZURE REGION}
+    ```
+1. Register Microsoft.SignalRService as a provider
+    ```console
+    az provider register -n Microsoft.SignalRService
+    ```
+1. Create a new Azure SignalR Service
+    ```console
+    az signalr create --name {NAME} --resource-group {RG} --location {AZURE REGION} --sku Standard_S1
+    ```
+1. Create a Virtual Network
+    ```console
+    az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
+    ```
+1. Add a subnet
+    ```console
+    az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
+    ```
+1. Disable Virtual Network Policies
+    ```console
+    az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
+    ```
+1. Add a Private DNS Zone
+    ```console
+    az network private-dns zone create --resource-group {RG} --name privatelink.service.signalr.net
+    ```
+1. Link Private DNS Zone to Virtual Network
+    ```console
+    az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.service.signalr.net --name {dnsZoneLinkName} --registration-enabled true
+    ```
+1. Create a Private Endpoint (Automatically Approve)
+    ```console
+    az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION}
+    ```
+1. Create a Private Endpoint (Manually Request Approval)
+    ```console
+    az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+    ```
+1. Show Connection Status
+    ```console
+    az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
+    ```
 
 ## Pricing
 

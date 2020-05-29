@@ -14,7 +14,7 @@ ms.author: dayshen
 
 Azure SignalR Service enables you to secure and control the level of access to your service endpoint, based on the request type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access your Azure SignalR Service.
 
-Azure SignalR Service has a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your Azure SignalR Service](signalr-howto-private-endpoints.md). Private Endpoint assigns a private IP address from your VNet to the Azure SignalR Service, and secures all traffic between your VNet and the Azure SignalR Service over a private link. The Azure SignalR Service network access control provides access control access for both public endpoint and private endpoints.
+Azure SignalR Service has a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your Azure SignalR Service](signalr-howto-private-endpoints.md). Private Endpoint assigns a private IP address from your VNet to the Azure SignalR Service, and secures all traffic between your VNet and the Azure SignalR Service over a private link. The Azure SignalR Service network access control provides access control for both public endpoint and private endpoints.
 
 Optionally, you can choose to allow or deny certain types of requests for public endpoint and each private endpoint. For example, you can block all [Server Connections](signalr-concept-internals.md#server-connections) from public endpoint and make sure they only originate from a specific VNet.
 
@@ -38,9 +38,20 @@ You can manage network access control for Azure SignalR Service through the Azur
 
 1. Click on the settings menu called **Network access control**.
 
+    ![Network ACL on portal](media/signalr-howto-network-acl/network-acl-portal.jpg)
+
+1. To edit default action, toggle the **Allow/Deny** button.
+
+    > [!TIP]
+    > Default action is the action we take when there is no ACL rule matches. For example, if the default action is **Deny**, then request types that are not explicitly whitelisted below will be denied.
+
 1. To edit public network rule, select allowed types of requests under **Public network**.
 
+    ![Edit public network ACL on portal ](media/signalr-howto-network-acl/network-acl-portal-public-network.jpg)
+
 1. To edit private endpoint network rules, select allowed types of requests in each row under **Private endpoint connections**.
+
+    ![Edit private endpoint ACL on portal ](media/signalr-howto-network-acl/network-acl-portal-private-endpoint.jpg)
 
 1. Click **Save** to apply your changes.
 
