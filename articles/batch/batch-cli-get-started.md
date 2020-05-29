@@ -157,9 +157,9 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 
 ## Next steps
 
-* For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
-* For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
-* For more information about using Batch templates to create pools, jobs, and tasks without writing code, see [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
+* See the [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about using Batch templates to create pools, jobs, and tasks without writing code in [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

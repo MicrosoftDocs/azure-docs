@@ -154,7 +154,7 @@ Workflow Stop-Start-AzureVM
 
 ## Next steps
 
-* [Manage credentials in Azure Automation](shared-resources/credentials.md)
-* [Manage modules in Azure Automation](shared-resources/modules.md)
-* [Start a runbook in Azure Automation](start-runbooks.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* For details of credential use, see [Manage credentials in Azure Automation](shared-resources/credentials.md).
+* For information about modules, see [Manage modules in Azure Automation](shared-resources/modules.md).
+* If you need to start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).
+* For PowerShell details, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
