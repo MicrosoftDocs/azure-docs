@@ -73,13 +73,13 @@ Use the following steps to request an increase in the DWUs per server.
 
 ### Servers per subscription
 
-To request an increase in the number of servers per subscription, you'll need to do the following:
+To request an increase in the number of servers per subscription, you'll need to complete the following steps:
 
 1. Select the **SQL Servers per subscription** as the quota type.
 
 1. In the **Location** list, select the Azure region to use. The quota is per subscription in each region.
 
-1. In the **New quota** field, enter your request for the maximum number of servers in that region.
+1. In the **Request quota** field, enter your request for the maximum number of servers in that region.
 
    ![Servers quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
@@ -87,26 +87,26 @@ To request an increase in the number of servers per subscription, you'll need to
 
 ### Enable subscription access to a region
 
-To enable region access for a subscription, you'll need to do the following:  
+To enable region access for a subscription, you'll need to complete the following steps:  
 
 1. Select the **Synapse SQL pool (data warehouse) region access** quota type.
 
-1. Select the **Resource** you want to apply the quota increase to by using the dropdown list.
+1. Select the region by choosing a **Location** from the dropdown list.
 
 1. Indicate your DWU performance requirement in the **DWU required** section.
 
-1. Enter your **Description of business requirements** 
+1. Enter your **Description of business requirements**. 
 
 1. Select **Save and continue**.
 
 ![Region access](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
 
-Some offer types are not available in every region. You may see an error such as the following:
+Some offer types aren't available in every region. You may see an error such as the following:
 
 ![Region access error](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
 
 
-If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
+If your subscription needs access in a particular region, select the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
 
 To explore the offering and SKU options, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
@@ -118,17 +118,17 @@ The final step is to fill in the remaining details of your SQL Database support 
 
 ![Review create details](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
 
-After reviewing the request details, click **Create** to submit the request.
+After reviewing the request details, select **Create** to submit the request.
 
 ![Create ticket](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## Monitor a support ticket
 
-After you've submitted the support request, the Azure support team will contact you. To check your request status and details, click **All support requests** on the dashboard.
+After you've submitted the support request, the Azure support team will contact you. To check your request status and details, select **All support requests** on the dashboard.
 
 ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## Other resources
 
-You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure SQL Data Warehouse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
+You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 
