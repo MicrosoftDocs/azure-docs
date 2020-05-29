@@ -62,7 +62,7 @@ The upgrade operation provisions additional nodes to facilitate node replacement
 
 Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%.
 
-Use the following commands to set max surge for your node pools:
+### Using max surge during preview
 
 ```azurecli-interactive
 # register the preview feature
@@ -73,10 +73,6 @@ az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePre
 # Verify the feature is registered:
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
 ```
-
-After successful registration, run the following commands to increase max-surge:
-
-### Install latest AKS CLI preview extension
 
 During preview, you need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
