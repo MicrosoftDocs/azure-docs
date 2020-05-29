@@ -62,12 +62,14 @@ The upgrade operation provisions additional nodes to facilitate node replacement
 
 Setting a value of 100% provides the fastest upgrade but also causes all nodes in the node pool to be drained simultaneously. For production node pools, we recommend a max_surge setting of 33%.
 
-### Using max surge during preview
+### Set up the preview feature for customizing node surge upgrade
 
 ```azurecli-interactive
 # register the preview feature
 az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
 ```
+
+It will take several minutes for the registration. Use the below command to verify the feature is registered:
 
 ```azurecli-interactive
 # Verify the feature is registered:
