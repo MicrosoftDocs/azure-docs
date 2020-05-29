@@ -131,7 +131,7 @@ With the above settings, the API endpoint is:
 Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
 
 > [!TIP]
-> Make sure you have all the resources listed in the [prerequisites](#Prerequisites) section installed before proceeding.
+> Make sure you have all the resources listed in the [prerequisites](#prerequisites) section installed before proceeding.
 
 1. Run the function by pressing **F5** to start the Functions app.
 
