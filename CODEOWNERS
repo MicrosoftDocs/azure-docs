@@ -28,7 +28,7 @@ articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @s
 articles/governance/ @DCtheGeek
 
 # Security baselines
-articles/**/*security-baseline.md @msmbaldwin
+articles/**/*security-baseline.md @msmbaldwin @mgblythe
 articles/security/benchmarks/ @msmbaldwin @mgblythe
 
 # Configuration

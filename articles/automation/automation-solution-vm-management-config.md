@@ -39,11 +39,15 @@ You can enable either targeting the action against a subscription and resource g
 
 ### Target the start and stop action by VM list
 
-1. Run the **ScheduledStartStop_Parent** runbook with **ACTION** set to **start**, add a comma-separated list of VMs in the **VMList** parameter field, and then set the **WHATIF** parameter field to True. Preview your changes.
+1. Run the **ScheduledStartStop_Parent** runbook with **ACTION** set to **start**.
 
-2. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1, VM2, VM3).
+2. Add a comma-separated list of VMs (with no whitespaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-3. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
+3. Set the **WHATIF** parameter field to True.
+
+4. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1, VM2, VM3).
+
+5. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
 
     > [!NOTE]
     > The value for **Target ResourceGroup Names** is stored as the values for both `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames`. For further granularity, you can modify each of these variables to target different resource groups. For start action, use `External_Start_ResourceGroupNames`, and use `External_Stop_ResourceGroupNames` for stop action. VMs are automatically added to the start and stop schedules.
@@ -66,13 +70,17 @@ In an environment that includes two or more components on multiple VMs supportin
 
 1. Add a `sequencestart` and a `sequencestop` tag with positive integer values to VMs that you plan to add to the `VMList` parameter.
 
-2. Run the **SequencedStartStop_Parent** runbook with **ACTION** set to **start**, add a comma-separated list of VMs in the **VMList** parameter field, and then set **WHATIF** to True. Preview your changes.
+2. Run the **SequencedStartStop_Parent** runbook with **ACTION** set to **start**.
 
-3. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1, VM2, VM3).
+3. Add a comma-separated list of VMs (with no whitespaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-4. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
+4. Set **WHATIF** to True. 
 
-5. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the **monitoring-and-diagnostics/monitoring-action-groupsrunbook** with the parameter set to **False**. Alternatively, let the Automation schedules **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
+5. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs.
+
+6. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
+
+7. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the **monitoring-and-diagnostics/monitoring-action-groupsrunbook** with the parameter set to **False**. Alternatively, let the Automation schedules **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
 ## <a name="cpuutil"></a>Scenario 3: Start or stop automatically based on CPU utilization
 

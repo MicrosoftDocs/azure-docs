@@ -3,6 +3,7 @@ title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
 ms.date: 5/07/2020
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure file share backup

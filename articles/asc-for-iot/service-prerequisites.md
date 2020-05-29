@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
+ms.custom: references_regions
 ---
 
 # Azure Security Center for IoT prerequisites

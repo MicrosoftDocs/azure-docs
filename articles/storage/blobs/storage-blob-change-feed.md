@@ -32,7 +32,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
   - Build connected application pipelines that react to change events or schedule executions based on created or changed object.
   
-Change feed is a prerequisite feature for [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+Change feed is a prerequisite feature for [Object Replication](object-replication-overview.md) and [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Change feed provides a durable, ordered log model of the changes that occur to a blob. Changes are written and made available in your change feed log  within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to quickly react to changes that occur to a blob. 
