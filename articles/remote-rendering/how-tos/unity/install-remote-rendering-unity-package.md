@@ -40,9 +40,9 @@ More comprehensive instructions are given in the [Tutorial: Setting up a Unity p
 
 Remote Rendering works with both the **:::no-loc text="Universal render pipeline":::** and the **:::no-loc text="Standard render pipeline":::**. For performance reasons, the Universal render pipeline is recommended.
 
-To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. This can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.2.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
+To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. This can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.2.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-package).
 
 ## Next steps
 
 * [Unity game objects and components](objects-components.md)
-* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)
+* [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)
