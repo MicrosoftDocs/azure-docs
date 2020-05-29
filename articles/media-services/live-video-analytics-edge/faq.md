@@ -23,7 +23,7 @@ What are the system variables that can be used in graph topology definition?
 ## Configuration and deployment
 
 Can I deploy the media edge module to a Windows 10 device?
-    * Yes. See the article on [Linux Containers on Windows 10](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Yes. See the article on [Linux Containers on Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## Capture from IP camera and RTSP settings
 
