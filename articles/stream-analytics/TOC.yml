@@ -9,14 +9,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a job - Azure portal
-    href: stream-analytics-quick-create-portal.md
-  - name: Create a job - PowerShell
-    href: stream-analytics-quick-create-powershell.md
-  - name: Create a job - Visual Studio
-    href: stream-analytics-quick-create-vs.md
-  - name: Create a job - Visual Studio Code
-    href: quick-create-vs-code.md
+  - name: Create a job
+    items:
+    - name: Azure portal
+      href: stream-analytics-quick-create-portal.md
+    - name: ARM template
+      href: quick-create-azure-resource-manager.md
+    - name: PowerShell
+      href: stream-analytics-quick-create-powershell.md
+    - name: Visual Studio
+      href: stream-analytics-quick-create-vs.md
+    - name: Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -617,8 +621,8 @@
     href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-stream-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/stream-analytics/
   - name: Pricing calculator

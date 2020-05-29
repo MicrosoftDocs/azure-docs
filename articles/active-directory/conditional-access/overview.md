@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/20/2020
+ms.date: 05/21/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4
 ---
 # What is Conditional Access?
 
@@ -68,7 +69,7 @@ Common signals that Conditional Access can take in to account when making a poli
 
 ## Commonly applied policies
 
-Many organizations have common access concerns that Conditional Access policies can help with such as:
+Many organizations have [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md) such as:
 
 - Requiring multi-factor authentication for users with administrative roles
 - Requiring multi-factor authentication for Azure management tasks
@@ -93,12 +94,8 @@ Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/
 
 ## Next steps
 
-[Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
-
-To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
-
-[Learn about Identity Protection](../identity-protection/overview-v2.md)
-
-[Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Learn about Microsoft Intune](/intune/index)
+- [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
+- [Plan your Conditional Access deployment](plan-conditional-access.md)
+- [Learn about Identity Protection](../identity-protection/overview-v2.md)
+- [Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Learn about Microsoft Intune](/intune/index)
