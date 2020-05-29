@@ -96,6 +96,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-sync-time"></a>
   **How long does it take for Azure File Sync to upload 1TiB of data?**
+  
     Performance will vary based on your environmental settings, configuration, and whether this is an initial sync or an ongoing sync. For more information, see [Azure File Sync performance metrics](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**If the same file is changed on two servers at approximately the same time, what happens?**  
