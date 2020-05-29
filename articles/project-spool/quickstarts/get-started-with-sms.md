@@ -59,27 +59,27 @@ The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a bu
 ## Authenticate the SMS client and send a SMS message
 Now that we have the SDK included in our project we can send an SMS message with a few lines of code:
 
-    ```cs
-    using System;
-    using Azure.Communication.Sms;
+```csharp
+using System;
+using Azure.Communication.Sms;
 
-    namespace SMSSend
+namespace SMSSend
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                string connectionString = "<connectionString>";
-                SmsClient sms = new SmsClient(connectionString);
-                sms.Send("1-555-111-1111", "1-555-222-2222", "Hello World via SMS");          
-            }
+            string connectionString = "<connectionString>";
+            var sms = new SmsClient(connectionString);
+            sms.Send("1-555-111-1111", "1-555-222-2222", "Hello World via SMS");          
         }
     }
-    ```
+}
+```
 
 Step by step:
 
 1. Include the ACS namespaces with `using Azure.Communication.SMS;`
-2. Initialize the `SMSClient` using the connection string retrieved in the Azure Portal. It is important to protect connection strings, they should only be used by trusted services and devices.
+2. Initialize the `SmsClient` using the connection string retrieved in the Azure Portal. It is important to protect connection strings, they should only be used by trusted services and devices.
 3. Use the `SmsClient.Send()` API to send an SMS message using a number allocated to the Azure Communication Service resource, in this case 1-555-111-1111, to a destination phone number 1-555-222-2222. To programmatically list allocated phoned numbers and acquire new ones, check out the allocate phone number quick start.
 
