@@ -13,7 +13,7 @@ Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Ku
 
 ## Prepare your AKS cluster
 
-To prepare your AKS cluster for Dev Spaces, verify your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions] and you are running Kubernetes 1.10.3 or later. To enable Azure Dev Spaces on your cluster from the Azure portal, navigate to your cluster, click *Dev Spaces*, change *Use Dev Spaces* to *Yes*, and click *Save*. You can also enable Azure Dev Spaces from the Azure CLI by running `az aks use-dev-spaces`.
+To prepare your AKS cluster for Dev Spaces, verify your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions] and you are running Kubernetes 1.10.3 or later. You can enable Azure Dev Spaces from the Azure CLI by running `az aks use-dev-spaces`.
 
 For an example of setting up an AKS cluster for Dev Spaces, see the [team development quickstart][quickstart-team].
 
