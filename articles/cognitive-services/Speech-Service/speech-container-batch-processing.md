@@ -18,10 +18,9 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 
 | Feature  | Description  |
 |---------|---------|
-| Batch audio file distribution     | Automatically dispatch large numbers of files to on-premises or cloud-based Speech container endpoints.        |
+| Batch audio file distribution     | Automatically dispatch large numbers of files to on-premises or cloud-based Speech container endpoints. Files can be on any POSIX-compliant volume, including network filesystems.       |
 | Speech SDK integration | Pass common flags to the Speech SDK, including: n-best hypotheses, diarization, language, profanity masking.  |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
-|POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
 | Open source software | The batch kit container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use. | 
 | Fault tolerance | Automatically retry transcriptions without losing progress, and differentiate between which errors can, and can't be retried on. If an endpoint becomes unavailable, the batch client will continue using other endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
 | Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are used by the batch client immediately. |
@@ -88,15 +87,28 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 #### [Oneshot](#tab/oneshot)
 
-`ONESHOT` Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.
+`ONESHOT` mode transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
 
+1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
+2. Place audio files for transcription in an input directory.  
+3. Invoke the container on the directory, which will begin processing the files. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+4. The files are dispatched to the container endpoints from step 1.
+5. Logs and the Speech container output are returned to the specified output directory. 
+
 #### [Daemon](#tab/daemon)
 
-`DAEMON` Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
+`DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+
+1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
+2. Invoke the container on an input directory. The batch client will begin monitoring the directory for incoming files. 
+3. Set up continuous audio file delivery to the input directory. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+4. Once a file write or POSIX signal is detected, the container is triggered to respond.
+5. The files are dispatched to the container endpoints from step 1.
+6. Logs and the Speech container output are returned to the specified output directory. 
 
 #### [REST](#tab/rest)
 
