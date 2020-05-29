@@ -3946,7 +3946,7 @@ string(<value>)
 | <*string-value*> | String | The string version for the specified value |
 ||||
 
-> [!NOTE]
+The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. <p><p>For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string.
 > If the *value* parameter is null, or evaluates to null, it will be converted to an empty string in the returned value, *string-value*.
 
 *Example 1*
