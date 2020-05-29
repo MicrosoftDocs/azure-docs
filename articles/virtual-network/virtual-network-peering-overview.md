@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure.
 services: virtual-network
 documentationcenter: na
-author: allegradomel
+author: altambaw
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
