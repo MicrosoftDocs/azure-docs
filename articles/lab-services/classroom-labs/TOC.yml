@@ -23,7 +23,7 @@
   - name: Classroom Labs concepts
     href: classroom-labs-concepts.md    
   - name: Classroom Labs architecture fundamentals
-    href: classroom-labs-fundamentals.md    
+    href: classroom-labs-fundamentals.md  
   - name: Scenarios
     items:  
     - name: Use labs for conducting classes
