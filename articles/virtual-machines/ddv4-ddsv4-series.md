@@ -12,18 +12,18 @@
 
 # Ddv4 and Ddsv4-series
 
-The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz. 
+The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz and features the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
 > [!IMPORTANT]
-> We are aware of an issue that causes RHEL 7.x and CentOS 7.x Linux distributions to not boot on the Ddv4/Ddsv4 VM sizes. Viewing the Azure serial console log of the VM will show a Linux kernel panic early in the boot process. Other Linux distributions or virtual appliances based on a Linux kernel version 4.6 or earlier will also not boot. An update is planned in the next few weeks that will resolve this issue and enable the full range of Linux distros and virtual appliances to operate properly.
+> If you are deploying a new Virtual Machine and intending to use a Linux Image with either Red Hat Enterprise Linux (RHEL), CentOS, or Oracle, you need to choose versions 8.x, 8.x, or 7.x or newer. If chosing version 7.x, 7.x, or 6.x there will be a Kernel Panic error that Microsoft is actively deploying a solution for. Other Linux Images (non-RHEL/CentOS/Oracle) are not impacted
 
 ## Ddv4-series
 
-Ddv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddv4-series offer a combination of vCPU, memory and temporary disk for most production workloads. Ddv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+Ddv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddv4-series offer a combination of vCPU, memory and temporary disk for most production workloads.
 
-The new Ddv4 VM sizes will include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. You can attach Standard SSDs and Standard HDDs storage to the Ddv4 VMs. Remote Data disk storage is billed separately from virtual machines.
+The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. You can attach Standard SSDs and Standard HDDs storage to the Ddv4 VMs. Remote Data disk storage is billed separately from virtual machines.
 
 ACU: 195-210
 
@@ -47,9 +47,9 @@ Memory Preserving Updates: Supported
 
 ## Ddsv4-series
 
-Ddsv4-series run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddsv4-series offer a combination of vCPU, memory and temporary disk for most production workloads. Ddsv4-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+Ddsv4-series run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddsv4-series offer a combination of vCPU, memory and temporary disk for most production workloads.
 
-The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. 
+The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. 
 
  > [!NOTE]
  >The pricing and billing meters for Ddsv4 sizes are the same as Ddv4-series.
