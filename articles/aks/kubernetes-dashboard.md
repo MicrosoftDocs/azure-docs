@@ -80,7 +80,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## Login to the dashboard
 
 > [!IMPORTANT]
-> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer used to retrieve resources. As a result, previous steps to create new cluster role bindings no longer function. A token retrieved from a service account can still be used.
+> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, previous steps to create new cluster role bindings no longer function and will result in a 401 unauthorized error. A token retrieved from a service account can still be used, but this changes the login flow compared to older versions of the dashboard.
 
 As of version 2.0 for the Kubernetes dashboard, the first screen presented requires an admin kubeconfig or a token.
 
