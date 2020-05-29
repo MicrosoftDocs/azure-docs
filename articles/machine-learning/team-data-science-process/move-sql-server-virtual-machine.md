@@ -198,7 +198,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 SQL Server supports:
 
 1. [Database back up and restore functionality](https://msdn.microsoft.com/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (using bacpac).
-2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing SQL Azure database. For more information, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
+2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing database in SQL Database. For more information, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
 
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 

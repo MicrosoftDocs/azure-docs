@@ -14,7 +14,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data from a SQL Server database to SQL Database with Azure Data Factory
 
-This article shows how to move data from a SQL Server database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach that has the advantages of a replicated staging copy, though [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+This article shows how to move data from a SQL Server database to Azure SQL Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach that has the advantages of a replicated staging copy, though [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 For a table that summarizes various options for moving data to an Azure SQL Database, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md).
 
