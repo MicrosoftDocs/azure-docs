@@ -19,7 +19,7 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 | Feature  | Description  |
 |---------|---------|
 | Automatically distribute batches of audio files     | Automatically dispatch files to large numbers of Speech Services endpoints.         |
-| Use multiple endpoint types     | Use on-premisis or cloud-based endpoints, in any ratio.         |
+| Use multiple endpoint types     | Use on-premises or cloud-based endpoints, in any ratio.         |
 |Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
 |POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
 
@@ -80,14 +80,25 @@ The client will start running. If an audio file has already been transcribed in 
 
 ## Run modes 
 
-The batch processing kit offers three modes:
+The batch processing kit offers three modes, using the `--run-mode` parameter.
 
+#### [Oneshot](#tab/oneshot)
 
-|Run mode (`--run-mode`) |Description  |
-|---------|---------|
-|`ONESHOT`      | Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.         |
-|`DAEMON`     | Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          |
-|`REST`    | API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.          |
+`ONESHOT` Transcribes a single batch of audio files (from an input directory and optional file list) to an output folder.
+
+:::image type="content" source=../media/containers/batch-oneshot-mode.png" alt-text="A diagram showing the batch-kit container processing files in oneshot mode.":::
+
+#### [Daemon](#tab/daemon)
+
+`DAEMON` Transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
+
+:::image type="content" source=../media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+
+#### [REST](#tab/rest)
+
+`REST` is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.
+
+---
 
 ## Logging
 
