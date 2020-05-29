@@ -127,7 +127,7 @@ The following diagram illustrates the DNS resolution sequence from an 
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="On-premises using Azure DNS":::
 
-This configuration can be extended for an on-premises network that already hasa DNS solution in place. 
+This configuration can be extended for an on-premises network that already has a DNS solution in place. 
 The on-premises DNS solution needs to be configured to forward DNS traffic to Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) that references the DNS forwarder deployed in Azure.
 
 > [!NOTE]
