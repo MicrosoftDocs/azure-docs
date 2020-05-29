@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add one-step correction to Custom Command parameters'
+title: 'How To: Implementing corrections in a command'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: sausin
 ---
 
 
-# Implementing corrections in Custom Command parameters
+# Implementing corrections in a command
 In this article, you will learn how to configure one-step correction - once the fulfillment action has already been executed.
 
 You will also see an example of how correction is enabled by default in case the command is not fulfilled yet.
