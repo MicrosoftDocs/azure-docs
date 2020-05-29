@@ -87,7 +87,7 @@ When browsing your Azure-SSIS IR on SSMS, you can expand the **Running Packages*
 
 ## Monitor Azure-SSIS IR and edit package stores
 
-When browsing your Azure-SSIS IR on SSMS, you can right-click on it to pop up a menu and select **Go to Azure Data Factory portal** or **Refresh**
+When browsing your Azure-SSIS IR on SSMS, you can right-click on it to pop up a menu and select **Go to Azure Data Factory portal** or **Refresh**.
 
    ![Go to ADF portal](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png)
 
