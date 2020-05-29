@@ -126,6 +126,10 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
+  - name: Applying DevOps practices with LUIS
+    items:
+    - name: Source control and branch strategies for LUIS
+      href: luis-concept-devops-sourcecontrol.md
 - name: How-to guides
   items:
   - name: Start a new app
