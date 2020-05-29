@@ -85,9 +85,9 @@ For pooled databases, the total backup storage size is aggregated at the pool le
 Backups that occur before the retention period are automatically purged based on their timestamp. Because differential backups and log backups require an earlier full backup to be useful, they're purged together in weekly chunks.
 
 SQL Database and SQL Managed Instance compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. After backups become older than the retention period, billing stops.
-
+   
    > [!IMPORTANT]
-   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and re-creating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period for each dropped database, every time it's dropped.
+   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and re-creating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period for each dropped database, every time it's dropped. 
 
 ### Monitor consumption
 
@@ -144,7 +144,10 @@ If you delete a database, Azure keeps the backups in the same way it would for a
 If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 > [!IMPORTANT]
-> If you delete the server or managed instance, all databases managed by that server or managed instance are also deleted. They can't be recovered. You can't restore a deleted server or managed instance. But if you configured long-term retention for SQL Database, the backups for the databases with LTR won't be deleted, and these databases can be restored.
+> Setting up backup retention period to 1 day (or to any value between 1 - 7) is only supported via PowerShell or REST API at this time. Minimum required version of Az.SQL module is v2.6.0, or it can be executed through CloudShell which always has the latest Az.SQL version.
+
+> [!IMPORTANT]
+> If you delete the server or managed instance, all databases managed by that server or managed instance are also deleted. They can't be recovered. You can't restore a deleted server or managed instance. But if you configured long-term retention for SQL Database or manged instance, the backups for the databases with LTR won't be deleted, and these databases can be restored.
 
 ## Encrypted backups
 

@@ -24,7 +24,7 @@ This article contains the most common questions about [Azure SQL Managed Instanc
 
 For a list of supported features in SQL Managed Instance, see [Azure SQL Managed Instance features](../database/features-comparison.md).
 
-For differences in syntax and behavior between Azure SQL Managed Instance and on-premises SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
+For differences in syntax and behavior between Azure SQL Managed Instance and SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
 ## Tech spec & resource limits
@@ -54,7 +54,7 @@ Expected time to create a SQL Managed Instance or change service tier (vCores, s
 
 ## Naming convention
 
-**Can a SQL Managed Instance have the same name as on-premises SQL Server?**
+**Can a SQL Managed Instance have the same name as on-premises SQL Server instance?**
 
 Changing SQL Managed Instance name is not supported.
 
@@ -96,7 +96,7 @@ If both hardware generations are not supported in the same region, changing the 
 
 **What if there are no enough IP addresses for performing update operation?**
 
-In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses alocated so future update operations will avoid similar situation (for propper subnet size, check [how to determine size of vnet subnet](vnet-subnet-determine-size.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
+In case there is no enough IP addresses in the subnet where your managed instance is provisioned, you will have to create new subnet and new managed instance inside it. We also suggest that new subnet is created with more IP addresses allocated so future update operations will avoid similar situation (for proper subnet size, check [how to determine size of vnet subnet](vnet-subnet-determine-size.md). After new instance is provisioned, you can manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## Tune performance
@@ -131,7 +131,7 @@ Use the **Accumulated costs** option and then filter by the **Resource type** as
 
 **How can I set inbound NSG rules on management ports?**
 
-SQL Managed instance control plane maintains NSG rules that protect management ports.
+SQL SQL Managed Instance control plane maintains NSG rules that protect management ports.
 
 Here is what management ports are used for:
 
@@ -163,14 +163,14 @@ To mitigate any data exfiltration risks, customers are recommended to apply a se
 
 **Where can I find use cases and resulting cost savings with SQL Managed Instance?**
 
-SQL Managed instance case studies:
+SQL Managed Instance case studies:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
   
-To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Managed Instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+To get a better understanding of the benefits, costs, and risks associated with deploying SQL Managed Instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
 ## DNS Refresh 
@@ -191,7 +191,7 @@ As a workaround, downgrade the SQL Managed Instance to 4 vCore and upgrade it ag
 
 **Can I connect to SQL Managed Instance using IP address?**
 
-Connecting to SQL Managed Instance using IP address is not supported. SQL Managed instance host name maps to a load balancer in front of the SQL Managed Instance virtual cluster. As one virtual cluster could host multiple SQL Managed Instances,  connections cannot be routed to the proper SQL Managed Instance without specifying the name explicitly.
+Connecting to SQL Managed Instance using IP address is not supported. SQL Managed Instance host name maps to a load balancer in front of the SQL Managed Instance virtual cluster. As one virtual cluster could host multiple SQL Managed Instances,  connections cannot be routed to the proper SQL Managed Instance without specifying the name explicitly.
 
 For more information on SQL Managed Instance virtual cluster architecture, see [Virtual cluster connectivity architecture](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
@@ -234,4 +234,45 @@ Once you make the encryption protector available to SQL Managed Instance, you ca
 
 **How can I migrate from Azure SQL Database to SQL Managed Instance?**
 
-SQL Managed instance offers the same performance levels per compute and storage size as Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in SQL Managed Instance, you can migrate your data by using export/import (BACPAC) functionality.
+SQL Managed Instance offers the same performance levels per compute and storage size as Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in SQL Managed Instance, you can migrate your data by using export/import (BACPAC) functionality.
+
+## Password policy 
+
+**What password policies are applied for SQL Managed instance SQL logins?**
+
+SQL Managed Instance password policy for SQL logins inherits Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
+
+ > [!IMPORTANT]
+ > Azure platform can change policy requirements without notifying services relying on that policies.
+
+**What are current Azure platform policies?**
+
+Each login must set its password upon login and change its password after it reaches maximum age.
+
+| **Policy** | **Security Setting** |
+| --- | --- |
+| Maximum password age | 42 days |
+| Minimum password age | 1 day |
+| Minimum password length | 10 characters |
+| Password must meet complexity requirements | Enabled |
+
+**Is it possible to disable password complexity and expiration in SQL Managed Instance on login level?**
+
+Yes, it is possible to control CHECK_POLICY and CHECK_EXPIRATION fields on login level. You can check current settings by executing following T-SQL command:
+
+```sql
+SELECT *
+FROM sys.sql_logins
+```
+
+After that, you can modify specified login settings by executing :
+
+```sql
+ALTER LOGIN test WITH CHECK_POLICY = ON;
+ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+```
+
+(replace 'test' with desired login name)
+
+ > [!Note]
+ > Default values for CHECK_POLICY and CHECK_EXPIRATION are set to OFF.
