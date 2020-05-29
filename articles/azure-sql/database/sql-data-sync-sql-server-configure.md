@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ---
-# Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
+# Tutorial: Set up SQL Data Sync between databases in Azure SQL Database and SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you learn how to set up SQL Data Sync by creating a sync group that contains both Azure SQL Database and SQL Server instances. The sync group is custom configured and synchronizes on the schedule you set.
@@ -21,7 +21,7 @@ The tutorial assumes you have at least some prior experience with SQL Database a
 
 For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
-For PowerShell examples on how to configure SQL Data Sync, see [How to sync between databases in SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+For PowerShell examples on how to configure SQL Data Sync, see [How to sync between databases in SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) or [between databases in Azure SQL Database and SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
 > SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
@@ -90,9 +90,9 @@ In the **Member Database** section, optionally add an Azure SQL Database to the 
 
 <a name="add-on-prem"></a>
 
-### To add an on-premises SQL Server database
+### To add a SQL Server database
 
-In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
+In the **Member Database** section, optionally add a SQL Server database to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens where you can do the following things:
 
 1. Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 

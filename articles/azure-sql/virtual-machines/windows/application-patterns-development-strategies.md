@@ -56,8 +56,9 @@ Before you start reading this article, you should have knowledge on the fundamen
 This article describes several application patterns that can be suitable for your simple applications as well as the highly complex enterprise applications. Before detailing each pattern, we recommend that you should familiarize yourself with the available data storage services in Azure, such as [Azure Storage](../../../storage/common/storage-introduction.md), [Azure SQL Database](../../database/sql-database-paas-overview.md), and [SQL Server in an Azure Virtual Machine](sql-server-on-azure-vm-iaas-what-is-overview.md). To make the best design decisions for your applications, understand when to use which data storage service clearly.
 
 ### Choose SQL Server in an Azure Virtual Machine, when:
+
 * You need control on SQL Server and Windows. For example, this might include the SQL Server version, special hotfixes, performance configuration, etc.
-* You need a full compatibility with SQL Server on-premises and want to move existing applications to Azure as-is.
+* You need a full compatibility with SQL Server and want to move existing applications to Azure as-is.
 * You want to leverage the capabilities of the Azure environment but Azure SQL Database does not support all the features that your application requires. This could include the following areas:
   
   * **Database size**: At the time this article was updated, SQL Database supports a database of up to 1 TB of data. If your application requires more than 1 TB of data and you don’t want to implement custom sharding solutions, it’s recommended that you use SQL Server in an Azure Virtual Machine. For the latest information, see [Scaling Out Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [DTU-Based Purchasing Model](../../database/service-tiers-dtu.md), and [vCore-Based Purchasing Model](../../database/service-tiers-vcore.md)(preview).
