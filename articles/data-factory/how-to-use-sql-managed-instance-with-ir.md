@@ -19,17 +19,17 @@ ms.date: 4/15/2020
 
 You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Database Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Database Managed Instance with Azure-SSIS integration runtime (IR):
 
-- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
 - [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Database managed instance
+## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Managed Instance
 
 ### Prerequisites
 
-1. [Enable Azure Active Directory (Azure AD) on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance), when choosing Azure Active Directory authentication.
+1. [Enable Azure Active Directory (Azure AD) on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
 
 1. Choose how to connect SQL managed instance, over private endpoint or over public endpoint:
 
@@ -142,7 +142,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance).
+    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Join Azure-SSIS IR to the virtual network when applies.
 
