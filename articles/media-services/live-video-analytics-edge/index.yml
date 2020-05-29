@@ -73,8 +73,8 @@ landingContent:
         links:
           - text: Deploy to an IoT Edge device
             url: deploy-iot-edge-device.md
-          - text: Manage retention policy
-            url: manage-retention-policy-how-to.md
+          - text: Manage recording policy
+            url: manage-recording-policy-how-to.md
           - text: Playback a recording 
             url: playback-recordings-how-to.md
           - text: Monitoring and logging
