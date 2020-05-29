@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 07/03/2019
 ---
 # Use PowerShell to restore an Azure SQL Managed Instance database to another geo-region
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 This PowerShell script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore).  

@@ -13,7 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
+
 # Use PowerShell with an Azure Resource Manager template to create a managed instance
+
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 You can create a managed instance by using the Azure PowerShell library and Azure Resource Manager templates.
 
