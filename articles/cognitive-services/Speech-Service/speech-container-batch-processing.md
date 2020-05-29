@@ -129,7 +129,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
     |`/watch`     | Endpoint for using HTTP long polling until the batch completes.        |
 
 3. Audio files are uploaded from the input directory. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
-4. If a request is sent to the `/submit` endpoint, the the files are dispatched to the container endpoints from step 1.
+4. If a request is sent to the `/submit` endpoint, the files are dispatched to the container endpoints from step 1.
 5. Logs and the Speech container output are returned to the specified output directory. 
 
 ---
