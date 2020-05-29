@@ -106,6 +106,8 @@ Presently, a DNS alias has the following limitations:
 ## Related resources
 
 - [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
+- [Azure REST API Reference](https://docs.microsoft.com/en-us/rest/api/azure/)
+- [Server Dns Aliases] (https://docs.microsoft.com/en-us/rest/api/sql/serverdnsaliases)
 
 ## Next steps
 
