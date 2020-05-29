@@ -609,7 +609,7 @@ Status code of 200 indicates that the graph instance was successfully deactivate
 
 Try the following, as next steps.
 
-* Invoke GraphTopologyGet as indicated in the earlier sections and observe the "state" value.
+* Invoke GraphInstanceGet as indicated in the earlier sections and observe the "state" value.
 
 ### Invoke GraphInstanceDelete
 
