@@ -39,21 +39,16 @@ After you sign in, you should see the user profile information that's returned b
 
 |Property  |Format  |Description |
 |---------|---------|---------|
-
 |**Username** |<span>user@domain.com</span> |The username that is used to identify the user.|
 |**Token Expires** |DateTime |The time at which the token expires. MSAL extends the expiration date by renewing the token as necessary.|
 
-
-<!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is automatically added by default in every application that's registered in the Application Registration Portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is automatically added by default in every application that's registered in the Application Registration Portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the *Calendars.Read* scope to list the user's calendars.
 
-To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call.
+To access the user's calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call.
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Change the profile information for your Azure account | Microsoft Docs
+title: Change the profile information for your Azure account
 description: Describes how to change the profile of your Azure administrative account and contact email address.
 author: genlin
 ms.reviewer: dcscontentpm

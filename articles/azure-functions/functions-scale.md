@@ -59,7 +59,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 * Perpetually warm instances to avoid any cold start
 * VNet connectivity
-* Unlimited execution duration
+* Unlimited execution duration (60 minutes guaranteed)
 * Premium instance sizes (one core, two core, and four core instances)
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
@@ -105,7 +105,7 @@ Even with Always On enabled, the execution timeout for individual functions is c
 
 ## Determine the hosting plan of an existing application
 
-To determine the hosting plan used by your function app, see **App Service plan / pricing tier** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). For App Service plans, the pricing tier is also indicated.
+To determine the hosting plan used by your function app, see **App Service plan** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). To see the pricing tier, select the name of the **App Service Plan**, and then select **Properties** from the left pane.
 
 ![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -120,7 +120,7 @@ When the output from this command is `dynamic`, your function app is in the Cons
 
 ## Storage account requirements
 
-On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Azure Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
 
 The same storage account used by your function app can also be used by your triggers and bindings to store your application data. However, for storage-intensive operations, you should use a separate storage account.  
 
@@ -128,9 +128,9 @@ It's certainly possible for multiple function apps to share the same storage acc
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#core-storage-services).
 
-## How the consumption and premium plans work
+## How the Consumption and Premium plans work
 
 In the Consumption and Premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the Consumption plan is limited to 1.5 GB of memory and one CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same Consumption plan are scaled independently.  In the Premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
@@ -149,18 +149,16 @@ The unit of scale for Azure Functions is the function app. When the function app
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. There are a few intricacies of scaling behaviors to be aware of:
 
 * A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
-* For HTTP triggers, new instances will only be allocated at most once every 1 second.
-* For non-HTTP triggers, new instances will only be allocated at most once every 30 seconds.
-
-Different triggers may also have different scaling limits as well as documented below:
-
-* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
+* For HTTP triggers, new instances are allocated, at most, once per second.
+* For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](#premium-plan).
+* For Service Bus triggers, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling isn't as accurate because the queue length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* For Event Hub triggers, see the [scaling guidance](functions-bindings-event-hubs-trigger.md#scaling) in the reference article. 
 
 ### Best practices and patterns for scalable apps
 
 There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
-For additional information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
+For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
 ### Billing model
 

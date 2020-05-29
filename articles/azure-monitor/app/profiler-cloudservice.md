@@ -1,8 +1,6 @@
 ---
 title: Profile live Azure Cloud Services with Application Insights | Microsoft Docs
 description: Enable Application Insights Profiler for Azure Cloud Services.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining

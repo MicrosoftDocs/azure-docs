@@ -24,11 +24,11 @@ This article includes frequently asked questions about configuration and managem
 
 **Certificates**
 
-- [Why is the certificate chain of my Cloud Service SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoring and logging**
@@ -69,7 +69,7 @@ This article includes frequently asked questions about configuration and managem
 
 ## Certificates
 
-### Why is the certificate chain of my Cloud Service SSL certificate incomplete?
+### Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
     
 We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) shows how to do this.
 
@@ -97,7 +97,7 @@ You can use following PowerShell commands to renew your Management Certificates:
 
 The **Get-AzurePublishSettingsFile** will create a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
+### How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
@@ -131,7 +131,7 @@ You haveâ€¯exhausted the local storage quota for writing to the log directory.â€
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### How do I enable WAD logging for Cloud Services?

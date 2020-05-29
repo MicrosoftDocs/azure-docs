@@ -9,8 +9,8 @@ ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/27/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
@@ -92,7 +92,7 @@ You see an [alert][resolve-alerts] on the Azure AD DS Health page in the Azure p
 To restore the health of an Azure AD DS managed domain that's in the *Suspended* state, complete the following steps:
 
 1. In the Azure portal, search for and select **Domain services**.
-1. Choose your Azure AD DS managed domain from the list, such as *aadds.contoso.com*, then select **Health**.
+1. Choose your Azure AD DS managed domain from the list, such as *aaddscontoso.com*, then select **Health**.
 1. Select the alert, such as *AADDS503* or *AADDS504*, depending on the cause of suspension.
 1. Choose the resolution link that's provided in the alert and follow the steps to resolve it.
 

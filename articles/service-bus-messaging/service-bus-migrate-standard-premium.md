@@ -16,6 +16,7 @@ ms.author: aschhab
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
+
 Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multi-tenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
 
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
@@ -23,14 +24,16 @@ This article describes how to migrate existing standard tier namespaces to the p
 >[!WARNING]
 > Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool does not support downgrading.
 
-Some of the points to note: 
+Some of the points to note:
+
 - This migration is meant to happen in place, meaning that existing sender and receiver applications **don't require any changes to code or configuration**. The existing connection string will automatically point to the new premium namespace.
-- The **premium** namespace should have **no entities** in it for the migration to succeed. 
-- All **entities** in the standard namespace are **copied** to the premium namespace during the migration process. 
-- Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace. 
-- You can't directly migrate from **basic tier** to **premier tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
+- The **premium** namespace should have **no entities** in it for the migration to succeed.
+- All **entities** in the standard namespace are **copied** to the premium namespace during the migration process.
+- Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
+- You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 
 ## Migration steps
+
 Some conditions are associated with the migration process. Familiarize yourself with the following steps to reduce the possibility of errors. These steps outline the migration process, and the step-by-step details are listed in the sections that follow.
 
 1. Create a new premium namespace.
@@ -50,7 +53,8 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
 1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select **premium** for the **serviceBusSku** parameter.
 
 1. Set the following environment variables to simplify the migration commands.
-   ```azurecli
+
+   ```
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
    premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
@@ -62,17 +66,18 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
 
 1. Pair the standard and premium namespaces and start the sync by using the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
-
 1. Check the status of the migration by using the following command:
-    ```azurecli
+
+    ```azurecli-interactive
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
     The migration is considered complete when you see the following values:
+
     * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
     * provisioningState = "Succeeded"
@@ -80,7 +85,8 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
     This command also displays the migration configuration. Check to ensure the values are set correctly. Also check the premium namespace in the portal to ensure all the queues and topics have been created, and that they match what existed in the standard namespace.
 
 1. Commit the migration by executing the following complete command:
-   ```azurecli
+
+   ```azurecli-interactive
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
@@ -118,22 +124,22 @@ Migration by using the Azure portal has the same logical flow as migrating by us
 
 Some of the features provided by Azure Service Bus Standard tier are not supported by Azure Service Bus Premium tier. These are by design since the premium tier offers dedicated resources for predictable throughput and latency.
 
-Here is a list of features not supported by Premium and their mitigation - 
+Here is a list of features not supported by Premium and their mitigation -
 
 ### Express entities
 
    Express entities that don't commit any message data to storage are not supported in Premium. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
-   
+
    During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
-   
+
    If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
 
 ### Partitioned entities
 
-   Partitioned entities were supported in the Standard tier to provide better availablility in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
-   
+   Partitioned entities were supported in the Standard tier to provide better availability in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
+
    During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
-   
+
    If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
 
 ## FAQs
@@ -156,19 +162,22 @@ After the messages have been drained, delete the standard namespace.
 > After the messages from the standard namespace have been drained, delete the standard namespace. This is important because the connection string that initially referred to the standard namespace now refers to the premium namespace. You won't need the standard Namespace anymore. Deleting the standard namespace that you migrated helps reduce later confusion.
 
 ### How much downtime do I expect?
+
 The migration process is meant to reduce the expected downtime for the applications. Downtime is reduced by using the connection string that the sender and receiver applications use to point to the new premium namespace.
 
 The downtime that is experienced by the application is limited to the time it takes to update the DNS entry to point to the premium namespace. Downtime is approximately 5 minutes.
 
 ### Do I have to make any configuration changes while doing the migration?
+
 No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
 ### What happens when I abort the migration?
-The migration can be aborted either by using the `Abort` command or by using the Azure portal. 
+
+The migration can be aborted either by using the `Abort` command or by using the Azure portal.
 
 #### Azure CLI
 
-```azurecli
+```azurecli-interactive
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 ```
 

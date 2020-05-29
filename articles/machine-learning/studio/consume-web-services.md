@@ -251,7 +251,7 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 library("RCurl")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
+# Accept TLS/SSL certificates issued by public Certificate Authorities
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()

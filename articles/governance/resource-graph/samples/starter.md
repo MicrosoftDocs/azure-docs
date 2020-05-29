@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 11/21/2019
+ms.date: 04/27/2020
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -29,6 +29,7 @@ We'll walk through the following starter queries:
 > - [Show aliases for a virtual machine resource](#show-aliases)
 > - [Show distinct values for a specific alias](#distinct-alias-values)
 > - [Show unassociated network security groups](#unassociated-nsgs)
+> - [Get cost savings summary from Azure Advisor](#advisor-savings)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -40,7 +41,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="count-resources" />Count Azure resources
+## <a name="count-resources"></a>Count Azure resources
 
 This query returns number of Azure resources that exist in the subscriptions that you have access
 to. It's also a good query to validate your shell of choice has the appropriate Azure Resource
@@ -73,7 +74,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="count-keyvaults" />Count key vault resources
+## <a name="count-keyvaults"></a>Count key vault resources
 
 This query uses `count` instead of `summarize` to count the number of records returned. Only key
 vaults are included in the count.
@@ -106,7 +107,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 ---
 
-## <a name="list-resources" />List resources sorted by name
+## <a name="list-resources"></a>List resources sorted by name
 
 This query returns any type of resource, but only the **name**, **type**, and **location**
 properties. It uses `order by` to sort the properties by the **name** property in ascending (`asc`)
@@ -140,7 +141,7 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 ---
 
-## <a name="show-vms" />Show all virtual machines ordered by name in descending order
+## <a name="show-vms"></a>Show all virtual machines ordered by name in descending order
 
 To list only virtual machines (which are type `Microsoft.Compute/virtualMachines`), we can match
 the property **type** in the results. Similar to the previous query, `desc` changes the `order by`
@@ -175,7 +176,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 ---
 
-## <a name="show-sorted" />Show first five virtual machines by name and their OS type
+## <a name="show-sorted"></a>Show first five virtual machines by name and their OS type
 
 This query will use `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
@@ -210,7 +211,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-## <a name="count-os" />Count virtual machines by OS type
+## <a name="count-os"></a>Count virtual machines by OS type
 
 Building on the previous query, we're still limiting by Azure resources of type
 `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned.
@@ -286,7 +287,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 > property is the incorrect case, a null or incorrect value is returned and the grouping or
 > summarization would be incorrect.
 
-## <a name="show-storage" />Show resources that contain storage
+## <a name="show-storage"></a>Show resources that contain storage
 
 Instead of explicitly defining the type to match, this example query will find any Azure resource
 that `contains` the word **storage**.
@@ -318,7 +319,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ---
 
-## <a name="list-publicip" />List all public IP addresses
+## <a name="list-publicip"></a>List all public IP addresses
 
 Similar to the previous query, find everything that is a type with the word **publicIPAddresses**.
 This query expands on that pattern to only include results where **properties.ipAddress**
@@ -354,7 +355,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="count-resources-by-ip" />Count resources that have IP addresses configured by subscription
+## <a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
 
 Using the previous example query and adding `summarize` and `count()`, we can get a list by subscription of resources with configured IP addresses.
 
@@ -386,7 +387,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="list-tag" />List resources with a specific tag value
+## <a name="list-tag"></a>List resources with a specific tag value
 
 We can limit the results by properties other than the Azure resource type, such as a tag. In this
 example, we're filtering for Azure resources with a tag name of **Environment** that have a value
@@ -451,7 +452,7 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 ---
 
-## <a name="list-specific-tag" />List all storage accounts with specific tag value
+## <a name="list-specific-tag"></a>List all storage accounts with specific tag value
 
 Combine the filter functionality of the previous example and filter Azure resource type by **type**
 property. This query also limits our search for specific types of Azure resources with a specific
@@ -488,7 +489,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 > [!NOTE]
 > This example uses `==` for matching instead of the `=~` conditional. `==` is a case sensitive match.
 
-## <a name="show-aliases" />Show aliases for a virtual machine resource
+## <a name="show-aliases"></a>Show aliases for a virtual machine resource
 
 [Azure Policy aliases](../../policy/concepts/definition-structure.md#aliases) are used by Azure
 Policy to manage resource compliance. Azure Resource Graph can return the _aliases_ of a resource
@@ -525,7 +526,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-## <a name="distinct-alias-values" />Show distinct values for a specific alias
+## <a name="distinct-alias-values"></a>Show distinct values for a specific alias
 
 Seeing the value of aliases on a single resource is helpful, but it doesn't show the true value of
 using Azure Resource Graph to query across subscriptions. This example looks at all values of a
@@ -560,9 +561,10 @@ Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachine
 
 ---
 
-## <a name="unassociated-nsgs" />Show unassociated network security groups
+## <a name="unassociated-nsgs"></a>Show unassociated network security groups
 
-This query returns Network Security Groups (NSGs) that aren't associated to a network interface or subnet.
+This query returns Network Security Groups (NSGs) that aren't associated to a network interface or
+subnet.
 
 ```kusto
 Resources
@@ -590,6 +592,50 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a> ![Open link in new window icon](../../media/new-window.png)
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a> ![Open link in new window icon](../../media/new-window.png)
 - Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![Open link in new window icon](../../media/new-window.png)
+
+---
+
+## <a name="advisor-savings"></a>Get cost savings summary from Azure Advisor
+
+This query summarizes the cost savings of each
+[Azure Advisor](../../../advisor/advisor-overview.md) recommendation.
+
+```kusto
+advisorresources
+| where type == 'microsoft.advisor/recommendations'
+| where properties.category == 'Cost'
+| extend
+    resources = tostring(properties.resourceMetadata.resourceId),
+    savings = todouble(properties.extendedProperties.savingsAmount),
+    solution = tostring(properties.shortDescription.solution),
+    currency = tostring(properties.extendedProperties.savingsCurrency)
+| summarize
+    dcount(resources), 
+    bin(sum(savings), 0.01)
+    by solution, currency
+| project solution, dcount_resources, sum_savings, currency
+| order by sum_savings desc
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
+```
+
+# [Portal](#tab/azure-portal)
+
+![Resource Graph explorer icon](../media/resource-graph-small.png) Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.com</a> ![Open link in new window icon](../../media/new-window.png)
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.us</a> ![Open link in new window icon](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%20%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%20%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%20%7C%20extend%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%20%7C%20summarize%20dcount%28resources%29%2C%20bin%28sum%28savings%29%2C%200.01%29%20by%20solution%2C%20currency%20%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%20%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.cn</a> ![Open link in new window icon](../../media/new-window.png)
 
 ---
 

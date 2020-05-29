@@ -1,11 +1,7 @@
 ---
 title: Export using Stream Analytics from Azure Application Insights | Microsoft Docs
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
 
 ---
@@ -55,7 +51,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/export-stream-analytics/080.png)
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/app/metrics-explorer.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/platform/metrics-charts.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)

@@ -44,6 +44,10 @@ SELECT LOG10(100) AS log10
 [{log10: 2}]  
 ```  
 
+## Remarks
+
+This system function will not utilize the index.
+
 ## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)

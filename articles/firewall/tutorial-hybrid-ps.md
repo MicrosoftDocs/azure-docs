@@ -362,7 +362,7 @@ Get-AzRouteTable `
   -ResourceGroupName $RG1 `
   -Name UDR-DG `
   | Add-AzRouteConfig `
-  -Name "ToSpoke" `
+  -Name "ToFirewall" `
   -AddressPrefix 0.0.0.0/0 `
   -NextHopType "VirtualAppliance" `
   -NextHopIpAddress $AzfwPrivateIP `

@@ -21,7 +21,7 @@ This guide shows how to attach Azure Storage to App Service on Linux. Benefits i
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
 - An existing [App Service on Linux app](https://docs.microsoft.com/azure/app-service/containers/).
 - An [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- An [Azure file share and directory](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+- An [Azure file share and directory](../../storage/files/storage-how-to-use-files-cli.md).
 
 
 ## Limitations of Azure Storage with App Service
@@ -41,7 +41,7 @@ This guide shows how to attach Azure Storage to App Service on Linux. Benefits i
 
 Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
 
-To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example.
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder you would like to mount from Azure Storage. Setting it to '/' mounts the entire Azure Storage.
 
 
 > [!CAUTION]

@@ -2,12 +2,9 @@
 title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Service (AKS)
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.author: mlearned
+
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -87,9 +84,6 @@ desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResou
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
-# Assign the reader role
-az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
 ## Create a new AKS cluster and encrypt the OS disk

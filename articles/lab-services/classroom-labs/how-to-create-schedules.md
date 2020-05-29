@@ -25,6 +25,12 @@ Schedules allow you to configure a classroom lab such that VMs in the lab automa
 ## Set a schedule for the lab
 Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota you specified earlier is the additional time assigned to each user outside this scheduled time. 
 
+> [!NOTE]
+> Before we get started, here's how schedules affect lab virtual machines: 
+>- Template virtual machine is not included in schedules. 
+>- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the the machine will not start on the scheduled hours. 
+>- All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule. 
+
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)

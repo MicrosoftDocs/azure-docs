@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:  [mvc, amqp]
 ms.date: 11/06/2018
 ms.author: dobett
 
@@ -204,7 +204,7 @@ Open the **WebService\appsettings.ini** file and modify the settings as follows:
 
 #### Configure the solution to include your new device model files
 
-By default, your new device model JSON and JS files won’t be copied into the built solution. You need to explicitly include them.
+By default, your new device model JSON and JS files won't be copied into the built solution. You need to explicitly include them.
 
 Add an entry to the **services\services.csproj** file for each file you want included. For example:
 
@@ -232,7 +232,7 @@ The following script assumes that the name of your IoT hub is
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

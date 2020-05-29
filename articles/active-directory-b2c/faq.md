@@ -2,14 +2,14 @@
 title: Frequently asked questions (FAQ) for Azure Active Directory B2C
 description: Answers to frequently asked questions about Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -82,15 +82,17 @@ Currently there is no way to change the "From:" field on the email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 
-You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](user-migration.md) for details.
+You can use the Microsoft Graph API to write your migration tool. See the [User migration guide](user-migration.md) for details.
 
 ### What password user flow is used for local accounts in Azure AD B2C?
 
-The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](/previous-versions/azure/jj943764(v=azure.100)) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more details, see [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+
+For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -96,7 +96,7 @@ You start an evaluation by clicking **What If**. The evaluation result provides 
 
 If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-On the list of policies that apply to your selected user, you can also find a list of [grant controls](controls.md#grant-controls) and [session](controls.md#session-controls) controls your user must satisfy.
+On the list of policies that apply to your selected user, you can also find a list of [grant controls](concept-conditional-access-grant.md) and [session controls](concept-conditional-access-session.md) your user must satisfy.
 
 On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
 

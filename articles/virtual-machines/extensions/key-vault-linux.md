@@ -24,6 +24,11 @@ The Key Vault VM extension supports these Linux distributions:
 - Debian-9
 - Suse-15 
 
+### Supported certificate content types
+
+- PKCS #12
+- PEM
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  
@@ -98,6 +103,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+          "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -184,7 +190,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
   - It must exist at the time of the deployment 
-  - Key Vault Access Policy is set for VM/VMSS Identity using MSI
+  - The Key Vault Access Policy mustbe set for VM/VMSS Identity using a Managed Identity. See [Provide Key Vault authentication with a managed identity](../../key-vault/managed-identity.md)
 
 
 ## Troubleshoot and support

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps

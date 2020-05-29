@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines in Azure DevOps Services.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -31,6 +31,7 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
 * [Custom policies](custom-policy-get-started.md) uploaded to your tenant
+* [Management app](microsoft-graph-get-started.md) registered in your tenant with the Microsoft Graph API permission *Policy.ReadWrite.TrustFramework*
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
 
 ## Client credentials grant flow
@@ -39,47 +40,11 @@ The scenario described here makes use of service-to-service calls between Azure 
 
 ## Register an application for management tasks
 
-Start by creating an application registration that your PowerShell scripts executed by Azure Pipelines will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip to the [Grant permissions](#grant-permissions) section.
+As mentioned in [Prerequisites](#prerequisites), you need an application registration that your PowerShell scripts--executed by Azure Pipelines--can use for accessing the resources in your tenant.
 
-### Register application
+If you already have an application registration that you use for automation tasks, ensure it's been granted the **Microsoft Graph** > **Policy** > **Policy.ReadWrite.TrustFramework** permission within the **API Permissions** of the app registration.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### Grant permissions
-
-Next, grant the application permission to use the Microsoft Graph API to read and write custom policies in your Azure AD B2C tenant.
-
-#### [Applications](#tab/applications/)
-
-1. On the **Registered app** overview page, select **Settings**.
-1. Under **API Access**, select **Required permissions**.
-1. Select **Add**, then **Select an API**.
-1. Select **Microsoft Graph**, then **Select**.
-1. Under **Application Permissions**, select **Read and write your organization's trust framework policies**.
-1. Select **Select**, then **Done**.
-1. Select **Grant permissions**, and then select **Yes**. It might take a few minutes to for the permissions to fully propagate.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
-
-1. Select **App registrations (Preview)**, and then select the web application that should have access to the Microsoft Graph API. For example, *managementapp1*.
-1. Under **Manage**, select **API permissions**.
-1. Under **Configured permissions**, select **Add a permission**.
-1. Select the **Microsoft APIs** tab, then select **Microsoft Graph**.
-1. Select **Application permissions**.
-1. Expand **Policy** and select **Policy.ReadWrite.TrustFramework**.
-1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for (your tenant name)**.
-1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
-1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.
-
-* * *
-
-### Create client secret
-
-To authenticate with Azure AD B2C, your PowerShell script needs to specify a client secret that you create for the application.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+For instructions on registering a management application, see [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md).
 
 ## Configure an Azure Repo
 
@@ -196,7 +161,7 @@ Next, add a task to deploy a policy file.
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Select **Save** to save the Agent job.

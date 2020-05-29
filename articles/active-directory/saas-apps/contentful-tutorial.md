@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 04/20/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -43,6 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Contentful supports **SP and IDP** initiated SSO
 * Contentful supports **Just In Time** user provisioning
+* Once you configure Contentful you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > The identifier of this application is a fixed string value. Only one instance can be configured in one tenant.
@@ -93,6 +94,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL by copying the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful.
+
+1. Contentful application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Contentful application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+	
+	| Name |  Source Attribute|
+	| --------------- | --------- |
+	| email | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

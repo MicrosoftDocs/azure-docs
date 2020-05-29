@@ -5,3 +5,4 @@
 - [Quickstart: Synthesize text to an audio device](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech.md)
 - [Quickstart: Synthesize text to a file](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file.md)
 - [Quickstart: Recognize Intents](~/articles/cognitive-services/speech-service/quickstarts/intent-recognition.md)
+- [Quickstart: Create a custom voice assistant](~/articles/cognitive-services/speech-service/quickstarts/voice-assistants.md)

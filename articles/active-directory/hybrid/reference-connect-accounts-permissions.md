@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -50,11 +50,10 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 > [!NOTE]
 > It is supported to manage the administrative accounts used in Azure AD Connect from an ESAE Administrative Forest (also know as "Red forest").
 > Dedicated administrative forests allow organizations to host administrative accounts, workstations, and groups in an environment that has stronger security controls than the production environment.
-> To learn more about dedicated administrative forests please refer to [ESAE Administrative Forest Design Approach](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
->>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+> To learn more about dedicated administrative forests please refer to [ESAE Administrative Forest Design Approach](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
-> The Global Administrator role is not required after the initial setup and the only required account will be the **Directory Synchronization Accounts** role account. That does not necssarily mean that you will want to just remove the account with the Global Administrator role. It is better to change the role to a less powerful role, as totally removing the account may introduce issues if you ever need to re-run the wizard again. By reducing the privilege of the role you can always re-elevate the priviliges if you have to utilize the Azure AD Connect wizard again. 
+> The Global Administrator role is not required after the initial setup and the only required account will be the **Directory Synchronization Accounts** role account. That does not necessarily mean that you will want to just remove the account with the Global Administrator role. It is better to change the role to a less powerful role, as totally removing the account may introduce issues if you ever need to re-run the wizard again. By reducing the privilege of the role you can always re-elevate the privileges if you have to utilize the Azure AD Connect wizard again. 
 
 ## Installing Azure AD Connect
 The Azure AD Connect installation wizard offers two different paths:
@@ -145,7 +144,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
-| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
+| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.|
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:

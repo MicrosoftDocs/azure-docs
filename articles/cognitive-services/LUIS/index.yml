@@ -11,7 +11,6 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
-  ms.topic: landing-page
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure Cognitive Services
   description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
@@ -130,7 +129,7 @@ landingContent:
           - text: Developer resources
             url: developer-reference-resource.md
           - text: App limitations
-            url: luis-boundaries.md
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities

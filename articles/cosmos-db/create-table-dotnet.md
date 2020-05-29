@@ -61,6 +61,9 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
+> ![TIP]
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
+
 ## Open the sample application in Visual Studio
 
 1. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 

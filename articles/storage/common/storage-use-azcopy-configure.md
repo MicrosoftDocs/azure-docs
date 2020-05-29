@@ -4,7 +4,7 @@ description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -49,9 +49,6 @@ This section helps you perform these optimization tasks:
 
 You can run a performance benchmark test on specific blob containers to view general performance statistics and to identity performance bottlenecks. 
 
-> [!NOTE]
-> In the current release, this feature is available only for Blob Storage containers.
-
 Use the following command to run a performance benchmark test.
 
 |    |     |
@@ -70,7 +67,7 @@ To view detailed help guidance for this command, type `azcopy bench -h` and then
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabytes (MB) per second. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
@@ -116,6 +113,8 @@ AzCopy creates log and plan files for every job. You can use the logs to investi
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
 By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location if you want.
+
+The relevant error isn't necessarily the first error that appears in the file. For errors such as network errors, timeouts and Server Busy errors, AzCopy will retry up to 20 times and usually the retry process succeeds.  The first error that you see might be something harmless that was successfully retried.  So instead of looking at the first error in the file, look for the errors that are near `UPLOADFAILED`, `COPYFAILED`, or `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.

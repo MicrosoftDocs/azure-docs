@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
 ---
 
@@ -119,6 +119,10 @@ Use this parameter if raw or external recordings contain background noise. This 
 - `VideoOnly` - Index and extract insights using video only (ignoring audio)
 - `Default` – Index and extract insights using both audio and video
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+
+> [!NOTE]
+> Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
+If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
 
 Price depends on the selected indexing option.  
 
