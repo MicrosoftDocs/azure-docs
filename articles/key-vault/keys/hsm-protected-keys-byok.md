@@ -9,15 +9,12 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/29/2020
 ms.author: ambapat
 
 ---
 
-# Import HSM-protected keys to Key Vault (preview)
-
-> [!NOTE]
-> This feature is in preview and available only in the Azure regions *East US 2 EUAP* and *Central US EUAP*. 
+# Import HSM-protected keys to Key Vault (BYOK)
 
 For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will  never leave the HSM boundary. This scenario often is referred to as *bring your own key* (BYOK). Key Vault uses the nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
 
@@ -58,12 +55,13 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 |Vendor name|Vendor Type|Supported HSM models|More information|
 |---|---|---|---|
-|Thales|Manufacturer|SafeNet Luna HSM 7 family with firmware version 7.3 or later| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Fortanix|HSM as a Service|Self-Defending Key Management Service (SDKMS)|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|nCipher|Manufacturer, HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
+|Thales|Manufacturer|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Marvell BYOK tool and documentation](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptopmathic site for details](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK tool and documentation](https://www.cryptomathic.com/azurebyok)|
 
 
-> [!NOTE]
-> To import HSM-protected keys from the nCipher nShield family of HSMs, use the [legacy BYOK procedure](hsm-protected-keys-legacy.md).
 
 ## Supported key types
 
