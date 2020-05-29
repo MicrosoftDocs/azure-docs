@@ -88,6 +88,12 @@
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer data requests
     href: resources-customer-data-requests.md
+  - name: Pricing and availability
+    items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: Regions and availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
 - name: Related
   items:
   - name: Solutions
