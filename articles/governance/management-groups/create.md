@@ -37,7 +37,7 @@ PowerShell, or Azure CLI.
 
 1. Select **All services** > **Management + governance**.
 
-1. Select **Management Groups**
+1. Select **Management Groups**.
 
 1. Select **+ Add management group**.
 
