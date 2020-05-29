@@ -1,4 +1,4 @@
-- name: Live Video Analytics on IoT Edge (preview) documentation
+- name: Live Video Analytics on IoT Edge (preview) documentation 
   href: index.yml
 - name: Switch to Azure Media Services v3 documentation
   href: ../latest/index.yml
@@ -54,18 +54,18 @@
       href: analyze-live-video-concept.md
 - name: How-to guides
   items:
-  - name: Deploy to an IoT Edge device
-    href: deploy-iot-edge-device.md
-  - name: Manage recording policy
-    href: manage-recording-policy-how-to.md
-  - name: Playback a recording 
-    href: playback-recordings-how-to.md 
-  - name: Monitoring and logging
-    href: monitoring-logging.md
-  - name: Troubleshoot
-    href: troubleshoot-how-to.md
   - name: Create custom Azure Resource Manager role
     href: create-custom-azure-resource-manager-role-how-to.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Monitoring and logging
+    href: monitoring-logging.md
+  - name: Playback a recording 
+    href: playback-recordings-how-to.md 
+  - name: Manage recording policy
+    href: manage-recording-policy-how-to.md
+  - name: Troubleshoot
+    href: troubleshoot-how-to.md
 - name: Reference
   items:
   - name: Direct methods
