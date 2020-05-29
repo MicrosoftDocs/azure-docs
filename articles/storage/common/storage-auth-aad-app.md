@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
+ms.custom: has-adal-ref
 ---
 
 # Acquire a token from Azure AD for authorizing requests from a client application

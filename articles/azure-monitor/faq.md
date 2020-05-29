@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
+ms.date: 05/15/2020
 
 ---
 
@@ -92,6 +92,11 @@ Many resource providers are automatically registered, but you may need to manual
 
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
+
+## Metrics
+
+### Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
+[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Alerts
 
@@ -192,11 +197,15 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
-*I get no data from my server*
+*I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
+
+*How many Application Insights should I deploy?:*
+
+* [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
 ### Can I use Application Insights with ...?
 
@@ -501,6 +510,10 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
+### Health feature is in private preview
+
+We are planning to make a series of changes to add functionality and address your feedback. The Health feature is going to transition to a private preview at the end of June 2020, and for additional information review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
+
 ### What does *Other Processes* represent under the Node view?
 
 **Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
@@ -718,7 +731,7 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).

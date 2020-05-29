@@ -133,6 +133,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: askSpoke
+        href: askspoke-tutorial.md
       - name: AskYourTeam
         href: askyourteam-tutorial.md
       - name: Asset Bank
@@ -157,6 +159,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: Axiad Cloud
+        href: axiad-cloud-tutorial.md
     - name: B
       items:
       - name: BambooHR
@@ -259,6 +263,8 @@
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
+      - name: CCH Tagetik
+        href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
       - name: Ceridian Dayforce HCM
@@ -273,6 +279,8 @@
         href: certify-tutorial.md
       - name: Cezanne HR Software
         href: cezannehrsoftware-tutorial.md
+      - name: Change Process Management
+        href: change-process-management-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
       - name: Cherwell
@@ -335,6 +343,8 @@
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
+      - name: ColorTokens ZTNA
+        href: colortokens-ztna-tutorial.md
       - name: Comeet Recruiting Software
         href: comeetrecruitingsoftware-tutorial.md
       - name: Comm100 Live Chat
@@ -387,6 +397,8 @@
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Cyara CX Assurance Platform
+        href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
@@ -401,6 +413,8 @@
         href: datadog-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
+      - name: Datava Enterprise Service Platform
+        href: datava-enterprise-service-platform-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
       - name: Degreed
@@ -453,6 +467,14 @@
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
+      - name: EasySSO for Bamboo
+        href: easysso-for-bamboo-tutorial.md
+      - name: EasySSO for BitBucket
+        href: easysso-for-bitbucket-tutorial.md
+      - name: EasySSO for Confluence
+        href: easysso-for-confluence-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -696,6 +718,8 @@
         href: hubspot-tutorial.md
       - name: Huddle
         href: huddle-tutorial.md
+      - name: Humanage
+        href: humanage-tutorial.md      
       - name: Humanity
         href: shiftplanning-tutorial.md
       - name: Hype
@@ -708,6 +732,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: ice Contact Center
+        href: ice-contact-center-tutorial.md
       - name: Icertis Contract Management Platform
         href: icertisicm-tutorial.md
       - name: ICIMS
@@ -762,6 +788,8 @@
         href: insperityexpensable-tutorial.md
       - name: InstaVR Viewer
         href: instavr-viewer-tutorial.md
+      - name: insuite
+        href: insuite-tutorial.md
       - name: Intacct
         href: intacct-tutorial.md
       - name: InTime
@@ -936,6 +964,8 @@
         href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
+      - name: Mapbox
+        href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
       - name: Maxient Conduct Manager Software
@@ -1358,6 +1388,8 @@
         href: settlingmusic-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
+      - name: ShareVault
+        href: sharevault-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
@@ -1510,6 +1542,8 @@
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
+      - name: TextExpander
+        href: textexpander-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1552,6 +1586,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: Trelica
+        href: trelica-tutorial.md
       - name: Trello
         href: trello-tutorial.md
       - name: Trend Micro Web Security(TMWS)
@@ -1560,6 +1596,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: Torii
+        href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
       - name: TurboRater
@@ -1614,6 +1652,8 @@
         href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
+      - name: Vyond
+        href: vyond-tutorial.md
     - name: W - Z
       items:
       - name: Watch by Colors
@@ -1632,6 +1672,8 @@
         href: weekdone-tutorial.md
       - name: Whatfix
         href: whatfix-tutorial.md
+      - name: Whimsical
+        href: whimsical-tutorial.md
       - name: Whitesource
         href: whitesource-tutorial.md
       - name: WhosOffice
@@ -1801,6 +1843,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-provisioning-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
@@ -1827,6 +1871,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Looop
         href: looop-provisioning-tutorial.md
+      - name: MediusFlow
+        href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
@@ -1925,8 +1971,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
-      - name: Workday
+      - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
+      - name: Workday to Azure AD
+        href: workday-inbound-cloud-only-tutorial.md
+      - name: Workday Writeback
+        href: workday-writeback-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook

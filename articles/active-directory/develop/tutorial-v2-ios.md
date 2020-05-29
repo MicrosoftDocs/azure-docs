@@ -147,6 +147,12 @@ var currentAccount: MSALAccount?
 
 The only value you need to modify above is the value assigned to `kClientID`to be your [Application ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
+## Configure Xcode project settings
+
+Add a new keychain group to your project **Signing & Capabilities**. The keychain group should be `com.microsoft.adalcache` on iOS and `com.microsoft.identity.universalstorage` on macOS.
+
+![Xcode UI displaying how the the keychain group should be set up](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
+
 ## For iOS only, configure URL schemes
 
 In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.

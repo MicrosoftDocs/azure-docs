@@ -191,7 +191,6 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
-- France South
 - France Central
 - Canada East
 - Canada Central
@@ -221,9 +220,10 @@ To enroll in the blob versioning preview, use PowerShell or Azure CLI to submit 
 To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```

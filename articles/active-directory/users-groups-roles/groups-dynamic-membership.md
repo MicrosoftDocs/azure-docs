@@ -113,7 +113,7 @@ The following are the user properties that you can use to create a single expres
 | streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
 | surname |Any string value or *null* |(user.surname -eq "value") |
 | telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
+| usageLocation |Two lettered country/region code |(user.usageLocation -eq "US") |
 | userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
@@ -379,7 +379,7 @@ The following device attributes can be used.
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers (Android - Kiosk), or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

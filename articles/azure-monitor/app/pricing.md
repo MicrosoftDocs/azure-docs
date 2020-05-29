@@ -4,7 +4,7 @@ description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 
 ms.reviewer: mbullwin
 ---
@@ -16,7 +16,7 @@ ms.reviewer: mbullwin
 
 Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## Pricing model
 
@@ -25,6 +25,10 @@ The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model
 [Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
 The Application Insights option to [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+
+### Workspace-based Application Insights
+
+For Application Insights resources which send their data to a Log Analytics workspace, called [workspace-based Application Insights resources](create-workspace-resource.md), the billing for data ingestion and retention is done by the workspace where the Application Insights data is located. This enables customers to leverage all options of the Log Analytics [pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) that includes Capacity Reservations in addition to Pay-As-You-Go. Log Analytics also has more options for data retention, including [retention by data type](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type). Application Insights data types in the workspace receive 90 days of retention without charges. Usage of web tests and enabling alerting on custom metric dimensions is still reported through Application Insights. Learn how to track data ingestion and retention costs in Log Analytics using the [Usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs), [Azure Cost Management + Billing](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) and [Log Analytics queries](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## Estimating the costs to manage your application
 
@@ -58,7 +62,7 @@ E. Set the daily data volume cap.
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
-Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions).
+Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Cost Management + Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions).  [See below](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) for details on using this for Application Insights. 
 
 ![In the left menu, select Billing](./media/pricing/02-billing.png)
 
@@ -71,7 +75,7 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 
 ### Queries to understand data volume details
 
-There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event.
+There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. `systemEvents` will not have data size information for [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources).
 
 #### Using aggregated data volume information
 
@@ -123,9 +127,50 @@ dependencies
 | render barchart  
 ```
 
+#### Data volume for workspace-based Application Insights resources
+
+To look at the data volume trends for all of the [workspace-based Application Insights resources](create-workspace-resource.md) in a workspace for the last week, go to the Log Analytics workspace and run the query:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+To query the data volume trends by type for a specific workspace-based Application Insights resource, in the Log Analytics workspace use:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
+```
+
 ## Viewing Application Insights usage on your Azure bill
 
-Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending.
+Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  For Application Insights resources on the current pricing plans, most usage will show up as Log Analytics for the Meter category since there is a single logs backend for all Azure Monitor components. 
 
 More understanding of your usage can be gained by [downloading your usage from the Azure portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -174,7 +219,7 @@ To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/pow
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 
@@ -208,7 +253,7 @@ In each retained record, `itemCount` indicates the number of original records th
 
 ## Change the data retention period
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days.
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. 
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 

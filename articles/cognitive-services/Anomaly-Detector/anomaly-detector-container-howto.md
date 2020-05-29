@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
 ---
 
@@ -37,14 +37,6 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## Request access to the container registry
-
-You must first complete and submit the [Anomaly Detector Container Request form](https://aka.ms/adcontainer) to request access to the container.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
-
 ## The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -70,7 +62,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 | Container | Repository |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -80,7 +72,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### Docker pull for the Anomaly Detector container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
 ## How to use the container
@@ -98,7 +90,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

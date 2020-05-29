@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Blocking legacy authentication
  

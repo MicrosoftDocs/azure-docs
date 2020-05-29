@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity

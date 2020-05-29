@@ -1,9 +1,8 @@
 ---
 title: Schedule your jobs
 description: Use job scheduling to manage your tasks.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: labrenne
 ms.custom: seodec18
 ---
 

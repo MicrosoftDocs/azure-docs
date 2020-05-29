@@ -1,6 +1,6 @@
 ---
 title: Manage schedules in Azure Automation
-description: Learn how to create and manage a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.
+description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -16,10 +16,10 @@ manager: carmonm
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a recurring hourly or daily schedule for runbooks in the Azure portal. You can also schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
 > [!NOTE]
-> Schedules don't currently support Azure Automation DSC configurations.
+> Azure Automation supports Daylight Savings Time and schedules it appropriately for automation operations.
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+> [!NOTE]
+> Schedules currently are not enabled for Azure Automation DSC configurations.
 
 ## PowerShell cmdlets used to access schedules
 

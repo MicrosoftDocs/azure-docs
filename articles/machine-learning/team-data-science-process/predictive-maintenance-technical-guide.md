@@ -293,7 +293,7 @@ prediction results are stored.
 Note: 
 1.    On deploying your solution, a prediction will appear in the database within 3 hours. The pbix file that came with the Generator download contains some seed data so that you may create the Power BI dashboard right away. 
 2.    In this step, the prerequisite is to download and install the free software [Power BI
-desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
 
 The following steps guide you on how to connect the pbix file to
 the SQL Database that was spun up at the time of solution deployment
