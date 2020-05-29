@@ -22,9 +22,9 @@ To support forced tunneling, Service Management traffic is separated from custom
 
 If you have a default route advertised via BGP to force traffic to on-premises, you must create the *AzureFirewallSubnet* and *AzureFirewallManagementSubnet* before deploying your firewall and have a UDR with a default route to the Internet, and **Virtual network gateway route propagation** disabled.
 
-Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premise firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
+Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premises firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
 
-For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premise device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premise network.
+For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premises device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premises network.
 
 ![Virtual network gateway route propagation](media/forced-tunneling/route-propagation.png)
 

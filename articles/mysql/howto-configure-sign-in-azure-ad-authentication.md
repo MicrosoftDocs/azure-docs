@@ -12,6 +12,9 @@ ms.date: 01/22/2019
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
+> [!IMPORTANT]
+> Azure Active Directory authentication is only available for MySQL 5.7 and newer.
+
 ## Setting the Azure AD Admin user
 
 Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create and Azure AD Admin user, please follow the following steps
