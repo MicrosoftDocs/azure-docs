@@ -77,18 +77,15 @@ if missing_env:
     print("**Restart your shell or IDE for changes to take effect.**")
     sys.exit()
 
-text_recognition_url = endpoint + "/vision/v3.0-preview/read/analyze"
+text_recognition_url = endpoint + "/vision/v3.0/read/analyze"
 
 # Set image_url to the URL of an image that you want to recognize.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
-
-# Set the langauge that you want to recognize. The value can be "en" for English, and "es" for Spanish
-language = "en"
+image_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 data = {'url': image_url}
 response = requests.post(
-    text_recognition_url, headers=headers, json=data, params={'language': language})
+    text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
 # Extracting text requires two API calls: One call to submit the
