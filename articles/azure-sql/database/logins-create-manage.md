@@ -33,7 +33,7 @@ In this article, you learn about:
 [**Authentication**](security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
 When a user attempts to connect to a database, they provide a user account and authentication information. The user is authenticated using one of the following two authentication methods:
 
-- [Azure SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+- [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user accounts *not* linked to a login.
 - [Azure Active Directory Authentication](authentication-aad-overview.md)
@@ -112,7 +112,7 @@ You can create accounts for non-administrative users using one of two methods:
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using Azure SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
 > [!IMPORTANT]
-> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, an SQL login with `sysadmin` permissions can also create an Azure AD login or user.
+> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the database in Azure SQL Database. In SQL Managed Instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
 
 For examples showing how to create logins and users, see:
 
@@ -151,7 +151,7 @@ Efficient access management uses permissions assigned to Active Directory securi
 
 - When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
-- When using Azure SQL authentication, create contained database users in the database. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
+- When using SQL authentication, create contained database users in the database. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
   > [!NOTE]
   > You can also use groups for non-contained database users.
@@ -165,4 +165,4 @@ You should familiarize yourself with the following features that can be used to 
 
 ## Next steps
 
-For an overview of all Azure SQL Database and SQL Managed Instance security features, see [Azure SQL security overview](security-overview.md).
+For an overview of all Azure SQL Database and SQL Managed Instance security features, see [Security overview](security-overview.md).
