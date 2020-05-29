@@ -1,4 +1,13 @@
-
+---
+title: Azure Private Link Service ARM template
+description: Private link service ARM template
+services: private-link
+author: mblanco77
+ms.service: private-link
+ms.topic: article
+ms.date: 05/29/2020
+ms.author: allensu
+---
 # Create a private link service - Resource Manager template
 
 In this quickstart, you use a Resource Manager template to create an private link service.
