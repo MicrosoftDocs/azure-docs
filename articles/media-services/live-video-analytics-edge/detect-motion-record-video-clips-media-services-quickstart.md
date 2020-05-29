@@ -601,7 +601,7 @@ Note the following in the response payload:
 
 ## Observe results
 
-The graph instance that we created and activated above uses the motion detection processor node to detect motion in the incoming live video stream and sends events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. You will see the following messages in the OUTPUT window
+The graph instance that you created and activated above uses the motion detection processor node to detect motion in the incoming live video stream and sends events to IoT Hub sink. These events are then relayed to your IoT Hub, which can now be observed. You will see the following messages in the OUTPUT window
 
 ```
 [IoTHubMonitor] [4:33:04 PM] Message received from [lva-sample-device/lvaEdge]:
