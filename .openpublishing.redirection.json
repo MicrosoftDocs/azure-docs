@@ -52431,7 +52431,7 @@
     },
     {
       "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
-      "redirect_url": "/articles/virtual-network/public-ip-addresses",
+      "redirect_url": "/azure/virtual-network/public-ip-addresses",
       "redirect_document_id": false
     },
     {

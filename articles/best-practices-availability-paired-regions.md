@@ -7,6 +7,7 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
+ms.custom: references_regions
 ---
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions

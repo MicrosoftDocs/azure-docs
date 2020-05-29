@@ -8,7 +8,7 @@ ms.date: 05/25/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 
 ---
 
