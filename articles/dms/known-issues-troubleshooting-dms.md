@@ -27,7 +27,7 @@ When you create new activities in an Azure Database Migration Service project, t
 
 ## Max number of databases selected for migration
 
-The following error occurs when creating an activity for a database migration project for moving to Azure SQL Database or an Azure SQL Database managed instance:
+The following error occurs when creating an activity for a database migration project for moving to Azure SQL Database or an Azure SQL Managed Instance:
 
 * **Error**: Migration settings validation error", "errorDetail":"More than max number '4' objects of 'Databases' has been selected for migration."
 
@@ -67,13 +67,13 @@ You receive following error when starting the Azure Database Migration Service i
 
 ## Error restoring database while migrating SQL to Azure SQL DB managed instance
 
-When you perform an online migration from SQL Server to an Azure SQL Database managed instance, the cutover fails with following error:
+When you perform an online migration from SQL Server to Azure SQL Managed Instance, the cutover fails with following error:
 
 * **Error**: Restore Operation failed for operation Id 'operationId'. Code 'AuthorizationFailed', Message 'The client 'clientId' with object id 'objectId' does not have authorization to perform action 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' over scope '/subscriptions/subscriptionId'.'.
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| This error indicates the application principal being used for online migration from SQL Server to an Azure SQL Database managed instance doesn't have contribute permission on the subscription. Certain API calls with Managed Instance at present require this permission on subscription for the restore operation. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use the `Get-AzureADServicePrincipal` PowerShell cmdlet with `-ObjectId` available from the error message to list the display name of the application ID being used.<br><br> Validate the permissions to this application and ensure it has the [contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) at the subscription level. <br><br> The Azure Database Migration Service Engineering Team is working to restrict the required access from current contribute role on subscription. If you have a business requirement that doesn't allow use of contribute role, contact Azure support for additional help. |
+| This error indicates the application principal being used for online migration from SQL Server to SQL Managed Instance doesn't have contribute permission on the subscription. Certain API calls with Managed Instance at present require this permission on subscription for the restore operation. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use the `Get-AzureADServicePrincipal` PowerShell cmdlet with `-ObjectId` available from the error message to list the display name of the application ID being used.<br><br> Validate the permissions to this application and ensure it has the [contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) at the subscription level. <br><br> The Azure Database Migration Service Engineering Team is working to restrict the required access from current contribute role on subscription. If you have a business requirement that doesn't allow use of contribute role, contact Azure support for additional help. |
 
 ## Error when deleting NIC associated with Azure Database Migration Service
 

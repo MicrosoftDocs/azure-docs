@@ -23,7 +23,7 @@
   - name: Classroom Labs concepts
     href: classroom-labs-concepts.md    
   - name: Classroom Labs architecture fundamentals
-    href: classroom-labs-fundamentals.md    
+    href: classroom-labs-fundamentals.md  
   - name: Scenarios
     items:  
     - name: Use labs for conducting classes
@@ -46,6 +46,8 @@
         href: class-type-mobile-dev-android-studio.md
       - name: Big data analytics
         href: class-type-big-data-analytics.md
+      - name: MATLAB
+        href: class-type-matlab.md
 - name: How-to guides
   items:
   - name: Administrator guide
