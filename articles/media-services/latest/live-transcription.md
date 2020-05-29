@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn about Azure Media Services live transcription.  
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 
@@ -37,54 +37,113 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property. The only allowed value for language is en-US.
 
 ```
-{ 
-  "properties": { 
-    "description": "Demonstrate how to enable live transcriptions", 
-    "input": { 
-      "streamingProtocol": "RTMP", 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "preview": { 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "encoding": { 
-      "encodingType": "None" 
-    }, 
-    "transcriptions": [ 
-      { 
-        "language": "en-US" 
-      } 
-    ], 
-    "vanityUrl": false, 
-    "streamOptions": [ 
-      "Default" 
-    ] 
-  }, 
-  "location": "West US 2" 
-} 
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions",
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
 ```
 
 Poll the status of the Live Event until it goes into the "Running" state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, like checking the preview feed and creating Live outputs.
+
+## Start transcription after live event has started
+
+Live transcription can be started after a live event has begun. To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
+
+> [!NOTE]
+> Turning the transcription on or off more than once during the live event is not a supported scenario.
+
+This is the sample call to turn on live transcriptions.
+
+PATCH: ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+
+```
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions", 
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
+```
 
 ## Transcription delivery and playback
 

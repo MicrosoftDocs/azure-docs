@@ -1,7 +1,7 @@
 ---
-title: Network topologies for SQL managed instance migrations
+title: Network topologies for SQL Managed Instance migrations
 titleSuffix: Azure Database Migration Service
-description: Learn the source and target configurations for Azure SQL Database managed instance migrations using the Azure Database Migration Service.
+description: Learn the source and target configurations for Azure SQL Managed Instance migrations using the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/08/2020
 ---
 
-# Network topologies for Azure SQL DB Managed Instance migrations using Azure Database Migration Service
+# Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service
 
-This article discusses various network topologies that Azure Database Migration Service can work with to provide a comprehensive migration experience from on-premises SQL Servers to Azure SQL Database Managed Instance.
+This article discusses various network topologies that Azure Database Migration Service can work with to provide a comprehensive migration experience from SQL Servers to Azure SQL Managed Instance.
 
 ## Azure SQL Database Managed Instance configured for Hybrid workloads 
 
@@ -29,13 +29,13 @@ Use this topology if your Azure SQL Database Managed Instance is connected to yo
 - In this scenario, the Azure SQL Database managed instance and the Azure Database Migration Service instance are created in the same Microsoft Azure Virtual Network, but they use different subnets.  
 - The virtual network used in this scenario is also connected to the on-premises network by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-## Azure SQL Database Managed Instance isolated from the on-premises network
+## SQL Managed Instance isolated from the on-premises network
 
 Use this network topology if your environment requires one or more of the following scenarios:
 
 - The Azure SQL Database managed instance is isolated from on-premises connectivity, but your Azure Database Migration Service instance is connected to the on-premises network.
 - If Role Based Access Control (RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting the Azure SQL Database managed instance.
-- The  virtual networks used for the Azure SQL Database Managed Instance and Azure Database Migration Service are in different subscriptions.
+- The  virtual networks used for the SQL Managed Instance and Azure Database Migration Service are in different subscriptions.
 
 ![Network Topology for Managed Instance isolated from the on-premises network](media/resource-network-topologies/mi-isolated-workload.png)
 

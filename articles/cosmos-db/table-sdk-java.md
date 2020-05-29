@@ -31,7 +31,7 @@ ms.author: akshanka
 
 ## Release notes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
 ## Release and retirement dates

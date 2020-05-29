@@ -1,7 +1,7 @@
 ---
 title: "PowerShell: Migrate SQL Server to SQL managed instance"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from on-premises SQL Server to Azure SQL Database managed instance by using Azure PowerShell and the Azure Database Migration Service.
+description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/20/2020
 ---
 
-# Migrate SQL Server to SQL Database managed instance with PowerShell & Azure Database Migration Service
+# Migrate SQL Server to SQL Managed Instance with PowerShell & Azure Database Migration Service
 
-In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database managed instance by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to an Azure SQL Database managed instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL SQL Managed Instance by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to an SQL Managed Instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -39,13 +39,13 @@ To complete these steps, you need:
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure SQL Database managed instance. You can create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
 * To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 * To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
-* To ensure that the credentials used to connect to target Azure SQL Database managed instance has the CONTROL DATABASE permission on the target Azure SQL Database managed instance databases.
+* To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
     > [!IMPORTANT]
     > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

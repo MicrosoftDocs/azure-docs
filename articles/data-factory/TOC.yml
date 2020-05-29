@@ -39,7 +39,7 @@
         href: tutorial-copy-data-portal.md
       - name: .NET
         href: tutorial-copy-data-dot-net.md
-    - name: From an on-premises SQL Server database to Azure Blob Storage
+    - name: From a SQL Server database to Azure Blob Storage
       items:
       - name: Copy Data tool
         href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +76,7 @@
           href: tutorial-incremental-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-powershell.md
-      - name: From multiple on-premises SQL Server tables
+      - name: From multiple SQL Server database tables
         items:
         - name: User interface (UI)
           href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -236,8 +236,8 @@
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
-    - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-instance.md
+    - name: Azure SQL Managed Instance
+      href: connector-azure-sql-managed-instance.md
     - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -697,7 +697,7 @@
     items:
     - name: SSIS migration overview
       href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Database managed instance
+    - name: SSISDB migration to Azure SQL Managed Instance
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
