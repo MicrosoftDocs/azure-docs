@@ -55,9 +55,9 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 ## Archive access tier
 
-The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive tier can take several hours to retrieve. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge.
+The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. Data in the archive tier can take several hours to retrieve depending on the priority of the rehydration. For small objects, a high priority rehydrate may retrieve the object from archive in under 1 hour. See [Rehydrate blob data from the archive tier](storage-blob-rehydration.md) to learn more.
 
-While a blob is in archive storage, the blob data is offline and can't be read, overwritten, or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob and its properties. For blobs in archive, the only valid operations are GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob, and DeleteBlob. See [Rehydrate blob data from the archive tier](storage-blob-rehydration.md) to learn more.
+While a blob is in archive storage, the blob data is offline and can't be read, overwritten, or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob, its properties, metadata, and blob index tags. Setting or modifying the blob metadata while in archive is not allowed; however you may set and modify the blob index tags. For blobs in archive, the only valid operations are GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob, and DeleteBlob.
 
 Example usage scenarios for the archive access tier include:
 
@@ -248,7 +248,7 @@ Blobs in the cool access tier have a slightly lower availability service level (
 
 **Are the operations among the hot, cool, and archive tiers the same?**
 
-All operations between hot and cool are 100% consistent. All valid archive operations including GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob are 100% consistent with hot and cool. Blob data can't be read or modified while in the archive tier until rehydrated; only blob metadata read operations are supported while in archive.
+All operations between hot and cool are 100% consistent. All valid archive operations including GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, and DeleteBlob are 100% consistent with hot and cool. Blob data can't be read or modified while in the archive tier until rehydrated; only blob metadata read operations are supported while in archive. However blob index tags can be read, set, or modified while in archive.
 
 **When rehydrating a blob from archive tier to the hot or cool tier, how will I know when rehydration is complete?**
 
