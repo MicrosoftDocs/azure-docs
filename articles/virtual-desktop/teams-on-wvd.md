@@ -142,3 +142,6 @@ Set the following RDP properties to enable microphone and camera redirection:
 |camerastoredirect:s:* | Redirect all cameras |
 
 To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
+
+>[!NOTE]
+>Enabling microphone, audio and camera redirection is not required when using Teams with WVD optimizations as the local Teams WebSocket service enables this capability.
