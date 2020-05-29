@@ -10,6 +10,8 @@ ms.custom: mvc
 
 When you're finished deploying changes to VMs in your environment, you can remove them from the [Change Tracking and Inventory](change-tracking.md) feature.
 
+## To remove your VMs
+
 1. From your Automation account, select **Change tracking** or **Inventory** under **Configuration Management**.
 
 2. Use the following command to identify the UUID of a VM that you want to remove from management.

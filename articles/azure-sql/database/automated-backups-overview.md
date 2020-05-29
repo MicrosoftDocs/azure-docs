@@ -15,6 +15,7 @@ manager: craigg
 ms.date: 12/13/2019
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Both Azure SQL Database and Azure SQL Managed Instance create database backups that are kept for the duration of the configured retention period. They use Azure [read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy.md) to ensure backups are preserved even if the datacenter is unavailable.
@@ -37,7 +38,7 @@ You can use these backups to:
 To perform a restore, see [Restore database from backups](recovery-using-backups.md).
 
 > [!NOTE]
-> In Azure Storage, the term *replication* refers to copying files from one location to another. In SQL, *database replication* refers to keeping multiple secondary databases synchronized with a primary database.
+> In Azure Storage, the term *replication* refers to copying files from one location to another. In Azure SQL Database and SQL Managed Instance, *database replication* refers to keeping multiple secondary databases synchronized with a primary database.
 
 You can try some of these operations by using the following examples:
 
@@ -55,7 +56,7 @@ You can try some of these operations by using the following examples:
 
 SQL Database and SQL Managed Instance support self-service for point-in-time restore (PITR) by automatically creating full backups, differential backups, and transaction log backups. Full database backups are created weekly, and differential database backups are generally created every 12 hours. Transaction log backups are generally created every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
 
-The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the SQL Database or SQL Managed Instance service as it balances the overall system workload. You can't change or disable the backup jobs.
+The first full backup is scheduled immediately after a database is created. This backup usually completes within 30 minutes, but it can take longer when the database is large. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by SQL Database or SQL Managed Instance as it balances the overall system workload. You can't change or disable the backup jobs.
 
 ### Default backup retention period
 
@@ -136,7 +137,7 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
 ## Backup retention
 
-All databases in Microsoft Azure SQL have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to anywhere between 1 - 35 days.
+All databases in SQL Database and SQL Managed Instance have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to as long as 35 days.
 
 If you delete a database, Azure keeps the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that's four days old is saved for three more days.
 
@@ -150,7 +151,7 @@ If you need to keep the backups for longer than the maximum retention period, yo
 
 ## Encrypted backups
 
-If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new databases in Azure SQL are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for SQL Database or SQL Managed Instance, backups are also encrypted. All new databases in SQL Database and SQL Managed Instance are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## Backup integrity
 
