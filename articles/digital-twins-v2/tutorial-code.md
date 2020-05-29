@@ -198,7 +198,7 @@ static async Task Main(string[] args)
 ```
 
 > [!NOTE]
-> This is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using async.
+> Using `async` is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using `async`.
 
 Next comes the first bit of code that interacts with the Azure Digital Twins service. This code loads the DTDL file you created from your disk, and then uploads it to your Azure Digital Twins service instance. 
 
