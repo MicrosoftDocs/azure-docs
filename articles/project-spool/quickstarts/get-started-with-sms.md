@@ -43,7 +43,7 @@ This quick start is simple enough that we will leverage the .NET console applica
 
 ![Screenshot of Visual Studio console app template](../media/console-app-template.png)
 
-The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a built assembly. Visual Studio's nuget package manager makes it easy to find and downlaod packages:
+The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a built assembly. Visual Studio's nuget package manager makes it easy to find and download packages:
 
 ![Screenshot of Visual Studio Manage Package link in solution explorer](../media/solution-explorer-nuget-link.png)
 
