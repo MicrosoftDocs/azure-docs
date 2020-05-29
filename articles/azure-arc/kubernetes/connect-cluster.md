@@ -166,6 +166,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+You can also view this resource by opening https://preview.portal.azure.com/ in a browser and navigating to the resource group and Arc enabled cluster resource based on the inputs used for resource name and resource group name used when onboarding the cluster.
+
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods here:
 
 ```console
