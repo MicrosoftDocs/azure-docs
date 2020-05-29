@@ -406,15 +406,16 @@
                 - name:  Add parameters to commands
                   href: how-to-custom-commands-add-parameters-to-commands.md
                 - name: Configure parameter as external catalog entity
-				          href: how-to-custom-commands-add-external-catalog-string-entity.md
+                  href: how-to-custom-commands-add-external-catalog-string-entity.md
                 - name: Add validations to custom command parameters
                   href: how-to-custom-commands-add-validations.md
                 - name: Add confirmations to a command
-				          href: how-to-custom-commands-add-confirmations.md
+                  href: how-to-custom-commands-add-confirmations.md
                 - name: Implementing corrections in a command
                   href: how-to-custom-commands-add-one-step-correction.md
                 - name: Use language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
+            - name: Integrate
             - name: References
               items: 
                 - name: Custom Commands concepts
