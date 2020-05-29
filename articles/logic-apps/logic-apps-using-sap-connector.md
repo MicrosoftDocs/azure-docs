@@ -80,7 +80,9 @@ These prerequisites apply when your logic apps run in a Premium-level [integrati
 
 1. Create a .zip file that includes these assemblies and upload this package to your blob container in Azure Storage.
 
-1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token.
+1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
+
+1. Copy the URL for that location, making sure that you include the Shared Access Signature (SAS) token. Otherwise, the SAS token won't get authorized and deployment for the SAP ISE connector will fail.
 
 1. Before you can use the SAP ISE connector, you must install the connector in your ISE, if you haven't already done so.
 
