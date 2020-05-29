@@ -58,18 +58,18 @@ Once you've created the image pull secret, you can use it to create Kubernetes p
 apiVersion: v1
 kind: Pod
 metadata:
-  name: your-awesome-app-pod
+  name: my-awesome-app-pod
   namespace: awesomeapps
 spec:
   containers:
     - name: main-app-container
-      image: your-awesome-app:v1
+      image: myregistry.azurecr.io/my-awesome-app:v1
       imagePullPolicy: IfNotPresent
   imagePullSecrets:
     - name: acr-secret
 ```
 
-In the preceding example, `your-awesome-app:v1` is the name of the image to pull from the Azure container registry, and  `acr-secret` is the name of the pull secret you created to access the registry. When you deploy the pod, Kubernetes automatically pulls the image from your registry, if it is not already present on the cluster.
+In the preceding example, `my-awesome-app:v1` is the name of the image to pull from the Azure container registry, and  `acr-secret` is the name of the pull secret you created to access the registry. When you deploy the pod, Kubernetes automatically pulls the image from your registry, if it is not already present on the cluster.
 
 
 ## Next steps
