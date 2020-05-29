@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: seodec18
 ---
 # How to sign up for Translator
 
