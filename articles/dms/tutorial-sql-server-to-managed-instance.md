@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server to SQL managed instance"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from SQL Server on-premises to an Azure SQL Database managed instance by using Azure Database Migration Service.
+description: Learn to migrate from SQL Server on-premises to an Azure SQL Managed Instance by using Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/08/2020
 ---
 
-# Tutorial: Migrate SQL Server to an Azure SQL Database managed instance offline using DMS
+# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS
 
-You can use Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database managed instance](../sql-database/sql-database-managed-instance.md). For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-migrate.md).
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). For additional methods that may require some manual effort, see the article [SQL Server instance migration to SQL Managed Instance](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
 In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to a SQL Database managed instance by using Azure Database Migration Service.
 
@@ -34,13 +34,13 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an offline migration from SQL Server to a SQL Database managed instance. For an online migration, see [Migrate SQL Server to an Azure SQL Database managed instance online using DMS](tutorial-sql-server-managed-instance-online.md).
+This article describes an offline migration from SQL Server to a SQL Database managed instance. For an online migration, see [Migrate SQL Server to an SQL Managed Instance online using DMS](tutorial-sql-server-managed-instance-online.md).
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-- Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+- Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for SQL Managed Instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
@@ -238,5 +238,5 @@ After an instance of the service is created, locate it within the Azure portal, 
 ## Next steps
 
 - For a tutorial showing you how to migrate a database to a managed instance using the T-SQL RESTORE command, see [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- For information about managed instance, see [What is a managed instance](../sql-database/sql-database-managed-instance.md).
-- For information about connecting apps to a managed instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
+- For information about managed instance, see [What is a managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- For information about connecting apps to a managed instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).

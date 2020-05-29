@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
 ---
 
@@ -372,11 +372,10 @@ To test the logic app, use the sample invoices in the **/Test** folder of the sa
       }
     ]
     ```
-    You have successfully completed this tutorial!
 
 ## Next steps
 
-In this tutorial, you set up an Azure Logic Apps workflow to use Form Recognizer to train a model and extract the contents of an invoice. Next, learn how to build a training data set so you can create a similar scenario with your own forms.
+In this tutorial, you set up an Azure Logic Apps workflow to use Form Recognizer to train a model and extract the content of an invoice. Next, learn how to build a training data set so you can create a similar scenario with your own forms.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](build-training-data-set.md)
