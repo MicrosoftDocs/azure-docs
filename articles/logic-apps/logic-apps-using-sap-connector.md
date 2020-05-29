@@ -35,8 +35,6 @@ The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sa
 
 For these operations, the SAP connector supports basic authentication through usernames and passwords. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC can be used for SAP NetWeaver single sign-on (SSO) or for additional security capabilities provided by an external security product.
 
-The SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). In send scenarios, for example, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
-
 This article shows how to create example logic apps that integrate with SAP while covering the previously described integration scenarios. For logic apps that use the older SAP connectors, this article shows how to migrate your logic apps to the latest SAP connector.
 
 <a name="pre-reqs"></a>
@@ -58,6 +56,8 @@ To follow along with this article, you need these items:
 ### Multi-tenant Azure prerequisites
 
 These prerequisites apply when your logic apps run in multi-tenant Azure, and you want to use the managed SAP connector, which doesn't run natively in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Otherwise, if you're using a Premium-level ISE and want to use the SAP connector that runs natively in the ISE, see [Integration service environment (ISE) prerequisites](#sap-ise).
+
+The managed (non-ISE) SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For example, in send message scenarios, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive message scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
 
 * [Download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on your local computer. Then, [create an Azure gateway resource](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) for that gateway in the Azure portal. The gateway helps you securely access on-premises data and resources.
 
@@ -132,7 +132,7 @@ These prerequisites apply when your logic apps run in a Premium-level (not Devel
 
 ### Secure Network Communications prerequisites
 
-If you use Secure Network Communications (SNC), which is optional, along with the on-premises data gateway, you also need to configure these settings:
+If you use the on-premises data gateway with the optional Secure Network Communications (SNC), which is supported only in multi-tenant Azure, you also need to configure these settings:
 
 * If you use SNC with Single Sign On (SSO), make sure the data gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
