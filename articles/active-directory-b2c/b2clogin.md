@@ -105,7 +105,7 @@ this.clientApplication = new UserAgentApplication(
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false // Required in MSAL.js v1.2.1 and earlier **ONLY**
+    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
   }
 );
 ```
