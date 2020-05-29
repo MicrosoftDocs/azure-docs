@@ -34,7 +34,7 @@ The package is not part of the [ARR samples repository](https://github.com/Azure
 }
 ```
 Once this has been added, you can use the Unity Package Manager to ensure you have the latest version.
-More comprehensive instructions are given in the [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
+More comprehensive instructions are given in the [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
 ## Unity render pipelines
 
