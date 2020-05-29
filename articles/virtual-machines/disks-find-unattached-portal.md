@@ -4,7 +4,7 @@ description: How to find unattached Azure managed and unmanaged (VHDs/page blobs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -20,7 +20,8 @@ Finding unattached disks in the Azure portal is easy.
 1. Sign in to the Azure portal
 1. Search for and select **Disks**.
 
-    You are presented with a list of all your disks. Any disk which has **-** in the **Owner** column is an unattached disk.
+    On this blade you are presented with a list of all your disks. Any disk which has **-** in the **Owner** column is an unattached disk.
+
 
 
     :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Texthere" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
