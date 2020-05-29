@@ -15,7 +15,7 @@ ms.workload: azure-government
 ms.date: 05/25/2020
 ms.Updated: 03/13/2020
 ms.author: dumartin
-
+ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
 # Isolation guidelines for Impact Level 5 Workloads

@@ -19,7 +19,7 @@ ms.custom: seoapril2019, sqldbrb=1
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Managed Instance and SQL Server. 
 
 
-SQL Managed Instance provides high compatibility with the on-premises SQL Server Database Engine, and most features are supported in a SQL Managed Instance.
+SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
 ![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -501,6 +501,9 @@ The following variables, functions, and views return different results:
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
 - After a SQL Managed Instance is created, moving the SQL Managed Instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and SQL Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access SQL Managed Instances in different regions if their VNets are connected using [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
+
+### Failover groups
+System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
 ### TEMPDB
 
