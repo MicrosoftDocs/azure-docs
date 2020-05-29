@@ -46,7 +46,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
-> HDInsight 4.0: Spark 2.4 and Kafka 2.1 are fully supported. However, Spark 2.3 and Kafka 1.1 are not serviced. 
+> HDInsight 4.0: Spark 2.4 and Kafka 2.1 are fully supported. However, Spark 2.3 and Kafka 1.1 cluster types are not serviced. 
 > HDInsight 3.6: Spark 2.3 and Kafka 1.1 are fully supported.  
 
 ## Check for current Apache component version information
@@ -76,10 +76,10 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | December 31, 2020 |December 31, 2020 |Yes |Yes |
 
-Spark 2.1, 2.2, and Kafka 1.0 support expires on June 30, 2020.
+Spark 2.1, 2.2, and Kafka 1.0 cluster support expires on June 30, 2020.
 
 > [!NOTE]
-> After support for a version expires, it might not be available through the Azure portal. Cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
+> After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
 
 ### Retired versions
 
