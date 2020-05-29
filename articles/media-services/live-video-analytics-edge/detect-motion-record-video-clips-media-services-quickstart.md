@@ -508,7 +508,7 @@ Note the following in the response payload:
 Try the following as next steps:
 
 * Invoke GraphInstanceSet again with the same payload and note that the returned status code is now 200.
-* Invoke GraphInstanceSet again but with a different description and note that the updated description in the response payload, indicating that the graph instance was successfully updated.
+* Invoke GraphInstanceSet again but with a different description and note the updated description in the response payload, indicating that the graph instance was successfully updated.
 * Invoke GraphInstanceSet but change the name to "Sample-Graph-3" and observe the response payload. Note that a new graph instance is created (that is, status code is 201). Remember to clean up such duplicate instances when you are done with the quickstart.
 
 ### Prepare for monitoring events
