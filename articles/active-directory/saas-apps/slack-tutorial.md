@@ -37,7 +37,7 @@ To get started, you need the following items:
 * Slack single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> Identifier of each application could be a variable if you need to integrate with more than one slack instance in one tenant.
 
 ## Scenario description
 
@@ -92,16 +92,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	
+	> [!NOTE]
+	> The Identifier (Entity ID) could be a variable if you got more than one slack instance need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com` and also need to pair with another setting in slack with the same value.
 
 1. Slack application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/edit-attribute.png)
 
-1. In addition to above, Slack application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements. If the users do not have email address then map the **emailaddress** to **user.userprincipalname**.
+1. In addition to above, Slack application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements. Add one more attribute `email` for the requirement. If the users do not have email address then map the **emailaddress** to **user.userprincipalname** and **email** to **user.userprincipalname**.
 
     | Name | Source Attribute |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | email | user.userprincipalname |
     | | |
 
 > [!NOTE]
@@ -171,9 +175,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. Click on **expand** and enter `https://slack.com` in the **Identity provider issuer** textbox.
+    e. Click on **expand** and enter `https://slack.com` in the **Service provider issuer** textbox.
 
     f.  Click **Save Configuration**.
+    
+    > [!NOTE]
+    > if you got more than one slack instance need to integrate with AAD, please fill `https://<DOMAIN NAME>.slack.com` to **Service provider issuer** so that it can pair with Azure Application Identifier setting.
 
 ### Create Slack test user
 
