@@ -70,7 +70,7 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
    | **Sql Service Password** | The password used by the domain user account that controls SQL Server. |
    | **Cloud Witness Name** | A new Azure storage account that will be created and used for the cloud witness. You can modify this name. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
-   | **\_artifacts Location Sas Token** | This field is intentionally left blank. |
+   | **\_artifacts Location SaS Token** | This field is intentionally left blank. |
    | &nbsp; | &nbsp; |
 
 1. If you agree to the terms and conditions, select the **I Agree to the terms and conditions stated above** check box. Then select **Purchase** to finish deployment of the quickstart template. 
