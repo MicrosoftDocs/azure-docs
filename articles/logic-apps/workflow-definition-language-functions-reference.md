@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 05/29/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -123,10 +123,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. 
-> For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, 
-> the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string. For more information, see the [string() function](#string).
-> The behavior of conditions differs when you compare with an empty string instead of a null value. 
+> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string). 
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -3938,16 +3935,17 @@ string(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert |
+| <*value*> | Yes | Any | The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | The string version for the specified value |
+| <*string-value*> | String | The string version for the specified value. If the *value* parameter is null or evaluates to null, this value is returned as an empty string (`""`) value. |
 ||||
 
-The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. <p><p>For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string.
-> If the *value* parameter is null, or evaluates to null, it will be converted to an empty string in the returned value, *string-value*.
+
+
+
 
 *Example 1*
 
