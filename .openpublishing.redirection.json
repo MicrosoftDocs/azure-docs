@@ -54358,6 +54358,11 @@
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/azure-ad-v2.md",
+      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_document_id": true
     }
   ]
 }
