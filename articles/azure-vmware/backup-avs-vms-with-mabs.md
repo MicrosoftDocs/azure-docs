@@ -222,7 +222,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     -   **Express Full Backup** - how often disk recovery points are taken. Click **Modify** to change the times/dates when short-term backups occur.
 
-    ![Specify your short-term goals for disk-based protection](./media/azure-backup-server/new-protection-group-specify-short-term-goals.png)
+    ![Specify your short-term goals for disk-based protection](./media/avs-backup/new-protection-group-specify-short-term-goals.png)
 
 1.  In **Review Disk Allocation**, review the disk space provided for the VM backups. for the VMs.
 
