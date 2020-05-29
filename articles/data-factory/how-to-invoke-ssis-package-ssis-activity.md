@@ -514,9 +514,9 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                                "type": "SecureString",
                                "value": "MyEncryptionPassword"
                            },
-						   "packageName": "MyPackage.dtsx",
-						   "packageContent":"My compressed/uncompressed package content",
-						   "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
+                           "packageName": "MyPackage.dtsx",
+                           "packageContent":"My compressed/uncompressed package content",
+                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
                        }
                    }
                }
