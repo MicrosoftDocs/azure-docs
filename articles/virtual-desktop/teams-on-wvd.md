@@ -89,7 +89,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select your user profile image, then select **Settings**.
 
-      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, go back to [Install Microsoft Teams](#install-microsoft-teams) make sure you've completed the installation process.
+      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, go back to [Install Microsoft Teams](#install-microsoft-teams) and make sure you've completed the installation process.
 
 ## Known issues and limitations
 
