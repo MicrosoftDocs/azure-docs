@@ -25,7 +25,7 @@ You can have at most 50 graph topologies per module (created via GraphTopologySe
 
 ## Limitations on graph topologies at preview
 
-With the Preview release, there are limitations on different nodes can be connected together in a media graph topology.
+With the preview release, there are limitations on different nodes can be connected together in a media graph topology.
 
 * RTSP source
    * Only one RTSP source is allowed per graph topology.
