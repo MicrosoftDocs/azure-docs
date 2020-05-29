@@ -1,18 +1,20 @@
 ---
-title: Store storage profiles with Azure Files domain controller - Azure
+title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
 ---
-# Set up an Azure Files file share with Azure AD DS
+# Create an Azure Files file share with a domain controller
 
 In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
+
+This process uses Active Directory Domain Services (AD DS), which is an on-prem directory service. If you're looking for information about how to create an FSLogix profile container with Azure AD DS, see [Create an FSLogix profile container with Azure Files](create-profile-container-adds.md).
 
 ## Prerequisites
 
@@ -57,9 +59,9 @@ To create a file share:
 
 4. Select **Create**.
 
-## Enable Azure AD authentication
+## Enable Azure Active Directory authentication
 
-Next, you'll need to enable Azure AD authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
+Next, you'll need to enable Azure Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
@@ -67,7 +69,7 @@ Next, you'll need to enable Azure AD authentication. To enable this policy, you'
 
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Azure Active Directory (AD)** is set to **Enabled**.
 
-     ![A screenshot of the Configuration page with the Active Directory enabled.](media/active-directory-enabled.png)
+     ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
 ## Assign Azure RBAC permissions to Windows Virtual Desktop users
 
