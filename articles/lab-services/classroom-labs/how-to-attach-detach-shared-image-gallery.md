@@ -92,4 +92,4 @@ Only one shared image gallery can be attached to a lab. If you would like to att
 ## Next steps
 To learn about how to save a lab image to the shared image gallery or use an image from the shared image gallery to create a VM, see [How to use shared image gallery](how-to-use-shared-image-gallery.md).
 
-For more information about shared image galleries in general, see [shared image gallery](../../virtual-machines/windows/shared-image-galleries.md).
+For more information about shared image galleries in general, see [shared image gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries).
