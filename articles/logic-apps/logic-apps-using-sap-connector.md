@@ -140,7 +140,7 @@ These prerequisites apply when your logic apps run in a Premium-level (not Devel
 
 Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
 
-Here are the relationships between the SAP client library. .NET Framework, .NET runtime, and the gateway:
+Here are the relationships between the SAP client library, the .NET Framework, the .NET runtime, and the gateway:
 
 * Both the Microsoft SAP Adapter and the gateway host service use .NET Framework 4.5.
 
