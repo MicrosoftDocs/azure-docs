@@ -113,11 +113,11 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 2.  In the vSphere Client, select the cluster that you plan to enable backup.
 
-    ![vSphere Client - select host](./media/deploy-mabs/vsphere-client-select-host.png)
+    ![vSphere Client - select host](./media/avs-backup/vsphere-client-select-host.png)
 
 1.  Select **Configure** > **Networking** > **VMKernel adapters**, and under the list of devices identify the network adapter that has **Provisioning** role enabled, note down the **IP Address** and ESXi hostname.
 
-    ![VMKernel adapters - provisioning enabled devices](./media/deploy-mabs/vmkernel-adapters-provisioning-enabled.png)
+    ![VMKernel adapters - provisioning enabled devices](./media/avs-backup/vmkernel-adapters-provisioning-enabled.png)
 
 1.  Repeat the previous step for each ESXi host under every cluster that you plan to enable backup.
 
@@ -234,7 +234,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     -   **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-    ![Review disk space allocated in the storage pool](./media/deploy-mabs/review-disk-allocation.png)
+    ![Review disk space allocated in the storage pool](./media/avs-backup/review-disk-allocation.png)
 
     > [!NOTE]
     > In some scenarios, the Data Size reported is higher than actual VM size. We are aware of the issue and currently investigating it.
@@ -291,7 +291,7 @@ Once you configure the protection group to back up AVS VMs, you can monitor the 
 
 -   In the **Management** task area you can view the **Disks, Online** and **Agents**, tab to check the status of disks in the storage pool, registration to Azure and deployed DPM agent status.
 
-![Monitor the status of backup jobs in Azure Backup Server](./media/deploy-mabs/monitor-backup-jobs-in-mabs.png)
+![Monitor the status of backup jobs in Azure Backup Server](./media/avs-backup/monitor-backup-jobs-in-mabs.png)
 
 ## Restore VMware virtual machines
 
@@ -318,7 +318,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1.  Before recovering from an online recovery point, ensure the staging location contains enough free space to house the full uncompressed size of the VM you want to recover. The staging location can be viewed / changed by running the “configure subscription settings wizard” as seen on this page.
 
-    ![Azure Backup Server Recovery Folder Settings](./media/deploy-mabs/mabs-recovery-folder-settings.png)
+    ![Azure Backup Server Recovery Folder Settings](./media/avs-backup/mabs-recovery-folder-settings.png)
 
 1.  On the tool ribbon, click **Recover** to open the **Recovery Wizard**.
 
