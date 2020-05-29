@@ -99,6 +99,9 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 #### [Daemon](#tab/daemon)
 
+> [!TIP]
+> If multiple files are added to the input directory at the same time, you can improve performance by instead adding them in a regular interval.
+
 `DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
@@ -112,7 +115,22 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 #### [REST](#tab/rest)
 
-`REST` is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.
+`REST` mode is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.
+
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+
+1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
+2. Send an HTTP request request to one of the API server's endpoints. 
+        
+    |Endpoint  |Description  |
+    |---------|---------|
+    |`/submit`     | Endpoint for creating new batch requests.        |
+    |`/status`     | Endpoint for checking the status of a batch request. The connection will stay open until the batch completes.       |
+    |`/watch`     | Endpoint for using HTTP long polling until the batch completes.        |
+
+3. Audio files are uploaded from the input directory. If the audio file has already been transcribed in a previous run with the same output directory (same file name and checksum), the client will skip the file. 
+4. If a request is sent to the `/submit` endpoint, the the files are dispatched to the container endpoints from step 1.
+5. Logs and the Speech container output are returned to the specified output directory. 
 
 ---
 
