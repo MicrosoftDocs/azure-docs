@@ -627,7 +627,7 @@ You can also monitor the pipeline by using the Azure portal. For step-by-step in
 ### Schedule the pipeline with a trigger
 In the previous step, you ran the pipeline on demand. You can also create a schedule trigger to run the pipeline on a schedule, such as hourly or daily.
 
-1. Create a JSON file named *MyTrigger.json* in the *C:\ADF\RunSSISPackage* folder with the following content: 
+1. Create a JSON file named `MyTrigger.json` in the `C:\ADF\RunSSISPackage` folder with the following content: 
         
    ```json
    {
@@ -653,7 +653,7 @@ In the previous step, you ran the pipeline on demand. You can also create a sche
    }    
    ```
     
-1. In Azure PowerShell, switch to the *C:\ADF\RunSSISPackage* folder.
+1. In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
 1. Run the **Set-AzDataFactoryV2Trigger** cmdlet, which creates the trigger. 
 
    ```powershell
