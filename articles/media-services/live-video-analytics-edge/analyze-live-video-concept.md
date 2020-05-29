@@ -14,7 +14,7 @@ ms.date: 04/27/2020
 
 ## Overview  
 
-A media graph can be used to analyze live video streams, without recording any portion of the video to a file or an asset. The media graphs shown below are similar to the ones in the article on [Event-Based Video Recording](event-based-video-recording-concept.md), but without an asset sink node or file sink node.
+You can use a media graph to analyze live video, without recording any portions of the video to a file or an asset. The media graphs shown below are similar to the ones in the article on [Event-Based Video Recording](event-based-video-recording-concept.md), but without an asset sink node or file sink node.
 
 ### Motion detection
 
