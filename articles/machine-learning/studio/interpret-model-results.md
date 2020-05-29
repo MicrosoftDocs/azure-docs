@@ -9,15 +9,11 @@ ms.topic: conceptual
 
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ---
 # Interpret model results in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
-
-
 
 There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
 
@@ -32,11 +28,11 @@ The modules used for prediction on top of these models are:
 * [Assign to Clusters][assign-to-clusters] module for clustering
 * [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)](algorithm-parameters-optimize.md).
+Learn how to [choose parameters to optimize your algorithms in ML Studio (classic)](algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning Studio (classic)](evaluate-model-performance.md).
+To learn how to evaluate your models, see [How to evaluate model performance](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning Studio (classic) and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md).
+If you are new to ML Studio (classic), [learn how to create a simple experiment](create-experiment.md).
 
 ## Classification
 There are two subcategories of classification problems:

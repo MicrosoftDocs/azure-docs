@@ -53,7 +53,7 @@ To expand your host pool by adding virtual machines:
 
 7. Select the resource group you want to create the VMs under, then select the region. You can choose the current region you're using or a new region.
    
-8. Enter the new total number of session hosts you want into **Number of VMs**. For example, if you're expanding your host pool from five session hosts to eight, enter **8**. 
+8. Enter the number of session hosts you want to add to your host pool into **Number of VMs**. For example, if you're expanding your host pool by five hosts, enter **5**.
    
     >[!NOTE]
     >You can't edit the size or image of the VMs because it's important to ensure that all VMs in the host pool are the same size.

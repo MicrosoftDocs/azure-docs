@@ -96,6 +96,10 @@ Yes, you can replicate the application and keep the disaster recovery configurat
 
 For example, if your application has each tier's application, database, and web in a separate resource group, then you have to select the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) three times to protect all the tiers. Site Recovery will replicate these three tiers into three different resource groups.
 
+### Can I move storage accounts across resource groups?
+
+No, this is an unsupported scenario. However, if you accidentally move storage accounts to a different resource group and delete the original resource group, then you can create a new resource group with the same name as the old resource group and then move the storage account to this resource group.
+
 ## Replication policy
 
 ### What is a replication policy?
@@ -306,4 +310,4 @@ Yes, both encryption in transit and [encryption at rest in Azure](https://docs.m
 
 - [Review Azure-to-Azure support requirements](azure-to-azure-support-matrix.md).
 - [Set up Azure-to-Azure replication](azure-to-azure-tutorial-enable-replication.md).
-- If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- If you have questions after reading this article, post them on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

@@ -239,7 +239,7 @@ class ErrorHandler : IBlobQueryErrorReceiver
 {
     public void ReportError(BlobQueryError err)
     {
-        Console.Error.WriteLine(String.Format("Error: {1}:{2}", err.Name, err.Description));
+        Console.Error.WriteLine($"Error: {err.Name}:{ err.Description }");
     }
 }
 

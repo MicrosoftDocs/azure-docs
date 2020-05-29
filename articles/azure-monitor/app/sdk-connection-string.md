@@ -63,10 +63,10 @@ Connection string consists of a list of settings represented as key-value pairs 
    Setting the endpoint suffix will instruct the SDK which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
 - Explicit Endpoints.
   Any service can be explicitly overridden in the connection string.
-   - `IngestionEndpoint` (ex: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (ex: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (ex: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (ex: https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint` (ex: `https://dc.applicationinsights.azure.com`)
+   - `LiveEndpoint` (ex: `https://live.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (ex: `https://profiler.applicationinsights.azure.com`)
+   - `SnapshotEndpoint` (ex: `https://snapshot.applicationinsights.azure.com`)
 
 #### Endpoint schema
 
@@ -105,10 +105,10 @@ In this example, only the Instrumentation Key has been set.
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) and will connect to the public global Azure:
-   - Ingestion: https://dc.services.visualstudio.com/
-   - Live metrics: https://rt.services.visualstudio.com/
-   - Profiler: https://agent.azureserviceprofiler.net/
-   - Debugger: https://agent.azureserviceprofiler.net/  
+   - Ingestion: `https://dc.services.visualstudio.com/`
+   - Live metrics: `https://rt.services.visualstudio.com/`
+   - Profiler: `https://agent.azureserviceprofiler.net/`
+   - Debugger: `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -121,10 +121,10 @@ In this example, this connection string specifies the endpoint suffix and the SD
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on provided endpoint suffix: 
-   - Ingestion: https://dc.ai.contoso.com
-   - Live metrics: https://live.ai.contoso.com
-   - Profiler: https://profiler.ai.contoso.com 
-   - Debugger: https://snapshot.ai.contoso.com   
+   - Ingestion: `https://dc.ai.contoso.com`
+   - Live metrics: `https://live.ai.contoso.com`
+   - Profiler: `https://profiler.ai.contoso.com`
+   - Debugger: `https://snapshot.ai.contoso.com`  
 
 
 
@@ -137,10 +137,10 @@ In this example, this connection string specifies explicit overrides for every s
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the explicit override values: 
-   - Ingestion: https:\//custom.com:111/
-   - Live metrics: https:\//custom.com:222/
-   - Profiler: https:\//custom.com:333/ 
-   - Debugger: https:\//custom.com:444/   
+   - Ingestion: `https://custom.com:111/`
+   - Live metrics: `https://custom.com:222/`
+   - Profiler: `https://custom.com:333/`
+   - Debugger: `https://custom.com:444/`  
 
 
 ## How to set a connection string
