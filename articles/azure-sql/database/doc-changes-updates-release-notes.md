@@ -13,6 +13,7 @@ ms.date: 05/13/2020
 ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
@@ -23,7 +24,7 @@ Documentation for Azure SQL Database and Azure SQL Managed Instance has been spl
 
 We've done this because some features and functionality vary greatly between a single database and managed instance, and it's become increasingly more of a challenge to explain complex nuances between Azure SQL Database and Azure SQL Managed Instance in individual 'shared' articles.
 
-This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar on-premises SQL Server product but hosted on a virtual machine in Azure.
+This clarification between the different Azure SQL products should simplify and streamline the process of working with the SQL Server database engine in Azure, whether that be a single managed database in Azure SQL Database, a fully fledged managed instance hosting multiple databases in Azure SQL Managed Instance, or the familiar SQL Server product hosted on a virtual machine in Azure.
 
 Consider that this is a work in progress and not every article has been updated yet. For example, documentation for Transact-SQL (T-SQL) statements, stored procedures, and many features shared between Azure SQL Database and Azure SQL Managed Instance are not yet complete, so we thank you for your patience as we continue clarifying the content. 
 
@@ -86,7 +87,7 @@ The following features are enabled in SQL Managed Instance deployment model in H
   - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azure monthly credit for Visual Studio subscribers </a> and increased [regional limits](../managed-instance/resource-limits.md#regional-resource-limitations).
   - Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Create SQL Managed Instances with <a href="https://aka.ms/managed-instance-collation">instance-level collation</a> and <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time-zone</a> of your choice.
-  - SQL Managed nstances are now protected with [built-in firewall](../managed-instance/management-endpoint-verify-built-in-firewall.md).
+  - SQL Managed Instances are now protected with [built-in firewall](../managed-instance/management-endpoint-verify-built-in-firewall.md).
   - Configure SQL Managed Instances to use [public endpoints](../managed-instance/public-endpoint-configure.md), [Proxy override](connectivity-architecture.md#connection-policy) connection to get better network performance, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a> or <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. [Long-term backup retention](long-term-retention-overview.md#managed-instance-support) (up to 10 years) is currently in limited public preview.  
   - New functionalities enable you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-restore your database to another data center using PowerShell</a>, [rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [delete virtual cluster](../managed-instance/virtual-cluster-delete.md).
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
