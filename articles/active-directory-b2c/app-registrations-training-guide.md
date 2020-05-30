@@ -79,7 +79,7 @@ In the new experience, reply URLs and redirect URIs are both referred to as Redi
 
 Redirect URIs are required to be associated with an app type, either web or Public (mobile and desktop). [Learn more about redirect URIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-Whether an application should be treated as public client is inferred if possible at run-time from the Redirect URI platform type. The 'Treat application as a public client' should be said to yes for flows that may not use a redirect URI, such as ROPC flows.
+Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to *Yes* for flows that might not use a redirect URI, such as ROPC flows.
 
 The **iOS/macOS** and **Android** platforms are a type of Public client. They provide an easy way to configure iOS/macOS or Android apps with corresponding Redirect URIs for use with MSAL. Learn more about [Application configuration options](../active-directory/develop/msal-client-applications.md).
 
