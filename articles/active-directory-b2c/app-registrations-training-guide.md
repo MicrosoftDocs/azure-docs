@@ -77,7 +77,7 @@ In the legacy experience, the various platform types were managed under **Proper
 
 In the new experience, reply URLs and redirect URIs are both referred to as Redirect URIs and can be found in an app's **Authentication** section. App registrations aren't limited to being either a web app/API or a native application. You can use the same app registration for all of these platform types by registering the respective redirect URIs. 
 
-Redirect URIs are required to be associated with an app type - web or Public (mobile and desktop). [Learn more about redirect URIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Redirect URIs are required to be associated with an app type, either web or Public (mobile and desktop). [Learn more about redirect URIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Whether an application should be treated as public client is inferred if possible at run-time from the Redirect URI platform type. The 'Treat application as a public client' should be said to yes for flows that may not use a redirect URI, such as ROPC flows.
 
