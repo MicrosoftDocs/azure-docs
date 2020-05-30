@@ -38,7 +38,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 -   **Combined app registration** allows you to quickly register an app, whether it's a customer-facing app or an app to access Microsoft Graph.
 
-- **Endpoints** pane lets you quickly identify the relevant endpoints for your scenario including OpenID connect configuration, SAML metadata, Microsoft Graph API, and [OAuth 2.0 user flow endpoints](tokens-overview.md#endpoints). 
+- The **Endpoints** pane lets you quickly identify the relevant endpoints for your scenario, including OpenID connect configuration, SAML metadata, Microsoft Graph API, and [OAuth 2.0 user flow endpoints](tokens-overview.md#endpoints). 
 
 - **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph and Azure AD Graph permissions to an app.
 
