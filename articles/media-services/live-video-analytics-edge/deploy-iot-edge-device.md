@@ -235,11 +235,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     ![Direct methods](./media/deploy-iot-edge-device/direct-method.png)
 1. You should see a status 200 message in the Result box
 
-    ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png)
- 
-## Unsecured Protocols
-
-By default, unsecured protocols are blocked. When you connect RTSP capable cameras, or are using external modules such as yolov3, you will need to define a twin property “AllowUnsecuredEndpoints” and provide credentials for the media graphs to work.
+    ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## Next steps
 
