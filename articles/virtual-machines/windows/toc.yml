@@ -147,6 +147,9 @@
     href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    items:
+    - name: Resource Manager templates
+      href: template-description.md
   - name: Regions
     href: regions.md
     items:
@@ -446,6 +449,8 @@
             href: ../image-version-another-gallery-cli.md   
         - name: Create a VM
           items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md          
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
         - name: Update image resources
@@ -661,7 +666,7 @@
             items:   
             - name: Virtual Machine 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json 
-            - name: VM scale set 
+            - name: Scale set 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
           - name: Send to Event Hubs
             href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -990,6 +995,8 @@
     href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
+  - name: Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager
     href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

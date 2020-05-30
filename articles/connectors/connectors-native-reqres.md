@@ -185,6 +185,10 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
 
+   > [!NOTE]
+   > If you want to include the hash or pound symbol (**#**) in the URI 
+   > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
    For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP POST. If you [enabled Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) for authorizing inbound calls to the Request trigger, either call the trigger by using a [Shared Access Signature (SAS) URL](../logic-apps/logic-apps-securing-a-logic-app.md#sas) or by using an authentication token, but you can't use both. The authentication token must specify the `Bearer` type in the authorization header. For more information, see [Secure access and data in Azure Logic Apps - Access to request-based-triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).

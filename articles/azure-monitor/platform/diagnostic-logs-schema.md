@@ -72,7 +72,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Recovery Services | [Data Model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database logging](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
@@ -80,7 +80,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 ## Supported log categories per resource type
 
-Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md). 
+Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Resource Type|Category|Category Display Name|
 |---|---|---|
