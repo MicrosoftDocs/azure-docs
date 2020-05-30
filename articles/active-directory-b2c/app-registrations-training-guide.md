@@ -81,7 +81,7 @@ Redirect URIs are required to be associated with an app type, either web or Publ
 
 Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to *Yes* for flows that might not use a redirect URI, such as ROPC flows.
 
-The **iOS/macOS** and **Android** platforms are a type of Public client. They provide an easy way to configure iOS/macOS or Android apps with corresponding Redirect URIs for use with MSAL. Learn more about [Application configuration options](../active-directory/develop/msal-client-applications.md).
+The **iOS/macOS** and **Android** platforms are a type of public client. They provide an easy way to configure iOS/macOS or Android apps with corresponding Redirect URIs for use with MSAL. Learn more about [Application configuration options](../active-directory/develop/msal-client-applications.md).
 
 
 ## Application certificates & secrets
