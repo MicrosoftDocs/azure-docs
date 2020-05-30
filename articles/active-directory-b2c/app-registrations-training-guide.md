@@ -75,7 +75,7 @@ Learn more about [permissions and consent](../active-directory/develop/v2-permis
 ## Platforms/Authentication: Reply URLs/redirect URIs
 In the legacy experience, the various platform types were managed under **Properties** as reply urls for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types. 
 
-In the new experience, reply URLs and redirect URIs are both referred to as Redirect URIs and can be found on an app\'s **Authentication** section. App registrations aren't limited to being either a web app/API or a native application. You can use the same app registration for all of these platform types by registering the respective redirect URIs. 
+In the new experience, reply URLs and redirect URIs are both referred to as Redirect URIs and can be found in an app's **Authentication** section. App registrations aren't limited to being either a web app/API or a native application. You can use the same app registration for all of these platform types by registering the respective redirect URIs. 
 
 Redirect URIs are required to be associated with an app type - web or Public (mobile and desktop). [Learn more about redirect URIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
