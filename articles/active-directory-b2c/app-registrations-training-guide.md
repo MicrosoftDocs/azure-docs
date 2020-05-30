@@ -86,8 +86,7 @@ The **iOS/macOS** and **Android** platforms are a type of public client. They pr
 
 ## Application certificates & secrets
 
-In the new experience, instead of **Keys**, you have the
-**Certificates & secrets** blade to manage certificates and secrets. Credentials enable applications to identify themselves to the authentication service when receiving tokens at a web addressable location (using an HTTPS scheme). We recommend using a certificate instead of a client secret for client credential scenarios when authenticating against Azure AD. Please note certificates cannot be used to authenticate against Azure AD B2C.
+In the new experience, instead of **Keys**, you use the **Certificates & secrets** blade to manage certificates and secrets. Credentials enable applications to identify themselves to the authentication service when receiving tokens at a web addressable location (using an HTTPS scheme). We recommend using a certificate instead of a client secret for client credential scenarios when authenticating against Azure AD. Certificates can't be used to authenticate against Azure AD B2C.
 
 
 ## Why are some App Registrations features for Azure AD tenants not available for Azure AD B2C tenants?
