@@ -105,9 +105,7 @@ Your app is registered on *.onmicrosoft.com which is not a verified domain. Addi
 The new experience has the following limitations:
 -   At this time, Azure AD B2C does not differentiate between being able to issue access or ID tokens for implicit flows; both type of tokens are available for implicit grant flow if the **ID tokens** option is selected in the **Authentication** blade.
 - Azure B2C does not currently support the Single-page application 'SPA' app type.
--  Changing the value for supported accounts is not supported in the
-    UI. You need to use the app manifest unless you\'re switching
-    between Azure AD single-tenant and multi-tenant.
+- Changing the value for supported accounts isn't supported in the UI. You'll need to use the app manifest, unless you're switching between Azure AD single-tenant and multi-tenant.
 
 ## Next steps
 
