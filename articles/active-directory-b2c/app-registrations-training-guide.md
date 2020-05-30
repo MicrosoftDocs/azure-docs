@@ -22,7 +22,7 @@ Previously, you had to manage your B2C consumer-facing applications separately f
 
 The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. Whether you need to manage a customer-facing app or an app that has access to Microsoft Graph to run use , you only need to learn one way to do things.
 
-You can reach the new experience by navigating to **App registrations** in a B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** extensions in the Azure portal.
+You can reach the new experience by navigating to **App registrations** in a B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** services in the Azure portal.
 
 The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for any Azure AD tenant, but is tailored for Azure AD B2C tenants.
 
