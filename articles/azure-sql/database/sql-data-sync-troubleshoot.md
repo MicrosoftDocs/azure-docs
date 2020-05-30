@@ -117,7 +117,7 @@ To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent 
 
 - [I can't delete my sync group](#setup-delete)
 
-- [I can't unregister an on-premises SQL Server database](#setup-unreg)
+- [I can't unregister a SQL Server database](#setup-unreg)
 
 - [I don't have sufficient privileges to start system services](#setup-perms)
 
@@ -160,11 +160,11 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
 
 - **Resolution**. Wait until the provisioning or sync process finishes and then retry deleting the sync group.
 
-### <a name="setup-unreg"></a> I can't unregister an on-premises SQL Server database
+### <a name="setup-unreg"></a> I can't unregister a SQL Server database
 
 - **Cause**. Most likely, you are trying to unregister a database that has already been deleted.
 
-- **Resolution**. To unregister an on-premises SQL Server database, select the database and then select **Force Delete**.
+- **Resolution**. To unregister a SQL Server database, select the database and then select **Force Delete**.
 
   If this operation fails to remove the database from the sync group:
 
