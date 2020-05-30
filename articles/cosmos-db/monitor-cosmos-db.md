@@ -28,6 +28,8 @@ The following image shows different options available to monitor Azure Cosmos DB
 
 ![Monitoring options available in Azure portal](media/monitor-cosmos-db/monitoring-options-portal.png)
 
+When using Azure Cosmos DB, at the client-side you can collect the details for request charge, activity ID, exception/stack trace information, HTTP status/sub-status code, diagnostic string to debug any issue that might occur. This information is also required if you need to reach out to the Azure Cosmos DB support team.  
+
 ## What is Azure Monitor?
 
 Azure Cosmos DB creates monitoring data using [Azure Monitor](../azure-monitor/overview.md) which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
