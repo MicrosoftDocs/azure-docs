@@ -1,13 +1,17 @@
 ---
 title: Detect motion and emit events - Azure
-description: This quickstart shows how to use Live Video Analytics on IoT Edge to detect motion and emit events.
+description: This quickstart shows you how to use Live Video Analytics on IoT Edge to detect motion and emit events, by programmatically calling direct methods.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
 # Quickstart: Detect motion and emit events
 
-This article walks you through the steps to set up Live Video Analytics on IoT Edge to detect motion from a video stream and output the events to IoT Hub sink. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on the sample code written in C#.
+This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you will be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The diagram below shows a graphical representation of that media graph.
+
+![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png) 
+
+This article is based on [sample code](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp) written in C#.
 
 ## Prerequisites
 
@@ -16,43 +20,49 @@ This article walks you through the steps to set up Live Video Analytics on IoT E
     1. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     2. [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
+
 > [!TIP]
-> You might be prompted to install docker. Feel free to ignore it.
+> You might be prompted to install docker while installing Azure IoT Tools extension. Feel free to ignore it.
 
 ## Set up Azure resources
 
 The following Azure resources are required for this tutorial.
 
 * IoT Hub
-* Storage Account
-* Azure Media Services
-* Linux Azure VM with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Storage account
+* Azure Media Services account
+* Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
 
-You can use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
+For this quickstart we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
 
 1. Browse to https://shell.azure.com.
-1. If this is the first time you are using Cloud Shell, you will prompted be to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information.
+1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to create a storage account for storing your Cloud Shell session information. This storage account is separate from the one the script will create to use with your Azure Media Services account.
 1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
 
-    ![Environment selector](./media/quickstarts/env-selector.png)
+    ![Environment Selector](./media/quickstarts/env-selector.png)
 
-1. Run the following command:
+1. Run the following command
 
-    ```bash
+    ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
     If the script completes successfully, you should see all the resources mentioned above in your subscription.
-1. Once the script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files, appsetting.json, and vm-edge-device-credentials.txt. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+1. Once the script finishes, click on the curly brackets to expose the folder structure. You will see a few files created under the ~/clouddrive/lva-sample directory. Of interest in this quickstart are:
+
+     * ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device
+     * ~/clouddrive/lva-sample/appsetting.json - used by Visual Studio Code for running the sample code
+     
+You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
-## Set up the environment
+## Set up your development environment
 
 1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
-2. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
-3. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
-3. Copy the contents from clouddrive/lva-sample/appsettings.json file. See step 5 in the previous section.
+1. Launch Visual Studio Code and open the folder where the repo has been downloaded to.
+1. In Visual Studio Code, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
+1. Copy the contents from ~/clouddrive/lva-sample/appsettings.json file generated in the previous section (see step 5)
 
     The text should look like:
 
@@ -64,7 +74,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     }
     ```
 1. Next, browse to "src/edge" folder and create a file named ".env".
-1. Copy the contents from clouddrive/lva-sample/.env file. The text should look like:
+1. Copy the contents from "/clouddrive/lva-sample/edge-deployment/.env file. The text should look like:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -75,73 +85,80 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
     INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"
+    APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
     ```
 
 ## Examine the sample files
 
-1. In VSCode, browse to "src/edge". You will see the .env file that you created along with a few deployment template files.
+1. In Visual Studio Code, browse to "src/edge". You will see the .env file that you created along with a few deployment template files.
 
     The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
 1. Next, browse to "src/cloud-to-device-console-app" folder. Here you will see the appsettings.json file that you created along with a few other files:
 
-    * c2d-console-app.csproj - the project file for VSCode.
+    * c2d-console-app.csproj - the project file for Visual Studio Code.
     * operations.json - this file lists the different operations that you would like the program to run.
     * Program.cs - the sample program code, which does the following:
     
         * Loads the app settings
-        * Invoke the Live Video Analytics on IoT Edge direct methods to create topology, instantiate the graph and activate the graph
-        * Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
-        * Deactivate the graph instance, delete the graph instance, and delete the graph topology    
+        * Invokes direct methods exposed by the Live Video Analytics on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md) 
+        * Pauses for you to examine the output from the program in the TERMINAL window and the events generated by the module in the OUTPUT window
+        * Invokes direct methods to clean up resources   
 
 ## Generate and deploy the IoT Edge deployment manifest
 
-The deployment manifest contains the instructions for running the Motion Detection. Follow these steps to deploy the manifest file.
+The deployment manifest defines what modules are deployed to an edge device, and configuration settings for those modules. Follow these steps to generate such a manifest from the template file, and then deploy it to the edge device.
 
-1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json".
-1. Under the node GraphTopologySet, ensure the following:
-
-    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Next, under the node GraphInstanceSet, ensure:
-
-    `"topologyName" : "MotionDetection"`
-1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner.  You can copy the string from the appsettings.json file. 
+1. Open Visual Studio Code
+1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner. You can copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
     ![Set IOT Connection String](./media/quickstarts/set-iotconnection-string.png)
-1. Next, right click on "src/edge/deployment.template.json" file and click on Generate IoT Edge Deployment Manifest.
+1. Next, right click on "src/edge/deployment.template.json" file and click on "Generate IoT Edge Deployment Manifest".
     ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
     This should create a manifest file in src/edge/config folder named "deployment.amd64.json".
-1. Right click on "src/edge/config/deployment.amd64.json" and click Create Deployment for Single Device and select the name of your edge device.
+1. Right click on "src/edge/config/deployment.amd64.json" and click on "Create Deployment for Single Device" and select the name of your edge device.
 
     ![Create deployment for single device](./media/quickstarts/create-deployment-single-device.png)
-1. You will then be asked to Select an IoT Hub device. Select lva-sample-device from the drop down.
-1. In about 30 seconds, refresh the Azure IOT Hub on the bottom left section and you should have the edge device with the following modules deployed:
+1. You will then be asked to "Select an IoT Hub device". Select lva-sample-device from the drop down.
+1. In about 30 seconds, refresh the Azure IOT Hub on the bottom left section and you should see the edge device has the following modules deployed:
 
-    * The Live Video Analytics module, named as “lvaEdge”.
-    * A module named “rtspsim” that simulates an RTSP Server, acting as the source of a live video feed.
+* Live Video Analytics on IoT Edge (module name "lvaEdge")
+* RTSP simulator (module name "rtspsim")
+
+The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no media graphs are active.
 
 ## Prepare for monitoring events
 
-Right click on the Live Video Analytics device and click "Start Monitoring Built-in Event Endpoint". This step is needed to monitor the IOTHub events and see it in the Output window of VSCode.
+You will be using the Live Video Analytics on IoT Edge module to detect motion in the incoming live video stream and send events to the IoT Hub. In order to see these events, follow these steps:
+
+1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
+1. Expand the Devices node.
+1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
 
 ![Start monitoring Built-In event endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## Run the sample program
 
 Follow the steps below to run the sample code.
+1. In Visual Studio Code, navigate to "src/cloud-to-device-console-app/operations.json".
+1. Under the node GraphTopologySet, ensure the following:
 
+    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+1. Next, under the node GraphInstanceSet, ensure that the value of topologyName matches the value of "name" property in the above graph topology:
+
+    `"topologyName" : "MotionDetection"`
+    
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
 1. In the TERMINAL window, you will see the responses to the direct method calls. In this quickstart, there will be two instances where the program will ask you to press the "Enter" key for it to load and run the media graph.
 
     * After invoking the GraphTopologyList and getting a successful response with status: 200.
     * After invoking the GraphInstanceList and getting a successful response with status: 200.
-1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
+1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
 1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can do the following:
 
-    The Program will have paused at the Console.Readline() stage. Go the TERMINAL window, and hit the “Enter” key. The program will then start deactivating and deleting the GraphInstance. after which it will exit.
 
 ## Interpret results
 
