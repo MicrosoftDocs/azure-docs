@@ -54,19 +54,41 @@ Before you can publish your project, you must have a function app in your Azure 
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and run the request.
+1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
+
+1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function app running":::
+
+1. In the address bar in the browser, append the string `/api/HttpExample?name=Functions` to the base URL and run the request.
 
     The URL that calls your HTTP trigger function is in the following format:
 
-    `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Paste this new URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the remote GET request returned by the function:
+2. Go to this URL and you see a response in the browser to the remote GET request returned by the function, which looks like the following example:
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Function response in the browser":::
 
 ## Clean up resources
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+Other quickstarts in this collection build upon this quickstart. If you plan to work with subsequent quickstarts, tutorials, or with any of the services you have created in this quickstart, do not clean up the resources.
+
+*Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group. 
+
+You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+
+1. In the Cloud Explorer, expand your subscription > **App Services**, right-click your function app, and choose **Open in Portal**. 
+
+1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
+
+   ![Select the resource group to delete from the function app page.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
+
+2. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
+ 
+3. Select **Delete resource group**, and follow the instructions.
+
+   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
 
 ## Next steps
 

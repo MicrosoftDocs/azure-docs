@@ -40,6 +40,8 @@ ms.custom: include file
 
 5. Select **Create** to create a function app and its related resources in Azure with these settings and deploy your function project code. 
 
-6. Select Publish and after the deployment completes, make a note of the **Site URL** value, which is the address of your function app in Azure.
+6. Select Publish and after the deployment completes the root URL of the function app in Azure is shown. Choose **Manage in Cloud Explorer**. 
 
     ![Publish success message](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)
+
+    In Cloud Explorer, you can view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal. 
