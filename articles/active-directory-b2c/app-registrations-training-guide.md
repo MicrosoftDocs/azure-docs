@@ -66,7 +66,7 @@ You can use the other account types to create an app to manage your DevOps scena
 You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more](manage-user-accounts-graph-api.md).  
 
 ## Admin consent and offline_access+openid scopes  
-Azure AD B2C does not support user consent. That is, when a user signs into an application, the user does not see a screen requesting consent for the application permissions. Thus, all permissions have to be granted admin consent. 
+Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent. 
 
 The **openid** scope is necessary so that Azure AD B2C can sign in users to an app. The **offline_access** scope is needed to issue refresh tokens for a user. These scopes were previously added and given admin consent by added default. Now, you can easily add them during the creation process.
 
