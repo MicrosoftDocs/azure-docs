@@ -3,7 +3,7 @@ title: Detect motion and emit events - Azure
 description: This quickstart shows how to use Live Video Analytics on IoT Edge to detect motion and emit events.
 ms.topic: quickstart
 ms.date: 05/29/2020
-
+ 
 ---
 # Quickstart: Detect motion and emit events
 
