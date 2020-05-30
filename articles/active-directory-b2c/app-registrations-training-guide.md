@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # The new App registrations experience for Azure Active Directory B2C
 
-The new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure AD B2C is now generally available. If you're more familiar with the legacy **Applications** experience for registering applications for Azure AD B2C, referred to here as the **"old experience"** this guide will get you started using the new experience.
+The new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure Active Directory (Azure AD) B2C is now generally available. If you're more familiar with the **Applications** experience for registering applications for Azure AD B2C, referred to here as the "legacy experience," this guide will get you started using the new experience.
 
 ## Overview
 Previously, you had to manage your B2C consumer-facing applications separately from the rest of your apps using the legacy experience. That meant different app creation experiences across different places in Azure.
