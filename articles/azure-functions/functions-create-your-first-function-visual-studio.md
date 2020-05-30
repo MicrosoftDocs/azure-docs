@@ -82,7 +82,7 @@ You created resources to complete these quickstarts. You may be billed for these
 
 1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
 
-   ![Select the resource group to delete from the function app page.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
 
 2. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
  
