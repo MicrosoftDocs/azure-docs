@@ -11,9 +11,6 @@ ms.date: 04/13/2020
 
 # Create your Azure Virtual Machine technical assets
 
-> [!IMPORTANT]
-> We're moving the management of your Azure Virtual Machine offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create technical assets for a virtual machine offer for Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) to manage your offers.
-
 This article describes how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace. A VM contains two components: the operating system virtual hard disk (VHD) and optional associated data disks VHDs:
 
 * **Operating system VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or custom-based VM.

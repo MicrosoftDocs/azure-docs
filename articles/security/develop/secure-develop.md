@@ -38,7 +38,7 @@ Before you check in code, conduct [code reviews](https://docs.microsoft.com/azur
 
 ### Perform static code analysis
 
-[Static code analysis](https://www.owasp.org/index.php/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offers [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) that perform static code analysis and assist with code reviews.
 

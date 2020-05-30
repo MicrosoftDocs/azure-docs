@@ -197,7 +197,7 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 ## Troubleshooting
 
 * [Monitor and troubleshoot protection for virtual machines and physical servers](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Microsoft Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Microsoft Q&A question page for Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## Next steps
 

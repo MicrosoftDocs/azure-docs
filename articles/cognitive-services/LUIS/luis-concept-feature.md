@@ -79,7 +79,7 @@ For example, if n shipping address entity contained a street address subentity, 
     * Street address (subentity)
     * City (subentity)
     * State or Province (subentity)
-    * Country (subentity)
+    * Country/Region (subentity)
     * Postal code (subentity)
 
 ## Nested subentities with features
@@ -112,14 +112,14 @@ Continuing with the example of the shipping address:
     * Street name (subentity)
     * City (subentity)
     * State or Province (subentity)
-    * Country (subentity)
+    * Country/Region (subentity)
     * Postal code (subentity)
 
 ### Required feature using prebuilt entities
 
-The city, state, and country are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. That means the entire shipping address is not returned is the entities with required features are not found.
+The city, state, and country/region are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. That means the entire shipping address is not returned is the entities with required features are not found.
 
-What if the city, state, or country are in the utterance but either in a location or slang that LUIS doesn't expect? If you want to provide some post processing to help resolve the entity, due to a low confidence score from LUIS, do not mark the feature as required.
+What if the city, state, or country/region are in the utterance but either in a location or slang that LUIS doesn't expect? If you want to provide some post processing to help resolve the entity, due to a low confidence score from LUIS, do not mark the feature as required.
 
 Another example of a required feature for the shipping address is to make the street number a required [prebuilt](luis-reference-prebuilt-entities.md) number. This allows a user to enter "1 Microsoft Way" or "One Microsoft Way". Both will resolve to a number of "1" for the Street number subentity.
 
@@ -127,19 +127,19 @@ Another example of a required feature for the shipping address is to make the st
 
 A [list entity](reference-entity-list.md) is used as a list of canonical names along with their synonyms. As a required feature, if the utterance doesn't include either the canonical name or a synonym, then the entity isn't returned as part of the prediction endpoint.
 
-Continuing with the shipping address example, suppose your company only ships to a limited set of countries. You can create a list entity that includes several ways your customer may reference the country. If LUIS doesn't find an exact match within the text of the utterance, then the entity (that has the required feature of the list entity) isn't returned in the prediction.
+Continuing with the shipping address example, suppose your company only ships to a limited set of countries/regions. You can create a list entity that includes several ways your customer may reference the country. If LUIS doesn't find an exact match within the text of the utterance, then the entity (that has the required feature of the list entity) isn't returned in the prediction.
 
 |Canonical name|Synonyms|
 |--|--|
 |United States|U.S.<br>U.S.A<br>US<br>USA<br>0|
 
-The client application, such as a chat bot can ask a follow-question, so the customer understands that the country selection is limited and _required_.
+The client application, such as a chat bot can ask a follow-question, so the customer understands that the country/region selection is limited and _required_.
 
 ### Required feature using regular expression entities
 
 A [regular expression entity](reference-entity-regular-expression.md) used as a required feature provides rich text-matching capabilities.
 
-Continuing with the shipping address, you can create a regular expression that captures syntax rules of the country postal codes.
+Continuing with the shipping address, you can create a regular expression that captures syntax rules of the country/region postal codes.
 
 ## Global features
 

@@ -155,7 +155,7 @@ The following table indicates whether your data is durable and available in a gi
 | Outage scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | A node within a data center becomes unavailable                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                 |
-| An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes                                  | Yes                                  |
+| An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes<sup>1</sup>                                  | Yes                                  |
 | A region-wide outage occurs in the primary region                                                                                     | No                              | No                               | Yes<sup>1</sup>                                  | Yes<sup>1</sup>                                  |
 | Read access to the secondary region is available if the primary region becomes unavailable | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
 
@@ -167,7 +167,7 @@ The following table shows which redundancy options are supported by each type of
 
 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
+| General-purpose v2<br /> General-purpose v1<br /> Block blob storage<br /> Blob storage<br /> File storage                | General-purpose v2<br /> Block blob storage<br /> File storage                             | General-purpose v2<br /> General-purpose v1<br /> Blob storage                     | General-purpose v2                     |
 
 All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied. Data in all tiers, including the archive tier, is copied. For more information about blob tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 

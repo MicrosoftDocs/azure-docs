@@ -6,7 +6,7 @@ author: MikeRys
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: 
-ms.date: 04/15/2020 
+ms.date: 05/01/2020 
 ms.author: mrys 
 ms.reviewer: jrasnick
 ---
@@ -15,23 +15,19 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools (preview), SQL on-demand (preview) engine, and SQL pools.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools (preview) and SQL on-demand (preview) engine.
 
 Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
-The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand and in the corresponding `$`-prefixed schemas in the SQL pools that have their metadata synchronization enabled. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
+The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
 
-Since the tables are synchronized to SQL on-demand and the SQL pools asynchronously, there will be a delay until they appear.
-
-Mapping of tables to external tables, data sources and file formats.
+Since the tables are synchronized to SQL on-demand asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created table
 
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
-
-If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
 
 ## Exposing a Spark table in SQL
 
@@ -51,7 +47,7 @@ Azure Synapse currently only shares managed and external Spark tables that store
 
 ### How are Spark tables shared
 
-The shareable managed and external Spark tables exposed in the SQL engines as external tables with the following properties:
+The shareable managed and external Spark tables exposed in the SQL engine as external tables with the following properties:
 
 - The SQL external table's data source is the data source representing the Spark table's location folder.
 - The SQL external table's file format is Parquet.
@@ -83,7 +79,7 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 ## Security model
 
-The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
+The Spark databases and tables, as well as their synchronized representations in the SQL engine will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
 
 The security principal who creates a managed table is considered the owner of that table and has all the rights to the table as well as the underlying folders and files. In addition, the owner of the database will automatically become co-owner of the table.
 
@@ -189,30 +185,9 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### Querying Spark tables in a SQL pool
-
-With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [Exposing a Spark database in a SQL pool](database.md#exposing-a-spark-database-in-a-sql-pool).
-
-Run the following statement against the `mysqlpool` SQL pool:
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-Verify that the tables `myParquetTable` and `myExternalParquetTable` are visible in the schema `$mytestdb`.
-
-Now you can read the data from SQL on-demand as follows:
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-You should get the same results as with SQL on-demand above.
-
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+- [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
 
 

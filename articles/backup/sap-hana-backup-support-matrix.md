@@ -31,6 +31,12 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 
 ------
 
+>[!NOTE]
+>Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
+>
+>Modify the policy manually as needed.
+
+
 > [!NOTE]
 > You can now [monitor the backup and restore](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (to the same machine) jobs triggered from HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
 

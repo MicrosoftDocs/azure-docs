@@ -13,9 +13,11 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Azure Arc enabled Kubernetes troubleshooting (Preview)
 
+This document provides some common troubleshooting scenarios with connectivity, permissions, and agents.
+
 ## General troubleshooting
 
-### az CLI setup
+### Azure CLI set up
 Before using az connectedk8s or az k8sconfiguration CLI commands, assure that az is set to work against the correct Azure subscription.
 
 ```console
@@ -43,21 +45,27 @@ If the Helm release is not found or missing, try onboarding the cluster again.
 If the Helm release is present and `STATUS: deployed` determine the status of the agents using `kubectl`:
 
 ```console
-$ kubectl -n azure-arc get deploy,pods
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/config-agent         1/1     1            1           53s
-deployment.apps/connect-agent        1/1     1            1           53s
-deployment.apps/controller-manager   1/1     1            1           53s
-deployment.apps/metrics-agent        1/1     1            1           53s
+$ kubectl -n azure-arc get deployments,pods
+NAME										READY	UP-TO-DATE AVAILABLE AGE
+deployment.apps/cluster-metadata-operator	1/1		1			1		 16h
+deployment.apps/clusteridentityoperator		1/1		1			1	     16h
+deployment.apps/config-agent				1/1		1			1		 16h
+deployment.apps/controller-manager			1/1		1			1		 16h
+deployment.apps/flux-logs-agent				1/1		1			1		 16h
+deployment.apps/metrics-agent			    1/1     1           1        16h
+deployment.apps/resource-sync-agent			1/1		1			1		 16h
 
-NAME                                      READY   STATUS    RESTARTS   AGE
-pod/config-agent-74cf758b5f-cxnhs         2/2     Running   0          53s
-pod/connect-agent-bc6b9ff5d-dzkvf         2/2     Running   0          53s
-pod/controller-manager-7cf95d5d77-wv5cw   2/2     Running   0          53s
-pod/metrics-agent-c77c9dfc7-45n5r         1/1     Running   0          53s
+NAME											READY	STATUS	 RESTART AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2		Running  0		 16h
+pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
+pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
+pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
+pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
+pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
+pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-All Pods should show `STATUS` as `Running` and `READY` should be either `2/2` or `1/1`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`.
+All Pods should show `STATUS` as `Running` and `READY` should be either `3/3` or `2/2`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`.
 
 ## Unable to connect my Kubernetes cluster to Azure
 
@@ -65,7 +73,7 @@ Connecting clusters to Azure requires access to both an Azure subscription and `
 
 ### Insufficient cluster permissions
 
-If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the CLI command will return an error attempting to call the Kubernetes API.
+If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error attempting to call the Kubernetes API.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -80,7 +88,7 @@ Cluster owner should use a Kubernetes user with cluster administrator permission
 
 ### Installation timeouts
 
-Azure Arc agent installation requires running a set of containers on the target cluster. If the cluster is running over a slow internet connection the container image pull may take longer than the CLI timeouts.
+Azure Arc agent installation requires running a set of containers on the target cluster. If the cluster is running over a slow internet connection the container image pull may take longer than the Azure CLI timeouts.
 
 ```console
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -90,54 +98,6 @@ This operation might take a while...
 
 There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
 ```
-
-### Incorrect or expired onboarding credentials
-
-```console
-$ kubectl -n azure-arc get deploy,pod
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/config-agent         1/1     1            1           8m11s
-deployment.apps/connect-agent        0/1     1            0           8m11s
-deployment.apps/controller-manager   1/1     1            1           8m11s
-deployment.apps/metrics-agent        1/1     1            1           8m11s
-
-NAME                                      READY   STATUS             RESTARTS   AGE
-pod/config-agent-74cf758b5f-d7qz9         2/2     Running            0          8m11s
-pod/connect-agent-bc6b9ff5d-sd9fb         1/2     CrashLoopBackOff   6          8m11s
-pod/controller-manager-7cf95d5d77-qlsvs   2/2     Running            0          8m11s
-pod/metrics-agent-c77c9dfc7-lp2rf         1/1     Running            1          8m11s
-```
-
-Connect agent logs all errors communicating with Azure and the local Kubernetes API server as standard pod logs. Fetch the logs using `kubectl` to debug.
-
-```console
-$ kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent
-2020/04/07 20:52:50 Environment validation :success
-2020/04/07 20:52:50 Kubernetes API server access validation :success
-2020/04/07 20:52:51 Azure Subscription access token :error :http request failed. Authentication Token URL:https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token Authentication Token Body:grant_type=client_credentials&client_id=82195c37-7497-458c-b643-f4a3d0a64190&client_secret=9814c84e-59d7-49fc-bef6-17b717d2f5a8&resource=https%3A%2F%2Fmanagement.azure.com%2F ErrorInfo: Response:{"error":"invalid_client","error_description":"AADSTS7000215: Invalid client secret is provided.\r\nTrace ID: b179b7db-c957-4917-a1b6-66fab2042a00\r\nCorrelation ID: 4cfc9c81-660f-4a1a-ba0b-87db205c5461\r\nTimestamp: 2020-04-07 20:52:51Z","error_codes":[7000215],"timestamp":"2020-04-07 20:52:51Z","trace_id":"b179b7db-c957-4917-a1b6-66fab2042a00","correlation_id":"4cfc9c81-660f-4a1a-ba0b-87db205c5461","error_uri":"https://login.microsoftonline.com/error?code=7000215"} HTTPReturnCode:401
-```
-
-To fix an invalid client credential, validate that the client_id and secret are correct:
-
-```console
-$ kubectl -n azure-arc get cm/azure-clusterconfig -o yaml
-  AZURE_CLIENT_ID: 82195c37-7497-458c-b643-f4a3d0a64190
-  AZURE_RESOURCE_GROUP: AzureArc
-  AZURE_RESOURCE_NAME: AzureArcCluster
-```
-
-### Expired credentials
-
-Service principal credentials that are expired cause the connect-agent to log an error `AADSTS7000222: The provided client secret keys are expired`.
-
-```console
-$ kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent
-2020/04/13 19:49:19 Environment validation :success
-2020/04/13 19:49:19 Kubernetes API server access validation :success
-2020/04/13 19:49:19 Azure Subscription access token :error :http request failed. Authentication Token URL:https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token Authentication Token Body:grant_type=client_credentials&client_id=82195c37-7497-458c-b643-f4a3d0a64190&client_secret=9814c84e-59d7-49fc-bef6-17b717d2f5a8&resource=https%3A%2F%2Fmanagement.azure.com%2F ErrorInfo: Response:{"error":"invalid_client","error_description":"AADSTS7000222: The provided client secret keys are expired.\r\nTrace ID: 69ade0e5-f089-4a9d-b55d-9089e07f6300\r\nCorrelation ID: 10057011-6143-4e87-ad4a-c8256cf0e353\r\nTimestamp: 2020-04-13 19:49:19Z","error_codes":[7000222],"timestamp":"2020-04-13 19:49:19Z","trace_id":"69ade0e5-f089-4a9d-b55d-9089e07f6300","correlation_id":"10057011-6143-4e87-ad4a-c8256cf0e353"} HTTPReturnCode:401
-```
-
-Expired credentials may be reset using `az ad sp credential reset`.
 
 ## Configuration management
 
@@ -195,9 +155,3 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
-
-### Source control configurations remain on my cluster
-
-## Next steps
-
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

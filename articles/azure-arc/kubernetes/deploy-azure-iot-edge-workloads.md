@@ -18,7 +18,7 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 
 Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Azure Arc provides mechanisms for cluster operators to the configure the foundational components of a cluster as well as apply and enforce cluster policies. And IoT Edge allows application operators to remotely deploy and manage the workloads at scale with convenient cloud ingestion and bi-directional communication primitives. The diagram below illustrates this:
 
-![](./media/edge-arc.png)
+![IoT Arc configuration](./media/edge-arc.png)
 
 ## Pre-requisites
 
@@ -34,7 +34,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Az
     $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
     ```
 
-    >You can also set this up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
+    You can also set this up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
 
 ## Connect a cluster
 

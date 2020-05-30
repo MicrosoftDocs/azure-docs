@@ -52,7 +52,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients

@@ -133,6 +133,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: askSpoke
+        href: askspoke-tutorial.md
       - name: AskYourTeam
         href: askyourteam-tutorial.md
       - name: Asset Bank
@@ -157,6 +159,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: Axiad Cloud
+        href: axiad-cloud-tutorial.md
     - name: B
       items:
       - name: BambooHR
@@ -465,6 +469,12 @@
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
+      - name: EasySSO for BitBucket
+        href: easysso-for-bitbucket-tutorial.md
+      - name: EasySSO for Confluence
+        href: easysso-for-confluence-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -954,6 +964,8 @@
         href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
+      - name: Mapbox
+        href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
       - name: Maxient Conduct Manager Software
@@ -1530,6 +1542,8 @@
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
+      - name: TextExpander
+        href: textexpander-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1638,6 +1652,8 @@
         href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
+      - name: Vyond
+        href: vyond-tutorial.md
     - name: W - Z
       items:
       - name: Watch by Colors
@@ -1827,6 +1843,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-provisioning-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
@@ -1953,8 +1971,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
-      - name: Workday
+      - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
+      - name: Workday to Azure AD
+        href: workday-inbound-cloud-only-tutorial.md
+      - name: Workday Writeback
+        href: workday-writeback-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook

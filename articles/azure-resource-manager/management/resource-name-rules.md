@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/21/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -691,6 +691,9 @@ In the following tables, the term alphanumeric refers to:
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
 > | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
+
+> [!NOTE]
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
 
 ## Next steps
 

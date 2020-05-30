@@ -21,7 +21,7 @@ Verify you have the following requirements ready:
 
 * A Kubernetes cluster that is up and running
 * You'll need access with kubeconfig, and cluster-admin access. 
-* The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
+* The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Azure Arc for Kubernetes Onboarding" role having these permissions can be used for role assignments on the user or service principal used with Azure CLI for onboarding.
 * Latest version of the *connectedk8s* and *k8sconfiguration* extensions
 
 ## Supported regions
@@ -65,7 +65,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## Install CLI extensions
+## Install Azure CLI extensions
 
 Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
 
@@ -150,7 +150,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Output:**
@@ -165,7 +165,7 @@ AzureArcTest1  eastus      AzureArcTest
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods here:
 
 ```console
-kubectl -n azure-arc get deploy,po
+kubectl -n azure-arc get deployments,pods
 ```
 
 **Output:**
@@ -194,12 +194,17 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
-* `deploy/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
-* `deploy/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
+* `deployment.apps/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
+* `deployment.apps/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
+* `deployment.apps/metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
+* `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count and Arc agent version
+* `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
+* `deployment.apps/clusteridentityoperator`: maintains the managed service identity (MSI) certificate used by other agents for communication with Azure
+* `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
 
 ## Delete a connected cluster
 
-You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the CLI or Azure portal.
+You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azure CLI or Azure portal.
 
 The Azure CLI command `az connectedk8s delete` removes the `Microsoft.Kubernetes/connectedCluster` resource in Azure. The Azure CLI deletes any associated `sourcecontrolconfiguration` resources in Azure. The Azure CLI uses helm uninstall to remove the agents in the cluster.
 
