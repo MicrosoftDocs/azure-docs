@@ -75,7 +75,7 @@ A Red Hat pull secret enables your cluster to access Red Hat container registrie
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
-2. Please go to the **[product page](https://developers.redhat.com/products/codeready-containers)** and after registration, it will take you to Red Hat OpenShift Cluster Manager page where you can Click **Download pull secret**.
+2. Please go to the **[product page](https://developers.redhat.com/products/codeready-containers)** if it is the first time and after registration, it will take you to **[Red Hat OpenShift Cluster Manager page]** (https://cloud.redhat.com/openshift/) where you can Click **Download pull secret**.
 
 Keep the saved `pull-secret.txt` file somewhere safe - it will be used in each cluster creation if you need to create a cluster will include samples or operators from Red Hat or from certified partners
 
