@@ -47,7 +47,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 ## New supported account types
 
-In the new experience, you have to select a support account type from the following options:
+In the new experience, you select a support account type from the following options:
 - Accounts in this organizational directory only.
 - Accounts in any organizational directory (Any Azure AD directory – Multitenant).
 - Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C.
