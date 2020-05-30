@@ -231,7 +231,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     ![Direct methods](./media/deploy-iot-edge-device/direct-method.png)
 1. You should see a status 200 message in the Result box
 
-    ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png)
+    ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## Next steps
 
