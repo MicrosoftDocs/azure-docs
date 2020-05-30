@@ -171,11 +171,12 @@ The new [policy details blade](https://docs.microsoft.com/azure/active-directory
 ### New query capabilities for Directory Objects in Microsoft Graph are in Public Preview
 
 **Type:** New feature  
-**Service category:** MS Graph
+**Service category:** MS Graph  
 **Product capability:** Developer Experience
 
-New capabilities are being introduced for Microsoft Graph Directory Objects APIs, enabling Count, Search, Filter, and Sort operations. This will give developers the ability to quickly query our Directory Objects without workarounds such as in-memory filtering and sorting. Find out more in this [blog post](https://aka.ms/CountFilterMSGraphAAD).
-
+New capabilities are being introduced for Microsoft Graph Directory Objects APIs, enabling Count, Search, Filter, and Sort operations.  
+This will give developers the ability to quickly query our Directory Objects without workarounds such as in-memory filtering and sorting.  
+Find out more in this [blog post](https://aka.ms/CountFilterMSGraphAAD).  
 We are currently in Public Preview, looking for feedback. Please send your comments with this [brief survey](https://aka.ms/MsGraphAADSurveyDocs).
 
 ---
