@@ -9,7 +9,7 @@ ms.date: 06/02/2020
 
 In this article, we go through the procedures to back up VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server. Before you begin, make sure you thoroughly go through the [Set up Microsoft Azure Backup Server for AVS](set-up-mabs-for-avs.md). 
 
-Them, we will walk through all of the necessary procedures to:
+Then, we walk through all of the necessary procedures to:
 
 > [!div class="checklist"] 
 > * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
@@ -19,7 +19,7 @@ Them, we will walk through all of the necessary procedures to:
 
 ## Create a secure connection to the vCenter Server
 
-By default, Azure Backup Server communicates with VMware servers over HTTPS. To set up the HTTPS connection download the VMware Certificate Authority (CA) certificate, and import it on the Azure Backup Server.
+By default, Azure Backup Server communicates with VMware servers over HTTPS. To set up the HTTPS connection, download the VMware Certificate Authority (CA) certificate, and import it on the Azure Backup Server.
 
 ### Set up the certificate
 
