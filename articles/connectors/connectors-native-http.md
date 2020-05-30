@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/29/2020
 tags: connectors
 ---
 
@@ -29,6 +29,8 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
+<a name="authentication"></a>
+
 ## Certificates and authentication
 
 * Transport Layer Security (TLS) support
@@ -37,7 +39,7 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
     For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
 
-  * The HTTP connector doesn't support intermediate TLS (previously SSL) certificates for authentication.
+  * The HTTP connector doesn't support intermediate TLS/SSL certificates for authentication.
 
 * Self-signed certificate support
 
