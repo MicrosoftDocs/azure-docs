@@ -30,7 +30,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 - Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again. 
 
 > [!NOTE]
-> To view all your previously created applications, navigate to the **App registrations** blade and select the **All applications** tab. This will display apps created in the old experience, the new experience, those created in the Azure AD extension.
+> To view all your previously created applications, navigate to the **App registrations** blade and select the **All applications** tab. This will display apps created in the legacy experience, the new experience, and those created in the Azure AD service.
 
 ## Key new features
 
