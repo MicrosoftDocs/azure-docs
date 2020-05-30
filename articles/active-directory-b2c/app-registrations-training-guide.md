@@ -34,7 +34,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 ## Key new features
 
--   A **unified app list** shows all your applications that authenticate with Azure AD B2C and Azure AD in one convenient place! In addition, you can take advantage of all the great features already available for Azure AD applications: created on date, status of certificates & secrets, search bar, and so much more.
+-   A **unified app list** shows all your applications that authenticate with Azure AD B2C and Azure AD in one convenient place. In addition, you can take advantage of features already available for Azure AD applications, including the **Created on** date, **Certificates & secrets** status, search bar, and much more.
 
 -   **Combined app registration** allows you to quickly register an app whether it's a customer-facing app or an app to access Microsoft Graph.
 
