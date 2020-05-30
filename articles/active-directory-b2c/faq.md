@@ -158,11 +158,11 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
-1. Delete all the **Applications** you registered in your Azure AD B2C tenant.
+1. Delete all the **Applications (Legacy)** you registered in your Azure AD B2C tenant.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
-1. Under **Manage**, select **App registrations** (or **App registrations (Legacy)**).
+1. Under **Manage**, select **App registrations**.
 1. Select **View all applications**
 1. Select the application named **b2c-extensions-app**, select **Delete**, and then select **Yes** when prompted.
 1. Under **Manage**, select **User settings**.

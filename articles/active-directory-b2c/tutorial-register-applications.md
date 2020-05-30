@@ -24,6 +24,8 @@ In this article, you learn how to:
 > * Register a web application
 > * Create a client secret
 
+If you're using a native app instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -57,16 +59,15 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 Once the application registration is complete, enable the implicit grant flow:
 
 1. Under **Manage**, select **Authentication**.
-1. Select **Try out the new experience** (if shown).
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
-#### [Applications](#tab/applications-legacy/)
+#### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select **Add**.
+1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.
 1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
 1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.

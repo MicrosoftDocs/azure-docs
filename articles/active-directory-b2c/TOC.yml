@@ -1,5 +1,5 @@
 - name: Azure AD B2C Documentation
-  href: index.yml
+  href: index.yml 
 - name: Overview
   items:
   - name: About Azure AD B2C
@@ -20,7 +20,7 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Register a web application
+  - name: 2 - Register an application
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
@@ -91,7 +91,7 @@
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
     - name: Add a web API application
-      href: add-web-application.md
+      href: add-web-api-application.md
     - name: Add a native client application
       href: add-native-application.md
     - name: iOS ObjC using App Auth

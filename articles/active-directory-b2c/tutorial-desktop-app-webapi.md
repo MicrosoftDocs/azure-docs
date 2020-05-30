@@ -65,7 +65,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
-1. Select **Applications**, and then select *nativeapp1*.
+1. Select **Applications (Legacy)**, and then select *nativeapp1*.
 1. Select **API access**, and then select **Add**.
 1. In the **Select API** dropdown, select *webapi1*.
 1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.

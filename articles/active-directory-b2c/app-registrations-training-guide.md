@@ -20,7 +20,7 @@ The new **[App registrations](https://aka.ms/b2cappregistrations)** experience f
 ## Overview
 Previously, you had to manage your B2C consumer-facing applications separately from the rest of your apps using the legacy experience. That meant different app creation experiences across different places in Azure.
 
-The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. Whether you need to manage a customer-facing app or an app that has access to Microsoft Graph to run use , you only need to learn one way to do things.
+The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. From creating a customer-facing app to managing an app with Microsoft Graph permissions for resource management, you only need to learn one way to do things.
 
 You can reach the new experience by navigating to **App registrations** in a B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** services in the Azure portal.
 
@@ -102,14 +102,14 @@ The following Azure AD app registrations capabilities are not applicable to Azur
 ## Limitations
 The new experience has the following limitations:
 - At this time, Azure AD B2C doesn't differentiate between being able to issue access or ID tokens for implicit flows; both types of tokens are available for implicit grant flow if the **ID tokens** option is selected in the **Authentication** blade.
-- Azure B2C doesn't currently support the single-page application "SPA" app type.
+- Azure B2C doesn't currently support the single-page application "SPA" app type. 
 - Changing the value for supported accounts isn't supported in the UI. You'll need to use the app manifest, unless you're switching between Azure AD single-tenant and multi-tenant.
 
 ## Next steps
 
 To get started with the new app registration experience:
 * Learn [how to register a web application](tutorial-register-applications.md)
-* Learn [how to register a web API](add-web-application.md)
+* Learn [how to register a web API](add-web-api-application.md)
 * Learn [how to register a native client application](add-native-application.md)
 * Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 * Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs2016-custom.md)

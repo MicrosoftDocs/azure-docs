@@ -33,7 +33,6 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 If you have an application that implements the implicit grant flow, for example a JavaScript-based single-page application (SPA), you can enable the flow by following these steps:
 
 1. Under **Manage**, select **Authentication**.
-1. Select **Try out the new experience** (if shown).
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
@@ -42,7 +41,7 @@ If you have an application that implements the implicit grant flow, for example 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
+4. Select **Applications (Legacy)**, and then select **Add**.
 5. Enter a name for the application. For example, *webapi1*.
 6. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
 7. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In your production application, you might set the reply URL to a value such as `https://localhost:44332`. For testing purposes, set the reply URL to `https://jwt.ms`.

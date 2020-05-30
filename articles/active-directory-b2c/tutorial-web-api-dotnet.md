@@ -54,7 +54,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
+4. Select **Applications (Legacy)**, and then select **Add**.
 5. Enter a name for the application. For example, *webapi1*.
 6. For **Include web app/ web API**, select **Yes**.
 7. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In this tutorial, the sample runs locally and listens at `https://localhost:44332`.
