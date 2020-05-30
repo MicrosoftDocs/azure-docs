@@ -174,7 +174,7 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
     sessionId: string;            // Globally unique identifier for this session, used for debugging
 }
 ```
-
+ 
 ### Error
 
 Contains information about the error.
