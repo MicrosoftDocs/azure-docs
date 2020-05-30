@@ -2,14 +2,16 @@
 title: ARM template frequently asked questions
 description: Frequently asked questions (FAQ) about Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 05/30/2020
+ms.author: tomfitz
+author: tfitzmac
 ---
 
 # Frequently asked questions about ARM templates
 
 This article answers frequently asked questions about Azure Resource Manager (ARM) templates.
 
-## General
+## Getting started
 
 * **What are ARM templates, and why should I use them?**
 
