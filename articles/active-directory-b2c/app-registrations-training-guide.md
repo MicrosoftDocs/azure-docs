@@ -96,7 +96,7 @@ The following Azure AD app registrations capabilities are not applicable to Azur
 - **Extensive branding properties** - Some of the other properties like logo, homepage URL, terms of services URL and privacy statement URL do not apply for B2C directories. This is typically handled by [user flow configuration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 - **Publisher domain verification** 
 Your app is registered on *.onmicrosoft.com which is not a verified domain. Additionally, the publisher domain is primarily used for granting user consent, which does not apply to Azure B2C apps for user authentication. [Learn more about publisher domain](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
-- **Token configuration** - the token is configured as part of a user flow rather than an app.
+- **Token configuration** - The token is configured as part of a user flow rather than an app.
 - The **Quickstarts** experience is currently not available for Azure AD B2C tenants.
 - The **Integration assistant** blade is currently not available for Azure AD B2C tenants.
 
