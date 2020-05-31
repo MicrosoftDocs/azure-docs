@@ -5,7 +5,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -16,6 +15,7 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # How to: Enable cross-app SSO on Android using ADAL
@@ -56,7 +56,7 @@ If a compatible broker is installed on the device, like the Microsoft Authentica
 
 #### How Microsoft ensures the application is valid
 
-The need to ensure the identity of an application call the broker is crucial to the security provided in broker assisted logins. iOS and Android do not enforce unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure Microsoft is always communicating with the right application at runtime, the developer is asked to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the certificate thumbprint of the application and is ensured to be unique to the application by the Google Play Store. When an application calls the broker, the broker asks the Android operating system to provide it with the certificate thumbprint that called the broker. The broker provides this certificate thumbprint to Microsoft in the call to the identity system. If the certificate thumbprint of the application does not match the certificate thumbprint provided to us by the developer during registration, access is denied to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
+The need to ensure the identity of an application calling the broker is crucial to the security provided in broker assisted logins. iOS and Android do not enforce unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure Microsoft is always communicating with the right application at runtime, the developer is asked to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the certificate thumbprint of the application and is ensured to be unique to the application by the Google Play Store. When an application calls the broker, the broker asks the Android operating system to provide it with the certificate thumbprint that called the broker. The broker provides this certificate thumbprint to Microsoft in the call to the identity system. If the certificate thumbprint of the application does not match the certificate thumbprint provided to us by the developer during registration, access is denied to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
 
 Brokered-SSO logins have the following benefits:
 

@@ -3,7 +3,7 @@ title: Create action groups with Resource Manager templates
 description: Learn how to create an action group by using an Azure Resource Manager template.
 author: dkamstra
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek

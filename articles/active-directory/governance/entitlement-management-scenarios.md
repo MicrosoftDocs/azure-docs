@@ -143,6 +143,7 @@ There are several ways that you can configure entitlement management for your or
 
 1. Open an access package
 1. [View assignments](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+1. [Archive reports and logs](entitlement-management-logs-and-reporting.md)
 
 ### Administrator: View resources assigned to users
 

@@ -6,9 +6,7 @@ summary: Azure Open Datasets is curated and cleansed data - including weather, c
 metadata:
   title: Open Datasets Documentation - Tutorials, API reference - Azure
   description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
-  services: machine-learning
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
+  ms.service: open-datasets
   ms.topic: landing-page
   ms.collection: collection
   author: cjgronlund
@@ -36,9 +34,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build a regression model with automated machine learning
-            url: /azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
+            url: /azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
           - text: Enrich an image classification model in Azure Machine Learning
-            url: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context            
+            url: /azure/machine-learning/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context            
 
 # REFERENCE
   - title: Explore reference content

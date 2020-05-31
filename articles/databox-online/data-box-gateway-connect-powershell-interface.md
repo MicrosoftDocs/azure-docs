@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage Microsoft Azure Data Box Gateway device via the Windows PowerShell interface | Microsoft Docs
+title: Use Windows PowerShell to connect to and manage Azure Data Box Gateway device
 description: Describes how to connect to and then manage Data Box Gateway via the Windows PowerShell interface.
 services: databox
 author: alkohli
@@ -14,7 +14,7 @@ ms.author: alkohli
 
 Azure Data Box Gateway solution lets you send data over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Gateway device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
-This article focuses on the tasks you do using the PowerShell interface.
+This article focuses on the tasks you do using the PowerShell interface. 
 
 This article includes the following procedures:
 

@@ -1,6 +1,6 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
@@ -27,8 +27,9 @@ New-Item -ItemType Directory -Force -Path "C:\Linkerd"
 Copy-Item -Path ".\linkerd2-cli-$LINKERD_VERSION-windows.exe" -Destination "C:\Linkerd\linkerd.exe"
 
 # Add C:\Linkerd to PATH. 
-# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Linkerd\"
-[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
-[environment]::SetEnvironmentVariable("PATH", $PATH)
+# Make the new PATH permanently available for the current User
+$USER_PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Linkerd\"
+[environment]::SetEnvironmentVariable("PATH", $USER_PATH, "User")
+# Make the new PATH immediately available in the current shell
+$env:PATH += ";C:\Linkerd\"
 ```

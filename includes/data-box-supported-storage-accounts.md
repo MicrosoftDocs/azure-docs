@@ -19,6 +19,3 @@ Here is a list of the supported storage accounts and the storage types for the D
 | Blob storage Standard |Y | | |Both hot and cool are supported. |
 
 \* *- Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
-
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.

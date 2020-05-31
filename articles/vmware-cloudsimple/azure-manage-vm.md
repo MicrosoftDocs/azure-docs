@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Manage AVS Private Cloud VMs in Azure 
-description: Describes how to manage AVS Private Cloud VMs in the Azure portal, including adding disks, changing VM capacity, and adding network interfaces
+title: Azure VMware Solution by CloudSimple - Manage Private Cloud VMs in Azure 
+description: Describes how to manage CloudSimple Private Cloud VMs in the Azure portal, including adding disks, changing VM capacity, and adding network interfaces
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -10,9 +10,9 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Manage your AVS Private Cloud virtual machines in Azure
+# Manage your CloudSimple Private Cloud virtual machines in Azure
 
-To manage the virtual machines that you [created for your AVS Private Cloud](azure-create-vm.md), sign to the [Azure portal](https://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
+To manage the virtual machines that you [created for your CloudSimple Private Cloud](azure-create-vm.md), sign to the [Azure portal](https://portal.azure.com). Search for and select the virtual (search under **All Services** or **Virtual Machines** on the side menu).
 
 ## Control virtual machine operation
 
@@ -51,7 +51,7 @@ To add a VM disk, open the **Disks** page for the selected VM. To add a disk, cl
    | Name | Enter a name to identify the disk.  |
    | Size | Select one of the available sizes.  |
    | SCSI Controller | Select a SCSI controller. The available controllers vary for the different supported operating systems.  |
-   | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent, non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine. This mode allows you to always restart the VM in the same state. For more information, see the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent, non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  This mode allows you to always restart the VM in the same state. For more information, see the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 To delete a disk, select it and click **Delete**.
 
@@ -72,7 +72,7 @@ To add an interface, click **Add network interface**. Configure each of the foll
    | Control | Description |
    | ------------ | ------------- |
    | Name | Enter a name to identify the interface.  |
-   | Network | Select from the list of configured networks in your AVS Private Cloud vSphere.  |
+   | Network | Select from the list of configured networks in your Private Cloud vSphere.  |
    | Adapter | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware knowledge base article [Choosing a network adapter for your virtual machine](https://kb.vmware.com/s/article/1001805). |
    | Power on at Boot | Choose whether to enable the NIC hardware when the VM is booted. The default is **Enable**. |
 

@@ -88,12 +88,12 @@ For more information:
 
 ## Logic Apps
 
-The Azure Logic Apps service isn't available in Azure Germany. However, Azure Scheduler, which is available, is being deprecated. Use Logic Apps to create scheduling jobs in global Azure.
+Azure Logic Apps isn't available in Azure Germany, but you can create scheduling jobs by using Logic Apps in global Azure instead. Although previously available in Azure Germany, Azure Scheduler is being retired.
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
+- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
+- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 ## Next steps
 

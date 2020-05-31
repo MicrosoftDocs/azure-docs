@@ -1,7 +1,6 @@
 ---
 title: Log Analytics smart analytics examples | Microsoft Docs
 description: Examples that use smart analytics functions in Log Analytics to perform analysis of user activity.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

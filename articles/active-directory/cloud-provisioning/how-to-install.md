@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -72,14 +72,7 @@ To verify the agent is being seen by Azure, follow these steps.
 
    ![On-premises provisioning agents screen](media/how-to-install/verify1.png)</br>
 
-### Verify the port
-To verify that Azure is listening on port 443 and that your agent can communicate with it, follow these steps.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
-
-![Verification of port reachability](media/how-to-install/verify2.png)
 
 ### On the local server
 To verify that the agent is running, follow these steps.
@@ -91,7 +84,7 @@ To verify that the agent is running, follow these steps.
     ![Services screen](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Azure AD Connect cloud provisioning new agent configuration](how-to-configure.md).
+>The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
 
 
 

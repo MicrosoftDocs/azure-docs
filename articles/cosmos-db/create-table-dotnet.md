@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 05/28/2020
 ms.author: sngun
 
 ---
@@ -61,6 +61,9 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
+> [!TIP]
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
+
 ## Open the sample application in Visual Studio
 
 1. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 
@@ -68,6 +71,26 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    ![Open the solution](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
 2. Navigate to the folder where you cloned the sample application and open the TableStorage.sln file.
+
+## Review the code
+
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [update the connection string](#update-your-connection-string) section of this doc.
+
+* The following code shows how to create a table within the Azure Storage:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* The following code shows how to insert data into the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* The following code shows how to query data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* The following code shows how to delete data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## Update your connection string
 

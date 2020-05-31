@@ -120,7 +120,7 @@ public String Post() throws IOException {
 
 ## Create a function to parse the response
 
-This simple function parses and prettifies the JSON response from the Translator Text service.
+This simple function parses and prettifies the JSON response from the Translator service.
 
 ```java
 // This function prettifies the json response.
@@ -184,7 +184,7 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

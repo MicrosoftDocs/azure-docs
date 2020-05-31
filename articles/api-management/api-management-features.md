@@ -32,7 +32,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Built-in cache                                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Built-in analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes     |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | Yes     |
-| [SSL settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [External cache](https://aka.ms/apimbyoc)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
@@ -43,4 +43,4 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
-<sup>3</sup> Limited to a single self-hosted gateway deployment with a single gateway node.<br/>
+<sup>3</sup> In the Developer tier self-hosted gateways are limited to single gateway node.<br/>

@@ -3,7 +3,7 @@ title: Migrate Azure CDN profile from Verizon Standard to Verizon Premium
 description: Learn about the details of migrating a profile from Verizon Standard to Verizon Premium.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: 
 
 ---

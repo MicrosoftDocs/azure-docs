@@ -1,6 +1,6 @@
 ---
 title: About failover and failback in Azure Site Recovery
-description: Learn about failover and failable in Azure Site Recovery. 
+description: Learn about failover and failable in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 
@@ -32,8 +32,8 @@ Failover is a two-phase activity:
 - **Commit**: After failover you verify the VM in Azure:
     - You can then commit the failover to the selected recovery point, or select a different point for the commit.
     - After committing the failover, the recovery point can't be changed.
-    
-    
+
+
 ## Connect to Azure after failover
 
 To connect to the Azure VMs created after failover using RDP/SSH, there are a number of requirements.
@@ -54,7 +54,7 @@ Site Recovery provides different failover options.
 **Test failover** | Used to run a drill that validates your BCDR strategy, without any data loss or downtime.| Creates a copy of the VM in Azure, with no impact on ongoing replication, or on your production environment. | 1. Run a test failover on a single VM, or on multiple VMs in a recovery plan.<br/><br/> 2. Select a recovery point to use for the test failover.<br/><br/> 3. Select an Azure network in which the Azure VM will be located when it's created after failover. The network is only used for the test failover.<br/><br/> 4. Verify that the drill worked as expected. Site Recovery automatically cleans up VMs created in Azure during the drill.
 **Planned failover-Hyper-V**  | Usually used for planned downtime.<br/><br/> Source VMs are shut down. The latest data is synchronized before initiating the failover. | Zero data loss for the planned workflow. | 1. Plan a downtime maintenance window and notify users.<br/><br/> 2. Take user-facing apps offline.<br/><br/> 3. Initiate a planned failover with the latest recovery point. The failover doesn't run if the machine isn't shut down, or if errors are encountered.<br/><br/> 4. After the failover, check that the replica Azure VM is active in Azure.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.
 **Failover-Hyper-V** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally shut down the VM, and synchronize final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover. Specify whether Site Recovery should shut down the VM and synchronize/replicate the latest changes before triggering the failover.<br/><br/> 3. You can fail over to a number of recovery point options, summarized in the table below.<br/><br/> If you don't enable the option to shut down the VM, or if Site Recovery can't shut it down, the latest recovery point is used.<br/>The failover runs even if the machine can't be shut down.<br/><br/> 4. After failover, you check that the replica Azure VM is active in Azure.<br/> If required, you can select a different recovery point from the retention window of 24 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all available recovery points.
-**Failover-VMware** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally specify that Site Recovery should try to trigger a shutdown of the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover from Site Recovery. Specify whether Site Recovery should try to trigger VM shutdown and synchronize before running the failover.<br/> The failover runs even if the machines can't be shut down.<br/><br/> 3. After the failover, check that the replica Azure VM is active in Azure. <br/>If required, you can select a different recovery point from the retention window of 72 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.<br/> For Windows VMs, Site Recovery disables the VMware tools during failover. 
+**Failover-VMware** | Usually run if there's an unplanned outage, or the primary site isn't available.<br/><br/> Optionally specify that Site Recovery should try to trigger a shutdown of the VM, and to synchronize and replicate final changes before initiating the failover.  | Minimal data loss for apps. | 1. Initiate your BCDR plan. <br/><br/> 2. Initiate a failover from Site Recovery. Specify whether Site Recovery should try to trigger VM shutdown and synchronize before running the failover.<br/> The failover runs even if the machines can't be shut down.<br/><br/> 3. After the failover, check that the replica Azure VM is active in Azure. <br/>If required, you can select a different recovery point from the retention window of 72 hours.<br/><br/> 5. Commit the failover to finish up. The commit action deletes all recovery points.<br/> For Windows VMs, Site Recovery disables the VMware tools during failover.
 
 ## Failover processing
 
@@ -80,6 +80,8 @@ During failover, you can select a number of recovery point options.
 **Latest multi-VM app-consistent** |  This option is available for recovery plans with one or more VMs that have multi-VM consistency enabled. VMs that are part of a replication group fail over to the latest common multi-VM application-consistent recovery point. Other VMs fail over to their latest application-consistent recovery point.
 **Custom** | Use this option to fail over a specific VM to a particular recovery point in time. This option isn't available for recovery plans.
 
+> [!NOTE]
+> Recovery points can't be migrated to another Recovery Services vault.
 
 ## Reprotection/failback
 
@@ -131,17 +133,17 @@ To reprotect and fail back Hyper-V VMs from Azure to on-premises:
 - You run a planned failback from Azure to on-premises.
 - No specific components need to be set up for Hyper-V VM failback.
 - During planned failover, you can select options to synchronize data before failback:
-    - **Synchronize data before failover**: This option minimizes downtime for virtual machines as it synchronizes machines without shutting them down. 
+    - **Synchronize data before failover**: This option minimizes downtime for virtual machines as it synchronizes machines without shutting them down.
 	    - Phase 1: Takes a snapshot of the Azure VM and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
 		- Phase 2: Shuts down the Azure VM so that no new changes occur there. The final set of delta changes is transferred to the on-premises server and the on-premises VM is started up.
-    - **Synchronize data during failover only**: This option is faster because we expect that most of the disk has changed, and thus don't perform checksum calculations. It performs a download of the disk. We recommend that you use this option if the VM has been running in Azure for a while (a month or more), or if the on-premises VM has been deleted.  
+    - **Synchronize data during failover only**: This option is faster because we expect that most of the disk has changed, and thus don't perform checksum calculations. It performs a download of the disk. We recommend that you use this option if the VM has been running in Azure for a while (a month or more), or if the on-premises VM has been deleted.
 
 [Learn more](hyper-v-azure-failback.md) about Hyper-V reprotection and failback.
 
 When you reprotect Azure VMs to on-premises, you can specify that you want to fail back to the original location, or to an alternate location.
 
 - **Original location recovery**: This fails back from Azure to the same source on-premises machine if it exists. In this scenario, you select one of the synchronization options described in the previous procedure.
-- **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. With this option, we recommend that you select the option to synchronize data before failover 
+- **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. With this option, we recommend that you select the option to synchronize data before failover
 - [Review](hyper-v-azure-failback.md) the requirements and limitations for location failback.
 
 
@@ -151,7 +153,7 @@ After failing back to the on-premises site, you enable **Reverse Replicate** to 
 
 
 ## Next steps
-- Fail over [specific VMware VMs](vmware-azure-tutorial-failover-failback.md) 
+- Fail over [specific VMware VMs](vmware-azure-tutorial-failover-failback.md)
 - Fail over [specific Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md).
 - [Create](site-recovery-create-recovery-plans.md) a recovery plan.
 - Fail over [VMs in a recovery plan](site-recovery-failover.md).

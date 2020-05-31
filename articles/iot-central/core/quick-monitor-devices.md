@@ -19,7 +19,7 @@ This quickstart shows you, as an operator, how to use your Microsoft Azure IoT C
 
 ## Prerequisites
 
-Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md), [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) and [Configure rules and actions for your device](quick-configure-rules.md).
+Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md), [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) and [Configure rules and actions for your device](quick-configure-rules.md).
 
 ## Receive a notification
 

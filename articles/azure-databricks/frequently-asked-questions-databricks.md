@@ -34,11 +34,11 @@ For more information, see [Use Azure Data Lake Storage with Azure Databricks](/a
 
 Here are a few problems you might encounter with Databricks.
 
-### Issue: This subscription is not registered to use the namespace ‘Microsoft.Databricks’
+### Issue: This subscription is not registered to use the namespace 'Microsoft.Databricks'
 
 #### Error message
 
-"This subscription is not registered to use the namespace ‘Microsoft.Databricks’. See https://aka.ms/rps-not-found for how to register subscriptions. (Code: MissingSubscriptionRegistration)"
+"This subscription is not registered to use the namespace 'Microsoft.Databricks'. See https://aka.ms/rps-not-found for how to register subscriptions. (Code: MissingSubscriptionRegistration)"
 
 #### Solution
 
@@ -82,11 +82,20 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 #### Error message
 
-"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. For more information, see the Databricks guide. Azure error code: PublicIPCountLimitReached. Azure error message: Cannot create more than 60 public IP addresses for this subscription in this region."
+"Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. For more information, see the Databricks guide. Azure error code: PublicIPCountLimitReached. Azure error message: Cannot create more than 10 public IP addresses for this subscription in this region."
+
+#### Background
+
+Databricks clusters use one public IP address per node (including the driver node). Azure subscriptions have [public IP address limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per region. Thus, cluster creation and scale-up operations may fail if they would cause the number of public IP addresses allocated to that subscription in that region to exceed the limit. This limit also includes public IP addresses allocated for non-Databricks usage, such as custom user-defined VMs.
+
+In general, clusters only consume public IP addresses while they are active. However, `PublicIPCountLimitReached` errors may continue to occur for a short period of time even after other clusters are terminated. This is because Databricks temporarily caches Azure resources when a cluster is terminated. Resource caching is by design, since it significantly reduces the latency of cluster startup and autoscaling in many common scenarios.
 
 #### Solution
 
-Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
+If your subscription has already reached its public IP address limit for a given region, then you should do one or the other of the following.
+
+- Create new clusters in a different Databricks workspace. The other workspace must be located in a region in which you have not reached your subscription's public IP address limit.
+- [Request to increase your public IP address limit](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
 
 ### Issue: A second type of cloud provider launch failure while setting up the cluster (MissingSubscriptionRegistration)
 
@@ -118,4 +127,3 @@ Log in as a global administrator to the Azure portal. For Azure Active Directory
 
 - [Quickstart: Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [What is Azure Databricks?](what-is-azure-databricks.md)
-

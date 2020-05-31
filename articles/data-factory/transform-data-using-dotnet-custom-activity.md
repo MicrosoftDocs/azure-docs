@@ -17,6 +17,7 @@ ms.date: 11/26/2018
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Current version](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -29,7 +30,7 @@ To move data to/from a data store that Data Factory does not support, or to tran
 
 See following articles if you are new to Azure Batch service:
 
-* [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
+* [Azure Batch basics](../azure-sql/database/sql-database-paas-overview.md) for an overview of the Azure Batch service.
 * [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 

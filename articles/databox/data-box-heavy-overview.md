@@ -112,7 +112,7 @@ For the most up-to-date information on region availability for Data Box Heavy, g
 
 Take the following steps to sign up for Data Box Heavy:
 
-1. Sign into the Azure portal at: https://portal.azure.com.
+1. [Sign into the Azure portal](https://portal.azure.com).
 2. Click **+ Create a resource** to create a new resource. Search for **Azure Data Box**. Select **Azure Data Box** service.
 3. Click **Create**.
 4. Pick the subscription that you want to use for Data Box Heavy. Select the region where you want to deploy the Data Box Heavy resource. In the **Data Box Heavy** option, click **Sign up**.

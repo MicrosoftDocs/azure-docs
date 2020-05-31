@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
-ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
@@ -293,5 +292,5 @@ The portal experience in the virtual machines shows certain performance counters
 
 - Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it. **Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account.
 
-- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the ["Azure Monitor" sink](diagnostics-extension-schema.md#diagnostics-extension-111).
+- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the Azure Monitor sink.
 

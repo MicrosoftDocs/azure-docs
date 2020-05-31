@@ -19,7 +19,7 @@ The new model for Instant Restore provides the following feature enhancements:
 * Supports disk sizes up to 32 TB. Resizing of disks is not recommended by Azure Backup.
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 * Ability to use an unmanaged VMs original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
-* For backup of VMs that are using premium storage, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete.
+* For backup of VMs that are using unmanaged premium disks in storage accounts, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete.
 
 ## What's new in this feature
 
