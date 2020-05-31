@@ -181,7 +181,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | service |  Yes<br/><br/> [Move API Management across regions](../..api-management/api-management-howto-migrate.md). | 
+> | service |  Yes<br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). | 
 
 ## Microsoft.AppConfiguration
 
@@ -892,7 +892,7 @@ Jump to a resource provider namespace:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | loadbalancers | Yes <br/><br/> You can export the existing configuration as a template, and deploy the template in the new region. Learn how to move an [external](../../move-across-regions-external-load-balancer-portal.md) or [internal](../../move-across-regions-internal-load-balancer-portal.md) load balancer. |
+> | loadbalancers | Yes <br/><br/> You can export the existing configuration as a template, and deploy the template in the new region. Learn how to move an [external](../..//load-balancermove-across-regions-external-load-balancer-portal.md) or [internal](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) load balancer. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
@@ -908,7 +908,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Yes<br/><br/> You can export the existing public IP address configuration as a template, and deploy the template in the new region. [Learn more](../../move-across-regions-publicip-portal.md) about moving a public IP address. |
+> | publicipaddresses | Yes<br/><br/> You can export the existing public IP address configuration as a template, and deploy the template in the new region. [Learn more](../../virtual-network/rmove-across-regions-publicip-portal.md) about moving a public IP address. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
