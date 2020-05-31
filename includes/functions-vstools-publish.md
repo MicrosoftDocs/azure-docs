@@ -20,7 +20,7 @@ ms.custom: include file
     | **Create New** | A new function app, with related resources, is created in Azure. <br/>If you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Use this option only when you republish updates to an existing function app. |
     | **Run from package file** | Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This deployment, which results in better performance, is the recommended way of running your functions. <br/>If you don't use this option, make sure to stop your function app project from running locally before you publish to Azure. |
 
-    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile.png" alt-text="Create a publish profile":::
 
 
 1. Select **Create Profile**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
