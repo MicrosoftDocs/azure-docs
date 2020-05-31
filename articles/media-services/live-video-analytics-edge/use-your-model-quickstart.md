@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Analyze live video with your own model
 
-This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera by applying, detect objects and if present, publish the inference events to the IoT Edge Hub. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on sample code written in C#.
+This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera by applying a computer vision model to detect objects. A subset of the frames in the live video feed are sent to an inference service, and its results are sent to the IoT Edge Hub. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on sample code written in C#.
 
 This article builds on top of [this](detect-motion-emit-events-quickstart.md) quickstart. 
 
@@ -28,17 +28,17 @@ This article builds on top of [this](detect-motion-emit-events-quickstart.md) qu
 ## Review the sample video
 As part of the steps above to set up the Azure resources, a (short) video of a highway traffic will be copied to the Linux VM in Azure being used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
 
-You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit Control+N, and paste [this](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) link to the highway traffic video to start playback. You will see that the footage is of traffic on a highway, with many vehicles moving on it.
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit Control+N, and paste [this](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) link to the video to start playback. You will see that the footage is of traffic on a highway, with many vehicles moving on it.
 
-When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect objects such as a car, a person etc., and publish associated inference events to the IoT Edge Hub.
+When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect objects such as vehicles,persons etc., and publish associated inference events to the IoT Edge Hub.
 
 ## Overview
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-The diagram above shows how the signals flow in this quickstart. An edge module (detailed [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends video frames to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-extension-processor). 
+The diagram above shows how the signals flow in this quickstart. An edge module (detailed [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends video frames to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-extension-processor) node. 
 
-The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The HTTP extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The HTTP extension node plays the role of a proxy, by converting the video frames to the specified image type and relaying the image over REST to another Edge module running an AI model behind an HTTP endpoint. In this example, that Edge module is built using the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which is capable of detecting many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends those event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 In this quickstart, you will:
 
@@ -83,7 +83,7 @@ As part of the pre-requisites, you would have downloaded the sample code to a fo
 
     ![Generate IoT Edge Deployment Manifest](./media/quickstarts/generate-iot-edge-deployment-manifest-yolov3.png)  
 1. This should create a manifest file in src/edge/config folder named " deployment.yolov3.amd64.json".
-1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner. You can copy the string from the appsettings.json file. (Here is another recommended approach to ensure you have the proper IoT Hub configured within Visual Studio Code via the [Select Iot Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+1. If you have previously completed the [quickstart](detect-motion-emit-events-quickstart.md), then skip this step. Otherwise, set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner. You can copy the string from the appsettings.json file. (Here is another recommended approach to ensure you have the proper IoT Hub configured within Visual Studio Code via the [Select Iot Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
     
     ![IoTHub connection string](./media/quickstarts/set-iotconnection-string.png)
 1. Next, right click on "src/edge/config/ deployment.yolov3.amd64.json" and click “Create Deployment for Single Device”. 
@@ -136,7 +136,7 @@ Press Enter to continue
          "parameters": [
            {
              "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
            },
            {
              "name": "rtspUserName",
@@ -198,7 +198,7 @@ Note the following in the above message:
 
 ### Inference event
 
-When an object is detected, Live Video Analytics Edge module provides you with an inference event. The type is set to “entity” to indicate it’s an entity such as a car reported from the external AI module via the Http Extension processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example where two cars were detected with varying levels of confidence in the same video frame.
+When an object is detected, Live Video Analytics Edge module provides you with an inference event. The type is set to “entity” to indicate it’s an entity such as a car reported from the external AI module via the Http Extension processor, and the eventTime tells you at what time (UTC) object was detected. Below is an example where two cars were detected with varying levels of confidence in the same video frame.
 
 ```
 [IoTHubMonitor] [11:37:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -238,7 +238,7 @@ When an object is detected, Live Video Analytics Edge module provides you with a
     ]
   },
   "applicationProperties": {
-    "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/lsravi0421/providers/microsoft.media/mediaservices/lvasamplevnp62uhabqsp6",
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
     "subject": "/graphInstances/YoloV3Inferencing-Graph-2/processors/inferenceClient",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-04-23T06:37:16.097Z"
@@ -248,7 +248,7 @@ When an object is detected, Live Video Analytics Edge module provides you with a
 
 Note the following in the above messages:
 
-* "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
+* "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. 
 * "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 * "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "inferences" data.
