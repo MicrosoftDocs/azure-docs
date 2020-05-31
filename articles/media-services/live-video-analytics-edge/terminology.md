@@ -2,7 +2,7 @@
 title: Terminology - Azure
 description: This article provides an overview of Live Video Analytics on IoT Edge terminology.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/30/2020
 
 ---
 # Terminology
@@ -39,7 +39,7 @@ In the context of a video management system for security cameras, video recordin
 
 ## VMS
 
-[VMS](https://en.wikipedia.org/wiki/Video_management_system), refers to a Video Management System. Such systems are used to configure and control CCTV cameras, capture and record videos from them. These systems also provide client applications to play back the recorded video
+[VMS](https://en.wikipedia.org/wiki/Video_management_system) refers to a Video Management System. Such systems are used to configure and control CCTV cameras, capture and record videos from them. These systems also provide client applications to play back the recorded video
 
 ## Next steps
 
