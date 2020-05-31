@@ -99,6 +99,8 @@
         href: andromedascm-tutorial.md
       - name: AnswerHub
         href: answerhub-tutorial.md
+      - name: Anyone Home CRM
+        href: anyone-home-crm-tutorial.md
       - name: Apex Portal
         href: apexportal-tutorial.md
       - name: AppBlade
@@ -397,6 +399,8 @@
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Curricula SAML
+        href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
@@ -1178,6 +1182,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1775,6 +1781,8 @@
       items:
       - name: 4me
         href: 4me-provisioning-tutorial.md
+      - name: 8x8
+        href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
     - name: A - L

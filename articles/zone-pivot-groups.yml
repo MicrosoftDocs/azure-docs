@@ -320,8 +320,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-more
-    title: More languages...
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-eighteen
   title: Programming languages
   prompt: Choose a programming language
