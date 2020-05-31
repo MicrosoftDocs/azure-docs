@@ -33,15 +33,17 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
 ## Transport Layer Security (TLS)
 
-* Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS) versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
+Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS), which was previously Secure Sockets Layer (SSL), versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
 
-  For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
+For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
 
-* Self-signed certificates
+The HTTP connector doesn't support intermediate TLS/SSL certificates. 
 
-  * For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS certificates. If your logic app makes an HTTP call to a server and presents a TLS self-signed certificate, the HTTP call fails with a "trust failure" error.
+## Self-signed certificates
 
-  * For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the certificate at the `TrustedRoot` location.
+* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+
+* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the certificate at the `TrustedRoot` location.
 
 ## Known issues
 
