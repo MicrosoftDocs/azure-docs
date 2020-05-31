@@ -68,6 +68,8 @@ This article shows how to reset the network interface for Azure Windows VM to re
 
 ### For Classic VMs
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 To reset network interface, follow these steps:
 
 #### Use Azure portal

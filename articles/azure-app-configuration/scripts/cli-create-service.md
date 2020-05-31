@@ -13,7 +13,7 @@ ms.author: lcozzens
 
 # Create an Azure App Configuration Store
 
-This sample script creates a new instance of Azure App Configuration in a new resource group with a random name.
+This sample script creates a new instance of Azure App Configuration in a new resource group.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,8 +39,10 @@ appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
   --location eastus \
   --resource-group $myResourceGroupName \
-  --query hostName \
-  -o tsv)
+  --query endpoint \
+  --sku free \
+  -o tsv
+  )
 
 # Get the AppConfig connection string 
 appConfigConnectionString=$(az appconfig credential list \

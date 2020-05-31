@@ -1,13 +1,12 @@
 ---
 title: Choose the front-end development platform for building client applications with Visual Studio and Azure services
 description: Learn about the supported native and cross-platform languages to build client applications.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 # Choose mobile development frameworks
 Developers can use client-side technologies to build mobile applications themselves by using specific frameworks and patterns for a cross-platform approach. Based on their decision factors, developers can build:

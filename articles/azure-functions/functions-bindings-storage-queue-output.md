@@ -13,6 +13,8 @@ ms.custom: cc996988-fb4f-47
 
 Azure Functions can create new Azure Queue storage messages by setting up an output binding.
 
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-queue.md).
+
 ## Example
 
 # [C#](#tab/csharp)
@@ -117,7 +119,7 @@ Here's the *function.json* file:
     {
       "type": "queue",
       "direction": "out",
-      "name": "$return",
+      "name": "myQueueItem",
       "queueName": "outqueue",
       "connection": "MyStorageConnectionAppSetting"
     }
@@ -131,7 +133,8 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
-    context.done(null, input.body);
+    context.bindings.myQueueItem = input.body;
+    context.done();
 };
 ```
 

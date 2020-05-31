@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As a developer of an image management app, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
 ---
 
 # Tutorial: Create an Android app to detect and frame faces in an image
 
-In this tutorial, you will create an Android application that uses the Azure Face service, through the Java SDK, to detect human faces in an image. The application displays a selected image and draws a frame around each detected face.
+In this tutorial, you'll create an Android application that uses the Azure Face service, through the Java SDK, to detect human faces in an image. The application displays a selected image and draws a frame around each detected face.
 
 This tutorial shows you how to:
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
-- [Android Studio](https://developer.android.com/studio/) with API level 22 or later (required by the Face client library).
+- [Android Studio](https://developer.android.com/studio/) with API level 22 or later.
 
 ## Create the Android Studio project
 
@@ -120,7 +120,7 @@ Run the application and browse for an image with a face. Wait a few seconds to a
 
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face Java SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
+In this tutorial, you learned how to use the Face Java SDK to create an application to detect and frame faces in an image. Next, learn more about the details of face detection.
 
 > [!div class="nextstepaction"]
 > [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

@@ -4,7 +4,7 @@ description: Learn about how the Array slice SQL system function in Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -61,6 +61,10 @@ SELECT
            "s7": [] 
 }]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

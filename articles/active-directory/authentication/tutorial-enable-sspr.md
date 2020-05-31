@@ -103,7 +103,7 @@ To keep users informed about account activity, you can configure e-mail notifica
 If users need additional help with the SSPR process, you can customize the link for "Contact your administrator". This link is used in the SSPR registration process and when a user unlocks their account or resets their password. To make sure your users get the support needed, it's highly recommended to provide a custom helpdesk email or URL.
 
 1. On the **Customization** page from the menu in the left-hand side, set *Customize helpdesk link* to **Yes**.
-1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get additional help from your organization, such as *https://support.contoso.com/*
+1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get additional help from your organization, such as *`https://support.contoso.com/`*
 1. To apply the custom link, select **Save**.
 
 ## Test self-service password reset

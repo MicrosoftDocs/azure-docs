@@ -3,10 +3,10 @@ title: "Tutorial: Enable authentication in a web application"
 titleSuffix: Azure AD B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
@@ -89,6 +89,7 @@ Update the settings in the Web.config file to work with your user flow:
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 1. In the **TaskWebApp** project, open the **Web.config** file.
     1. Update the value of `ida:Tenant` and `ida:AadInstance` with the name of the Azure AD B2C tenant that you created. For example, replace `fabrikamb2c` with `contoso`.
+    1. Replace the value of `ida:TenantId` with the directory ID, which you can find in the properties for your Azure B2C tenant (in the Azure portal under **Azure Active Directory** > **Properties** > **Directory ID**).
     1. Replace the value of `ida:ClientId` with the application ID that you recorded.
     1. Replace the value of `ida:ClientSecret` with the key that you recorded. If the client secret contains any predefined XML entities, for example less than (`<`), greater than (`>`), ampersand (`&`), or double quote (`"`), you must escape those characters by XML-encoding the client secret before adding it to your Web.config.
     1. Replace the value of `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`.

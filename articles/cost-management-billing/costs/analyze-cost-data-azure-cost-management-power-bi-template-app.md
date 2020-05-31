@@ -1,10 +1,9 @@
 ---
 title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/15/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -38,7 +37,7 @@ To install the app:
   ![Get started with your new app - Connect](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
   ![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. The next dialog connects to Azure and gets data required for reserved instance recommendations. Leave the default values as configured and select **Sign in**.  
+10. The next dialog connects to Azure and gets data required for reserved instance recommendations. *Leave the default values as configured* and select **Sign in**.  
   ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
   ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -119,6 +118,50 @@ For details about how to use the report, see the [VM RI Coverage (shared recomme
 **RI purchases** - The report shows RI purchases over the specified period.
 
 **Price sheet** - The report shows a detailed list of prices specific to a Billing account or EA enrollment.
+
+## Troubleshoot problems
+
+If you're having issues with the Power BI app, the following troubleshooting information might help.
+
+### BudgetAmount error
+
+You might get an error stating:
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### Cause
+
+This error occurs because of a bug with the underlying metadata. The issue happens because there's no budget available under **Cost Management > Budget** in the Azure portal. The bug fix is in the process of getting deployed to the Power BI Desktop and Power BI service. 
+
+#### Solution
+
+- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+
+
+### Invalid credentials for AzureBlob error
+
+You might get an error stating:
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### Cause
+
+This error occurs if you change the authentication method for the AutoFitComboMeter blob connection.
+
+#### Solution
+
+1. Connect to your data.
+1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
+  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
+
 
 ## Data reference
 

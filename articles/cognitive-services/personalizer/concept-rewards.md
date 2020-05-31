@@ -1,26 +1,21 @@
 ---
 title: Reward score - Personalizer
-titleSuffix: Azure Cognitive Services
 description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains its machine learning models by evaluating the rewards.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
 ---
 
 # Reward scores indicate success of personalization
 
 The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 
-Personalizer trains its machine learning models by evaluating the rewards. 
+Personalizer trains its machine learning models by evaluating the rewards.
+
+Learn [how to](how-to-settings.md#configure-rewards-for-the-feedback-loop) configure the default reward score in the Azure portal for your Personalizer resource.
 
 ## Use Reward API to send reward score to Personalizer
 
-Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Typically, a reward is a number from 0 and 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
+Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Typically, a reward is a number from 0 to 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 
@@ -42,16 +37,16 @@ Consider these signals and behaviors for the context of the reward score:
 
 A Reward score must be computed in your business logic. The score can be represented as:
 
-* A single number sent once 
+* A single number sent once
 * A score sent immediately (such as 0.8) and an additional score sent later (typically 0.2).
 
 ## Default Rewards
 
 If no reward is received within the [Reward Wait Time](#reward-wait-time), the duration since the Rank call, Personalizer implicitly applies the **Default Reward** to that Rank event.
 
-## Building up rewards with multiple factors  
+## Building up rewards with multiple factors
 
-For effective personalization, you can build up the reward score based on multiple factors. 
+For effective personalization, you can build up the reward score based on multiple factors.
 
 For example, you could apply these rules for personalizing a list of video content:
 
@@ -88,8 +83,8 @@ By adding up reward scores, your final reward may be outside the expected score 
 * **Consider unintended consequences**: Create reward functions that lead to responsible outcomes with [ethics and responsible use](ethics-responsible-use.md).
 
 * **Use Incremental Rewards**: Adding partial rewards for smaller user behaviors helps Personalizer to achieving better rewards. This incremental reward allows the algorithm to know it's getting closer to engaging the user in the final desired behavior.
-    * If you are showing a list of movies, if the user hovers over the first one for a while to see more information, you can determine that some user-engagement happened. The behavior can count with a reward score of 0.1. 
-    * If the user opened the page and then exited, the reward score can be 0.2. 
+    * If you are showing a list of movies, if the user hovers over the first one for a while to see more information, you can determine that some user-engagement happened. The behavior can count with a reward score of 0.1.
+    * If the user opened the page and then exited, the reward score can be 0.2.
 
 ## Reward wait time
 
@@ -101,12 +96,12 @@ If the **Reward Wait Time** expires, and there has been no reward information, a
 
 Follow these recommendations for better results.
 
-* Make the Reward Wait Time as short as you can, while leaving enough time to get user feedback. 
+* Make the Reward Wait Time as short as you can, while leaving enough time to get user feedback.
 
 * Don't choose a duration that is shorter than the time needed to get feedback. For example, if some of your rewards come in after a user has watched 1 minute of a video, the experiment length should be at least double that.
 
 ## Next steps
 
-* [Reinforcement learning](concepts-reinforcement-learning.md) 
+* [Reinforcement learning](concepts-reinforcement-learning.md)
 * [Try the Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Try the Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

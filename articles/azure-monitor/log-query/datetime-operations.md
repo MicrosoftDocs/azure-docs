@@ -1,7 +1,6 @@
 ---
 title: Working with date time values in Azure Monitor log queries| Microsoft Docs
 description: Describes how to work with date and time data in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

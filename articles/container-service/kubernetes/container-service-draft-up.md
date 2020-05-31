@@ -97,7 +97,7 @@ Now that you have a cluster, you can import the credentials by using the [az acs
 
 
 1. Download draft for your environment at https://github.com/Azure/draft/releases and install into your PATH so that the command can be used.
-2. Download helm for your environment at https://github.com/kubernetes/helm/releases and [install it into your PATH so that the command can be used](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+2. Download helm for your environment at https://github.com/kubernetes/helm/releases and [install it into your PATH so that the command can be used](https://helm.sh/docs/intro/quickstart#install-helm).
 3. Configure Draft to use your registry and create subdomains for each Helm chart it creates. To configure Draft, you need:
    - your Azure Container Registry name (in this example, `draftacsdemo`)
    - your registry key, or password, from `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.

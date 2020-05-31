@@ -80,7 +80,6 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Azure Cloud Shell |  https:\//portal.azure.us | https:\//portal.azure.com |
 | Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
-| Active Directory Graph API | https:\//graph.windows.net/ | https:\//graph.windows.net/ |
 | Microsoft Graph API | https:\//graph.microsoft.us/ | https:\//graph.microsoft.com/ |
 | Azure API | https:\//management.usgovcloudapi.net/ | https:\//management.azure.com/ |
 | SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |

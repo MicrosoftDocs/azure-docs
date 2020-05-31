@@ -26,11 +26,11 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 | Language                                        | Add by...                                   | Remarks 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version 3.x | |
+| C#                                              | Installing the [NuGet package], version 4.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
 | C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Update your extensions]: ./install-update-binding-extensions-manual.md

@@ -32,13 +32,13 @@ Select a Private Cloud for additional information and actions.
 
 ## Private Cloud summary
 
-View a comprehensive summary of the selected Private Cloud.  Summary page includes the DNS servers deployed on the Private Cloud.  You can set up DNS forwarding from on-premises DNS servers to your Private Cloud DNS servers.  For more information on DNS forwarding, see [Configure DNS for name resolution for Private Cloud vCenter from on-premises](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+View a comprehensive summary of the selected Private Cloud.  Summary page includes the DNS servers deployed on the Private Cloud.  You can set up DNS forwarding from on-premises DNS servers to your Private Cloud DNS servers.  For more information on DNS forwarding, see [Configure DNS for name resolution for Private Cloud vCenter from on-premises](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
 
 ![Private Cloud Summary](media/private-cloud-summary.png)
 
 ### Available actions
 
-* [Launch vSphere client](https://docs.azure.cloudsimple.com/vsphere-access/). Access the vCenter for this Private Cloud.
+* [Launch vSphere client](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Access the vCenter for this Private Cloud.
 * [Purchase nodes](create-nodes.md). Add nodes to this Private Cloud.
 * [Expand](expand-private-cloud.md). Add nodes to this Private Cloud.
 * **Refresh**. Update the information on this page.
@@ -53,10 +53,10 @@ View the list of defined VLANs/subnets for the selected Private Cloud.  The list
 
 ### Available actions
 
-* [Add VLANS/Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Add a VLAN/subset to this Private Cloud.
+* [Add VLANS/Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Add a VLAN/subset to this Private Cloud.
 
 Select a VLAN/Subnet for following actions
-* [Attach firewall table](https://docs.azure.cloudsimple.com/firewall/). Attach a firewall table to this Private Cloud.
+* [Attach firewall table](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Attach a firewall table to this Private Cloud.
 * **Edit**
 * **Delete** (only user-defined VLANs/Subnets)
 

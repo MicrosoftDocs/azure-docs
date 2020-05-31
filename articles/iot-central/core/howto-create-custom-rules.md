@@ -4,7 +4,7 @@ description: As a solution developer, configure an IoT Central application to se
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
@@ -226,10 +226,10 @@ After a few minutes, the **To** email address receives an email with the followi
 ```txt
 The following device(s) have stopped sending telemetry:
 
-Device ID	Time
-test-device-1	2019-05-02T14:23:39.527Z
-test-device-2	2019-05-02T14:23:50.717Z
-test-device-3	2019-05-02T14:24:28.919Z
+Device ID    Time
+test-device-1    2019-05-02T14:23:39.527Z
+test-device-2    2019-05-02T14:23:50.717Z
+test-device-3    2019-05-02T14:24:28.919Z
 ```
 
 ## Add Stream Analytics query

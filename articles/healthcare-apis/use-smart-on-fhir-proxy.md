@@ -37,11 +37,9 @@ After you complete these steps, you should have:
 
 ## Enable the SMART on FHIR proxy
 
-Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance:
+Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance by selecting the **SMART on FHIR proxy** check box:
 
 ![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
-
-Change the **Audience** information to match the URI of your FHIR API, and select the **SMART on FHIR proxy** check box.
 
 ## Enable CORS
 

@@ -74,7 +74,7 @@ conceptualContent:
           text: Troubleshoot Windows virtual machines
       # footerLink (optional)
       footerLink:
-        url: https://docs.microsoft.com/azure/virtual-machines/linux/
+        url: https://docs.microsoft.com/azure/virtual-machines/windows/
         text: See more
     # Card
     - title: Virtual machine scale sets

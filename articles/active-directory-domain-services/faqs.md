@@ -9,8 +9,8 @@ ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 01/21/2020
+ms.topic: how-to
+ms.date: 03/09/2020
 ms.author: iainfou
 
 ---
@@ -32,18 +32,21 @@ This page answers frequently asked questions about Azure Active Directory Domain
 * [Can I add domain controllers to an Azure AD Domain Services managed domain?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Can guest users invited to my directory use Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Does Azure AD Domain Services include high availability options?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.
 
 ### Can I enable Azure AD Domain Services in a Classic virtual network?
-Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported. You can also [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager (preview)](migrate-from-classic-vnet.md).
+Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported until they're retired on March 1, 2023. For existing deployments, you can [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
+
+For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer available when you create a managed domain.
 
 ### Can I migrate my existing managed domain from a Classic virtual network to a Resource Manager virtual network?
-Yes, this feature is in preview. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager (preview)](migrate-from-classic-vnet.md).
+Yes. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
 
 ### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
 Yes. For more information, see [how to enable Azure AD Domain Services in Azure CSP subscriptions](csp.md).
@@ -69,6 +72,10 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
 No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
 
+### Does Azure AD Domain Services include high availability options?
+
+Yes. Each Azure AD Domain Services managed domain includes two domain controllers. You don't manage or connect to these domain controllers, they're part of the managed service. If you deploy Azure AD Domain Services into a region that supports Availability Zones, the domain controllers are distributed across zones. In regions that don't support Availability Zones, the domain controllers are distributed across Availability Sets. You have no configuration options or management control over this distribution. For more information, see [Availability options for virtual machines in Azure](../virtual-machines/windows/availability.md).
+
 ## Administration and operations
 
 * [Can I connect to the domain controller for my managed domain using Remote Desktop?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
@@ -80,18 +87,19 @@ No. After you create an Azure AD Domain Services managed domain, you can't then 
 * [Can I modify or add DNS records in my managed domain?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [What is the password lifetime policy on a managed domain?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Does Azure AD Domain Services provide AD account lockout protection?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Can I configure Distributed File System (DFS) and replication within Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
 
 ### I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-Members of the administrative group *AAD DC Administrators* can domain-join machines. Additionally, members of this group are granted remote desktop access to machines that have been joined to the domain.
+Any user account that's part of the Azure AD DS managed domain can join a VM. Members of the *AAD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
 
 ### Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
 No. You aren't granted administrative privileges on the managed domain. *Domain Administrator* and *Enterprise Administrator* privileges aren't available for you to use within the domain. Members of the domain administrator or enterprise administrator groups in your on-premises Active Directory are also not granted domain / enterprise administrator privileges on the managed domain.
 
 ### Can I modify group memberships using LDAP or other AD administrative tools on managed domains?
-No. Group memberships can't be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You can change group memberships or user attributes either in Azure AD or on your on-premises domain. Changes are automatically synchronized to Azure AD Domain Services.
+Users and groups that are synchronized from Azure Active Directory to Azure AD Domain Services cannot be modified because their source of origin is Azure Active Directory. Any user or group originating in the managed domain may be modified.
 
 ### How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?
 Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are automatically synchronized to your managed domain. This synchronization process runs in the background. There's no defined time period for this synchronization to complete all the object changes.
@@ -107,6 +115,9 @@ The default password lifetime on an Azure AD Domain Services managed domain is 9
 
 ### Does Azure AD Domain Services provide AD account lockout protection?
 Yes. Five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked. Invalid password attempts on the managed domain don't lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain. For more information, see [Password and account lockout policies on managed domains](password-policy.md).
+
+### Can I configure Distributed File System and replication within Azure AD Domain Services?
+No. Distributed File System (DFS) and replication aren't available when using Azure AD Domain Services.
 
 ## Billing and availability
 

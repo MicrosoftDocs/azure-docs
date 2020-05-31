@@ -27,12 +27,12 @@ Organizations can use this control to require Azure AD to pass device informatio
 
 For more information on the use and configuration of app enforced restrictions, see the following articles:
 
-- [Enabling limited access with SharePoint Online](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [Enabling limited access with SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## Conditional Access application control
 
-Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define who (user or group of users) and what (which cloud apps) and where (which locations and networks) a Conditional Access policy is applied to. After you’ve determined the conditions, you can route users to [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
+Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define who (user or group of users) and what (which cloud apps) and where (which locations and networks) a Conditional Access policy is applied to. After you’ve determined the conditions, you can route users to [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
 
 Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Cloud App Security portal to further refine filters and set actions to be taken on a user. With the access and session policies, you can:
 
@@ -43,9 +43,9 @@ Conditional Access App Control enables user app access and sessions to be monito
 - Block access: You can granularly block access for specific apps and users depending on several risk factors. For example, you can block them if they are using client certificates as a form of device management.
 - Block custom activities: Some apps have unique scenarios that carry risk, for example, sending messages with sensitive content in apps like Microsoft Teams or Slack. In these kinds of scenarios, you can scan messages for sensitive content and block them in real time.
 
-For more information, see the article [Deploy Conditional Access App Control for featured apps](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+For more information, see the article [Deploy Conditional Access App Control for featured apps](/cloud-app-security/proxy-deployment-aad).
 
-## Sign-in frequency (Preview)
+## Sign-in frequency
 
 Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
@@ -63,7 +63,7 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 
 For more information, see the article [Configure authentication session management with Conditional Access](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## Persistent browser session (Preview)
+## Persistent browser session
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
