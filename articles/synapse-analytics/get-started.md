@@ -86,12 +86,12 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 
 A SQL pool consumes billable resources as long as it's running. So, you can pause the pool when needed to reduce costs.
 
-When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
+When your SQL pool is created, it will be associated with a SQL pool database also called `SQLDB1`.
 
 ## Create an Apache Spark pool
 
 1. In Synapse Studio, on the left side select **Manage > Apache Spark pools**
-1. Select **+New** and enter these settings:
+1. Select **+New** and enter these values:
 
     |Setting | Suggested value | 
     |---|---|
@@ -102,12 +102,12 @@ When your SQL pool is created, it will be associated with a SQL pool database al
 1. Select **Review+create** and then select **Create**.
 1. Your Apache Spark pool will be ready in a few seconds.
 
-> [!NOTE]
-> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to inform the Synapse workspace how to interact with Spark. 
-
 Because they are metadata, Spark pools cannot be started or stopped. 
 
 When you do any Spark activity in Synapse, you specify a Spark pool to use. The pool informs Synapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool, the resources will automatically time out and be recycled.
+
+> [!NOTE]
+> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to inform the Synapse workspace how to interact with Spark. 
 
 > [!NOTE]
 > Spark databases are independently created from Spark pools. A workspace always has a Spark DB called **default** and you can create additional Spark databases.
