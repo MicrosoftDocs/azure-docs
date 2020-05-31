@@ -200,7 +200,7 @@ Press Enter to continue
 1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
 1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
      * These messages are discussed in the section below
-1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resouces:
+1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resources:
      * A call to GraphInstanceDeactivate to deactivate the graph instance
      * A call to GraphInstanceDelete to delete the instance
      * A call to GraphTopologyDelete to delete the topology
@@ -276,7 +276,7 @@ When motion is detected, the Live Video Analytics Edge module sends an inference
 * "eventTime" indicates the time when the event occurred.
 "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
 * "inferences" data indicates that the "type" is "motion" and has additional data about that "motion" event.
-* "box" section contains the co-ordinates for a bounding box around the moving object. The values are normalized by the width and height of the video in pixels (eg. width of 1920 and height of 1080).
+* "box" section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video in pixels (eg. width of 1920 and height of 1080).
 
     ```
     l - distance from left of image
