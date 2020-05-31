@@ -28,7 +28,7 @@ Visual Studio creates a project and class that contains boilerplate code for the
 
 ## Rename the function
 
-The `FunctionName` method attribute sets the name of the function, which by default is `Function1`. Since the Functions template doesn't let you override the default function name when you create your project, let's take a minute to create a better name for the function class, file, and metadata.
+The `FunctionName` method attribute sets the name of the function, which by default is generated as `Function1`. Since the tooling doesn't let you override the default function name when you create your project, take a minute to create a better name for the function class, file, and metadata.
 
 1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
 
