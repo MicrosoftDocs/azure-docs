@@ -147,37 +147,80 @@ Follow the steps below to run the sample code.
 1. Under the node GraphTopologySet, ensure the following:
 
     ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Next, under the node GraphInstanceSet, ensure that the value of topologyName matches the value of "name" property in the above graph topology:
+1. Next, under the nodes GraphInstanceSet and GraphTopologyDelete, ensure that the value of topologyName matches the value of "name" property in the above graph topology:
 
     `"topologyName" : "MotionDetection"`
     
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
-1. In the TERMINAL window, you will see the responses to the direct method calls. In this quickstart, there will be two instances where the program will ask you to press the "Enter" key for it to load and run the media graph.
-
-    * After invoking the GraphTopologyList and getting a successful response with status: 200.
-    * After invoking the GraphInstanceList and getting a successful response with status: 200.
-1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
-1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can do the following:
-
+1. The operations.json starts off with calls to GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
+1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
+     * A call to GraphTopologySet using the topologyUrl above
+     * A call to GraphInstanceSet using the following body
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph",
+       "properties": {
+         "topologyName": "MotionDetection",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
+           }
+         ]
+       }
+     }
+     ```
+     * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
+     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
+1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
+1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
+     * These messages are discussed in the section below
+1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resouces:
+     * A call to GraphInstanceDeactivate to deactivate the graph instance
+     * A call to GraphInstanceDelete to delete the instance
+     * A call to GraphTopologyDelete to delete the topology
+     * A final call to GraphTopologyList to show that the list is now empty
 
 ## Interpret results
 
-In the media graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the streaming messaging format established for device-to-cloud communications by IoT Hub:
-
-* A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties
-* A body tag that will contain the diagnostic or the operational event messages
+When you run the media graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The messages you see in the OUTPUT window of Visual Studio Code contain a "body" section and an "applicationProperties" section. To understand what these sections represent, read [this](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) article.
 
 In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module.
 
 ## MediaSession Established event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the rtspsim-live555 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the rtspsim-live555 container. If successful, it will print this event:
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  
 {  
 "body": {
-"sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"  
+"sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"  
 },  
 "applicationProperties": {  
     "dataVersion": "1.0",  
@@ -189,20 +232,21 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 }
 ```
 
-Note the following in the above message:
+* The message is a Diagnostics event, MediaSessionEstablished, indicates that the RTSP source node (the subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
+* The "subject" in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message is originating from the RTSP source node.
+* "eventType" in applicationProperties indicates that this is a Diagnostics event.
+* "eventTime" indicates the time when the event occurred.
+* "body" contains data about the diagnostic event, which, in this case, is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
-* "eventType" in applicationProperties indicates that this is a Diagnostic event.
-* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body contains the sdp information.
 
 ## Motion Detection event
 
-When motion is detected, Live Video Analytics Edge module provides you with an inference event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
+When motion is detected, Live Video Analytics Edge module sends an inference event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
 
 ```
   {  
   "body": {  
-    "timestamp": 142843967343090, // internal  
+    "timestamp": 142843967343090,
     "inferences": [  
       {  
         "type": "motion",  
@@ -221,7 +265,7 @@ When motion is detected, Live Video Analytics Edge module provides you with an i
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
     "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",   // Time of day when we saw the events  
+    "eventTime": "2020-04-17T20:26:32.7010000Z",
     "dataVersion": "1.0"  
   }  
 }  
@@ -229,18 +273,16 @@ When motion is detected, Live Video Analytics Edge module provides you with an i
 
 Note the following in the above message:
 
-The message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
-
 * "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
 * "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
-* "inferences" section indicates that the "type" is "motion" and has additional data about the "motion" event.
-* "box" section shows the Bounding box coordinates [l t w h] of the moving object.
+* "inferences" data indicates that the "type" is "motion" and has additional data about that "motion" event.
+* "box" section contains the co-ordinates for a bounding box around the moving object. The values are normalized by the width and height of the video in pixels (eg. width of 1920 and height of 1080).
 
     ```
-    l - pixel number from left of image
-    t - pixel number from top of image
+    l - distance from left of image
+    t - distance from top of image
     w - width of bounding box
     h - height of bounding box
     ```
