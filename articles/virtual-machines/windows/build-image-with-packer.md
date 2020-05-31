@@ -100,7 +100,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
     },
 
     "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",

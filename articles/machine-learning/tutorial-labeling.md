@@ -15,7 +15,7 @@ ms.date: 04/09/2020
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
 
-# Tutorial: Create a labeling project for multi-class image classification 
+# Tutorial: Create a labeling project (preview) for multi-class image classification 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
@@ -75,13 +75,13 @@ Azure Machine Learning datastores are used to store connection information, like
 
 ### Create a labeling project
 
-Now that you have your list of labelers and access to the data you want to have labeled, create your labeling project.
+Now that you have access to the data you want to have labeled, create your labeling project.
 
 1. At the top of the page, select **Projects**.
 
 1. Select **+ Add project**.
 
-    ![Create a project](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Create a project":::
 
 ### Project details
 

@@ -27,9 +27,12 @@ Make sure you do the following before configuring backups:
 * Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](#set-up-network-connectivity) procedure below.
 * A key should exist in the **hdbuserstore** that fulfills the following criteria:
   * It should be present in the default **hdbuserstore**
-  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC it should point to the SQL port of **INDEXSERVER**
+  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC, it should point to the SQL port of **INDEXSERVER**
   * It should have credentials to add and delete users
 * Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup. Refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
+
+>[!NOTE]
+>The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For the Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## Set up network connectivity
 

@@ -6,7 +6,7 @@ author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
 
 ---
@@ -17,150 +17,9 @@ This article lists detailed descriptions of the available features for Azure Con
 
 The third part of a rule is the feature. A feature defines the type of action that is applied to the request type that is identified by a set of match conditions.
 
-## Access features
 
-These features are designed to control access to content.
+For the most recent features, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
-Name | Purpose
------|--------
-[Deny Access (403)](#deny-access-403) | Determines whether all requests are rejected with a 403 Forbidden response.
-[Token Auth](#token-auth) | Determines whether Token-Based Authentication is applied to a request.
-[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to token-based authentication.
-[Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
-[Token Auth Parameter](#token-auth-parameter) | Determines whether the Token-Based Authentication query string parameter should be renamed.
-
-## Caching features
-
-These features are designed to customize when and how content is cached.
-
-Name | Purpose
------|--------
-[Bandwidth Parameters](#bandwidth-parameters) | Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) are active.
-[Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the point-of-presence (POP).
-[Bypass Cache](#bypass-cache) | Determines whether the request should bypass caching.
-[Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of `Cache-Control` headers by the POP when External Max-Age feature is active.
-[Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key includes or excludes query string parameters associated with a request.
-[Cache-Key Rewrite](#cache-key-rewrite) | Rewrites the cache-key associated with a request.
-[Complete Cache Fill](#complete-cache-fill) | Determines what happens when a request results in a partial cache miss on a POP.
-[Compress File Types](#compress-file-types) | Defines the file formats for the files that are compressed on the server.
-[Default Internal Max-Age](#default-internal-max-age) | Determines the default max-age interval for POP to origin server cache revalidation.
-[Expires Header Treatment](#expires-header-treatment) | Controls the generation of `Expires` headers by a POP when the External Max-Age feature is active.
-[External Max-Age](#external-max-age) | Determines the max-age interval for browser to POP cache revalidation.
-[Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for POP to origin server cache revalidation.
-[H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
-[Honor No-Cache Request](#honor-no-cache-request) | Determines whether an HTTP client's no-cache requests are forwarded to the origin server.
-[Ignore Origin No-Cache](#ignore-origin-no-cache) | Determines whether the CDN ignores certain directives served from an origin server.
-[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Determines the response that is returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
-[Internal Max-Stale](#internal-max-stale) | Controls how long past the normal expiration time a cached asset may be served from a POP when the POP is unable to revalidate the cached asset with the origin server.
-[Partial Cache Sharing](#partial-cache-sharing) | Determines whether a request can generate partially cached content.
-[Prevalidate Cached Content](#prevalidate-cached-content) | Determines whether cached content is eligible for early revalidation before its TTL expires.
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by the POPs.
-[Set Cacheable Status Codes](#set-cacheable-status-codes) | Defines the set of status codes that can result in cached content.
-[Stale Content Delivery on Error](#stale-content-delivery-on-error) | Determines whether expired cached content is delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
-[Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing the POPs to serve stale client to the requester while revalidation takes place.
-
-## Comment feature
-
-This feature is designed to provide additional information within a rule.
-
-Name | Purpose
------|--------
-[Comment](#comment) | Allows a note to be added within a rule.
-
-## Header features
-
-These features are designed to add, modify, or delete headers from the request or response.
-
-Name | Purpose
------|--------
-[Age Response Header](#age-response-header) | Determines whether an Age response header is included in the response sent to the requester.
-[Debug Cache Response Headers](#debug-cache-response-headers) | Determines whether a response may include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
-[Modify Client Request Header](#modify-client-request-header) | Overwrites, appends, or deletes a header from a request.
-[Modify Client Response Header](#modify-client-response-header) | Overwrites, appends, or deletes a header from a response.
-[Set Client IP Custom Header](#set-client-ip-custom-header) | Allows the IP address of the requesting client to be added to the request as a custom request header.
-
-## Logging features
-
-These features are designed to customize the data stored in raw log files.
-
-Name | Purpose
------|--------
-[Custom Log Field 1](#custom-log-field-1) | Determines the format and the content that is assigned to the custom log field in a raw log file.
-[Log Query String](#log-query-string) | Determines whether a query string is stored along with the URL in access logs.
-
-
-<!---
-## Optimize
-
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
-
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-### Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
-
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
-
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
-
-**Default Behavior:** Disabled
-
-
-### Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Key information:
-
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
-
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
-
-**Default Behavior:** Site configurations are inactive by default.
---->
-
-## Origin features
-
-These features are designed to control how the CDN communicates with an origin server.
-
-Name | Purpose
------|--------
-[Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Defines the maximum number of requests for a Keep-Alive connection before it is closed.
-[Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that are forwarded from a POP to an origin server.
-
-## Specialty features
-
-These features provide advanced functionality for advanced users.
-
-Name | Purpose
------|--------
-[Cacheable HTTP Methods](#cacheable-http-methods) | Determines the set of additional HTTP methods that can be cached on the network.
-[Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
-[User Variable](#user-variable) | For internal use only.
-
-## URL features
-
-These features allow a request to be redirected or rewritten to a different URL.
-
-Name | Purpose
------|--------
-[Follow Redirects](#follow-redirects) | Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server.
-[URL Redirect](#url-redirect) | Redirects requests via the Location header.
-[URL Rewrite](#url-rewrite)  | Rewrites the request URL.
 
 ## Azure CDN from Verizon Premium rules engine features reference
 
@@ -484,8 +343,8 @@ Internet Media Type|Description
 text/plain|Plain text files
 text/html| HTML files
 text/css|Cascading Style Sheets (CSS)
-application/x-javascript|Javascript
-application/javascript|Javascript
+application/x-javascript|JavaScript
+application/javascript|JavaScript
 
 Key information:
 
@@ -1421,9 +1280,6 @@ This feature includes matching criteria that must be met before it can be applie
 **Purpose:** For internal use only.
 
 [Back to top](#azure-cdn-from-verizon-premium-rules-engine-features)
-
-</br>
-
 ## Next steps
 
 - [Rules engine reference](cdn-verizon-premium-rules-engine-reference.md)
