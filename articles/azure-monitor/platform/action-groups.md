@@ -112,7 +112,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
     > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
     
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
-    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
+    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
     - Run the modified script.
     
 1. Configure the Action Group Secure Webhook action.
@@ -239,7 +239,7 @@ You may have a limited number of Webhook actions in an Action Group.
 ## Next steps
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
+* Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md).
 * Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
