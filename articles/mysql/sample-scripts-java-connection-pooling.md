@@ -132,7 +132,7 @@ public class MySQLConnectionPool {
 	 * @throws SQLException
 	 *             When fail to create a new connection.
 	 */
-	private Connection createNewConnection() throws SQLException {
+	private Connection createNewConnection()
 		Connection conn = null;
 		conn = DriverManager.getConnection(databaseUrl, userName, password);
 		return conn;
