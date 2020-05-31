@@ -60,7 +60,7 @@ In the request header, include these properties:
 
 ## Request body
 
-Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that uses a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For existing ISEs, you can send a PATCH request for only the `certificates` property.
+Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that uses a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For existing ISEs, you can send a PATCH request for only the `certificates` property. For more information about self-signed certificate support, see [HTTP connector - Transport Layer Security (TLS) support]().
 
 ```json
 {

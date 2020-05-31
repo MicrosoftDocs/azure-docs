@@ -29,7 +29,7 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
-<a name="authentication"></a>
+<a name="tls-support"></a>
 
 ## Transport Layer Security (TLS)
 
@@ -41,7 +41,7 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
   * For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a "trust failure" error.
 
-  * For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed TLS/SSL certificates, but you must first [enable the self-signed TLS/SSL certificate](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API and install the certificate at the `TrustedRoot`location.
+  * For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes, but you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API and install the certificate at the `TrustedRoot`location.
 
 ## Known issues
 
