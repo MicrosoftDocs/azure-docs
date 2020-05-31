@@ -100,7 +100,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     Examples:
     
     * **IoT Edge Module Name**: lvaEdge
-    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0.0o	 
+    * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0	 
     
     ![Add](./media/deploy-iot-edge-device/add.png)
     
@@ -112,7 +112,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 1. Open the **Environment Variables** tab.
    
-   Copy and paste the following JSON into the box, to provide the local user credentials to be used to save the application data and the video outputs.
+   Copy and paste the following JSON into the box, to provide the user ID and the group ID to be used to save the application data and the video outputs.
     ```   
    {
         "LOCAL_USER_ID": 
@@ -148,25 +148,38 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         }
     }
     ````
+   
+   The "Binds" section in the JSON has 2 entries:
+   1. "/var/lib/azuremediaservices:/var/lib/azuremediaservices": This is used to bind the persistent application configuration data from the container and store it on the edge device.
+   1. "/var/media:/var/media": This binds the media folders between the edge device and the container. This is used to store the video recordings when you run a media graph topology that supports storing of video clips on the edge device.
+   
 1. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
  
     ![Twin settings](./media/deploy-iot-edge-device/twin-settings.png)
 
-    Configure each property with an appropriate value. See [Module Twin configuration schema](module-twin-configuration-schema.md) for more details on what each property means. To get these values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).
+    Live Video Analytics on IoT Edge requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
 
-    Following are the required properties:
-    
+    The JSON that you need to enter into Module Twin Settings edit box will look like this:    
     ```
     {
         "applicationDataDirectory": "/var/lib/azuremediaservices",
-        "azureMediaServicesArmId": "/subscriptions/{subID}/resourceGroups/{res-group-name}/providers/microsoft.media/mediaservices/{AMS-account-name}",
+        "azureMediaServicesArmId": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{AMS-account-name}",
         "aadTenantId": "{the-ID-of-your-tenant}",
         "aadServicePrincipalAppId": "{the-ID-of-the-service-principal-app-for-ams-account}",
         "aadServicePrincipalSecret": "{secret}"
     }
     ```
+    These are **required** properties and for the JSON above,  
+    * {subscriptionID} - this is your Azure Subscription ID
+    * {resourceGroupName} - this the resource group to which your Media Service account belongs
+    * {AMS-account-name} - this is the name of your Media Services account
+    
+    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
+    * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
+    * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
 
-    These are the additional recommended properties that will help in monitoring the module. For more information, see [monitoring and logging](monitoring-logging.md):
+    Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitoring-logging.md):
     
     ```
     "diagnosticsEventsOutputName": "lvaEdgeDiagnostics",
@@ -175,7 +188,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "logCategories": "Application,Events"
     ```
     
-    These are optional properties to use:
+    Following are some **optional** properties that you could add in the JSON:
     
     ```
     "aadEndpoint": "https://login.microsoftonline.com",
