@@ -241,7 +241,7 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 
 ## Motion Detection event
 
-When motion is detected, Live Video Analytics Edge module sends an inference event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
+When motion is detected, the Live Video Analytics Edge module sends an inference event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
 
 ```
   {  
@@ -271,9 +271,7 @@ When motion is detected, Live Video Analytics Edge module sends an inference eve
 }  
 ```
 
-Note the following in the above message:
-
-* "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. In this case, the message is originating from the motion detection processor.
+* "subject" in applicationProperties references the node in the media graph from which the message was generated. In this case, the message is originating from the motion detection processor node.
 * "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
