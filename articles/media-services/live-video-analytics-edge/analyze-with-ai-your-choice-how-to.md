@@ -191,7 +191,7 @@ The example below contains a single event with all the supported inference types
 ```
 {
   "inferences": [
-    // Light Detection
+    // Light detection
     {
       "type": "classification",
       "subtype": "lightDetection",
@@ -203,7 +203,7 @@ The example below contains a single event with all the supported inference types
       }
     },
 
-    // Motion Detection
+    // Motion detection
     {
       "type": "motion",
       "subtype": "motionDetection",
@@ -213,7 +213,7 @@ The example below contains a single event with all the supported inference types
       }
     },
 
-    // Yolo V3
+    // Object detection
     {
       "type": "entity",
       "subtype": "objectDetection",    
@@ -224,7 +224,7 @@ The example below contains a single event with all the supported inference types
       }
     },
 
-    // Vehicle Identification
+    // Vehicle identification
     {
       "type": "entity",
       "subtype": "vehicleIdentification",    
@@ -241,7 +241,7 @@ The example below contains a single event with all the supported inference types
       }
     },
 
-    // People Identification
+    // People identification
     {
       "type": "entity",
       "subtype": "peopleIdentification",    
@@ -254,38 +254,6 @@ The example below contains a single event with all the supported inference types
         ],
         "box": { "l": 0.0, "t": 0.0, "w": 0.0, "h": 0.0 }
       },
-
-      // Open type coming from the gRPC Map
-      "extensions": 
-      {
-        "vector": "e1xkaXNwbGF5c3R5bGUgaVxoYmFyIHtcZnJhYyB7ZH17ZHR9fVx2ZXJ0IFxQc2kgKHQpXHJhbmdsZSA9e1xoYXQge0h9fVx2ZXJ0IFxQc2kgKHQpXHJhbmdsZSB9KQ==",
-        "skeleton": "p1,p2,p3,p4"
-      }
-    },
-
-    // Captions
-    {    
-      "type": "text",
-      "subtype": "speechToText",  
-      "text":
-      {
-        "value": "Humor 75%. Confirmed. Self-destruct sequence in T minus 10… 9…",
-        "language": "en-US",
-        "startTimestamp": 12000,
-        "endTimestamp": 13000
-      }
-    },
-
-    // Other
-    {
-      "type": "other",
-      "subtype": "myInference",
-
-      // Open type coming from the gRPC Map
-      "extensions":
-      { 
-        "myProperty": "myValue"
-      }
     }
   ]
 }
