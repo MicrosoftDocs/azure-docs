@@ -21,7 +21,7 @@ This article builds on top of [this](detect-motion-emit-events-quickstart.md) qu
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
 * If you have not previously completed [this](detect-motion-emit-events-quickstart.md) quickstart, then finish the following steps:
      * [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-     * [Set up the environment](detect-motion-emit-events-quickstart.md#set-up-the-environment)
+     * [Set up your development environment](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
      * [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-iot-edge-deployment-manifest)
      * [Prepare for monitoring events](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
 
