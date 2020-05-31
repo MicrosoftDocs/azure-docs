@@ -301,7 +301,7 @@ The following table describes the parameters within the command:
 |  `customAction`   |   `string`      |   Name of the custom command. Must be "UpdateCollection".      |
 |  `collection`   |   `string`      |  	Name of the collection.       |
 | `offerThroughput`	| `int` |	Provisioned throughput to set on the collection.|
-| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
 
 ## Output
 
