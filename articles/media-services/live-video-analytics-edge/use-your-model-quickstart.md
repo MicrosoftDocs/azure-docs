@@ -7,9 +7,9 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Analyze live video with your own model
 
-In this quickstart, you will apply computer vision to analyze live video. You will be able to filter a subset of the video frames, convert them to images and send them to an inference module that applies computer vision to detect objects in those images. The  events returned by the inference module will be published to IoT Edge Hub.
+This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera by applying, detect objects and if present, publish the inference events to the IoT Edge Hub. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on sample code written in C#.
 
-This article builds on top of the [Getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. 
+This article builds on top of [this](detect-motion-emit-events-quickstart.md) quickstart. 
 
 ## Prerequisites
 
@@ -18,87 +18,41 @@ This article builds on top of the [Getting started](get-started-detect-motion-em
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
+* If you have not previously completed [this](detect-motion-emit-events-quickstart.md) quickstart, then finish the following steps:
+     * [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+     * [Set up the environment](detect-motion-emit-events-quickstart.md#set-up-the-environment)
+
+> [!TIP]
+> When installing the Azure IoT Tools, you might be prompted to install docker. Feel free to ignore it.
+
+## Review the sample video
+As part of the steps above to set up the Azure resources, a (short) video of a highway traffic will be copied to the Linux VM in Azure being used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
+
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit Control+N, and paste [this](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) link to the highway traffic video to start playback. You will see that the footage is of traffic on a highway, with many vehicles moving on it.
+
+When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect objects such as a car, a person etc., and publish associated inference events to the IoT Edge Hub.
 
 ## Overview
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node captures the video feed from this server and sends the video to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-extension-processor). The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The HTTP extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+The diagram above shows how the signals flow in this quickstart. An edge module (detailed [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends video frames to the [frame fate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream reaching the [HTTP extension processor](media-graph-concept.md#http-extension-processor). 
 
-The [video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) you will use for this quickstart has been built into the rtspsim-live555 container. If you play this video, you will see that the footage is of traffic on a highway, with many vehicles moving on it. 
+The HTTP extension plays the role of a proxy, first by converting the video frames to the specified image type and  by relaying the image over REST to an external container running an AI model. In this example, the external AI module is the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model capable of detecting many types of objects. The HTTP extension processor also gathers the detection results from the object detector, and publishes the events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink ) node, which then sends that event to the [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 In this quickstart, you will:
 
-1. Set up Azure resources.
 1. Create and deploy the media graph.
 1. Interpret the results.
 1. Clean up resources.
 
-## Set up Azure resources
 
-The following Azure resources are required for this tutorial:
-
-* IoT Hub
-* Storage Account
-* Azure Media Services
-* [Linux Azure VM with IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
-
-You can use the Live Video Analytics resources setup script to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below:
-
-1. Browse to https://shell.azure.com.
-1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information.
-1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window.
-
-    ![Environment selector](./media/quickstarts/env-selector.png)
-1. Run the following command.
-
-    `bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"`
-
-    If the script completes successfully, you should see all the resources mentioned above in your subscription.
-1. In the Cloud Shell, where you ran the script to set up the resources, you should see, curly brackets.
-
-    1. Click on the curly brackets to expose the folder structure.
-    2. You will see three files created under clouddrive/lva-sample.
-    3. Of interest currently are the .env files, appsettings.json, and vm-edge-device-credentials.txt. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
-
-    ![Environment files](./media/quickstarts/clouddrive.png)
 
 ## Create and deploy the media graph
-
-### Set up the environment
-
-1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
-1. Launch Visual Studio Code and open the folder where the repo is downloaded to.
-1. In Visual Studio Code, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
-1. Copy the contents from clouddrive/lva-sample/appsettings.json file into the appsettings.json file you created in Visual Studio Code.
-
-    The text should look like:
-
-    ```
-    {
-    "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",
-    "deviceId" : "lva-sample-device",
-    "moduleId" : "lvaEdge"
-    }
-    ```
-1. Next, browse to "src/edge" folder and create a file named ".env". (please note the dot before the filename).
-1. Copy the contents from clouddrive/lva-sample/.env file into the .env file you created in Visual Studio Code.
-
-    The keys should look like the below. Appropriate values would be filled in for you, if the Azure resources set up in the prior section completed accurately.
-
-    ```
-    SUBSCRIPTION_ID="<Subscription ID>" 
-    RESOURCE_GROUP="<Resource Group>" 
-    AMS_ACCOUNT="<AMS Account ID>" 
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx" 
-    AAD_TENANT_ID="<AAD Tenant ID>" 
-    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>" 
-    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>" INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input" OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input" 
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>" 
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"
-    ```
     
-### Examine the sample files
+### Examine and edit the sample files
+
+As part of the pre-requisites, you would have downloaded the sample code to a folder. Launch Visual Studio Code, and open the folder.
 
 1. In Visual Studio Code, browse to "src/edge". You will see the .env file that you created along with a few deployment template files.
 
@@ -110,18 +64,21 @@ You can use the Live Video Analytics resources setup script to deploy the Azure 
     * Program.cs - This is the sample program code, which does the following:
 
         * Loads the app settings.
-        * Invoke the Live Video Analytics on IoT Edge direct methods to create topology, instantiate the graph and activate the graph.
-        * Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window.
-        * Deactivate the graph instance, delete the graph instance, and delete the graph topology.
+        *  Invokes direct methods exposed by the Live Video Analytics on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md) 
+        * Pauses for you to examine the output from the program in the TERMINAL window and the events generated by the module in the OUTPUT window
+        * Invokes direct methods to clean up resources   
+
+
+1. Make the following edits to the operations.json file
+    * Change the link to the graph topology:
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+    * Under GraphInstanceSet, edit the name of the graph topology to match the value in the link above
+    `"topologyName" : "InferencingWithHttpExtension"`
+    * Under GraphTopologyDelete, edit the name
+    `"name": "InferencingWithHttpExtension"`
 
 ### Generate and deploy the IoT Edge deployment manifest
 
-1. In Visual Studio Code, navigate to "src/cloud-to-device-console-app/operations.json".
-
-    1. Under GraphTopologySet, ensure the following:  
-`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json".`
-    1. Under GraphInstanceSet, ensure: "topologyName" : " InferencingWithHttpExtension".
-    1. Under GraphTopologyDelete, ensure "name": " InferencingWithHttpExtension ".
 1. Right click on "src/edge/ deployment.yolov3.template.json" file and click on Generate IoT Edge Deployment Manifest.
 
     ![Generate IoT Edge Deployment Manifest](./media/quickstarts/generate-iot-edge-deployment-manifest-yolov3.png)  
@@ -149,23 +106,70 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 
 ### Run the sample program
 
-1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. In the TERMINAL window, you will see the responses to the direct method calls.
-1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you can do the following:
-
-    1. The Program will have paused at the Console.Readline() stage. Go the TERMINAL window, and hit the “Enter” key. The media graph will be stopped, and the Program will exit.
+1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
+1. The operations.json starts off with calls to the direct methods GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
+1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
+     * A call to GraphTopologySet using the topologyUrl above
+     * A call to GraphInstanceSet using the following body
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph",
+       "properties": {
+         "topologyName": "InferencingWithHttpExtension",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
+           }
+         ]
+       }
+     }
+     ```
+     * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
+     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
+1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
+1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
+     * These messages are discussed in the section below
+1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resources:
+     * A call to GraphInstanceDeactivate to deactivate the graph instance
+     * A call to GraphInstanceDelete to delete the instance
+     * A call to GraphTopologyDelete to delete the topology
+     * A final call to GraphTopologyList to show that the list is now empty
 
 ## Interpret results
 
-In the media graph ([shown in the overview](#overview)), the results from the Http Extension processor node are sent via the IoT Hub sink node to the IoT Hub. The text you see in the OUTPUT window of Visual Studio Code follow the [streaming messaging format](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) established for device-to-cloud communications by IoT Hub:
+When you run the media graph, the results from the Http Extension processor node are sent via the IoT Hub sink node to the IoT Hub. The messages you see in the OUTPUT window of Visual Studio Code contain a "body" section and an "applicationProperties" section. To understand what these sections represent, read [this](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) article.
 
-* A set of application properties. A dictionary of string properties that an application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
-* An opaque binary body.
+In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. 
 
-In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module. For more information, see [Monitoring and logging](monitoring-logging.md).
 
-### Connection Established event
+
+### MediaSession Established event
 
 When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the rtspsim-live55 container. If successful, it will print this event. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
 
@@ -186,10 +190,11 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 ```
 
 Note the following in the above message:
-
+* The message is a Diagnostics event, MediaSessionEstablished, indicates that the RTSP source node (the subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
 * "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph.
 * "eventType" in applicationProperties indicates that this is a Diagnostic event.
-* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body contains the SDP information.
+* "eventTime" indicates the time when the event occurred.
+* "body" contains data about the diagnostic event, which, in this case, is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ### Inference event
 
