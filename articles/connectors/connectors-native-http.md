@@ -43,13 +43,13 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
 * Self-signed certificate support
 
-  * If your logic app runs in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector can use self-signed certificates, but you must first [enable that capability on an existing ISE or when you create an ISE by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
+  * When your logic app runs in global, multi-tenant Azure, the HTTP connector can authenticate by using self-signed certificates, but not TLS/SSL self-signed certificates.
+
+    If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a "trust failure" error.
+
+  * If your logic app runs in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector can authenticate by using self-signed certificates, but you must first [enable that capability on an existing ISE or when you create an ISE by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
 
     Without enabling this capability, just uploading the certificate in the required trusted root location won't work.
-
-  * In global, multi-tenant Azure, the HTTP connector can use self-signed certificates for authentication, but not self-signed TLS/SSL certificates.
-
-    So, if your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a "trust failure" error.
 
 ## Known issues
 
