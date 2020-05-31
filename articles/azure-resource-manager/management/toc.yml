@@ -62,7 +62,7 @@
       - name: Azure App Service
         href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Automation
-        href: ../../automation/automation-managing-data.md#geo-replication-in-azure-automation?toc=/azure/azure-resource-manager/toc.json
+        href: https://docs.microsoft.com/en-us/azure/automation/automation-managing-data#geo-replication-in-azure-automation?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Batch
         href: ../../batch/best-practices.md#moving-batch-accounts-across-regions?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Cognitive Search
