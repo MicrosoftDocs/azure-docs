@@ -19,6 +19,7 @@ This tutorial will guide you through all the basic steps needed to setup and use
 
 * Open the [Azure portal](https://portal.azure.com)
 * Create a new storage account with the following settings:
+
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
     |Basics|**Storage account name**| You can give it any name.|In this document, we'll refer to it as `contosolake`.|
