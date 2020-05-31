@@ -88,12 +88,12 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 
 A SQL pool consumes billable resources as long as it's running. So, you can pause the pool when needed to reduce costs.
 
-When your SQL pool is created, it will be associated with a SQL pool database also called `SQLDB1`.
+When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
 
 ## Create an Apache Spark pool
 
 1. In Synapse Studio, on the left side select **Manage > Apache Spark pools**
-1. Select **+New** and enter these values:
+1. Select **+New** and enter these settings:
 
     |Setting | Suggested value | 
     |---|---|
@@ -104,15 +104,15 @@ When your SQL pool is created, it will be associated with a SQL pool database al
 1. Select **Review+create** and then select **Create**.
 1. Your Apache Spark pool will be ready in a few seconds.
 
+> [!NOTE]
+> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to inform the Synapse workspace how to interact with Spark. 
+
 Because they are metadata, Spark pools cannot be started or stopped. 
 
 When you do any Spark activity in Synapse, you specify a Spark pool to use. The pool informs Synapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool, the resources will automatically time out and be recycled.
 
 > [!NOTE]
-> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to inform the Synapse workspace how to interact with Spark. 
-
-> [!NOTE]
-> Spark databases are independently created from Spark pools. A workspace always has a Spark DB called **default** and you can create additional Spark databases.
+> Spark databases are independently created from Spark pools. A workspace always has a Spark database called **default** and you can create additional Spark databases.
 
 ## The SQL on-demand pool
 
@@ -135,7 +135,7 @@ Every workspace comes with a pre-built and undeleteable pool called **SQL on-dem
 1. Navigate to **SQLDB1 > Tables**. You'll see several tables have been loaded.
 1. Right-click on the **dbo.Trip** table and select **New SQL Script > Select TOP 100 Rows**
 1. A new SQL script will be created and automatically run.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called SQLDB1.
+1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called `SQLDB1`.
 1. Replace the text of the SQL script with this code and run it.
 
     ```sql
@@ -153,7 +153,7 @@ Every workspace comes with a pre-built and undeleteable pool called **SQL on-dem
 
 ## Load the NYC Taxi Sample data into the Spark nyctaxi database
 
-We have data available in a table in `SQLDB1`. Now we load it into a Spark database named 'nyctaxi`.
+We have data available in a table in `SQLDB1`. Now we load it into a Spark database named `nyctaxi`.
 
 1. In Synapse Studio, navigate to the **Develop** hub
 1. Select **+** and select **Notebook**
@@ -175,7 +175,7 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Return to your notebook
-1. Create a new code cell, enter the text below, and run the cell to example the NYC taxi data we loaded into the `nyctaxi` Spark DB.
+1. Create a new code cell, enter the text below, and run the cell to example the NYC taxi data we loaded into the `nyctaxi` Spark database.
 
    ```py
    %%pyspark
@@ -288,8 +288,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Select **Linked**
 1. Navigate to **Storage accounts > myworkspace (Primary - contosolake)**
 1. Select **users (Primary)"**
-1. You should see a folder called `NYCTaxi'. Inside you should see two folders 'PassengerCountStats.csv' and 'PassengerCountStats.parquet'.
-1. Navigate into the `PassengerCountStats.parquet' folder.
+1. You should see a folder called `NYCTaxi`. Inside you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
+1. Navigate into the `PassengerCountStats.parquet` folder.
 1. Right-click on the parquet file inside, and select **new notebook**, it will create a notebook with a cell like this:
 
     ```py
