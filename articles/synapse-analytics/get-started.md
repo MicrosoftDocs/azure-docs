@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # Getting Started with Azure Synapse Analytics
 
-This tutorial will guide you through all the basic steps needed to setup and use Azure Synapse Analytics.
+This document guides you through all the basic steps needed to setup and use Azure Synapse Analytics.
 
 ## Prepare a storage account for use with a Synapse workspace
 
@@ -28,15 +28,19 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |Advanced|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse only works with storage accounts where this setting is enabled.|
 
 1. Once the storage account is created, select **Access control (IAM)** from the left navigation. Then assign the following roles or ensure they are already assigned. 
+
     a. * Assign yourself to the **Owner** role on the storage account
     b. * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
+
 1. From the left navigation, select **Containers** and create a container. You can give it any name. Accept the default **Public access level**. In this document, we will call the container `users`. Select **Create**. 
+
+In the following step, you will configure your Synapse workspace to use this storage account as its "primary" storage account and the container to store workspace data. The workspace will store data in Apache Spark tables and Spark application logs in this account under a folder called `/synapse/workspacename`.
 
 ## Create a Synapse workspace
 
 * Open the [Azure portal](https://portal.azure.com) and at the top search for `Synapse`.
 * In the search results under **Services**, select **Azure Synapse Analytics (workspaces preview)**
-* Select **+ Add** to create a new workspace with these settings
+* Select **+ Add** to create a workspace using these settings
 
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
@@ -44,8 +48,6 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |Basics|**Region**|Match the region of the storage account|
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
-    > [!NOTE]
-    > We refer to the storage account chosen here as the "primary" storage account of the Synapse workspace. This account is used for storing data in Apache spark tables and for logs created when Spark pools are created or Spark applications run.
 
 1. Select **Review + create**. Select **Create**. Your workspace will be ready in a few minutes.
 
