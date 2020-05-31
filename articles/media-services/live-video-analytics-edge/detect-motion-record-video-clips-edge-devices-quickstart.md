@@ -1,6 +1,6 @@
 ---
 title: Detect motion, record video on edge devices - Azure
-description: In this quickstart, you will analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record a mp4 video clip to your local file system on the edge device.
+description: This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
@@ -8,196 +8,220 @@ ms.date: 04/27/2020
 
 # Quickstart: Detect motion, record video on edge devices
  
-In this quickstart, you will analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record a mp4 video clip to your local file system on the edge device. This article illustrates a programmatic way of invoking the sequence of direct method calls that you executed as part of the [Detect motion, record video to Media Services](detect-motion-record-video-clips-media-services-quickstart.md) quickstart. It uses a Linux Azure VM as an IoT Edge device and a simulated live video stream.
+This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. It uses an Azure VM as an IoT Edge device and a simulated live video stream. This article is based on sample code written in C#.
+
+This article builds on top of [this](detect-motion-emit-events-quickstart.md) quickstart. 
 
 ## Prerequisites
-
-This article builds on top of the [getting started](get-started-detect-motion-emit-events-quickstart.md) quickstart. Also, recommended for this quickstart is to finish the [Event-based recording of videos using Live Video Analytics on IoT Edge](detect-motion-record-video-clips-media-services-quickstart.md) quickstart, as that depicts the manual way to run the below depicted graph topology.
-Just like in the previous quickstarts, to run this quickstart, you need to have installed:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
+* If you have not previously completed [this](detect-motion-emit-events-quickstart.md) quickstart, then finish the following steps:
+     * [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+     * [Set up the environment](detect-motion-emit-events-quickstart.md#set-up-the-environment)
+     * [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-iot-edge-deployment-manifest)
+     * [Prepare for monitoring events](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
+
+> [!TIP]
+> When installing the Azure IoT Tools, you might be prompted to install docker. Feel free to ignore it.
+
+## Review the sample video
+As part of the steps above to set up the Azure resources, a (short) video of a parking lot will be copied to the Linux VM in Azure being used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
+
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit Control+N, and paste [this](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to the parking lot video to start playback. At about the 5-second mark, a white car moves through the parking lot.
+
+When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect that motion of the car, and record a video clip starting at around that 5-second mark.
 
 ## Overview
 
 ![overview](./media/quickstarts/overview-qs4.png)
 
-The diagram above shows how the signals flow in this quickstart. A docker container using [rtspsim-live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends the video frames to the [motion detection processor](media-graph-concept.md#motion-detection-processor)  node. The same video feed is sent by the RTSP source to a signal gate, which buffers the feed and waits for an event to open. 
+The diagram above shows how the signals flow in this quickstart. An edge module (detailed [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simulates an IP camera hosting an RTSP server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server, and sends video frames to the [motion detection processor](media-graph-concept.md#motion-detection-processor) node. The RTSP source sends the same video frames to a [signal gate processor](media-graph-concept.md#signal-gate-processor) node, which remains closed until it is triggered by an event.
 
-When the motion detection processor determines that motion is present in the video, it emits an event to the [signal gate processor](media-graph-concept.md#signal-gate-processor) triggering the gate. When such an event arrives at the signal gate, it has the ability to open for a preconfigured amount of time relaying the video feed to the [file sink](media-graph-concept.md#file-sink) that records the video as an mp4 file at the specified local path on your edge device’s files system.
+When the motion detection processor determines that motion is present in the video, it sends an event to the signal gate processor node, triggering it. The gate opens for the configured duration of time, sending video frames to the [file sink](media-graph-concept.md#file-sink) node. This sink node records the video as an MP4 file to the local file system of your edge device, at the configured location.
 
 In this quickstart, you will:
 
-1. Set up Azure resources
 1. Create and deploy the media graph
 1. Interpret the results
 1. Clean up resources
 
-## Set up Azure resources
+## Examine and edit the sample files
+As part of the pre-requisites, you would have downloaded the sample code to a folder. Launch Visual Studio Code, and open the folder.
 
-The following Azure resources are required for this tutorial
-
-* IoT Hub
-* Storage Account
-* Azure Media Services
-* [Linux Azure VM with IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
-
-You can use the Live Video Analytics resources setup script to deploy the Azure resources mentioned above in your Azure subscription. To do so, follow the steps below
-
-1. Browse to https://shell.azure.com
-1. If this is the first time you are using Cloud Shell, you will prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select "Create storage" to do create the storage account for storing your Cloud Shell session information
-1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
-
-    ![Environment selector](./media/quickstarts/env-selector.png)
-1. Run the following command
-
-    `bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"`
-
-    If the script completes successfully, you should see all the resources mentioned above in your subscription.
-1. In the Cloud Shell, where you ran the script to set up the resources, you should see, curly brackets
-
-    1. Click on the curly brackets to expose the folder structure
-    2. You will see three files created under clouddrive/lva-sample.
-    3. Of interest currently are the .env files, appsettings.json and vm-edge-device-credentials.txt. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
-
-    ![Environment files](./media/quickstarts/clouddrive.png)
-
-## Create and deploy the media graph
-
-### Set up the environment
-
-1. Clone the repo from here https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
-1. Launch Visual Studio Code (VSCode) and open the folder where the repo is downloaded to.
-1. In VSCode, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
-1. Copy the contents from clouddrive/lva-sample/appsettings.json file into the appsettings.json file you created in VSCode.
-
-The text should look like:
-
-    ```
-    {
-    "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",
-    "deviceId" : "lva-sample-device",
-    "moduleId" : "lvaEdge"
-    }
-    ```
-1. Next, browse to "src/edge" folder and create a file named ".env". (please note the dot before the filename)
-1. Copy the contents from clouddrive/lva-sample/.env file into the .env file you created in VSCode.
-
-    The keys should look like the below. Appropriate values would be filled in for you, if the Azure resources set up in the prior section completed accurately.
-
-    ```
-    SUBSCRIPTION_ID="<Subscription ID>" 
-    RESOURCE_GROUP="<Resource Group>" 
-    AMS_ACCOUNT="<AMS Account ID>" 
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx" 
-    AAD_TENANT_ID="<AAD Tenant ID>" 
-    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>" 
-    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>" INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input" OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input" 
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>" 
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"
-    ```
-    
-### Examine the sample files
-
-1. In VSCode, browse to "src/edge". You will see the .env file that you created along with a few deployment template files
-
+1. In Visual Studio Code, browse to "src/edge". You will see the .env file that you created along with a few deployment template files
     * The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
 1. Next, browse to "src/cloud-to-device-console-app" folder. Here you will see the appsettings.json file that you created along with a few other files:
-
-    * c2d-console-app.csproj - This is the project file for VSCode
+    * c2d-console-app.csproj - This is the project file for Visual Studio Code
     * operations.json - This file will list the different operations that you would like the program to run
     * Program.cs - This is the sample program code, which does the following:
 
         * Loads the app settings
-        * Invokes the Live Video Analytics on IoT Edge direct methods to create topology, instantiate the graph and activate the graph
-        * Pauses for you to examine the graph output in the terminal window and the events sent to IoT hub in the “output” window
-        * Deactivate the graph instance, delete the graph instance, and delete the graph topology
+        * Invokes direct methods exposed by the Live Video Analytics on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md) 
+        * Pauses for you to examine the output from the program in the TERMINAL window and the events generated by the module in the OUTPUT window
+        * Invokes direct methods to clean up resources   
 
-### Generate and deploy the IoT Edge deployment manifest
+1. Make the following edits to the operations.json file
+    * Change the link to the graph topology:
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"`
+    * Under GraphInstanceSet, edit the name of the graph topology to match the value in the link above
+    `"topologyName" : "EVRToFilesOnMotionDetection"`
+    * Also edit the RTSP URL to point to the desired video file
+    `"value": "rtsp://rtspsim:554/media/lots_015.mkv"`
+    * Under GraphTopologyDelete, edit the name
+    `"name": "EVRToFilesOnMotionDetection"`
 
-1. In VSCode, navigate to "src/cloud-to-device-console-app/operations.json"
-
-    1. Under GraphTopologySet, ensure the following:
-"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"
-    1. Under GraphInstanceSet, ensure: "topologyName" : "EVRToFilesOnMotionDetection"
-    1. Under GraphTopologyDelete, ensure "name": " EVRToFilesOnMotionDetection "
-1. Right click on "src/edge/deployment.template.json" file and click on “Generate IoT Edge Deployment Manifest”
-
-      ![Generate IoT Edge Deployment Manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
-1. This should create a manifest file in src/edge/config folder named "deployment.amd64.json"
-1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom left corner. You can copy the string from the appsettings.json file. (Here is another recommended approach to ensure you have the proper IoT Hub configured within VSCode via the [Select Iot Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub))
-
-    ![Set IoT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
-1. Right click on "src/edge/config/deployment.amd64.json" and click “Create Deployment for Single Device” and select the name of your edge device. 
-
-    ![Create Deployment for Single Device](./media/quickstarts/create-deployment-single-device.png)
-1. You will then be asked to select an IoT Hub device. Select lva-sample-device from the drop-down.
-1. In about 30 seconds, refresh the Azure IOT Hub on the bottom-left section and you should have the edge device with the following modules deployed
+## Review - check status of the modules
+At the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-iot-edge-deployment-manifest) step, in Visual Studio Code, if you expand the "lva-sample-device" node under AZURE IOT HUB (at the bottom-left section) you should see the following modules deployed
 
     1. The Live Video Analytics module, named as “lvaEdge”
     1. A module named “rtspsim” which simulates an RTSP Server, acting as the source of a live video feed
 
         ![Modules](./media/quickstarts/lva-sample-device-node.png)
 
-### Prepare for monitoring events
 
-Right click on the Live Video Analytics device and click on “Start Monitoring Built-in Event Endpoint”. This step is needed to monitor the IoT Hub events and see it in the output window of VSCode. 
+## Review - prepare for monitoring events
+Check that you have completed the steps to [Prepare for monitoring events](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
 
 ![Start Monitoring Built-in Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
-### Run the sample program
+## Run the sample program
 
-1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module.
-1. In the TERMINAL window, you will see the responses to the direct method calls
-
-    ![Terminal](./media/quickstarts/terminal.png)
-1. In the OUTPUT window, you will see messages that are being sent to the IoT Hub, by the lvaEdge module
-
-    ![Output](./media/quickstarts/output.png)
-1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. To stop the media graph, you can do the following:
-
-    1. The Program will have paused at the Console.Readline() stage. Go the TERMINAL window and hit the “Enter” key. The media graph will be stopped, and the Program will exit.
+1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
+1. The operations.json starts off with calls to the direct methods GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
+1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
+     * A call to GraphTopologySet using the topologyUrl above
+     * A call to GraphInstanceSet using the following body
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph",
+       "properties": {
+         "topologyName": "EVRToFilesOnMotionDetection",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
+           }
+         ]
+       }
+     }
+     ```
+     * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
+     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
+1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
+1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
+     * These messages are discussed in the section below
+1. The media graph will continue to run, and print results – the RTSP simulator will keep looping the source video. In order to stop the media graph, you go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resources:
+     * A call to GraphInstanceDeactivate to deactivate the graph instance
+     * A call to GraphInstanceDelete to delete the instance
+     * A call to GraphTopologyDelete to delete the topology
+     * A final call to GraphTopologyList to show that the list is now empty
 
 ## Interpret results 
+When you run the media graph, the results from the motion detector processor node are sent via the IoT Hub sink node to the IoT Hub. The messages you see in the OUTPUT window of Visual Studio Code contain a "body" section and an "applicationProperties" section. To understand what these sections represent, read [this](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) article.
 
-### Monitoring the events sent to the IoT Edge Hub - Connection Established event
+In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module.
 
-When a media graph is instantiated, the RTSP Source node attempts to connect to the RTSP server running on the [rtspsim-live55](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) container. If successful, it will print this event. Note that the event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+## MediaSession Established event
+
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server running on the rtspsim-live555 container. If successful, it will print this event:
 
 ```
-[IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
+[IoTHubMonitor] [05:37:21 AM] Message received from [lva-sample-device/lvaEdge]:
+{  
+"body": {
+"sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"  
+},  
+"applicationProperties": {  
+    "dataVersion": "1.0",  
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
+    "subject": "/graphInstances/Sample-Graph-1/sources/rtspSource",  
+    "eventType": "Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished",  
+    "eventTime": "2020-05-21T05:37:21.398Z",
+    }  
+}
+```
+
+* The message is a Diagnostics event, MediaSessionEstablished, indicates that the RTSP source node (the subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
+* The "subject" in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message is originating from the RTSP source node.
+* "eventType" in applicationProperties indicates that this is a Diagnostics event.
+* "eventTime" indicates the time when the event occurred.
+* "body" contains data about the diagnostic event, which, in this case, is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+
+
+## Recording Started event
+
+As explained [here](#overview), when motion is detected, the signal gate processor node is activated and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an Operational event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
+
+```
+[IoTHubMonitor] [05:37:27 AM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
+    "outputType": "filePath",
+    "outputLocation": "/var/media/sampleFilesFromEVR-filesinkOutput-20200521T053726Z.mp4"
   },
   "applicationProperties": {
-    "dataVersion": "1.0",
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
-    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/sources/rtspSource",
-    "eventType": "Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished",
-    "eventTime": "2020-04-09T16:42:18.1280000Z"
+    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
+    "subject": "/graphInstances/Sample-Graph-1/sinks/fileSink",
+    "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
+    "eventTime": "2020-05-21T05:37:27.713Z",
+    "dataVersion": "1.0"
   }
 }
 ```
 
-Note the following in the above message
+* "subject" in applicationProperties references the node in the media graph from which the message was generated. In this case, the message is originating from the file sink node.
+* "eventType" in applicationProperties indicates that this is an Operational event.
+* "eventTime" indicates the time when the event occurred. Note that this 5-6 seconds after the MediaSessionEstablished and video starts to flow. This corresponds to the 5-6 second mark when the [car started to move](#review-the-sample-video) into the parking lot
+* "body" contains data about the operational event, which in this case is "outputType" and "outputLocation" data.
+* "outputType" indicates that this information is about the file path
+* "outputLocation" provides the location of the MP4 file, from within the edge module
 
-* "subject" in applicationProperties indicates that the message was generated from the RTSP source node in the media graph
-* "eventType" in applicationProperties indicates that this is a Diagnostic event
-* "body" contains data about the diagnostic event. In this case, the event is MediaSessionEstablished and hence the body contains the sdp information.
+## Recording Stopped and Available events
 
-### Playing back the mp4 clip
+If you examine the properties of the signal gate processor node in the [graph topology](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-files/topology.json), you will see that the activation times have been set to 5 seconds. So about 5 seconds after the RecordingStarted event is received, you will get a
+* RecordingStopped event, indicating that the recording has stopped
+* RecordingAvailable event, indicating that the MP4 file can now be used for viewing
 
-1. You should have mp4 video clips files in the output folder of the edge device that you configured in the .env file via this key - OUTPUT_VIDEO_FOLDER_ON_DEVICE. If you left it to the default value then the results should be in the following folder on your edge device
-1. Go to your resource group, find the VM and connect using bastion
+The two events are typically emitted with seconds of each other.
+
+### Playing back the MP4 clip
+
+1. The MP4 files are written to a directory on the edge device that you configured in the .env file via this key - OUTPUT_VIDEO_FOLDER_ON_DEVICE. If you left it to the default value then the results should be in /home/lvaadmin/samples/output/
+1. Go to your resource group, find the VM and connect using Bastion
 
     ![Resource group](./media/quickstarts/resource-group.png)
  
     ![VM](./media/quickstarts/virtual-machine.png)
-1. Once signed in, on the command prompt, go to the relevant folder (default: /home/lvaadmin/samples/output) and you should see the mp4 files clips there. You can [scp the files](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) over to your local machine and play them back via [VLC player](https://www.videolan.org/vlc/) or any other mp4 player.
+1. Once signed in (using credentials that were generated during [this](detect-motion-emit-events-quickstart.md#set-up-azure-resources) step), on the command prompt, go to the relevant directory (default: /home/lvaadmin/samples/output) and you should see the MP4 files  there. You can [scp the files](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) over to your local machine and play them back via [VLC player](https://www.videolan.org/vlc/) or any other MP4 player.
 
     ![Output](./media/quickstarts/samples-output.png)
 
