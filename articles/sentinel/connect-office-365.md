@@ -1,5 +1,5 @@
 ---
-title: Connect Office 365 data to Azure Sentinel| Microsoft Docs
+title: Connect Office 365 logs to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Office 365 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,9 +17,9 @@ ms.date: 05/21/2020
 ms.author: yelevin
 
 ---
-# Connect data from Office 365 Logs
+# Connect Office 365 Logs to Azure Sentinel
 
-The [Office 365](https://docs.microsoft.com/office/) log connector provides insight into ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**). This includes details of actions such as file downloads, access requests sent, changes to group events, and mailbox operations, as well as the details of the user who performed the actions. By connecting Office 365 logs to Azure Sentinel, you can view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process.
+The [Office 365](https://docs.microsoft.com/office/) log connector brings into Azure Sentinel information on ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**). This information includes details of actions such as file downloads, access requests sent, changes to group events, and mailbox operations, as well as the details of the user who performed the actions. Connecting Office 365 logs to Azure Sentinel enables you to view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process, giving you more insight into your Office 365 security.
 
 ## Prerequisites
 
@@ -30,15 +30,15 @@ The [Office 365](https://docs.microsoft.com/office/) log connector provides insi
 - Your Office 365 deployment must be on the same tenant as your Azure Sentinel workspace.
 
 > [!IMPORTANT]
-> - In order to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled on your Office 365 deployment. Depending on the type of Office 365 / Microsoft 365 license you have, it may or may not be enabled by default. Consult the [Office 365 Security and Compliance Center](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) to check the status of unified audit logging according to your license type.
+> - In order for the connector to be able to access data through the Office 365 Management Activity API, you must have **unified audit logging** enabled on your Office 365 deployment. Depending on the type of Office 365 / Microsoft 365 license you have, it may or may not be enabled by default. Consult the [Office 365 Security and Compliance Center](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) to check the status of unified audit logging according to your license type.
 > - You can also manually enable, disable, and check the current status of Office 365 unified audit logging. For instructions, see [Turn Office 365 audit log search on or off](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
 > - For more information, see the [Office 365 Management Activity API reference](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
 
    > [!NOTE]
-   > As noted above, and as you'll see on the connector page under **Data types**, the Azure Sentinel Office 365 connector currently supports the ingestion of audit logs only from Microsoft Exchange and SharePoint (including OneDrive). However, there are some external solutions if you're interested in [protecting your **Teams** with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
+   > As noted above, and as you'll see on the connector page under **Data types**, the Azure Sentinel Office 365 connector currently supports the ingestion of audit logs only from Microsoft Exchange and SharePoint (including OneDrive). However, there are some external solutions if you're interested in bringing [data from Teams](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) or [other Office data](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) into Azure Sentinel. 
 
-## Connect to Office 365
+## Enable the Office 365 log connector
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
