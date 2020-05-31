@@ -9,7 +9,6 @@ ms.date: 04/27/2020
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
-Alternatively, we provide a setup script that will [create new resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources) for using Live Video Analytics on IoT Edge. Refer to [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
 ## Prerequisites
 
