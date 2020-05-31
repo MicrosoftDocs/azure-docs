@@ -22,7 +22,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 * **Monitor with diagnostic logs in Azure Monitor:** You can monitor the logs of your Azure Cosmos account and create dashboards from the Azure Monitor. Telemetry such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container is changes, the properties of a Cosmos account are changed these events are captures within the logs. You can analyze these logs by running queries on the gathered data. To learn more, see the [Analyze log data](#analyze-log-data) section of this article.
 
-* **Monitor programmatically with SDKs:** You can monitor your Azure Cosmos account programmatically by using the .Net, Java, Python, Node.js SDKs, and the headers in REST API. To learn more, see the [Monitoring Azure Cosmos DB programmatically](#monitor-cosmosdb-programmatically) section of this article.
+* **Monitor programmatically with SDKs:** You can monitor your Azure Cosmos account programmatically by using the .NET, Java, Python, Node.js SDKs, and the headers in REST API. To learn more, see the [Monitoring Azure Cosmos DB programmatically](#monitor-cosmosdb-programmatically) section of this article.
 
 The following image shows different options available to monitor Azure Cosmos DB account through Azure portal:
 
