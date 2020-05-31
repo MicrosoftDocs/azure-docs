@@ -11,7 +11,7 @@ ms.author: allensu
 
 # Move Azure Public IP configuration to another region using the Azure portal
 
-There are various scenarios in which you'd want to move your existing Azure Public IPs from one region to another. For example, you may want to create a public IP with the same configuration and sku for testing. You may also want to move a public IP to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing Azure Public IP configurations from one region to another. For example, you may want to create a public IP with the same configuration and sku for testing. You may also want to move a public IP configuration to another region as part of disaster recovery planning.
 
 **Azure Public IPs are region specific and can't be moved from one region to another.** You can however, use an Azure Resource Manager template to export the existing configuration of a public IP.  You can then stage the resource in another region by exporting the public IP to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
