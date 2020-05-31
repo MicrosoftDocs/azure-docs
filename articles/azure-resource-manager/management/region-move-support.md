@@ -212,7 +212,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | automationaccounts | Yes (using template) <br/><br/> [Using geo-replication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation |  
+> | automationaccounts | Yes (using template) <br/><br/> [Using geo-replication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
 > | automationaccounts / configurations | No | 
 > | automationaccounts / runbooks | No | 
 
