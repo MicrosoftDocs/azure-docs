@@ -43,7 +43,7 @@ You can use the [Live Video Analytics resources setup script](https://github.com
     ```
 
     If the script completes successfully, you should see all the resources mentioned above in your subscription.
-1. Once the script finishes, click on the curly brackets to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files, appsetting.json, and vm-edge-device-credentials.txt. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+1. Once the script finishes, click on the curly brackets in the terminal's header to expose the folder structure. You will see three files created under clouddrive/lva-sample. Of interest currently are the .env files, appsetting.json, and vm-edge-device-credentials.txt. You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
