@@ -69,10 +69,6 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 ## Create a SQL pool
 
 1. In Synapse Studio, on the left side navigation, select **Manage > SQL pools**
-
-    > [!NOTE] 
-    > All Synapse workspaces come with a pre-created pool called **SQL on-demand**.
-
 1. Select **+New** and enter these settings:
 
     |Setting | Suggested value | 
@@ -81,14 +77,9 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
     |**Performance level**|`DW100C`|
 
 1. Select **Review+create** and then select **Create**.
-1. Your SQL pool will be ready in a few minutes.
+1. Your SQL pool will be ready in a few minutes. When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
 
-    > [!NOTE]
-    > A Synapse SQL pool corresponds to what used to be called an "Azure SQL Data Warehouse"
-
-A SQL pool consumes billable resources as long as it's running. So, you can pause the pool when needed to reduce costs.
-
-When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
+A SQL pool consumes billable resources as long as it is active. You can pause the pool later to reduce costs.
 
 ## Create an Apache Spark pool
 
