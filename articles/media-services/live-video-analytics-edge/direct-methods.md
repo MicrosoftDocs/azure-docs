@@ -101,7 +101,7 @@ Detailed validations error, such as graph module validations, are added as error
 |409|	OperationNotAllowedInState|	Requested operation cannot be performed in the current state.|
 |409|	ResourceValidationError|	Referenced resource (example: asset) is not in a valid state.|
 
-## Direct method - graph topology  
+## Details  
 
 ### GraphTopologyGet
 

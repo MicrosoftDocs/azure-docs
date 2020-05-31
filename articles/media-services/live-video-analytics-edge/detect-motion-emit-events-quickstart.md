@@ -48,12 +48,14 @@ For this quickstart we recommend that you use the [Live Video Analytics resource
     ```
 
     If the script completes successfully, you should see all the resources mentioned above in your subscription.
+
 1. Once the script finishes, click on the curly brackets to expose the folder structure. You will see a few files created under the ~/clouddrive/lva-sample directory. Of interest in this quickstart are:
 
      * ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device
      * ~/clouddrive/lva-sample/appsetting.json - used by Visual Studio Code for running the sample code
      
 You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
+
 
     ![App settings](./media/quickstarts/clouddrive.png)
 
