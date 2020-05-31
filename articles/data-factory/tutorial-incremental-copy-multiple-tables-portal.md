@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
+description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to an Azure SQL database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -17,7 +17,7 @@ ms.date: 01/20/2018
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to an Azure SQL database.    
 
 You perform the following steps in this tutorial:
 
@@ -63,12 +63,12 @@ Here are the important steps to create this solution:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **SQL Server**. You use an on-premises SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one. 
+* **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
+* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
-1. Open SQL Server Management Studio, and connect to your on-premises SQL Server database.
+1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
 1. In **Server Explorer**, right-click the database and choose **New Query**.
 
@@ -277,10 +277,10 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your SQL Server database and Azure SQL database. 
 
 ### Create the SQL Server linked service
-In this step, you link your on-premises SQL Server database to the data factory.
+In this step, you link your SQL Server database to the data factory.
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 
@@ -306,7 +306,7 @@ In the last step, you create a linked service to link your source SQL Server dat
 1. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
-    1. For **Server name**, select the name of your Azure SQL server from the drop-down list. 
+    1. For **Server name**, select the name of your server from the drop-down list. 
     1. For **Database name**, select the Azure SQL database in which you created customer_table and project_table as part of the prerequisites. 
     1. For **User name**, enter the name of user that has access to the Azure SQL database. 
     1. For **Password**, enter the **password** for the user. 
