@@ -13093,6 +13093,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/blockchain/tokens/account-management.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/composability.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/overview.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/templates.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/index.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
       "redirect_url": "/azure/best-practices-network-security",
       "redirect_document_id": false
@@ -52457,6 +52482,11 @@
     {
       "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
       "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speaker-recognition/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speaker-recognition-overview",
       "redirect_document_id": false
     },
     {

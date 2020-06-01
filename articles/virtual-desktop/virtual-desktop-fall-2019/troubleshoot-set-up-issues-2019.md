@@ -34,6 +34,7 @@ This section covers potential issues when creating the Windows Virtual Desktop t
 ### Error: AADSTS650052 The app needs access to a service.
 
 Example of raw error:
+
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
 \"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
@@ -41,6 +42,7 @@ configuration of your service subscriptions.650052 Message The app needs access 
 (\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
+
 **Cause:** Consent not granted to Windows Virtual Desktop in the Azure Active directory instance.
 
 **Fix:** [Follow this guide](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) to grant consent.
