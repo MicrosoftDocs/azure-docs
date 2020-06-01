@@ -141,6 +141,8 @@
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Troubleshoot
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Azure CLI
