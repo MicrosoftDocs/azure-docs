@@ -105,11 +105,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **How are template specs and Azure Blueprints related?**
 
-  Azure Blueprints will use template specs in its implementation. Blueprints will be the UX experience to compose a governed environment in Azure.
+  Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We will provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
 
 * **Do template specs replace linked templates?**
 
-  No, but template specs make it easier to use linked templates. You don't have to move the linked template to a publicly accessible endpoint before deploying the parent template. Instead, you package the parent template and its artifacts together when creating the template spec.
+  No, but template specs are designed to work well with linked templates. You don't have to move the linked template to a publicly accessible endpoint before deploying the parent template. Instead, you package the parent template and its artifacts together when creating the template spec.
 
 * **Can template specs be shared across subscriptions?**
 
@@ -123,7 +123,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 
-  Those options are still available and haven't changed. However, deployment scripts have advantages, such as setting the timeout duration.
+  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that are not related to the VM guest. If you need to run a script on a host operating system in a VM, then the customer script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
 
 * **Are deployment scripts supported in Azure Government?**
 
