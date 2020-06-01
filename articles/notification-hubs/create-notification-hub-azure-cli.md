@@ -70,7 +70,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub namespace check-availability --name spnhubns
    ```
 
-   Azure CLI will respond to your request for availability by displaying the following consol output:
+   Azure CLI will respond to your request for availability by displaying the following console output:
 
    ```output
    {
@@ -144,7 +144,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 1. List access policies for a notification hub.
 
-   Azure Nofification Hubs uses [shared access signature security](/azure/notification-hubs/notification-hubs-push-notification-security) through the use of access policies.  Two policies are created automatically when you create a notification hub.  The connection strings from these policies are needed to configure push notifications.  The [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command provides a list of policy names and their respective resource groups.
+   Azure Notification Hubs uses [shared access signature security](/azure/notification-hubs/notification-hubs-push-notification-security) through the use of access policies.  Two policies are created automatically when you create a notification hub.  The connection strings from these policies are needed to configure push notifications.  The [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command provides a list of policy names and their respective resource groups.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -155,7 +155,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 2. Create a new authorization-rule for a notification hub.
 
-   If you wish to create additional authorization rules with meaningful names, you can create and customize your own access policy by using the [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) command.  The `--rights` parameter is a space delimited list of the permissions you want to asign.
+   If you wish to create additional authorization rules with meaningful names, you can create and customize your own access policy by using the [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) command.  The `--rights` parameter is a space delimited list of the permissions you want to assign.
 
    ```azurecli
    az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen Manage Send
