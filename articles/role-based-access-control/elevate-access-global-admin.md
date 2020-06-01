@@ -2,7 +2,6 @@
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to temporarily elevate access for a Global Administrator to manage all subscriptions and management groups in Azure Active Directory using the Azure portal or REST API.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
@@ -45,7 +44,7 @@ Follow these steps to temporarily elevate access for a Global Administrator usin
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
 
-    If you are using Azure AD Privileged Identity Management, [activate your Global Administrator role](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
+    If you are using Azure AD Privileged Identity Management, [activate your Global Administrator role assignment](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
 1. Open **Azure Active Directory**.
 
@@ -78,7 +77,7 @@ Follow these steps to temporarily elevate access for a Global Administrator usin
 
     For information about assigning roles, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-1. Once you have made the changes you need to make, perform the steps in the follow section to remove your elevated access.
+1. Perform the steps in the follow section to remove your elevated access.
 
 ### Remove elevated access
 
@@ -96,7 +95,7 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
 
 1. Sign out as Global Administrator.
 
-    If you are using Privileged Identity Management, deactivate your Global Administrator role.
+    If you are using Privileged Identity Management, deactivate your Global Administrator role assignment.
 
     > [!NOTE]
     > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
