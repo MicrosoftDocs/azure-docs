@@ -651,7 +651,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../automation-fir
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](../manage-runas-account#add-permissions-to-key-vault.md) to ensure that your Run As account has sufficient permissions to access Key Vault.
+[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault.md) to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Recommended documents
 
