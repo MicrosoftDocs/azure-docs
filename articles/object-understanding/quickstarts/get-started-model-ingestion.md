@@ -65,13 +65,6 @@ First, you need to create an account with the Object Understanding service.
 
    :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
 
-## Set up storage
-
-Next, you need to set up an Azure Blob store where the service is going read your 3D model from and also output the Object Understanding Model. If you don't already have a storage account you can use, then:
-
-1. Create a [Storage Account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
-2. Copy the [connection string](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#view-access-keys-and-connection-string) for the storage account you created.
-
 ## Get the sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-understanding-clone-sample-repository.md)]
@@ -88,37 +81,23 @@ Now, you can go ahead and ingest your 3D asset.
     | ---                            | ---                                                                   |
     | AccountId                      | The **Account ID** of the Object Understanding Account created above. |
     | AccountKey                     | The **Primary key** of the Object Understanding Account created above |
-    | StorageAccountConnectionString | The **Connection String** for your Azure Storage Account.*            |
-    | InputAssetPath                 | Absolute path to a 3D file on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
-
-    *\* The connection string contains the secret access keys to your storage account, which must be [handled carefully](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#protect-your-access-keys). This sample uses the connection string to create SAS Tokens, which the Object Understanding service uses to access your blob store. Your connection string never leaves your PC.*
+    | Account Region                 | The **Region** of the Object Understanding Account created above.     |
 
    There are four additional fields that need to be verified:
 
     | Field                    | Description                       |
     | ---                      | ---                               |
+    | InputAssetPath                 | Absolute path to a 3D file on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
     | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
     | AssetId                  | An arbitrary string used to identify the object being ingested. It could be a randomly generated GUID/UUID, object's identifier in an inventory database, stock keeping unit, etc. |
-    | OutputModelDirectoryPath | An absolute path to the directory where the Object Understanding model should be written. The default output location is the directory containing the input asset specified in `InputAssetPath`. |
 
 3. Build and run the project to upload your 3D asset to your blob store, register a new ingestion job with the service, and wait for it to be completed. Once the job is completed, the Object Understanding model will be downloaded either next to the file specified in the `InputAssetPath` or the path specified in `OutputModelDirectoryPath`. You should see something similar to the following console output:
 
    ```shell
-    Attempting to parse provided storage account connection string...
-    Successfully parsed storage account connection string.
-    Creating Temporary blob container for Model Ingestion...
-    Successfully created temporary blob container. Container name: *********************
-    Uploading 3D asset file to blob container...
-    Successfully uploaded 3D asset file to blob container. File name: ********
     Successfully created model ingestion job. Job ID: ******************************
     Waiting for job completion...
     Model ingestion job completed successfully.
-    Downloading Object Understanding Model from blob container...
-    Successfully downloaded Object Understanding Model. Downloaded File Path: **********************************
-    Deleting Temporary blob container...
-    Successfully deleted temporary blob container. Container name: ****************************
-    Done.
    ```
 
    Make a note of the **Job ID** for future reference. It may be useful when debugging or troubleshooting.
