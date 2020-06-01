@@ -24,13 +24,13 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 - non-primary node types running stateful production workloads should always have five or more nodes.
 - non-primary node types running stateless production workloads should always have two or more nodes.
 - Any node type of [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Gold or Silver should always have five or more nodes.
-- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale down feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
+- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale in feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
 - If using autoscale rules, set the rules so that scaling in (removing VM instances) is done one node at a time. Scaling down more than one instance at a time is not safe.
 
-Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-up-down.md) each node type/virtual machine scale set.
+Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-in-out.md) each node type/virtual machine scale set.
 
 ### Programmatic scaling
-In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-up-down.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
+In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-in-out.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
 - Manually scaling requires you to sign in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
 - When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.

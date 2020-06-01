@@ -37,7 +37,7 @@ When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. 
 
 2. Connect it to any module that outputs a dataset.   
   
-3.  Run the pipeline.
+3.  Submit the pipeline.
 
 ### Results
   

@@ -57,7 +57,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-5.  Run the pipeline. If you have a lot of data, this can take a while.
+5.  Submit the pipeline. If you have a lot of data, this can take a while.
 
 ## <a name="bkmk_results"></a> Results
 

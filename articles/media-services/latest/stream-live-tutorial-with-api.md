@@ -31,7 +31,7 @@ The tutorial shows you how to:
 > [!div class="checklist"]
 > * Download the sample app described in the topic.
 > * Examine the code that performs live streaming.
-> * Watch the event with [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) at https://ampdemo.azureedge.net.
+> * Watch the event with [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) at [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Clean up resources.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

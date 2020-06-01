@@ -5,11 +5,12 @@ description: Learn how to use Python in Azure Machine Learning designer to trans
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
+ms.custom: designer
 ---
 
 # Execute Python code in Azure Machine Learning designer
@@ -74,7 +75,7 @@ In this example, you use Pandas to combine two columns found in the automobile d
 
     The return value must be a Pandas Dataframe. You can return up to two dataframes as module outputs.
     
-1. Run the pipeline.
+1. Submit the pipeline.
 
 Now, you have a dataset with the new feature **Dollars/HP**, which could be useful in training a car recommender. This is an example of feature extraction and dimensionality reduction. 
 

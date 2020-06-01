@@ -1,16 +1,15 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
+title: Create an Azure Active Directory tenant
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -69,6 +68,6 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 ## Next steps
 
-* Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).
+* [Register an app](quickstart-register-app.md) and integrate with Microsoft identity platform. 
+* Learn the [basics of authentication](authentication-scenarios.md).
+* See [How Azure subscriptions are associated with Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.

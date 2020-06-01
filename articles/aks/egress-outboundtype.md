@@ -3,7 +3,7 @@ title: Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 03/16/2020
 
 
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
@@ -71,7 +71,7 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 If `userDefinedRouting` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
 
-Cluster must be deployed into an existing virtual network with a subnet that has been configured. A valid user-defined route (UDR) must exist on the subnet with outbound connectivity.
+The AKS cluster must be deployed into an existing virtual network with a subnet that has been configured. When using standard load balancer (SLB) architecture you must establish explicit egress. This requires sending egress requests to an appliance such as a firewall, gateway, on-prem or to allow the egress to be done by a public IP assigned to the standard load balancer or a given node.
 
 The AKS resource provider will deploy a standard load balancer (SLB). The load balancer is not configured with any rules and [does not incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS will **not** automatically provision a public IP address for the SLB frontend. AKS will **not** automatically configure the load balancer backend pool.
 
@@ -117,9 +117,6 @@ DEVSUBNET_NAME="${PREFIX}dev"
 Next, set subscription IDs.
 
 ```azure-cli
-# Get ARM Access Token and Subscription ID - This will be used for AuthN later.
-
-ACCESS_TOKEN=$(az account get-access-token -o tsv --query 'accessToken')
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -316,7 +313,11 @@ az role assignment list --assignee $APPID --all -o table
 
 ### Deploy AKS
 
-Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`.
+Finally, the AKS cluster can be deployed into the existing subnet we have dedicated for the cluster. The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
+
+```azurecli
+SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
+```
 
 We will define the outbound type to follow the UDR which exists on the subnet, enabling AKS to skip setup and IP provisioning for the load balancer which can now be strictly internal.
 
@@ -354,6 +355,12 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
+
+ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
 
 ### Setup the internal load balancer
 
@@ -530,3 +537,6 @@ You should see an image of the Azure voting app.
 See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

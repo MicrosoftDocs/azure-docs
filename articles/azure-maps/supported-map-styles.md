@@ -1,8 +1,8 @@
 ---
 title: Supported map styles | Microsoft Azure Maps
 description: In this article, you'll learn about different map rendering styles supported by Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps

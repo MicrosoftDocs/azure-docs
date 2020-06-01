@@ -24,7 +24,7 @@ Azure Dev Spaces also allows you to debug and iterate using:
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
 - [Visual Studio Code installed](https://code.visualstudio.com/download).
-- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions for Visual Studio Code installed.
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions for Visual Studio Code installed.
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create an Azure Kubernetes Service cluster
@@ -90,7 +90,7 @@ When Visual Studio Code also prompts you to configure your public endpoint, choo
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 ## Build and run code in Kubernetes from Visual Studio Code
 

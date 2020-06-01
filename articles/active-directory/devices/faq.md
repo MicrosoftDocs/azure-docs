@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 ## General FAQ
 
-### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
 Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
@@ -126,7 +126,7 @@ See below on how these actions can be rectified.
 **A:** It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
 
 >[!NOTE] 
->For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
 
 ---
 
@@ -188,7 +188,7 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 ---
 
-### Q: Why do my users see *You can’t get there from here*?
+### Q: Why do my users see *You can't get there from here*?
 
 **A:** Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
 Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
@@ -309,8 +309,8 @@ Enable the following registry to block your users from adding additional work ac
 
 **A:** Take the following steps:
 
-1.	[Create a compliance policy](/intune/compliance-policy-create-mac-os)
-1.	[Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
+1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 

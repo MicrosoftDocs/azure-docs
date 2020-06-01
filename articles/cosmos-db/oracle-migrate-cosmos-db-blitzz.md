@@ -31,7 +31,7 @@ Blitzz’s migration solution follows a step by step approach to migrate complex
 
 * It is fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
 
-* It secures the data during transit using a variety of security methodologies like SSL, encryption.
+* It secures the data during transit using a variety of security methodologies like TLS/SSL, encryption.
 
 * It offers services to convert complex business logic written in PL/SQL to equivalent business logic in Azure Cosmos DB.
 
@@ -39,7 +39,7 @@ Blitzz’s migration solution follows a step by step approach to migrate complex
 
 This section describes the steps required to setup Blitzz and migrates data from Oracle database to Azure Cosmos DB.
 
-1. From the computer where you plan to install the Blitzz replicant, add a security certificate. This certificate is required by the Blitzz replicant to establish an SSL connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
+1. From the computer where you plan to install the Blitzz replicant, add a security certificate. This certificate is required by the Blitzz replicant to establish a TLS connection with the specified Azure Cosmos DB account. You can add the certificate with the following steps:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

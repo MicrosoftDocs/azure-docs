@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a machine learning model with the designer'
+title: 'Tutorial: Deploy ML models with designer'
 titleSuffix: Azure Machine Learning
 description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
 
@@ -10,6 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
+ms.custom: designer
 ---
 
 # Tutorial: Deploy a machine learning model with the designer (preview)
@@ -35,7 +36,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Your pipeline should now look like this: 
 
@@ -52,7 +53,9 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
     >
 
-1. Select **Run**, and use the same compute target and experiment that you used in part one.
+1. Select **Submit**, and use the same compute target and experiment that you used in part one.
+
+    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
 
 1. Select **Deploy**.
 
@@ -119,4 +122,4 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Designer samples](samples-designer.md)

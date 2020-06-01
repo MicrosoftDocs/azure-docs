@@ -2,7 +2,7 @@
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 06/01/2020
 
 ---
 

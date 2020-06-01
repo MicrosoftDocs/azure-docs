@@ -3,12 +3,12 @@ title: Cognitive Services containers frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions and answers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -17,16 +17,7 @@ ms.author: dapine
 
 **Q: What is available?**
 
-**A:** [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) allows developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
-
-> [!div class="checklist"]
-> * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
-> * [Face][fa-containers]
-> * [Form Recognizer][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [Speech Service API][sp-containers]
-> * [Text Analytics][ta-containers]
+**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. 
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
@@ -71,7 +62,11 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **Q: How should I run the Cognitive Services containers on IoT devices?**
 
-Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+**A:** Whether you don't have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+
+**Q: Are these containers compatible with OpenShift?** 
+
+We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that support Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
 
 **Q: How do I provide product feedback and feature recommendations?**
 
@@ -115,7 +110,7 @@ Explore the following tags for potential questions and answers that align with y
  
 **Q: What is the current support warranty for containers?**
 
-**A:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
+**A:** There is no warranty for previews. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
  
 **Q: What happens to Cognitive Services containers when internet connectivity is lost?**
 

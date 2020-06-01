@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 06/01/2020
 ---
 
 # Configure agent data collection for Azure Monitor for containers
@@ -67,7 +67,7 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 ## Verify configuration
 
-To verify the configuration was successfully applied to a cluster other than Azure Red Hat OpenShift, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
+To verify the configuration was successfully applied to a cluster other than Azure Red Hat OpenShift, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 

@@ -1,5 +1,5 @@
 ---
-title: Security alert guide for Azure Security Center for IoT| Microsoft Docs
+title: Built-in & custom alerts list
 description: Learn about security alerts and recommended remediation using Azure Security Center for IoT features and service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-
 ---
+
 # Azure Security Center for IoT security alerts
 
 Azure Security Center for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
@@ -28,11 +28,9 @@ In this article, you will find a list of built-in alerts which can be triggered 
 In addition to built-in alerts, Azure Security Center for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
 For more details, see [customizable alerts](concept-customizable-security-alerts.md).
 
-
-
 ## Built-in alerts for IoT devices
 
-| Name | Severity | Data Source | Description | Suggested remediation steps|                  
+| Name | Severity | Data Source | Description | Suggested remediation steps|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**High** severity|  |  |  |
 |   Binary Command Line   | High | Agent | LA Linux binary being called/executed from the command line was detected. This process may be legitimate activity, or an indication that your device is compromised.|   Review the command with the user that ran it and check if this is something legitimately expected to run on the device. If not, escalate the alert to your information security team. |
@@ -48,7 +46,7 @@ For more details, see [customizable alerts](concept-customizable-security-alerts
 |  Behavior similar to Fairware ransomware detected  | Medium | Agent       | Execution of rm -rf commands applied to suspicious locations detected using analysis of host data. Because rm -rf recursively deletes files, it is normally only used on discrete folders. In this case, it is being used in a location that could remove a large amount of data. Fairware ransomware is known to execute rm -rf commands in this folder. |Review with the user that ran the command this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |  Behavior similar to ransomware detected  | Medium | Agent       | Execution of files similar to known ransomware that may prevent users from accessing their system, or personal files, and may demand ransom payment to regain access.|Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |   Crypto coin miner container image detected | Medium                   | Agent       | Container detecting running known digital currency mining images. |  1. If this behavior is not intended, delete the relevant container image.<br> 2. Make sure that the Docker daemon is not accessible via an unsafe TCP socket.<br> 3. Escalate the alert to the information security team.|
-|  Crypto coin miner image  | Medium| Agent       | Execution of a process normally associated with digital currency mining detected.| Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team.| 
+|  Crypto coin miner image  | Medium| Agent       | Execution of a process normally associated with digital currency mining detected.| Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team.|
 |   Detected suspicious use of the nohup command | Medium | Agent       | Suspicious use of the nohup command on host detected. Malicious actors commonly run the nohup command from a temporary directory, effectively allowing their executables to run in the background. Seeing this command run on files located in a temporary directory is not expected or usual behavior. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |   Detected suspicious use of the useradd command  | Medium      | Agent       | Suspicious use of the useradd command detected on the device. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |  Exposed Docker daemon by TCP socket  | Medium | Agent | Machine logs indicate that your Docker daemon (dockerd) exposes a TCP socket. By default, Docker configuration, does not use encryption or authentication when a TCP socket is enabled. Default Docker configuration enables full access to the Docker daemon, by anyone with access to the relevant port.|Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
@@ -56,7 +54,7 @@ For more details, see [customizable alerts](concept-customizable-security-alerts
 |  File downloads from a known malicious source detected   | Medium  | Agent       |  Download of a file from a known malware source detected.|Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |   htaccess file access detected | Medium                       | Agent       | Analysis of host data detected possible manipulation of an htaccess file. Htaccess is a powerful configuration file that allows you to make multiple changes to a web server running Apache Web software, including basic redirect functionality, and more advanced functions, such as basic password protection. Malicious actors often modify htaccess files on compromised machines to gain persistence. |Confirm this is legitimate expected activity on the host. If not, escalate the alert to your information security team.|
 |  Known attack tool  | Medium                                   | Agent       | A tool often associated with malicious users attacking other machines in some way was detected. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.|
-|  IoT agent attempted and failed to parse the module twin configuration | Medium  | Agent       | The Azure Security Center for IoT security agent failed to parse the module twin configuration due to type mismatches in the configuration object|Validate your module twin configuration against the IoT agent configuration schema, fix all mismatches. 
+|  IoT agent attempted and failed to parse the module twin configuration | Medium  | Agent       | The Azure Security Center for IoT security agent failed to parse the module twin configuration due to type mismatches in the configuration object|Validate your module twin configuration against the IoT agent configuration schema, fix all mismatches.
 |  Local host reconnaissance detected  | Medium | Agent       | Execution of a command normally associated with common Linux bot reconnaissance detected. |Review the suspicious command line to confirm that it was executed by a legitimate user. If not, escalate the alert to your information security team.
 |  Mismatch between script interpreter and file extension  | Medium | Agent       | Mismatch between the script interpreter and the extension of the script file provided as input detected. This type of mismatch is commonly associated with attacker script executions. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.
 |  Possible backdoor detected  | Medium | Agent |A suspicious file was downloaded and then run on a host in your subscription. This type of activity is commonly associated with the installation of a backdoor. |Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team.

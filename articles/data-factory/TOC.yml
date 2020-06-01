@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Security - Enable Customer Managed Key Encryption
+    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -39,7 +41,7 @@
         href: tutorial-copy-data-portal.md
       - name: .NET
         href: tutorial-copy-data-dot-net.md
-    - name: From an on-premises SQL Server database to Azure Blob Storage
+    - name: From a SQL Server database to Azure Blob Storage
       items:
       - name: Copy Data tool
         href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
           href: tutorial-incremental-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-powershell.md
-      - name: From multiple on-premises SQL Server tables
+      - name: From multiple SQL Server database tables
         items:
         - name: User interface (UI)
           href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -186,8 +188,6 @@
         href: wrangling-data-flow-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
-  - name: Understanding pricing
-    href: pricing-concepts.md
   - name: Naming rules
     href: naming-rules.md
 - name: How-to guides
@@ -238,8 +238,8 @@
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
-    - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-instance.md
+    - name: Azure SQL Managed Instance
+      href: connector-azure-sql-managed-instance.md
     - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -368,6 +368,8 @@
       href: connector-servicenow.md
     - name: SFTP
       href: connector-sftp.md
+    - name: SharePoint Online List
+      href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
     - name: Spark
@@ -392,20 +394,30 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Monitor copy activity
+      href: copy-activity-monitoring.md
     - name: Delete files using Delete Activity
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
+    - name: Copy activity performance
+      items:
+      - name: Performance and scalability guide
+        href: copy-activity-performance.md
+      - name: Troubleshoot performance
+        href: copy-activity-performance-troubleshooting.md
+      - name: Performance features
+        href: copy-activity-performance-features.md
     - name: Preserve metadata and ACLs
       href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Data consistency verification
+      href: copy-activity-data-consistency.md
     - name: Format and compression support (legacy)
       href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
@@ -479,6 +491,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Transformation overview
+      href: data-flow-transformation-overview.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -491,6 +505,8 @@
       href: data-flow-exists.md
     - name: Filter
       href: data-flow-filter.md
+    - name: Flatten
+      href: data-flow-flatten.md
     - name: Join
       href: data-flow-join.md
     - name: Lookup
@@ -515,8 +531,6 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
-    - name: Flatten
-      href: data-flow-flatten.md
   - name: Parameterize
     items:
     - name: Parameterizing linked services
@@ -531,6 +545,8 @@
     items:
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
+    - name: Data access strategies
+      href: data-access-strategies.md        
     - name: Azure Integration Runtime IP addresses
       href: azure-integration-runtime-ip-addresses.md
     - name: Store credentials in Azure Key Vault
@@ -541,6 +557,8 @@
       href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
+    - name: Customer managed key encryption
+      href: quickstart-enable-customer-managed-key.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -567,10 +585,14 @@
       href: create-azure-ssis-integration-runtime.md
     - name: Shared self-hosted integration runtime
       href: create-shared-self-hosted-integration-runtime-powershell.md
+    - name: Automation scripts of self-hosted integration runtime
+      href: self-hosted-integration-runtime-automation-scripts.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -585,8 +607,14 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Connect to data with Windows Authentication
+      href: ssis-azure-connect-with-windows-auth.md
+    - name: Save files and connect to file shares
+      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Built-in and preinstalled components on Azure-SSIS IR
+      href: built-in-preinstalled-components-ssis-integration-runtime.md
     - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
     - name: Install licensed components for Azure-SSIS IR
@@ -597,6 +625,12 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
+      href: how-to-use-sql-managed-instance-with-ir.md
+    - name: Migrate SSIS jobs with SSMS
+      href: how-to-migrate-ssis-job-ssms.md
+    - name: Manage packages with Azure-SSIS IR package store
+      href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -627,6 +661,12 @@
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+  - name: Understanding pricing
+    items:
+    - name: Plan and manage costs     
+      href: plan-manage-costs.md 
+    - name: Pricing examples     
+      href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
     - name: Activities
@@ -659,11 +699,13 @@
       href: how-to-fixed-width.md
     - name: Error row handling
       href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview
       href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Database managed instance
+    - name: SSISDB migration to Azure SQL Managed Instance
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
@@ -687,8 +729,10 @@
     href: frequently-asked-questions.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
-  - name: Ask a question - MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
+  - name: Ask a question - Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature

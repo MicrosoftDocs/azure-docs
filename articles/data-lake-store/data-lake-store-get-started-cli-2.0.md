@@ -1,19 +1,15 @@
 ---
-title: Use the Azure CLI to get started with Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Use the Azure CLI to create a Data Lake Storage Gen1 account and perform basic operations
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
+title: Manage Azure Data Lake Storage Gen1 account - Azure CLI
+description: Use the Azure CLI to create a Data Lake Storage Gen1 account and perform basic operations.
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 
 ---
-# Get started with Azure Data Lake Store using Azure CLI
+# Get started with Azure Data Lake Storage Gen1 using the Azure CLI
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 

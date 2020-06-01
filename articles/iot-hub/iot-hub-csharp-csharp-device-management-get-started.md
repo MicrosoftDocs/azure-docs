@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
+ms.custom:  mqtt
 ---
 
 # Get started with device management (.NET)

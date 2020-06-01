@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
@@ -59,6 +59,9 @@ On an iOS device:
 - **If you’ve already been using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
 - **If you can't find your work or school account** on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your work or school account by following the steps in the Add your work or school account article.
 
+> [!NOTE]
+> We don’t support a combination of device registration and certificate-based authentication in Authenticator on iOS. The user must use a workaround by registering the device manually through Authenticator settings before signing in.
+
 After you turn on phone sign-in, you can sign in using just the Microsoft Authenticator app.
 
 1. Sign in to your work or school account.
@@ -108,7 +111,7 @@ On an iOS device:
 
 ## Sign in using two-factor verification for your account
 
-The standard two-factor verification method requires you to enter your username and password into the device you're logging in to, and then choose whether the Microsoft Authenticator app receives Microsoft Authenticator app. On an Android device, these verification codes can be found on the Accounts screen. On an iOS device, these verification codes can be found in the **Accounts** screen or the full screen view of an account, depending on the type of account. You turn on two-factor verification for your account as part of the process to add the account to the Microsoft Authenticator app.
+The standard two-factor verification method requires you to enter your username and password into the device you're logging in to. Then, you open your Microsoft Authenticator app and type the randomly generated code for your account into the **Enter code** box. On an Android device, these verification codes can be found on the **Accounts** screen. On an iOS device, these verification codes can be found on the **Accounts** screen or the full screen view of an account, depending on the type of account. You turn on two-factor verification for your account as part of the process to add the account to the Microsoft Authenticator app.
 
 >[!Note]
 >If you don't see your work or school account or your personal account on the **Accounts** screen of the Microsoft Authenticator app, it means that you haven't added the account to the Microsoft Authenticator app. To add your account, see [Add your work or school account](user-help-auth-app-add-work-school-account.md) or [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md).
