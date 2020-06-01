@@ -13093,6 +13093,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/blockchain/tokens/account-management.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/composability.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/overview.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/templates.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/index.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
       "redirect_url": "/azure/best-practices-network-security",
       "redirect_document_id": false
@@ -52460,6 +52485,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speaker-recognition/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speaker-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
       "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
@@ -54363,6 +54393,16 @@
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/azure-ad-v2.md",

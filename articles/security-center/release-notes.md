@@ -118,6 +118,7 @@ Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
+
 ### Custom policies with custom metadata are now generally available
 
 Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
@@ -129,13 +130,14 @@ We've now also added the option to edit the custom recommendation metadata. Meta
 Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
 
 
+
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
 We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
 
 Some of the benefits of this transition:
 
-- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find active malware. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
+- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find malicious artifacts. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
 
 - **Enriched alerts** - The security alerts from fileless attack detection include enrichments that aren't available from CDA, such as the active network connections information. 
 
