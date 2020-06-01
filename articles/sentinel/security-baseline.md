@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Sentinel
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/01/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21589).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -41,7 +41,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21590).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -52,7 +52,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21591).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -63,7 +63,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21592).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.5: Record network packets and flow logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21593).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -85,7 +85,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21594).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -96,7 +96,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21595).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -107,7 +107,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21596).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -118,7 +118,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21597).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -129,7 +129,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21598).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.).
 
 **Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
 
@@ -140,7 +140,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21599).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Sentinel workspace. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)<br><br>* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)<br><br>* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Sentinel workspace. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
@@ -161,7 +161,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21600).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Sentinel, for timestamps in the logs.).
 
 **Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Sentinel, for timestamps in the logs.
 
@@ -172,7 +172,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21601).
+> To revise the text in this section, update the [underlying Work Item](Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)).
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
 
@@ -185,7 +185,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21602).
+> To revise the text in this section, update the [underlying Work Item](Audit logs for Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)).
 
 **Guidance**: Audit logs for Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
 
@@ -198,7 +198,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21603).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -209,7 +209,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21604).
+> To revise the text in this section, update the [underlying Work Item](In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Sentinel workspaces according to your organization's compliance regulations.<br><br>* [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)).
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Sentinel workspaces according to your organization's compliance regulations.
 
@@ -222,7 +222,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21605).
+> To revise the text in this section, update the [underlying Work Item](Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the &quot;Logs&quot; section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)).
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the "Logs" section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.
 
@@ -235,7 +235,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.7: Enable alerts for anomalous activity
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21606).
+> To revise the text in this section, update the [underlying Work Item](Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the &quot;Logs&quot; section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)).
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the "Logs" section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.
 
@@ -248,7 +248,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21607).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Azure Sentinel does not process or produce anti-malware related logs.).
 
 **Guidance**: Not applicable; Azure Sentinel does not process or produce anti-malware related logs.
 
@@ -259,7 +259,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21608).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Azure Sentinel does not process or produce DNS-related logs.).
 
 **Guidance**: Not applicable; Azure Sentinel does not process or produce DNS-related logs.
 
@@ -270,7 +270,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21609).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -285,7 +285,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21610).
+> To revise the text in this section, update the [underlying Work Item](Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of your Azure Sentinel workspace.<br><br>You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. Azure Sentinel also uses RBAC to provide built-in administrative roles, such as Azure Sentinel contributor, that can be assigned to users, groups, and services in Azure.<br><br>* [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)<br><br>* [Understand RBAC in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/roles)<br><br>* [How to configure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)).
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of your Azure Sentinel workspace.
 
@@ -304,7 +304,7 @@ You can use the Identity and Access control (IAM) pane in the Azure portal for y
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21611).
+> To revise the text in this section, update the [underlying Work Item](Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.).
 
 **Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
@@ -315,7 +315,7 @@ You can use the Identity and Access control (IAM) pane in the Azure portal for y
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21612).
+> To revise the text in this section, update the [underlying Work Item](Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.<br><br>Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:<br>- There should be more than one owner assigned to your subscription<br>- Deprecated accounts with owner permissions should be removed from your subscription<br>- External accounts with owner permissions should be removed from your subscription<br><br>* [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)<br><br>* [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -335,7 +335,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21613).
+> To revise the text in this section, update the [underlying Work Item](Control plane access for your Azure Sentinel workspace (e.g. Azure Portal) is available via REST API and supports SSO. To authenticate, set the Authorization header for your requests to a JSON Web Token that you obtain from Azure Active Directory.<br><br>* [Understand Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/)<br><br>* [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)).
 
 **Guidance**: Control plane access for your Azure Sentinel workspace (e.g. Azure Portal) is available via REST API and supports SSO. To authenticate, set the Authorization header for your requests to a JSON Web Token that you obtain from Azure Active Directory.
 
@@ -350,7 +350,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21614).
+> To revise the text in this section, update the [underlying Work Item](Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.<br><br>* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)<br><br>* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -365,7 +365,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21615).
+> To revise the text in this section, update the [underlying Work Item](Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.<br><br>* [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)<br><br>* [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)).
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
@@ -380,7 +380,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.7: Log and alert on suspicious activity from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21616).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.<br><br>In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.<br><br>* [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)<br><br>* [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)).
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -397,7 +397,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.8: Manage Azure resources from only approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21617).
+> To revise the text in this section, update the [underlying Work Item](Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.<br><br>* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)).
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -410,7 +410,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21618).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.<br><br>* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -423,7 +423,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21619).
+> To revise the text in this section, update the [underlying Work Item](Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.<br><br>* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)<br><br>* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)).
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -438,7 +438,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.11: Monitor attempts to access deactivated accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21620).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel workspaces. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.<br><br>You have access to Azure AD sign-in activity, audit and risk event log sources, which allow you to integrate with Azure Sentinel or a third-party SIEM.<br><br>You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.<br><br>* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)<br><br>* [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel workspaces. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -457,7 +457,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21621).
+> To revise the text in this section, update the [underlying Work Item](For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.<br><br>* [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)<br><br>* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)<br><br>* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)).
 
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -474,7 +474,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21622).
+> To revise the text in this section, update the [underlying Work Item](Currently not available; Customer Lockbox is not yet supported for Azure Sentinel or Log Analytics workspace.<br><br>* [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)).
 
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Azure Sentinel or Log Analytics workspace.
 
@@ -491,7 +491,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21623).
+> To revise the text in this section, update the [underlying Work Item](Use tags to assist in tracking Azure resources that store or process sensitive information.<br><br>* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)).
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
@@ -504,7 +504,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21624).
+> To revise the text in this section, update the [underlying Work Item](Implement separate subscriptions and/or management groups for development, test, and production Sentinel workspaces.<br><br>* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)<br><br>* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)).
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production Sentinel workspaces.
 
@@ -519,7 +519,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21625).
+> To revise the text in this section, update the [underlying Work Item](Microsoft manages the underlying infrastructure for Azure Sentinel and Log Analytics workspaces and has implemented strict controls to prevent the loss or exposure of customer data.<br><br>* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)).
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure Sentinel and Log Analytics workspaces and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -532,7 +532,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21626).
+> To revise the text in this section, update the [underlying Work Item](If you are using an Azure or on-premises Virtual Machine as a Syslog forwarder, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS.<br><br>* [Connect your external solution using Common Event Format](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)).
 
 **Guidance**: If you are using an Azure or on-premises Virtual Machine as a Syslog forwarder, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS.
 
@@ -545,7 +545,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21627).
+> To revise the text in this section, update the [underlying Work Item](Data identification, classification, and loss prevention features are not yet available in Azure. Implement third-party solution if required for compliance purposes.<br><br>For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.<br><br>* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)).
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available in Azure. Implement third-party solution if required for compliance purposes.
 
@@ -560,7 +560,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 ### 4.6: Use Azure RBAC to control access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21628).
+> To revise the text in this section, update the [underlying Work Item](You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.<br><br>Azure Sentinel uses Role-Based Access Control(RBAC), to provide built-in roles that can be assigned to users, groups, and services in Azure. Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to. There are three specific built-in Azure Sentinel roles:<br>- Azure Sentinel reader<br>- Azure Sentinel responder<br>- Azure Sentinel contributor<br><br>In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Analytics RBAC roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:<br><br>Azure roles include Owner, Contributor, and Reader. Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.<br><br>Log Analytics roles include Log Analytics contributor and Log Analytics reader. Log Analytics roles grant access across all your Log Analytics workspaces.<br><br>Additionally, each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access.<br><br>* [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)<br><br>* [Understand RBAC in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/roles)<br><br>* [How to configure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)).
 
 **Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
@@ -590,7 +590,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21629).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Sentinel and has implemented strict controls to prevent the loss or exposure of customer data.<br><br>* [Azure customer data protection](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Sentinel and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -603,7 +603,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21630).
+> To revise the text in this section, update the [underlying Work Item](Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.<br><br>* [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)).
 
 **Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
@@ -616,7 +616,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21631).
+> To revise the text in this section, update the [underlying Work Item](Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it. In the &quot;Logs&quot; section in your Azure Sentinel workspace, you may create alerts for when changes take place to production Azure Sentinel workspaces as well as other critical or related resources.<br><br>* [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)).
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it. In the "Logs" section in your Azure Sentinel workspace, you may create alerts for when changes take place to production Azure Sentinel workspaces as well as other critical or related resources.
 
@@ -633,7 +633,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21632).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
 
@@ -644,7 +644,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21633).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -655,7 +655,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 5.3: Deploy automated third-party software patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21634).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -666,7 +666,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21635).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
 
@@ -677,7 +677,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21636).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
 
@@ -692,7 +692,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 ### 6.1: Use Azure Asset Discovery
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21637).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.<br><br>Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.<br><br>* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)<br><br>* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)<br><br>* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -711,7 +711,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21638).
+> To revise the text in this section, update the [underlying Work Item](Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.<br><br>* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)).
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
@@ -724,7 +724,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21639).
+> To revise the text in this section, update the [underlying Work Item](Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.<br><br>In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:<br>- Not allowed resource types<br>- Allowed resource types<br><br>* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)<br><br>* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)<br><br>* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -745,7 +745,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 ### 6.4: Maintain an inventory of approved Azure resources and software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21640).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -756,7 +756,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21641).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).<br><br>Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)<br><br>* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
@@ -773,7 +773,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21642).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -784,7 +784,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21643).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -795,7 +795,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21644).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -806,7 +806,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21645).
+> To revise the text in this section, update the [underlying Work Item](Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:<br>- Not allowed resource types<br>- Allowed resource types<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)<br><br>* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -823,7 +823,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.10: Implement approved application list
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21646).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -834,7 +834,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21647).
+> To revise the text in this section, update the [underlying Work Item](Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.<br><br>* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -847,7 +847,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21648).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -858,7 +858,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21649).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -873,7 +873,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21650).
+> To revise the text in this section, update the [underlying Work Item](Define and implement standard security configurations for your Log Analytics workspace associated with your Sentinel workspace with Azure Policy. Use Azure Policy aliases in the &quot;Microsoft.OperationalInsights&quot; namespace to create custom policies to audit or enforce the configuration of your Log Analytics workspaces.<br><br>* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)).
 
 **Guidance**: Define and implement standard security configurations for your Log Analytics workspace associated with your Sentinel workspace with Azure Policy. Use Azure Policy aliases in the "Microsoft.OperationalInsights" namespace to create custom policies to audit or enforce the configuration of your Log Analytics workspaces.
 
@@ -888,7 +888,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21651).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -899,7 +899,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21652).
+> To revise the text in this section, update the [underlying Work Item](Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)<br><br>* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -914,7 +914,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21653).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -925,7 +925,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21654).
+> To revise the text in this section, update the [underlying Work Item](If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.<br><br>* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)<br><br>* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)).
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
@@ -940,7 +940,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21655).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -951,7 +951,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.7: Deploy system configuration management tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21656).
+> To revise the text in this section, update the [underlying Work Item](Use built-in Azure Policy definitions as well as Azure Policy aliases in the &quot;Microsoft.OperationalInsights&quot; namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.OperationalInsights" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -964,7 +964,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.8: Deploy system configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21657).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -975,7 +975,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.9: Implement automated configuration monitoring for Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21658).
+> To revise the text in this section, update the [underlying Work Item](Use built-in Azure Policy definitions as well as Azure Policy aliases in the &quot;Microsoft.OperationalInsights&quot; namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.<br><br>* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.OperationalInsights" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
@@ -988,7 +988,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21659).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -999,7 +999,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21660).
+> To revise the text in this section, update the [underlying Work Item](Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.<br><br>* [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)).
 
 **Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
@@ -1012,7 +1012,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21661).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; Azure Sentinel and Log Analytics workspace do not make use of managed identities.<br><br>* [Azure services that support managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)).
 
 **Guidance**: Not applicable; Azure Sentinel and Log Analytics workspace do not make use of managed identities.
 
@@ -1025,7 +1025,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21662).
+> To revise the text in this section, update the [underlying Work Item](Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.<br><br>* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -1042,7 +1042,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 8.1: Use centrally managed anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21663).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
 
@@ -1053,7 +1053,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21664).
+> To revise the text in this section, update the [underlying Work Item](Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Sentinel and Log Analytics), however it does not run on customer content.<br><br>It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources, including Log Analytics workspace. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.).
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Sentinel and Log Analytics), however it does not run on customer content.
 
@@ -1066,7 +1066,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21665).
+> To revise the text in this section, update the [underlying Work Item](Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
@@ -1081,7 +1081,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.1: Ensure regular automated back ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21666).
+> To revise the text in this section, update the [underlying Work Item](&lt;&lt; For service owner review &gt;&gt;).
 
 **Guidance**: &lt;&lt; For service owner review &gt;&gt;
 
@@ -1092,7 +1092,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21667).
+> To revise the text in this section, update the [underlying Work Item](If you are using Key Vault to store your customer-managed keys, ensure regular automated backups of your keys.<br><br>* [How to backup Key Vault Keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)).
 
 **Guidance**: If you are using Key Vault to store your customer-managed keys, ensure regular automated backups of your keys.
 
@@ -1105,7 +1105,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.3: Validate all backups including customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21668).
+> To revise the text in this section, update the [underlying Work Item](Test restoration of backed up customer managed keys.<br><br>* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)).
 
 **Guidance**: Test restoration of backed up customer managed keys.
 
@@ -1118,7 +1118,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.4: Ensure protection of backups and customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21669).
+> To revise the text in this section, update the [underlying Work Item](Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion. In the event that a user revokes the key encryption key, either by deleting it or removing access for Azure Sentinel, within one hour, Azure Sentinel will honor the change and behave as if the data is no longer available. At this point, any operation performed that uses persistent storage resources such as data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.<br><br>The only operation possible after the encryption key is revoked or deleted is account deletion.<br><br>If access is restored after revocation, Azure Sentinel will restore access to the data within an hour.<br><br>* [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)<br><br>* [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)).
 
 **Guidance**: Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion. In the event that a user revokes the key encryption key, either by deleting it or removing access for Azure Sentinel, within one hour, Azure Sentinel will honor the change and behave as if the data is no longer available. At this point, any operation performed that uses persistent storage resources such as data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
 
@@ -1141,7 +1141,7 @@ If access is restored after revocation, Azure Sentinel will restore access to th
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21670).
+> To revise the text in this section, update the [underlying Work Item](Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.<br><br>* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)<br><br>* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)<br><br>* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)<br><br>* [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1160,7 +1160,7 @@ If access is restored after revocation, Azure Sentinel will restore access to th
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21671).
+> To revise the text in this section, update the [underlying Work Item](Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.<br><br>Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1173,7 +1173,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21676).
+> To revise the text in this section, update the [underlying Work Item](Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.<br><br>* [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
@@ -1186,7 +1186,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21672).
+> To revise the text in this section, update the [underlying Work Item](Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.<br><br>* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
@@ -1199,7 +1199,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21673).
+> To revise the text in this section, update the [underlying Work Item](Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.<br><br>* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)<br><br>* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
@@ -1214,7 +1214,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21674).
+> To revise the text in this section, update the [underlying Work Item](Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.<br><br>* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
@@ -1231,7 +1231,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21675).
+> To revise the text in this section, update the [underlying Work Item](* [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)<br><br>* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)).
 
 **Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
