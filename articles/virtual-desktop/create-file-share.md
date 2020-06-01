@@ -65,7 +65,7 @@ Next, you'll need to enable Azure Active Directory (AD) authentication. To enabl
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
-2. Follow the instructions in [Enable Azure AD DS authentication for your storage account](../storage/files/storage-files-identity-auth-active-directory-enable.md#12-domain-join-your-storage-account) to install the AzFilesHybrid module and enable authentication.
+2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Azure Active Directory (AD)** is set to **Enabled**.
 
@@ -77,7 +77,7 @@ All users that need to have FSLogix profiles stored on the storage account must 
 
 Users signing in to the Windows Virtual Desktop session hosts need access permissions to access your file share. Granting access to an Azure File share involves configuring permissions both at the share level as well as on the NTFS level, similar to a traditional Windows share.
 
-To configure share level permissions, assign each user a role with the appropriate access permissions. Permissions can be assigned to either individual users or an Azure AD group. To learn more, see [Assign access permissions to an identity](../storage/files/storage-files-identity-auth-active-directory-enable.md#2-assign-access-permissions-to-an-identity).
+To configure share level permissions, assign each user a role with the appropriate access permissions. Permissions can be assigned to either individual users or an Azure AD group. To learn more, see [Assign access permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 >[!NOTE]
 >The accounts or groups you assign permissions to should have been created in the domain and synchronized with Azure AD. Accounts created in Azure AD won't work.
