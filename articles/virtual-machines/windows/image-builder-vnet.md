@@ -26,9 +26,11 @@ First, you must register for the Azure Image Builder Service. Registration grant
 
 ```powershell-interactive
 # Register for Azure Image Builder Feature
+
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
+
 # wait until RegistrationState is set to 'Registered'
 ```
 ## Set variables and permissions 
@@ -102,9 +104,9 @@ New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $l
 ## NOTE! The VNET must always be in the same region as the Azure Image Builder service region.
 ```
 
-###  Add NSG rule to allow the AIB deployed Azure Load Balancer to communicate with the proxy VM
+### Add Network Security Group rule
 
-This rule allows connectivity from the load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
+This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
 
 ```powershell-interactive
 Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName  | Add-AzNetworkSecurityRuleConfig -Name AzureImageBuilderAccess -Description "Allow Image Builder Private Link Access to Proxy VM" -Access Allow -Protocol Tcp -Direction Inbound -Priority 400 -SourceAddressPrefix AzureLoadBalancer -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 60000-60001 | Set-AzNetworkSecurityGroup
@@ -120,7 +122,7 @@ $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRg
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-For more information on Image Builder networking, see [Azure Image Builder Service networking options](image-builder-networking.md).
+For more information on Image Builder networking, see [Azure Image Builder Service networking options](../linux/image-builder-networking.md).
 
 ## Modify the example template and create role
 
@@ -194,7 +196,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $networkRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
 ```
 
-For more information on permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md).
+For more information on permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](../linux/image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](../linux/image-builder-permissions-powershell.md).
 
 ## Create the image
 
@@ -226,7 +228,7 @@ $buildJsonStatus
 
 ```
 
-The image build for this example will take approximately 50mins (multiple reboots, windows update installs/reboot), when you query the status, you need to look for *lastRunStatus*, below shows the build is still running, if it had completed successfully, it would show 'suceeded'.
+The image build for this example will take approximately 50 minutes (multiple reboots, windows update installs/reboot), when you query the status, you need to look for *lastRunStatus*, below shows the build is still running, if it had completed successfully, it would show 'succeeded'.
 
 ```text
   "lastRunStatus": {
@@ -239,7 +241,7 @@ The image build for this example will take approximately 50mins (multiple reboot
 ```
 
 ### Query the Distribution properties
-If you are distributing to a VHD location, need Managed Image Location properties, or Shared Image Gallery replications status, you need to query the 'runOutput', everytime you have a distribution target, you will have a unique runOutput, to describe properties of the distribution type.
+If you are distributing to a VHD location, need Managed Image Location properties, or Shared Image Gallery replications status, you need to query the 'runOutput', every time you have a distribution target, you will have a unique runOutput, to describe properties of the distribution type.
 
 ```powerShell
 $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
@@ -250,7 +252,8 @@ $runOutJsonStatus =$runOutStatusResult.Content
 $runOutJsonStatus
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azvm?view=azps-2.5.0#examples).
+
+Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
 
 ## Clean Up
 

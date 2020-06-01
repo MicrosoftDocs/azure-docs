@@ -23,8 +23,8 @@ If you specify a VNET and subnet, Azure Image Builder deploys the build VM to yo
 
 For more information, see one of the following examples:
 
-* [Create a Windows Image allowing access to an existing Azure VNET](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#create-a-windows-linux-image-allowing-access-to-an-existing-azure-vnet)
-* [Create a Custom Linux Image allowing access to an existing Azure VNET](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#create-a-custom-linux-image-allowing-access-to-an-existing-azure-vnet)
+* [Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET](../windows/image-builder-vnet.md)
+* [Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET](image-builder-vnet.md)
 
 ### What is Azure Private Link?
 
