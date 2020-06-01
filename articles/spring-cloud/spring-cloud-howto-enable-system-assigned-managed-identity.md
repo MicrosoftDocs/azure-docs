@@ -11,7 +11,7 @@ ms.date: 05/13/2020
 # How to enable system-assigned managed identity for Azure Spring Cloud application
 Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your Azure Spring Cloud application. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
-This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.4).
+This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.3).
 
 ## Prerequisites
 If you're unfamiliar with managed identities for Azure resources, see [overview section](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
@@ -49,7 +49,9 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ```
 
 ## Obtain tokens for Azure resources
-An app can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
+An app can use its managed identity to get tokens to access other resources protected by Azure Active Directory, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
+
+Azure Spring Cloud shares the same endpoint with Azure VM. We recommend using Java SDK or spring boot starters to acquire a token.
 
 You may need to [configure the target resource to allow access from your application](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
@@ -78,3 +80,4 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ## Next steps
 * [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [Access Azure Key Vault with managed identities in Spring boot starter](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [Use Key Vault from App Service with Managed Service Identity](https://docs.microsoft.com/en-us/samples/azure-samples/app-service-msi-keyvault-dotnet/keyvault-msi-appservice-sample/)
