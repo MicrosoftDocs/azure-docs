@@ -10,7 +10,7 @@ ms.date: 06/01/2020
 ---
 # Autoscale Stream Analytics jobs using Azure Automation
 
-It is likely that the input throughput to your Stream Analytics jobs fluctuate over time. You can optimize cost by configuring autoscale. Autoscaling increases or decreases the number of Streaming Units (SUs) to match the change in your input load by setting up autoscaling. You can configure your jobs to autoscale in two ways.
+You can optimize the cost of your Stream Analytics jobs by configuring autoscale. Autoscaling increases or decreases the number of Streaming Units (SUs) to match the change in your input load by setting up autoscaling. You don't have to over-provision your job and instead scale up or down as needed. You can configure your jobs to autoscale in two ways.
 1. **Pre-defining a schedule** when you have a predictable input load. For example, you expect a higher rate of input events during the daytime and want your job to run with more SUs.
 2. **Triggering scale up/down operations based on job metrics** when you don't have a predictable input load. You can dynamically change the number of SUs based on your job metrics such as number of input events or backlogged input events.
 
@@ -59,7 +59,7 @@ There might be cases where you cannot predict input load. In such cases, it more
 3. In your Stream Analytics job, select **Alert rules** under **Monitoring**. 
 4. You then have to create two action groups. One that will be used for scale up operation and another for scale down operation. Select **Manage Actions** and then click on **Add action group**. 
 5. Fill out the required fields. Choose **Automation Runbook** when choosing your **Action Type**. Select the runbook you want to trigger when this alert fires. And then create the action group.
-   ![Create action group](./media/create-actiongroup.png)
+   ![Create action group](./media/autoscale/create-actiongroup.png)
 6. Create a [**New alert rule**](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) in your job. Specify a condition based on a metric of your choice. *Input Events*, *SU% Utilization* or *Backlogged Input Events* are recommended metrics to use for defining autoscaling logic. It is also recommended to use 1 minute *Aggregation granularity* and *Frequency of evaluation* when triggering scale up operations. Doing so ensures your job has ample resources to cope with large spikes in input volume.
 7. Then select the Action Group created in the last step. And then create the alert.
 8. Repeat steps 2 through 4 for any additional scale operations you want to trigger based on condition of job metrics.
