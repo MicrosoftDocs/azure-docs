@@ -40,7 +40,7 @@ If you have unmanaged disks that aren't attached to a VM, no longer need the dat
 
     You are presented with a list of all your unmanaged disks. Any disk that has "**-**" in the **Attached to** column is an unattached disk.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disks-unattached-attached-to.png" alt-text="Screenshot of the unmanaged disks blade. Disks in this blade that have - in the attached to column are unattached.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot of the unmanaged disks blade. Disks in this blade that have - in the attached to column are unattached.":::
 
 1. Select the unattached disk you'd like to delete, this brings up the disk's blade.
 
