@@ -68,7 +68,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
    - Run pod install to install your newly defined pod and open your .xcworkspace.
 
-   If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
+      If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
 
    - Integration via Carthage: Add the following dependencies to your Cartfile to include the Azure Notification Hubs SDK in your app:
 
@@ -293,7 +293,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
     This code connects to the notification hub using the connection information you specified in **Constants.h**. It then gives the device token to the notification hub, so that the hub can send notifications.
 
-### NotificationDetailViewController
+### Create NotificationDetailViewController header file
 
 1. Similar to the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the new header file with the following code:
 
