@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -28,7 +28,7 @@ Access tokens are only valid for a short period of time, so authorization server
 **ID tokens** are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. To learn more about how Microsoft identity platform issues ID tokens, see [ID tokens](id-tokens.md).
 
 > [!NOTE]
-> This article discusses security tokens for the OAuth2 and OpenID Connect protocols. Many enterprise applications use SAML to authenticate users. See [Azure AD SAML token reference](reference-saml-tokens.md) for information on SAML assertions.
+> This article discusses security tokens used by the OAuth2 and OpenID Connect protocols. Many enterprise applications use SAML to authenticate users. See [Azure AD SAML token reference](reference-saml-tokens.md) for information on SAML assertions.
 
 ## Validating security tokens
 
@@ -43,7 +43,7 @@ Access tokens are passed to a web API as the bearer token in the `Authorization`
 
 ## JSON Web Tokens (JWTs) and claims
 
-Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**.
+Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**. Since JWTs are used as security tokens, this form of authentication is sometimes called **JWT authentication**.
 
 A [claim](developer-glossary.md#claim) provides assertions about one entity, such as a client application or [resource owner](developer-glossary.md#resource-owner), to another entity, such as a resource server. A claim may also be referred to as a JWT claim or JSON Web Token claim.
 

@@ -39,7 +39,7 @@ To set up Hyper-V VM assessment, you create an Azure Migrate project, and add th
 
 | **Support**                  | **Details**               
 | :----------------------------- | :------------------- |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems. |
+| **Operating system** | All operating systems can be assessed for migration.  |
 | **Integration Services**       | [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) must be running on VMs that you assess, in order to capture operating system information. |
 
 

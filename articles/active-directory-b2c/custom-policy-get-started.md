@@ -134,7 +134,7 @@ Next, specify that the application should be treated as a public client:
 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
@@ -147,7 +147,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scopes - offline_access, openid and user_impersonation. It might take a few minutes for the permissions to propagate.
 
 * * *
 

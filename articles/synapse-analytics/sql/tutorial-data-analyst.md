@@ -19,25 +19,6 @@ In particular, you analyze the [New York City (NYC) Taxi dataset](https://azure.
 
 The focus of the analysis is to find trends in changes of number of taxi rides over time. You analyze two other Azure Open Datasets ([Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) and [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)) to understand the outliers in number of taxi rides.
 
-## Create credentials
-
-```sql
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/nyctlc]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = ''
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = ''
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = ''
-GO
-```
 
 ## Automatic schema inference
 

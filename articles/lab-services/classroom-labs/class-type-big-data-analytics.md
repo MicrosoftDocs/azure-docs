@@ -98,7 +98,7 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
 1. Once the Docker containers for HDP Sandbox are deployed and running, you can access the environment by launching your browser and following Cloudera's instructions for opening the [Sandbox Welcome Page](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) and launching the HDP Dashboard.
 
     > [!NOTE] 
-    > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM.  If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to [http://localhost:8080](http://localhost:8080).
+    > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM.  If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to `http://localhost:8080`.
 
 ### Automatically start Docker containers when students log in
 

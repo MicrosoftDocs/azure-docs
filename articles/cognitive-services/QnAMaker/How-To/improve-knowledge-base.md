@@ -326,11 +326,6 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
 ]
 ```
 
-You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
-
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
 
 

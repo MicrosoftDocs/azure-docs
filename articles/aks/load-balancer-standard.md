@@ -86,12 +86,17 @@ When using a *Standard* SKU load balancer, the AKS cluster automatically creates
 
 By bringing multiple IP addresses or prefixes, you are able to define multiple backing services when defining the IP address behind a single load balancer object. The egress endpoint of specific nodes will depend on what service they are associated with.
 
-> [!IMPORTANT]
-> You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### Pre-requisites to bring-your-own IP addresses or IP prefixes
+1. You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+ 1. The public IPs and IP prefixes cannot be IPs created by AKS as a managed IP. Ensure any IPs specified as custom IPs were created manually and not be the AKS service.
+ 1. The public IPs and IP prefixes cannot be used by another resource or service.
+
+ ### Define your own public IP or prefixes on an existing cluster
 
 Use the [az network public-ip show][az-network-public-ip-show] command to list the IDs of your public IPs.
 
@@ -128,9 +133,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster. 
 
 ### Define your own public IP or prefixes at cluster create time
 

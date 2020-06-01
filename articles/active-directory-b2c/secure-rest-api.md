@@ -237,7 +237,7 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.microsoft.com/oauth2/v2.0/token</Item>
+    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token</Item>
     <Item Key="AuthenticationType">Basic</Item>
      <Item Key="SendClaimsIn">Form</Item>
   </Metadata>

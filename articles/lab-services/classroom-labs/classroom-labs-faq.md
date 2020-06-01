@@ -25,8 +25,8 @@ Get answers to some of the most common questions about classroom labs in Azure L
 ### Is the quota per user or per week or per entire duration of the lab? 
 The quota you set for a lab is for each student for entire duration of the lab. And, the [scheduled running time of VMs](how-to-create-schedules.md) doesn't count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.  For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### If professor turns on a student VM, does that affect the student quota? 
-No. It doesn't. When professor turns on the student VM, it doesn't affect the quota allotted to the student. 
+### If educator turns on a student VM, does that affect the student quota? 
+No. It doesn't. When educator turns on the student VM, it doesn't affect the quota allotted to the student. 
 
 ## Schedules
 
@@ -74,6 +74,6 @@ Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ. 
-- To reach a wider audience, post a question on the [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- To reach a wider audience, post a question on the [Azure Lab Services — Tech community forum](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - For feature requests, submit your requests and ideas to [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 
