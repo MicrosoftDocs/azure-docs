@@ -7,12 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Using C#
-    href: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
-  - name: Using Node.js
-    href: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
-  - name: Using Swift (iOS)
-    href: ./quickstarts/client-libraries.md?pivots=programming-language-swift
+  - name: Using the client library
+    href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Launch the Immersive Reader (Python)
@@ -35,8 +31,6 @@
     href: how-to-cache-token.md
 - name: Reference
   items:
-  - name: Using the client libraries
-    href: ./quickstarts/client-libraries.md
   - name: SDK Reference
     href: reference.md
 - name: Resources

@@ -63,7 +63,7 @@ After registration with Azure Multi-Factor Authentication is finished, the follo
 - Exchange administrator
 - Conditional Access administrator
 - Security administrator
-- Helpdesk administrator or password administrator
+- Helpdesk administrator
 - Billing administrator
 - User administrator
 - Authentication administrator
