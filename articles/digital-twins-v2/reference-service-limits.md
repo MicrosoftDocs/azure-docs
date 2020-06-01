@@ -28,7 +28,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 |
 | Routing | Number of routes for a single Azure Digital Twins instance | 6 |
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 |
-| Models | Number of models that can be uploaded in a single API call | 100 |
+| Models | Number of models that can be uploaded in a single API call | 250 |
 | Models | Number of items returned in a single page | 100 |
 | Query | Number of items returned in a single page | 100 |
 | Query | Number of `AND` / `OR` expressions in a query | 50 |
