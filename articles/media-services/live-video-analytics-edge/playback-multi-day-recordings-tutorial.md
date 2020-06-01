@@ -36,7 +36,7 @@ It is recommended that you read through the following documentation pages:
 
 ## Run the sample 
 
-As part of the  [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md#use-the-azure-portal) to create a service principal. You should be able to get a JSON block from the Portal that looks like this:
+As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would have created a Media Service account. For this tutorial, you will need to have complete API access to that account. You can use the steps in [Get credentials to access Media Services API](../latest/access-api-howto.md#use-the-azure-portal) to create a service principal. You should be able to get a JSON block from the Azure portal that looks like this:
 
 ```
 {
@@ -66,7 +66,7 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 } 
 ```
 
-In Visual Studio Code, you can click the Run icon on the left (or Ctrl + Shift + D) to bring up the available applications to run:
+In Visual Studio Code, you can click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
 
 ![Run](./media/playback-multi-day-recordings-tutorial/run.png)
  
@@ -79,7 +79,7 @@ The sample application will build and launch your default browser app, and open 
 > [!NOTE]
 > Depending on the security settings on your browser, you may see a warning message. Since the web page is running locally, you can choose to ignore the warning.
 
-The AMS Asset Player prompts you to enter the name of a Media Service Asset. You should use the name of the Asset that you used for recording video in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md).
+The AMS Asset Player prompts you to enter the name of a Media Service asset. You should use the name of the Asset that you used for recording video in [Tutorial: Continuous video recording](continuous-video-recording-tutorial.md).
 
 Upon typing the asset name and hitting submit, the player code will load the streaming URL. For more information, see [How-to-Guide: Playback of recordings](playback-recordings-how-to.md). If, as recommended, you are still recording to the asset, the player will detect that, and attempt to cue the playback to the most recent part of the recorded video. You can see the timestamp (in UTC) at the top left of the player. In the screenshot below, note how the “Live” button is selected.
 
@@ -90,7 +90,7 @@ When you expand the day, if you have let the CVR Tutorial run for several hours,
 
 ![Browse archive](./media/playback-multi-day-recordings-tutorial/results.png)
 
-The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see, [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP Source node in the media graph detects this disconnect and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
+The source for the video feed in the tutorial is an MKV file. When the RSTP simulator (see [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) reaches the end of the file, it ends the stream. The RTSP source node in the media graph detects this and re-establishes the connection, and the video resumes. In between each such end of file and reconnect, there is a gap in the recorded archive, which shows up as a new entry in availableMedia results.
 
 ![Results](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
  
