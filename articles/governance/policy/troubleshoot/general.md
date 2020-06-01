@@ -168,7 +168,7 @@ The generated password includes a comma (`,`) that Helm Chart is splitting on.
 #### Resolution
 
 Escape the comma (`,`) in the password value when running `helm install azure-policy-addon` with a
-backspace (`\`).
+backslash (`\`).
 
 ### Scenario: Install using Helm Chart fails as name already exists
 
