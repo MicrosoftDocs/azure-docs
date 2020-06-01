@@ -79,7 +79,7 @@ For a tutorial on using Log Analytics in the Azure portal, see [Get started with
 
 For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### Query examples
+## Query examples
 
 ### Error events from the last hour
 
@@ -123,7 +123,7 @@ ContainerRegistryRepositoryEvents
 | project TimeGenerated, OperationName, Repository, Tag, ResultDescription
 ```
 
-### Authentication failures
+### Registry authentication failures
 
 ```kusto
 ContainerRegistryLoginEvents 
