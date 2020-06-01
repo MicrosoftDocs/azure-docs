@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 05/27/2020
+ms.date: 05/31/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -77,34 +77,75 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 ### Deploy the Log Analytics VM extension
 
-The following sample enables the Log Analytics agent for Windows.
+To easily deploy the Log Analytics agent, the following sample is provided to install the agent on either Windows or Linux.
 
-#### Template file
+#### Template file for Linux
 
 ```json
-{ 
+{
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
-            "type": "String"
+            "type": "string"
         },
         "location": {
-            "type": "String"
+            "type": "string"
         },
         "workspaceId": {
-            "type": "String"
+            "type": "string"
         },
         "workspaceKey": {
-            "type": "String"
+            "type": "string"
         }
     },
     "resources": [
         {
+            "name": "[concat(parameters('vmName'),'/OMSAgentForLinux')]",
             "type": "Microsoft.HybridCompute/machines/extensions",
-            "apiVersion": "2019-08-02-preview",
-            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]",
             "location": "[parameters('location')]",
+            "apiVersion": "2019-08-02-preview",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "OmsAgentForLinux",
+                "settings": {
+                    "workspaceId": "[parameters('workspaceId')]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[parameters('workspaceKey')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+#### Template file for Windows
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "workspaceId": {
+            "type": "string"
+        },
+        "workspaceKey": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]",
+            "type": "Microsoft.HybridCompute/machines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2019-08-02-preview",
             "properties": {
                 "publisher": "Microsoft.EnterpriseCloud.Monitoring",
                 "type": "MicrosoftMonitoringAgent",
@@ -148,6 +189,158 @@ This command creates a new deployment by using a custom template and a template 
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
+```
+
+### Deploy the Custom Script Extension
+
+To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). However, there are some differing characteristics that you need to understand:
+
+<List those differences in experience and configuration with the extension>.
+
+To easily deploy the Custom Script extension, the following sample is provided to install the agent on either Windows or Linux.
+
+#### Template file for Linux
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "fileUris": {
+      "type": "array"
+    },
+    "commandToExecute": {
+      "type": "securestring"
+    }
+  },
+  "resources": [
+    {
+      "name": "[concat(parameters('vmName'),'/CustomScript')]",
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "location": "[parameters('location')]",
+      "apiVersion": "2019-08-02-preview",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "autoUpgradeMinorVersion": true,
+        "settings": {},
+        "protectedSettings": {
+          "commandToExecute": "[parameters('commandToExecute')]",
+          "fileUris": "[parameters('fileUris')]"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Template file for Windows
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "fileUris": {
+            "type": "string"
+        },
+        "arguments": {
+            "type": "securestring",
+            "defaultValue": " "
+        }
+    },
+    "variables": {
+        "UriFileNamePieces": "[split(parameters('fileUris'), '/')]",
+        "firstFileNameString": "[variables('UriFileNamePieces')[sub(length(variables('UriFileNamePieces')), 1)]]",
+        "firstFileNameBreakString": "[split(variables('firstFileNameString'), '?')]",
+        "firstFileName": "[variables('firstFileNameBreakString')[0]]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('vmName'),'/CustomScriptExtension')]",
+            "type": "Microsoft.HybridCompute/machines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2019-08-02-preview",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": "[split(parameters('fileUris'), ' ')]"
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[concat ('powershell -ExecutionPolicy Unrestricted -File ', variables('firstFileName'), ' ', parameters('arguments'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
+#### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [
+      {}
+    ],
+    "steps": [
+      {
+        "name": "customScriptExt",
+        "label": "Add Custom Script Extension",
+        "elements": [
+          {
+            "name": "fileUris",
+            "type": "Microsoft.Common.FileUpload",
+            "label": "Script files",
+            "toolTip": "The script files that will be downloaded to the virtual machine.",
+            "constraints": {
+              "required": false
+            },
+            "options": {
+              "multiple": true,
+              "uploadMode": "url"
+            },
+            "visible": true
+          },
+          {
+            "name": "commandToExecute",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Command",
+            "defaultValue": "sh script.sh",
+            "toolTip": "The command to execute, for example: sh script.sh",
+            "constraints": {
+              "required": true
+            },
+            "visible": true
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "vmName": "[vmName()]",
+      "location": "[location()]",
+      "fileUris": "[steps('customScriptExt').fileUris]",
+      "commandToExecute": "[steps('customScriptExt').commandToExecute]"
+    }
+  }
+}
 ```
 
 ## Next steps
