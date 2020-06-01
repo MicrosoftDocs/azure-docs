@@ -17,7 +17,7 @@ ms.author: spelluru
 This article provides following information for the SDKs supported by Azure Event Hubs: 
 
 - Location of package that you can use in your applications 
-- GitHub location where you can find source code, samples, readme, change log, reported issues, and also raise new issues. 
+- GitHub location where you can find source code, samples, readme, change log, reported issues, and also raise new issues 
 - Links to quickstart tutorials 
 
 ## Client SDKs
