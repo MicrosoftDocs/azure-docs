@@ -56,8 +56,8 @@ You can deploy the Teams desktop app using a per-machine installation. To instal
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
-> [!NOTE]
-> Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
+      > [!NOTE]
+      > Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
 2. Run this command to install the MSI to the host VM.
 
