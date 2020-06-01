@@ -71,10 +71,16 @@
     href: storage-files-faq.md
 - name: How-to guides
   items:
-  - name: Deploy
+  - name: Create
     items:
     - name: Create a file share
       href: storage-how-to-create-file-share.md
+    - name: Enable large file shares
+      href: storage-files-how-to-create-large-file-share.md
+    - name: Create a premium file share
+      href: storage-how-to-create-premium-fileshare.md
+  - name: Deploy
+    items:
     - name: Deploy Azure Files
       href: storage-files-deployment-guide.md
     - name: Deploy Azure File Sync
