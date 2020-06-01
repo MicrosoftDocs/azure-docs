@@ -112,10 +112,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-> [!TIP]
-> Click the following link to execute this request. After you sign in, your browser will be redirected to `https://localhost/myapp/`, with an ID token in the address bar. Note that this request uses `response_mode=fragment` (for demonstration purposes only). We recommend that you use `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
