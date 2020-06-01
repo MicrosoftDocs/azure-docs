@@ -91,7 +91,7 @@ sudo yum -y install cyclecloud
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
 ```CMD
-sudo yum -y install cyclecloud-8
+sudo yum -y install cyclecloud8
 ```
 ::: moniker-end
 
