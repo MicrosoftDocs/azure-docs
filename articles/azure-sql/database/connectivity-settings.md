@@ -102,10 +102,10 @@ Login failed with invalid TLS version
 The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS Version** property at the logical server level:
 
 ```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+#Get the Minimal TLS Version property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).MinimalTlsVersion
 
-# Update Public Network Access to Disabled
+# # Update Minimal TLS Version to 1.2
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
