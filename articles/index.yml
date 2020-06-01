@@ -415,13 +415,6 @@ productDirectory:
         - blockchain
       url: blockchain/service/index.yml
     # Card
-    - title: Azure Blockchain Tokens (Preview)
-      summary: Easily define, create, and manage ledger-based tokens
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/tokens/index.yml
-    # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -730,6 +723,13 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: azure-app-configuration/index.yml
+   # Card
+    - title: Azure Data Studio
+      summary: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Excel.
+      imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+      azureCategories:
+        - developer-tools
+      url: https://docs.microsoft.com/sql/azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
@@ -827,6 +827,13 @@ productDirectory:
       azureCategories:
         - devops
       url: https://docs.microsoft.com/azure/devops/test/
+    # Card
+    - title: GitHub Actions for Azure
+      summary: Build, test and deploy any app from GitHub to Azure
+      imageSrc: ./media/index/github-actions-icon.svg
+      azureCategories:
+        - devops
+      url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on

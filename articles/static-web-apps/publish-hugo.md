@@ -148,7 +148,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application.
+1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. If you require Hugo Extended, uncomment `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
@@ -159,6 +159,7 @@ Next, you add configuration settings that the build process uses to build your a
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo
