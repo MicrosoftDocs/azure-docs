@@ -5,11 +5,11 @@ services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
 ms.workload: data-services
-ms.topic: quickstart
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.reviewer: maghan
+ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/28/2020
 ---
@@ -33,13 +33,10 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ## Create an Azure Data Factory
 
-### Review the template
+## Data Factory JSON
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-create/).
+Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (Create the ADFTutorial folder if it doesn't already exist) with the following content:
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-create.json":::
-
-Script 1 - Create:
 ```json
 {  
     "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -273,8 +270,8 @@ Script 1 - Create:
     ]
 }
 ```
+## Parameters JSON
 
-Script 2 - parameters:
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
 
 > [!IMPORTANT]
@@ -310,11 +307,12 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 }
 ```
 
-More Azure Data Factory template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
+> [!IMPORTANT]
+> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
 
-### Deploy Data Factory entities
+## Deploy Data Factory entities
 
-In PowerShell, run the following command to deploy Data Factory entities in your resource group. Use ADFTutorialResourceGroup as an example for the Resource Manager template you created earlier in this quickstart.
+In PowerShell, run the following command to deploy Data Factory entities in your resource group (in this case, take ADFTutorialResourceGroup as an example) using the Resource Manager template you created earlier in this quickstart.
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -354,7 +352,7 @@ The template deploys the following Data Factory entities:
 
 The deployed trigger is in stopped state. One of the ways to start the trigger is to use the **Start-AzDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps:
 
-1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you've specified a different resource group name for the New-AzResourceGroupDeployment command, update the value here.
+1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzResourceGroupDeployment command, update the value here.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -435,7 +433,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
     ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
-6. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. As such, you see a run for that activity.
+6. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
 
     ![Activity runs](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 7. Click the **Output** link under Actions column. You see the output from the copy operation in an **Output** window. Click the maximize button to see the full output. You can close the maximized output window or close it.
@@ -460,7 +458,7 @@ The following Data Factory entities are defined in the JSON template:
 
 #### Azure Storage linked service
 
-The AzureStorageLinkedService links your Azure Storage account to the data factory. You created a container and uploaded data to this storage account as part of prerequisites. You specify the name and key of your Azure Storage account in this section. See [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) for details about JSON properties used to define an Azure Storage linked service.
+The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of prerequisites. You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) for details about JSON properties used to define an Azure Storage linked service.
 
 ```json
 {  
@@ -486,7 +484,7 @@ The connectionString uses the storageAccountName and storageAccountKey parameter
 
 #### Binary input dataset
 
-The Azure Storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure Storage account. In Binary dataset definition, you specify names of blob container, folder, and file that contains the input data. See [Binary dataset properties](format-binary.md#dataset-properties) for details about JSON properties used to define a Binary dataset.
+The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. In Binary dataset definition, you specify names of blob container, folder, and file that contains the input data. See [Binary dataset properties](format-binary.md#dataset-properties) for details about JSON properties used to define a Binary dataset.
 
 ```json
 {  
@@ -671,7 +669,7 @@ You define a trigger that runs the pipeline once an hour. The deployed trigger i
 
 ## Reuse the template
 
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it to deploy that environment.
+In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
 
 Example:
 
@@ -685,28 +683,8 @@ New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutori
 
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.
 
-You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure Storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.
+You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.
 
-## Clean up resources
-
-When no longer needed, delete the resource group, which deletes the Azure Data Factory and related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
 
 ## Next steps
 
@@ -715,4 +693,3 @@ In this quickstart, you created an Azure Data Factory using an Azure Resource Ma
 - [Azure Data Factory documentation](index.yml)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Get other [Azure Data Factory Resource Manager templates](resource-manager-samples.md)
-
