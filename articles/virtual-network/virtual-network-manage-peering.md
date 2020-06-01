@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
-ms.author: anavin
+ms.author: altambaw
 ---
 
 # Create, change, or delete a virtual network peering
