@@ -114,7 +114,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage* 
 
-1. Edit the ConfigMap yaml file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**.
+1. Edit the ConfigMap yaml file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`.
 
 2. To to modify the *cpuExceededPercentage* threshold to 90% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example.
 
