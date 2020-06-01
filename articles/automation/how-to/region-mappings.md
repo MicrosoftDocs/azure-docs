@@ -9,6 +9,7 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
+ms.custom: references_regions
 ---
 
 # Supported regions for linked Log Analytics workspace
@@ -75,6 +76,6 @@ Alternatively, you can unlink your workspace from your Automation account within
 
 ## Next steps
 
-* [Update Management overview](../automation-update-management.md)
-* [Change Tracking and Inventory overview](../change-tracking.md)
-* [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md)
+* Learn about Update Management in [Update Management overview](../automation-update-management.md).
+* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking.md).
+* Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).

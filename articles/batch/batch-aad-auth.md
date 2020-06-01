@@ -408,7 +408,7 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 ```python
     batch_client = BatchServiceClient(
     credentials,
-    base_url=BATCH_ACCOUNT_URL
+    batch_url=BATCH_ACCOUNT_URL
 )
 ```
 
