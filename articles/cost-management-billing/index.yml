@@ -23,15 +23,15 @@ landingContent:
     - linkListType: overview
       links:
       - text: What is Cost Management and Billing?
-        url: ../cost-management-billing-overview.md
+        url: cost-management-billing-overview.md
     - linkListType: concept
       links:
       - text: Azure Cost Management best practices
-        url: cost-mgt-best-practices.md
+        url: costs/cost-mgt-best-practices.md
       - text: Understand Cost Management data
-        url: understand-cost-mgt-data.md
+        url: costs/understand-cost-mgt-data.md
       - text: Save money with Azure Reservations
-        url: save-compute-costs-reservations.md
+        url: costs/save-compute-costs-reservations.md
     - linkListType: get-started
       links:
       - text: Learn at your own pace
@@ -39,15 +39,15 @@ landingContent:
       - text: Azure Cost Management videos
         url: https://www.youtube.com/c/AzureCostManagement
       - text: Start analyzing costs
-        url: quick-acm-cost-analysis.md
+        url: costs/quick-acm-cost-analysis.md
     - linkListType: how-to-guide
       links:
       - text: Prevent unexpected charges
-        url: ../manage/getting-started.md
+        url: manage/getting-started.md
       - text: Use cost analysis for common tasks
-        url: cost-analysis-common-uses.md
+        url: costs/cost-analysis-common-uses.md
       - text: Assign access to cost management data
-        url: assign-access-acm-data.md
+        url: costs/assign-access-acm-data.md
 
   # Card (optional)
   - title: Configure Cost Management + Billing
@@ -55,33 +55,33 @@ landingContent:
     - linkListType: concept
       links:     
       - text: Understand and work with scopes
-        url: understand-work-scopes.md
+        url: costs/understand-work-scopes.md
       - text: EA roles in Azure
-        url: understand-ea-roles.md
+        url: manage/understand-ea-roles.md
       - text: Microsoft Customer Agreement roles in Azure
-        url: understand-mca-roles.md
+        url: manage/understand-mca-roles.md
     - linkListType: how-to-guide
       links:
       - text: View billing accounts
-        url: view-all-accounts.md
+        url: manage/view-all-accounts.md
       - text: Create an additional subscription
-        url: create-subscription.md
+        url: manage/create-subscription.md
       - text: Cancel subscription
-        url: cancel-azure-subscription.md
+        url: manage/cancel-azure-subscription.md
       - text: Reactivate subscription
-        url: subscription-disabled.md
+        url: manage/subscription-disabled.md
       - text: Change credit card
-        url: change-credit-card.md
+        url: manage/change-credit-card.md
       - text: Change administrator
-        url: add-change-subscription-administrator.md
+        url: manage/add-change-subscription-administrator.md
       - text: Pay by invoice
-        url: pay-by-invoice.md
+        url: manage/pay-by-invoice.md
       - text: Transfer ownership of an individual subscription
-        url: billing-subscription-transfer.md
+        url: manage/billing-subscription-transfer.md
       - text: Transfer ownership for a Microsoft Customer Agreement
-        url: mca-request-billing-ownership.md
+        url: manage/mca-request-billing-ownership.md
       - text: Set up and configure AWS integration
-        url: aws-integration-set-up-configure.md
+        url: costs/aws-integration-set-up-configure.md
     
     # Card (optional)
   - title: Report on and manage your costs
@@ -89,37 +89,37 @@ landingContent:
     - linkListType: tutorial
       links:
       - text: Review your individual account bill
-        url: review-individual-bill.md
+        url: costs/review-individual-bill.md
       - text: Review your Microsoft Customer Agreement bill
-        url: review-customer-agreement-bill.md
+        url: costs/review-customer-agreement-bill.md
       - text: Review your Enterprise Agreement bill
-        url: review-enterprise-agreement-bill.md
+        url: costs/review-enterprise-agreement-bill.md
       - text: Create and manage budgets
-        url: tutorial-acm-create-budgets.md
+        url: costs/tutorial-acm-create-budgets.md
       - text: Export cost and usage data
-        url: tutorial-export-acm-data.md
+        url: costs/tutorial-export-acm-data.md
     - linkListType: concept
       links:
       - text: Usage terms explained
-        url: understand-usage.md
+        url: understand/understand-usage.md
       - text: Invoice terms explained
-        url: understand-invoice.md
+        url: understand/understand-invoice.md
       - text: Microsoft Customer Agreement usage terms
-        url: mca-understand-your-usage.md
+        url: understand/mca-understand-your-usage.md
       - text: Microsoft Customer Agreement invoice terms
-        url: mca-understand-your-invoice.md   
+        url: understand/mca-understand-your-invoice.md   
     - linkListType: how-to-guide
       links:
       - text: View and download your Azure invoice
-        url: download-azure-invoice.md
+        url: understand/download-azure-invoice.md
       - text: View and download your Azure usage and charges
-        url: download-azure-daily-usage.md
+        url: understand/download-azure-daily-usage.md
       - text: Use cost alerts
-        url: cost-mgt-alerts-monitor-usage-spending.md
+        url: costs/cost-mgt-alerts-monitor-usage-spending.md
       - text: Connect with Power BI Desktop
         url: /power-bi/desktop-connect-azure-cost-management
       - text: Get started in the Azure EA portal
-        url: ea-portal-get-started.md
+        url: manage/ea-portal-get-started.md
 
   # Card (optional)
   - title: Optimize your costs
@@ -127,15 +127,13 @@ landingContent:
     - linkListType: concept
       links:
       - text: What are Azure reservations?
-        url: save-compute-costs-reservations.md
+        url: reservations/save-compute-costs-reservations.md
       - text: Reservation exchanges and refunds
-        url: exchange-and-refund-azure-reservations.md
-      - text: Buy a reservation with monthly payments
-        url: monthly-payments-reservations.md
+        url: reservations/exchange-and-refund-azure-reservations.md
     - linkListType: tutorial
       links:
       - text: Act on recommendations
-        url: tutorial-acm-opt-recommendations.md
+        url: costs/tutorial-acm-opt-recommendations.md
 
   # Card (optional)
   - title: Review individual accounts
@@ -143,21 +141,21 @@ landingContent:
     - linkListType: tutorial
       links:
       - text: Review your individual account bill
-        url: review-individual-bill.md
+        url: understand/review-individual-bill.md
     - linkListType: concept
       links:
       - text: Usage terms explained
-        url: understand-usage.md
+        url: understand/understand-usage.md
       - text: Invoice terms explained
-        url: understand-invoice.md
+        url: understand/understand-invoice.md
     - linkListType: how-to-guide
       links:
         - text: View and download your Azure invoice
-          url: download-azure-invoice.md
+          url: understand/download-azure-invoice.md
         - text: View and download your Azure usage and charges
-          url: download-azure-daily-usage.md
+          url: understand/download-azure-daily-usage.md
         - text: View external service charges
-          url: understand-azure-marketplace-charges.md
+          url: understand/understand-azure-marketplace-charges.md
  
   # Card (optional)
   - title: Manage free account
@@ -165,13 +163,13 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Create free services
-        url: create-free-services.md
+        url: manage/create-free-services.md
       - text: Avoid charges
-        url: avoid-charges-free-account.md
+        url: manage/avoid-charges-free-account.md
       - text: Check usage
-        url: check-free-service-usage.md
+        url: manage/check-free-service-usage.md
       - text: Upgrade account
-        url: upgrade-azure-subscription.md
+        url: manage/upgrade-azure-subscription.md
 
   # Card (optional)
   - title: Review Microsoft Customer Agreement accounts
@@ -183,23 +181,23 @@ landingContent:
     - linkListType: concept
       links:
       - text: Billing accounts for Microsoft Customer Agreement
-        url: mca-overview.md
+        url: understand/mca-overview.md
       - text: Microsoft Customer Agreement usage terms
-        url: mca-understand-your-usage.md
+        url: understand/mca-understand-your-usage.md
       - text: Microsoft Customer Agreement invoice terms
-        url: mca-understand-your-invoice.md
+        url: understand/mca-understand-your-invoice.md
     - linkListType: how-to-guide
       links:
       - text: View and download Azure invoice
-        url: download-azure-invoice.md
+        url: understand/download-azure-invoice.md
       - text: View and download Azure usage and charges
-        url: download-azure-daily-usage.md
+        url: understand/download-azure-daily-usage.md
       - text: View and download tax documents
-        url: mca-download-tax-document.md
+        url: understand/mca-download-tax-document.md
       - text: View external service charges
-        url: understand-azure-marketplace-charges.md
+        url: understand/understand-azure-marketplace-charges.md
       - text: Pay your Microsoft Customer Agreement bill
-        url: pay-bill.md
+        url: understand/pay-bill.md
 
     # Card (optional)
   - title: Buy reservations
@@ -207,33 +205,31 @@ landingContent:
     - linkListType: concept
       links:
       - text: What are Azure reservations?
-        url: save-compute-costs-reservations.md
+        url: reservations/save-compute-costs-reservations.md
       - text: Reservation exchanges and refunds
-        url: exchange-and-refund-azure-reservations.md
-      - text: Buy a reservation with monthly payments
-        url: monthly-payments-reservations.md
+        url: reservations/exchange-and-refund-azure-reservations.md
     - linkListType: how-to-guide
       links:
       - text: Renew reservations
-        url: reservation-renew.md
+        url: reservations/reservation-renew.md
       - text: SQL Data Warehouse
-        url: prepay-sql-data-warehouse-charges.md
+        url: reservations/prepay-sql-data-warehouse-charges.md
       - text: Virtual machine
-        url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Storage
-        url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Cosmos DB
-        url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: SQL Database
-        url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Data Explorer
-        url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
-        url: prepay-databricks-reserved-capacity.md
+        url: reservations/prepay-databricks-reserved-capacity.md
       - text: App Service
-        url: prepay-app-service-isolated-stamp.md
+        url: reservations/prepay-app-service-isolated-stamp.md
       - text: Azure software plans
-        url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+        url: /../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
 
   # Card (optional)
   - title: Learn how discounts are applied
@@ -241,23 +237,23 @@ landingContent:
     - linkListType: concept
       links:
       - text: Reserved VM instances
-        url: ../manage/understand-vm-reservation-charges.md
+        url: /manage/understand-vm-reservation-charges.md
       - text: Azure Strorage reserved capacity
-        url: understand-storage-charges.md
+        url: reservations/understand-storage-charges.md
       - text: Cosmos DB reserved capacity
-        url: understand-cosmosdb-reservation-charges.md
+        url: reservations/understand-cosmosdb-reservation-charges.md
       - text: SQL Database reserved capacity
-        url: understand-reservation-charges.md
-      - text: SQL Data Warehouse
-        url: reservation-discount-azure-sql-dw.md
+        url: reservations/understand-reservation-charges.md
+      - text: Azure Synapse Analytics
+        url: reservations/reservation-discount-azure-sql-dw.md
       - text: Azure Data Explorer
-        url: understand-azure-data-explorer-reservation-charges.md
+        url: ureservations/nderstand-azure-data-explorer-reservation-charges.md
       - text: Azure Databricks
-        url: reservation-discount-databricks.md
+        url: reservations/reservation-discount-databricks.md
       - text: App Service
-        url: reservation-discount-app-service-isolated-stamp.md
+        url: reservations/reservation-discount-app-service-isolated-stamp.md
       - text: Azure software charges
-        url: understand-suse-reservation-charges.md
+        url: reservations/understand-suse-reservation-charges.md
 
   # Card (optional)
   - title: Manage reservations
@@ -265,13 +261,13 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Manage reservations
-        url: manage-reserved-vm-instance.md
+        url: reservations/manage-reserved-vm-instance.md
       - text: View reservations
-        url: view-reservations.md
+        url: reservations/view-reservations.md
     - linkListType: reference
       links:
       - text: Reservation APIs
-        url: reservation-apis.md
+        url: reservations/reservation-apis.md
 
  # Card (optional)
   - title: Cost Management APIs
@@ -279,7 +275,7 @@ landingContent:
     - linkListType: concept
       links:
       - text: Migrate from EA to MCA APIs
-        url: migrate-cost-management-api.md
+        url: costs/migrate-cost-management-api.md
     - linkListType: reference
       links:
       - text: Azure Cost Management REST API
