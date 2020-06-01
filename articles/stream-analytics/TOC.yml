@@ -114,6 +114,8 @@
   items:
   - name: Manage
     items:
+    - name: Autoscale jobs
+      href: stream-analytics-autoscale.md
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure event ordering policies
