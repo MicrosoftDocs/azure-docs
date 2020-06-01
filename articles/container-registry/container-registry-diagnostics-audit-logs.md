@@ -18,10 +18,10 @@ Collecting resource log data using Azure Monitor may incur additional costs. See
 
 The following repository-level events for images and other artifacts are currently logged:
 
-* **Push events**
-* **Pull events**
-* **Untag events**
-* **Delete events** (including repository delete events)
+* **Push**
+* **Pull**
+* **Untag**
+* **Delete** (including repository delete events)
 * **Purge tag** and **Purge manifest**
 
 > [!NOTE]
