@@ -60,8 +60,57 @@ Aliases:  storageaccount.file.core.windows.net
 # [PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+
+```PowerShell
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
+    Select-Object -ExpandProperty Host
+
+Resolve-DnsName -Name $storageAccountHostName
+```
+
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
+
+```Output
+Name                             Type   TTL   Section    NameHost
+----                             ----   ---   -------    --------
+storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
+.net
+
+Name       : storageaccount.privatelink.file.core.windows.net
+QueryType  : A
+TTL        : 600
+Section    : Answer
+IP4Address : 192.168.0.5
+```
+
 # [Azure CLI](#tab/azure-cli)
 [!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+
+```bash
+httpEndpoint=$(az storage account show \
+        --resource-group $storageAccountResourceGroupName \
+        --name $storageAccountName \
+        --query "primaryEndpoints.file" | \
+    tr -d '"')
+
+hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")
+nslookup $hostName
+```
+
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
+
+```Output
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+storageaccount.file.core.windows.net      canonical name = storageaccount.privatelink.file.core.windows.net.
+Name:   storageaccount.privatelink.file.core.windows.net
+Address: 192.168.0.5
+```
 
 ---
 

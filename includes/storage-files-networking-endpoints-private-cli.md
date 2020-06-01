@@ -41,7 +41,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command
+To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
 
 ```bash
 # Disable private endpoint network policies
@@ -156,29 +156,4 @@ az network private-dns record-set a add-record \
         --record-set-name $storageAccountName \
         --ipv4-address $privateEndpointIP \
         --output none
-```
-
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described [here](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
-
-```bash
-httpEndpoint=$(az storage account show \
-        --resource-group $storageAccountResourceGroupName \
-        --name $storageAccountName \
-        --query "primaryEndpoints.file" | \
-    tr -d '"')
-
-hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")
-nslookup $hostName
-```
-
-If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
-
-```Output
-Server:         127.0.0.53
-Address:        127.0.0.53#53
-
-Non-authoritative answer:
-storageaccount.file.core.windows.net      canonical name = storageaccount.privatelink.file.core.windows.net.
-Name:   storageaccount.privatelink.file.core.windows.net
-Address: 192.168.0.5
 ```

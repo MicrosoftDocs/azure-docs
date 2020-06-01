@@ -146,27 +146,3 @@ New-AzPrivateDnsRecordSet `
         -ErrorAction Stop | `
     Out-Null
 ```
-
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described [here](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
-
-```PowerShell
-$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
-    Select-Object -ExpandProperty Host
-
-Resolve-DnsName -Name $storageAccountHostName
-```
-
-If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
-
-```Output
-Name                             Type   TTL   Section    NameHost
-----                             ----   ---   -------    --------
-storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
-.net
-
-Name       : storageaccount.privatelink.file.core.windows.net
-QueryType  : A
-TTL        : 600
-Section    : Answer
-IP4Address : 192.168.0.5
-```

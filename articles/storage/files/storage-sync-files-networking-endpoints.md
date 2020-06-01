@@ -14,7 +14,7 @@ Azure Files and Azure File Sync provide two main types of endpoints for accessin
 - Public endpoints, which have a public IP address and can be accessed from anywhere in the world.
 - Private endpoints, which exist within a virtual network and have a private IP address from within the address space of that virtual network.
 
-For both Azure Files and Azure File Sync, the Azure management object, the storage account and the Storage Sync Service respectively, controls both the public and private endpoints. The storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. The Storage Sync Service is a management construct that represents a container of Windows file servers which are registered with Azure File Sync and sync groups, which define the topology of the sync relationship. 
+For both Azure Files and Azure File Sync, the Azure management objects, the storage account and the Storage Sync Service respectively, control both the public and private endpoints. The storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. The Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship. 
 
 This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md).
 
@@ -46,17 +46,84 @@ When you creating a private endpoint for an Azure resource, the following resour
 # [Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
 
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
+
+```
+nslookup <storage-account-name>.file.core.windows.net
+```
+
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network (output shown for Windows):
+
+```Output
+Server:  UnKnown
+Address:  10.2.4.4
+
+Non-authoritative answer:
+Name:    storageaccount.privatelink.file.core.windows.net
+Address:  192.168.0.5
+Aliases:  storageaccount.file.core.windows.net
+```
+
 # [PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+
+```PowerShell
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
+    Select-Object -ExpandProperty Host
+
+Resolve-DnsName -Name $storageAccountHostName
+```
+
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
+
+```Output
+Name                             Type   TTL   Section    NameHost
+----                             ----   ---   -------    --------
+storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
+.net
+
+Name       : storageaccount.privatelink.file.core.windows.net
+QueryType  : A
+TTL        : 600
+Section    : Answer
+IP4Address : 192.168.0.5
+```
+
 # [Azure CLI](#tab/azure-cli)
 [!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+
+```bash
+httpEndpoint=$(az storage account show \
+        --resource-group $storageAccountResourceGroupName \
+        --name $storageAccountName \
+        --query "primaryEndpoints.file" | \
+    tr -d '"')
+
+hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")
+nslookup $hostName
+```
+
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network:
+
+```Output
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+storageaccount.file.core.windows.net      canonical name = storageaccount.privatelink.file.core.windows.net.
+Name:   storageaccount.privatelink.file.core.windows.net
+Address: 192.168.0.5
+```
 
 ---
 
 ### Create the storage sync private endpoint
 # [Portal](#tab/azure-portal)
-Navigate to the **Private Link Center** by typing *Private Link Center* into the search bar at the top of the Azure Portal. In the table of contents for the Private Link Center, select **Private endpoints**, and then **+ Add** to create a new private endpoint.
+Navigate to the **Private Link Center** by typing *Private Link* into the search bar at the top of the Azure Portal. In the table of contents for the Private Link Center, select **Private endpoints**, and then **+ Add** to create a new private endpoint.
 
 ![A screenshot of the private link center](media/storage-sync-files-networking-endpoints/create-sss-private-endpoint-0.png)
 
@@ -68,7 +135,7 @@ In the **Basics** blade, select the desired resource group, name, and region for
 
 In the **Resource** blade, select the radio button for **Connect to an Azure resource in my directory**. Under the **Resource type**, select **Microsoft.StorageSync/storageSyncServices** for the resource type. 
 
-The **Configuration** blade allows you to select the specific virtual network and subnet you would like to add your private endpoint to. Select the same virtual network as the one you used for the storage account above. The Configuration blade also contains the information for creating/updating the private DNS zone. We recommend using the default `privatelink.afs.azure.net` zone.
+The **Configuration** blade allows you to select the specific virtual network and subnet you would like to add your private endpoint to. Select the same virtual network as the one you used for the storage account above. The Configuration blade also contains the information for creating/updating the private DNS zone.
 
 Click **Review + create** to create the private endpoint.
 
@@ -232,7 +299,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
         -ErrorAction Stop
 ```
 
-Creating an Azure private DNS zone enables the original name of the storage account, such as `mysssmanagement.westus2.afs.azure.net` to resolve to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for the Azure File Sync agent to access the Storage Sync Service. 
+Creating an Azure private DNS zone enables the host names for the Storage Sync Service, such as `mysssmanagement.westus2.afs.azure.net`, to resolve to the correct private IPs for the Storage Sync Service inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for the Azure File Sync agent to access the Storage Sync Service. 
 
 ```powershell
 # Get the desired Storage Sync Service suffix (afs.azure.net for public cloud).
@@ -263,6 +330,7 @@ switch($azureEnvironment) {
 # privatelink.afs.azure.net
 $dnsZoneName = "privatelink.$storageSyncSuffix"
 
+# Find a DNS zone matching desired name attached to this virtual network.
 $dnsZone = Get-AzPrivateDnsZone | `
     Where-Object { $_.Name -eq $dnsZoneName } | `
     Where-Object {
@@ -289,6 +357,7 @@ if ($null -eq $dnsZone) {
             -ErrorAction Stop
 }
 ```
+Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
 
 ```PowerShell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
@@ -332,6 +401,8 @@ foreach($ipFqdn in $privateEndpointIpFqdnMappings) {
 ```
 
 # [Azure CLI](#tab/azure-cli)
+To create a private endpoint for your Storage Sync Service, first you will need to get a reference to your Storage Sync Service. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>` with the correct values for your environment. The following CLI commands assume that you are using have already populated the virtual network information from above. 
+
 ```bash
 storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
 storageSyncServiceName="<storage-sync-service>"
@@ -358,6 +429,8 @@ storageSyncServiceRegion=$(az resource show \
     tr -d '"')
 ```
 
+To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
+
 ```bash
 # Disable private endpoint network policies
 az network vnet subnet update \
@@ -383,6 +456,8 @@ privateEndpoint=$(az network private-endpoint create \
         --query "id" | \
     tr -d '"')
 ```
+
+Creating an Azure private DNS zone enables the host names for the Storage Sync Service, such as `mysssmanagement.westus2.afs.azure.net`, to resolve to the correct private IPs for the Storage Sync Service inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for the Azure File Sync agent to access the Storage Sync Service. 
 
 ```bash
 # Get the desired storage account suffix (afs.azure.net for public cloud).
@@ -456,6 +531,7 @@ then
 fi
 ```
 
+Now that you have a reference to the private DNS zone, you must create an A records for your Storage Sync Service.
 
 ```bash
 privateEndpointNIC=$(az network private-endpoint show \
