@@ -31,8 +31,6 @@
     href: how-to-cache-token.md
 - name: Reference
   items:
-  - name: Immersive Reader client libraries
-    href: ./quickstarts/client-libraries.md
   - name: SDK Reference
     href: reference.md
 - name: Resources
