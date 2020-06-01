@@ -43,6 +43,18 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
+
+```azurecli-interactive
+read -p "Enter a project name that is used for generating resource names:" projectName &&
+read -p "Enter the location (i.e. centralus):" location &&
+templateUri="https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux/azuredeploy.json" &&
+resourceGroupName="${projectName}rg" &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri
+echo "Press [ENTER] to continue ..." &&
+read
+```
+
 ## Review deployed resources
 
 ## Clean up resources
