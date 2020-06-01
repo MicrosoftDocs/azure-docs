@@ -35,7 +35,7 @@ Two-factor verification can help stop malicious hackers from pretending to be yo
 
 Who decides whether you use two-factor verification depends on what type of account you have:
 
-- **Work or school account.** If you're using a work or school account (such as alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. Because your organization has decided you must use this feature, there's no way for you to individually turn it off.
+- **Work or school account.** If you're using a work or school account (such as alain@contoso.com), it's up to your organization whether you use two-factor verification, along with the specific verification methods. Because your organization has decided you must use this feature, there's no way for you to individually turn it off.
 
 - **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (such as alain@outlook.com). You can turn it on or off whenever you want, using the simple instructions in [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
