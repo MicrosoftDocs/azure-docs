@@ -639,9 +639,9 @@ To run the app locally:
 
 ## Publish and run in Azure
 
-### Provision a SQL Azure database for the app
+### Provision a database for the app
 
-In this section, you will provision a new SQL Azure database for the app to use while hosted in Azure.
+In this section, you will provision a new database in SQL Database for the app to use while hosted in Azure.
 
 1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
 

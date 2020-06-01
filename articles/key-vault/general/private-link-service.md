@@ -122,7 +122,7 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```
 ### Link Private DNS Zone to Virtual Network 
 ```console
-az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
 ```
 ### Create a Private Endpoint (Automatically Approve) 
 ```console
