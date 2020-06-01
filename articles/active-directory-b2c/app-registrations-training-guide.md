@@ -15,14 +15,14 @@ ms.subservice: B2C
 
 # The new App registrations experience for Azure Active Directory B2C
 
-The new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure Active Directory (Azure AD) B2C is now generally available. If you're more familiar with the **Applications** experience for registering applications for Azure AD B2C, referred to here as the "legacy experience," this guide will get you started using the new experience.
+The new **[App registrations](https://aka.ms/b2cappregistrations)** experience for Azure Active Directory Azure AD B2C (Azure AD B2C) is now generally available. If you're more familiar with the **Applications** experience for registering applications for Azure AD B2C, referred to here as the "legacy experience," this guide will get you started using the new experience.
 
 ## Overview
-Previously, you had to manage your B2C consumer-facing applications separately from the rest of your apps using the legacy experience. That meant different app creation experiences across different places in Azure.
+Previously, you had to manage your Azure AD B2C consumer-facing applications separately from the rest of your apps using the legacy experience. That meant different app creation experiences across different places in Azure.
 
-The new experience shows all B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. From creating a customer-facing app to managing an app with Microsoft Graph permissions for resource management, you only need to learn one way to do things.
+The new experience shows all Azure AD B2C app registrations and Azure AD app registrations in one place and provides a consistent way to manage them. From creating a customer-facing app to managing an app with Microsoft Graph permissions for resource management, you only need to learn one way to do things.
 
-You can reach the new experience by navigating to **App registrations** in a B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** services in the Azure portal.
+You can reach the new experience by navigating to **App registrations** in an Azure AD B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** services in the Azure portal.
 
 The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for any Azure AD tenant, but is tailored for Azure AD B2C tenants.
 
@@ -56,7 +56,7 @@ To understand the different account types, select **Help me choose** in the crea
 
 In the legacy experience, apps were always created as customer-facing applications. For those apps, the account type is set to **Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C.**. 
 > [!NOTE]
-> This option is required to be able to run Azure B2C user flows to authenticate users for this application. Learn [how to register an application for use with user flows.](tutorial-register-applications.md)
+> This option is required to be able to run Azure AD B2C user flows to authenticate users for this application. Learn [how to register an application for use with user flows.](tutorial-register-applications.md)
 
 You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs2016-custom.md).
 
@@ -66,9 +66,9 @@ You can use the other account types to create an app to manage your DevOps scena
 You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more](manage-user-accounts-graph-api.md).  
 
 ## Admin consent and offline_access+openid scopes  
-Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent. 
+<!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
-The **openid** scope is necessary so that Azure AD B2C can sign users in to an app. The **offline_access** scope is needed to issue refresh tokens for a user. These scopes were previously added and given admin consent by default. Now, you can easily add them during the creation process.
+The **openid** scope is necessary so that Azure AD B2C can sign users in to an app. The **offline_access** scope is needed to issue refresh tokens for a user. These scopes were previously added and given admin consent by default. Now, you can easily add permissions for these scopes t during the creation process by ensuring the **Grant admin consent to openid and offline_access permissions** option is selected. Else, the Microsoft Graph permissions can be added with admin consent in the **API permissions** settings for an existing app.
 
 Learn more about [permissions and consent](../active-directory/develop/v2-permissions-and-consent.md).
 
@@ -92,8 +92,8 @@ In the new experience, instead of **Keys**, you use the **Certificates & secrets
 ## Why are some App Registrations features for Azure AD tenants not available for Azure AD B2C tenants?
 The following Azure AD app registrations capabilities are not applicable to Azure AD B2C tenants:
 - **Roles and administrators** - This requires an Azure AD Premium P1 or P2 license that is not currently available for Azure AD B2C.
-- **Extensive branding properties** - Properties like logo, homepage URL, terms of services URL, and privacy statement URL, don't apply to B2C directories. These properties are typically handled through [user flow configuration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
-- **Publisher domain verification** - Your app is registered on *.onmicrosoft.com*, which isn't a verified domain. Additionally, the publisher domain is primarily used for granting user consent, which doesn't apply to Azure B2C apps for user authentication. [Learn more about publisher domain](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **Branding** - UI/UX customization is configured in the **Company branding** experience or as part of a user flow. Learn to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md).
+- **Publisher domain verification** - Your app is registered on *.onmicrosoft.com*, which isn't a verified domain. Additionally, the publisher domain is primarily used for granting user consent, which doesn't apply to Azure AD B2C apps for user authentication. [Learn more about publisher domain](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **Token configuration** - The token is configured as part of a user flow rather than an app.
 - The **Quickstarts** experience is currently not available for Azure AD B2C tenants.
 - The **Integration assistant** blade is currently not available for Azure AD B2C tenants.
@@ -102,7 +102,7 @@ The following Azure AD app registrations capabilities are not applicable to Azur
 ## Limitations
 The new experience has the following limitations:
 - At this time, Azure AD B2C doesn't differentiate between being able to issue access or ID tokens for implicit flows; both types of tokens are available for implicit grant flow if the **ID tokens** option is selected in the **Authentication** blade.
-- Azure B2C doesn't currently support the single-page application "SPA" app type. 
+<!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - Changing the value for supported accounts isn't supported in the UI. You'll need to use the app manifest, unless you're switching between Azure AD single-tenant and multi-tenant.
 
 ## Next steps
