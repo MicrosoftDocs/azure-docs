@@ -157,10 +157,9 @@ Next, you add configuration settings that the build process uses to build your a
 
     - name: Jekyll build
       run: jekyll build
+   ```
 
-  ```
-
-  1. Commit the updated workflow and push to GitHub.
+1. Commit the updated workflow and push to GitHub.
 
    ```bash
    git add -A
