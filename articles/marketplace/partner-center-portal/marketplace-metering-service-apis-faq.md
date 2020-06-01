@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/01/2020
 ---
 
 # Marketplace metered billing APIs - FAQ
 
-Once an customer subscribes to a SaaS service, or Azure Application with a Managed Apps plan, with metered billing, you will track consumption for each billing dimension being used.  If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
+Once a customer subscribes to a SaaS service, or Azure Application with a Managed Apps plan, with metered billing, you will track consumption for each billing dimension being used.  If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
 
 ## For both SaaS offers and Managed apps
 
