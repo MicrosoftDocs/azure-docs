@@ -20,7 +20,6 @@ This article builds on top of [this](detect-motion-emit-events-quickstart.md) qu
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on your system
 * If you have not previously completed [this](detect-motion-emit-events-quickstart.md) quickstart, then finish the following steps:
      * [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-     * [Set up the environment](detect-motion-emit-events-quickstart.md#set-up-the-environment)
 
 > [!TIP]
 > When installing the Azure IoT Tools, you might be prompted to install docker. Feel free to ignore it.
