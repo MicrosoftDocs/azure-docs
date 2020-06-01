@@ -59,7 +59,7 @@ The `error` field has several possible values - review the protocol documentatio
 | Error Code         | Description        | Client Action    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protocol error, such as a missing required parameter. | Fix and resubmit the request.|
-| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unuseable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
+| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unusable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
 | `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
 | `unsupported_grant_type` | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
