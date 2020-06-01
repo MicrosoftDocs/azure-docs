@@ -38,7 +38,7 @@ dotnet --version
 ```
 
 > [!NOTE]
-> .NET Core SDK 3.x is needed to compile the Event Hubs service code used in this quickstart. Alternatively, you can use version 2.1.x by setting the language version (`<LangVersion>`) element in the .csproj file) to `preview`.
+> .NET Core SDK 3.0 or greater is recommended to compile the Event Hubs service code used to read telemetry in this quickstart. You can use .NET Core SDK 2.1 if you set the language version for the service code to preview as noted in the [Read the telemetry from your hub](#read-the-telemetry-from-your-hub) section.
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
@@ -137,6 +137,9 @@ The back-end application connects to the service-side **Events** endpoint on you
     | `EventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
     | `EventHubName`                | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
     | `IotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+
+    > [!NOTE]
+    > If you're using .NET Core SDK 2.1, you must set the language version to preview to compile the code. To do this, open the **read-d2c-messages.csproj** file and set the value of the`<LangVersion>` element to `preview`.
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
