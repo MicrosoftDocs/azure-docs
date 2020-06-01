@@ -343,5 +343,17 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 
 We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
 
+## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
+
+### Symptom
+
+You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
+- After you click on Edit permission under the Security tab, the Permission wizard does not load. 
+- When you try to select a new user or group, the domain location does not display the right AD DS domain. 
+
+### Solution
+
+We recommend you to use [icacls tool](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
+
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
