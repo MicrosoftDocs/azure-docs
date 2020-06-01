@@ -8,9 +8,9 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/20/2020
 
-ms.author: edgomezc
-author: edgomezc
-manager: kexia
+ms.author: mimart
+author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.custom: "it-pro"                 
 ms.collection: M365-identity-device-management
@@ -74,5 +74,5 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 ## Next steps
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-API-connector-for-a-user-flow)
-- Learn how to [add a custom approval system to self service sign up](self-service-sign-up-add-approvals.md)
+- Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->

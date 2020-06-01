@@ -8,9 +8,9 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/20/2020
 
-ms.author: edgomezc
-author: edgomezc 
-manager: kexia
+ms.author: mimart
+author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.custom: "it-pro"                 
 ms.collection: M365-identity-device-management
