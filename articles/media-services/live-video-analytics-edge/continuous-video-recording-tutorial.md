@@ -123,7 +123,7 @@ The deployment manifest defines what modules are deployed to an edge device, and
 
 ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-1. Right click on "src/edge/config/deployment.amd64.json" and click on "Create Deployment for Single Device" and select the name of your edge device.
+1. Right click on "src/edge/config/deployment.amd64.json" and click on "Create Deployment for Single Device".
 
 ![Create deployment for single device](./media/quickstarts/create-deployment-single-device.png)
 1. You will then be asked to "Select an IoT Hub device". Select lva-sample-device from the drop down.
@@ -350,7 +350,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. The player should load the video, and you should be able to hit **Play**>** to view it.
 
 > [!NOTE]
-> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the Graph Instance, and when you deactivated it. You can see [this](playback-multi-day-recordings-tutorial.md) tutorial to see how to browse a multi-day recording, and view portions of that archive. In that tutorial, you will also able to see the timestamps in the video displayed on screen.
+> Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the graph instance, and when you deactivated it. You can see [this](playback-multi-day-recordings-tutorial.md) tutorial to see how to browse a multi-day recording, and view portions of that archive. In that tutorial, you will also able to see the timestamps in the video displayed on screen.
 
 ## Clean up resources
 
