@@ -48,7 +48,7 @@ If you have unmanaged disks that aren't attached to a VM, no longer need the dat
 
     :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot of an individual unmanaged disk blade. It will have - as the attached to value if it is unattached. If you no longer need this disks data, you can delete it.":::
 
-1. Select delete.
+1. Select **Delete**.
 
     :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot of an individual unmanaged disk blade, highlighting delete.":::
 
