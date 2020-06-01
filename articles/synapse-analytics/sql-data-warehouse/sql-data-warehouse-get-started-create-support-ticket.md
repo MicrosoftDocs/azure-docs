@@ -83,7 +83,13 @@ To request an increase in the number of servers per subscription, you'll need to
 
    ![Servers quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
+
+
 1. Select **Save and continue**.
+
+Some offer types aren't available in every region. You may see an error such as the following:
+
+![Region access error](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
 
 ### Enable subscription access to a region
 
@@ -101,10 +107,8 @@ To enable region access for a subscription, you'll need to complete the followin
 
 ![Region access](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
 
-Some offer types aren't available in every region. You may see an error such as the following:
 
-![Region access error](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
-
+### Other quota requests
 
 If your subscription needs access in a particular region, select the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
 
