@@ -633,7 +633,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | clusters | No |  
-> | namespaces | Yes (with template)<br/><br/> [Move an event hub Namespace to another region](../../event-hubs/move-across-regions.md) | 
+> | namespaces | Yes (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) | 
 
 ## Microsoft.Genomics
 
@@ -718,7 +718,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> |  iothub |  Yes (clone hub) <br/><br/> [Clone an IoT hut to another region](../../iot-hub/iot-hub-how-to-clone.md)
+> |  iothub |  Yes (clone hub) <br/><br/> [Clone an IoT hub to another region](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## Microsoft.IoTSpaces
 
