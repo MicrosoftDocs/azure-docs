@@ -1,41 +1,36 @@
 ---
-title: "Quickstart: Create a web app that launches the Immersive Reader with C#"
+title: Immersive Reader C# client library quickstart 
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: metanMSFT
+author: pasta
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: immersive-reader
-ms.topic: quickstart
-ms.date: 01/14/2020
-ms.author: metan
-#Customer intent: As a developer, I want to quickly integrate the Immersive Reader into my web application so that I can see the Immersive Reader in action and understand the value it provides.
+ms.topic: include
+ms.date: 05/20/2020
+ms.author: pasta
 ---
-
-# Quickstart: Create a web app that launches the Immersive Reader (C#)
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
+In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader client library. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create a web app project
 
 Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
 
-![New Project](./media/quickstart-csharp/1-createproject.png)
+![New Project](../../media/quickstart-csharp/1-createproject.png)
 
-![Configure New Project](./media/quickstart-csharp/2-configureproject.png)
+![Configure New Project](../../media/quickstart-csharp/2-configureproject.png)
 
-![New ASP.NET Core Web Application](./media/quickstart-csharp/3-createmvc.png)
+![New ASP.NET Core Web Application](../../media/quickstart-csharp/3-createmvc.png)
 
 ## Set up authentication
 
@@ -295,17 +290,17 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-![Sample app](./media/quickstart-csharp/4-buildapp.png)
+![Sample app](../../media/quickstart-csharp/4-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](./media/quickstart-csharp/5-viewimmersivereader.png)
+![Immersive Reader](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## Next steps
 
-* View the [Node.js quickstart](./quickstart-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
-* View the [iOS tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* View the [Node.js quickstart](../../quickstart-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
+* View the [Python tutorial](../../tutorial-python.md) to see what else you can do with the Immersive Reader client library using Python
+* View the [iOS tutorial](../../tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader client library using Swift
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)
