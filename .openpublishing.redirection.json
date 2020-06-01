@@ -13113,7 +13113,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/tokens/index.md",
+      "source_path": "articles/blockchain/tokens/index.md",
       "redirect_url": "/azure/blockchain",
       "redirect_document_id": false
     },
@@ -52482,6 +52482,11 @@
     {
       "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
       "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speaker-recognition/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speaker-recognition-overview",
       "redirect_document_id": false
     },
     {
