@@ -182,7 +182,7 @@ The following table describes error codes that can be returned in the `error` pa
 
 Just receiving an id_token isn't always sufficient to authenticate the user; you may also need to validate the id_token's signature and verify the claims in the token per your app's requirements. Like all OIDC platforms, the Microsoft identity platform endpoint uses [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) and public key cryptography to sign ID tokens and verify that they're valid.
 
-Not all apps benefit from verifying the ID token - native apps and single page apps, for instance, rarely benefit from validating the ID token.  Someone with physical access to the device (or browser) can bypass the validation in many ways - from editing the web traffic to the device to provide fake tokens and keys to simply debugging the application to skip the validation logic.  Ont he other hand, web apps and APIs using an ID token to authorization must validate the ID token carefully since they are gating access to data.
+Not all apps benefit from verifying the ID token - native apps and single page apps, for instance, rarely benefit from validating the ID token.  Someone with physical access to the device (or browser) can bypass the validation in many ways - from editing the web traffic to the device to provide fake tokens and keys to simply debugging the application to skip the validation logic.  On the other hand, web apps and APIs using an ID token to authorization must validate the ID token carefully since they are gating access to data.
 
 Once you've validated the signature of the id_token, there are a few claims you'll be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-an-id_token) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 
@@ -248,7 +248,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `token` | The token that will be used to call the UserInfo endpoint.|
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
-| `scope` | The permissions granted ont he access token.  Note that since the UserInfo endpoint is hosted on MS Graph, there may be additional Graph scopes listed here (e.g. user.read) if they were previously granted to the app.  That's because a token for a given resource always includes every permission currently granted to the client.  |
+| `scope` | The permissions granted on the access token.  Note that since the UserInfo endpoint is hosted on MS Graph, there may be additional Graph scopes listed here (e.g. user.read) if they were previously granted to the app.  That's because a token for a given resource always includes every permission currently granted to the client.  |
 | `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [`id_tokens` reference](id-tokens.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
