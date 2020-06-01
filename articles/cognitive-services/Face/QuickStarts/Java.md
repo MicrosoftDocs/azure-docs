@@ -245,7 +245,7 @@ Compile the code and run it. A successful response will display Face data in eas
 
 ## Next steps
 
-In this quickstart, you created a simple Java console application that uses REST calls to the Azure Face API to detect faces in an image and return their attributes. Next, learn how to do more with this functionality in an Android application.
+In this quickstart, you created a simple Java console application that uses REST calls to the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more about the supported scenarios.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create an Android app to detect and frame faces](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

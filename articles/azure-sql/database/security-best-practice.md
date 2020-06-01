@@ -30,7 +30,7 @@ This document provides guidance on how to solve common security requirements for
 
 - Azure SQL Data Warehouse
 - Azure SQL VMs (IaaS)
-- SQL Server on-premises
+- SQL Server
 
 ### Audience
 
@@ -644,7 +644,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or a managed Instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or a managed instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
