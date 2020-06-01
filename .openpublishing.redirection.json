@@ -54390,6 +54390,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/aks/azure-ad-v2.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": true
