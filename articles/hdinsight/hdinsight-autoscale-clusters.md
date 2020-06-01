@@ -205,7 +205,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
 
 ```json
-{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 See the previous section on [enabling load-based autoscale](#load-based-autoscaling) for a full description of all payload parameters.
