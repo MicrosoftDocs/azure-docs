@@ -103,7 +103,7 @@ For example when using the ADO.NET driver this is accomplished via  **Encrypt=Tr
 > [!IMPORTANT]
 > Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case the server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data.
 >
-> For further information about TLS and connectivity, see [TLS considerations](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity)
+> For further information about TLS and connectivity, see [TLS considerations](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity)
 
 ### Transparent Data Encryption (Encryption-at-rest)
 
