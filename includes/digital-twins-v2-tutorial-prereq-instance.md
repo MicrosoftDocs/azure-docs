@@ -11,10 +11,7 @@ ms.author: baanders
 
 To complete this tutorial, you'll need an Azure Digital Twins service instance to program against. 
 
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the 
-
-[next section](#test-next-section).
-[next section](digital-twins-v2-tutorial-prereq-instance.md#test-next-section).
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
 
 Otherwise, create an instance now using one of these two methods:
 * Walk through the setup step-by-step.
@@ -33,5 +30,3 @@ Otherwise, create an instance now using one of these two methods:
         * For the instance: a *name* for your Azure Digital Twins instance
         * For the app registration: an *AAD application display name* to associate with the registration
         * For the app registration: an *AAD application reply URL* for the AAD application. You can use *http://localhost*.
-
-### Test next section
