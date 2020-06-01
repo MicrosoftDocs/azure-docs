@@ -20,11 +20,9 @@ ms.reviewer: olhaun
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [administrative documentation for Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
-> If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
+> If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Also, you can get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
-The Microsoft Authenticator app helps you sign in to your accounts if you use two-factor verification. Two-factor verification helps you to use your accounts more securely because passwords can be forgotten, stolen, or compromised. Two-factor verification uses a second factor like your phone to make it harder for other people to break in to your account.
-
-You can use the Microsoft Authenticator app in multiple ways, including:
+The Microsoft Authenticator app helps you sign in to your accounts if you use two-factor verification. Two-factor verification helps you to use your accounts more securely because passwords can be forgotten, stolen, or compromised. Two-factor verification uses a second factor like your phone to make it harder for other people to break in to your account. You can use the Microsoft Authenticator app in multiple ways, including:
 
 - **Two-factor verification.** The standard verification method, where one of the factors is your password. After you sign in using your username and password, you can either approve a notification or enter a provided verification code.
 
@@ -50,7 +48,7 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 
 ## Next steps
 
-After you download and install the app, for more setup options, see:
+After you download and install the app, check out the [Authenticator app overview](user-help-auth-app-overview.md) to learn more. For more setup options, see:
 
 - **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
 
