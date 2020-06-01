@@ -529,6 +529,8 @@
     #   href: https://azure.github.io/azure-storage-android
     - name: Azure Storage reference
       href: ../common/storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure Blob storage reference
+      href: ../blobs/blob-storage-reference.md
     - name: AzCopy v10
       items:
       - name: azcopy
