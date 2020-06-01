@@ -62,4 +62,4 @@ To transfer any other subscriptions from a CSP Partner to any other Azure offer,
 
 ## Next steps
 - [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
-- Read about how to [Manage accounts and subscriptions with Azure Billing](index.yml).
+- Read about how to [Manage accounts and subscriptions with Azure Billing](../index.yml).
