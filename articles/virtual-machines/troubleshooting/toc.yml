@@ -12,6 +12,8 @@
     href: virtual-machines-availability-set-supportability.md
 - name: VM deployment guidance
   items:
+  - name: Upgrade to SLES 15 SP1
+    href: linux-upgrade-suse-15sp1.md
   - name: New VM deployments
     items:
     - name: Linux

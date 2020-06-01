@@ -31,8 +31,8 @@ Before following the instructions in this tutorial, ensure that you have the an 
 ## <a id="CreateDB"></a>Step 1: Download the template files
 Let's start by downloading the template files that this tutorial requires.
 
-1. Download the [Create an Azure Cosmos DB account, Web Apps, and deploy a demo application sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) template to a local folder (for example, C:\Azure Cosmos DBTemplates). This template deploys an Azure Cosmos DB account, an App Service web app, and a web application.  It also automatically configures the web application to connect to the Azure Cosmos DB account.
-2. Download the [Create an Azure Cosmos DB account and Web Apps sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json) template to a local folder (for example, C:\Azure Cosmos DBTemplates). This template deploys an Azure Cosmos DB account, an App Service web app, and modifies the site's application settings to easily surface Azure Cosmos DB connection information, but does not include a web application.  
+1. Download the **Create an Azure Cosmos DB account, Web Apps, and deploy a demo application sample** (`https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json`) template to a local folder (for example, C:\Azure Cosmos DBTemplates). This template deploys an Azure Cosmos DB account, an App Service web app, and a web application.  It also automatically configures the web application to connect to the Azure Cosmos DB account.
+2. Download the **Create an Azure Cosmos DB account and Web Apps sample** (`https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json`) template to a local folder (for example, C:\Azure Cosmos DBTemplates). This template deploys an Azure Cosmos DB account, an App Service web app, and modifies the site's application settings to easily surface Azure Cosmos DB connection information, but does not include a web application.  
 
 <a id="Build"></a>
 
