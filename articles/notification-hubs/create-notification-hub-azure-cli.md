@@ -91,7 +91,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   If the `--name` you provided to the `az notification-hub namespace create` command is not available, or does not meet [Naming rules and restrictions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules), Azure CLI will respond with the following consol output:
+   If the `--name` you provided to the `az notification-hub namespace create` command is not available, or does not meet [Naming rules and restrictions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules), Azure CLI will respond with the following console output:
 
    ```output
    #the name is not available
