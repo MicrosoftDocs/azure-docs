@@ -6,8 +6,8 @@ summary: Azure SQL Edge is an optimized relational database engine geared for Io
 metadata:
   title: Azure SQL Edge (Preview) documentation
   meta.description: Learn how to use Azure SQL Edge (Preview).
-  services: sql-database-edge
-  ms.service: sql-database-edge
+  services: sql-edge
+  ms.service: sql-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein

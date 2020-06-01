@@ -3,6 +3,7 @@ title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchma
 description: Details of the CIS Microsoft Azure Foundations Benchmark Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
 ms.date: 05/29/2020
 ms.topic: sample
+ms.custom: generated
 ---
 # Details of the CIS Microsoft Azure Foundations Benchmark Regulatory Compliance built-in initiative
 
@@ -575,7 +576,7 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sup> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|---|
-|[Just-In-Time network access control should be applied on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
+|[Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 
 ### Ensure ASC Default policy setting "Monitor Network Security Groups" is not "Disabled"
 
@@ -703,7 +704,7 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sup> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|---|
-|[Secure transfer to storage accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|[Secure transfer to storage accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
 ### Ensure 'Trusted Microsoft Services' is enabled for Storage Account access
 
@@ -779,7 +780,7 @@ initiative definition.
 Additional articles about Azure Policy:
 
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
-- See the [initiative definition structure](../concepts/initiative-definition-structure.md)
+- See the [initiative definition structure](../concepts/initiative-definition-structure.md).
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

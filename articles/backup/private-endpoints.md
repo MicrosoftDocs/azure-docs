@@ -105,7 +105,7 @@ If you wish to create a separate private DNS zone in Azure, you can do the same 
 
 Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
 
-For URL naming conventions in national geos:
+For URL naming conventions in national regions:
 
 - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
