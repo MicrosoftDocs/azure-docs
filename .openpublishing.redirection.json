@@ -50876,6 +50876,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorials.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/java.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
