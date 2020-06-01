@@ -81,7 +81,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Channel 9 videos
