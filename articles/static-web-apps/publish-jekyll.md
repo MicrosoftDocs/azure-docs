@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 Create a Jekyll app using the Jekyll Command Line Interface (CLI):
 
-1. Follow the [installation guide](https://jekyllrb.com/docs/installation/) for Jekyll on your OS. You can also use WSL (Windows Subsystem for Linux) and follow Ubuntu instructions and it works just fine. 
+1. Follow the [installation guide](https://jekyllrb.com/docs/installation/) for Jekyll on your OS. You can also use WSL (Windows Subsystem for Linux) and follow Ubuntu instructions and it works just fine.
 
 1. Open a terminal
 
@@ -131,7 +131,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
 
-1. Once the deployment completes, navigate to your terminal and pull the commit with the GitHub Action to your machine.
+1. The deployment will first, fail because the workflow file needs some Jekyll-specific settings. To add those settings, avigate to your terminal and pull the commit with the GitHub Action to your machine.
 
    ```bash
    git pull
@@ -142,31 +142,30 @@ Next, you add configuration settings that the build process uses to build your a
 1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Jekyll application.
 
     ```yml
-
+    
     - uses: actions/checkout@v2
-      with:
-      submodules: true
-        
+    with:
+    submodules: true
+       
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-      with:
-      ruby-version: 2.6
-
+    uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+    with:
+    ruby-version: 2.6
+    
     - name: Install dependencies
-      run: bundle install
-
+    run: bundle install
+    
     - name: Jekyll build
-      run: jekyll build
+    run: jekyll build
+    ```
 
-  ```
+1. Commit the updated workflow and push to GitHub.
 
-  1. Commit the updated workflow and push to GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
+    ```bash
+    git add -A
+    git commit -m "Updating GitHub Actions workflow"
+    git push
+    ```
 
 1. Wait for the GitHub Action to complete.
 
