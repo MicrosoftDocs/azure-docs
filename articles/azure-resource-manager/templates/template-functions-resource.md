@@ -534,7 +534,7 @@ To simplify the creation of any resource ID, use the `resourceId()` functions de
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>,  <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
 
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 

@@ -91,7 +91,14 @@ In the reference function, use `Full` to get all of the properties including the
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>,  <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!WARNING]
+> Don't use the pattern:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Your template will fail.
 
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
