@@ -18,7 +18,7 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 [Here](sap-hana-backup-support-matrix.md#scenario-support) are all the scenarios that we currently support.
 
 >[!NOTE]
->To try out the SAP HANA backup preview for RHEL (7.4, 7.6, 7.7 or 8.1) write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>[Get started](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) with SAP HANA backup preview for RHEL (7.4, 7.6, 7.7 or 8.1). For further queries write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## Prerequisites
 
