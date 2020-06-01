@@ -20,8 +20,9 @@ ms.collection: M365-identity-device-management
 
 As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you might want to extend your user flow by integrating with a user approval system, validate user input data, or run custom business logic. For example, you can use API connectors to:
 
-- [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing who successfully signs up to your tenant.
-- **Validate user input data**. Prevent malformed or invalid user data. For example, you can perform identity proofing or validate user-provided data against existing data or permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
+- [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing account creation.
+- **Perform identity proofing** - Use an identity proofing and verification service to add an extra level of security to account creation decisions.
+- **Validate user input data**. Prevent malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite input claims**. Reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data**. Integrate with your cloud systems that have user information. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
