@@ -2,8 +2,8 @@
 title: Sync data from Azure SQL Edge (Preview) by using SQL Data Sync
 description: Learn about syncing data from Azure SQL Edge (Preview) by using Azure SQL Data Sync
 keywords: SQL Edge,sync data from SQL Edge, SQL Edge data sync
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
@@ -16,7 +16,7 @@ ms.date: 05/19/2020
 
 In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases in Azure SQL Database and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
 
-Because SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to an on-premises SQL Server instance can also be used to sync data to or from a SQL Edge instance running on an edge device.
+Because SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to a SQL Server instance can also be used to sync data to or from a SQL Edge instance running on an edge device.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 * Create the necessary tables and objects in your Azure SQL Edge deployment. For more information, see [Using SQL Database DAC packages with SQL Edge](deploy-dacpac.md).
 
-* Register the Azure SQL Edge instance with the Data Sync Agent for Azure SQL Data Sync. For more information, see [Add an on-premises SQL Server database](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
+* Register the Azure SQL Edge instance with the Data Sync Agent for Azure SQL Data Sync. For more information, see [Add a SQL Server database](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ## Sync data between an Azure SQL database and SQL Edge
 

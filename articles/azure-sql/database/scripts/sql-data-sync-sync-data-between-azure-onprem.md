@@ -1,6 +1,6 @@
 ---
-title: "PowerShell: Sync between SQL Database and SQL Server on-premises" 
-description: Azure PowerShell example script to sync between an Azure SQL Database and a SQL Server on-premises database
+title: "PowerShell: Sync data between SQL Database and SQL Server" 
+description: Use an Azure PowerShell example script to sync data between Azure SQL Database and SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
-# Use PowerShell to sync between a SQL Database and a SQL Server on-premises database
+
+# Use PowerShell to sync data between SQL Database and SQL Server
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This PowerShell example configures Data Sync to sync between an Azure SQL Database and a SQL Server on-premises database. 
+This Azure PowerShell example configures Data Sync to sync data between Azure SQL Database and SQL Server. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Az PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync im Azure](../sql-data-sync-data-sql-server-sql-database.md).
 
@@ -30,10 +32,10 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Prerequisites
 
-- Create an Azure SQL Database from AdventureWorksLT sample database as hub database
-- Create an Azure SQL Database in the same region as sync database
-- Create an on premises SQL Server database as member database
-- Update the parameter placeholders before running the example
+- Create a database in Azure SQL Database from an AdventureWorksLT sample database as a hub database.
+- Create a database in Azure SQL Database in the same region as sync database.
+- Create a database in a SQL Server instance as a member database.
+- Update the parameter placeholders before running the example.
 
 ## Example
 
@@ -105,7 +107,7 @@ $agentkey
 
 # DO THE FOLLOWING BEFORE THE NEXT STEP
 # Install the on-premises sync agent on your machine and register the sync agent using the agent key generated above to bring the sync agent online.
-# Add the SQL server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
+# Add the SQL Server database information including server name, database name, user name, password on the configuration tool within the sync agent.  
 
 # create a new sync group
 Write-Host "Creating Sync Group "$syncGroupName"..."
@@ -123,7 +125,7 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# get information from sync agent and confirm your SQL Server was configured (note the database ID to use for the sqlServerDatabaseID in the next step)
+# get information from sync agent and confirm your SQL Server instance was configured (note the database ID to use for the sqlServerDatabaseID in the next step)
 $syncAgentInfo = Get-AzSqlSyncAgentLinkedDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -SyncAgentName $syncAgentName
 
 # add a new sync member
@@ -287,15 +289,15 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Creates a new Sync Agent |
-| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Generates the agent key associated with the Sync agent |
-| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Get all the information for the Sync Agent |
-| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Add a new member to the Sync Group |
-| [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Refreshes the database schema information |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Get the database schema information |
-| [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Updates the Sync Group |
-| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Triggers a Sync |
-| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Checks the Sync Log |
+| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Creates a new Sync Agent. |
+| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Generates the agent key associated with the Sync Agent. |
+| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Get all the information for the Sync Agent. |
+| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Add a new member to the Sync Group. |
+| [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Refreshes the database schema information. |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Get the database schema information. |
+| [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Updates the Sync Group. |
+| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Triggers a sync. |
+| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Checks the Sync Log. |
 |||
 
 ## Next steps
@@ -304,22 +306,21 @@ For more information about Azure PowerShell, see [Azure PowerShell documentation
 
 Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).
 
-For more info about SQL Data Sync, see:
+For more information about SQL Data Sync, see:
 
 - Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-data-sync-data-sql-server-sql-database.md)
 - Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-data-sync-sql-server-configure.md)
-    - With PowerShell
-        -  [Use PowerShell to sync between multiple databases in Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
+    - Use the Azure portal - [Tutorial: Set up SQL Data Sync to sync data between a database in Azure SQL Database and a SQL Server on-premises database](../sql-data-sync-sql-server-configure.md)
+    - Use PowerShell - [Use PowerShell to sync between multiple databases in Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
 - Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md)
 - Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../sql-data-sync-troubleshoot.md)
 - Update the sync schema
-    - With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../sql-data-sync-update-sync-schema.md)
-    - With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](update-sync-schema-in-sync-group.md)
+    - Use Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../sql-data-sync-update-sync-schema.md)
+    - Use PowerShell - [Use PowerShell to update the sync schema in an existing sync group](update-sync-schema-in-sync-group.md)
 
-For more info about SQL Database, see:
+For more information about Azure SQL Database, see:
 
-- [SQL Database Overview](../sql-database-paas-overview.md)
+- [SQL Database overview](../sql-database-paas-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
