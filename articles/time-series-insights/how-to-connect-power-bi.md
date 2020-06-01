@@ -111,7 +111,7 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
 1.	In the **Fields** list, select **_Timestamp** and drag it to the **Axis** field to display items along the X-axis. Make sure to switch to **_Timestamp** to as the value for the **Axis** (default is **Date Hierarchy**).
 
-    [![Select the Report View](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png.png#lightbox)
+    [![Select the Report View](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1.	Again, in the **Fields** list, select **TimeSeriesId** and drag it to the **Values** field to display items along the Y-axis.
 
