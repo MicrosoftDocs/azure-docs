@@ -196,7 +196,7 @@ For audit logging, Azure Databricks provides comprehensive end-to-end diagnostic
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [How to enable Diagnostic Settings for Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -258,7 +258,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
-* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [How to send Azure Databricks logs to Log Analytics Workspace](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [How to configure alerts in Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 
@@ -400,7 +400,7 @@ Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. You can also implement SCIM APIs and Azure Databricks diagnostic logs to review user access. You can also use SCIM APIs and Azure Databricks diagnostic logs to review user access.
+**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. You can also implement SCIM APIs and Azure Databricks diagnostic logs to review user access.
 
 In addition, regularly review and manage user access within the Azure Databricks admin console.
 
@@ -964,7 +964,7 @@ Pre-scan any files being uploaded to your Azure Databricks cluster nodes or rela
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
-**Guidance**: Backup any customer managed keys related to your Azure Databricks implementations within Azure Key Vault. You can also use REST API and CLI to create a daily backup of Databricks configurations. You can also use REST API/CLI to create a daily backup of Databricks configurations.
+**Guidance**: Backup any customer managed keys related to your Azure Databricks implementations within Azure Key Vault. You can also use REST API and/or CLI to create a daily backup of Databricks configurations.
 
 * [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
