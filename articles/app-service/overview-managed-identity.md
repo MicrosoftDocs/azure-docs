@@ -489,10 +489,10 @@ To remove all identities in an [ARM template](#using-an-azure-resource-manager-t
 
 To remove all identities in Azure PowerShell (Azure Functions only):
 
-    ```azurepowershell-interactive
-    # Update an existing function app to have IdentityType "None".
-    Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
-    ```
+```azurepowershell-interactive
+# Update an existing function app to have IdentityType "None".
+Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+```
 
 > [!NOTE]
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
