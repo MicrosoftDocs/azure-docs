@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 
 Auto-instrumentation, or codeless attach, allows you to enable application monitoring with Application Insights without changing your code.  
 
-Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry out of the box. In no time you'll see the metrics, data, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
+Application Insights is integrated with various resource providers and works on different environments. In essence, all you have to do is enable and - in some cases - configure the agent, which will collect the telemetry out of the box. In no time, you'll see the metrics, data, and dependencies in your Application Insights resource, which will allow you to spot the source of potential problems before they occur, and analyze the root cause with end-to-end transaction view.
 
 ## Supported environments, languages, and resource providers
 
@@ -31,7 +31,7 @@ As we're adding more and more integrations, the auto-instrumentation capability 
 |On-Premises VMs Windows       | GA, opt-in      | Not supported   | Through agent   | Not supported   |
 |Standalone agent - any env.   | Not supported   | Not supported   | Public Preview  | Not supported   |
 
-*OnBD is short for On by Default, this means that Application Insights is enabled automatically once you deploy your app in supported environments. 
+*OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 
 
 ## Azure App Service
 
