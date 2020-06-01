@@ -47496,11 +47496,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/howto-connect-powerbi.md",
-      "redirect_url": "/azure/iot-central/core/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-central/core/howto-connect-raspberry-pi-csharp.md",
       "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
