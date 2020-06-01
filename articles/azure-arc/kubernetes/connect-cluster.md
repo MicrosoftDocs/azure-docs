@@ -9,6 +9,7 @@ author: mlearned
 ms.author: mlearned
 description: "Connect an Azure Arc-enabled Kubernetes cluster with Azure Arc"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
+ms.custom: references_regions
 ---
 
 # Connect an Azure Arc-enabled Kubernetes cluster (Preview)
@@ -21,7 +22,7 @@ Verify you have the following requirements ready:
 
 * A Kubernetes cluster that is up and running
 * You'll need access with kubeconfig, and cluster-admin access. 
-* The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type.
+* The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Azure Arc for Kubernetes Onboarding" role having these permissions can be used for role assignments on the user or service principal used with Azure CLI for onboarding.
 * Latest version of the *connectedk8s* and *k8sconfiguration* extensions
 
 ## Supported regions
@@ -150,7 +151,7 @@ Helm release deployment succeeded
 List your connected clusters:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Output:**

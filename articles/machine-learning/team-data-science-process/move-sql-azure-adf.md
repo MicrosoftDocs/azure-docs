@@ -1,5 +1,5 @@
 ---
-title: SQL Server data to SQL Azure with Azure Data Factory - Team Data Science Process
+title: SQL Server data to SQL Database with Azure Data Factory - Team Data Science Process
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 author: marktab
@@ -12,9 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
+# Move data from a SQL Server database to SQL Database with Azure Data Factory
 
-This article shows how to move data from an on-premises SQL Server Database to a SQL Azure Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach that has the advantages of a replicated staging copy, though [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+This article shows how to move data from a SQL Server database to Azure SQL Database via Azure Blob Storage using the Azure Data Factory (ADF):  this method is a supported legacy approach that has the advantages of a replicated staging copy, though [we suggest to look at our data migration page for the latest options](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 For a table that summarizes various options for moving data to an Azure SQL Database, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md).
 
@@ -31,13 +31,13 @@ Consider using ADF:
 ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
-We set up an ADF pipeline that composes two data migration activities. Together they move data on a daily basis between an on-premises SQL Database and an Azure SQL Database in the cloud. The two activities are:
+We set up an ADF pipeline that composes two data migration activities. Together they move data on a daily basis between a SQL Server database and Azure SQL Database. The two activities are:
 
-* copy data from an on-premises SQL Server database to an Azure Blob Storage account
-* copy data from the Azure Blob Storage account to an Azure SQL Database.
+* Copy data from a SQL Server database to an Azure Blob Storage account
+* Copy data from the Azure Blob Storage account to Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from an on-premises SQL Server database to Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from a SQL Server database to Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -54,10 +54,10 @@ This tutorial assumes you have:
 >
 >
 
-## <a name="upload-data"></a> Upload the data to your on-premises SQL Server
+## <a name="upload-data"></a> Upload the data to your SQL Server instance
 We use the [NYC Taxi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted in that post, on Azure blob storage [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file, which contains trip details, and the  trip_far.csv file, which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](sql-walkthrough.md#dataset).
 
-You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premises SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premises SQL Server is the same.
+You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server database](sql-walkthrough.md#dbload).
 
 ## <a name="create-adf"></a> Create an Azure Data Factory
 The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
@@ -87,7 +87,7 @@ Create tables that specify the structure, location, and availability of the data
 
 The JSON-based definitions in the tables use the following names:
 
-* the **table name** in the on-premises SQL server is *nyctaxi_data*
+* the **table name** in the SQL Server is *nyctaxi_data*
 * the **container name** in the Azure Blob Storage account is *containername*
 
 Three table definitions are needed for this ADF pipeline:
@@ -102,7 +102,7 @@ Three table definitions are needed for this ADF pipeline:
 >
 
 ### <a name="adf-table-onprem-sql"></a>SQL on-premises Table
-The table definition for the on-premises SQL Server is specified in the following JSON file:
+The table definition for the SQL Server is specified in the following JSON file:
 
 ```json
 {
@@ -221,12 +221,12 @@ Using the table definitions provided previously, the pipeline definition for the
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
         "activities":
         [
             {
                 "name": "CopyFromSQLtoBlob",
-                "description": "Copy data from on-premises SQL server to blob",
+                "description": "Copy data from SQL Server to blob",
                 "type": "CopyActivity",
                 "inputs": [ {"name": "OnPremSQLTable"} ],
                 "outputs": [ {"name": "OutputBlobTable"} ],
