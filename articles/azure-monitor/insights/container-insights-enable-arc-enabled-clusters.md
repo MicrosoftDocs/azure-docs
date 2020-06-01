@@ -153,7 +153,7 @@ Run the following command to enable monitoring, replacing the value for the `res
     Example:
 
     ```bash
-    bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup`
+    bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup
     ```
 
     >[!NOTE]
