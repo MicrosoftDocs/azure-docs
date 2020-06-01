@@ -585,7 +585,7 @@ To exclude Azure-SSIS integration runtime:
 
 When publishing from the collaboration branch, Azure-SSIS integration runtimes will be excluded from the Resource Manager template generated.
 
-## Hotfix production branch
+## Hotfix production environment
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
