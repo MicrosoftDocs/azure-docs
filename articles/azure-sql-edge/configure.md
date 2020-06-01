@@ -16,16 +16,16 @@ ms.date: 05/19/2020
 Azure SQL Edge supports configuration by using one of the following two options:
 
 - Environment variables
-- A mssql.conf file placed in the /var/opt/mssql folder
+- An mssql.conf file placed in the /var/opt/mssql folder
 
 > [!NOTE]
 > Setting environment variables overrides the settings specified in the mssql.conf file.
 
 ## Configure using environment variables
 
-Azure SQL Edge exposes several different environment variables that can be used to configure the SQL Edge container. These environment variables are a subset of the environment variables available for SQL Server on Linux. For more information on SQL Server on Linux environment variables, see [Environment Variables](/sql/linux/sql-server-linux-configure-environment-variables/).
+Azure SQL Edge exposes several different environment variables that can be used to configure the SQL Edge container. These environment variables are a subset of the ones available for SQL Server on Linux. For more information on SQL Server on Linux environment variables, see [Environment variables](/sql/linux/sql-server-linux-configure-environment-variables/).
 
-The following SQL Server on Linux environment variables are not supported for Azure SQL Edge. If defined, these environment variables will be ignored during container initialization.
+The following SQL Server on Linux environment variable is not supported for Azure SQL Edge. If defined, this environment variable will be ignored during container initialization.
 
 | Environment variable | Description |
 |-----|-----|
@@ -39,7 +39,7 @@ The following SQL Server on Linux environment variables are not supported for Az
 
 ### Specify the environment variables
 
-Environment variables for SQL Edge can be specified when deploying Azure SQL Edge through the [Azure portal](deploy-portal.md). This can be added either in the **Environment Variables** section of the module deployment or as part of the **Container Create Options**.
+Environment variables for SQL Edge can be specified when deploying Azure SQL Edge through the [Azure portal](deploy-portal.md). They can be added either in the **Environment Variables** section of the module deployment or as part of the **Container Create Options**.
 
 #### Set using environment variables options
 
@@ -49,9 +49,9 @@ Environment variables for SQL Edge can be specified when deploying Azure SQL Edg
 
 ![set using container create options](media/configure/set-environment-variables-using-create-options.png)
 
-## Configure using mssql.conf file
+## Configure using an mssql.conf file
 
-Azure SQL Edge does not include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. The mssql.conf file needs to be manually configured and placed in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When deploying SQL Edge from the Azure Marketplace, this mapping is specified as the **Mounts** option in the container create option.
+Azure SQL Edge does not include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. The mssql.conf file needs to be manually configured and placed in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When deploying SQL Edge from Azure Marketplace, this mapping is specified as the **Mounts** option in the **Container Create Options**.
 
 ```json
     {
@@ -71,13 +71,13 @@ The following mssql.conf options are not applicable to SQL Edge:
 |Option|Description|
 |:---|:---|
 |**Customer feedback** | Choose whether or not SQL Server sends feedback to Microsoft. |
-|**Database Mail Profile** | Set the default database mail profile for SQL Server on Linux. |
+|**Database mail profile** | Set the default database mail profile for SQL Server on Linux. |
 |**High availability** | Enable Availability Groups. |
 |**Microsoft Distributed Transaction Coordinator** | Configure and troubleshoot MSDTC on Linux. Additional distributed transaction-related configuration options are also not supported for SQL Edge. For more information on these additional configuration options, refer to [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**MLServices EULAs** | Accept R and Python EULAs for Machine Learning Services packages. Applies to SQL Server 2019 only.|
 |**outboundnetworkaccess** |Enable outbound network access for [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python, and Java extensions.|
 
-A sample mssql.conf file, which works for SQL Edge is provided below. For more information on the format for a mssql.conf file, see [mssql.conf format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+A sample mssql.conf file, which works for SQL Edge, is provided here. For more information on the format for a mssql.conf file, see [mssql.conf format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]
