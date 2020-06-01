@@ -210,29 +210,41 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
 
-1. Open **Server Explorer** in Visual Studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
+Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. 
 
-   ![Sign in to Azure](./media/webjobs-sdk-get-started/sign-in.png)
+A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar.
 
-1. Under the **Azure** node in **Server Explorer**, right-click **Storage**, and then select **Create Storage account**.
+To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
-   ![Create Storage account menu](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
+1. On the Azure portal home page, search for and select **Storage accounts**.
 
-1. In the **Create Storage Account** dialog box, enter a unique name for the storage account.
+1. In the dialog box that opens, select **+ Create**.
 
-1. Select the same **Region** that you created your App Service app in, or a region close to you.
+   ![Create storage account](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Select **Create**.
+ 1. Under the **Basics** tab and **Project details**, select the subscription in which to create the storage account.
 
-   ![Create Storage account](./media/webjobs-sdk-get-started/create-storage-account.png)
+ 1. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group.
 
-1. Under the **Storage** node in **Server Explorer**, select the new Storage account. In the **Properties** window, select the ellipsis (**...**) at the right of the **Connection String** value field.
+     ![Create storage account basics](./media/webjobs-sdk-get-started/create-storage-account-basics.png)
 
-   ![Connection String ellipsis](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
+ 1. Select a location for your storage account, or use the default location. 
 
-1. Copy the connection string, and save this value somewhere that you can copy it again readily.
+ 1. Leave these fields set to their default values:
 
-   ![Copy connection string](./media/webjobs-sdk-get-started/copy-key.png)
+       |Field  |Value  |
+       |---------|---------|
+       |Deployment model     |Resource Manager         |
+       |Performance     |Standard         |
+       |Account kind     |StorageV2 (general-purpose v2)         |
+       |Replication     |Read-access geo-redundant storage (RA-GRS)         |
+       |Access tier     |Hot         |
+ 
+ 1. If you plan to use Azure Data Lake Storage, select the **Advanced** tab, and then set **Hierarchical namespace** to **Enabled**.
+
+ 1. Select **Review + create** to review your storage account settings.
+
+ 1. Select **Create**.
 
 ## Configure storage to run locally
 
