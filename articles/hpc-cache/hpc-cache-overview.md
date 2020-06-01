@@ -16,15 +16,17 @@ Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NF
 
 ## Overview video
 
-[![video overview of Azure HPC Cache - click to play](media/video1-thumb-draft.png)](https://azure.microsoft.com/en-us/resources/videos/hpc-cache-overview/)
+[![video overview of Azure HPC Cache - click to play](media/video1-overview.png)](https://azure.microsoft.com/en-us/resources/videos/hpc-cache-overview/)
 
-<!-- https://onyxmediacdn-onyxmedia.streaming.mediaservices.windows.net/6979d4ec-e344-4d78-aa43-afa547516a60/Video%201%20-%20HPC%20Cache%20Overview.ism/manifest -->
+<!-- https://onyxmediacdn-onyxmedia.streaming.mediaservices.windows.net/6979d4ec-e344-4d78-aa43-afa547516a60/Video%201%20-%20HPC%20Cache%20Overview.ism/manifest 
 
-Click the video image to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/en-us/resources/videos/hpc-cache-overview/).
+https://azure.microsoft.com/resources/videos/hpc-cache-overview -->
 
-**Attempt to stream by using the video format type and the manifest URL:**
+Click the video image to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
-> [!VIDEO https://onyxmediacdn-onyxmedia.streaming.mediaservices.windows.net/6979d4ec-e344-4d78-aa43-afa547516a60/Video%201%20-%20HPC%20Cache%20Overview.ism/manifest]
+**Attempt to stream by using the video format type and the ACOM URL:**
+
+> [!VIDEO https://azure.microsoft.com/resources/videos/hpc-cache-overview]
 
 ## Use cases
 
