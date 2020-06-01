@@ -29,6 +29,9 @@ For Spark external table queries, run a query that targets an external [spark_ta
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
+> [!NOTE]
+> Add, drop or alter Spark external table column will not be reflected in external table in SQL on-demand.
+
 ## Spark data types to SQL data types mapping
 
 | Spark data type | SQL data type               |
