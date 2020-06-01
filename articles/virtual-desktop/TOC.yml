@@ -50,7 +50,7 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
-  - name: Create a file share for profile containers
+  - name: Create profile container file shares
     href: create-file-share.md
   - name: Configure host pool settings
     items:
