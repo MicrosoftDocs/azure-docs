@@ -197,7 +197,7 @@ To use the Custom Script Extension, the following sample is provided to run on W
 
 <List those differences in experience and configuration with the extension>.
 
-To easily deploy the Custom Script extension, the following sample is provided to install the agent on either Windows or Linux.
+The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
 
 #### Template file for Linux
 
