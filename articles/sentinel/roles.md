@@ -28,21 +28,21 @@ Using RBAC, you can use and create roles within your security operations team to
 
 There are three specific built-in Azure Sentinel roles.  
 **All Azure Sentinel built-in roles grant read access to the data in your Azure Sentinel workspace.**
-- [Azure Sentinel reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- [Azure Sentinel responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- [Azure Sentinel contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Analytics RBAC roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:
 
 - **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
--   **Log Analytics roles:** [Log Analytics contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [Log Analytics reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access across all your Log Analytics workspaces. 
+-   **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access across all your Log Analytics workspaces. 
 
 > [!NOTE]
 > Log Analytics roles also grant read access across all Azure resources but will only assign write permissions to Log Analytics resources.
 
 
-For example, a user who is assigned with **Azure Sentinel reader** and **Azure contributor** (not **Azure Sentinel contributor**) roles, will be able to edit data in Azure Sentinel, although they only have **Sentinel reader** permissions. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions making sure you do not break any needed permission role for another resource.
+For example, a user who is assigned with **Azure Sentinel Reader** and **Azure Contributor** (not **Azure Sentinel Contributor**) roles, will be able to edit data in Azure Sentinel, although they only have **Sentinel Reader** permissions. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions making sure you do not break any needed permission role for another resource.
 
 > [!NOTE]
 >- Azure Sentinel uses playbooks for automated threat response. Playbooks leverage Azure Logic Apps and are a separate Azure resource. You might want to assign specific members of your security operations team with the option to use Logic Apps for security orchestration, automation, and response (SOAR) operations. You can use the [Logic App contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) role or the [Logic App operator](../role-based-access-control/built-in-roles.md#logic-app-operator) role to assign explicit permission for using playbooks.
@@ -56,10 +56,10 @@ The following table displays roles and allowed actions in Azure Sentinel. An X i
 
 | Role | Create and run playbooks| Create and edit dashboards, analytic rules, and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, dashboards and other Azure Sentinel resources |
 |--- |---|---|---|---|
-| Azure Sentinel reader | -- | -- | -- | X |
-| Azure Sentinel responder|--|--| X | X |
-| Azure Sentinel contributor | -- | X | X | X |
-| Azure Sentinel contributor + Logic App contributor | X | X | X | X |
+| Azure Sentinel Reader | -- | -- | -- | X |
+| Azure Sentinel Responder|--|--| X | X |
+| Azure Sentinel Contributor | -- | X | X | X |
+| Azure Sentinel Contributor + Logic App Contributor | X | X | X | X |
 
 
 > [!NOTE]

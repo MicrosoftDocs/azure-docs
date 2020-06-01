@@ -402,4 +402,3 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 - For a reference of the logs and metrics created by Azure Storage, see [Azure Storage monitoring data reference](monitor-storage-reference.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - For more information on metrics migration, see [Azure Storage metrics migration](./storage-metrics-migration.md).
-

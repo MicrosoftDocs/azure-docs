@@ -64,7 +64,7 @@ You need the account name and account key of your Azure storage account to do th
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
-You need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
+You need the names of logical SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
 
 1. In the **Azure portal**, click **All services** on the left and select **SQL databases**.
 2. In the **SQL databases blade**, select the **database** that you want to use in this tutorial. Note down the **database name**.  
@@ -73,7 +73,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 5. Close all the blades by clicking **X**.
 
 ## Allow Azure services to access SQL server
-Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following steps:
+Ensure that **Allow access to Azure services** setting turned **ON** for your server so that the Data Factory service can access your server. To verify and turn on this setting, do the following steps:
 
 1. Click **All services** hub on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
@@ -105,9 +105,9 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 	```
 
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script.
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your server and run the SQL script.
 
-    If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
+    If your client is not allowed to access the logical SQL server, you need to configure firewall for your server to allow access from your machine (IP Address). See [this article](../../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your server.
 
 ## Create a data factory
 You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     
