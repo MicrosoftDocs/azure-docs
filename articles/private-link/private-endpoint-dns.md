@@ -16,12 +16,12 @@ When you're connecting to a private link resource using a fully qualified domain
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a particular private link resource. 
  
 You can use the following options to configure your DNS settings for private endpoints: 
-- **Use the Host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
+- **Use the host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
 - **Use a private DNS zone**. You can use [private DNS zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
-- **Use your DNS forwarder (Optional)**. You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
+- **Use your DNS forwarder (optional)**. You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
  
 > [!IMPORTANT]
-> It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
+> We don't recommend that you override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
 
 ## Azure services DNS zone configuration
 Azure services will create a canonical name DNS record (CNAME) on the public DNS service to redirect the resolution to the suggested private domain name. You can override the resolution with the private IP address of your private endpoints. 
@@ -32,14 +32,14 @@ For Azure services, use the recommended zone names as described in the following
 
 | Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
-| SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.windows.net | database.windows.net |
+| Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / SQL Server  | privatelink.database.windows.net | database.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
-| Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / SQL | privatelink.documents.azure.com | documents.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
@@ -54,12 +54,12 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io | azurecr.io |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft.RecoveryServices/vaults) / vault | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Azure Event Hub (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure WebApps (Microsoft.Web/sites) / site | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Web Apps (Microsoft.Web/sites) / site | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
  
 ## DNS configuration scenarios
@@ -144,7 +144,7 @@ To configure properly, you need the following resources:
 The following diagram illustrates the DNS resolution sequence from an on-premises network that conditionally forwards DNS traffic to Azure, where the resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md).
 
 > [!IMPORTANT]
-> The conditional forwarding must be made to the recommended [**public DNS zone forwarder**](#azure-services-dns-zone-configuration). Ex: `database.windows.net` , instead of **privatelink**.database.windows.net.
+> The conditional forwarding must be made to the recommended [public DNS zone forwarder](#azure-services-dns-zone-configuration). For example: `database.windows.net` instead of **privatelink**.database.windows.net.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="On-premises forwarding to Azure DNS":::
 
