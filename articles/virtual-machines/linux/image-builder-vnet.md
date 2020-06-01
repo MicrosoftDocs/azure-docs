@@ -1,4 +1,4 @@
----
+ ---
 title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET (preview)
 description: Create Linux VM images with Azure Image Builder allowing access to an existing Azure VNET
 author: cynthn
@@ -100,9 +100,9 @@ az network vnet subnet update \
 #  NOTE! The VNET must always be in the same region as the Azure Image Builder service region.
 ```
 
-###  Add NSG rule to allow the AIB deployed Azure Load Balancer to communicate with the proxy VM
+### Add Network Security Group rule
 
-This rule allows connectivity from the load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
+This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
 
 ```azurecli-interactive
 az network nsg rule create \

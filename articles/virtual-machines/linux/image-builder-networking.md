@@ -68,15 +68,15 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
 ### Checklist for using your VNET
 
 1. Allow Azure Load Balancer (ALB) to communicate with the proxy VM in an NSG
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
+    * [AZ CLI example](image-builder-vnet.md#add-network-security-group-rule)
+    * [PowerShell example](../windows/image-builder-vnet.md#add-network-security-group-rule)
 2. Disable Private Service Policy on subnet
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
+    * [AZ CLI example](image-builder-vnet.md#disable-private-service-policy-on-subnet)
+    * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-subnet)
 3. Allow Azure Image Builder to create an ALB and add VMs to the VNET
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet-1)
+    * [AZ CLI Example](image-builder-permissions-cli.md#existing-vnet-azure-role-example)
+    * [PowerShell example](image-builder-permissions-powershell.md#allow-image-builder-to-customize-images-on-your-existing-vnets)
 4. Allow Azure Image Builder to read/write source images and create images
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image-1)
+    * [AZ CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
+    * [PowerShell example](image-builder-permissions-powershell.md#custom-image-azure-role-example)
 5. Ensure you are using VNET in the same region as the Azure Image Builder Service region.
