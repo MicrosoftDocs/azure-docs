@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
+The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.0 or greater on your development machine.
 
 You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
 
@@ -36,6 +36,9 @@ You can verify the current version of C# on your development machine using the f
 ```cmd/sh
 dotnet --version
 ```
+
+> [!NOTE]
+> .NET Core SDK 3.x is needed to compile the Event Hubs service code used in this quickstart. Alternatively, you can use version 2.1.x by setting the language version (`<LangVersion>` element in the .csproj file) to `preview`.
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
