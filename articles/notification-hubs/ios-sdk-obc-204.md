@@ -84,9 +84,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
       For more information about using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
 
-   - Integration by copying the binaries into your project:
-
-      You can integrate by copying the binaries into your project, as follows:
+   - Integration by copying the binaries into your project: You can integrate by copying the binaries into your project, as follows:
 
         - Download the [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-android/releases) framework provided as a zip file, and unzip it.
 
