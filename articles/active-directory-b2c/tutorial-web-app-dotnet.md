@@ -89,6 +89,7 @@ Update the settings in the Web.config file to work with your user flow:
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 1. In the **TaskWebApp** project, open the **Web.config** file.
     1. Update the value of `ida:Tenant` and `ida:AadInstance` with the name of the Azure AD B2C tenant that you created. For example, replace `fabrikamb2c` with `contoso`.
+    1. Replace the value of `ida:TenantId` with the directory ID, which you can find in the properties for your Azure B2C tenant (in the Azure portal under **Azure Active Directory** > **Properties** > **Directory ID**).
     1. Replace the value of `ida:ClientId` with the application ID that you recorded.
     1. Replace the value of `ida:ClientSecret` with the key that you recorded. If the client secret contains any predefined XML entities, for example less than (`<`), greater than (`>`), ampersand (`&`), or double quote (`"`), you must escape those characters by XML-encoding the client secret before adding it to your Web.config.
     1. Replace the value of `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`.
