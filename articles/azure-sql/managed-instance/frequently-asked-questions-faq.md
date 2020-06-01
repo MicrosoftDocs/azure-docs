@@ -268,8 +268,8 @@ FROM sys.sql_logins
 After that, you can modify specified login settings by executing :
 
 ```sql
-ALTER LOGIN test WITH CHECK_POLICY = OFF;
-ALTER LOGIN test WITH CHECK_EXPIRATION = OFF;
+ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (replace 'test' with desired login name and adjust policy and expiration values)
