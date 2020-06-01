@@ -17,7 +17,7 @@ Azure Advisor identifies Traffic Manager profiles with a longer TTL configured a
 
 ## Improve database performance with SQL DB Advisor
 
-Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your database. SQL Database Advisor assesses the performance of your databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
 
 > [!NOTE]
 > To get recommendations, a database must have about a week of usage, and within that week there must be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.

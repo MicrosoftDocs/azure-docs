@@ -168,6 +168,10 @@ The first recovery point that's generated has the complete copy. Any successive 
 
 Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
 
+### Can I enable replication with app-consistency in Linux servers?
+
+Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. [Learn more](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+
 ## Multi-VM consistency
 
 ### What is multi-VM consistency?
@@ -310,4 +314,4 @@ Yes, both encryption in transit and [encryption at rest in Azure](https://docs.m
 
 - [Review Azure-to-Azure support requirements](azure-to-azure-support-matrix.md).
 - [Set up Azure-to-Azure replication](azure-to-azure-tutorial-enable-replication.md).
-- If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- If you have questions after reading this article, post them on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

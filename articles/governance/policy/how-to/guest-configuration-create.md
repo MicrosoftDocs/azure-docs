@@ -214,6 +214,9 @@ to audit for a running service. The configuration script can be executed from a 
 machine.
 
 ```powershell
+# Add PSDscResources module to environment
+Install-Module 'PSDscResources'
+
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
