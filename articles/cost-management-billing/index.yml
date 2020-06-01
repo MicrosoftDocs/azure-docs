@@ -31,7 +31,7 @@ landingContent:
       - text: Understand Cost Management data
         url: costs/understand-cost-mgt-data.md
       - text: Save money with Azure Reservations
-        url: costs/save-compute-costs-reservations.md
+        url: reservations/save-compute-costs-reservations.md
     - linkListType: get-started
       links:
       - text: Learn at your own pace
@@ -89,11 +89,11 @@ landingContent:
     - linkListType: tutorial
       links:
       - text: Review your individual account bill
-        url: costs/review-individual-bill.md
+        url: understand/review-individual-bill.md
       - text: Review your Microsoft Customer Agreement bill
-        url: costs/review-customer-agreement-bill.md
+        url: understand/review-customer-agreement-bill.md
       - text: Review your Enterprise Agreement bill
-        url: costs/review-enterprise-agreement-bill.md
+        url: understand/review-enterprise-agreement-bill.md
       - text: Create and manage budgets
         url: costs/tutorial-acm-create-budgets.md
       - text: Export cost and usage data
@@ -177,7 +177,7 @@ landingContent:
     - linkListType: tutorial
       links:
       - text: Review your Microsoft Customer Agreement bill
-        url: review-customer-agreement-bill.md
+        url: understand/review-customer-agreement-bill.md
     - linkListType: concept
       links:
       - text: Billing accounts for Microsoft Customer Agreement
@@ -223,7 +223,7 @@ landingContent:
       - text: SQL Database
         url: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Data Explorer
-        url: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: /dataexplorer-docs/data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
         url: reservations/prepay-databricks-reserved-capacity.md
       - text: App Service
@@ -247,7 +247,7 @@ landingContent:
       - text: Azure Synapse Analytics
         url: reservations/reservation-discount-azure-sql-dw.md
       - text: Azure Data Explorer
-        url: ureservations/nderstand-azure-data-explorer-reservation-charges.md
+        url: reservations/understand-azure-data-explorer-reservation-charges.md
       - text: Azure Databricks
         url: reservations/reservation-discount-databricks.md
       - text: App Service

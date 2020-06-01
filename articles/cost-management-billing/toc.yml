@@ -239,7 +239,7 @@
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
       - name: Migrate from EA to MCA APIs
-        href: costs.migrate-cost-management-api.md
+        href: costs/migrate-cost-management-api.md
       - name: Manage AWS cost and usage
         href: costs/aws-integration-manage.md
       - name: Connect with Power BI Desktop
@@ -273,7 +273,7 @@
         - name: Databricks
           href: reservations/prepay-databricks-reserved-capacity.md
         - name: Data Explorer
-          href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+          href: /dataexplorer-docs/data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
         - name: Disk Storage
           href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
         - name: Dedicated Host
@@ -465,4 +465,4 @@
       - name: Cloudyn FAQ
         href: cloudyn/cost-mgt-faq.md
       - name: Contact Cloudyn support
-        href: open-support-request.md
+        href: /cloudyn/open-support-request.md
