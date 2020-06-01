@@ -47,7 +47,7 @@ The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your 
 - [Learn more about the Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/create-request).
 - [Learn more about custom logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
 
-## Installing and configuring the Azure Sentinel output plugin in Logstash
+## Deploying the Azure Sentinel output plugin in Logstash
 
 1. **Installation**
 
@@ -108,11 +108,11 @@ The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your 
 
     1. From the Azure Sentinel navigation menu, click **Logs**. Under the **Tables** heading, expand the **Custom Logs** category. Find and click the name of the table you specified (with a `_CL` suffix) in the configuration.
 
-        ![Logstash custom logs](./media/connect-logstash/logstash-custom-logs-menu.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="Logstash custom logs":::
 
     1. To see records in the table, query the table, using the table name as the schema.
 
-        ![Logstash custom logs query](./media/connect-logstash/logstash-custom-logs-query.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Logstash custom logs query":::
 
 ## Monitor output plugin audit logs
 
