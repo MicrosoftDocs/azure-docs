@@ -259,7 +259,7 @@ store of Application Gateway. If the certificate wasn't issued by a trusted CA (
 
 1.  Enter `certmgr.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
 
-1.  Locate the certificate, typically in `\Certificates - Current User\\Personal\\Certificates\`, and open it.
+1.  Locate the certificate, typically in `\Certificates - Local Computer\\Personal\\Certificates\`, and open it.
 
 1.  Select the root certificate and then select **View Certificate**.
 
