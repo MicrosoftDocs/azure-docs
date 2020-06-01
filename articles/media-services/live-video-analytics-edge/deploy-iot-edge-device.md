@@ -231,9 +231,12 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
     ![Modules](./media/deploy-iot-edge-device/modules.png)
-1. Click on the Direct Method menu option 
+1. Click on the Direct Method menu option.
 
-    ![](./media/deploy-iot-edge-device/module-details.png)
+    > [!NOTE] 
+    > You will need to add a value in the Connection string sections as you can see on the current page. You do not need to hide or change anything in the **Setting name** section. It is ok to let it be public.
+
+    ![Direct method](./media/deploy-iot-edge-device/module-details.png)
 1. Next, Enter "GraphTopologyList" in the Method Name box.
 1. Next, copy and paste the below JSON payload in the payload box.
     
