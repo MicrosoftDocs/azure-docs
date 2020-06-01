@@ -45,15 +45,15 @@ Monitoring of Java and Node.js applications are in public preview and can be ena
 
 ## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview and you can [enable it in Azure Portal](https://docs.microsoft.com/azure/azure-monitor/app/monitor-functions).
+The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview and you can [enable it in Azure portal](https://docs.microsoft.com/azure/azure-monitor/app/monitor-functions).
 
 ## Azure Kubernetes Service
 
 Codeless instrumentation of Azure Kubernetes Service is currently available for Java applications through the [standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). 
 
-## Azure Windows VMs and VMSS
+## Azure Windows VMs and virtual machine scale set
 
-[Auto-instrumentation for Azure VMs and VMSS](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-vm-vmss-apps) is available for .NET applications 
+[Auto-instrumentation for Azure VMs and virtual machine scale set](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps) is available for .NET applications 
 
 ## On-premises servers
 You can easily enable monitoring for your [on-premises Windows servers for .NET applications](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) and for [Java apps](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
