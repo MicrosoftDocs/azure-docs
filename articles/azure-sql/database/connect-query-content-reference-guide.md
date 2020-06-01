@@ -11,9 +11,9 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 12/18/2018
+ms.date: 05/29/2020
 ---
-# Connect to Azure SQL Database or Azure SQL Managed Instance and run a query
+# Azure SQL Database and Azure SQL Managed Instance connect and query articles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The following document includes links to Azure examples showing how to connect and query Azure SQL Database and Azure SQL Managed Instance. For some related recommendations for Transport Level Security, see [TLS considerations for database connectivity](#tls-considerations-for-database-connectivity).
