@@ -13,6 +13,7 @@ ms.workload:
 ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
+ms.custom: references_regions
 ---
 
 # Clouds and regions in which Azure Media Services v3 exists
