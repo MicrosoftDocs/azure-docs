@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # What is Azure Arc-enabled Kubernetes Preview?
 
-You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes Preview. When a Kubernetes cluster is attached to Azure Arc, it will appear in the Azure portal and have an Azure Resource Manager ID and managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource. 
+You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes Preview. When a Kubernetes cluster is attached to Azure Arc, it will appear in the Azure portal. It will have an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource. 
 
 To connect a Kubernetes cluster to Azure, the cluster administrator needs to deploy agents. These agents run in a Kubernetes namespace named `azure-arc` and are standard Kubernetes deployments. The agents are responsible for connectivity to Azure, collecting Azure Arc logs and metrics, and watching for configuration requests.  
  
