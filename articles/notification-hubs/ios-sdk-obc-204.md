@@ -66,9 +66,9 @@ configure push credentials in your notification hub. Even if you have no prior e
       pod 'AzureNotificationHubs-iOS'
       ```
 
-   - Run pod install to install your newly defined pod and open your .xcworkspace.
+      - Run pod install to install your newly defined pod and open your .xcworkspace.
 
-      If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
+         If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
 
    - Integration via Carthage: Add the following dependencies to your Cartfile to include the Azure Notification Hubs SDK in your app:
 
@@ -76,7 +76,7 @@ configure push credentials in your notification hub. Even if you have no prior e
       github "Azure/azure-notificationhubs-ios"
       ```
 
-      Next, update build dependencies:
+      - Next, update build dependencies:
 
       ```shell
       $ carthage update
