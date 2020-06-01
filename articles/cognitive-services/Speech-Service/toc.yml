@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:

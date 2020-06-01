@@ -33,13 +33,11 @@ To use Automated Backup v2, review the following prerequisites:
 
 **Operating system**:
 
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 R2 or higher
 
 **SQL Server version/edition**:
 
-- SQL Server 2016: Developer, Standard, or Enterprise
-- SQL Server 2017: Developer, Standard, or Enterprise
+- SQL Server 2016 or higher: Developer, Standard, or Enterprise
 
 > [!IMPORTANT]
 > Automated Backup v2 works with SQL Server 2016 or later. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure virtual machines (VMs)](automated-backup-sql-2014.md).
