@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: [mvc, mqtt]
-ms.date: 05/19/2020
+ms.date: 06/01/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -38,7 +38,7 @@ dotnet --version
 ```
 
 > [!NOTE]
-> .NET Core SDK 3.x is needed to compile the Event Hubs service code used in this quickstart. Alternatively, you can use version 2.1.x by setting the language version (`<LangVersion>` element in the .csproj file) to `preview`.
+> .NET Core SDK 3.x is needed to compile the Event Hubs service code used in this quickstart. Alternatively, you can use version 2.1.x by setting the language version (`<LangVersion>`) element in the .csproj file) to `preview`.
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
