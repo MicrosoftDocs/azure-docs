@@ -9,7 +9,7 @@ ms.author: mblythe
 ms.date: 05/14/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MariaDB server
+# Quickstart: Use a Resource Manager template to create an Azure Database for MariaDB server
 
 Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB databases in the cloud. In this quickstart, you use an ARM template to create an Azure Database for MariaDB server in the Azure portal, PowerShell, or Azure CLI.
 
@@ -39,7 +39,7 @@ You create an Azure Database for MariaDB server with a defined set of compute an
 
 ### Review the template
 
-The template used in this quickstart is from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mariadb-with-vnet/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
@@ -51,9 +51,9 @@ The template defines five Azure resources:
 * [**Microsoft.DBforMariaDB/servers/virtualNetworkRules**](/azure/templates/microsoft.dbformariadb/servers/virtualnetworkrules)
 * [**Microsoft.DBforMariaDB/servers/firewallRules**](/azure/templates/microsoft.dbformariadb/servers/firewallrules)
 
-More Azure Database for MariaDB template samples can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
+More Azure Database for MariaDB template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-## Deploy the template
+### Deploy the template
 
 # [Portal](#tab/azure-portal)
 
