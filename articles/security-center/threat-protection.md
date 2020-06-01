@@ -157,9 +157,11 @@ For more information, see:
 
 ## Threat protection for Azure Storage <a name="azure-storage"></a>
 
-Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems. When blobs are uploaded, hash reputation analysis is performed to check for malware such as viruses, trojans, spyware and ransomware. This is powered by Microsoft threat intelligence. Learn more about Microsoft's threat intelligence capabilities here: https://go.microsoft.com/fwlink/?linkid=2128684
+Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems. 
 
-Advanced threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+In addition, threat protection for Azure Storage offers hash-reputation analysis (powered by Microsoft threat intelligence) for your uploaded blobs, to check them for malware such as viruses, trojans, spyware and ransomware.
+
+Threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
 
 This service is available in all public clouds and US government clouds, but no other sovereign or Azure Government cloud regions. 
 
