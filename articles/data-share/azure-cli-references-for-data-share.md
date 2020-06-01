@@ -1,18 +1,14 @@
 ---
-title: Azure CLI for Azure Data Share
-description: Azure CLI feference landing page for Azure Data Share
+title: Azure CLI references for Azure Data Share
+description: Azure CLI reference landing page for Azure Data Share
 services: data-share
 author: dbradish-microsoft
 manager: barbkess
-editor: 
-
 ms.service: data-share
 ms.devlang: azurecli
 ms.topic: reference
 ms.date: 05/27/2020
 ms.author: dbradish
-ms.reviewer: 
-ms.lastreviewed: 
 ---
 
 # Azure CLI for Azure Data Share
@@ -21,12 +17,12 @@ The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is 
 
 ## References for Data Share
 
-All Azure CLI commands for Azure Data Share are extension references and are in public preview at this time.  
+All Azure CLI commands for Azure Data Share are currently extensions to the Azure CLI.  An extension gives you access to experimental and pre-release commands.  Find out more about extension references in [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 |Azure CLI Reference |Status |Description
 |-|-|-|-|
 | [az datashare](/cli/azure/ext/datashare/datashare) | All commands to manage datashare
-| [az datashare account](/cli/azure/ext/datashare/datashare/consumer) | Commands to manage datashare accounts.
+| [az datashare account](/cli/azure/ext/datashare/datashare/account) | Commands to manage datashare accounts.
 | [az datashare consumer](/cli/azure/ext/datashare/datashare/consumer) | Commands for consumers to manage datashare.
 | [az datashare dataset](/cli/azure/ext/datashare/datashare/dataset) | Commands for providers to manage datashare datasets.
 | [az datashare invitation](/cli/azure/ext/datashare/datashare/invitation) | Commands for consumers to manage datashare invitations.
@@ -53,6 +49,7 @@ az group list --subscription MySubscription --output table
 It is just as straighforward to create a data share account.
 
 ```azurecli
+#create a data share account
 az datashare account create --location "West US 2" --tags tag1=Red tag2=White --name MyAccount --resource-group MyResourceGroup
 ```
 
@@ -60,6 +57,4 @@ az datashare account create --location "West US 2" --tags tag1=Red tag2=White --
 
 * [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn about installation and sign in.
 
-* Find more information about public preview commands in [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-* Discover additional [GA](/cli/azure/reference-index) and [public preview](/cli/azure/azure-cli-extensions-list) commands in the Azure CLI documentation.
+* Discover additional [core](/cli/azure/reference-index) and [extension](/cli/azure/azure-cli-extensions-list) references in the Azure CLI documentation.
