@@ -138,7 +138,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 ``` 
 
 ## Configure the Private DNS Zone 
-Create a private DNS zone for SQL Database domain and create an association link with the virtual network: 
+Create a Private DNS Zone for SQL Database domain, create an association link with the Virtual Network
+and create a DNS Zone Group to associate the private endpoint with the Private DNS Zone.
 
 ```azurepowershell
 
