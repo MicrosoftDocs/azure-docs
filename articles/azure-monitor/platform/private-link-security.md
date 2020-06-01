@@ -184,7 +184,7 @@ The latest versions of the Windows and Linux agents must be used on private netw
 
 **Log Analytics Windows agent**
 
-Use the Log Analytics agent version 18.20.18038.0 or later.
+Use the Log Analytics agent version 10.20.18038.0 or later.
 
 **Log Analytics Linux agent**
 
@@ -197,7 +197,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### Azure portal
 
-To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your firewall.
+To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your firewall.
 
 ### Programmatic access
 

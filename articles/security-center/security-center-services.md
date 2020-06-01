@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2020
+ms.date: 05/27/2020
 ms.author: memildin
 ---
 
@@ -92,7 +92,7 @@ For information about when recommendations are generated for each of these prote
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – All versions* | Windows Server Family  | No | Yes |
+| Trend Micro – Deep Security | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
 | McAfee v10+ | Linux Server Family  | No | Yes **\*** |
@@ -101,15 +101,11 @@ For information about when recommendations are generated for each of these prote
  **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
 
 > [!NOTE]
-> - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
-> - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
+> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
 
 
 ## Next steps
 
 - Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
-- Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).
-- Learn more about [threat protection for Windows and Linux machines in Azure Security Center](threat-protection.md#windows-machines).
-- Find [frequently asked questions about Azure Security Center](faq-general.md).
