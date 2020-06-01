@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Service limits in public preview
 
-These are the service limits of Azure Digital Twins during public preview. Many of these limits will increase for the GA release.
+These are the service limits of Azure Digital Twins during public preview.
 
 > [!NOTE]
 > Some services have adjustable limits, represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
