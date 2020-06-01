@@ -19,14 +19,14 @@ The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is 
 
 All Azure CLI commands for Azure Data Share are currently extensions to the Azure CLI.  An extension gives you access to experimental and pre-release commands.  Find out more about extension references in [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-|Azure CLI Reference |Status |Description
-|-|-|-|-|
-| [az datashare](/cli/azure/ext/datashare/datashare) | All commands to manage Azure Data Share accounts.
+|Azure CLI Reference |Description
+|-|-|-|
+| [az datashare](/cli/azure/ext/datashare/datashare) | All commands to manage Azure Data Share.
 | [az datashare account](/cli/azure/ext/datashare/datashare/account) | Commands to manage Azure Data Share accounts.
 | [az datashare consumer](/cli/azure/ext/datashare/datashare/consumer) | Commands for consumers to manage Azure Data Share.
 | [az datashare dataset](/cli/azure/ext/datashare/datashare/dataset) | Commands for providers to manage Azure Data Share datasets.
 | [az datashare invitation](/cli/azure/ext/datashare/datashare/invitation) | Commands for consumers to manage Azure Data Share invitations.
-| [az datashare provider-share-subscription](/cli/azure/ext/datashare/datashare/provider-share-subscription) | Commands for providers to manage datashare share subscriptions.
+| [az datashare provider-share-subscription](/cli/azure/ext/datashare/datashare/provider-share-subscription) | Commands for providers to manage Azure Data Share subscriptions.
 | [az datashare synchronization](/cli/azure/ext/datashare/datashare/synchronization)  | Commands to manage Azure Data Share synchronization.
 | [az datashare datashare synchronization-setting](/cli/azure/ext/datashare/datashare/synchronization-setting)  | Commands for providers to manage Azure Data Share synchronization settings.
 
@@ -53,7 +53,7 @@ It is just as straightforward to create a data share account.
 az datashare account create --location "West US 2" --tags tag1=Red tag2=White --name MyAccount --resource-group MyResourceGroup
 ```
 
-## See Also
+## See also
 
 * [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn about installation and sign in.
 
