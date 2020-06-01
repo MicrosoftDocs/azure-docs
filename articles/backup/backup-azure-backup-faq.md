@@ -185,7 +185,7 @@ No. Recovery is free and you aren't charged for the egress traffic.
 
 When a new policy is applied, schedule and retention of the new policy is followed.
 
-- If retention is extended, existing recovery points are marked to keep them as per new policy.
+- If retention is extended, existing recovery points are marked to keep them according to new policy.
 - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 ## Encryption
@@ -203,7 +203,7 @@ Yes. The data in Azure is encrypted-at-rest.
 
 Microsoft does not decrypt the backup data at any point.
 
-### What is the minimum length of encryption the key used to encrypt backup data?
+### What is the minimum length of the encryption key used to encrypt backup data?
 
 The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
 

@@ -92,6 +92,8 @@
     href: template-samples.md
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
 - name: Concepts
   items:    
   - name: Event Grid terminology

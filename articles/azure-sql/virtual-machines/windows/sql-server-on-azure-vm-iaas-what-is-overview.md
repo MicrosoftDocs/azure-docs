@@ -107,7 +107,7 @@ To access the **Azure SQL resources** page, select **Azure SQL** in the Azure po
 ![Search for Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
-> **Azure SQL** provides a quick and easy way to access all of your databases, elastic pools, and database servers in Azure SQL Database, your instances of SQL Managed Instance, and your SQL Server virtual machines. Azure SQL is not a service or resource. 
+> Azure SQL provides a quick and easy way to access all of your Azure SQL databases, elastic pools, logical servers, managed instances, and virtual machines. Azure SQL is not a service or resource. 
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
@@ -138,8 +138,8 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 * [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### Networking
-* [Azure Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
+* [IP addresses in Azure](../../../virtual-network/public-ip-addresses.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### SQL
