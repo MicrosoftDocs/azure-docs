@@ -82,12 +82,12 @@ Now, you can go ahead and ingest your 3D asset.
     | AccountId                      | The **Account ID** of the Object Understanding Account created above. |
     | AccountKey                     | The **Primary key** of the Object Understanding Account created above |
     | Account Region                 | The **Region** of the Object Understanding Account created above.     |
-    | InputAssetPath                 | Absolute path to a 3D file on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
 
    There are four additional fields that need to be verified:
 
     | Field                    | Description                       |
     | ---                      | ---                               |
+    | InputAssetPath                 | Absolute path to a 3D file on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
     | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
     | AssetId                  | An arbitrary string used to identify the object being ingested. It could be a randomly generated GUID/UUID, object's identifier in an inventory database, stock keeping unit, etc. |
