@@ -108,11 +108,7 @@ To enable region access for a subscription, you'll need to complete the followin
 ![Region access](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
 
 
-### Other quota requests
-
-If your subscription needs access in a particular region, select the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. 
-
-To explore the offering and SKU options, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+### Please use this for other quota requests
 
 ![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
