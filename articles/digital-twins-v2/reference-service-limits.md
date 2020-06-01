@@ -17,39 +17,43 @@ ms.service: digital-twins
 
 # Service limits in public preview
 
+These are the service limits of Azure Digital Twins during public preview. Many of these limits will increase for the GA release.
+
+> [!NOTE]
+> Some services have adjustable limits, represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+>
+> If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## Functional limits
 
 The table below lists the functional limits of Azure Digital Twins in the current preview.
 
-| Area | Capability | Limit |
-| --- | --- | --- |
-| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
-| Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 |
-| Routing | Number of endpoints for a single Azure Digital Twins instance | 6 |
-| Routing | Number of routes for a single Azure Digital Twins instance | 6 |
-| Models | Number of models within a single Azure Digital Twins instance | 10,000 |
-| Models | Number of models that can be uploaded in a single API call | 100 |
-| Models | Number of items returned in a single page | 100 |
-| Query | Number of items returned in a single page | 100 |
-| Query | Number of `AND` / `OR` expressions in a query | 50 |
-| Query | Number of array items in an `IN` / `NOT IN` clause | 50 |
-| Query | Number of characters in a query | 8,000 |
-| Query | Number of `JOINS` in a query | 1 |
-
-> [!NOTE]
-> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+| Area | Capability | Limit | Adjustable? |
+| --- | --- | --- | --- |
+| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
+| Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
+| Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
+| Routing | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
+| Models | Number of models that can be uploaded in a single API call | 250 | No |
+| Models | Number of items returned in a single page | 100 | No |
+| Query | Number of items returned in a single page | 100 | No |
+| Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
+| Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
+| Query | Number of characters in a query | 8,000 | Yes |
+| Query | Number of `JOINS` in a query | 1 | Yes |
 
 ## Rate limits
 
 This table reflects the rate limits of different APIs.
 
-| API | Capability | Limit |
-| --- | --- | --- |
-| Models API | Number of requests per second | 100 |
-| Digital Twins API | Number of requests per second | 1,000 |
-| Query API | Number of requests per second | 500 |
-| Query API | Query units per second | 4,000 |
-| Event Routes API | Number of requests per second | 100 |
+| API | Capability | Limit | Adjustable? |
+| --- | --- | --- | --- |
+| Models API | Number of requests per second | 100 | Yes |
+| Digital Twins API | Number of requests per second | 1,000 | Yes |
+| Query API | Number of requests per second | 500 | Yes |
+| Query API | Query units per second | 4,000 | Yes |
+| Event Routes API | Number of requests per second | 100 | Yes |
 
 ## Other limits
 

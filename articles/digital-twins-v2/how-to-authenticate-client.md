@@ -81,7 +81,7 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 ## Write client app authentication code: .NET (C#) SDK
 
 This section describes the code you will need to include in your client application in order to complete the authentication process using the .NET (C#) SDK.
-The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
+The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 ### Prerequisites
 
