@@ -67,6 +67,9 @@
       href: troubleshoot-vm-boot-error.md
   - name: Windows
     href: boot-error-troubleshoot.md
+    items:
+    - name: Boot Error - Disk Read Error Occurred
+      href: disk-read-error-occurred.md
 
     items:
     - name: Boot diagnostics
