@@ -353,7 +353,7 @@ You may experience either symptoms described below when trying to configure Wind
 
 ### Solution
 
-We recommend you to use [icacls tool](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
+We recommend you to use [icacls tool](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
