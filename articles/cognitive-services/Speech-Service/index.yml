@@ -122,10 +122,10 @@ conceptualContent:
       links:
         - itemType: how-to-guide
           text: About Speaker Recognition
-          url: ../Speaker-recognition/Home.md
+          url: speaker-recognition-overview.md
         - itemType: how-to-guide
           text: Speaker Recognition API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
     - title: Tools
       links:
         - itemType: overview

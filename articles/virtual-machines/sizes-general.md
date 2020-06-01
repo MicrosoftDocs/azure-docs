@@ -36,7 +36,8 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - [Dv3 and Dsv3-series](dv3-dsv3-series.md) VMs run on the Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads. Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Dv3-series no longer has the high memory VM sizes of the D/Dv2-series, those have been moved to the memory optimized [Ev3 and Esv3-series](ev3-esv3-series.md).
 
-Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
+- [Ddv4 and Ddsv4-series](ddv4-ddsv4-series.md) VMs runs on the 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz and features the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+
 
 ## Other sizes
 

@@ -69,7 +69,9 @@ During the preview, there are no additional costs associated with replicating da
 
 ### Prerequisites for object replication
 
-Object replication requires that the following Azure Storage features are enabled:
+Object replication requires that the following Azure Storage features are enabled: 
+- [Change feed](storage-blob-change-feed.md)
+- [Versioning](versioning-overview.md)
 
 Before you configure object replication, enable its prerequisites. Change feed must be enabled on the source account, and blob versioning must be enabled on both the source and destination account. For more information about enabling these features, see these articles:
 
@@ -153,3 +155,5 @@ To ask questions about the object replication preview, or to provide feedback, c
 ## Next steps
 
 - [Configure object replication (preview)](object-replication-configure.md)
+- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+- [Enable and manage blob versioning](versioning-enable.md)
