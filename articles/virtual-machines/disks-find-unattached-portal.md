@@ -20,7 +20,7 @@ If you have unattached managed disks and no longer need the data on them, the fo
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Disks**.
 
-    On this blade, you are presented with a list of all your disks. Any disk that has **-** in the **Owner** column is an unattached disk.
+    On the **Disks** blade, you are presented with a list of all your disks. Any disk that has **-** in the **Owner** column is an unattached disk.
 
     :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
 
