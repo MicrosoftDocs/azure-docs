@@ -129,7 +129,7 @@ Press Enter to continue
      ```
      {
        "@apiVersion": "1.0",
-       "name": "Sample-Graph",
+       "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "InferencingWithHttpExtension",
          "description": "Sample graph description",
@@ -198,7 +198,7 @@ Note the following in the above message:
 
 ### Inference event
 
-When an object is detected, Live Video Analytics Edge module provides you with an inference event. The type is set to “entity” to indicate it’s an entity such as a car reported from the external AI module via the Http Extension processor, and the eventTime tells you at what time (UTC) object was detected. Below is an example where two cars were detected with varying levels of confidence in the same video frame.
+The HTTP Extension processor node receives inference results from the yolov3 module, and emits them via the IoT Hub sink node as Inference events. In these events, the type is set to “entity” to indicate it’s an entity such as a car or truck, and the eventTime tells you at what time (UTC) the object was detected. Below is an example where two cars were detected with varying levels of confidence in the same video frame.
 
 ```
 [IoTHubMonitor] [11:37:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -239,7 +239,7 @@ When an object is detected, Live Video Analytics Edge module provides you with a
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
-    "subject": "/graphInstances/YoloV3Inferencing-Graph-2/processors/inferenceClient",
+    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-04-23T06:37:16.097Z"
   }
@@ -248,7 +248,7 @@ When an object is detected, Live Video Analytics Edge module provides you with a
 
 Note the following in the above messages:
 
-* "subject" in applicationProperties references the node in the MediaGraph from which the message was generated. 
+* "subject" in applicationProperties references the node in the graph topology from which the message was generated. 
 * "eventType" in applicationProperties indicates that this is an Analytics event.
 * "eventTime" indicates the time when the event occurred.
 * "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "inferences" data.
