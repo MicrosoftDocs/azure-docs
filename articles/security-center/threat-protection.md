@@ -159,7 +159,9 @@ For more information, see:
 
 Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems. 
 
-In addition, threat protection for Azure Storage offers hash-reputation analysis (powered by Microsoft threat intelligence) for your uploaded blobs, to check them for malware such as viruses, trojans, spyware and ransomware.
+Security alerts are triggered when there are suspicious activities on your storage account or anomalous behavior is detected. Suspicious activities might include the upload of a blob suspected of containing malware. Anomalous behavior alerts include changes in the access pattern to a storage account.
+
+The alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
 
 Threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
 
