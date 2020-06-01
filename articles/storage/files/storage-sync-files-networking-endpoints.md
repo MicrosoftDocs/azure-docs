@@ -44,7 +44,7 @@ When you creating a private endpoint for an Azure resource, the following resour
 # [Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
 
 ```
 nslookup <storage-account-name>.file.core.windows.net
@@ -65,7 +65,7 @@ Aliases:  storageaccount.file.core.windows.net
 # [PowerShell](#tab/azure-powershell)
 [!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
 
 ```PowerShell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
@@ -92,7 +92,7 @@ IP4Address : 192.168.0.5
 # [Azure CLI](#tab/azure-cli)
 [!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
+If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -137,7 +137,7 @@ The **Configuration** blade allows you to select the specific virtual network an
 
 Click **Review + create** to create the private endpoint.
 
-If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure File Sync](storage-sync-files-networking-dns.md), you can test that your private endpoint has been setup correctly by running the following commands from PowerShell. 
+You can test that your private endpoint has been setup correctly by running the following commands from PowerShell. 
 
 ```powershell
 $privateEndpointResourceGroupName = "<your-private-endpoint-resource-group>"
