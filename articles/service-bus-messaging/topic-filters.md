@@ -61,7 +61,7 @@ Routing uses filters to distribute messages across topic subscriptions in a pred
 
 
 > [!NOTE]
-> With the Service Bus Explorer functionality being added to the Azure Portal, subscription filters can now be created or edited from the portal. 
+> Because the Azure portal now supports Service Bus Explorer functionality, subscription filters can be created or edited from the portal. 
 
 ## Next steps
 See the following samples: 
