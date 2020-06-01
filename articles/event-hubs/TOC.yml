@@ -274,6 +274,7 @@
     - name: Management library
       href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
   - name: Go
+    items:
     - name: Client library
       href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
     - name: Management library
