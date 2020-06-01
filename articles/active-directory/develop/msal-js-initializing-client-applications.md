@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 06/05/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to learn about initializing a client application in MSAL.js to
-# enable support for authentication and authorization in a JavaScript "user-agent" application.
+# enable support for authentication and authorization in a JavaScript single-page application (SPA).
 ---
 
 # Initialize client applications using MSAL.js
@@ -39,9 +39,9 @@ After registering your app, you'll need some or all of the following values that
 
 ## Initializing applications
 
-You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize the MSAL authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required config to initialize MSAL.js is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
+### MSAL.js 2.x
 
-For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows do not return promises like the methods with a pop-up experience do. Registering the callback is optional in MSAL.js version 1.3.x and later.
+Initialize the MSAL authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required config to initialize MSAL.js is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
 
 ```javascript
 const msalConfig = {
@@ -100,6 +100,35 @@ msalInstance.handleRedirectCallback(authCallback);
 ```
 
 MSAL.js is designed to have a single instance and configuration of the [PublicClientApplication][msal-js-publicclientapplication] to represent a single authentication context. Multiple instances are not recommended because they cause conflicting cache entries and behavior in the browser.
+
+### MSAL.js 1.x
+
+Initialize MSAL authentication context by instantiating `UserAgentApplication` with a configuration object. The minimum required config to initialize MSAL.js is the clientID of your application which you should get from the application registration portal.
+
+For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows do not return promises like the methods with a pop-up experience do. Registering the callback is optional in MSAL.js version 1.3.x and later.
+
+For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), in MSAL.js 1.2.x or earlier, you will need to explicitly register a callback for success or error through `handleRedirectCallback()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do. This became optional in MSAL.js version 1.3.0.
+
+```javascript
+// Configuration object constructed
+const config = {
+    auth: {
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
+    }
+}
+
+// create UserAgentApplication instance
+const myMSALObj = new UserAgentApplication(config);
+
+function authCallback(error, response) {
+    //handle redirect response
+}
+
+// (optional when using redirect methods) register redirect call back for Success or Error
+myMSALObj.handleRedirectCallback(authCallback);
+```
+
+MSAL.js is designed to have a single instance and configuration of the `UserAgentApplication` to represent a single authentication context. Multiple instances are not recommended as they cause conflicting cache entries and behavior in the browser.
 
 ## Configuration options
 
