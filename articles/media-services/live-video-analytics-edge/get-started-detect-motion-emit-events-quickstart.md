@@ -58,7 +58,7 @@ The above command will deploy the following modules to the edge device (the Linu
 * Live Video Analytics on IoT Edge (module name "lvaEdge")
 * RTSP simulator (module name "rtspsim")
 
-The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no MediaGraphs are active.
+The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no media graphs are active.
 
 ## Configure Azure IoT Tools extension in Visual Studio Code
 
