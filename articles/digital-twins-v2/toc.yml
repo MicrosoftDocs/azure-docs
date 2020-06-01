@@ -69,7 +69,7 @@
   - name: Azure CLI
     href: /cli/azure/iot
   - name: Azure IoT CLI extension
-    href: https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+    href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
   - name: Azure Cloud Shell
     href: https://shell.azure.com
   - name: Azure PowerShell
@@ -77,11 +77,11 @@
   - name: Azure portal
     href: https://portal.azure.com
   - name: Azure RBAC documentation
-    href: ../role-based-access-control/overview.md
+    href: /role-based-access-control/overview
 - name: Resources
   items:
   - name: Support and help options
-    href: https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Channel 9 videos
