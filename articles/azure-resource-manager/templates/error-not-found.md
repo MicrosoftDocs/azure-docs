@@ -93,7 +93,7 @@ The pattern is:
 
 `"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
 
-> [!WARNING]
+> [!IMPORTANT]
 > Don't use the pattern:
 >
 > `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
