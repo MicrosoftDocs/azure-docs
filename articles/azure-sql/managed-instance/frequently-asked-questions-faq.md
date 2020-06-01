@@ -58,7 +58,7 @@ Expected time to create a SQL Managed Instance or change service tier (vCores, s
 
 Changing SQL Managed Instance name is not supported.
 
-SQL Managed instance default DNS zone *.database.windows.net* could be changed. 
+SQL Managed Instance default DNS zone *.database.windows.net* could be changed. 
 
 To use another DNS zone instead of the default, for example, *.contoso.com*: 
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or script as well.

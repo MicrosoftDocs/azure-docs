@@ -48,6 +48,10 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Dynamics CRM Online
 - Azure portal
 
+### User sign-in frequency and multi-factor authentication
+
+Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
+
 ### User sign-in frequency and device identities
 
 If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign in frequency policy as well. In the following 2 examples user sign-in frequency is set to 1 hour:

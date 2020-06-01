@@ -453,7 +453,7 @@
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
-        href: platform/alerts-log.md
+        href: app/alerts.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
@@ -991,7 +991,7 @@
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Key Vault
-      href: insights/key-vault-insights-overview.md
+      href: insights/key-vaults-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Storage
