@@ -61,7 +61,7 @@ Before you begin, check that you have completed the 3rd bullet in [Prerequisites
 Of interest in this tutorial are:
 
      * ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device
-     * ~/clouddrive/lva-sample/appsetting.json - used by Visual Studio Code for running the sample code
+     * ~/clouddrive/lva-sample/appsettings.json - used by Visual Studio Code for running the sample code
 
 You will need these files for the steps below.
 
