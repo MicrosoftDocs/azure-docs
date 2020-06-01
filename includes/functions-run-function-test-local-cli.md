@@ -12,7 +12,7 @@ Run your function by starting the local Azure Functions runtime host from the *L
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
-func start
+func host start
 ```
 ::: zone-end
 
