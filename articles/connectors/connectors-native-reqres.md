@@ -27,22 +27,29 @@ The Request trigger supports [Azure Active Directory Open Authentication](../act
 
 * Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-<a name="authentication"></a>
+<a name="tls-support"></a>
 
-## Certificates and authentication
+## Transport Layer Security (TLS)
 
-Inbound calls support *only* Transport Layer Security (TLS) 1.2. Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
+* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
 
-If you get TLS handshake errors, make sure that you use TLS 1.2. Inbound calls support these cipher suites:
+* Inbound calls support these cipher suites:
 
-* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+
+  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 <a name="add-request"></a>
 
