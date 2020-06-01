@@ -60,10 +60,10 @@ In the legacy experience, apps were always created as customer-facing applicatio
 
 You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs2016-custom.md).
 
-## Applications for DevOps or user management scenarios
+## Applications for DevOps scenarios
 You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
-You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more](manage-user-accounts-graph-api.md).  
+You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](manage-user-accounts-graph-api.md).  
 
 ## Admin consent and offline_access+openid scopes  
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
@@ -89,7 +89,7 @@ The **iOS/macOS** and **Android** platforms are a type of public client. They pr
 In the new experience, instead of **Keys**, you use the **Certificates & secrets** blade to manage certificates and secrets. Credentials enable applications to identify themselves to the authentication service when receiving tokens at a web addressable location (using an HTTPS scheme). We recommend using a certificate instead of a client secret for client credential scenarios when authenticating against Azure AD. Certificates can't be used to authenticate against Azure AD B2C.
 
 
-## Why are some App Registrations features for Azure AD tenants not available for Azure AD B2C tenants?
+## Features not available in Azure AD B2C tenants
 The following Azure AD app registrations capabilities are not applicable to Azure AD B2C tenants:
 - **Roles and administrators** - This requires an Azure AD Premium P1 or P2 license that is not currently available for Azure AD B2C.
 - **Branding** - UI/UX customization is configured in the **Company branding** experience or as part of a user flow. Learn to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md).
