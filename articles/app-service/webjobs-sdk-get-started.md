@@ -20,8 +20,7 @@ Completing this Quickstart will incur USD $1 in your Azure account, when using t
 
 [Azure App Service](overview.md) | [WebJobs for .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps) | [How to use the WebJobs SDK](webjobs-sdk-how-to.md)
 
-[!Note]
-This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. This WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
+**!Note**  This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console app. This WebJobs SDK also supports .NET Framework-targeted apps. To learn more, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ## Prerequisites
 
@@ -214,7 +213,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 
 A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar.
 
-To create a general-purpose v2 storage account in the Azure portal, follow these steps:
+To create a general-purpose v2 storage account in the [Azure portal](https://portal.azure.com/?feature.customportal=false), follow these steps:
 
 1. On the Azure portal home page, search for and select **Storage accounts**.
 
@@ -447,7 +446,7 @@ In this section, you run locally again to verify that logging data is now going 
 
 1. Close the console window.
 
-1. Go to the [Azure portal](https://portal.azure.com/) to view your Application Insights resource. Search for and select **Application Insights**.
+1. Go to the [Azure portal](https://portal.azure.com/?feature.customportal=false) to view your Application Insights resource. Search for and select **Application Insights**.
 
 1. Select your Application Insights instance.
 
@@ -480,7 +479,7 @@ During deployment, you create an app service instance in which to run your funct
 
 ### View logs in Application Insights
 
-1. Open the [Azure portal](https://portal.azure.com/), and go to your Application Insights resource.
+1. Open the [Azure portal](https://portal.azure.com/?feature.customportal=false), and go to your Application Insights resource.
 
 1. Select **Search**.
 
