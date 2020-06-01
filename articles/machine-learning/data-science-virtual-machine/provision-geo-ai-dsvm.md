@@ -5,8 +5,8 @@ description: Configure and create a Geo AI Data Science Virtual Machine on Azure
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
 ms.date: 09/13/2019
 
