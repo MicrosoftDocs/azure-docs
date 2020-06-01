@@ -2519,6 +2519,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/create-table-python.md",
+      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/lambda-architecture.md",
       "redirect_url": "/azure/cosmos-db/synapse-link",
       "redirect_document_id": false
@@ -13085,6 +13090,31 @@
     {
       "source_path": "articles/blockchain/service/connect-truffle.md",
       "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/account-management.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/composability.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/overview.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/templates.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/tokens/index.md",
+      "redirect_url": "/azure/blockchain",
       "redirect_document_id": false
     },
     {
@@ -54363,6 +54393,11 @@
       "source_path": "articles/aks/azure-ad-v2.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
     }
   ]
 }

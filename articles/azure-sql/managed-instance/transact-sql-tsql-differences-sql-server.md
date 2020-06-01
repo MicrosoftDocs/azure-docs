@@ -384,7 +384,7 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 
 Linked servers in SQL Managed Instances support a limited number of targets:
 
-- Supported targets are SQL Managed Instance, SQL Database, and SQL Server instances. 
+- Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
