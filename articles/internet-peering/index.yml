@@ -56,6 +56,8 @@ landingContent:
             url: howto-exchange-portal.md
           - text: Convert a legacy Exchange peering to Azure resource using the portal
             url: howto-legacy-exchange-portal.md
+          - text: Create or Modify an Exchange peering with route server using the portal
+            url: how-to-exchange-route-server-portal.md
 
   # Card
   - title: Direct peering
