@@ -30,9 +30,9 @@ The Microsoft Authenticator app helps you sign in to your accounts if you use tw
 
 - **Code generation.** As a code generator for any other accounts that support authenticator apps.
 
-The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
+Authenticator works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
 
-Your organization might require you to use an authenticator app to sign in and access your organization's data and documents. Even if your user name appears in the app, the account isn't set up as a verification method until you complete the registration. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
+Your organization might require you to use the Authenticator app to sign in and access your organization's data and documents. Even if your user name appears in the app, the account isn't set up as a verification method until you complete the registration. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
 
 ## Download and install the app
 
