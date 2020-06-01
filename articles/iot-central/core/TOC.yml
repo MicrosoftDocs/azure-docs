@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: Configure rules
           href: howto-configure-rules.md
-        - name: Use workflows to integrate with other services
-          href: howto-configure-rules-advanced.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Connect Azure Monitor action groups on rules
           href: howto-use-action-groups.md
         - name: Create custom rules
