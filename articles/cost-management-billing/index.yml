@@ -1,149 +1,294 @@
-### YamlMime:Hub
-title: Azure Cost Management + Billing documentation
-summary: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+### YamlMime:Landing
 
+title: Azure Cost Management + Billing documentation
+summary: Azure Cost Management + Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 metadata:
+  title: Azure Cost Management + Billing
+  description: Azure Cost Management + Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.service: cost-management-billing
-  description: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
-  ms.topic: hub-page
+  ms.topic: landing-page
+  ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/24/2019
+  ms.date: 06/01/2020
 
-highlightedContent:
-  items:
-    - title: What is Cost Management + Billing?
-      itemType: overview
-      url: cost-management-billing-overview.md
-    - title: Analyze costs and create budgets
-      itemType: learn
-      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
-    - title: Cost Management best practices
-      itemType: concept
-      url: ./costs/cost-mgt-best-practices.md
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-conceptualContent:
-  items:
-    - title: Get started with Azure Billing
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about Cost Management + Billing
+    linkLists:
+    - linkListType: overview
       links:
-        - url: ./understand/review-individual-bill.md
-          itemType: tutorial
-          text: Review your individual bill
-        - url: ./understand/review-customer-agreement-bill.md
-          itemType: tutorial
-          text: Review your Customer Agreement bill
-        - url: ./understand/review-partner-agreement-bill.md
-          itemType: tutorial
-          text: Review your Partner Agreement bill
-        - url: ./understand/review-enterprise-agreement-bill.md
-          itemType: tutorial
-          text: Review your Enterprise Agreement bill
-      footerLink:
-        text: See more
-        url: ./understand/index.yml
-    - title: Free account
+      - text: What is Cost Management and Billing?
+        url: ../cost-management-billing-overview.md
+    - linkListType: concept
       links:
-        - url: ./manage/create-free-services.md
-          itemType: concept
-          text: Create free services
-        - url: ./manage/avoid-charges-free-account.md
-          itemType: concept
-          text: Avoid charges
-        - url: ./manage/check-free-service-usage.md
-          itemType: concept
-          text: Check usage
-        - url: ./manage/upgrade-azure-subscription.md
-          itemType: concept
-          text: Upgrade subscription
-    - title: Manage Azure costs and usage
+      - text: Azure Cost Management best practices
+        url: cost-mgt-best-practices.md
+      - text: Understand Cost Management data
+        url: understand-cost-mgt-data.md
+      - text: Save money with Azure Reservations
+        url: save-compute-costs-reservations.md
+    - linkListType: get-started
       links:
-        - url: ./costs/quick-acm-cost-analysis.md
-          itemType: quickstart
-          text: Start analyzing costs
-        - url: ./costs/tutorial-acm-create-budgets.md
-          itemType: tutorial
-          text: Create and manage budgets
-        - url: ./costs/tutorial-export-acm-data.md
-          itemType: tutorial
-          text: Export cost and usage data
-        - url: ./costs/tutorial-acm-opt-recommendations.md
-          itemType: tutorial
-          text: Act on cost-saving recommendations
-        - url: ./costs/cost-analysis-common-uses.md
-          itemType: how-to-guide
-          text: Use cost analysis for common tasks
-      footerLink:
-        text: See more
-        url: ./costs/index.yml
-    - title: Manage Azure accounts and subscriptions
+      - text: Learn at your own pace
+        url: https://aka.ms/costmgmt/learn
+      - text: Azure Cost Management videos
+        url: https://www.youtube.com/c/AzureCostManagement
+      - text: Start analyzing costs
+        url: quick-acm-cost-analysis.md
+    - linkListType: how-to-guide
       links:
-        - url: ./manage/manage-billing-access.md
-          itemType: how-to-guide
-          text: Grant access to billing
-        - url: ./manage/change-azure-account-profile.md
-          itemType: how-to-guide
-          text: Edit profile
-        - url: ./manage/resolve-past-due-balance.md
-          itemType: how-to-guide
-          text: Resolve past due balance
-        - url: ./manage/subscription-disabled.md
-          itemType: how-to-guide
-          text: Reactivate subscription
-        - url: ./manage/billing-subscription-transfer.md
-          itemType: how-to-guide
-          text: Transfer ownership
-        - url: ./manage/cancel-azure-subscription.md
-          itemType: how-to-guide
-          text: Cancel subscription
-        - url: ./manage/change-credit-card.md
-          itemType: how-to-guide
-          text: Change credit card
-        - url: ./manage/add-change-subscription-administrator.md
-          itemType: how-to-guide
-          text: Change administrator
-        - url: ./manage/create-subscription.md
-          itemType: how-to-guide
-          text: Create additional subscriptions
-      footerLink:
-        text: See more
-        url: ./manage/index.yml
-    - title: Save with Azure reservations
+      - text: Prevent unexpected charges
+        url: ../manage/getting-started.md
+      - text: Use cost analysis for common tasks
+        url: cost-analysis-common-uses.md
+      - text: Assign access to cost management data
+        url: assign-access-acm-data.md
+
+  # Card (optional)
+  - title: Configure Cost Management + Billing
+    linkLists:
+    - linkListType: concept
+      links:     
+      - text: Understand and work with scopes
+        url: understand-work-scopes.md
+      - text: EA roles in Azure
+        url: understand-ea-roles.md
+      - text: Microsoft Customer Agreement roles in Azure
+        url: understand-mca-roles.md
+    - linkListType: how-to-guide
       links:
-        - url: ./reservations/save-compute-costs-reservations.md
-          itemType: concept
-          text: What are Azure reservations?
-        - url: ./reservations/manage-reserved-vm-instance.md
-          itemType: how-to-guide
-          text: Manage Azure reservations
-        - url: ./reservations/monthly-payments-reservations.md
-          itemType: how-to-guide
-          text: Buy a reservation with monthly payments
-        - url: ./reservations/reservation-renew.md
-          itemType: how-to-guide
-          text: Renew reservations
-        - url: ./reservations/exchange-and-refund-azure-reservations.md
-          itemType: how-to-guide
-          text: Reservation exchanges and refunds
-      footerLink:
-        text: See more
-        url: ./reservations/index.yml
-    - title: Get involved
+      - text: View billing accounts
+        url: view-all-accounts.md
+      - text: Create an additional subscription
+        url: create-subscription.md
+      - text: Cancel subscription
+        url: cancel-azure-subscription.md
+      - text: Reactivate subscription
+        url: subscription-disabled.md
+      - text: Change credit card
+        url: change-credit-card.md
+      - text: Change administrator
+        url: add-change-subscription-administrator.md
+      - text: Pay by invoice
+        url: pay-by-invoice.md
+      - text: Transfer ownership of an individual subscription
+        url: billing-subscription-transfer.md
+      - text: Transfer ownership for a Microsoft Customer Agreement
+        url: mca-request-billing-ownership.md
+      - text: Set up and configure AWS integration
+        url: aws-integration-set-up-configure.md
+    
+    # Card (optional)
+  - title: Report on and manage your costs
+    linkLists:
+    - linkListType: tutorial
       links:
-        - url: https://feedback.azure.com/forums/906772-cost-management
-          itemType: how-to-guide
-          text: Cost Management feedback
-        - url: https://twitter.com/azurecostmgmt
-          itemType: how-to-guide
-          text: Cost Management on Twitter
-        - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
-          itemType: how-to-guide
-          text: Azure Cost Management Tech Community
-        - url: https://feedback.azure.com/forums/170030-signup-and-billing
-          itemType: how-to-guide
-          text: Request a Billing service feature
-        - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
-          itemType: how-to-guide
-          text: Azure Billing Tech Community
-        - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-          itemType: how-to-guide
-          text: Ask a Cost Management and Billing forum question
+      - text: Review your individual account bill
+        url: review-individual-bill.md
+      - text: Review your Microsoft Customer Agreement bill
+        url: review-customer-agreement-bill.md
+      - text: Review your Enterprise Agreement bill
+        url: review-enterprise-agreement-bill.md
+      - text: Create and manage budgets
+        url: tutorial-acm-create-budgets.md
+      - text: Export cost and usage data
+        url: tutorial-export-acm-data.md
+    - linkListType: concept
+      links:
+      - text: Usage terms explained
+        url: understand-usage.md
+      - text: Invoice terms explained
+        url: understand-invoice.md
+      - text: Microsoft Customer Agreement usage terms
+        url: mca-understand-your-usage.md
+      - text: Microsoft Customer Agreement invoice terms
+        url: mca-understand-your-invoice.md   
+    - linkListType: how-to-guide
+      links:
+      - text: View and download your Azure invoice
+        url: download-azure-invoice.md
+      - text: View and download your Azure usage and charges
+        url: download-azure-daily-usage.md
+      - text: Use cost alerts
+        url: cost-mgt-alerts-monitor-usage-spending.md
+      - text: Connect with Power BI Desktop
+        url: /power-bi/desktop-connect-azure-cost-management
+      - text: Get started in the Azure EA portal
+        url: ea-portal-get-started.md
+
+  # Card (optional)
+  - title: Optimize your costs
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure reservations?
+        url: save-compute-costs-reservations.md
+      - text: Reservation exchanges and refunds
+        url: exchange-and-refund-azure-reservations.md
+      - text: Buy a reservation with monthly payments
+        url: monthly-payments-reservations.md
+    - linkListType: tutorial
+      links:
+      - text: Act on recommendations
+        url: tutorial-acm-opt-recommendations.md
+
+  # Card (optional)
+  - title: Review individual accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your individual account bill
+        url: review-individual-bill.md
+    - linkListType: concept
+      links:
+      - text: Usage terms explained
+        url: understand-usage.md
+      - text: Invoice terms explained
+        url: understand-invoice.md
+    - linkListType: how-to-guide
+      links:
+        - text: View and download your Azure invoice
+          url: download-azure-invoice.md
+        - text: View and download your Azure usage and charges
+          url: download-azure-daily-usage.md
+        - text: View external service charges
+          url: understand-azure-marketplace-charges.md
+ 
+  # Card (optional)
+  - title: Manage free account
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create free services
+        url: create-free-services.md
+      - text: Avoid charges
+        url: avoid-charges-free-account.md
+      - text: Check usage
+        url: check-free-service-usage.md
+      - text: Upgrade account
+        url: upgrade-azure-subscription.md
+
+  # Card (optional)
+  - title: Review Microsoft Customer Agreement accounts
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your Microsoft Customer Agreement bill
+        url: review-customer-agreement-bill.md
+    - linkListType: concept
+      links:
+      - text: Billing accounts for Microsoft Customer Agreement
+        url: mca-overview.md
+      - text: Microsoft Customer Agreement usage terms
+        url: mca-understand-your-usage.md
+      - text: Microsoft Customer Agreement invoice terms
+        url: mca-understand-your-invoice.md
+    - linkListType: how-to-guide
+      links:
+      - text: View and download Azure invoice
+        url: download-azure-invoice.md
+      - text: View and download Azure usage and charges
+        url: download-azure-daily-usage.md
+      - text: View and download tax documents
+        url: mca-download-tax-document.md
+      - text: View external service charges
+        url: understand-azure-marketplace-charges.md
+      - text: Pay your Microsoft Customer Agreement bill
+        url: pay-bill.md
+
+    # Card (optional)
+  - title: Buy reservations
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure reservations?
+        url: save-compute-costs-reservations.md
+      - text: Reservation exchanges and refunds
+        url: exchange-and-refund-azure-reservations.md
+      - text: Buy a reservation with monthly payments
+        url: monthly-payments-reservations.md
+    - linkListType: how-to-guide
+      links:
+      - text: Renew reservations
+        url: reservation-renew.md
+      - text: SQL Data Warehouse
+        url: prepay-sql-data-warehouse-charges.md
+      - text: Virtual machine
+        url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Azure Storage
+        url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Cosmos DB
+        url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      - text: SQL Database
+        url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      - text: Azure Data Explorer
+        url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      - text: Azure Databricks
+        url: prepay-databricks-reserved-capacity.md
+      - text: App Service
+        url: prepay-app-service-isolated-stamp.md
+      - text: Azure software plans
+        url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+
+  # Card (optional)
+  - title: Learn how discounts are applied
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Reserved VM instances
+        url: ../manage/understand-vm-reservation-charges.md
+      - text: Azure Strorage reserved capacity
+        url: understand-storage-charges.md
+      - text: Cosmos DB reserved capacity
+        url: understand-cosmosdb-reservation-charges.md
+      - text: SQL Database reserved capacity
+        url: understand-reservation-charges.md
+      - text: SQL Data Warehouse
+        url: reservation-discount-azure-sql-dw.md
+      - text: Azure Data Explorer
+        url: understand-azure-data-explorer-reservation-charges.md
+      - text: Azure Databricks
+        url: reservation-discount-databricks.md
+      - text: App Service
+        url: reservation-discount-app-service-isolated-stamp.md
+      - text: Azure software charges
+        url: understand-suse-reservation-charges.md
+
+  # Card (optional)
+  - title: Manage reservations
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Manage reservations
+        url: manage-reserved-vm-instance.md
+      - text: View reservations
+        url: view-reservations.md
+    - linkListType: reference
+      links:
+      - text: Reservation APIs
+        url: reservation-apis.md
+
+ # Card (optional)
+  - title: Cost Management APIs
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Migrate from EA to MCA APIs
+        url: migrate-cost-management-api.md
+    - linkListType: reference
+      links:
+      - text: Azure Cost Management REST API
+        url: https://docs.microsoft.com/rest/api/cost-management
+      - text: Azure Consumption REST API
+        url: https://docs.microsoft.com/rest/api/consumption
+      - text: Resource Manager template
+        url: /azure/templates/microsoft.consumption/budgets
+      - text: Cost Management REST API Samples
+        url: https://github.com/Azure-Samples/Cost-Management-Samples
+
+
