@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 01/22/2020
 ---
-# Azure SQL glossary of terms
+# Azure SQL Database glossary of terms
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 ## Azure SQL Database
@@ -41,7 +41,7 @@ ms.date: 01/22/2020
 |Purchasing model|vCore-based purchasing model|[vCore-based purchasing model](database/service-tiers-vcore.md)|
 |Deployment option |Single Instance|[Single Instance](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Instance pool (preview)|[Instance pools](managed-instance/instance-pools-overview.md)|
-|Service tier|General Purpose, Business Critical|[SQL Managed Instance service tiers](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)..|
+|Service tier|General Purpose, Business Critical|[SQL Managed Instance service tiers](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Compute tier|Provisioned compute|[Provisioned compute](database/service-tiers-vcore.md#compute-tiers)|
 |Compute generation|Gen5|[Hardware generations](database/service-tiers-vcore.md#hardware-generations)
 |Server entity|Managed instance or instance| N/A as the SQL Managed Instance is in itself the server |
