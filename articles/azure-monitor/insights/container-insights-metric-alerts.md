@@ -79,7 +79,7 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 
 This section walks through enabling Azure Monitor for containers metric alert (preview).
 
-1. Sign in to the Azure portal using the following URL - https://aka.ms/cialerts. This URL contains the feature flag for accessing the preview from your account.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Access to the Azure Monitor for containers metrics alert (preview) feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
 
