@@ -52,7 +52,7 @@
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI
-    href: azure-cli-for-azure-data-share.md   
+    href: azure-cli-references-for-data-share.md 
 - name: Resources
   items:
   - name: Microsoft Q&A question page
