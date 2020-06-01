@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 3/29/2019
 ms.author: jawalte
-
+ms.custom: references_regions
 ---
 # Azure Government Networking
 ## ExpressRoute (Private Connectivity)

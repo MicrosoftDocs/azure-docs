@@ -7,6 +7,7 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # Frequently asked questions about Application Gateway

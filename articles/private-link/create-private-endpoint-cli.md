@@ -105,7 +105,8 @@ az network private-endpoint create \
 
 ## Configure the Private DNS Zone
 
-Create a Private DNS Zone for SQL Database domain and create an association link with the Virtual Network.
+Create a Private DNS Zone for SQL Database domain, create an association link with the Virtual Network
+and create a DNS Zone Group to associate the private endpoint with the Private DNS Zone. 
 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \
@@ -115,16 +116,12 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --name MyDNSLink \
    --virtual-network myVirtualNetwork \
    --registration-enabled false
-
-#Query for the network interface ID  
-networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
-
-az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
-# Copy the content for privateIPAddress and FQDN matching the SQL server name
-
-#Create DNS records
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-endpoint dns-zone-group create \
+   --resource-group myResourceGroup \
+   --endpoint-name myPrivateEndpoint \
+   --name MyZoneGroup \
+   --private-dns-zone "privatelink.database.windows.net" \
+   --zone-name sql
 ```
 
 ## Connect to a VM from the internet
