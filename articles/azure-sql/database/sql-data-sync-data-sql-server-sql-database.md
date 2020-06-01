@@ -4,7 +4,7 @@ description: This overview introduces SQL Data Sync for Azure, which allows you 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -163,6 +163,18 @@ Data Sync can't sync read-only or system-generated columns. For example:
 
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
+
+### Network requirements
+
+When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL server must have the following configuration in its `Firewalls and virtual networks` settings:
+
+ * *Deny public network access* must be set to *Off*.
+ * *Allow Azure services and resources to access this server* must be set to *Yes*, or you must create IP rules for the [IP addresses used by Data Sync service](network-access-controls-overview.md#data-sync).
+
+Once the sync group is created and provisioned, you can then disable these settings. The sync agent will connect directly to the hub database, and you can use the server's [firewall IP rules](firewall-configure.md) or [private endpoints](private-endpoint-overview.md) to allow the agent to access the hub server.
+
+> [!NOTE]
+> If you change the sync group's schema settings, you will need to allow the Data Sync service to access the server again so that the hub database can be re-provisioned.
 
 ## FAQ about SQL Data Sync
 
