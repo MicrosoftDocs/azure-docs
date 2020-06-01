@@ -20,9 +20,9 @@ If you have unattached managed disks and no longer need the data on them, the fo
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Disks**.
 
-    On the **Disks** blade, you are presented with a list of all your disks. Any disk that has **-** in the **Owner** column is an unattached disk.
+    On the **Disks** blade, you are presented with a list of all your disks. Any disk that has "**-**" in the **Owner** column is an unattached disk.
 
-    :::image type="content" source="media/disks-find-unattached-portal/Managed-disk-unattached.png" alt-text="Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png":::
+    :::image type="content" source="media/disks-find-unattached-portal/managed-disk-unattached-owner.png" lightbox="media/disks-find-unattached-portal/managed-disk-owner-unattached.png" alt-text="Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk" :::
 
 1. Select the unattached disk you'd like to delete, this opens the disk's blade.
 1. On the disk's blade, you can confirm the disk state is unattached, then select **Delete**.
@@ -38,9 +38,9 @@ If you have unmanaged disks that aren't attached to a VM, no longer need the dat
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Disks (Classic)**.
 
-    You are presented with a list of all your unmanaged disks. Any disk that has **-** in the **Attached to** column is an unattached disk.
+    You are presented with a list of all your unmanaged disks. Any disk that has "**-**" in the **Attached to** column is an unattached disk.
 
-    :::image type="content" source="media/disks-find-unattached-portal/Unmanaged-disks-unattached.png" alt-text="Screenshot of the unmanaged disks blade. Disks in this blade that have - in the attached to column are unattached.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disks-unattached-attached-to.png" alt-text="Screenshot of the unmanaged disks blade. Disks in this blade that have - in the attached to column are unattached.":::
 
 1. Select the unattached disk you'd like to delete, this brings up the disk's blade.
 
