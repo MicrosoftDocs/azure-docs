@@ -13093,6 +13093,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/blockchain/tokens/account-management.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/composability.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/overview.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/templates.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/tokens/index.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
       "redirect_url": "/azure/best-practices-network-security",
       "redirect_document_id": false
@@ -54368,6 +54393,11 @@
       "source_path": "articles/aks/azure-ad-v2.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
     }
   ]
 }

@@ -155,6 +155,14 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
       }
       ```
 
+1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
+
+   1. In the Request trigger's title bar, select the ellipses button (**...**).
+   
+   1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
+   
+      If the inbound call's request body doesn't match your schema, the trigger returns an `HTTP 400 Bad Request` error.
+
 1. To specify additional properties, open the **Add new parameter** list, and select the parameters that you want to add.
 
    | Property name | JSON property name | Required | Description |
