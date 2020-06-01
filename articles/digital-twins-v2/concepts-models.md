@@ -31,7 +31,7 @@ For more information about DTDL, see its [spec document (DTDL version 2)](https:
 
 > [!TIP] DTDL is used not just in Azure Digital Twins, but also in other use cases, such as IoT Plug and Play. Not all use cases implement the exact same features of DTDL. 
 > 
-> For example, IoT Plug and Play does not use the DTDL features that are used to model complex environment graphs. Azure Digital Twins does not yet implement DTDL commands. See the section on Azure Digital Twins DTDL Implementation Specifics below.   
+> For example, IoT Plug and Play does not use the DTDL features that are used to model complex environment graphs. Azure Digital Twins does not yet implement DTDL commands. See the section on [Azure Digital Twins DTDL Implementation Specifics](#azure-digital-twins-dTDL-implementation-specifics) below.   
 
 ## Elements of a model
 
