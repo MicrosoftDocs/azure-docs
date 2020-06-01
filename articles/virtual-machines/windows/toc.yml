@@ -147,6 +147,9 @@
     href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    items:
+    - name: Resource Manager templates
+      href: template-description.md
   - name: Regions
     href: regions.md
     items:
@@ -186,6 +189,8 @@
         href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Dav4 and Dasv4-series
         href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ddv4 and Ddsv4-series
+        href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Compute optimized
       items:
       - name: Overview
@@ -203,6 +208,8 @@
         href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Eav4 and Easv4-series
         href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Edv4 and Edsv4-series
+        href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: M-series
         href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Mv2-series
@@ -446,6 +453,8 @@
             href: ../image-version-another-gallery-cli.md   
         - name: Create a VM
           items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md          
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
         - name: Update image resources
@@ -661,7 +670,7 @@
             items:   
             - name: Virtual Machine 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json 
-            - name: VM scale set 
+            - name: Scale set 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
           - name: Send to Event Hubs
             href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -990,6 +999,8 @@
     href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
+  - name: Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager
     href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

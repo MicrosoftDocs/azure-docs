@@ -47,7 +47,7 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 
 ## Submit a nomination
 
-Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated solutions nomination form](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
 ## Develop an integrated solution
 
@@ -79,8 +79,8 @@ After your nomination is approved, use the linked program resources to develop y
 
     Use these resources for the development process:
 
-    * [Business decision workshop discussion guide](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Technical decision workshop discussion guide](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Business decision workshop discussion guide](https://aka.ms/AA5qicx)
+    * [Technical decision workshop discussion guide](https://aka.ms/AA5qid1)
     * [Quickstart video: Integrated Solutions workshops](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identify a cross-partner project manager to drive the project plan and timeline that you developed in the business and technical workshops.
@@ -93,8 +93,8 @@ After your nomination is approved, use the linked program resources to develop y
 
     * A combined solution name.
     * A listing description of the integrated solution. Follow [offer-listing best practices](./gtm-offer-listing-best-practices.md).
-    * A one-page pitch to customers. Use the [one-pager template](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * A customer presentation. Use the [presentation template](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * A one-page pitch to customers. Use the [one-pager template](https://aka.ms/AA5s08a).
+    * A customer presentation. Use the [presentation template](https://aka.ms/AA5s7ql).
     * A logo for the combined solution.
 
 ## Publish your integrated solution

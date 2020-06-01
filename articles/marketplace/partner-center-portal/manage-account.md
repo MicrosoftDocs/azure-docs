@@ -59,7 +59,7 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 
 #### Payout account
 
-A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
+A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country/region where you registered your Partner Center account.
 
 To set up your payout account:
 
@@ -75,21 +75,21 @@ To set up your payout account:
 
 Review your current tax profile status, confirming the correct **Entity type** and **Tax Certificate Information** is displayed. Select **Edit** to update or complete any required forms.
 
-In order to establish your tax status, you must specify your country of residence and citizenship and complete the appropriate tax forms associated with your country/region.
+In order to establish your tax status, you must specify your country/region of residence and citizenship and complete the appropriate tax forms associated with your country/region.
 
-Regardless of your country of residence or citizenship, you must fill out United States tax forms to sell any offers through Microsoft. Partners who satisfy certain United States residency requirements must fill out an IRS W-9 form. Other partners outside the United States must fill out an IRS W-8 form. You can fill out these forms online as you complete your tax profile.
+Regardless of your country/region of residence or citizenship, you must fill out United States tax forms to sell any offers through Microsoft. Partners who satisfy certain United States residency requirements must fill out an IRS W-9 form. Other partners outside the United States must fill out an IRS W-8 form. You can fill out these forms online as you complete your tax profile.
 
 A United States Individual Taxpayer Identification Number (or ITIN) is not required to receive payments from Microsoft or to claim tax treaty benefits.
 
 You can complete and submit your tax forms electronically in Partner Center; in most cases, you don't need to print and mail any forms.
 
-Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your offers. Microsoft remits sales and uses tax on your behalf in some countries. These countries will be identified in the process of listing your offer. In other countries, depending on where you are registered, you may need to remit sales and use tax for your sales directly to the local taxing authority. In addition, the sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft sales transactions.
+Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your offers. Microsoft remits sales and uses tax on your behalf in some countries/regions. These countries/regions will be identified in the process of listing your offer. In other countries/regions, depending on where you are registered, you may need to remit sales and use tax for your sales directly to the local taxing authority. In addition, the sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft sales transactions.
 
 ##### Withholding rates
-The info you submit in your tax forms determines the appropriate tax withholding rate. The withholding rate applies only to sales that you make into the United States; sales made into non-US locations are not subject to withholding. The withholding rates vary, but for most developers registering outside the United States, the default rate is 30%. You have the option of reducing this rate if your country has agreed to an income tax treaty with the United States.
+The info you submit in your tax forms determines the appropriate tax withholding rate. The withholding rate applies only to sales that you make into the United States; sales made into non-US locations are not subject to withholding. The withholding rates vary, but for most developers registering outside the United States, the default rate is 30%. You have the option of reducing this rate if your country/region has agreed to an income tax treaty with the United States.
 
 ##### Tax treaty benefits
-If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country to country, and may allow you to reduce the amount of taxes that Microsoft withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
+If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country/region to country/region, and may allow you to reduce the amount of taxes that Microsoft withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
 
 [Learn more about tax details for Windows app/game developers and Azure Marketplace publishers](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
@@ -112,7 +112,7 @@ The device management settings apply only to UWP publishing. [Learn more](https:
 
 Globally Unique Identifiers (GUIDs) are unique reference numbers (with 32 hexadecimal digits) that can be used for tracking your Azure usage. 
 
-To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
@@ -129,7 +129,7 @@ For more information, see the [Tracking Azure customer usage with GUIDs FAQ](htt
 
 If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./create-new-operations-offer.md) offer, you need to complete your **billing profile**.
 
-The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are optional.  The country name and company name cannot be edited.
+The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are optional.  The country/region name and company name cannot be edited.
 
 ## Multi-user account management
 

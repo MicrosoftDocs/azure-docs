@@ -2,8 +2,8 @@
 title: Supported features of Azure SQL Edge (Preview) 
 description: Learn about details of features supported by Azure SQL Edge (Preview)
 keywords: introduction to SQL Edge, what is SQL Edge, SQL Edge overview
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -29,7 +29,7 @@ Azure SQL Edge is available with two different editions or software plans. These
 
 ## Operating System
 
-Azure SQL Edge containers are currently based on Ubuntu (16.04 and 18.04) and as such are only supported to run on docker hosts running Ubuntu 16.04 and 18.04. Azure SQL Edge can also run on other operating system hosts, for example, other distributions of Linux or on Windows (using Docker CE or Docker EE), however these configurations are not extensively tested by Microsoft.
+Azure SQL Edge containers are currently based on Ubuntu 16.04 and as such are only supported to run on docker hosts running either Ubuntu 16.04 (recommended) or Ubuntu 18.04. Azure SQL Edge can also run on other operating system hosts, for example, other distributions of Linux or on Windows (using Docker CE or Docker EE), however these configurations are not extensively tested by Microsoft.
 
 Azure SQL Edge is currently only supported for deployment through Azure IoT Edge. For more information on the supported systems for Azure IoT Edge, refer [Azure IoT Edge supported systems](https://docs.microsoft.com/azure/iot-edge/support).
 

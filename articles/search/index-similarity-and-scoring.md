@@ -31,6 +31,8 @@ You can customize the way different fields are ranked by defining a custom *scor
 
 A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 
+<a name="scoring-statistics"></a>
+
 ## Scoring statistics and sticky sessions (preview)
 
 For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that portions of an index are physically separate.

@@ -9,6 +9,7 @@ author: mlearned
 ms.author: mlearned
 description: ""
 keywords: "Kubernetes, Arc, Azure, containers"
+ms.custom: references_regions
 ---
 
 # What is Azure Arc-enabled Kubernetes (Preview)

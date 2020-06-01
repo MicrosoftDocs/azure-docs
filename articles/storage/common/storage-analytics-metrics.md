@@ -8,6 +8,7 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 # Azure Storage Analytics metrics (classic)
 

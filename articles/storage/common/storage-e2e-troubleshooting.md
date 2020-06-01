@@ -10,6 +10,7 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
+ms.custom: monitoring
 ---
 
 # End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer

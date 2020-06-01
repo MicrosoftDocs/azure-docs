@@ -39,10 +39,17 @@ Parameters are case-sensitive.
 
 ## Skill inputs
 
-| Inputs	 | Description |
+| Input	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
 | languageCode	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## Skill outputs
+
+| Ouput	 | Description |
+|--------------------|-------------|
+| keyPhrases | A list of key phrases extracted from the input text. The key phrases are returned in order of importance. |
+
 
 ##	Sample definition
 

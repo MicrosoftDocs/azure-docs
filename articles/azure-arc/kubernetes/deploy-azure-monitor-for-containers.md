@@ -17,7 +17,7 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
 
 ## Before you begin
 
-* Kubernetes versions: https://docs.microsoft.com/azure/aks/supported-kubernetes-versions
+* [Kubernetes versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions)
 * Linux distros for the cluster (master & worker) nodes – Ubuntu (18.04 LTS and 16.04 LTS)
 * Minimum Contributor RBAC role permission on the Azure subscription of the Azure Arc enabled Kubernetes cluster
 * Fully Qualified Azure Resource ID of the Azure Arc enabled Kubernetes cluster
@@ -91,11 +91,11 @@ Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insig
 
 ## User interface
 
-Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster
+Navigate to  https://aka.ms/azmon-containers-azurearc to view the Onboarded Cluster.
 
 ## Disable Monitoring
 
-If you would like to disable monitoring due to some reason, you can just simply delete the Azure Monitor for containers HELM chart to stop collecting and ingesting  monitoring  data to Azure Monitor for containers backend
+If you would like to disable monitoring due to some reason, you can just simply delete the Azure Monitor for containers HELM chart to stop collecting and ingesting  monitoring  data to Azure Monitor for containers backend.
 
 	```console
 	helm del azmon-containers-release-1

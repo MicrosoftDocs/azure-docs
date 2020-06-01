@@ -5,7 +5,7 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.reviewer: sngun
 ---
 
@@ -15,7 +15,7 @@ You can work with the Azure Cosmos DB change feed using either a push model or a
 
 With a pull model, a server requests work, often requesting it from a central work queue. The client, in this case, not only has business logic for processing changes but also storing state for the last processed change, handling load balancing across multiple clients processing changes in parallel, and handling errors.
 
-When reading from the Azure Cosmos DB change feed, using a push model is typically recommended because you won't need to worry about:
+When reading from the Azure Cosmos DB change feed, we usually recommend using a push model because you won't need to worry about:
 
 - Polling the change feed for future changes.
 - Storing state for the last processed change. When reading from the change feed, this is automatically stored in a [lease container](change-feed-processor.md#components-of-the-change-feed-processor).
@@ -36,7 +36,7 @@ Using a push model is the easiest way to read from the change feed. There are tw
 
 Azure Functions is the simplest option if you are just getting started using the change feed. Due to its simplicity, it is also the recommended option for most change feed use cases. When you create an Azure Functions trigger for Azure Cosmos DB, you select the container to connect, and the Azure Function gets triggered whenever there is a change in the container. Because Azure Functions uses the change feed processor behind the scenes, it automatically parallelizes change processing across your container's [partitions](partition-data.md).
 
-Developing with Azure Functions is an easy experience and can be faster than deploying the change feed processor on your own. Triggers can be created using the Azure Functions portal or programmatically with SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one click. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md) articles to learn more.
+Developing with Azure Functions is an easy experience and can be faster than deploying the change feed processor on your own. Triggers can be created using the Azure Functions portal or programmatically using SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one click. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md) articles to learn more.
 
 ### Change feed processor library
 

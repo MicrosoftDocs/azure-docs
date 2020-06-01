@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -50,6 +50,10 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Fixed issues
 This hotfix build fixes an issue where unselected domains were getting incorrectly selected from the wizard UI if only grandchild containers were selected.
+
+
+>[!NOTE]
+>This version includes the new Azure AD Connect sync V2 endpoint API.  This new V2 endpoint is currently in public preview.  This version or later is required to use the new V2 endpoint API.  However, simply installing this version does not enable the V2 endpoint. You will continue to use the V1 endpoint unless you enable the V2 endpoint.  You need to follow the steps under [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md) in order to enable it and opt-in to the public preview.  
 
 ## 1.5.29.0
 
@@ -1331,7 +1335,6 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New preview features:**
 
 * [User writeback](how-to-connect-preview.md#user-writeback)
-* [Group writeback](how-to-connect-preview.md#group-writeback)
 * [Device writeback](how-to-connect-device-writeback.md)
 * [Directory extensions](how-to-connect-preview.md)
 
