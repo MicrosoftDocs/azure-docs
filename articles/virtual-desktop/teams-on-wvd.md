@@ -29,6 +29,7 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
+- Install the Teams app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
 ## Install the Teams desktop app
 
@@ -54,6 +55,9 @@ Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/
 You can deploy the Teams desktop app using a per-machine installation. To install Microsoft Teams in your Windows Virtual Desktop environment:
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
+
+> [!NOTE] Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
+
 2. Run this command to install the MSI to the host VM.
 
       ```console
