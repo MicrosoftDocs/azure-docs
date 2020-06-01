@@ -14,7 +14,7 @@ ms.date: 03/10/2020
 # Automate management tasks using database jobs
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-You can create and schedule jobs that could be periodically executed against one or many databases to run T-SQL queries and perform maintenance tasks.
+You can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks.
 
 You can define target database or groups of databases where the job will be executed, and also define schedules for running a job.
 A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of databases.
@@ -42,13 +42,13 @@ There are several scenarios when you could use job automation:
 The following job scheduling technologies are available:
 
 - **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Azure SQL Managed Instance. SQL Agent Jobs are not available in Azure SQL Database.
-- **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many Azure SQL Databases.
+- **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
 
 It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in SQL Data Warehouse).
 
 | |Elastic Jobs |SQL Agent |
 |---------|---------|---------|
-|Scope | Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. |
+|Scope | Any number of databases in Azure SQL Database and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. |
 |Supported APIs and Tools | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## SQL Agent Jobs
@@ -64,7 +64,8 @@ There are several key concepts in SQL Agent Jobs:
 ### Job steps
 
 SQL Agent Job steps are sequences of actions that SQL Agent should execute. Every step has the following step that should be executed if the step succeeds or fails, number of retries in a case of failure.
-SQL Agent enables you to create different types of job steps, such as Transact-SQL job step that executes a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, SSIS job steps enable you to load data using SSIS runtime, or [replication](../managed-instance/replication-transactional-overview.md) steps that can publish changes from your database to other databases.
+
+SQL Agent enables you to create different types of job steps, such as Transact-SQL job steps that execute a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, SSIS job steps that enable you to load data using SSIS runtime, or [replication](../managed-instance/replication-transactional-overview.md) steps that can publish changes from your database to other databases.
 
 [Transactional replication](../managed-instance/replication-transactional-overview.md) is a Database Engine feature that enables you to publish the changes made on one or multiple tables in one database and publish/distribute them to a set of subscriber databases. Publishing of the changes is implemented using the following SQL Agent job step types:
 
@@ -132,8 +133,8 @@ GO
 RECONFIGURE
 ```
 
-You can notify the operator that something happened with your SQL Agent jobs. An operator defines contact information for an individual responsible for the maintenance of one or more Managed Instances. Sometimes, operator responsibilities are assigned to one individual.
-In systems with multiple Azure SQL Managed Instances or SQL Server instances, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
+You can notify the operator that something happened with your SQL Agent jobs. An operator defines contact information for an individual responsible for the maintenance of one or more instances in SQL Managed Instance. Sometimes, operator responsibilities are assigned to one individual.
+In systems with multiple instances in SQL Managed Instance or SQL Server, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
 
 You can create operators using SSMS or the Transact-SQL script shown in the following example:
 
@@ -182,7 +183,7 @@ The following image shows a job agent executing jobs across the different types 
 |Component | Description (additional details are below the table) |
 |---------|---------|
 |[**Elastic Job agent**](#elastic-job-agent) | The Azure resource you create to run and manage Jobs. |
-|[**Job database**](#job-database) | An Azure SQL Database the job agent uses to store job related data, job definitions, etc. |
+|[**Job database**](#job-database) | A database in Azure SQL Database that the job agent uses to store job related data, job definitions, etc. |
 |[**Target group**](#target-group) | The set of servers, pools, databases, and shard maps to run a job against. |
 |[**Job**](#job) | A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script. |
 
@@ -190,15 +191,15 @@ The following image shows a job agent executing jobs across the different types 
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell-create.md) and REST are also supported).
 
-Creating an **Elastic Job agent** requires an existing Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
+Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
 
-The Elastic Job agent is free. The job database is billed at the same rate as any Azure SQL Database.
+The Elastic Job agent is free. The job database is billed at the same rate as any database in Azure SQL Database.
 
 #### Job database
 
 The *Job database* is used for defining jobs and tracking the status and history of job executions. The *Job database* is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures and other database objects for creating, running, and managing jobs using T-SQL.
 
-For the current preview, an existing Azure SQL Database (S0 or higher) is required to create an Elastic Job agent.
+For the current preview, an existing database in Azure SQL Database (S0 or higher) is required to create an Elastic Job agent.
 
 The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service objective. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour targeting less than ten databases, but running a job every minute might not be fast enough with an S0 database, and a higher service tier might be better.
 
