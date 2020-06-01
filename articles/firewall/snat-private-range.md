@@ -21,7 +21,7 @@ To configure Azure Firewall to never SNAT regardless of the destination IP addre
 
 ## Configure SNAT private IP address ranges - Azure PowerShell
 
-You can use Azure PowerShell to specify a private IP address range for the firewall.
+You can use Azure PowerShell to specify private IP address ranges for the firewall.
 
 ### New firewall
 
@@ -56,7 +56,7 @@ You can add the following to the `additionalProperties` section:
 
 ## Configure SNAT private IP address ranges - Azure portal
 
-You can use the Azure portal to specify a private IP address range for the firewall.
+You can use the Azure portal to specify private IP address ranges for the firewall.
 
 1. Select your resource group, and then select your firewall.
 2. On the **Overview** page, **Private IP Ranges**, select the default value **IANA RFC 1918**.
