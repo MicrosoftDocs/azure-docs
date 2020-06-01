@@ -7,10 +7,12 @@ author: nabhishek
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 ---
 
 # Data access strategies
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A vital security goal of an organization is to protect their data stores from random access over the internet, may it be an on-premise or a Cloud/ SaaS data store. 
 

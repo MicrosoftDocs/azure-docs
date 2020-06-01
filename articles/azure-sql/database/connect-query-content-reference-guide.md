@@ -21,24 +21,24 @@ The following document includes links to Azure examples showing how to connect a
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](connect-query-ssms.md)|This quickstart demonstrates how to use SSMS to connect to Azure SQL Database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|This quickstart demonstrates how to use Azure Data Studio to connect to Azure SQL Database, and then use Transact-SQL (T-SQL) statements to create the TutorialDB used in Azure Data Studio tutorials.|
-|[Azure portal](connect-query-portal.md)|This quickstart demonstrates how to use the Query editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
-|[Visual Studio Code](connect-query-vscode.md)|This quickstart demonstrates how to use Visual Studio Code to connect to Azure SQL Database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
-|[.NET with Visual Studio](connect-query-dotnet-visual-studio.md)|This quickstart demonstrates how to use the .NET framework to create a C# program with Visual Studio to connect to Azure SQL Database and use Transact-SQL statements to query data.|
-|[.NET core](connect-query-dotnet-core.md)|This quickstart demonstrates how to use .NET Core on Windows/Linux/macOS to create a C# program to connect to Azure SQL Database and use Transact-SQL statements to query data.|
-|[Go](connect-query-go.md)|This quickstart demonstrates how to use Go to connect to Azure SQL Database. Transact-SQL statements to query and modify data are also demonstrated.|
-|[Java](connect-query-java.md)|This quickstart demonstrates how to use Java to connect to Azure SQL Database and then use Transact-SQL statements to query data.|
-|[Node.js](connect-query-nodejs.md)|This quickstart demonstrates how to use Node.js to create a program to connect to Azure SQL Database and use Transact-SQL statements to query data.|
-|[PHP](connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to Azure SQL Database and use Transact-SQL statements to query data.|
-|[Python](connect-query-python.md)|This quickstart demonstrates how to use Python to connect to Azure SQL Database and use Transact-SQL statements to query data. |
-|[Ruby](connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to Azure SQL Database and use Transact-SQL statements to query data.|
-|[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to Azure SQL Database and use Transact-SQL statements to query data.|
+|[SQL Server Management Studio](connect-query-ssms.md)|This quickstart demonstrates how to use SSMS to connect to a database in Azure SQL Database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|This quickstart demonstrates how to use Azure Data Studio to connect to a database in Azure SQL Database, and then use Transact-SQL (T-SQL) statements to create the TutorialDB used in Azure Data Studio tutorials.|
+|[Azure portal](connect-query-portal.md)|This quickstart demonstrates how to use the Query editor to connect to a database in Azure SQL Database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[Visual Studio Code](connect-query-vscode.md)|This quickstart demonstrates how to use Visual Studio Code to connect to a database in Azure SQL Database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
+|[.NET with Visual Studio](connect-query-dotnet-visual-studio.md)|This quickstart demonstrates how to use the .NET framework to create a C# program with Visual Studio to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
+|[.NET core](connect-query-dotnet-core.md)|This quickstart demonstrates how to use .NET Core on Windows/Linux/macOS to create a C# program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
+|[Go](connect-query-go.md)|This quickstart demonstrates how to use Go to connect to a database in Azure SQL Database. Transact-SQL statements to query and modify data are also demonstrated.|
+|[Java](connect-query-java.md)|This quickstart demonstrates how to use Java to connect to a database in Azure SQL Database and then use Transact-SQL statements to query data.|
+|[Node.js](connect-query-nodejs.md)|This quickstart demonstrates how to use Node.js to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
+|[PHP](connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
+|[Python](connect-query-python.md)|This quickstart demonstrates how to use Python to connect to a database in Azure SQL Database and use Transact-SQL statements to query data. |
+|[Ruby](connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
+|[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
 |||
 
 ## TLS considerations for SQL Database connectivity
 
-Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No special configuration is necessary. For all connections to SQL Server, Azure SQL Database or Azure SQL Managed Instance, we recommend that all applications set
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to a database in Azure SQL Database. No special configuration is necessary. For all connections to a SQL Server instance, a database in Azure SQL Database, or an instance of Azure SQL Managed Instance, we recommend that all applications set
 the following configurations, or their equivalents:
 
 - **Encrypt = On**
@@ -85,8 +85,8 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 ## Next steps
 
 - For connectivity architecture information, see [Azure SQL Database Connectivity Architecture](connectivity-architecture.md).
-- Find [SQL Server drivers](https://msdn.microsoft.com/library/mt654049.aspx) that are used to connect from client applications
-- Connect to SQL Database:
+- Find [SQL Server drivers](https://msdn.microsoft.com/library/mt654049.aspx) that are used to connect from client applications.
+- Connect to Azure SQL Database:
   - [Connect to SQL Database by using .NET (C#)](connect-query-dotnet-core.md)
   - [Connect to SQL Database by using PHP](connect-query-php.md)
   - [Connect to SQL Database by using Node.js](connect-query-nodejs.md)
@@ -94,8 +94,8 @@ The following table lists examples of object-relational mapping (ORM) frameworks
   - [Connect to SQL Database by using Python](connect-query-python.md)
   - [Connect to SQL Database by using Ruby](connect-query-ruby.md)
 - Retry logic code examples:
-  - [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Connect resiliently to SQL Database with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Connect resiliently to SQL Database with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

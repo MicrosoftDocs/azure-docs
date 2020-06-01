@@ -55,6 +55,8 @@
         href: database/advanced-data-security.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
+      - name: Data discovery and classification
+        href: database/data-discovery-and-classification-overview.md
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
@@ -78,8 +80,6 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        - name: Data discovery and classification
-          href: database/data-discovery-and-classification-overview.md
         
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
