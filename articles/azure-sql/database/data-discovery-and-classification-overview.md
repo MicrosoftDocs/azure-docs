@@ -28,7 +28,7 @@ Your most sensitive data might include business, financial, healthcare, or perso
 Data Discovery & Classification is part of the [Advanced Data Security](advanced-data-security.md) offering, which is a unified package for advanced Azure SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
 
 > [!NOTE]
-> For information about SQL Server (on-premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> For information about SQL Server on-premises, see [SQL Data Discovery & Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="what-is-dc"></a>What is Data Discovery & Classification?
 
@@ -36,7 +36,7 @@ Data Discovery & Classification introduces a set of advanced services and new ca
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
-- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
+- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL Server database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
 
 - **Query result-set sensitivity:** The sensitivity of a query result set is calculated in real time for auditing purposes.
 
@@ -60,9 +60,9 @@ Data Discovery & Classification comes with a built-in set of sensitivity labels 
 
 You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
-As part of policy management for SQL information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
+As part of policy management for information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
-Learn more about customizing and managing your policy in the [SQL Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+For more information, see [Customize the SQL information protection policy in Azure Security Center (Preview)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 After the organization-wide policy has been defined, you can continue classifying individual databases by using your customized policy.
 
@@ -77,13 +77,13 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    ![Advanced Data Security pane in Azure portal](./media/data-discovery-and-classification-overview/data_classification.png)
 
-3. On the **Data discovery & classification** page, the **Overview** tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 5](#step-5).
+3. On the **Data Discovery & Classification** page, the **Overview** tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 5](#step-5).
 
    ![Summary of current classification state](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
 
 4. To download a report in Excel format, select **Export** in the top menu of the pane.
 
-5. <a id="step-5"></a>To begin classifying your data, select the **Classification** tab on the **Data discovery & classification** page.
+5. <a id="step-5"></a>To begin classifying your data, select the **Classification** tab on the **Data Discovery & Classification** page.
 
     The classification engine scans your database for columns containing potentially sensitive data and provides a list of recommended column classifications.
 
@@ -187,4 +187,4 @@ You can use the REST API to programmatically manage classifications and recommen
 
 - Learn more about [Advanced Data Security](advanced-data-security.md).
 - Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
-- For a presentation that includes data discovery and classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- For a presentation that includes data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).

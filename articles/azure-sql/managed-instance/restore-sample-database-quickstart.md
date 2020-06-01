@@ -90,6 +90,7 @@ In SQL Server Management Studio (SSMS), follow these steps to restore the Wide W
 
 ## Next steps
 
+- If, at step 5, a database restore is terminated with the message ID 22003, create a new backup file containing backup checksums and perform the restore again. See [Enable or disable backup checksums during backup or restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 - For troubleshooting a backup to a URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - For an overview of app connection options, see [Connect your applications to SQL Managed Instance](connect-application-instance.md).
 - To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](../database/connect-query-content-reference-guide.md).
