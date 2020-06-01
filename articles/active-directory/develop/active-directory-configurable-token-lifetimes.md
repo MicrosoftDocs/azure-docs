@@ -542,3 +542,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
+
+## License requirements
+
+Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+
+Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
