@@ -762,6 +762,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-gating-process.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
       "redirect_document_id": false
@@ -50876,6 +50891,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorials.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/java.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
@@ -54393,6 +54413,16 @@
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/azure-ad-v2.md",
