@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the pre-defined metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/01/2020
 
 ---
 
@@ -114,7 +114,8 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage* 
 
-1. Edit the ConfigMap yaml file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. 
+1. Edit the ConfigMap yaml file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**.
+
 2. To to modify the *cpuExceededPercentage* threshold to 90%, configure the ConfigMap file using the following example.
 
     ```
