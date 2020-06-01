@@ -64,7 +64,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 1. Create a namespace for your notification hubs.
 
-   A namespace contains one or more hubs, and the name must be unique across all Azure subscriptions.  To check the availability of a name, use the [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) command.
+   A namespace contains one or more hubs, and **the name must be unique across all Azure subscriptions and be at least six characters in length**.  To check the availability of a name, use the [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) command.
 
    ```azurecli
    az notification-hub namespace check-availability --name spnhubns
@@ -72,7 +72,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
    Azure CLI will respond to your request for availability by displaying the following consol output:
 
-   ```consol
+   ```output
    {
    "id": "/subscriptions/yourSubscriptionID/providers/Microsoft.NotificationHubs/checkNamespaceAvailability",
    "isAvailiable": true,
@@ -93,7 +93,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
    If the `--name` you provided to the `az notification-hub namespace create` command is not available, or does not meet [Naming rules and restrictions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules), Azure CLI will respond with the following consol output:
 
-   ```consol
+   ```output
    #the name is not available
    The specified name is not available. For more information visit https://aka.ms/eventhubsarmexceptions.
 
@@ -110,7 +110,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
    To see the details about your new namespace use the [az notification-hub namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) command.  The `--resource-group` parameter is optional if you want to see all namespaces for a subscription.
 
-   ```azure-cli
+   ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
    ```
 
@@ -136,7 +136,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
    Azure CLI returns either a success or error message with each executed command; however, being able to query for a list of notification hubs is reassuring.  The [az notification-hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) command was designed for this purpose.
 
-   ```azure-cli
+   ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
    ```
 
@@ -171,7 +171,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    ```
 
    ```azurecli
-   #query the keys and connection strings for the custom policy
+   #query the keys and connection strings for a custom policy
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --output table
    ```
 
