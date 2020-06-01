@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/22/2020 
  
 ---
-# Quotas and limitation
+# Quotas and limitations
 
 This article enumerates the quotas and limitations of the Live Video Analytics on IoT Edge module.
 
