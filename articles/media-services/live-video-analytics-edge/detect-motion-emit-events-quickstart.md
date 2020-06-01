@@ -57,7 +57,7 @@ For this quickstart we recommend that you use the [Live Video Analytics resource
 You will need these to update the files in Visual Studio Code later in the quickstart. You may want to copy them into a local file for now.
 
 
-    ![App settings](./media/quickstarts/clouddrive.png)
+ ![App settings](./media/quickstarts/clouddrive.png)
 
 ## Set up your development environment
 
@@ -127,8 +127,8 @@ The deployment manifest defines what modules are deployed to an edge device, and
 1. You will then be asked to "Select an IoT Hub device". Select lva-sample-device from the drop down.
 1. In about 30 seconds, refresh the Azure IOT Hub on the bottom left section and you should see the edge device has the following modules deployed:
 
-* Live Video Analytics on IoT Edge (module name "lvaEdge")
-* RTSP simulator (module name "rtspsim")
+    * Live Video Analytics on IoT Edge (module name "lvaEdge")
+    * RTSP simulator (module name "rtspsim")
 
 The RTSP simulator module simulates a live video stream using a video file stored that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). At this stage, you have the modules deployed but no media graphs are active.
 
@@ -140,7 +140,7 @@ You will be using the Live Video Analytics on IoT Edge module to detect motion i
 1. Expand the Devices node.
 1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
 
-![Start monitoring Built-In event endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
+    ![Start monitoring Built-In event endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## Run the sample program
 
@@ -154,25 +154,28 @@ Follow the steps below to run the sample code.
     `"topologyName" : "MotionDetection"`
     
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
-1. The operations.json starts off with calls to GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter
-```
---------------------------------------------------------------------------
-Executing operation GraphTopologyList
------------------------  Request: GraphTopologyList  --------------------------------------------------
-{
-  "@apiVersion": "1.0"
-}
----------------  Response: GraphTopologyList - Status: 200  ---------------
-{
-  "value": []
-}
---------------------------------------------------------------------------
-Executing operation WaitForInput
-Press Enter to continue
-```
+1. The operations.json starts off with calls to GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter.
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+        "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+        "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
 1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
+     
      * A call to GraphTopologySet using the topologyUrl above
      * A call to GraphInstanceSet using the following body
+     
      ```
      {
        "@apiVersion": "1.0",
@@ -197,8 +200,9 @@ Press Enter to continue
        }
      }
      ```
-     * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
-     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
+     
+     * A call to GraphInstanceActivate to start the graph instance, and start the flow of video.
+     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state.
 1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
 1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
      * These messages are discussed in the section below
