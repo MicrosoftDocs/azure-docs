@@ -50,7 +50,7 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *oomKilledContainerCount* metric is only sent when there are OOM killed containers.
 
-* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-getting-started), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
+* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../platform/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
 
 ## Metrics collected
 
@@ -116,7 +116,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
 1. Edit the ConfigMap yaml file under the section **[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]**.
 
-2. To to modify the *cpuExceededPercentage* threshold to 90%, configure the ConfigMap file using the following example.
+2. To to modify the *cpuExceededPercentage* threshold to 90% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example.
 
     ```
     container_cpu_threshold_percentage = 90.0
