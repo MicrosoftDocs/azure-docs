@@ -18,8 +18,6 @@ For both Azure Files and Azure File Sync, the Azure management objects, the stor
 
 This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md).
 
-This article is geared towards deploying Azure Files and Azure File Sync in a normal networking environment, where your on-premises (or Azure VM) Windows file server has regular internet access. If you want to run Azure File Sync on an isolated network, meaning on a Windows file server without internet access, see [Configuring Azure File Sync on an isolated network](storage-sync-files-networking-isolation.md).
-
 We recommend reading [Azure File Sync networking considerations](storage-sync-files-networking-overview.md) prior to reading this how to guide.
 
 ## Prerequisites 
