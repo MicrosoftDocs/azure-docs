@@ -108,21 +108,22 @@ Right click on the Live Video Analytics device and click on “Start Monitoring 
 
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
 1. The operations.json starts off with calls to the direct methods GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts, this will return empty lists, and then pause for you to hit Enter
-```
---------------------------------------------------------------------------
-Executing operation GraphTopologyList
------------------------  Request: GraphTopologyList  --------------------------------------------------
-{
-  "@apiVersion": "1.0"
-}
----------------  Response: GraphTopologyList - Status: 200  ---------------
-{
-  "value": []
-}
---------------------------------------------------------------------------
-Executing operation WaitForInput
-Press Enter to continue
-```
+   ```
+   --------------------------------------------------------------------------
+   Executing operation GraphTopologyList
+   -----------------------  Request: GraphTopologyList  --------------------------------------------------
+   {
+   "@apiVersion": "1.0"
+   }
+   ---------------  Response: GraphTopologyList - Status: 200  ---------------
+   {
+   "value": []
+   }
+   --------------------------------------------------------------------------
+   Executing operation WaitForInput
+   Press Enter to continue
+   ```
+
 1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
      * A call to GraphTopologySet using the topologyUrl above
      * A call to GraphInstanceSet using the following body
