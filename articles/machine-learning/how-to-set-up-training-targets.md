@@ -178,6 +178,9 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
 1. **Create**:  Create the HDInsight cluster before you use it to train your model. To create a Spark on HDInsight cluster, see [Create a Spark Cluster in HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
+    > [!WARNING]
+    > Azure Machine Learning requires the HDInsight cluster to have a __public IP address__.
+
     When you create the cluster, you must specify an SSH user name and password. Take note of these values, as you need them to use HDInsight as a compute target.
     
     After the cluster is created, connect to it with the hostname \<clustername>-ssh.azurehdinsight.net, where \<clustername> is the name that you provided for the cluster. 
