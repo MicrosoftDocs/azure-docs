@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
 ---
 
@@ -155,6 +155,14 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
       }
       ```
 
+1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
+
+   1. In the Request trigger's title bar, select the ellipses button (**...**).
+   
+   1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
+   
+      If the inbound call's request body doesn't match your schema, the trigger returns an `HTTP 400 Bad Request` error.
+
 1. To specify additional properties, open the **Add new parameter** list, and select the parameters that you want to add.
 
    | Property name | JSON property name | Required | Description |
@@ -182,9 +190,10 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
    This step generates the URL to use for sending the request that triggers the logic app. To copy this URL, select the copy icon next to the URL.
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
-   
+
    > [!NOTE]
-   > The URL permits using the "at" symbol (**@**), but not the hash symbol (**#**).
+   > If you want to include the hash or pound symbol (**#**) in the URI 
+   > when making a call to the Request trigger, use this encoded version instead: `%25%23`
 
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
