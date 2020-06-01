@@ -140,7 +140,7 @@ When you use Live Video Analytics on IoT Edge module to record the live video st
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node.
-1. Right-click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
+1. Right click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
 
     ![Start monitoring Built-In event endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
