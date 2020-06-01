@@ -119,13 +119,10 @@ The deployment manifest defines what modules are deployed to an edge device, and
 1. Launch Visual Studio Code
 1. Set the IoTHub connection string by clicking on the "More actions" icon next to AZURE IOT HUB pane in the bottom-left corner. You can copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 ![Set IOT Connection String](./media/quickstarts/set-iotconnection-string.png)
-1.  Next, right click on "src/edge/deployment.template.json" file and click on "Generate IoT Edge Deployment Manifest". Visual Studio Code uses the values from the .env file in order to replace the variables found in the deployment template file. This should create a manifest file in src/edge/config folder named "deployment.amd64.json".
-
-![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
-
+1. Next, right click on "src/edge/deployment.template.json" file and click on "Generate IoT Edge Deployment Manifest". Visual Studio Code uses the values from the .env file in order to replace the variables found in the deployment template file. This should create a manifest file in src/edge/config folder named "deployment.amd64.json".
+   ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 1. Right click on "src/edge/config/deployment.amd64.json" and click on "Create Deployment for Single Device".
-
-![Create deployment for single device](./media/quickstarts/create-deployment-single-device.png)
+   ![Create deployment for single device](./media/quickstarts/create-deployment-single-device.png)
 1. You will then be asked to "Select an IoT Hub device". Select lva-sample-device from the drop down.
 1. In about 30 seconds, refresh the Azure IoT Hub on the bottom left section and you should see the edge device has the following modules deployed:
     * Live Video Analytics on IoT Edge (module name "lvaEdge")
@@ -158,21 +155,21 @@ When you use Live Video Analytics on IoT Edge module to record the live video st
     
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
 1. The operations.json starts off with calls to GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts or tutorials, this will return empty lists, and then pause for you to hit Enter, such as below:
-```
---------------------------------------------------------------------------
-Executing operation GraphTopologyList
------------------------  Request: GraphTopologyList  --------------------------------------------------
-{
-  "@apiVersion": "1.0"
-}
----------------  Response: GraphTopologyList - Status: 200  ---------------
-{
-  "value": []
-}
---------------------------------------------------------------------------
-Executing operation WaitForInput
-Press Enter to continue
-```
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
 1. When you press the "Enter" key in the TERMINAL window, the next set of direct method calls are made
      * A call to GraphTopologySet using the topologyUrl above
      * A call to GraphInstanceSet using the following body
@@ -201,8 +198,7 @@ Press Enter to continue
      }
      ```
      * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
-     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
-     
+     * A second call to GraphInstanceList to show that the graph instance is indeed in the running state  
 1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
 1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
      * These messages are discussed in the section below
