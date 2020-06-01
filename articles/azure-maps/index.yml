@@ -58,7 +58,39 @@ landingContent:
             url: how-to-manage-pricing-tier.md
           - text: View Azure Maps API usage metrics
             url: how-to-view-api-usage.md
-          
+
+  # Card
+  - title: Developing with Creator
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Indoor map concepts
+            url: creator-indoor-maps.md
+      - linkListType: tutorial
+        links:
+          - text: Use Creator to create indoor maps data
+            url: tutorial-creator-indoor-maps.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Creator
+            url: how-to-manage-creator.md
+          - text: Implement Dynamic styling for indoor maps
+            url: indoor-map-dynamic-styling.md
+          - text: Use Azure Maps drawing error visualizer
+            url: drawing-error-visualizer.md
+          - text: Use the indoor map module
+            url: how-to-use-indoor-module.md
+      - linkListType: reference
+        links:
+          - text: Conversion service
+            url: https://docs.microsoft.com/rest/api/maps/conversion
+          - text: Dataset service
+            url: https://docs.microsoft.com/rest/api/maps/dataset
+          - text: Tileset service
+            url: https://docs.microsoft.com/rest/api/maps/tileset
+          - text: Feature stateset service
+            url: https://docs.microsoft.com/rest/api/maps/featurestate
+                    
   # Card
   - title: Developing with Web SDK
     linkLists:

@@ -61,6 +61,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
+        - name: Improve Custom Speech accuracy
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Train a model for Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Deploy a custom model
@@ -388,7 +390,7 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
@@ -452,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
+- name: Speaker Recognition
+  items:
+    - name: Overview
+      items:
+        - name: What is Speaker Recognition?
+          href: speaker-recognition-overview.md
+    - name: Reference
+      items:
+        - name: REST APIs
+          items:
+            - name: Speech Recognition REST API
+              href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
     - name: Hosting documentation
@@ -557,6 +571,23 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: Speech CLI
+    displayName: SPX
+    items:
+      - name: What is the Speech CLI?
+        displayName: What is SPX?
+        href: spx-overview.md
+      - name: Speech CLI Basics
+        displayName: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech

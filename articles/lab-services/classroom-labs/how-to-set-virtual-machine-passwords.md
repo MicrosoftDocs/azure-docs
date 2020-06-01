@@ -70,14 +70,14 @@ On the **Reset virtual machine(s)** dialog box, select **Reset**.
 
 
 ## Set password for VMs
-A lab owner (teacher) can set/reset the password for VMs at the time of creating the lab (lab creation wizard) or after creating the lab on the **Template** page. 
+A lab owner (educator) can set/reset the password for VMs at the time of creating the lab (lab creation wizard) or after creating the lab on the **Template** page. 
 
 ### Set password at the time of lab creation
-A lab owner (teacher) can set a password for VMs in the lab on the **Virtual machine credentials** page of the lab creation wizard.
+A lab owner (educator) can set a password for VMs in the lab on the **Virtual machine credentials** page of the lab creation wizard.
 
 ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-By enabling/disabling the **Use same password for all virtual machines** option on this page, a teacher can choose to use same password for all VMs in the lab or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux operating system images except Ubuntu. When this setting is disabled, students will be prompted to set a password when they try to connect to the VM for the first time. 
+By enabling/disabling the **Use same password for all virtual machines** option on this page, an educator can choose to use same password for all VMs in the lab or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux operating system images except Ubuntu. When this setting is disabled, students will be prompted to set a password when they try to connect to the VM for the first time. 
 
 ### Reset password later
 
@@ -87,7 +87,7 @@ By enabling/disabling the **Use same password for all virtual machines** option 
     ![Set password dialog box](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## Connect to student VMs
-The lab creator (instructor/professor) can connect to a student VM if the following conditions are met: 
+The lab creator (educator) can connect to a student VM if the following conditions are met: 
 
 - The **Use same password for all virtual machines** option was selected when creating the lab
 - The VM is running 
@@ -97,7 +97,7 @@ The lab creator (instructor/professor) can connect to a student VM if the follow
 ![Connect to student VM button](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> When the professor starts the VM and connects to it, the student quota is unaffected. 
+> When the educator starts the VM and connects to it, the student quota is unaffected. 
 
 ## Export list of virtual machines to a CSV file
 

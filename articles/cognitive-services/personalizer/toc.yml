@@ -39,6 +39,8 @@
     - name: Learning policy
       href: concept-active-learning.md
       displayName: active, inactive
+    - name: Apprentice mode
+      href: concept-apprentice-mode.md
     - name: Active and inactive events
       href: concept-active-inactive-events.md
     - name: Rewards
@@ -62,9 +64,11 @@
   items:
   - name: Create Personalizer Resource
     href: how-to-create-resource.md
-  - name: Configure a learning loop
+  - name: Configure Personalizer
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
+  - name: Use Apprentice mode
+    href: how-to-learning-behavior.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
