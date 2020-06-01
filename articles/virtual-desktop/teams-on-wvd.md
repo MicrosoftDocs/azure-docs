@@ -137,7 +137,7 @@ To contact Microsoft Teams support, go to the [Microsoft 365 admin center](https
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience or enabling microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs.
 
-Set the following RDP properties to enable microphone and camera redirection:
+Enabling device redirections is not required when using Teams with media optimization. If you are using Teams without media optimization, set the following RDP properties to enable microphone and camera redirection:
 
 - `audiocapturemode:i:1` enables audio capture from the local device and redirets audio applications in the remote session.
 - `audiomode:i:0` plays audio on the local computer.
