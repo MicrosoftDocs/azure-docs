@@ -28,7 +28,7 @@ Jobs from the following Azure Backup solutions are shown here:
 Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. Hence, for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
+> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
 
 ## Backup Alerts in Recovery Services vault
 

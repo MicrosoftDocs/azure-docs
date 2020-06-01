@@ -16,8 +16,8 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 Azure Backup provides three built-in roles to control backup management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
 * [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - This role has all permissions to create and manage backup except deleting Recovery Services vault and giving access to others. Imagine this role as admin of backup management who can do every backup management operation.
-* [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - This role has permissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
-* [Backup Reader](../role-based-access-control/built-in-roles.md#backup-reader) - This role has permissions to view all backup management operations. Imagine this role to be a monitoring person.
+* [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - This role haccording tomissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
+* [Backup Reader](../role-based-access-control/built-in-roles.md#backup-reader) - This role haccording tomissions to view all backup management operations. Imagine this role to be a monitoring person.
 
 If you're looking to define your own roles for even more control, see how to [build Custom roles](../role-based-access-control/custom-roles.md) in Azure RBAC.
 
