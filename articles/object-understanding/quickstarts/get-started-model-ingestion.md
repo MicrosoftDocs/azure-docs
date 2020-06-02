@@ -64,6 +64,10 @@ First, you need to create an account with the Object Understanding service.
    Go to **Keys** and take note of the **Primary Key**. You'll need it later.
 
    :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
+   
+   Go to **Properties** and take note of the **Location ID**. You'll need it later.
+
+   :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy Account Region":::
 
 ## Get the sample project
 
@@ -81,7 +85,7 @@ Now, you can go ahead and ingest your 3D model.
     | ---                            | ---                                                                   |
     | AccountId                      | The **Account ID** of the Object Understanding Account created above. |
     | AccountKey                     | The **Primary key** of the Object Understanding Account created above |
-    | Account Region                 | The **Region** of the Object Understanding Account created above.     |
+    | Account Region                 | The **Location ID** of the Object Understanding Account created above.     |
 
    There are four additional fields that need to be verified:
 
