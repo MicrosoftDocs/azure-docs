@@ -389,7 +389,7 @@ Backup Server V3 only accepts storage volumes. When you add a volume, Backup Ser
 
 ![Add Available Volumes](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-**Next Steps**
+## Next Steps
 
 Continue to the next tutorial to learn how to configure back up of VMware VMs running on Azure VMware Solution (AVS) using Azure Backup Server.
 
