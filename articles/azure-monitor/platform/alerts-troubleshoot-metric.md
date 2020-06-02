@@ -77,19 +77,19 @@ If you can see some metrics for the resource but can’t find a specific metric,
 
 If you are looking to alert on [specific dimension values of a metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions), but cannot find these values, note the following:
 
-- It might take a few minutes for the dimension values to appear under the **Dimension values** list
-- The displayed dimension values are based on metric data collected in the last three days
-- If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
-- If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
+1. It might take a few minutes for the dimension values to appear under the **Dimension values** list
+1. The displayed dimension values are based on metric data collected in the last three days
+1. If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
+1. If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
 
 ## Metric alert rules still defined on a deleted resource 
 
 When deleting an Azure resource, associated metric alert rules aren't deleted automatically. To delete alert rules associated with a resource that has been deleted:
 
-- Open the resource group in which the deleted resource was defined
-- In the list displaying the resources, check the **Show hidden types** checkbox
-- Filter the list by Type == **microsoft.insights/metricalerts**
-- Select the relevant alert rules and select **Delete**
+1. Open the resource group in which the deleted resource was defined
+1. In the list displaying the resources, check the **Show hidden types** checkbox
+1. Filter the list by Type == **microsoft.insights/metricalerts**
+1. Select the relevant alert rules and select **Delete**
 
 ## Make metric alerts occur every time my condition is met
 
