@@ -10,9 +10,9 @@ ms.date: 10/29/2018
 ---
 # Troubleshoot log alerts in Azure Monitor  
 
-This article shows you how to resolve common issues that might happen when you're setting up log alerts in Azure Monitor. It also provides solutions to common problems with functionality or configuration of log alerts.
+This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-The term *log alerts* describe rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+The term *log alerts* describes rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details in [Create and manage action groups in the Azure portal](../platform/action-groups.md).
@@ -39,7 +39,7 @@ Check that the time period in the configuration matches your query. For the exam
 
 ### Suppress Alerts option is set
 
-As described in step 8 of the article on [creating a log alert rule in the Azure portal](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you might think that an alert didn't fire. In fact, it did fire but was suppressed.  
+As described in step 8 of the article on [creating a log alert rule in the Azure portal](../platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you might think that an alert didn't fire. In fact, it did fire but was suppressed.  
 
 ![Suppress alerts](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
