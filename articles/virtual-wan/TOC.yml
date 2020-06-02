@@ -58,7 +58,7 @@
     items:
     - name: Create a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
-    - name: Multiple ISP links - Azure Path Selection
+    - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
   - name: User VPN (point-to-site)
     items:
