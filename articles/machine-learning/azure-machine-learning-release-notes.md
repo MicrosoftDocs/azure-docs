@@ -64,7 +64,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixes issue retrieving storage account using hdfs getconf command
     + Improved register_azure_blob_container and register_azure_file_share documentation
   + **azureml-datadrift**
-    + datadrift enable/disable/delete async implementation add wait for completion for drift state transitioning
+    + Improved implementation for disabling and enabling dataset drift monitors
   + **azureml-interpret**
     + In explanation client, remove NaNs or Infs prior to json serialization on upload from artifacts
     + Update to latest version of interpret-community to improve out of memory errors for global explanations with many features and classes
@@ -72,8 +72,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improve download_model_explanations() and list_model_explanations() performance
     + Small tweaks to notebooks, to aid with debugging
   + **azureml-opendatasets**
-    + Add warning message when azureml-dataprep's version is bellow 1.4.0
-    + Fix ut oom
+    + azureml-opendatasets needs azureml-dataprep version 1.4.0 or higher. Added warning if lower is detected
   + **azureml-pipeline-core**
     + This change allows user to provide an optional runconfig to the moduleVersion when calling module.Publish_python_script.
     + Enable node account can be a pipeline parameter in ParallelRunStep in azureml.pipeline.steps
