@@ -9,7 +9,14 @@ monikerRange: '>= cyclecloud-8'
 
 # Azure CycleCloud Public Preview 8.0
 
-This public preview improves VM provisioning times, introduces Cloud-Init for VM configuration, provides support for additional disk configuration, contains better support for troubleshooting scaleset errors and trims a number of seldom used features from the application.
+The current release is 8.0.0.
+
+## Azure CycleCloud Public Preview 8.0 Release Highlights
+
+|  |  |
+| --- | --- |
+| [**Cloud-Init Support**](~/how-to/cloud-init.md)<br/>CycleCloud now supports cloud-init as a way of customizing virtual machines as they boot up. Users can now specify a cloud-init config that will be processed before the CycleCloud configuration occurs. This allows users to baseline a VM by configuring volumes, mounts, networking, or OS before the scheduler stack is set up.   | [ ![cloud-init example](./images/release-notes/cloud-init_small.png) ](./images/release-notes/cloud-init_large.png#lightbox)  |
+| [**Improved Boot Time**](~/concepts/clusters.md)<br/>CycleCloud 8 also brings significant improvements to the node preparation stages that happen after a virtual machine is provisioned, decreasing the amount of time needed to fully configure a VM into a member of a HPC cluster.  |  |
 
 ## Release Notes
 
