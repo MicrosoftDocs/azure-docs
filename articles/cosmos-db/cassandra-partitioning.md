@@ -88,7 +88,7 @@ With data modeled in this way, multiple records can be assigned to each partitio
 
 ## Composite partition key
 
-Composite partition keys work in essentially the same way as compound keys, except that you are able to specify separate columns as a composite partition key. The syntax of composite partition keys is shown below:
+Composite partition keys work essentially the same way as compound keys, except that you can specify multiple columns as a composite partition key. The syntax of composite partition keys is shown below:
 
 ```shell
 PRIMARY KEY (
