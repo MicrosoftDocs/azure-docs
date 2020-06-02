@@ -12,7 +12,7 @@ Azure Monitor for containers collects performance metrics, inventory data, and h
 
 ## Container records
 
-In the following table, details about the records collected by Azure Monitor for containers for use in log searches are provided.
+In the following table, details of the records collected by Azure Monitor for containers are provided. 
 
 | Data | Data source | Data type | Fields |
 |------|-------------|-----------|--------|
