@@ -1,7 +1,7 @@
 ---
 title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning
-description: Get a help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
+description: Get help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
 services: machine-learning
 author: j-martens
 ms.author: jmartens
