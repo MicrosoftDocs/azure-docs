@@ -29,7 +29,7 @@ Before you get started, here's what you need to configure MSIX app attach:
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 
-## Get the OS image from the TAP portal
+## Get the OS image from the Technology Adoption Program (TAP) portal
 
 To get the OS image from the Windows Insider Portal:
 
