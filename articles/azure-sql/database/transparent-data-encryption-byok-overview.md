@@ -127,13 +127,13 @@ After access to the key is restored, taking database back online requires additi
 
 It may happen that someone with sufficient access rights to the key vault accidentally disables server access to the key by:
 
-- revoking key vault's *get*, *wrapKey*, *unwrapKey* permissions from the server
+- revoking the key vault's *get*, *wrapKey*, *unwrapKey* permissions from the server
 
 - deleting the key
 
 - deleting the key vault
 
-- changing key vault's firewall rules
+- changing the key vault's firewall rules
 
 - deleting the managed identity of the server in Azure Active Directory
 
@@ -159,7 +159,7 @@ To restore a backup encrypted with a TDE protector from Key Vault, make sure tha
 If the key that is needed for restoring a backup is no longer available to the target server, the following error message is returned on the restore try:
 "Target server `<Servername>` does not have access to all AKV URIs created between \<Timestamp #1> and \<Timestamp #2>. Please retry operation after restoring all AKV URIs."
 
-To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
+To mitigate it, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet for the target server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) for the target managed instance to return the list of available keys and identify the missing ones. To ensure all backups can be restored, make sure the target server for the restore has access to all of keys needed. These keys don't need to be marked as TDE protector.
 
 To learn more about backup recovery for SQL Database, see [Recover a database in SQL Database](recovery-using-backups.md). To learn more about backup recovery for SQL Pool, see [Recover a SQL Pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). For SQL Server's native backup/restore with SQL Managed Instance, see [Quickstart: Restore a database to SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
@@ -169,9 +169,9 @@ Additional consideration for log files: Backed up log files remain encrypted wit
 
 Even in cases when there is no configured geo-redundancy for server, it is highly recommended to configure the server to use two different key vaults in two different regions with the same key material. It can be accomplished by creating a TDE protector using the primary key vault co-located in the same region as the server and cloning the key into a key vault in a different Azure region, so that the server has access to a second key vault should the primary key vault experience an outage while the database is up and running.
 
-Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from the primary key vault and then use the Restore-AzKeyVaultKey cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to backup and restore key. The key in the secondary key vault in se other region should not be marked as TDE protector, and it's not even allowed.
+Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from the primary key vault and then use the Restore-AzKeyVaultKey cmdlet and specify a key vault in the second region to clone the key. Alternatively, use the Azure portal to back up and restore the key. The key in the secondary key vault in the other region should not be marked as TDE protector, and it's not even allowed.
 
- If there is an outage affecting primary key vault, and only then, system will automatically switch to the other linked key with the same thumbprint in the secondary key vault, if it exists. Note though that switch will not happen if TDE protector is inaccessible because of revoked access rights, or because key or key vault is deleted, as it may indicate that customer intentionally wanted to restrict server from accessing the key.
+If there is an outage affecting the primary key vault, and only then, the system will automatically switch to the other linked key with the same thumbprint in the secondary key vault, if it exists. Note though that switch will not happen if TDE protector is inaccessible because of revoked access rights, or because key or key vault is deleted, as it may indicate that customer intentionally wanted to restrict server from accessing the key.
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
@@ -189,7 +189,7 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). Testing failover should be done on a regular bases to validate that SQL Database has maintained access permission to both key vaults.
+To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). Testing failover should be done on a regular basis to validate that SQL Database has maintained access permission to both key vaults.
 
 ## Next steps
 
