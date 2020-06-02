@@ -55,8 +55,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + A recent customer issue revealed a live-site bug wherein we log messages along Class-Balancing-Sweeping even when the Class Balancing logic isn't properly enabled. Removing those logs/messages with this PR.
   + **azureml-cli-common**
     + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
-  + **azureml-contrib-pipeline-steps**
-    + Enable node account can be a pipeline parameter in ParallelRunStep in azureml.pipeline.steps
   + **azureml-contrib-reinforcementlearning**
     + Load testing tool
   + **azureml-core**
