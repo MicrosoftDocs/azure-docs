@@ -1,6 +1,6 @@
 ---
-title: SQL Server replication to Azure SQL Database
-description: You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology. 
+title: Azure SQL Server replication to Azure SQL Database
+description: You can configure a database in Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -20,16 +20,16 @@ You can configure an Azure SQL Database as the push subscriber in a one-way tran
 > [!NOTE]
 > This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Database. It is unrelated to [active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), an Azure SQL Database feature that allows you to create complete readable replicas of individual databases.
 
-## Supported Configurations
+## Supported configurations
   
 - Azure SQL Database can only be the push subscriber of a SQL Server publisher and distributor.  
-- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- The distribution database and the replication agents cannot be placed on an Azure SQL Database.  
+- The SQL Server instance acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- The distribution database and the replication agents cannot be placed on a database in Azure SQL Database.  
 - [Snapshot](/sql/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
 
 ### Versions  
 
-To successfully replicate to an Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions: 
+To successfully replicate to a database in Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions:
 
 Publishing to any Azure SQL Database from a SQL Server database is supported by the following versions of SQL Server:
 
@@ -82,7 +82,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 2. On SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
 3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With a SQL Managed Instance publisher, you can also use a database backup to seed the Azure SQL Database subscriber.
 
-### Data Migration Scenario  
+### Data migration scenario  
 
 1. Use transactional replication to replicate data from a SQL Server database to Azure SQL Database.  
 2. Redirect the client or middle-tier applications to update the database copy.  
@@ -110,7 +110,6 @@ The following options are not supported for Azure SQL Database subscriptions:
 - Convert hierarchyid to MAX data types  
 - Convert spatial to MAX data types  
 - Copy extended properties  
-- Copy permissions  
 
 ### Limitations to be determined
 
