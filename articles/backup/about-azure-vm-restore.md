@@ -11,7 +11,7 @@ This article describes how the [Azure Backup service](https://docs.microsoft.com
 
 ## Concepts
 
-- **Recovery Point** (also known as **Restore Point**): A recovery Point is a copy of the original data that is being backed up.
+- **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that is being backed up.
 
 - **Tier (snapshot vs. vault)**:  Azure VM backup happens in two phases:
 
@@ -22,15 +22,17 @@ This article describes how the [Azure Backup service](https://docs.microsoft.com
 
 - **Alternate-Location Recovery (ALR)**: A recovery done from the recovery point to a server other than the original server where the backups were taken.
 
-- **Item Level Restore (ILR):** restoring individual files or folders inside the VM from the PIT
+- **Item Level Restore (ILR):** Restoring individual files or folders inside the VM from the recovery point
 
-- **Availability (Replication types)**: Azure Backup offers two types of replication to keep your storage/data highly available.
+- **Availability (Replication types)**: Azure Backup offers two types of replication to keep your storage/data highly available:
   - [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy-grs.md) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
 
 - **Cross-Region Restore (CRR)**: As one of the [restore options](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).
 
 ## Restore scenarios
+
+![Restore scenarios ](./media/about-azure-vm-restore/recovery-scenarios.png)
 
 | **Scenario**                                                 | **What is done**                                             | **When to use**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -42,9 +44,9 @@ This article describes how the [Azure Backup service](https://docs.microsoft.com
 
 ------
 
-![Restore scenarios ](./media/about-azure-vm-restore/recovery-scenarios.png)
 
-![Restore scenarios for unencrypted VMs ](./media/about-azure-vm-restore/unencrypted-scenarios.png)
+
+
 
 ## Next steps
 
