@@ -72,6 +72,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Update to latest version of interpret-community to improve out of memory errors for global explanations with many features and classes
     + Added true_ys optional parameter to explanation upload to enable additional features in the studio UI
     + Improved download_model_explanations() and list_model_explanations() performance
+    + Small tweaks to notebooks, to aid with debugging
   + **azureml-opendatasets**
     + Add warning message when azureml-dataprep's version is bellow 1.4.0
     + Fix ut oom
