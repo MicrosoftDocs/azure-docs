@@ -43,6 +43,21 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the storage account. You can also indicate whether Azure Storage should automatically rotate the customer-managed key, or whether you will rotate the key manually.
 
+### Specify a key from a key vault
+
+When you select a customer-managed key from a key vault, auto-rotation of the key is automatically enabled. To manually manage the key version, specify the key URI instead, and include the key version. For more information, see [Specify a key as a URI](#specify-a-key-as-a-uri).
+
+To specify a key from a key vault, follow these steps:
+
+1. Choose the **Select from Key Vault** option.
+1. Select **Select a key vault and key**.
+1. Select the key vault containing the key you want to use.
+1. Select the key from the key vault.
+
+   ![Screenshot showing how to select key vault and key](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+
+1. Save your changes.
+
 ### Specify a key as a URI
 
 When you specify the key URI, omit the key version to enable auto-rotation of the customer-managed key. If you include the key version in the key URI, then auto-rotation is not enabled, and you must manage the key version yourself. For more information about updating the key version, see [Manually update the key version](#manually-update-the-key-version).
@@ -65,21 +80,6 @@ To specify a key as a URI, follow these steps:
 After you've specified the key, the Azure portal indicates whether automatic key rotation is enabled and displays the key version currently in use for encryption.
 
 :::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot showing auto-rotation of customer-managed keys enabled":::
-
-### Specify a key from a key vault
-
-When you select a customer-managed key from a key vault, auto-rotation of the key is automatically enabled. To manually manage the key version, specify the key URI instead, and include the key version. For more information, see [Specify a key as a URI](#specify-a-key-as-a-uri).
-
-To specify a key from a key vault, follow these steps:
-
-1. Choose the **Select from Key Vault** option.
-1. Select **Select a key vault and key**.
-1. Select the key vault containing the key you want to use.
-1. Select the key from the key vault.
-
-   ![Screenshot showing how to select key vault and key](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
-
-1. Save your changes.
 
 ## Manually update the key version
 
