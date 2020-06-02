@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Create a Java app on Windows'
+title: 'Quickstart: Create a Java app on Windows'
 description: Deploy your first Java Hello World to Azure App Service on Windows in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, java, maven, quickstart
 author: msangapu-msft
