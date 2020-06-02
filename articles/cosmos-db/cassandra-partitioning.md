@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 
 ---
 
-# Partitioning in Cassandra API
+# Partitioning in Azure Cosmos DB Cassandra API
 
 This article describes how partitioning works in Azure Cosmos DB Cassandra API. 
 
