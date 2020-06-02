@@ -3,7 +3,7 @@ title: Angular single-page app tutorial - Azure
 titleSuffix: Microsoft identity platform
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
