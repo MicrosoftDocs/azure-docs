@@ -91,6 +91,8 @@ These match conditions are designed to identify requests based on the requester'
 > **Should I use Metro Code or DMA Code?** <br>
 Both of these match conditions provide the same capability. However, we recommend the use of the Metro Code match condition to identify requests by DMA.
 
+**[Back to Top](#top)**
+
 ### <a name="origin"></a>Origin
 
 These match conditions are designed to identify requests that point to CDN storage or a customer origin server.
@@ -99,6 +101,8 @@ These match conditions are designed to identify requests that point to CDN stora
 |------------|-------------------------------------------------------------------|
 | [CDN Origin](https://docs.vdms.com/cdn/Content/HRE/M/CDN-Origin.htm) | Identifies requests for content stored on CDN storage. |
 | [Customer Origin](https://docs.vdms.com/cdn/Content/HRE/M/Customer-Origin.htm) | Identifies requests for content stored on a specific customer origin server. |
+
+**[Back to Top](#top)**
 
 ### <a name="request"></a>Request
 
@@ -114,6 +118,8 @@ These match conditions are designed to identify requests based on their properti
 | [Request Method](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifies requests by their HTTP method. |
 | [Request Scheme](https://docs.vdms.com/cdn/Content/HRE/M/Request-Scheme.htm) | Identifies requests by their HTTP protocol. |
 
+**[Back to Top](#top)**
+
 ### <a name="url"></a>URL
 
 | Name              | Purpose                                                                |
@@ -125,7 +131,7 @@ These match conditions are designed to identify requests based on their properti
 | URL Query | Identifies requests by whether their query string matches a: <br> **-** Specific value ([URL Query Literal](https://docs.vdms.com/cdn/Content/HRE/M/URL-Query-Literal.htm)) <br> **-** Regular expression ([URL Query Regex](https://docs.vdms.com/cdn/Content/HRE/M/URL-Query-Regex.htm)) <br> **-** Specific pattern ([URL Query Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/URL-Query-Wildcard.htm)) |
 | URL Query Parameter | Identifies requests by whether they contain a query string parameter set to a value that matches a: <br> **-** Specific value ([URL Query Parameter Literal](https://docs.vdms.com/cdn/Content/HRE/M/URL-Query-Parameter-Literal.htm)) <br> **-** Specific pattern ([URL Query Parameter Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/URL-Query-Parameter-Wildcard.htm)) |
 
-
+**[Back to Top](#top)**
 
 For the most recent match conditions, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio).
 
