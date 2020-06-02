@@ -81,7 +81,7 @@ When data is returned, it is sorted by the clustering key, as expected in Apache
 
 ![partitions](./media/cassandra-partitioning/select-from-pk.png)
 
-With data modeled in this way, multiple records can thus be assigned to each partition, grouped by user. We can thus issue a query that is efficiently routed by the `partition key` (in this case, `user`) to get all the messages for a given user. 
+With data modeled in this way, multiple records can be assigned to each partition, grouped by user. We can thus issue a query that is efficiently routed by the `partition key` (in this case, `user`) to get all the messages for a given user. 
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
 
