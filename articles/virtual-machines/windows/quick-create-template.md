@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.date: 06/01/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-<!-- https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/ -- >
+<!-- https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/ -->
 
 ---
 
