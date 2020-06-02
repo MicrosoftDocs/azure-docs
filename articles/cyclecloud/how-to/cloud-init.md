@@ -15,7 +15,7 @@ Below is a simple example of specifying a bash script to run on boot using the `
 ```ini
 [node master]
 CloudInit = '''#!/bin/bash
-echo "Cloud-Init works" > /tmp/cloud-init.txt
+echo "cloud-init works" > /tmp/cloud-init.txt
 '''
 ```
 
