@@ -196,92 +196,91 @@ The user added must have the proper privileges to perform backups and restores f
 
 Protection groups gather multiple VMs and apply the same data retention and backup settings to all VMs in the group.
 
-1.  In the Azure Backup Server console, click **Protection** > **New**.
+1. In the Azure Backup Server console, click **Protection** > **New**.
 
-    ![Open the Create New Protection Group wizard](../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png)
+   ![Open the Create New Protection Group wizard](../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-1.  In the **Create New Protection Group** wizard welcome page, click **Next**.
+1. In the **Create New Protection Group** wizard welcome page, click **Next**.
 
-    ![Create New Protection Group wizard dialog box](../backup/media/backup-azure-backup-server-vmware/protection-wizard.png)
+   ![Create New Protection Group wizard dialog box](../backup/media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-1.  On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
+1. On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
 
-2.  In **Select group members**, select the VMs (or VM folders) that you want to back up. Then click **Next**.
+2. In **Select group members**, select the VMs (or VM folders) that you want to back up. Then click **Next**.
 
-    > [!NOTE]
-    > When you select a folder or VMs or folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up. If a VM or folder is already being backed up, you can't select it, which ensures duplicate recovery points aren't created for a VM.
+   > [!NOTE]
+   > When you select a folder or VMs or folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up. If a VM or folder is already being backed up, you can't select it, which ensures duplicate recovery points aren't created for a VM.
 
-    ![Select group members](../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+   ![Select group members](../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1.  On the **Select Data Protection Method** page, enter a name for the protection group and protection settings. 
+1. On the **Select Data Protection Method** page, enter a name for the protection group and protection settings. 
 
-1.  Set the short-term protection to **Disk**, enable online protection, and then click **Next**.
+1. Set the short-term protection to **Disk**, enable online protection, and then click **Next**.
 
-    ![Select data protection method](../backup/media/backup-azure-backup-server-vmware/name-protection-group.png)
+   ![Select data protection method](../backup/media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-1.  Specify how long you want to keep data backed up to disk.
+1. Specify how long you want to keep data backed up to disk.
 
-    -   **Retention Range** - number of days disk recovery points are kept.
+   - **Retention Range** - number of days disk recovery points are kept.
+   - **Express Full Backup** - how often disk recovery points are taken. To change the times/dates when short-term backups occur, click **Modify**.
 
-    -   **Express Full Backup** - how often disk recovery points are taken. To change the times/dates when short-term backups occur, click **Modify**.
+   ![Specify your short-term goals for disk-based protection](./media/avs-backup/new-protection-group-specify-short-term-goals.png)
 
-    ![Specify your short-term goals for disk-based protection](./media/avs-backup/new-protection-group-specify-short-term-goals.png)
+1. In **Review Disk Allocation**, review the disk space provided for the VM backups.
 
-1.  In **Review Disk Allocation**, review the disk space provided for the VM backups.
+   - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then click **Next**.
 
-    -   The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then click **Next**.
+   - **Data size:** Size of the data in the protection group.
 
-    -   **Data size:** Size of the data in the protection group.
+   - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
 
-    -   **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+   - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-    -   **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
+   ![Review disk space allocated in the storage pool](./media/avs-backup/review-disk-allocation.png)
 
-    ![Review disk space allocated in the storage pool](./media/avs-backup/review-disk-allocation.png)
+   > [!NOTE]
+   > In some scenarios, the Data Size reported is higher than the actual VM size. We are aware of the issue and currently investigating it.
 
-    > [!NOTE]
-    > In some scenarios, the Data Size reported is higher than the actual VM size. We are aware of the issue and currently investigating it.
+1. On the **Choose Replica Creation Method** page, indicate how you want to take the initial backup, and click **Next**.
 
-1.  On the **Choose Replica Creation Method** page, indicate how you want to take the initial backup, and click **Next**.
+   - The default is **Automatically over the network** and **Now**.   If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
 
-    -   The default is **Automatically over the network** and **Now**.   If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
+   - For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
 
-    -   For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
+   ![Choose replica creation method](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
 
-    ![Choose replica creation method](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
+1. In **Consistency Check Options**, select how and when to automate the consistency checks and click **Next**.
 
-1.  In **Consistency Check Options**, select how and when to automate the consistency checks and click **Next**.
+   - You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
 
-    -   You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
+   - If you don't want to configure automatic consistency checks, you can run a manual check by right-clicking the protection group **Perform Consistency Check**.
 
-    -   If you don't want to configure automatic consistency checks, you can run a manual check by right-clicking the protection group **Perform Consistency Check**.
-
-2.  On the **Specify Online Protection Data** page, select the VMs or VM folders that you want to back up, and then click **Next**. 
+1. On the **Specify Online Protection Data** page, select the VMs or VM folders that you want to back up, and then click **Next**. 
 
    > [!TIP]
    > You can select the members individually, or click **Select All** to choose all members.
 
    ![Specify online protection data](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1.  On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure and click **Next**. 
+1. On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure and click **Next**. 
 
-    -  Cloud recovery points for the data to get generated according to the schedule. 
+   - Cloud recovery points for the data to get generated according to the schedule. 
 
-    -  After the recovery point gets generated, it then gets transferred to the Recovery Services vault in Azure.
+   - After the recovery point gets generated, it then gets transferred to the Recovery Services vault in Azure.
 
-    ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+   ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1.  On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that get created from the daily/weekly/monthly/yearly backups to Azure, and then click **Next**.
+1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that get created from the daily/weekly/monthly/yearly backups to Azure, and then click **Next**.
 
-    - There's no time limit for how long you can keep data in Azure.
+   - There's no time limit for how long you can keep data in Azure.
 
-    - The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
+   - The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
-    ![Specify online retention policy](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
+   ![Specify online retention policy](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
 
-1.  On the **Summary** page, review the settings and then click **Create Group**.
+1. On the **Summary** page, review the settings and then click **Create Group**.
 
-    ![Protection group member and setting summary](../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png)
+   ![Protection group member and setting summary](../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## Monitor with Azure Backup Server console
 
