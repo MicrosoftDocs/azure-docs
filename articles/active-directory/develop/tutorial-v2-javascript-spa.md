@@ -58,7 +58,7 @@ This guide uses the following library:
 
 Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and then create a folder to host your application. There, we will implement a simple [Express](https://expressjs.com/) web server to serve your `index.html` file.
 
-1. First, using Visual Studio Code integrated terminal, locate your project folder, then type:
+1. Using a terminal (such as Visual Studio Code integrated terminal), locate your project folder, then type:
 
    ```console
    npm init
