@@ -98,6 +98,8 @@
   #  href: concepts/spaces.md
   #- name: Media and Media Devices
   #  href: concepts/media-devices.md
+  - name: SMS
+    href: concepts/sms.md
   - name: SDK Options
     href: concepts/sdk-options.md
   - name: ACS Metrics

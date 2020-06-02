@@ -1,5 +1,5 @@
 ---
-title: Rooms
+title: SMS
 description: TODO
 author: mikben    
 manager: jken
@@ -12,20 +12,17 @@ ms.service: azure-project-spool
 
 ---
 
-# Rooms
-
-Rooms are where conversations happen.
+# SMS
 
 TODO
 
 ### meta
 
 -  Customer intent statements: 
-   - I want to know what Spool Rooms are and how they help me help my customers.
+   - I want to know how SMS messages can be sent using Spool
 
 - Discussion:
-  - {shawn} you might only use this when using VOIP…
-  - Do we need this page, or does client-server architecture conceptual page cover it?
+  - {pranita} we can author this now
 
 
 

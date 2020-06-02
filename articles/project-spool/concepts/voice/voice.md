@@ -27,7 +27,7 @@ In order to start a call, you need:
 1.	An Azure Communication Services resource. This quickstart (todo) shows you how to provision one.
 2.	An Azure Communication Services User Token. This quickstart (todo) shows you how to fetch one.
 3.	The Azure Communication Services client-side SDK. This can be downloaded here (todo).
-4.	(Optional) If you want to add calling to and from plain-old telephone numbers, you want to enable telephony capabilities within your Azure Communication Services resource. This quickstart shows you how to do that.
+4.	(Optional) If you want to add calling to and from plain-old telephone numbers, you want to enable telephony capabilities within your Azure Communication Services resource. This quickstart shows you how to do that (todo).
 
 ### Call types in Azure Communication Services
 
@@ -41,7 +41,7 @@ When a user of your application calls another user of your application over an i
 
 #### Plain-Old Telephones (PSTN)
 
-Any time your users interact with a traditional telephone number, calls are facilitated by PSTN (Public Switched Telephone Network) voice calling. To make and receive PSTN calls you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users.
+Any time your users interact with a traditional telephone number, calls are facilitated by PSTN (Public Switched Telephone Network) voice calling. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users.
 
 
 #### One-to-one call
