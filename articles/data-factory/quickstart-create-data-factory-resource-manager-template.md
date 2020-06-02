@@ -11,7 +11,7 @@ manager: anandsub
 ms.reviewer: maghan
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/28/2020
+ms.date: 06/05/2020
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure Resource Manager template
