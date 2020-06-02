@@ -32,10 +32,12 @@ Before initializing an application, you first need to [register it with the Azur
 
 After registering your app, you'll need some or all of the following values that can be found in the Azure portal.
 
-- **Application (client) ID**, a GUID that uniquely identifies your application within the Microsoft identity platform.
-- **Authority**, which is the identity provider URL (the *instance*) and the *sign-in audience* for your application. The instance and sign-in audience, when concatenated, make up the *authority*.
-- **Directory (tenant) ID** if you're building a line-of-business application solely for your organization, often referred to as a *single-tenant application*.
-- **Redirect URI** if you're building a web app. The `redirectUri` specifies where the identity provider (the Microsoft identity platform) should return the security tokens it has issued.
+| Value | Required | Description |
+|:----- | :------: | :---------- |
+| Application (client) ID | Required | A GUID that uniquely identifies your application within the Microsoft identity platform. |
+| Authority | Optional | The identity provider URL (the *instance*) and the *sign-in audience* for your application. The instance and sign-in audience, when concatenated, make up the *authority*. |
+| Directory (tenant) ID | Optional | Specify this if you're building a line-of-business application solely for your organization, often referred to as a *single-tenant application*. |
+| Redirect URI | Optional | If you're building a web app, the `redirectUri` specifies where the identity provider (the Microsoft identity platform) should return the security tokens it has issued. |
 
 ## Initialize MSAL.js 2.x apps
 
