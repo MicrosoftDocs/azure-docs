@@ -12,7 +12,7 @@ ms.date: 12/05/2019
 ms.author: encorona
 ---
 
-# How To: Add confirmations to a command in a Custom Commands Preview application
+# Add confirmations to a command in a Custom Commands Preview application
 
 In this article, you'll learn how to create confirmations for commands in a Custom Commands Preview app.
 
@@ -33,12 +33,12 @@ To demonstrate confirmations, create a new command that sets an alarm.
 
    | Setting                           | Suggested value                     |  Description                 |
    | --------------------------------- | -----------------------------------------------------| ------------|
-   | **Name**                              | **DateTime**                                | Descriptive name for the parameter.                                |
+   | **Name**                              | **DateTime**                                | Descriptive name for the parameter                                |
    | **Required**                          | Checked                                 | Check box indicating whether a value for this parameter is required before completing the command |
    | **Response for a required parameter**   | **Simple editor -> What time?**                              | A prompt to ask for the value of this parameter when it isn't known |
    | **Type**                              | **DateTime**                                | Type of parameter, such as Number, String, DateTime, or Geography   |
-   | **Date Defaults**                     | If the date's missing, use today's date.            | Default value of the variable to use if not provided by the user  |  
-   | **Time Defaults**                     | If the time's missing, use the start of day     |  Default value of the variable to use if not provided by user|
+   | **Date Defaults**                     | If the date is missing, use today's date            | Default value of the variable to use if not provided by the user  |  
+   | **Time Defaults**                     | If the time is missing, use the start of day     |  Default value of the variable to use if not provided by user|
 
 1. Add some example sentences.
    
@@ -122,4 +122,4 @@ Create confirmations by adding interaction rules.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add a one-step correction to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-one-step-correction.md)
+> [Add a one-step correction to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-one-step-correction.md)
