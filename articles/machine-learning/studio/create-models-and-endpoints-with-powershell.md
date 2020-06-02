@@ -14,8 +14,6 @@ ms.date: 04/04/2017
 ---
 # Create multiple web service endpoints from one experiment with ML Studio (classic) and PowerShell
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 
 For example, let's say you own a global bike rental franchise business. You want to build a regression model to predict the rental demand based on historic data. You have 1,000 rental locations across the world and you've collected a dataset for each location. They include important features such as date, time, weather, and traffic that are specific to each location.
@@ -47,7 +45,7 @@ Note that a **Web Service Output** module has been added to the **Train Model** 
 When this experiment is deployed as a web service, the endpoint associated with that output returns the trained model in the format of an .ilearner file.
 
 Also note that you set up a web service parameter that defines the URL that the **Import Data** module uses. This allows you to use the parameter to specify individual training datasets to train the model for each location.
-There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a SQL Azure database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
+There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a database in Azure SQL Database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
 
 ![A Trained Model module outputs to a Web service output module](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

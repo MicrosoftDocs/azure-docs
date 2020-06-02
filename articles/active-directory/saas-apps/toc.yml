@@ -99,6 +99,8 @@
         href: andromedascm-tutorial.md
       - name: AnswerHub
         href: answerhub-tutorial.md
+      - name: Anyone Home CRM
+        href: anyone-home-crm-tutorial.md
       - name: Apex Portal
         href: apexportal-tutorial.md
       - name: AppBlade
@@ -397,6 +399,8 @@
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Curricula SAML
+        href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
@@ -964,6 +968,8 @@
         href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
+      - name: Mapbox
+        href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
       - name: Maxient Conduct Manager Software
@@ -1176,6 +1182,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1843,6 +1851,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-provisioning-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
@@ -1969,8 +1979,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
-      - name: Workday
+      - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
+      - name: Workday to Azure AD
+        href: workday-inbound-cloud-only-tutorial.md
+      - name: Workday Writeback
+        href: workday-writeback-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook

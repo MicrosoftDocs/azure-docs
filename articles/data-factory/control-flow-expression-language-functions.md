@@ -529,27 +529,27 @@ And returns the result using the optional "D" format: `"Tuesday, January 2, 2018
 
 ### and
 
-Check whether all expressions are true.
-Return true when all expressions are true,
+Check whether both expressions are true.
+Return true when both expressions are true,
 or return false when at least one expression is false.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check |
+| <*expression1*>, <*expression2*> | Yes | Boolean | The expressions to check |
 |||||
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| true or false | Boolean | Return true when all expressions are true. Return false when at least one expression is false. |
+| true or false | Boolean | Return true when both expressions are true. Return false when at least one expression is false. |
 ||||
 
 *Example 1*
 
-These examples check whether the specified Boolean values are all true:
+These examples check whether the specified Boolean values are both true:
 
 ```
 and(true, true)
@@ -565,7 +565,7 @@ And returns these results:
 
 *Example 2*
 
-These examples check whether the specified expressions are all true:
+These examples check whether the specified expressions are both true:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2431,20 +2431,20 @@ And return these results:
 
 Check whether at least one expression is true.
 Return true when at least one expression is true,
-or return false when all are false.
+or return false when both are false.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check |
+| <*expression1*>, <*expression2*> | Yes | Boolean | The expressions to check |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| true or false | Boolean | Return true when at least one expression is true. Return false when all expressions are false. |
+| true or false | Boolean | Return true when at least one expression is true. Return false when both expressions are false. |
 ||||
 
 *Example 1*
