@@ -39,6 +39,10 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
 
+The resource defined in the template is:
+
+- [Microsoft.Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
+
 ### Deploy the template
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
