@@ -13,7 +13,7 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: 
 ---
@@ -31,10 +31,7 @@ If you are interested in deploying Oracle solutions entirely on Azure infrastruc
 
 Cross-cloud connectivity provides a solution for you to run Oracle’s industry-leading applications, and your own custom applications, on Azure virtual machines while enjoying the benefits of hosted database services in OCI. 
 
-> [!IMPORTANT]
-> Oracle will certify these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution by May 2020.
-
-Applications you can run in a cross-cloud configuration include:
+As of May 2020, the following applications are certified in a cross-cloud configuration:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
