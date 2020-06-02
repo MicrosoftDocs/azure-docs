@@ -2,13 +2,13 @@
 title: Tutorial - Create a cluster
 description: Learn how to create a cluster using CycleCloud
 author: adriankjohnson
-ms.date: 04/01/2020
+ms.date: 06/02/2020
 ms.author: adjohnso
 ---
 
 # Azure CycleCloud Tutorial 1: Create and Run a Simple HPC Cluster
 
-In this tutorial, you will start a new cluster using PBS Pro as a scheduler and LAMMPS as a solver application, and create an alert for the cluster to notify you if it exceeds a monthly budget.
+In this tutorial, you will start a new cluster using PBS Pro as a scheduler and submit a simple example job that calculates pi.  create an alert for the cluster to notify you if it exceeds a monthly budget.
 
 ## Select a Cluster Type
 
@@ -17,25 +17,25 @@ Click on **Clusters** in the main menu, which will bring up the list of availabl
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/Azure?q=cyclecloud) and can easily be imported into CycleCloud.
 
-In this tutorial, you will create an HPC cluster configured with [LAMMPS](https://lammps.sandia.gov/). Click the LAMMPS icon under "Applications" on the **New Cluster** page to bring up the cluster creation wizard.
+In this tutorial, you will create an HPC cluster configured with the [PBS Pro scheduler](~/pbspro.md). Click the PBS Professional OSS icon under **Schedulers** on the **New Cluster** page to bring up the cluster creation wizard.
 
-![Create New Cluster screen](~/images/new-lammps-cluster.png)
+:::image type="content" source="~/images/new-pbspro-cluster.png" alt-text="Create New Cluster screen":::
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter a new cluster name such as "LammpsCluster". Click **Next**.
+You will need to customize a few configuration settings. On the **About** page, enter a new cluster name such as "pbspro". Click **Next**.
 
-![Cluster Creation Wizard screen](~/images/new-cluster-name.png)
+:::image type="content" source="~/images/new-cluster-name.png" alt-text="Cluster Creation Wizard screen":::
 
 ### Required Settings
 
 Under **Virtual Machines**, use the dropdown to select your region. **Master VM Type** and **Execute VM Type** refer to the infrastructure used in your cluster, and should be automatically populated for you.
 
-Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this tutorial, ensure that Autoscale is selected, and that **Max Cores** has been set to 100.
+Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this tutorial, ensure that **Autoscale** is selected, and that **Max Cores** has been set to 100.
 
-Under **Networking**, select the subnet to use for the compute infrastructure. Use the subnet ID that ends in `-compute`, then click **Next**.
+Under **Networking**, select the subnet to use for the compute infrastructure. Use the default subnet you created in the quickstart, then click **Next**.
 
-![New Cluster Required Settings screen](~/images/quickstart-required-settings.png)
+:::image type="content" source="~/images/quickstart-required-settings.png" alt-text="New Cluster Required Settings screen":::
 
 ### Advanced Settings
 
@@ -45,25 +45,25 @@ The Software options allow you to select the operating system and any custom spe
 
 The Advanced Networking options allow you to control access to and from your cluster. The default settings here are appropriate and do not need to be changed. Click **Save**.
 
-![New Cluster Advanced Settings screen](~/images/quickstart-advanced-settings.png)
+:::image type="content" source="~/images/quickstart-advanced-settings.png" alt-text="New Cluster Advanced Settings screen":::
 
 ## Usage Alert
 
 Before you start your cluster, add an alert that will notify you if the accumulated usage cost has reached a specific limit. Click **Create New Alert** in the cluster summary window.
 
-![Cluster Summary Window](~/images/cluster-usage-alert.png)
+:::image type="content" source="~/images/cluster-usage-alert.png" alt-text="Cluster Summary Window":::
 
 Set the Budget to $100.00 per month. Enable the Notifications, and add your email address in the **Recipients** field. This will send you an email when the cost hits $100 within the selected timeframe. Click **Save** to activate this alert.
 
-![Cluster Usage Alert Window](~/images/create-new-alert.png)
+:::image type="content" source="~/images/create-new-alert.png" alt-text="Cluster Usage Alert Window":::
 
 ## Start the Cluster
 
 It's time to put your cluster to work. In the cluster summary window, click **Start** under the cluster name.
 
-![Cluster Summary - Start](~/images/start-cluster.png)
+:::image type="content" source="~/images/start-cluster.png" alt-text="Cluster Summary - Start":::
 
-Confirm that you want to start the cluster. Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
+Confirm that you want to start the cluster. Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the PBS Pro scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
 Tutorial 1 ends here. You've used the GUI to configure your CycleCloud installation, set a budget alert of $100, and started your cluster.
 
