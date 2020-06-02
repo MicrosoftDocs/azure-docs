@@ -71,7 +71,7 @@
     - name: Boot diagnostics
       href: boot-diagnostics.md
     - name: Boot Error - Disk Read Error Occurred
-      href: disk-read-error-occurred.md
+      href: boot-error-disk-read-error-occurred.md
     - name: BitLocker errors
       href: troubleshoot-bitlocker-boot-error.md
     - name: Blue screen errors
