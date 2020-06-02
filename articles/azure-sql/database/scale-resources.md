@@ -1,5 +1,5 @@
 ---
-title: Scale Resources
+title: Scale resources
 description: This article explains how to scale your database in Azure SQL Database and SQL Managed Instance by adding or removing allocated resources.
 services: sql-database
 ms.service: sql-database
@@ -63,12 +63,12 @@ Initiating scale up or scale down action in any of the flavors would restart dat
 
 Scaling resources is the easiest and the most effective way to improve performance of your database without changing either the database or application code. In some cases, even the highest service tiers, compute sizes, and performance optimizations might not handle your workload in a successful and cost-effective way. In that case you have these additional options to scale your database:
 
-- [Read scale-out](read-scale-out.md) is a available feature where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. Read-only replica will handle your read-only workload without affecting resource usage on your primary database.
+- [Read scale-out](read-scale-out.md) is an available feature where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. A read-only replica will handle your read-only workload without affecting resource usage on your primary database.
 - [Database sharding](elastic-scale-introduction.md) is a set of techniques that enables you to split your data into several databases and scale them independently.
 
 ## Next steps
 
 - For information about improving database performance by changing database code, see [Find and apply performance recommendations](database-advisor-find-recommendations-portal.md).
 - For information about letting built-in database intelligence optimize your database, see [Automatic tuning](automatic-tuning-overview.md).
-- For information about Read Scale-out in Azure SQL Database, see how to [use read-only replicas to load balance read-only query workloads](read-scale-out.md).
+- For information about read scale-out in Azure SQL Database, see how to [use read-only replicas to load balance read-only query workloads](read-scale-out.md).
 - For information about a Database sharding, see [Scaling out with Azure SQL Database](elastic-scale-introduction.md).
