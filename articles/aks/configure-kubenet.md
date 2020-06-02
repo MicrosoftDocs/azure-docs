@@ -3,7 +3,7 @@ title: Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 
 ms.reviewer: nieberts, jomore
 ---
@@ -191,7 +191,15 @@ az aks create \
     --client-secret <password>
 ```
 
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
+When you create an AKS cluster, a network security group and route table are automatically created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
+
+## User-defined route table
+
+> [!NOTE]
+> To bring your own route table, you must use a service principal that contains write permissions to your user-defined route table. You must associate the route table to every subnet in your AKS cluster's virtual network.
+
+You can create a custom route table and associate it to each subnet in your AKS cluster’s virtual network. When you create a cluster, AKS automatically configures the AKS-required route table rules for you. You can then define your additional route table rules as needed.
+
 
 ## Next steps
 
