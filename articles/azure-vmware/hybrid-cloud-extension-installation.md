@@ -1,13 +1,13 @@
 ---
 title: Install Hybrid Cloud Extension (HCX)
-description: Set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud
+description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud
 ms.topic: how-to
 ms.date: 05/19/2020
 ---
 
-# Install HCX for Azure VMWare Solution
+# Install HCX for Azure VMware Solution
 
-In this article, we go through procedures to set up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX Advanced (default installation) supports up to three external sites, where each external site requires an HCX Enterprise manager or connector to be installed and activated.
+In this article, we go through procedures to set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud. HCX Advanced (default installation) supports up to three external sites, where each external site requires an HCX Enterprise manager or connector to be installed and activated.
 HCX enables migration of your VMware workloads to the cloud and or other connected sites through various built-in HCX supported migration types. If more than three sites are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
@@ -48,7 +48,7 @@ Infrastructure components must be running the required minimum version.
 * Global reach should be configured between on-premises and AVS SDDC ER
     circuits.
 
-* All required ports should be open between on-premises and AVS SDDC (see [VMWare HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
+* All required ports should be open between on-premises and AVS SDDC (see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
 * One IP address for HCX Manager at on-premises and a minimum of two IP addresses
     for Interconnect (IX) and Network Extension (NE) appliance.
@@ -308,4 +308,4 @@ To check the status of the appliance, select **Interconnect** > **Appliances**.
 ## Next steps
 
 When the appliance interconnect **Tunnel Status** is **UP** and green, you are ready to
-    migrate and protect AVS VMs using HCX. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMWare technical documentation.
+    migrate and protect AVS VMs using HCX. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation.
