@@ -28,6 +28,9 @@ The following software must be installed:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+  * **Desktop development with C++**
+  * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Install these modules in Unity:
