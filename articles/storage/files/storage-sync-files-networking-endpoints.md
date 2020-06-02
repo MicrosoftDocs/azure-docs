@@ -542,17 +542,20 @@ You can restrict access to the public endpoints of both the storage account and 
 ### Restrict access to the storage account public endpoint
 Access restriction to the public endpoint is done using the storage account firewall settings. In general, most firewall policies for a storage account will restrict networking access to one or more virtual networks. There are two approaches to restricting access to a storage account to a virtual network:
 
-- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
+- [Create one or more private endpoints for the storage account](#create-the-storage-account-private-endpoint) and disable access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
 #### Disable access to the storage account public endpoint
 When access to the public endpoint is disabled, the storage account can still be accessed through its the private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
+[!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]
 
 # [PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-public-disable-powershell](../../../includes/storage-files-networking-endpoints-public-disable-powershell.md)]
 
 # [Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-public-disable-cli](../../../includes/storage-files-networking-endpoints-public-disable-cli.md)]
 
 ---
 
@@ -560,15 +563,18 @@ When access to the public endpoint is disabled, the storage account can still be
 When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-portal](../../../includes/storage-files-networking-endpoints-public-restrict-portal.md)]
 
 # [PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-powershell](../../../includes/storage-files-networking-endpoints-public-restrict-powershell.md)]
 
 # [Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-cli](../../../includes/storage-files-networking-endpoints-public-restrict-cli.md)]
 
 ---
 
 ### Disable access to the Storage Sync Service public endpoint
-Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync does not support service endpoints for restricting access to the public endpoint to specific virtual networks. Therefore, the two options for controlling access to the Storage Sync Service's public endpoint are enabled and disabled.
+Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync does not support service endpoints for restricting access to the public endpoint to specific virtual networks. This means that the two states for the Storage Sync Service's public endpoint are enabled and disabled.
 
 # [Portal(#tab/azure-portal)]
 This is not possible through the Azure portal. Please select the Azure PowerShell or Azure CLI instructions to get instructions on how to disable the Storage Sync Service public endpoint. 

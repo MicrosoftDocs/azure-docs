@@ -124,210 +124,27 @@ You can restrict access to the public endpoint using the storage account firewal
 When access to the public endpoint is disabled, the storage account can still be accessed through its the private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
-Navigate to the storage account for which you would like to restrict all access to the public endpoint. In the table of contents for the storage account, select **Firewalls and virtual networks**.
-
-At the top of the page, select the **Selected networks** radio button. This will un-hide a number of settings for controlling the restriction of the public endpoint. Check **Allow trusted Microsoft services to access this service account** to allow trusted first party Microsoft services such as Azure File Sync to access the storage account.
-
-![Screenshot of the Firewalls and virtual networks blade with the appropriate restricts in place](media/storage-files-networking-endpoints/restrict-public-endpoint-0.png)
+[!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]
 
 # [PowerShell](#tab/azure-powershell)
-The following PowerShell command will deny all traffic to the storage account's public endpoint. Note that this command has the `-Bypass` parameter set to `AzureServices`. This will allow trusted first party services such as Azure File Sync to access the storage account via the public endpoint.
-
-```PowerShell
-# This assumes $storageAccount is still defined from the beginning of this of this guide.
-$storageAccount | Update-AzStorageAccountNetworkRuleSet `
-        -DefaultAction Deny `
-        -Bypass AzureServices `
-        -WarningAction SilentlyContinue `
-        -ErrorAction Stop | `
-    Out-Null
-```
+[!INCLUDE [storage-files-networking-endpoints-public-disable-powershell](../../../includes/storage-files-networking-endpoints-public-disable-powershell.md)]
 
 # [Azure CLI](#tab/azure-cli)
-The following CLI command will deny all traffic to the storage account's public endpoint. Note that this command has the `-bypass` parameter set to `AzureServices`. This will allow trusted first party services such as Azure File Sync to access the storage account via the public endpoint.
+[!INCLUDE [storage-files-networking-endpoints-public-disable-cli](../../../includes/storage-files-networking-endpoints-public-disable-cli.md)]
 
-```bash
-# This assumes $storageAccountResourceGroupName and $storageAccountName 
-# are still defined from the beginning of this guide.
-az storage account update \
-    --resource-group $storageAccountResourceGroupName \
-    --name $storageAccountName \
-    --bypass "AzureServices" \
-    --default-action "Deny" \
-    --output none
-```
 ---
 
 ### Restrict access to the public endpoint to specific virtual networks
 When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
-Navigate to the storage account for which you would like to restrict the public endpoint to specific virtual networks. In the table of contents for the storage account, select **Firewalls and virtual networks**. 
-
-At the top of the page, select the **Selected networks** radio button. This will un-hide a number of settings for controlling the restriction of the public endpoint. Click **+Add existing virtual network** to select the specific virtual network that should be allowed to access the storage account via the public endpoint. This will require selecting a virtual network and a subnet for that virtual network. 
-
-Check **Allow trusted Microsoft services to access this service account** to allow trusted first party Microsoft services such as Azure File Sync to access the storage account.
-
-![Screenshot of the Firewalls and virtual networks blade with a specific virtual network allowed to access the storage account via the public endpoint](media/storage-files-networking-endpoints/restrict-public-endpoint-1.png)
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-portal](../../../includes/storage-files-networking-endpoints-public-restrict-portal.md)]
 
 # [PowerShell](#tab/azure-powershell)
-To restrict access to the storage account's public endpoint to specific virtual networks using service endpoints, we first need to collect information about the storage account and virtual network. Fill in `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<subnet-name>` to collect this information.
-
-```PowerShell
-$storageAccountResourceGroupName = "<storage-account-resource-group>"
-$storageAccountName = "<storage-account-name>"
-$restrictToVirtualNetworkResourceGroupName = "<vnet-resource-group-name>"
-$restrictToVirtualNetworkName = "<vnet-name>"
-$subnetName = "<subnet-name>"
-
-$storageAccount = Get-AzStorageAccount `
-        -ResourceGroupName $storageAccountResourceGroupName `
-        -Name $storageAccountName `
-        -ErrorAction Stop
-
-$virtualNetwork = Get-AzVirtualNetwork `
-        -ResourceGroupName $restrictToVirtualNetworkResourceGroupName `
-        -Name $restrictToVirtualNetworkName `
-        -ErrorAction Stop
-
-$subnet = $virtualNetwork | `
-    Select-Object -ExpandProperty Subnets | `
-    Where-Object { $_.Name -eq $subnetName }
-
-if ($null -eq $subnet) {
-    Write-Error `
-            -Message "Subnet $subnetName not found in virtual network $restrictToVirtualNetworkName." `
-            -ErrorAction Stop
-}
-```
-
-In order for traffic from the virtual network to be allowed by the Azure network fabric to get to the storage account public endpoint, the virtual network's subnet must have the `Microsoft.Storage` service endpoint exposed. The following PowerShell commands will add the the `Microsoft.Storage` service endpoint to the subnet if it's not already there.
-
-```PowerShell
-$serviceEndpoints = $subnet | `
-    Select-Object -ExpandProperty ServiceEndpoints | `
-    Select-Object -ExpandProperty Service
-
-if ($serviceEndpoints -notcontains "Microsoft.Storage") {
-    if ($null -eq $serviceEndpoints) {
-        $serviceEndpoints = @("Microsoft.Storage")
-    } elseif ($serviceEndpoints -is [string]) {
-        $serviceEndpoints = @($serviceEndpoints, "Microsoft.Storage")
-    } else {
-        $serviceEndpoints += "Microsoft.Storage"
-    }
-
-    $virtualNetwork = $virtualNetwork | Set-AzVirtualNetworkSubnetConfig `
-            -Name $subnetName `
-            -AddressPrefix $subnet.AddressPrefix `
-            -ServiceEndpoint $serviceEndpoints `
-            -WarningAction SilentlyContinue `
-            -ErrorAction Stop | `
-        Set-AzVirtualNetwork `
-            -ErrorAction Stop
-}
-```
-
-The final step in restricting traffic to the storage account is to create a networking rule and add to the storage account's network rule set.
-
-```PowerShell
-$networkRule = $storageAccount | Add-AzStorageAccountNetworkRule `
-    -VirtualNetworkResourceId $subnet.Id `
-    -ErrorAction Stop
-
-$storageAccount | Update-AzStorageAccountNetworkRuleSet `
-        -DefaultAction Deny `
-        -Bypass AzureServices `
-        -VirtualNetworkRule $networkRule `
-        -WarningAction SilentlyContinue `
-        -ErrorAction Stop | `
-    Out-Null
-```
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-powershell](../../../includes/storage-files-networking-endpoints-public-restrict-powershell.md)]
 
 # [Azure CLI](#tab/azure-cli)
-To restrict access to the storage account's public endpoint to specific virtual networks using service endpoints, we first need to collect information about the storage account and virtual network. Fill in `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<subnet-name>` to collect this information.
-
-```bash
-storageAccountResourceGroupName="<storage-account-resource-group>"
-storageAccountName="<storage-account-name>"
-restrictToVirtualNetworkResourceGroupName="<vnet-resource-group-name>"
-restrictToVirtualNetworkName="<vnet-name>"
-subnetName="<subnet-name>"
-
-storageAccount=$(az storage account show \
-        --resource-group $storageAccountResourceGroupName \
-        --name $storageAccountName \
-        --query "id" | \
-    tr -d '"')
-
-virtualNetwork=$(az network vnet show \
-        --resource-group $restrictToVirtualNetworkResourceGroupName \
-        --name $restrictToVirtualNetworkName \
-        --query "id" | \
-    tr -d '"')
-
-subnet=$(az network vnet subnet show \
-        --resource-group $restrictToVirtualNetworkResourceGroupName \
-        --vnet-name $restrictToVirtualNetworkName \
-        --name $subnetName \
-        --query "id" | \
-    tr -d '"')
-```
-
-In order for traffic from the virtual network to be allowed by the Azure network fabric to get to the storage account public endpoint, the virtual network's subnet must have the `Microsoft.Storage` service endpoint exposed. The following CLI commands will add the the `Microsoft.Storage` service endpoint to the subnet if it's not already there.
-
-```bash
-serviceEndpoints=$(az network vnet subnet show \
-        --resource-group $restrictToVirtualNetworkResourceGroupName \
-        --vnet-name $restrictToVirtualNetworkName \
-        --name $subnetName \
-        --query "serviceEndpoints[].service" \
-        --output tsv)
-
-foundStorageServiceEndpoint=false
-for serviceEndpoint in $serviceEndpoints
-do
-    if [ $serviceEndpoint = "Microsoft.Storage" ]
-    then
-        foundStorageServiceEndpoint=true
-    fi
-done
-
-if [ $foundStorageServiceEndpoint = false ] 
-then
-    serviceEndpointList=""
-
-    for serviceEndpoint in $serviceEndpoints
-    do
-        serviceEndpointList+=$serviceEndpoint
-        serviceEndpointList+=" "
-    done
-    
-    serviceEndpointList+="Microsoft.Storage"
-
-    az network vnet subnet update \
-            --ids $subnet \
-            --service-endpoints $serviceEndpointList \
-            --output none
-fi
-```
-
-The final step in restricting traffic to the storage account is to create a networking rule and add to the storage account's network rule set.
-
-```bash
-az storage account network-rule add \
-        --resource-group $storageAccountResourceGroupName \
-        --account-name $storageAccountName \
-        --subnet $subnet \
-        --output none
-
-az storage account update \
-        --resource-group $storageAccountResourceGroupName \
-        --name $storageAccountName \
-        --bypass "AzureServices" \
-        --default-action "Deny" \
-        --output none
-```
+[!INCLUDE [storage-files-networking-endpoints-public-restrict-cli](../../../includes/storage-files-networking-endpoints-public-restrict-cli.md)]
 
 ---
 
