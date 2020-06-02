@@ -3,7 +3,7 @@ title: Export flows from Power Automate to Azure Logic Apps
 description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
@@ -13,12 +13,16 @@ ms.date: 07/10/2019
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
 > [!NOTE]
-> Not all Power Automate connectors are available in Azure Logic Apps. 
-> You can import flows that have [equivalent connectors](../connectors/apis-list.md) 
-> in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
-> and Notification connector are specific to Power Automate.
+> Not all Power Automate connectors are available in Azure Logic Apps. You can migrate only Power Automate flows 
+> that have the equivalent connectors in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
+> and Notification connector are specific to Power Automate. Currently, OpenAPI-based flows in Power Automate aren't 
+> supported for export and deployment as logic app templates.
 >
-> OpenAPI-based flows exported from Power Automate are currently not supported for deployment as logic app templates. 
+> * To find which Power Automate connectors don't have Logic Apps equivalents, see 
+> [Power Automate connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * To find which Logic Apps connectors don't have Power Automate equivalents, see 
+> [Logic Apps connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## Prerequisites
 
