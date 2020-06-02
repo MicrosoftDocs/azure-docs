@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Boot error - Disk Read Error Occurred
+title: Troubleshoot boot error - disk read error occurred
 description: This article provides steps to resolve issues where the disk cannot be read in an Azure VM.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 06/01/2020
 ms.author: v-miegge
 ---
 
-# Troubleshoot Boot error - Disk Read Error Occurred
+# Troubleshoot boot error - disk read error occurred
 
 This article provides steps to resolve issues where the disk cannot be read in an Azure virtual machine (VM).
 
@@ -33,7 +33,7 @@ This error message indicates that the disk structure is corrupted and unreadable
 
 ## Solution
 
-### Process Overview
+### Process overview
 
 1. Create and Access a Repair VM.
 1. Select a Solution:
@@ -45,12 +45,12 @@ This error message indicates that the disk structure is corrupted and unreadable
 > [!NOTE]
 > When encountering this boot error, the Guest operating system (OS) is not operational. You'll be troubleshooting in offline mode to resolve this issue.
 
-### Create and Access a Repair VM
+### Create and access a repair VM
 
 1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Using Remote Desktop Connection, connect to the Repair VM.
 
-### Set Partition Status to Active
+### Set partition status to active
 
 Generation 1 VMs should first verify that the OS partition which holds the BCD store is marked as **Active**. If you have a Generation 2 VM, skip ahead to [Fix the Disk Partition](#fix-the-disk-partition), as the Status flag was deprecated in the later generation.
 
@@ -80,7 +80,7 @@ Generation 1 VMs should first verify that the OS partition which holds the BCD s
 1. Enter **detail partition** to check that the status change was completed properly, and verify that the output includes **Active: Yes**. 
 1. Enter **exit** to close the DISKPART tool and save your configuration changes.
 
-### Fix the Disk Partition
+### Fix the disk partition
 
 1. Open an elevated command prompt (cmd.exe).
 1. Use the following command to run **CHKDSK** on the disk(s) and perform error fixes:
@@ -89,7 +89,7 @@ Generation 1 VMs should first verify that the OS partition which holds the BCD s
 
    Adding the **/f** command option will fix any errors on the disk. Make sure to replace **< DRIVE LETTER >** with the letter of the attached OS VHD.
 
-### Enable the Serial Console and memory dump collection
+### Enable the serial console and memory dump collection
 
 **Recommended**: Before you rebuild the VM, enable the Serial Console and memory dump collection by running the following script:
 
