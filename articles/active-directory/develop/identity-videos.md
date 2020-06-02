@@ -31,13 +31,13 @@ ___
         1 - Overview of the Microsoft identity platform for developers (33:55)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+        [![img][id-plat-01-img]][id-plat-01-vid]
     :::column-end:::
      :::column:::
         2 - How to authenticate users of your apps with the Microsoft identity platform (29:09)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+        [![img][id-plat-02-img]][id-plat-02-vid]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -45,13 +45,13 @@ ___
         3 - Microsoft identity platform’s permissions and consent framework (45:08)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+        [![img][id-plat-03-img]][id-plat-03-vid]
     :::column-end:::
     :::column:::
         4 - How to protect APIs using the Microsoft identity platform (33:17)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+        [![img][id-plat-04-img]][id-plat-04-vid]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -59,7 +59,7 @@ ___
         5 - Application roles and security groups on the Microsoft identity platform (15:52)
     :::column-end:::
     :::column:::
-        >[!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+        [![img][id-plat-05-img]][id-plat-05-vid]
     :::column-end:::
     :::column:::
         <!-- BLANK TITLE CELL -->
@@ -68,6 +68,20 @@ ___
         <!-- BLANK VIDEO CELL -->
     :::column-end:::
 :::row-end:::
+
+<!-- IMAGES -->
+[id-plat-01-img]: ./media/identity-videos/id-for-devs-01.jpg
+[id-plat-02-img]: ./media/identity-videos/id-for-devs-02.jpg
+[id-plat-03-img]: ./media/identity-videos/id-for-devs-03.jpg
+[id-plat-04-img]: ./media/identity-videos/id-for-devs-04.jpg
+[id-plat-05-img]: ./media/identity-videos/id-for-devs-05.jpg
+
+<!-- VIDEOS -->
+[id-plat-01-vid]: https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1
+[id-plat-02-vid]: https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2
+[id-plat-03-vid]: https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3
+[id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
+[id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
 
 ## Authentication fundamentals
 
