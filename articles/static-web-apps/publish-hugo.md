@@ -160,7 +160,7 @@ Next, you add configuration settings that the build process uses to build your a
      uses: peaceiris/actions-hugo@v2.4.11
      with:
        hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       extended: true          # Hugo extended: true OR false
+       # extended: true
 
    - name: Build
      run: hugo
