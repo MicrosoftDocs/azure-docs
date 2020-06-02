@@ -19,6 +19,7 @@ ms.author: pafarley
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* The `azure-cognitiveservices-vision-computervision` Python module (`pip install --upgrade azure-cognitiveservices-vision-computervision`)
 
 ## Setting up
 
@@ -43,14 +44,6 @@ Then, create variables for your resource's Azure endpoint and key.
 
 > [!NOTE]
 > If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
-
-### Install the client library
-
-You can install the client library with:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-computervision
-```
 
 ## Object model
 
