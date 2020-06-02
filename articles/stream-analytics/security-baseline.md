@@ -52,7 +52,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Use Azure Security Center threat protection to detect and alert on communications with known malicious or unused Internet IP addresses.
 
-* [Threat protectionfor the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+* [Threat protection for the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+
 
 **Azure Security Center monitoring**: Yes
 
