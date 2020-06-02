@@ -410,7 +410,21 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
@@ -762,6 +776,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-gating-process.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-container-support",
       "redirect_document_id": false
@@ -784,6 +813,11 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-list-entity.md",
       "redirect_url": "/azure/cognitive-services/luis/reference-entity-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/business-continuity.md",
+      "redirect_url": "/azure/cognitive-services/how-to/set-up-qnamaker-service-azure#business-continuity-with-traffic-manager",
       "redirect_document_id": false
     },
     {
@@ -2511,6 +2545,11 @@
     {
       "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
       "redirect_url": "/azure/cosmos-db/synapse-link-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/create-table-python.md",
+      "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
       "redirect_document_id": false
     },
     {
@@ -4356,6 +4395,11 @@
     {
       "source_path": "articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
       "redirect_document_id": false
     },
     {
@@ -13080,6 +13124,31 @@
     {
       "source_path": "articles/blockchain/service/connect-truffle.md",
       "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/account-management.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/composability.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/overview.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/templates.md",
+      "redirect_url": "/azure/blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/tokens/index.md",
+      "redirect_url": "/azure/blockchain",
       "redirect_document_id": false
     },
     {
@@ -36054,12 +36123,17 @@
     },
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
-      "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_url": "/azure/notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-push-notification-http2-token-authentification.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentication",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
-      "redirect_url": "/azure//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
     },
     {
@@ -39151,6 +39225,12 @@
       "redirect_url": "/azure/active-directory-b2c/page-layout",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/active-directory-b2c/add-web-application.md",
+      "redirect_url": "/azure/active-directory-b2c/add-web-api-application",
+      "redirect_document_id": true
+    },
+
     {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
@@ -50836,6 +50916,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorials.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/java.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
@@ -51695,8 +51780,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
-      "redirect_url": "/azure/azure-monitor/overview",
+      "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     },
     {
@@ -52420,6 +52505,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+      "redirect_url": "/azure/virtual-network/public-ip-addresses",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-log",
       "redirect_document_id": false
@@ -52437,6 +52527,11 @@
     {
       "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
       "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speaker-recognition/Home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speaker-recognition-overview",
       "redirect_document_id": false
     },
     {
@@ -53843,7 +53938,7 @@
         "source_path": "articles/sql-database/replication-to-sql-database.md",
         "redirect_url": "/azure/azure-sql/database/replication-to-sql-database",
         "redirect_document_id": true
-    },   
+    },
     {
         "source_path": "articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
         "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
@@ -54343,6 +54438,26 @@
       "source_path": "articles/sql-database/index.yml",
       "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/azure-ad-v2.md",
+      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
     }
   ]
 }

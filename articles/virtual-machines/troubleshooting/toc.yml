@@ -12,6 +12,8 @@
     href: virtual-machines-availability-set-supportability.md
 - name: VM deployment guidance
   items:
+  - name: Upgrade to SLES 15 SP1
+    href: linux-upgrade-suse-15sp1.md
   - name: New VM deployments
     items:
     - name: Linux
@@ -65,10 +67,11 @@
       href: troubleshoot-vm-boot-error.md
   - name: Windows
     href: boot-error-troubleshoot.md
-
     items:
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Boot Error - Disk Read Error Occurred
+      href: boot-error-disk-read-error-occurred.md
     - name: BitLocker errors
       href: troubleshoot-bitlocker-boot-error.md
     - name: Blue screen errors
