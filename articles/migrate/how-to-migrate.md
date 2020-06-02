@@ -20,7 +20,7 @@ This article describes how to add migration tools in [Azure Migrate](migrate-ove
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.
-    - To migrate on-premises SQL machines, select **Assess and migrate databases**.
+    - To migrate on-premises SQL Server databases, select **Assess and migrate databases**.
     - To migrate on-premises web apps, select **Assess and migrate web apps**.
     - To migrate large amounts of on-premises data to Azure in offline mode, select **Order a Data Box**.
 

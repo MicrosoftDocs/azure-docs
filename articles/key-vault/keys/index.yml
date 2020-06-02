@@ -46,10 +46,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Import HSM-protected keys to Key Vault
+          - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
-          - text: Import vendor-agnostic HSM-protected keys
-            url: hsm-protected-keys-vendor-agnostic-byok.md
 
   # Card
   - title: More about Key Vault
