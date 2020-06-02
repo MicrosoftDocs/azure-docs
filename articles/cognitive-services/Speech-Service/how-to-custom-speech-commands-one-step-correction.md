@@ -12,7 +12,7 @@ ms.date: 12/05/2019
 ms.author: encorona
 ---
 
-# How To: Add a one-step correction to a custom command in a Custom Commands Preview application
+# Add a one-step correction to a custom command in a Custom Commands Preview application
 
 In this article, you'll learn how to add one-step confirmation to a command in a Custom Commands Preview app.
 
@@ -63,9 +63,9 @@ To demonstrate one-step correction, extend the **SetAlarm** command that you cre
 
 1. After training is done, select **Test**, and then try these interactions:
 
-- Input: Set alarm for tomorrow at noon
-- Output: Are you sure you want to set an alarm for 2020-05-02 12:00:00
-- Input: Yes
-- Output: Ok, alarm set for 2020-05-02 12:00:00
-- Input: No, tomorrow at 2pm
-- Output: Updating previous alarm to 2020-05-02 14:00:00
+   - Input: Set alarm for tomorrow at noon
+   - Output: Are you sure you want to set an alarm for 2020-05-02 12:00:00
+   - Input: Yes
+   - Output: Ok, alarm set for 2020-05-02 12:00:00
+   - Input: No, tomorrow at 2pm
+   - Output: Updating previous alarm to 2020-05-02 14:00:00
