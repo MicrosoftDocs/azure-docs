@@ -8,7 +8,7 @@ ms.date: 06/01/2020
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter,  Azure VMs and web apps, and even in other public clouds.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
@@ -46,21 +46,21 @@ Include the SDK in your app, so it can gather data.
    npm install applicationinsights --save
    ```
 
-> [!NOTE]
-> If you are using TypeScript, do not install separate "typings" packages. This NPM package contains built-in typings.
+    > [!NOTE]
+    > If you are using TypeScript, do not install separate "typings" packages. This NPM package contains built-in typings.
 
-1. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements.
+3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements.
 
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-2.  You also can provide an ikey via the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments. To configure manually call `appInsights.setup('[your ikey]');`.
+4.  You also can provide an ikey via the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments. To configure manually call `appInsights.setup('[your ikey]');`.
 
     For additional configuration options, see the following sections.
 
     You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
 
-3. Start automatically collecting and sending data by calling `appInsights.start();`.
+5. Start automatically collecting and sending data by calling `appInsights.start();`.
 
 ### <a name="monitor"></a> Monitor your app
 
@@ -406,7 +406,7 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | disableAppInsights              | A flag indicating if telemetry transmission is disabled (Default `false`).                                 |
 | samplingPercentage              | The percentage of telemetry items tracked that should be transmitted (Default `100`).                      |
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation (Default `30000`).     |
-| correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection (Default See [Config.ts][]).|
+| correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection (Default See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts)).|
 
 ## Next steps
 
