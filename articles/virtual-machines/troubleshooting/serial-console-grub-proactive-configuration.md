@@ -72,7 +72,7 @@ Ensuring you have access to the Azure Serial Console and GRUB means that a passw
 
 - Disk Swap – can be automated using either:
 
-   - [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [PowerShell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [bash Recovery Scripts](https://github.com/sribs/azure-support-scripts)
 
 - Legacy Method
@@ -346,7 +346,7 @@ GRUB menu should appear on-screen for the configured timeout=15 without the need
 ## SuSE
 
 ## SLES 12 sp1
-Either use yast bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
+Either use YaST bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
 
 Or add/change to /etc/default/grub the following parameters:
 

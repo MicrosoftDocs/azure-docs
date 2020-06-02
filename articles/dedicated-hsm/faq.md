@@ -111,7 +111,7 @@ Yes, if you have on-premises Gemalto SafeNet HSMs. There are multiple methods. R
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
 
