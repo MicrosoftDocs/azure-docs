@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/28/2020
+ms.date: 06/01/2020
 ms.author: diberry
 ---
 
@@ -14,24 +14,10 @@ ms.author: diberry
 
 * [Python 3.6](https://www.python.org/downloads/) or later.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
-## Create LUIS runtime key for predictions
+## Create Pizza app
 
-1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Enter all required settings for **Runtime** key:
-
-    |Setting|Value|
-    |--|--|
-    |Name|Desired name (2-64 characters)|
-    |Subscription|Select appropriate subscription|
-    |Location|Select any nearby and available location|
-    |Pricing Tier|`F0` - the minimal pricing tier|
-    |Resource Group|Select an available resource group|
-
-1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
-1. Collect configured `endpoint` and a `key`.
+[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
 ## Get intent from the prediction endpoint
 
@@ -41,14 +27,15 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
 
     [!code-python[Code snippet](~/cognitive-services-quickstart-code/python/LUIS/python-predict-with-rest/predict.py)]
 
-1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction **Runtime** key and endpoint.
+1. Replace the `YOUR-APP-ID`, `YOUR-KEY`, and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
 
     |Information|Purpose|
     |--|--|
-    |`YOUR-KEY`|Your 32 character prediction **Runtime** key.|
-    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-APP-ID`|Your app ID. Located on the LUIS portal, Application Settings page for your app.
+    |`YOUR-PREDICTION-KEY`|Your 32 character prediction key. Located on the LUIS portal, Azure Resources page for your app.
+    |`YOUR-PREDICTION-ENDPOINT`| Your prediction URL endpoint. Located on the LUIS portal, Azure Resources page for your app.<br>For example, `https://westus.api.cognitive.microsoft.com/`.|
 
-1. Install the `requests` dependency. This is used to make HTTP requests:
+1. Install the `requests` dependency. The `requests` library is used to make HTTP requests:
 
     ```console
     pip install requests
@@ -75,7 +62,7 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
         'topIntent': 'ModifyOrder',
         'intents': {
           'ModifyOrder': {
-            'score': 1
+            'score': 1.0
           },
           'None': {
             'score': 8.55e-9
