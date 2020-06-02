@@ -87,7 +87,6 @@ Here is a list of the most common messages you find. It does not list all, but t
 | **UpgradeNotSupported** | |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
-| UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 |UpgradeNotSupportedLocalDbSizeExceeded|Local DB size is greater than or equal to 8 GB|
 |UpgradeNotSupportedAADHealthUploadDisabled|Health data uploads have been disabled from the portal|
