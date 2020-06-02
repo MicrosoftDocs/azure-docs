@@ -99,7 +99,7 @@ Access control to the underlying data is split into three parts:
 
 ### SQL on-demand
 
-In this section you can find examples on how to give user a permission to a particular database or full server permissions.
+In this section, you can find examples on how to give user a permission to a particular database or full server permissions.
 
 #### Database level permission
 
@@ -148,10 +148,10 @@ To grant access to a user to a **single** SQL Database, follow these steps:
 
 1. Create the user in the database by running the following command targeting the desired database in the context selector (dropdown to select databases):
 
-```sql
---Create user in SQL DB
-CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
-```
+    ```sql
+    --Create user in SQL DB
+    CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    ```
 
 2. Grant the user a role to access the database:
 
@@ -180,7 +180,7 @@ After creating the users, validate that SQL on-demand can query the storage acco
 > [!IMPORTANT]
 > To successfully run pipelines that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool directly.
 
-Run the following commands on each SQL pool to allow the workspace managed identity to run pipelines on the SQL pool database:
+Run the following commands on each SQL pool to allow the workspace-managed identity to run pipelines on the SQL pool database:
 
 ```sql
 --Create user in DB
@@ -202,4 +202,4 @@ DROP USER [<workspacename>];
 
 ## Next steps
 
-For an overview of Synapse workspace managed identity, see [Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md). To learn more about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx). Additional information about database roles, can be found in the [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) article.
+For an overview of Synapse workspace-managed identity, see [Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md). To learn more about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx). Additional information about database roles, can be found in the [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) article.
