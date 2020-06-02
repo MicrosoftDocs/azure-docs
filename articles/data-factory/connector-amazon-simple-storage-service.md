@@ -44,7 +44,7 @@ Specifically, this Amazon S3 connector supports copying files as is or parsing f
 
 To copy data from Amazon S3, make sure you've been granted the following permissions:
 
-- **For Copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 object operations.
+- **For Copy activity execution**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 object operations.
 - **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 bucket operations. Permissions are also required for operations like testing connections and browsing to file paths. If you don't want to grant these permissions, skip the test connection on the linked service creation page and specify the path directly in dataset settings.
 
 For the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) on the AWS site.

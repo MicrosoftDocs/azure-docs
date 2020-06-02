@@ -41,7 +41,7 @@ For the Copy activity, this Blob storage connector supports:
 - Copying blobs by using an account key, a service shared access signature (SAS), a service principal, or managed identities for Azure resource authentications.
 - Copying blobs from block, append, or page blobs and copying data to only block blobs.
 - Copying blobs as is, or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
-- [Preserving file metadata during copy](#preserve-metadata-during-copy).
+- [Preserving file metadata during copy](#preserving-metadata-during-copy).
 
 >[!IMPORTANT]
 >If you enable the **Allow trusted Microsoft services to access this storage account** option in Azure Storage firewall settings and want to use the Azure integration runtime to connect to Blob storage, you must use [managed identity authentication](#managed-identity).
@@ -74,7 +74,7 @@ Data Factory supports the following properties for storage account key authentic
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see the following notes). |Yes |
-| connectionString | Specify the information needed to connect to Storage for the **connectionString** property. <br/> You can also put the account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. For more details, see the following samples and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article. |Yes |
+| connectionString | Specify the information needed to connect to Storage for the **connectionString** property. <br/> You can also put the account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. For more information, see the following samples and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
@@ -144,7 +144,7 @@ Data Factory supports the following properties for using shared access signature
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see the following note). |Yes |
-| sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as **SecureString** to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more details, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as **SecureString** to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
@@ -218,7 +218,7 @@ To use service principal authentication, follow these steps:
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Blob storage. For more details on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Grant the service principal proper permission in Azure Blob storage. For more information on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -269,7 +269,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
 
 1. [Retrieve Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the managed identity object ID generated along with your factory.
 
-2. Grant the managed identity permission in Azure Blob storage. For more details on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -427,7 +427,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The **type** property under `storeSettings` must be set to **AzureBlobStorageWriteSettings**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 and 100 MB*. <br/>By default, Data Factory automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It may be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
+| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, Data Factory automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It may be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
 | maxConcurrentConnections | The number of concurrent connections to storage. Specify only when you want to limit concurrent connections to the data store. | No       |
 
 **Example:**
