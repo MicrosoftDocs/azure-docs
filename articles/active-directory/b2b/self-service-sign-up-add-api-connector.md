@@ -50,8 +50,8 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 > [!NOTE]
 > - The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
-> - If a claim to send does not have a value at the time the API endpoint is called, the claim will have a `null` value.
-> - Custom attributes can be created for the user using the **extension_\<app-id>_\<camelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information about custom and extension attributes, see [Add custom data to users using open extensions](https://docs.microsoft.com/graph/extensibility-open-users).
+> - If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
+> - Custom attributes can be created for the user using the **extension_\<app-id>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information about custom and extension attributes, see [Add custom data to users using open extensions](user-flow-add-custom-attributes.md).
 <!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
  
 ## Enable the API connector in a user flow
