@@ -263,7 +263,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Government| USDoD East| 52.181.32.192|
 
 ## <a name="related-content"> </a>Related content
-* [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/design.md#s2smulti)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 * [Virtual Network Frequently asked Questions](../virtual-network/virtual-networks-faq.md)

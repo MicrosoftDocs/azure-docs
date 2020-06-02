@@ -34,7 +34,7 @@ There are a number of ways to migrate an on-premises SQL Server user database to
 The primary migration methods are:
 
 * Perform an on-premises backup using compression, and then manually copy the backup file into the Azure VM.
-* Complete a backup to a URL and then restore into the Azure VM from the URL.
+* Perform a backup to URL and then restore into the Azure VM from the URL.
 * Detach the data and log files, copy them to Azure Blob storage, and then attach them to SQL Server in the Azure VM from the URL.
 * Convert the on-premises physical machine to a Hyper-V VHD, upload it to Azure Blob storage, and then deploy it as new VM using uploaded VHD.
 * Ship the hard drive using the Windows Import/Export Service.
@@ -59,8 +59,8 @@ The following table lists each of the primary migration methods and discusses wh
 
 | Method | Source database version | Destination database version | Source database backup size constraint | Notes |
 | --- | --- | --- | --- | --- |
-| [Complete an on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#back-up-and-restore) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | This technique is simple and well-tested for moving databases across machines. |
-| [Perform a backup to URL and restore into the Azure virtual machine from the URL](#back-up-to-a-url-and-restore) |SQL Server 2012 SP1 CU2 or greater | SQL Server 2012 SP1 CU2 or greater | < 12.8 TB for SQL Server 2016, otherwise < 1 TB | This method is just another way to move the backup file to the VM using Azure storage. |
+| [Perform an on-premises backup using compression and manually copy the backup file into the Azure virtual machine](#back-up-and-restore) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | This technique is simple and well-tested for moving databases across machines. |
+| [Perform a backup to URL and restore into the Azure virtual machine from the URL](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 or greater | SQL Server 2012 SP1 CU2 or greater | < 12.8 TB for SQL Server 2016, otherwise < 1 TB | This method is just another way to move the backup file to the VM using Azure storage. |
 | [Detach and then copy the data and log files to Azure Blob storage and then attach to SQL Server in Azure virtual machine from URL](#detach-and-attach-from-a-url) | SQL Server 2005 or greater |SQL Server 2014 or greater | [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Use this method when you plan to [store these files using the Azure Blob storage service](https://msdn.microsoft.com/library/dn385720.aspx) and attach them to SQL Server running in an Azure VM, particularly with very large databases |
 | [Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Use when [bringing your own SQL Server license](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md), when migrating a database that you'll run on an older version of SQL Server, or when migrating system and user databases together as part of the migration of database dependent on other user databases and/or system databases. |
 | [Ship hard drive using Windows Import/Export Service](#ship-a-hard-drive) |SQL Server 2005 or greater |SQL Server 2005 or greater |[Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Use the [Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) when manual copy method is too slow, such as with very large databases |
@@ -76,9 +76,9 @@ Back up your database with compression, copy the backup to the VM, and then rest
 3. Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](ways-to-connect-to-sql.md).
 4. Copy your backup file(s) to your VM using remote desktop, Windows Explorer, or the copy command from a command prompt.
 
-## Back up to a URL and restore
+## Backup to URL and Restore from URL
 
-Instead of backing up to a local file, you can use the [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) and then restore from URL to the VM. SQL Server 2016 supports striped backup sets. They're recommended for performance and required to exceed the size limits per blob. For very large databases, the use of the [Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) is recommended.
+Instead of backing up to a local file, you can use [Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) and then Restore from URL to the VM. SQL Server 2016 supports striped backup sets. They're recommended for performance and required to exceed the size limits per blob. For very large databases, the use of the [Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) is recommended.
 
 ## Detach and attach from a URL
 
