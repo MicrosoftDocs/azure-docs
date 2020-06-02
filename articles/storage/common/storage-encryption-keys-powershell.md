@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 06/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -35,15 +35,16 @@ For more information about configuring system-assigned managed identities with P
 
 ## Create a new key vault
 
-To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). The key vault that you use to store customer-managed keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**.
+To create a new key vault using PowerShell, install version 2.0.0 or later of the [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell module. Then call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) to create a new key vault.
 
-Remember to replace the placeholder values in brackets with your own values.
+The key vault that you use to store customer-managed keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. In version 2.0.0 and later of the Az.KeyVault module, soft delete is enabled by default when you create a new key vault.
+
+The following example creates a new key vault with the **Soft Delete** and **Do Not Purge** properties enabled. Remember to replace the placeholder values in brackets with your own values.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
