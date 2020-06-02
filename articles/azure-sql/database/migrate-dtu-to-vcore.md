@@ -181,7 +181,7 @@ You can create a geo-replication secondary database (a geo-secondary) only by us
 
 If you're creating a geo-secondary in the elastic pool for a single primary database, make sure the `maxVCore` setting for the pool matches the primary database's compute size. If you're creating a geo-secondary for a primary in another elastic pool, we recommend that the pools have the same `maxVCore` settings.
 
-## Use database copy to convert a DTU-based database to a vCore-based database
+## Use database copy to migrate from DTU to vCore
 
 You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. The database copy creates a snapshot of the data as of the starting time of the copy operation and doesn't synchronize data between the source and the target.
 
