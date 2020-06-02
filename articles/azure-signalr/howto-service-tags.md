@@ -33,7 +33,7 @@ You can allow outbound traffic to Azure SignalR Service by adding a new outbound
 
 1. Fill in **443** in **Destination port ranges**.
 
-    ![Create an outbound security rule](media/signalr-howto-service-tags/portal-add-outbound-security-rule.jpg)
+    ![Create an outbound security rule](media/howto-service-tags/portal-add-outbound-security-rule.png)
 
 1. Adjust other fields according to your needs.
 
