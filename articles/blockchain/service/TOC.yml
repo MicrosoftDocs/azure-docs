@@ -11,7 +11,8 @@
     href: create-member.md
   - name: Create member using CLI
     href: create-member-cli.md
-  - name: Create member using template
+  - name: Create member using ARM template
+    displayName: Resource Manager
     href: create-member-template.md
   - name: Connect to transaction node
     items:

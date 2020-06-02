@@ -114,7 +114,7 @@ An Automation feature adds functionality for Azure Automation, including support
 To add the Azure Automation feature, for example, Update Management, to your workspace, run the following PowerShell cmdlet:
 
 ```powershell-interactive
-Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true -DefaultProfile <IAzureContextContainer>
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
 ### Step 3 - Install the Log Analytics agent for Windows

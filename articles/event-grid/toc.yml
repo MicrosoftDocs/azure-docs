@@ -194,6 +194,8 @@
       href: metrics.md
 - name: How-to guides
   items:
+  - name: Create, view, and manage system topics
+    href: create-view-manage-system-topics.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Subscribe to Auth0 events
