@@ -82,14 +82,14 @@ Follow these steps to view all existing Event Grid system topics.
 
 
 ## Delete a system topic
-1. Follow instructions from the [View system topics](#view-system-topics) section to view all system topics, and select the system topic that you want to delete from the list. 
+1. Follow instructions from the [View system topics](#view-all-system-topics) section to view all system topics, and select the system topic that you want to delete from the list. 
 2. On the **Event Grid System Topic** page, select **Delete** on the toolbar. 
 
     ![System topic - delete button](./media/create-view-manage-system-topics/system-topic-delete-button.png)
 3. On the confirmation page, select **OK** to confirm the deletion. It deletes the system topic and also all the event subscriptions for the system topic.  
 
 ## Create an event subscription
-1. Follow instructions from the [View system topics](#view-system-topics) section to view all system topics, and select the system topic that you want to delete from the list. 
+1. Follow instructions from the [View system topics](#view-all-system-topics) section to view all system topics, and select the system topic that you want to delete from the list. 
 2. On the **Event Grid System Topic** page, select **+ Event Subscription** from the toolbar. 
 
     ![System topic - add event subscription button](./media/create-view-manage-system-topics/add-event-subscription-button.png)
@@ -99,4 +99,4 @@ Follow these steps to view all existing Event Grid system topics.
 
 
 ## Next steps
-See the [System topics in Azure Event Grid](system-topics-md) section to learn more about system topics and topic types supported by Azure Event Grid. 
+See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 
