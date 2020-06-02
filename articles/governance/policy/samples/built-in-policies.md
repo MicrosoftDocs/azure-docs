@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 ms.custom: generated
 ---
@@ -63,6 +63,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-samples-policies-data-lake](../../../../includes/policy/samples/bycat/policies-data-lake.md)]
 
+## Event Grid
+
+[!INCLUDE [azure-policy-samples-policies-event-grid](../../../../includes/policy/samples/bycat/policies-event-grid.md)]
+
 ## Event Hub
 
 [!INCLUDE [azure-policy-samples-policies-event-hub](../../../../includes/policy/samples/bycat/policies-event-hub.md)]
@@ -87,10 +91,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-samples-policies-kubernetes](../../../../includes/policy/samples/bycat/policies-kubernetes.md)]
 
-## Kubernetes service
-
-[!INCLUDE [azure-policy-samples-policies-kubernetes-service](../../../../includes/policy/samples/bycat/policies-kubernetes-service.md)]
-
 ## Lighthouse
 
 [!INCLUDE [azure-policy-samples-policies-lighthouse](../../../../includes/policy/samples/bycat/policies-lighthouse.md)]
@@ -98,6 +98,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Logic Apps
 
 [!INCLUDE [azure-policy-samples-policies-logic-apps](../../../../includes/policy/samples/bycat/policies-logic-apps.md)]
+
+## Machine Learning
+
+[!INCLUDE [azure-policy-samples-policies-machine-learning](../../../../includes/policy/samples/bycat/policies-machine-learning.md)]
 
 ## Managed Application
 
