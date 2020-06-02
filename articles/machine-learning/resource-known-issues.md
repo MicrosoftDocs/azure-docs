@@ -56,7 +56,7 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
      
 * **Explanation package not guaranteed to be installed when installing the azureml-train-automl-client:** 
    
-   When running a remote AutoML run with model explanation enabled you will see an error message saying ""Please install azureml-explain-model package for model explanations." This is a known issue and as a workaround please follow one of the steps below:
+   When running a remote AutoML run with model explanation enabled, you will see an error message "Please install azureml-explain-model package for model explanations." This is a known issue. As a workaround follow one of the steps below:
   
   1. Install azureml-explain-model locally.
    ```
