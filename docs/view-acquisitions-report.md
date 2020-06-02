@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # View the Acquisitions report in the dashboard
 
-The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Dev Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing. 
+The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Partner Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing. 
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
 
