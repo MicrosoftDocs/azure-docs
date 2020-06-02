@@ -55,9 +55,13 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
 >
 
-## Why am I getting an error when I try to create a new Windows agent pool?
+## Why am I seeing an error when I try to create a new Windows agent pool?
 
-If you created your cluster before February 2020 and have never did any cluster upgrade operations, the cluster still uses an old Windows image. To fix this, first [upgrade the cluster][upgrade-cluster]. Next, add new agent pools to migrate pods from the old agent pools to new ones.
+If you created your cluster before February 2020 and have never did any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
+
+"The following list of images referenced from the deployment template are not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage for instructions on finding available images."
+
+To fix this, first [upgrade the cluster][upgrade-cluster]. Next, add new agent pools to migrate pods from the old agent pools to new ones.
 
 ## How do I rotate the service principal for my Windows node pool?
 
