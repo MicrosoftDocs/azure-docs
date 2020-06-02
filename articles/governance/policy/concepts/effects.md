@@ -92,8 +92,8 @@ event occurs from the conflict.
 
 Example 2: Single **field/value** pair using an **\[\*\]** [alias](definition-structure.md#aliases)
 with an array **value** to set IP rules on a storage account. By using the **\[\*\]** alias, the
-effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet, it
-is created.
+effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
+it's created.
 
 ```json
 "then": {
@@ -557,14 +557,14 @@ needed for remediation and the **operations** used to add, update, or remove tag
     role.
 - **conflictEffect** (optional)
   - Determines which policy definition "wins" in the event that more than one policy definition
-    effects the same property.
-    - For new or updated resources, the policy definition with _deny_ takes prescedence. Policy
+    modifies the same property.
+    - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
       definitions with _audit_ skip all **operations**. If more than one policy definition has
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
-      of the **operations** of the conflicting policy definitions are performed.
+      of the **operations** of the conflicting policy definitions are processed.
     - For existing resources, if more than one policy definition has _deny_, the compliance status
-      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment is compliance
-      status of _Non-compliant_.
+      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+      compliance status of _Non-compliant_.
   - Available values: _audit_, _deny_, _disabled_.
   - Default value is _deny_.
 - **operations** (required)
