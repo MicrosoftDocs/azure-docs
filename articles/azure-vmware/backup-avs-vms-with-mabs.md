@@ -30,7 +30,7 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 1.  On the VMware Getting Started page, click **Download trusted root CA certificates**.
 
-    ![vSphere Web Client](../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png)
+    :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="vSphere Web Client":::
 
 2.  Save the **download.zip** file to the Azure Backup Server machine and then extract its contents to the **certs** folder, which contains the:
 
@@ -69,35 +69,35 @@ VMWare 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Copy the following registry settings and paste into Notepad, and then save the file as TLS.REG without the .txt extension.
 
-    ```text
-    
-    Windows Registry Editor Version 5.00
-    
-    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-    
-       "SystemDefaultTlsVersions"=dword:00000001
-    
-       "SchUseStrongCrypto"=dword:00000001
-    
-    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-    
-       "SystemDefaultTlsVersions"=dword:00000001
-    
-       "SchUseStrongCrypto"=dword:00000001
-    
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-    
-       "SystemDefaultTlsVersions"=dword:00000001
-    
-       "SchUseStrongCrypto"=dword:00000001
-    
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-    
-       "SystemDefaultTlsVersions"=dword:00000001
-    
-       "SchUseStrongCrypto"=dword:00000001
-    
-    `"
+   ```text
+   
+   Windows Registry Editor Version 5.00
+   
+   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+   
+      "SystemDefaultTlsVersions"=dword:00000001
+   
+      "SchUseStrongCrypto"=dword:00000001
+   
+   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+   
+      "SystemDefaultTlsVersions"=dword:00000001
+   
+      "SchUseStrongCrypto"=dword:00000001
+   
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+   
+      "SystemDefaultTlsVersions"=dword:00000001
+   
+      "SchUseStrongCrypto"=dword:00000001
+   
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+   
+      "SystemDefaultTlsVersions"=dword:00000001
+   
+      "SchUseStrongCrypto"=dword:00000001
+   
+   ```
 
 1.  Right-click the TLS.REG file and select **Merge** or **Open** to add the settings to the registry.
 
@@ -107,18 +107,18 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 ### Identify IP Address for ESXi hosts
 
-1.  Open the browser and sign in to the vCenter URLs. 
+1. Open the browser and sign in to the vCenter URLs. 
 
    > [!TIP]
    > You can find the URLs in the [Connect to the local vCenter of your private cloud](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud) article.
 
-2.  In the vSphere Client, select the cluster that you plan to enable backup.
+2. In the vSphere Client, select the cluster that you plan to enable backup.
 
-    ![vSphere Client - select host](./media/avs-backup/vsphere-client-select-host.png)
+   :::image type="content" source="media/avs-backup/vsphere-client-select-host.png" alt-text="VSphere Client - Select host":::
 
-1.  Select **Configure** > **Networking** > **VMKernel adapters**, and under the list of devices, identify the network adapter that has **Provisioning** role enabled, and then take note of the **IP Address** and ESXi hostname.
+1. Select **Configure** > **Networking** > **VMKernel adapters**, and under the list of devices, identify the network adapter that has **Provisioning** role enabled, and then take note of the **IP Address** and ESXi hostname.
 
-    ![VMKernel adapters - provisioning enabled devices](./media/avs-backup/vmkernel-adapters-provisioning-enabled.png)
+   :::image type="content" source="media/avs-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="VMKernel adapters - provisioning enabled devices":::
 
 1.  Repeat the previous step for each ESXi host under every cluster that you plan to enable backup.
 
@@ -224,7 +224,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
    - **Retention Range** - number of days disk recovery points are kept.
    - **Express Full Backup** - how often disk recovery points are taken. To change the times/dates when short-term backups occur, click **Modify**.
 
-   ![Specify your short-term goals for disk-based protection](./media/avs-backup/new-protection-group-specify-short-term-goals.png)
+   :::image type="content" source="media/avs-backup/new-protection-group-specify-short-term-goals.png" alt-text="Specify your short-term goals for disk-based protection":::
 
 1. In **Review Disk Allocation**, review the disk space provided for the VM backups.
 
@@ -236,7 +236,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
    - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
-   ![Review disk space allocated in the storage pool](./media/avs-backup/review-disk-allocation.png)
+   :::image type="content" source="media/avs-backup/review-disk-allocation.png" alt-text="Review disk space allocated in the storage pool":::
 
    > [!NOTE]
    > In some scenarios, the Data Size reported is higher than the actual VM size. We are aware of the issue and currently investigating it.
@@ -294,7 +294,7 @@ Once you configure the protection group to back up AVS VMs, you can monitor the 
 
 -   In the **Management** task area, you can view the **Disks, Online**, and **Agents** tab to check the status of disks in the storage pool, registration to Azure, and deployed DPM agent status.
 
-![Monitor the status of backup jobs in Azure Backup Server](./media/avs-backup/monitor-backup-jobs-in-mabs.png)
+:::image type="content" source="media/avs-backup/monitor-backup-jobs-in-mabs.png" alt-text="Monitor the status of backup jobs in Azure Backup Server":::
 
 ## Restore VMware virtual machines
 
@@ -321,7 +321,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1.  Before recovering from an online recovery point, ensure the staging location contains enough free space to house the full uncompressed size of the VM you want to recover. The staging location can be viewed/changed by running the **configure subscription settings wizard**.
 
-    ![Azure Backup Server Recovery Folder Settings](./media/avs-backup/mabs-recovery-folder-settings.png)
+    :::image type="content" source="media/avs-backup/mabs-recovery-folder-settings.png" alt-text="Azure Backup Server Recovery Folder Settings":::
 
 1.  Click **Recover** to open the **Recovery Wizard**.
 

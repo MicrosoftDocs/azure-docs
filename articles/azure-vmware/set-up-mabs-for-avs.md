@@ -62,7 +62,7 @@ In this article, we help you prepare your AVS environment to backup virtual mach
 **Deployment Architecture**  
 Microsoft Azure Backup Server is deployed as Azure IaaS VM to protect AVS VMs.
 
-![AVS deployment architecture](./media/avs-backup/deploy-mabs-avs-diagram.png)
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="AVS deployment architecture" border="false":::
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -230,13 +230,13 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  From the **Where is your workload running** menu, select **On-premises**.
 
-       ![Where is your workload running?](./media/avs-backup/deploy-mabs-on-premises-workload.png)
+       :::image type="content" source="media/avs-backup/deploy-mabs-on-premises-workload.png" alt-text="Where is your workload running?":::
 
     1.  From the **What do you want to back up** menu, select the workloads you want to protect using Azure Backup Server.
 
     1.  Click on **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-       ![Prepare Infrastructure](./media/avs-backup/deploy-mabs-prepare-infrastructure.png)
+       :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Prepare Infrastructure":::
 
 1.  In the **Prepare infrastructure** window that opens, do the following:
 
@@ -244,7 +244,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during the registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where you download the software package.
 
-    ![Prepare Infrastructure – Azure Backup Server](./media/avs-backup/deploy-mabs-prepare-infrastructure2.png)
+     :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
 
 1.  On the download page, select all the files and click **Next**.
 
@@ -331,7 +331,7 @@ If you downloaded the software package to a different server, copy the files ont
     > [!NOTE]
     > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
 
-    ![Microsoft Azure Backup PreReq2](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Microsoft Azure Backup PreReq2":::
 
 1.  Review the *Summary of Settings* and click **Install**.
 
@@ -357,7 +357,7 @@ If you downloaded the software package to a different server, copy the files ont
 
 ### Install Update Rollup 1
 
-Installation of update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before protecting the workloads. To view the list of bug fixes and  the installation instructions for Microsoft Azure Backup Server V3 UR1, see KB article [4534062 -- link is broken](https%3A%2F%2Fsupport.microsoft.com%2Fhelp%2F4534062&data=02%7C01%7Cv-patsho%40microsoft.com%7C758c90bec587408478dc08d8070f784f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637267110339472161&sdata=JoGQufGdnWohNYlwKXozFIyvWRAAzcwaH%2BxwTFVQsxM%3D&reserved=0).
+Installation of update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before protecting the workloads. To view the list of bug fixes and  the installation instructions for Microsoft Azure Backup Server V3 UR1, see KB article [4534062]().
 
 ## Add storage to Azure Backup Server
 
