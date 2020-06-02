@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2020
+ms.date: 06/03/2020
 ms.author: memildin
 
 ---
@@ -37,24 +37,30 @@ To avoid alert fatigue, Security Center restricts the volume of outgoing mails. 
 - Required roles: **Security Admin** or **Subscription Owner** 
 - Clouds: 
     - ✔ Commercial clouds
-    - ✘ National/Sovereign (US Gov, Chinese Gov, Other Gov)
+    - ✘ National/Sovereign (US Gov, China Gov, Other Gov)
 
 
 
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-1. From Security Center's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
+You can send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
 
-1. Enter the security contact email address or addresses separated by commas. 
-There is no limit to the number of email addresses that you can enter.
+1. From Security Center's **Pricing & settings** area, the relevant subscription, and select **Email notifications**.
 
-1. To receive emails about high severity alerts, turn on the option **Send me emails about alerts**. For other severity levels use a Logic App as explained in [workflow automation](workflow-automation.md).
+1. Define the recipients for your notifications:
 
-1. You can send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
+    - From the dropdown list, select from the available roles.
+    - And/or enter specific email addresses separated by commas. There is no limit to the number of email addresses that you can enter.
+
+1. By default, Security Center will send emails about high severity alerts only. To receive mails about:
+
+    - medium and high severity alerts, change the **Send emails on alert from severity** option to Medium
+    - all alerts, change the **Send emails on alert from severity** option to Low
+    
+accordingly  To configure the types of alerts receive emails about high severity alerts, turn on the option **Send me emails about alerts**. For other severity levels use a Logic App as explained in [workflow automation](workflow-automation.md).
 
 1. To apply the security contact information to your subscription, select **Save**.
-
 
 
 
@@ -62,6 +68,4 @@ There is no limit to the number of email addresses that you can enter.
 To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
