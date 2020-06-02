@@ -197,7 +197,13 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
+> [!Note]
+> If you use secure access to the AKS API server with [authorized IP address ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), you need to add the firewall public IP into the authorized IP range.
+
 ### Create a UDR with a hop to Azure Firewall
+
+> [!Note]
+> Outbound type requires that thre is a route for 0.0.0.0/0 and and next hop destination of NVA (Network Virtual Appliance) in the route table.
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
