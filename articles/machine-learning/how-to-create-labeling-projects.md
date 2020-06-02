@@ -100,7 +100,9 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.  When enabled, every three hours the datastore is checked for new data to be added to the project. The check is skipped when there are already more than 20,000 unlabeled images in the project.  Checking for new data stops when the project contains the maximum 500,000 images.
+If you plan to add new images to your datastore,  incremental refresh will find these new images and add them to your project.   When enabled, every three hours the datastore is checked for new data to be added to the project. The check is skipped when there are already more than 20,000 unlabeled images in the project.  Checking for new data stops when the project contains the maximum 500,000 images.
+
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
 
 Uncheck this box if you do not want new data that appears in the datastore to be added to your project.
 
