@@ -1098,6 +1098,7 @@
   - name: Workbooks
     items:
     - name: Overview
+      displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
       href: platform/workbooks-visualizations.md
