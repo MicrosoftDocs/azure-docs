@@ -23,7 +23,7 @@ SignalR Service trigger binding for C# has two programming models. Class based m
 
 ### With Class based model
 
-See [Class based model](#class-based-model) for details.
+See [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model) for details.
 
 ```cs
 public class SignalRTestHub : ServerlessHub
@@ -38,7 +38,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### With Traditional model
 
-Traditional model obeys the convention of Azure Function developing by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library).
+Traditional model obeys the convention of Azure Function developing by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -166,6 +166,23 @@ The following table explains the binding configuration properties that you set i
 
 The trigger input type is declared as either `InvocationContext` or a custom type. If you choose `InvocationContext` you get full access to the request content. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
+### InvocationContext
+
+InvocationContext contains all the content in the message send from SignalR Service.
+
+|Property in InvocationContext | Description|
+|------------------------------|------------|
+|Arguments| Available for *messages* category. Contains *arguments* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
+|Error| Available for *disconnected* event. It can be Empty if the connection closed with no error, or it contains the error messages.|
+|Hub| The hub name which the message belongs to.|
+|Category| The category of the message.|
+|Event| The event of the message.|
+|ConnectionId| The connection ID of the client which sends the message.|
+|UserId| The user identity of the client which sends the message.|
+|Headers| The headers of the request.|
+|Query| The query of the request when clients connect to the service.|
+|Claims| The claims of the client.|
+
 ## Using `ParameterNames`
 
 The property `ParameterNames` in `SignalRTrigger` allows you to bind arguments of invocation messages to the parameters of functions. That gives you a more convenient way to access arguments of `InvocationContext`.
@@ -177,6 +194,8 @@ await connection.invoke("broadcast", message1, message2);
 ```
 
 You can access these two arguments from parameter as well as assign type of parameter for them by using `ParameterNames`.
+
+# [C#](#tab/csharp)
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -196,116 +215,40 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "broadca
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+`ParameterNames` is in the *function.json*.
+
+```json
+{
+    "type": "signalRTrigger",
+    "name": "invocation",
+    "hubName": "SignalRTest",
+    "category": "messages",
+    "event": "SendMessage",
+    "parameterNames": [
+        "message"
+    ],
+    "direction": "in"
+}
+```
+
+In JavaScript codes, you can access parameters through `context.bindingData`:
+
+```javascript
+module.exports = function (context, invocation) {
+    context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
+    context.done();
+};
+```
+
+---
+
 ### Remarks
 
-For the parameter binding, the order matters. If you are using `ParameterNames`, the order in `ParameterNames` matches the order of the arguments you invoke in the client. If you are using attribute `[SignalRParameter]`, the order of arguments in Azure Function methods matches the order of arguments in clients.
+For the parameter binding, the order matters. If you are using `ParameterNames`, the order in `ParameterNames` matches the order of the arguments you invoke in the client. If you are using attribute `[SignalRParameter]` in C#, the order of arguments in Azure Function methods matches the order of arguments in clients.
 
 `ParameterNames` and attribute `[SignalRParameter]` **cannot** be used at the same time, or you will get an exception.
-
-## Class based model
-
-The class based model is dedicated for C#. With class based model can have a consistent SignalR server-side programming experience. It has the following features.
-
-* Less configuration works: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
-* Auto parameter binding: Neither `ParameterNames` nor attribute `[SignalRParameter]` is needed. Parameters are auto bound to arguments of Azure Function method in order.
-* Convenient output and negotiate experience.
-
-The following codes demonstrate these features:
-
-```cs
-public class SignalRTestHub : ServerlessHub
-{
-    [FunctionName("negotiate")]
-    public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
-    {
-        return Negotiate(req.Headers["x-ms-signalr-user-id"], GetClaims(req.Headers["Authorization"]));
-    }
-
-    [FunctionName(nameof(OnConnected))]
-    public async Task OnConnected([SignalRTrigger]InvocationContext invocationContext, ILogger logger)
-    {
-        await Clients.All.SendAsync(NewConnectionTarget, new NewConnection(invocationContext.ConnectionId));
-        logger.LogInformation($"{invocationContext.ConnectionId} has connected");
-    }
-
-    [FunctionName(nameof(Broadcast))]
-    public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
-    {
-        await Clients.All.SendAsync(NewMessageTarget, new NewMessage(invocationContext, message));
-        logger.LogInformation($"{invocationContext.ConnectionId} broadcast {message}");
-    }
-
-    [FunctionName(nameof(OnDisconnected))]
-    public void OnDisconnected([SignalRTrigger]InvocationContext invocationContext)
-    {
-    }
-}
-```
-
-All the functions that want to leverage class based model need to be the method of class that inherits from **ServerlessHub**. The class name `SignalRTestHub` in the sample is the hub name.
-
-### Define hub method
-
-All the hub methods **must**  have a `[SignalRTrigger]` attribute and **must** use parameterless constructor. Then the **method name** is treated as parameter **event**.
-
-By default, `category=messages` except the method name is one of the following names:
-
-* **OnConnected**: Treated as `category=connections, event=connected`
-* **OnDisconnected**: Treated as `category=connections, event=disconnected`
-
-### Parameter binding experience
-
-In class based model, `[SignalRParameter]` is unnecessary because all the arguments are marked as `[SignalRParameter]` by default except it is one of the following situations:
-
-* The argument is decorated by a binding attribute.
-* The argument's type is `ILogger` or `CancellationToken`
-* The argument is decorated by attribute `[SignalRIgnore]`
-
-### Negotiate experience in class based model
-
-Instead of using SignalR input binding `[SignalR]`, negotiation in class based model can be more flexible. Base class `ServerlessHub` has a method
-
-```cs
-SignalRConnectionInfo Negotiate(string userId = null, IList<Claim> claims = null, TimeSpan? lifeTime = null)
-```
-
-This features user customizes `userId` or `claims` during the function execution.
-
-## Use `SignalRFilterAttribute`
-
-User can inherit and implement the abstract class `SignalRFilterAttribute`. If exceptions are thrown in `FilterAsync`, `403 Forbidden` will be sent back to clients.
-
-The following sample demonstrates how to implement a customer filter that only allows the `admin` to invoke `broadcast`.
-
-```cs
-[AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-internal class FunctionAuthorizeAttribute: SignalRFilterAttribute
-{
-    private const string AdminKey = "admin";
-
-    public override Task FilterAsync(InvocationContext invocationContext, CancellationToken cancellationToken)
-    {
-        if (invocationContext.Claims.TryGetValue(AdminKey, out var value) &&
-            bool.TryParse(value, out var isAdmin) &&
-            isAdmin)
-        {
-            return Task.CompletedTask;
-        }
-
-        throw new Exception($"{invocationContext.ConnectionId} doesn't have admin role");
-    }
-}
-```
-
-Leverage the attribute to authorize the function.
-
-```cs
-[FunctionAuthorize]
-[FunctionName(nameof(Broadcast))]
-public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
-{
-}
-```
 
 ## Send messages to SignalR Service trigger binding
 
@@ -320,4 +263,5 @@ You should set this URL in `UrlTemplate` in the upstream settings of SignalR Ser
 
 ## Next steps
 
+* [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
 * [SignalR Service Trigger binding sample](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
