@@ -8,7 +8,6 @@ ms.workload: infrastructure
 ms.date: 06/01/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-<!-- https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/ -->
 
 ---
 
@@ -24,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-vm-simple-windows/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 
 :::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json" range="000-000" highlight="000-000":::
