@@ -19,7 +19,7 @@ This article describes how to add assessment tools in [Azure Migrate](migrate-ov
 2. Select the assessment scenario you want to use:
 
     - To discover and assess machines and workloads for migration to Azure, select **Assess and migrate servers**.
-    - To assess on-premises SQL machines, select **Assess and migrate databases**.
+    - To assess on-premises SQL Server databases, select **Assess and migrate databases**.
     - To assess on-premises web apps, select **Assess and migrate web apps**.
 
     ![Assessment scenario](./media/how-to-assess/assess-scenario.png)

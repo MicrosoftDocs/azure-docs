@@ -114,7 +114,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Switzerland | Basel, Geneva, Yverdon-les-Bains, Zurich | 
 | Turkey | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
 | United Kingdom | East Anglia, East Midlands, London and South East, North East, North West, Northern Ireland, Scotland, South West, Wales, West Midlands, Yorkshire |
-| Ukraine | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
+| Ukraine | Kharkiv, Zhytomyr, Kyiv, Lviv, Chernivtsi |
 
 
 ## Middle East and Africa

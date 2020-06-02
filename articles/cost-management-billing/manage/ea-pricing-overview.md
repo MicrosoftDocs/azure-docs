@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/01/2020
 ms.author: banders
 
 ---

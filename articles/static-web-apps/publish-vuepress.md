@@ -115,7 +115,7 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. In _Resource group_, select **New**. In _New resource group name_, enter **vuepress-static-app** and select **OK**.
 
-1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
+1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
 
 1. For _Region_, select an available region close to you.
 

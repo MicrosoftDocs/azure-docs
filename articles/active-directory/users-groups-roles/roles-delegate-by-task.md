@@ -150,7 +150,7 @@ Add SharePoint Online sites to catalog | Global administrator
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Assign license | User administrator | 
-Create group | User administrator | 
+Create group | Groups administrator | User administrator
 Create, update, or delete access review of a group or of an app | User administrator | 
 Manage group expiration | User administrator | 
 Manage group settings | Groups Administrator | User Administrator | 
@@ -161,6 +161,7 @@ Revoke license | License administrator | User administrator
 Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
 Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
 Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Delete group | Groups administrator | User administrator
 
 ## Identity Protection
 
@@ -270,6 +271,8 @@ Read all configuration | Default user role ([see documentation](https://docs.mic
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
+Configure password protection | Security administrator
+Configure smart lockout | Security administrator
 Read all configuration | Global reader | 
 
 ## Security - Conditional Access

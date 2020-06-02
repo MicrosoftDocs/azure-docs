@@ -330,7 +330,7 @@ In case of SQL DB restore, the following restore scenarios are supported.
 * Restoring the SQL DB as a new DB in another SQL instance in another SQL VM - AlternateWorkloadRestore
 * Restoring the SQL DB as .bak files -RestoreAsFiles
 
-After fetching the relevant recovery point (distinct or log point-in-time), use [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS cmdlet to fetch the recovery config object as per the desired recovery plan.
+After fetching the relevant recovery point (distinct or log point-in-time), use [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS cmdlet to fetch the recovery config object according to the desired recovery plan.
 
 #### Original workload restore
 
