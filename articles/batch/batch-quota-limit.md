@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
 ---
 
@@ -23,6 +23,9 @@ A quota is a credit limit, not a capacity guarantee. If you have large-scale cap
 Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
+
+> [!IMPORTANT]
+> We are changing how you request and manage dedicated quota.  The total dedicated vCPUs is the currently enforced value, but soon we will enforce dedicated quota per VM series. Low-priority quota will continue being enforced based on the total limit; it will not be enforced by VM series.
 
 ### Cores quotas in user subscription mode
 
