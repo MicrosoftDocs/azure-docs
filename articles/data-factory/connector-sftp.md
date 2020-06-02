@@ -58,7 +58,7 @@ The following properties are supported for the SFTP linked service:
 | port | The port on which the SFTP server is listening.<br/>Allowed values are: integer, default value is *22*. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are *true* and *false* (default).  | No |
 | hostKeyFingerprint | Specify the fingerprint of the host key. | Yes, if the "skipHostKeyValidation" is set to false.  |
-| authenticationType | Specify the authentication type.<br/>Allowed values are: *Basic* and *SshPublicKey*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#using-ssh-public-key-authentication) section. |Yes |
+| authenticationType | Specify the authentication type.<br/>Allowed values are: *Basic* and *SshPublicKey*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, it uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
@@ -98,7 +98,7 @@ To use basic authentication, set the *authenticationType* property to *Basic*, a
 }
 ```
 
-### Using SSH public key authentication
+### Use SSH public key authentication
 
 To use SSH public key authentication, set "authenticationType" property as **SshPublicKey**, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
