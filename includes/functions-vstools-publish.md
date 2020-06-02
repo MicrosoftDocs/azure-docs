@@ -12,7 +12,7 @@ ms.custom: include file
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-2. In **Pick a publish target**, use the publish options specified in the following table: 
+1. In **Pick a publish target**, use the publish options specified in the following table: 
 
     | Option      | Description                                |
     | ------------ |  -------------------------------------------------- |
@@ -20,12 +20,12 @@ ms.custom: include file
     | **Create New** | A new function app, with related resources, is created in Azure. <br/>If you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Use this option only when you republish updates to an existing function app. |
     | **Run from package file** | Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This deployment, which results in better performance, is the recommended way of running your functions. <br/>If you don't use this option, make sure to stop your function app project from running locally before you publish to Azure. |
 
-    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile.png" alt-text="Create a publish profile":::
 
 
-3. Select **Create Profile**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
+1. Select **Create Profile**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
 
-4. In **App Service: Create new**, use the values specified in the following table:
+1. In **App Service: Create new**, use the values specified in the following table:
 
     | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -38,8 +38,14 @@ ms.custom: include file
 
     ![Create App Service dialog](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-5. Select **Create** to create a function app and its related resources in Azure with these settings and deploy your function project code. 
+1. Select **Create** to create a function app and its related resources in Azure with these settings and deploy your function project code. 
 
-6. Select Publish and after the deployment completes, make a note of the **Site URL** value, which is the address of your function app in Azure.
+1. Select **Publish** and wait for the deployment to complete. 
 
-    ![Publish success message](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)
+    After the deployment completes the root URL of the function app in Azure is shown in the **Publish** tab. 
+    
+1.  In the Publish tab, choose **Manage in Cloud Explorer**. This opens the new function app Azure resource in Cloud Explorer. 
+    
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message":::
+    
+    Cloud Explorer lets you use Visual Studio to view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal. 

@@ -49,7 +49,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Import a database from a bacpac file](scripts/import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script imports a database into Azure SQL Database from a bacpac file. |
 | **Sync data between databases**||
 | [Sync data between SQL databases](scripts/sql-data-sync-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between multiple databases in Azure SQL Database. |
-| [Sync data between SQL Database and SQL Server on-premises](scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between a database in Azure SQL Database and a SQL Server on-premises database. |
+| [Sync data between SQL Database and SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script configures Data Sync to sync between a database in Azure SQL Database and a SQL Server database. |
 | [Update the SQL Data Sync sync schema](scripts/update-sync-schema-in-sync-group.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
 |||
 

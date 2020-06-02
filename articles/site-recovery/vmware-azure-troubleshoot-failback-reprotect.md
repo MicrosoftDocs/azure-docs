@@ -65,7 +65,7 @@ To resolve this issue:
 
 ### Error code 78093
 
-**The VM is not running, in a hung state, or not accessible.**
+**The VM is not running, not responding, or not accessible.**
 
 To resolve this issue:
 

@@ -4,7 +4,7 @@ description: This overview introduces SQL Data Sync for Azure, which allows you 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -28,7 +28,7 @@ Data Sync is based around the concept of a Sync Group. A Sync Group is a group o
 Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
 
 - The **Hub Database** must be an Azure SQL Database.
-- The **member databases** can be either Azure SQL Database, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
+- The **member databases** can be either databases in Azure SQL Database or in instances of SQL Server.
 - The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migration from SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
@@ -164,6 +164,18 @@ Data Sync can't sync read-only or system-generated columns. For example:
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
+### Network requirements
+
+When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL server must have the following configuration in its `Firewalls and virtual networks` settings:
+
+ * *Deny public network access* must be set to *Off*.
+ * *Allow Azure services and resources to access this server* must be set to *Yes*, or you must create IP rules for the [IP addresses used by Data Sync service](network-access-controls-overview.md#data-sync).
+
+Once the sync group is created and provisioned, you can then disable these settings. The sync agent will connect directly to the hub database, and you can use the server's [firewall IP rules](firewall-configure.md) or [private endpoints](private-endpoint-overview.md) to allow the agent to access the hub server.
+
+> [!NOTE]
+> If you change the sync group's schema settings, you will need to allow the Data Sync service to access the server again so that the hub database can be re-provisioned.
+
 ## FAQ about SQL Data Sync
 
 ### How much does the SQL Data Sync service cost
@@ -178,9 +190,9 @@ SQL Data Sync is available in all regions.
 
 Yes. You must have a SQL Database account to host the Hub Database.
 
-### Can I use Data Sync to sync between SQL Server on-premises databases only
+### Can I use Data Sync to sync between SQL Server databases only
 
-Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+Not directly. You can sync between SQL Server databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
 
 ### Can I use Data Sync to sync between SQL Databases that belong to different subscriptions
 

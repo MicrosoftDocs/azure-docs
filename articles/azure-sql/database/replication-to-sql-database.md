@@ -31,7 +31,7 @@ You can configure an Azure SQL Database as the push subscriber in a one-way tran
 
 To successfully replicate to an Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions: 
 
-Publishing to any Azure SQL Database from an on-premises SQL Server is supported by the following versions of SQL Server:
+Publishing to any Azure SQL Database from a SQL Server database is supported by the following versions of SQL Server:
 
 - SQL Server 2016 and greater
 - SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) or [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
@@ -78,13 +78,13 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 ### Typical Replication Scenario  
 
-1. Create a transactional replication publication on an on-premises SQL Server database.  
-2. On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
+1. Create a transactional replication publication on a SQL Server database.  
+2. On SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
 3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With a SQL Managed Instance publisher, you can also use a database backup to seed the Azure SQL Database subscriber.
 
 ### Data Migration Scenario  
 
-1. Use transactional replication to replicate data from an on-premises SQL Server database to Azure SQL Database.  
+1. Use transactional replication to replicate data from a SQL Server database to Azure SQL Database.  
 2. Redirect the client or middle-tier applications to update the database copy.  
 3. Stop updating the SQL Server version of the table and remove the publication.  
 
