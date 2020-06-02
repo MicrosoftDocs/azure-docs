@@ -20,8 +20,7 @@ ms.author: mikeray
 # Use Azure Storage for SQL Server backup and restore
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to Azure Blob storage. You can use this functionality to back up to and restore from Azure Blob storage with an on-premises SQL Server database or a SQL Server database in an Azure virtual machine (VM). Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
-
+Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to Azure Blob storage. You can use this functionality to back up to and restore from Azure Blob storage and a SQL Server database. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
 
 ## Overview
 SQL Server 2016 introduces new capabilities; you can use [file-snapshot backup](https://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
@@ -35,7 +34,7 @@ There are several challenges that you face when backing up SQL Server. These cha
 * **Backup archive**: Azure Blob storage offers a better alternative to the often used tape option to archive backups. Tape storage might require physical transportation to an off-site facility and measures to protect the media. Storing your backups in Azure Blob storage provides an instant, highly available, and a durable archiving option.
 * **Managed hardware**: There is no overhead of hardware management with Azure services. Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures.
 * **Unlimited storage**: By enabling a direct backup to Azure blobs, you have access to virtually unlimited storage. Alternatively, backing up to an Azure virtual machine disk has limits based on machine size. There is a limit to the number of disks you can attach to an Azure virtual machine for backups. This limit is 16 disks for an extra large instance and fewer for smaller instances.
-* **Backup availability**: Backups stored in Azure blobs are available from anywhere and at any time and can easily be accessed for restores to either an on-premises SQL Server or another SQL Server running in an Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD.
+* **Backup availability**: Backups stored in Azure blobs are available from anywhere and at any time and can easily be accessed for restores to a SQL Server instance, without the need for database attach/detach or downloading and attaching the VHD.
 * **Cost**: Pay only for the service that is used. Can be cost-effective as an off-site and backup archive option. See the [Azure pricing calculator](https://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator"), and the [Azure Pricing article](https://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article") for more information.
 * **Storage snapshots**: When database files are stored in an Azure blob and you are using SQL Server 2016, you can use [file-snapshot backup](https://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
 
