@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 06/02/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -85,12 +85,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
 
-1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
-
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    c. In the **Relay State** text box, type a URL using the following pattern:
     `https://<CLIENT>.siteintel.com`
 
-    e. In the **Relay State** text box, type a URL using the following pattern:
+1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CLIENT>.siteintel.com`
 
     > [!NOTE]
