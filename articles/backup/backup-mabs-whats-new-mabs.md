@@ -32,10 +32,14 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 >[!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
-### VMWare parallel backups
+### Azure VMware Solution protection support
 
-With MABS V3 UR1, all your VMWare VMs backups within a single protection group will be parallel, leading to 25% faster VM backups.
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
+With MABS v3 UR1 you can now protect virtual machines deployed in [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/). For more information, see [Set up Microsoft Azure Backup Server for AVS](https://review.docs.microsoft.com/azure/azure-vmware/set-up-mabs-for-avs?branch=pr-en-us-116923).
+
+### VMware parallel backups
+
+With MABS V3 UR1, all your VMware VMs backups within a single protection group will be parallel, leading to 25% faster VM backups.
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMware delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
 
 ### Disk exclusion for VMware VM backup
 

@@ -72,6 +72,8 @@ landingContent:
             url: ./how-to/author-policies-for-arrays.md
       - linkListType: concept
         links:
+          - text: Regulatory Compliance
+            url: ./concepts/regulatory-compliance.md
           - text: Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
           - text: Policy for VMs
@@ -92,10 +94,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Microsoft Q&A for Azure Policy
+            url: /answers/topics/azure-policy.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance
+            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 

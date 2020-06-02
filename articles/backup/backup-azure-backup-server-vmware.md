@@ -20,6 +20,10 @@ This article explains how to:
 
 - Verify that you're running a version of vCenter/ESXi that's supported for backup. Refer to the support matrix [here](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Make sure you've set up Azure Backup Server. If you haven't, [do that](backup-azure-microsoft-azure-backup.md) before you start. You should be running Azure Backup Server with the latest updates.
+- Ensure the following network ports are open:
+    - TCP 443 between MABS and vCenter
+    - TCP 443 and TCP 902 between MABS and ESXi host
+
 
 ## Create a secure connection to the vCenter Server
 

@@ -97,7 +97,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 1. Define the [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index). The *Fields* collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
 
-1. Define the [indexer](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referencing the data source, skillset, and index.
+1. Define the [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) referencing the data source, skillset, and index.
 
 1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (in step 3) to the inputs fields in the index schema (in step 4).
 

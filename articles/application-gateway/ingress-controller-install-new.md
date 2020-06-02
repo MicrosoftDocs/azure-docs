@@ -63,7 +63,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
     }
     EOF
     ```
-    To deploy an **RBAC** enabled cluster, set the `aksEnabledRBAC` field to `true`
+    To deploy an **RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
 
 ## Deploy Components
 This step will add the following components to your subscription:
