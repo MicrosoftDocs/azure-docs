@@ -101,7 +101,7 @@ To investigate any configuration or scraping errors, the following example query
 KubeMonAgentEvents | where Level != "Info" 
 ```
 
-The output will show results similar to the following:
+The output shows results similar to the following example:
 
 ![Log query results of informational events from agent](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
