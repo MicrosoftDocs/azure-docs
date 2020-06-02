@@ -71,7 +71,7 @@ For example, consider two properties: town and country. The cardinality of town 
 
 The first query will likely use more RUs than the second query because the cardinality of town is higher than country.
 
-If the property in Contains is over 1 KB for some documents, the query engine will need to load those documents. In this case, the query engine won't be able to fully evaluate Contains with an index. The RU charge for Contains will be high if you have a large number of documents with properties over 1 KB.
+If the property size in Contains is greater than 1 KB for some documents, the query engine will need to load those documents. In this case, the query engine won't be able to fully evaluate Contains with an index. The RU charge for Contains will be high if you have a large number of documents with property sizes more than 1 KB.
 
 ## Next steps
 

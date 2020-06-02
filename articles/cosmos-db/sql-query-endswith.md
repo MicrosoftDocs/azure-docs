@@ -71,7 +71,7 @@ For example, consider two properties: town and country. The cardinality of town 
 
 The first query will likely use more RUs than the second query because the cardinality of town is higher than country.
 
-If the property in EndsWith is over 1 KB for some documents, the query engine will need to load those documents. In this case, the query engine won't be able to fully evaluate EndsWith with an index. The RU charge for EndsWith will be high if you have a large number of documents with properties over 1 KB.
+If the property size in EndsWith is greater than 1 KB for some documents, the query engine will need to load those documents. In this case, the query engine won't be able to fully evaluate EndsWith with an index. The RU charge for EndsWith will be high if you have a large number of documents with property sizes greater than 1 KB.
 
 ## Next steps
 
