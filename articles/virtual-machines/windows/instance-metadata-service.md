@@ -1,15 +1,16 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
+description: RESTful interface to get information about Windows VMs compute, network, and upcoming maintenance events.
+services: virtual-machines-windows
 author: KumariSupriya
 manager: paulmey
-ms.service: virtual-machines
+ms.service: virtual-machines-windows
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
-ms.reviewer: azmetadata
+ms.reviewer: azmetadatadev
 ---
 
 # Azure Instance Metadata service
@@ -680,10 +681,10 @@ The document contains the following fields:
 
 Data | Description
 -----|------------
-nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
-timestamp/createdOn | The UTC timestamp at which the first signed document was created
-timestamp/expiresOn | The UTC timestamp at which the signed document expires
+nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used
+plan | The [Azure Marketplace Image plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher).
+timestamp/createdOn | The UTC timestamp for when the signed document was created
+timestamp/expiresOn | The UTC timestamp for when the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
@@ -821,7 +822,7 @@ HTTP Status Code | Reason
 1. I am not seeing all data populated for new version
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
-   * Retry your request based on exponential back off system. If the issue persists create a support issue in Azure Portal for the VM.
+   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure Portal for the VM.
 1. Would this work for Virtual Machine Scale Set instances?
    * Yes Metadata service is available for Scale Set instances.
 1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
