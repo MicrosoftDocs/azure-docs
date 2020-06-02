@@ -66,7 +66,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
 4. Send a test call and include the token to validate your access to the REST API:
 
-        curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2016-08-01
+        curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
 
 ## Examples using the API  
 
@@ -94,7 +94,7 @@ You use a GET request to query objects of Azure NetApp Files in a subscription, 
 
 ### PUT request examples
 
-You use a PUT request to create new objects in Azure NetApp Files, as the following examples show. The body of the PUT request can include the JSON formatted data for the changes. It must be included in the curl command as text or references as a file. To reference the body as a file, save the json example to a file and add -d `@<filename>` to the curl command.
+You use a PUT request to create new objects in Azure NetApp Files, as the following examples show. The body of the PUT request can include the JSON formatted data for the changes. It must be included in the curl command as text or references as a file. To reference the body as a file, save the json example to a file and add `-d @<filename>` to the curl command.
 
         #create a NetApp account  
         curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
