@@ -12,17 +12,18 @@ manager: lizross
 ---
 # Configure Microsoft Endpoint Manager
 
-This article will tell you how to configure Microsoft Endpoint Configuration Manager to automatically apply updates to a Windows Virtual Desktop host running Windows 10 Enterprise multi-session.
+This article explains how to configure Microsoft Endpoint Configuration Manager to automatically apply updates to a Windows Virtual Desktop host running Windows 10 Enterprise multi-session.
 
 ## Prerequisites
 
--   MECM must be at least at 1906 Branch Level, preferred 1910 or higher.
+To configure this setting, you'll need the following things:
 
--   MECM Agent must be installed on the virtual machines.
+- Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your virtual machines.
+- Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1906. For best results, use branch level 1910 or higher.
 
-## Configuration of the MECM Software Update Point
+## Configure the software update point
 
-Windows 10 Enterprise multi-session represents itself as Server Operating to MECM. To receive updates for Windows 10 Enterprise multi-session Windows Server, version 1903 and later needs to be enabled as a product within MECM.
+To receive updates for Windows 10 Enterprise multi-session, you need to enable Windows Server, version 1903 and later as a product within Microsoft Endpoint Configuration Manager. This product setting also applies if you use the Windows Server Update Service to deploy updates to your systems.
 
 To receive updates:
 
@@ -31,15 +32,16 @@ To receive updates:
 3. Select the **Products** tab.
 4. Select the check box that says **Windows Server, version 1903 and later**.
 
-This product setting also applies if you use Windows Server Update Service (WSUS) to deploy updates to your systems.
+## Create a Microsoft Endpoint Configuration Manager collection
 
-## Create a MECM Collection for Windows 10 Enterprise multi-session
+To create a collection of Windows 10 Enterprise multi-session virtual machines, a query-based collection can be used to identify the specific operating system SKU.
 
-To create a collection of Windows 10 Enterprise multi-session Virtual Machines, a query-based collection can be used to identify the specific operating system SKU.
+To make a query:
 
-![](media/898968fd58cb25a4f822ac8c53cc61aa.png)
+1. Open the **Windows 10 Multi Session Query Statement Properties** window.
+2. Select the **Criteria** tab and enter the following parameters:
 
-```
+```syntax
 select
 SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client
 from SMS_R_System inner join SMS_G_System_OPERATING_SYSTEM on
