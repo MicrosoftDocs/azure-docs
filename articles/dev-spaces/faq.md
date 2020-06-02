@@ -94,7 +94,6 @@ At this time, you can't use Azure Dev Spaces with service meshes such as [Istio]
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
-[aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-migration]: ../aks/aks-migration.md
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
