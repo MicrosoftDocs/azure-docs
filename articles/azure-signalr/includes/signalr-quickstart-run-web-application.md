@@ -14,14 +14,15 @@ ms.custom: include file
 
     > [!NOTE]
     > The source of the HTML file is located at [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). And if you'd like to host the HTML yourself, please start a local HTTP server such as [http-server](https://www.npmjs.com/package/http-server) in the */docs/demo/chat-v2* directory. Ensure the origin is added to the `CORS` setting in *local.settings.json* similar to the sample.
-    ```js
-    "Host": {
-      "LocalHttpPort": 7071,
-      "CORS": "http://localhost:8080,https://azure-samples.github.io",
-      "CORSCredentials": true
-    }
-    
-    ```
+    > 
+    > ```javascript
+    > "Host": {
+    >  "LocalHttpPort": 7071,
+    >  "CORS": "http://localhost:8080,https://azure-samples.github.io",
+    >  "CORSCredentials": true
+    > }
+    >
+    > ```
 
 1. When prompted for the function app base URL, enter `http://localhost:7071`.
 
