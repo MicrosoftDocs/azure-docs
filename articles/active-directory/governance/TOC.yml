@@ -123,7 +123,7 @@
 - name: Reference
   expanded: true
   items:
-  - name: Access Reviews API
+  - name: Access reviews API
     href: https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta
   - name: Entitlement management API
     href: https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
