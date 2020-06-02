@@ -24,7 +24,7 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information related to WVD GA release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). For information related to WVD sprig update, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy the Windows Virtual Desktop Fall 2019 release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy the Windows Virtual Desktop Spring 2020 release, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
@@ -53,14 +53,14 @@ To get the OS image from the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in.
 
-2. Navigate to **Create a virtual machine** section.
+2. Go to **Create a virtual machine**.
 
-3. In the **Basic** blade, under **Image** select **Windows 10 enterprise multi-session, version 2004**.
+3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
       
-4. Complete the **Create virtual machine**.
+4. Follow the rest of the instructions to finish creating the virtual machine.
 
      >[!NOTE]
-     >This VM can be used to test MSIX app attach directly, if this is your goal jump to **Generate a VHD or VHDX package for MSIX**. If however you are looking to build a WVD host pool based on this VM follow steps below.
+     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
 
 ## Prepare the VHD image for Azure 
 
