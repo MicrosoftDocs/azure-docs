@@ -11,7 +11,17 @@ ms.author: magoedte
 
 # Virtual machine extension management with Azure Arc for servers (preview)
 
-Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs. 
+Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs that simplifies the management of your hybrid machine on-premises, edge and other cloud environments through their lifecycle.
+
+Now you can manage and monitor your hybrid machines in a consistent manner at scale using Azure services, insights, and solutions:
+
+* Use Azure Automation DSC to centrally store configurations and maintain the desired state of hybrid machines by installing the DCS VM extension. 
+
+* Collect log data for analysis with Azure Monitor Logs by installing the Log Analytics agent VM extension and correlate between other infrastructure and application data.
+
+* With Azure Monitor for VMs, analyzes the performance of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. This is achieved using the Log Analytics agent and Dependency agent VM extensions.
+
+* 
 
 VM extensions can be run with the Azure REST API, Azure Resource Manager templates, the Azure portal, or Azure policies on hybrid servers managed by Arc for servers (preview).
 
