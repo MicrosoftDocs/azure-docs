@@ -576,7 +576,7 @@ When you restrict the storage account to specific virtual networks, you are allo
 ### Disable access to the Storage Sync Service public endpoint
 Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync does not support service endpoints for restricting access to the public endpoint to specific virtual networks. This means that the two states for the Storage Sync Service's public endpoint are enabled and disabled.
 
-# [Portal(#tab/azure-portal)]
+# [Portal](#tab/azure-portal)
 This is not possible through the Azure portal. Please select the Azure PowerShell or Azure CLI instructions to get instructions on how to disable the Storage Sync Service public endpoint. 
 
 # [PowerShell](#tab/azure-powershell)
