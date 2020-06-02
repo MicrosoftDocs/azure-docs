@@ -150,7 +150,7 @@
         href: storage-files-identity-ad-ds-enable.md
       - name: Assign share-level permissions
         href: storage-files-identity-ad-ds-assign-permissions.md
-      - name: Configure permissions
+      - name: Assign directory/file level permissions
         href: storage-files-identity-ad-ds-configure-permissions.md
       - name: Mount file share
         href: storage-files-identity-ad-ds-mount-file-share.md
