@@ -26,7 +26,7 @@ T-SQL streaming uses the external data source functionality of SQL Server to def
 
 - [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
 
-- [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-sql-database)
+- [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
 Additionally, if Azure SQL Edge, SQL Server, or Azure SQL Database is used as an output stream, you need the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). This T-SQL command defines the credentials to access the SQL database.
 
