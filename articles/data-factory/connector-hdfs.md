@@ -57,7 +57,7 @@ The following properties are supported for the HDFS linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to *Hdfs*. | Yes |
 | url |The URL to the HDFS |Yes |
-| authenticationType | Allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for HDFS connector](#use-kerberos-authentication-for-hdfs-connector) section. |Yes |
+| authenticationType | Allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector) section. |Yes |
 | userName |The username for Windows authentication. For Kerberos authentication, specify **\<username>@\<domain>.com**. |Yes (for Windows authentication) |
 | password |Password for Windows authentication. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, it uses the default Azure Integration Runtime. |No |
@@ -265,7 +265,7 @@ For DistCp-related configurations and examples, go to the [HDFS as source](#hdfs
 
 ## Use Kerberos authentication for the HDFS connector
 
-There are two options to set up the on-premises environment to use Kerberos authentication in the HDFS connector. You can choose the one that better fits your case.
+There are two options for setting up the on-premises environment to use Kerberos authentication for the HDFS connector. You can choose the one that better fits your situation.
 * Option 1: [Join a self-hosted integration runtime machine in the Kerberos realm](#kerberos-join-realm)
 * Option 2: [Enable mutual trust between the Windows domain and the Kerberos realm](#kerberos-mutual-trust)
 
