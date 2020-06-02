@@ -101,11 +101,29 @@ Perform the following steps in the Azure portal to order a device.
     |Setting  |Value  |
     |---------|---------|
     |Storage account     | The Azure Storage account from where you want to export data. |
-    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<br> **All objects** -         |
-    |Transfer options     |  Specifies the data transfer options from **Select all**, **all blobs**, and **All files**.        |
+    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<br> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.<br> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is not supported for the preview release. The file needs to be a non-empty .xml file.        |
+    |Transfer options     |  Specifies the data transfer options from **Select all**, **all blobs**, and **All files**. <br> **Select all** - Specifies that all blobs and Azure files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.<br> **all blobs** - Specifies that only block and page blobs are exported.<br> **All files** - Specifies that all files are exported excluding blobs.<br><br> The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export.         |
     |Include verbose log     | Indicates whether you want a verbose log file that contains all operations and files that were transferred.        |
 
+    > [!NOTE]
+    >
+    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
+
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+
+   The following xml shows an example of the xml format that the export order use when you use the **use XML file** option:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <BlobList>
+      <BlobPathPrefix>/export-container</BlobPathPrefix>
+      <BlobPath>/export-container-blobsonly/TELL.C</BlobPath>
+   </BlobList>
+   <AzureFileList>
+      <FilePathPrefix>/export-fileshare-prefix</FilePathPrefix>
+      <FilePath>/export-filelist1/windows/NgcPopKeySrv.log</FilePath>
+   </AzureFileList>
+   ```
 
 9. In **Data selection**, review your settings and select **Next: Contact details>**.
 
