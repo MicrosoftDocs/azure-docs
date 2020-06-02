@@ -258,4 +258,4 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 Learn how to remove Application Insights in Visual Studio by following the steps provide in the removal [article](../../azure-monitor/app/remove-application-insights.md).
 
 ## Still not working...
-* [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Microsoft Q&A question page for Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)

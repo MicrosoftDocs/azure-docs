@@ -30,7 +30,7 @@ Users can opt-in to receive in-VM notifications through [Azure Scheduled Events]
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 
-| Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set t a new max price, then update the VM. |
+| Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
 
 ## Limitations
 
