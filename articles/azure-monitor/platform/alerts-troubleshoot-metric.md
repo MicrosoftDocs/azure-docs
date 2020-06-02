@@ -76,18 +76,20 @@ If you can see some metrics for the resource but can’t find a specific metric,
 ## Can’t find the metric dimension to alert on
 
 If you are looking to alert on [specific dimension values of a metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions), but cannot find these values, note the following:
-	* It might take a few minutes for the dimension values to appear under the **Dimension values** list
-	* The displayed dimension values are based on metric data collected in the last three days
-	* If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
-	* If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
+
+- It might take a few minutes for the dimension values to appear under the **Dimension values** list
+- The displayed dimension values are based on metric data collected in the last three days
+- If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
+- If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
 
 ## Metric alert rules still defined on a deleted resource 
 
 When deleting an Azure resource, associated metric alert rules aren't deleted automatically. To delete alert rules associated with a resource that has been deleted:
-	* Open the resource group in which the deleted resource was defined
-	* In the list displaying the resources, check the **Show hidden types** checkbox
-	* Filter the list by Type == **microsoft.insights/metricalerts**
-	* Select the relevant alert rules and select **Delete**
+
+- Open the resource group in which the deleted resource was defined
+- In the list displaying the resources, check the **Show hidden types** checkbox
+- Filter the list by Type == **microsoft.insights/metricalerts**
+- Select the relevant alert rules and select **Delete**
 
 ## Make metric alerts occur every time my condition is met
 
@@ -103,17 +105,21 @@ The allowed number of metric alert rules per subscription is subject to [quota l
 
 If you have reached the quota limit, the following steps may help resolve the issue:
 1. Try deleting or disabling metric alert rules that aren’t used anymore.
+
 2. Switch to using metric alert rules that monitor multiple resources. With this capability, a single alert rule can monitor multiple resources using only one alert rule counted against the quota. For more information about this capability and the supported resource types, see [multiple](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+
 3. If you need the quota limit to be increased, open a support request, and provide the following information:
+
     - Subscription Id(s) for which the quota limit needs to be increased
     - Resource type for the quota increase: **Metric alerts** or **Metric alerts (Classic)**
     - Requested quota limit
 
-## Check my total number of metric alert rules
+## Check total number of metric alert rules
 
 To check the current usage of metric alert rules, follow the steps below.
 
 ### From the Azure portal
+
 1. Open the **Alerts** screen, and click **Manage alert rules**
 2. Filter to the relevant subscription, by using the **Subscription** dropdown control
 3. Make sure NOT to filter to a specific resource group, resource type, or resource
@@ -122,51 +128,64 @@ To check the current usage of metric alert rules, follow the steps below.
 6. The total number of metric alert rules are be displayed above the rules list
 
 ### From API
-	* PowerShell - [Get-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
-	* REST API - [List by subscription](https://docs.microsoft.com/rest/api/monitor/metricalerts/listbysubscription)
-	* Azure CLI - [az monitor metrics alert list](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
 
+- PowerShell - [Get-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- REST API - [List by subscription](https://docs.microsoft.com/rest/api/monitor/metricalerts/listbysubscription)
+- Azure CLI - [az monitor metrics alert list](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
 
-## Issues managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
+## Managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
 
 If you are running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure command-line interface (CLI), the following steps may help resolve the issue.
 
 ### Resource Manager templates
+
 - Review [common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) list and troubleshoot accordingly
 - Refer to the [metric alerts Azure Resource Manager template examples](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates) to ensure you are passing the all the parameters correctly
 
 ### REST API
+
 Review the [REST API guide](https://docs.microsoft.com/rest/api/monitor/metricalerts/) to verify you are passing the all the parameters correctly
 
 ### PowerShell
+
 Make sure that you are using the right PowerShell cmdlets for metric alerts:
-    * PowerShell cmdlets for metric alerts are available in the [Az.Monitor module](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1)
-    * Make sure to use the cmdlets ending with 'V2' for new (non-classic) metric alerts (for example, [Add-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/Add-AzMetricAlertRuleV2?view=azps-3.6.1))
+
+- PowerShell cmdlets for metric alerts are available in the [Az.Monitor module](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1)
+- Make sure to use the cmdlets ending with 'V2' for new (non-classic) metric alerts (for example, [Add-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/Add-AzMetricAlertRuleV2?view=azps-3.6.1))
 
 ### Azure CLI
+
 Make sure that you are using the right CLI commands for metric alerts:
-    * CLI commands for metric alerts start with `az monitor metrics alert`. Review the [Azure CLI reference](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest) to learn about the syntax.
-    * You can see [sample showing how to use metric alert CLI](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
-    * To alert on a custom metric, make sure to prefix the metric name with the relevant metric namespace: NAMESPACE.METRIC
+
+- CLI commands for metric alerts start with `az monitor metrics alert`. Review the [Azure CLI reference](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest) to learn about the syntax.
+- You can see [sample showing how to use metric alert CLI](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
+- To alert on a custom metric, make sure to prefix the metric name with the relevant metric namespace: NAMESPACE.METRIC
 
 ### General
-1. If you are receiving a `Metric not found` error:
-	- For a platform metric - Make sure that you are using the **Metric** name from [the Azure Monitor supported metrics page](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), and not the **Metric Display Name**
-	- For a custom metric - Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you are providing the custom metric's namespace (see an ARM template example [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
-2. If you are creating [metric alerts on logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs), ensure appropriate dependencies are included. See [sample template](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#resource-template-for-metric-alerts-for-logs).
+- If you are receiving a `Metric not found` error:
 
-3. If you are creating an alert rule that contains multiple criteria, note the following constraints:
-	- You can only select one value per dimension within each criterion
-	- You cannot use "\*" as a dimension value
-	- When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (see an Resource Manager  template example [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria))
+   - For a platform metric: Make sure that you are using the **Metric** name from [the Azure Monitor supported metrics page](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), and not the **Metric Display Name**
+
+   - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you are providing the custom metric's namespace (see an ARM template example [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+
+- If you are creating [metric alerts on logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs), ensure appropriate dependencies are included. See [sample template](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#resource-template-for-metric-alerts-for-logs).
+
+- If you are creating an alert rule that contains multiple criteria, note the following constraints:
+
+   - You can only select one value per dimension within each criterion
+   - You cannot use "\*" as a dimension value
+   - When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (see a Resource Manager  template example [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria))
+
 
 ## No permissions to create metric alert rules
+
 To create a metric alert rule, you’ll need to have the following permissions:
+
 - Read permission on the target resource of the alert rule
 - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
 
-
 ## Next steps
+
 - For general troubleshooting information about alerts and notifications, see [Troubleshooting problems in Azure Monitor alerts](alerts-troubleshoot.md).

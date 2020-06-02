@@ -52,7 +52,7 @@ The term **Log Alert** describes alerts where a log query in [Log Analytics work
 
 1. Once selected, create the alerting query in the **Search Query** field. If the query syntax is incorrect, the field displays and error in red. 
 
-1. If the query syntax is correct, then then historical data for the query appears as a graph with the option to tweak the time window from last six hours to last week.
+1. If the query syntax is correct, then historical data for the query appears as a graph with the option to tweak the time window from last six hours to last week.
 
     ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
 
@@ -68,7 +68,7 @@ The term **Log Alert** describes alerts where a log query in [Log Analytics work
 
 1. Choose the time period over which to assess the specified condition, using **Period** option. 
 
-1. Chose how often the alert runs in **Frequency**. 
+1. Choose how often the alert runs in **Frequency**. 
 
     **Log Alerts** can be based on:
     - [Number of Records](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): An alert is created if the count of records returned by the query is either greater than or less than the value provided.

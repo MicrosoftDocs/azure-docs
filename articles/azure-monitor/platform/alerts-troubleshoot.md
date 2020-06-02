@@ -45,7 +45,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
       - azureemail-noreply@microsoft.com
       - alerts-noreply@mail.windowsazure.com
 
-    It is common that internal mailing lists or distribution lists block emails from external email addresses. You need to whitelist the above email addresses.  
+    It is common that internal mailing lists or distribution lists block emails from external email addresses. You must allow mail from the above email addresses.  
     To test, add a regular work email address (not a mailing list) to the action group and see if alerts arrive to that email.
 
 1. **Was the email processed by inbox rules or a spam filter?**
@@ -114,7 +114,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
    Most mobile phones allow you to block calls or SMS from specific phone numbers or short codes, or to block push notifications from specific apps (such as the Azure mobile app). To check if you accidentally blocked the notifications on your phone, search the documentation specific for your phone operating system and model, or test with a different phone and phone number.
 
 ## Expected another type of action to trigger, but it did not 
-
+   
 If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps:
 
 1. **Was the action suppressed by an action rule?**
@@ -129,7 +129,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Whitelist the [IP addresses](action-groups.md#action-specific-information) that the webhook is called from.
+       Add the [IP addresses](action-groups.md#action-specific-information) that the webhook is called from to your allow list.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -179,7 +179,7 @@ If you have received the alert, but believe some of its fields are missing or in
  
 1. **Activity log alerts: Is the information available in the activity log?** 
 
-    [Activity log alerts](activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
+    [Activity log alerts](activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
 
 ## Action rule is not working as expected 
 
@@ -215,9 +215,9 @@ If you can see a fired alert in the portal, but a related action rule did not wo
     If you think the action rule should have fired but didn't, or that it shouldn't have fired but it did, carefully examine the action rule scope and filter conditions versus the properties of the fired alert. 
 
 
-## How to find the alert id of a fired alert
+## How to find the alert ID of a fired alert
 
-When opening a case about a specific fired alert (such as – if you did not receive its email notification), you will need to provide the alert id. 
+When opening a case about a specific fired alert (such as – if you did not receive its email notification), you will need to provide the alert ID. 
 
 To locate it, follow these steps:
 
@@ -227,7 +227,7 @@ To locate it, follow these steps:
 
 1. Scroll down in the alert fields of the first tab (the summary tab) until you locate it, and copy it. That field also includes a "Copy to clipboard" helper button you can use.  
 
-    ![find alert id](media/alerts-troubleshoot/get-alert-id.png)
+    ![find alert ID](media/alerts-troubleshoot/get-alert-id.png)
 
 ## Problem creating, updating, or deleting action rules in the Azure portal
 
