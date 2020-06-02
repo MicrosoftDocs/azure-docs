@@ -32,7 +32,7 @@ To avoid disruption to your service, review and apply these actions before June 
 The following table includes all IP addresses that must be whitelisted. IP addresses in **bold** are the new IP addresses. 
 
 |Region name|Gateway IP addresses|
-|---|---|	
+|-----------|-------------------|	
 |Australia Central|	20.36.105.0	|
 |Australia Central 2|	20.36.113.0	|
 |Australia East	|13.75.149.87<br>40.79.161.1	|
