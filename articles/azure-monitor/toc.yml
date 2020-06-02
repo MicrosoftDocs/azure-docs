@@ -464,6 +464,8 @@
         href: platform/alerts-metric-logs.md
       - name: Using Resource Manager template
         href: platform/alerts-metric-create-templates.md
+      - name: Troubleshoot metric alerts
+        href: platform/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:  
       - name: Configure alerts on analytics query
@@ -992,10 +994,10 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
-    - name: Key Vault
-      href: insights/key-vaults-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
