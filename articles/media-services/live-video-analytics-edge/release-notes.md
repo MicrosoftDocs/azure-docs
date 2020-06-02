@@ -18,7 +18,11 @@ This article provides you with information about:
 
 ## June 1, 2020
 
-This is the public preview release of Live Video Analytics on IoT Edge.
+This release is the first public preview release of Live Video Analytics on IoT Edge. The release tag is
+
+```
+     mcr.microsoft.com/media/live-video-analytics:1.0.0
+```
 
 ### Supported functionalities
 * Analyze live video streams using AI modules of your choice and optionally record video on the edge device or in the cloud

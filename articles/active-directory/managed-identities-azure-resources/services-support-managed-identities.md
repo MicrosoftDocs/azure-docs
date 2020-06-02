@@ -131,6 +131,13 @@ Refer to the following list to configure managed identity for Azure Data Factory
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
+### Azure Import/Export
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| System assigned | Available in the region where Azure Import Export service is available | Preview | Available | Available |
+| User assigned | Not available | Not available | Not available | Not available |
+
 ### Azure Kubernetes Service (AKS)
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -157,6 +164,7 @@ Refer to the following list to configure managed identity for Azure Logic Apps (
 
 
 ### Azure Service Fabric
+
 [Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -165,6 +173,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | ![Available][check] | Not Available | Not Available |Not Available |
 
 Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+
 - [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 
@@ -233,7 +242,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://vault.microsoftazure.de` | ![Available][check] |
 | Azure China 21Vianet | `https://vault.azure.cn` | ![Available][check] |
 
-### Azure Data Lake 
+### Azure Data Lake
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -242,7 +251,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure SQL 
+### Azure SQL
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -285,15 +294,6 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
 | Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
-
-
-
-
-
-
-
-
-
 
 ### Azure Analysis Services
 
