@@ -15,7 +15,7 @@ ms.reviewer: azmetadata
 # Azure Instance Metadata service
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
+This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
 Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
 Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
@@ -226,13 +226,13 @@ scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
 ## Instance API
 
-Instance API exposes the important metadata for the VM instances, including the VM, network and storage. 
+Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
 The following categories can be accessed through instance/compute:
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This feature is currently disabled, and we will update this documentation when it becomes available | 2019-02-01
+customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -528,7 +528,7 @@ osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
-The following is an example of how to query the VM's storage information.
+The following example shows how to query the VM's storage information.
 
 **Request**
 
@@ -614,7 +614,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-The `tags` field is a string with the tags delimited by semicolons. This can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field which is a JSON array with no delimiters, and consequently, easier to parse.
+The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
 
 **Request**
 
@@ -759,7 +759,10 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ## Managed Identity via Metadata Service
-User can enable the managed identity on a VM, and then leverage Instance Metadata Service to pass the token for accessing Azure services. Applications running on a VM now can request a token from the Azure Instance Metadata service endpoint, and then use the token to authenticate to cloud services, including key vault.
+
+A system assigned managed identity can be enabled on the VM or one or more user assigned managed identities can be assigned to the VM.
+Tokens for managed identities can then be requested from Instance Metadata Service. These tokens can be used to authenticate with other Azure services such as Azure Key Vault.
+
 For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## Scheduled Events via Metadata Service
@@ -767,7 +770,7 @@ You can obtain the status of the scheduled events via metadata service, then use
 
 ## Regional Availability
 
-The service is **generally available** in all Azure regions. This includes: 
+The service is **generally available** in all Azure regions:
 1. [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)
 2. [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  
 3. [Azure China 21Vianet](https://www.azure.cn/) 
@@ -822,7 +825,7 @@ HTTP Status Code | Reason
 1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
    * Currently tags for Scale Sets only show to the VM on a reboot, reimage, or disk change to the instance.
 1. I get request timed out for my call to the service?
-   * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. In addition in case you have changed your routes there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
+   * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally in the case you have changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
 ## Support and Feedback
 
