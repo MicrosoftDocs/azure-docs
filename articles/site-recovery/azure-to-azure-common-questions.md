@@ -47,6 +47,14 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schema for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - For Azure Disk Encryption version 1.1, you have to use the Windows VMs with managed disks.
   - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
+  
+### Can I select an Automation account from a different resource group?
+
+This is currently not supported via portal but you can choose an Automation account from a different resource group via Powershell.
+
+### After specifying an Automation account that is in a different resource group than the vault, am I permitted to delete the runbook if there is no other vault to specify?
+
+The custom runbook created is a tool and it’s safe to delete if the same is longer not required.
 
 ### Can I replicate VMs to another subscription?
 
