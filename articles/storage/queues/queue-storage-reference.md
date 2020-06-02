@@ -8,7 +8,7 @@ ms.date: 06/02/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
-ms.reviewer: 
+ms.reviewer: ripohane
 ---
 
 # Azure Queue storage reference

@@ -4,10 +4,10 @@ description: Find Azure Storage API reference, readme files, and client library 
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/01/2020
+ms.date: 06/02/2020
 ms.service: storage
 ms.topic: conceptual
-ms.reviewer: 
+ms.reviewer: ripohane
 ---
 
 # Azure File Shares storage reference
