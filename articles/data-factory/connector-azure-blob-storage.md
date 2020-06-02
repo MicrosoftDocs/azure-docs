@@ -145,7 +145,7 @@ Data Factory supports the following properties for using shared access signature
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage** (suggested) or **AzureStorage** (see the following note). |Yes |
 | sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as **SecureString** to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more details, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
 >If you're using the "AzureStorage" type linked service, it's still supported as is. But we suggest that you use the new "AzureBlobStorage" linked service type going forward.

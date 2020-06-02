@@ -143,7 +143,7 @@ The following properties are supported for Amazon S3 under `location` settings i
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties that the Amazon S3 source supports.
 
-### Amazon S3 as source
+### Amazon S3 as a source type
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
