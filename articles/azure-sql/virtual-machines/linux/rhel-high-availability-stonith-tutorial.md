@@ -525,7 +525,7 @@ You should see the following output:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## Configure an SQL Server Always On availability group
+## Configure an availability group
 
 Use the following steps to configure a SQL Server Always On availability group for your VMs. For more information, see [Configure SQL Server Always On availability groups for high availability on Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 

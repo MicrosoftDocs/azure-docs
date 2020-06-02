@@ -289,4 +289,4 @@ At this point, the resource group has a load balancer that connects to all SQL S
 For more information on load balancers in Azure, see:
 
 > [!div class="nextstepaction"]
-> [Configure a load balancer for a SQL Server availability group on Azure VMs](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configure a load balance for an availability group on SQL Server on Azure VMs](../windows/availability-group-load-balancer-portal-configure.md)

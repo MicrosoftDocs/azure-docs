@@ -23,7 +23,7 @@ ms.author: mathoma
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-This article provides answers to some of the most common questions about running [SQL Server on Windows virtual machines (VMs) in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+This article provides answers to some of the most common questions about running [SQL Server on Windows Virtual Machines (VMs) in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -89,7 +89,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can easily switch a pay-as-you-go gallery image to bring-your-own-license by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). Currently, this facility is only available for public and Azure Government cloud customers.
+   Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). Currently, this facility is only available for public and Azure Government cloud customers.
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
