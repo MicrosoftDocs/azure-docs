@@ -1,3 +1,19 @@
+---
+title: IPification with Azure Active Directory B2C
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with IPfication to provide IPification secure IP-based authentication to your end users.
+services: active-directory-b2c
+author: msmimart
+manager: celestedg
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: reference
+ms.date: 06/08/2020
+ms.author: mimart
+ms.subservice: B2C
+---
+
 # Tutorial for configuring IPification with Azure Active Directory B2C
 
 This tutorial describes, how to integrate Azure AD B2C authentication with IPfication to provide IPification secure IP-based authentication to your end users.

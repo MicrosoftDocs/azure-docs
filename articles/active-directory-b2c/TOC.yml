@@ -357,15 +357,15 @@
   - name: Partner integration
     items:
     - name: Custom policy partners
-      href: custom-policy-partner-gallery.md
+      href: partner-gallery.md
     - name: Twilio
-      href: custom-policy-partner-twilio.md
+      href: partner-twilio.md
     - name: Itsme
-      href: custom-policy-partner-itsme.md
+      href: partner-itsme.md
     - name: IPification
-      href: custom-policy-partner-ipification.md
+      href: partner-ipification.md
     - name: Trusona
-      href: custom-policy-partner-trusona.md
+      href: partner-trusona.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
