@@ -1,10 +1,10 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about Linux VMs compute, network, and upcoming maintenance events.
-services: virtual-machines-linux
+description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
+services: virtual-machines
 author: KumariSupriya
 manager: paulmey
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
@@ -736,7 +736,7 @@ Verification successful
 }
 ```
 
-Once you get the signature above, verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
 
 ```bash
 # Verify the subject name for the main certificate

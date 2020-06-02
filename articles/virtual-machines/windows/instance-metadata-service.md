@@ -1,10 +1,10 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about Windows VMs compute, network, and upcoming maintenance events.
-services: virtual-machines-windows
+description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
+services: virtual-machines
 author: KumariSupriya
 manager: paulmey
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
@@ -693,7 +693,37 @@ sku | Specific SKU for the VM image, introduced in `2019-11-01`
 
 Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
 
-The C# code sample (https://github.com/microsoft/azureimds/blob/master/IMDSSample.cs) is the best place to start. It will validate the signature is from Microsoft Azure, check the certificate chain for errors, and compare the nonce value to what is expected.
+```powershell
+# Get the signature
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+# Decode the signature
+$signature = [System.Convert]::FromBase64String($attestedDoc.signature)
+```
+
+Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+
+```powershell
+# Get certificate chain
+$cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]($signature)
+$chain = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Chain
+$chain.Build($cert)
+# Print the Subject of each certificate in the chain
+foreach($element in $chain.ChainElements)
+{
+    Write-Host $element.Certificate.Subject
+}
+
+# Get the content of the signed document
+Add-Type -AssemblyName System.Security
+$signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
+$signedCms.Decode($signature);
+$content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
+Write-Host "Attested data: " $conten
+$json = $content | ConvertFrom-Json
+# Do additional validation here
+```
+
+The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
 
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
