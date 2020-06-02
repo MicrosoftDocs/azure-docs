@@ -712,4 +712,4 @@ In this quickstart, you created an Azure Data Factory using an Azure Resource Ma
 
 - [Azure Data Factory documentation](index.yml)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- Get other [Azure Data Factory Resource Manager templates](resource-manager-samples.md)
+- Get other [Azure Data Factory Resource Manager templates](https://azure.microsoft.com/resources/templates/)
