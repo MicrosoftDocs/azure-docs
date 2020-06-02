@@ -47,7 +47,7 @@ CREATE TABLE uprofile.user (
    message text);
 ```
 
-In this design, we have defined the `id` field as the `primary key`. The primary key functions as the identifier for the record in the table, but is also the value used as the `partition key` in Azure Cosmos DB. If the primary key is defined in the manner above, there will only be a single record in each partition. This will result in a perfectly horizontal and scalable distribution when writing data to the database, and is ideal for key-value lookup use cases. The application should provide the primary key whenever reading data from the table, to maximize read performance. 
+In this design, we have defined the `id` field as the primary key. The primary key functions as the identifier for the record in the table and it is also used as the partition key in Azure Cosmos DB. If the primary key is defined in the previously described way, there will only be a single record in each partition. This will result in a perfectly horizontal and scalable distribution when writing data to the database, and is ideal for key-value lookup use cases. The application should provide the primary key whenever reading data from the table, to maximize read performance. 
 
 ![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
 
