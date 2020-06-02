@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -26,7 +26,7 @@ This topic discusses the basic sign-in flow for web, desktop, and mobile apps us
 When a user navigates in the browser to a web app, the following happens:
 
 * The web app determines whether the user is authenticated.
-* If the user isn't authenticated, the web app delegates to Azure AD to sign in the user. That sign in will be compliant with the policy of the organization, which may mean asking the user to enter their credentials, using multi-factor-authentication, or not using a password at all (for example using Windows Hello).
+* If the user isn't authenticated, the web app delegates to Azure AD to sign in the user. That sign in will be compliant with the policy of the organization, which may mean asking the user to enter their credentials, using [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (sometimes referred to as two-factor authentication or 2FA), or not using a password at all (for example using Windows Hello).
 * The user is asked to consent to the access that the client app needs. This is why client apps need to be registered with Azure AD, so that Microsoft identity platform can deliver tokens representing the access that the user has consented to.
 
 When the user has successfully authenticated:

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -20,6 +20,10 @@ Object replication (preview) asynchronously copies block blobs between a source 
 - **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
 - **Optimizing data distribution.** You can process or analyze data in a single location and then replicate just the results to additional regions.
 - **Optimizing costs.** After your data has been replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
+
+The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
+
+:::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram showing how object replication works":::
 
 To learn how to configure object replication, see [Configure object replication (preview)](object-replication-configure.md).
 
@@ -46,7 +50,7 @@ When you create a replication rule, by default only new block blobs that are sub
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier.md) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## About the preview
 
@@ -65,7 +69,9 @@ During the preview, there are no additional costs associated with replicating da
 
 ### Prerequisites for object replication
 
-Object replication requires that the following Azure Storage features are enabled:
+Object replication requires that the following Azure Storage features are enabled: 
+- [Change feed](storage-blob-change-feed.md)
+- [Versioning](versioning-overview.md)
 
 Before you configure object replication, enable its prerequisites. Change feed must be enabled on the source account, and blob versioning must be enabled on both the source and destination account. For more information about enabling these features, see these articles:
 
@@ -149,3 +155,5 @@ To ask questions about the object replication preview, or to provide feedback, c
 ## Next steps
 
 - [Configure object replication (preview)](object-replication-configure.md)
+- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+- [Enable and manage blob versioning](versioning-enable.md)
