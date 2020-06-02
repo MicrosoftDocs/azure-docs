@@ -12,7 +12,7 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# How To: Add validations to a command parameter in a Custom Commands Preview application
+# Add validations to a command parameter in a Custom Commands Preview application
 
 In this article, you'll learn how to add validations to parameters and prompts for correction.
 
@@ -36,7 +36,7 @@ To demonstrate validations, create a new command that allows users to set temper
    | Parameter Configuration           | Suggested value    |Description                 |                                    
    | ----------------- | ----------------------------------| -------------|
    | **Name**              | **Temperature**                       | A descriptive name for parameter                                |
-   | **Required**          | Checked                           | Checkbox indicating whether a value for this parameter is required before completing the Command |
+   | **Required**          | Checked                           | Checkbox indicating whether a value for this parameter is required before completing the command |
    | **Response for required parameter**     | **Simple editor -> What temperature would you like?**  | A prompt to ask for the value of this parameter when it isn't known |
    | **Type**              | **Number**                            | Type of parameter, such as Number, String, DateTime or Geography   |
 
@@ -93,4 +93,4 @@ To demonstrate validations, create a new command that allows users to set temper
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add confirmations to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-confirmations.md)
+> [Add confirmations to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-confirmations.md)
