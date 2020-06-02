@@ -196,7 +196,7 @@ When you create an AKS cluster, a network security group and route table are aut
 ## User-defined route table
 
 > [!NOTE]
-> To bring your own route table, you must use a service principal that contains write permissions to your user-defined route table. You must associate the route table to every subnet in your AKS cluster's virtual network.
+> To bring your own route table, you must use a service principal that contains write permissions to your user-defined route table. Managed identities are not currently supported. You must also associate your route table to every subnet in your AKS cluster's virtual network.
 
 You can create a custom route table and associate it to each subnet in your AKS cluster’s virtual network. When you create a cluster, AKS automatically configures the AKS-required route table rules for you. You can then define your additional route table rules as needed.
 
