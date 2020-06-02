@@ -4,7 +4,7 @@ description: Find Azure Blob storage API reference, readme files, and client lib
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/01/2020
+ms.date: 06/02/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -15,11 +15,7 @@ ms.reviewer:
 
 Find Azure Blob storage API reference, library packages, readme files, and getting started articles.
 
-## .NET APIs
-
-This section contains reference material for .NET developers.
-
-### Blobs
+## .NET client libraries
 
 The following table lists reference and sample documentation for Azure Blob storage .NET APIs.
 
@@ -44,11 +40,7 @@ The following table lists reference documentation for Azure Storage data movemen
 | :-------: | ----------------------- | ------- |
 | 1.x | [Data movement](/dotnet/api/microsoft.azure.storage.datamovement) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
 
-## Java APIs
-
-This section contains reference material for Java developers.
-
-### Blobs
+## Java client libraries
 
 The following table lists reference and sample documentation for Azure Blob storage Java APIs.
 
@@ -65,11 +57,7 @@ The following table lists reference documentation for Azure Storage management J
 | :-------: | ----------------------- | ------- |
 | 0.9.x | [com.microsoft.azure.management.storage](/java/api/overview/azure/storage/management) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
 
-## Python APIs
-
-This section contains reference material for Python developers.
-
-### Blobs
+## Python client libraries
 
 The following table lists reference and sample documentation for Azure Blob storage Python APIs.
 
@@ -78,11 +66,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 | 12.x | [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Manage blobs with Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
 | 2.x | [azure-storage-blob](/python/api/azure-storage-blob/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Manage blobs with Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
-## JavaScript APIs
-
-This section contains reference material for JavaScript developers.
-
-### Blobs
+## JavaScript client libraries
 
 The following table lists reference and sample documentation for Azure Blob storage JavaScript APIs.
 
@@ -92,10 +76,6 @@ The following table lists reference and sample documentation for Azure Blob stor
 | 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Quickstart: Manage blobs with JavaScript v10 SDK in browser](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
 
 ## REST APIs
-
-This section contains reference material for REST developers.
-
-### Blobs
 
 The following table lists reference and sample documentation for Azure Blob storage REST APIs.
 

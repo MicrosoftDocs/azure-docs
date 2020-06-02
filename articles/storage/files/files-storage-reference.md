@@ -14,11 +14,7 @@ ms.reviewer:
 
 Find Azure File Shares storage API reference, library packages, readme files, and getting started articles.
 
-## .NET APIs
-
-This section contains reference material for .NET developers.
-
-### File Shares
+## .NET client libraries
 
 The following table lists reference and sample documentation for Azure File Shares .NET APIs.
 
@@ -43,11 +39,7 @@ The following table lists reference documentation for Azure Storage data movemen
 | :-------: | ----------------------- | ------- |
 | 1.x | [Data movement](/dotnet/api/microsoft.azure.storage.datamovement) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
 
-## Java APIs
-
-This section contains reference material for Java developers.
-
-### File Shares
+## Java client libraries
 
 The following table lists reference and sample documentation for Azure File Shares Java APIs.
 
@@ -64,11 +56,7 @@ The following table lists reference documentation for Azure Storage management J
 | :-------: | ----------------------- | ------- |
 | 0.9.x | [com.microsoft.azure.management.storage](/java/api/overview/azure/storage/management) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
 
-## Python APIs
-
-This section contains reference material for Python developers.
-
-### File Shares
+## Python client libraries
 
 The following table lists reference and sample documentation for Azure File Shares Python APIs.
 
@@ -77,11 +65,7 @@ The following table lists reference and sample documentation for Azure File Shar
 | 12.x | [Azure File Shares client library v12 for Python](/python/api/overview/azure/storage-file-share-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Examples](/python/api/overview/azure/storage-file-share-readme#examples) |
 | 2.x | [azure-storage-file](/python/api/azure-storage-file/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
 
-## JavaScript APIs
-
-This section contains reference material for JavaScript developers.
-
-### File Shares
+## JavaScript client libraries
 
 The following table lists reference and sample documentation for Azure File Shares JavaScript APIs.
 
@@ -91,10 +75,6 @@ The following table lists reference and sample documentation for Azure File Shar
 | 10.x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
 
 ## REST APIs
-
-This section contains reference material for REST developers.
-
-### File Shares
 
 The following table lists reference and sample documentation for Azure File Shares REST APIs.
 
