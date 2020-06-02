@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Data Factory
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -20,17 +20,11 @@ The baseline for this service is drawn from the [Azure Security Benchmark versio
 
 For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
 ## Network security
 
 *For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23994).
 
 **Guidance**: When creating an Azure-SSIS Integration Runtime (IR), you have the option to join it with a virtual network. This will allow Azure Data Factory to create certain network resources, such as a network security group (NSG) and a load balancer. You also have the ability to provide your own static public IP address or have Azure Data Factory create one for you. On the NSG that is automatically created by Azure Data Factory, port 3389 is open to all traffic by default. Lock this down to ensure that only your administrators have access.
 
@@ -48,16 +42,13 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 * [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration)
 
-* [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview))
+* [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23995).
 
 **Guidance**: Use Azure Security Center and remediate network protection recommendations for the virtual network and network security group associated with your Integration Runtime deployment.
 
@@ -79,9 +70,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 ### 1.3: Protect critical web applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23996).
-
 **Guidance**: Not applicable; this recommendation is intended for Azure Apps Service or compute resources hosting web applications.
 
 **Azure Security Center monitoring**: Not applicable
@@ -89,9 +77,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 **Responsibility**: Not applicable
 
 ### 1.4: Deny communications with known malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23997).
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Integration Runtime deployment for protection from distributed denial-of-service attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
@@ -104,9 +89,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 **Responsibility**: Customer
 
 ### 1.5: Record network packets
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23998).
 
 **Guidance**: Enable network security group (NSG) flow logs for the NSG protecting your Integration Runtime deployment and send logs into an Azure Storage Account for traffic auditing.
 
@@ -124,12 +106,9 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/23999).
+**Guidance**: If you want to inspect outbound traffic from Azure-SSIS IR, you can route traffic initiated from Azure-SSIS IR to on-premises firewall appliance via Azure ExpressRoute force tunneling or to a Network Virtual Appliance (NVA) from Azure Marketplace that supports IDS/IPS capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used.
 
-**Guidance**: If you want to inspect outbound traffic from Azure-SSIS IR, you can route traffic initiated from Azure-SSIS IR to on-premises firewall appliance via Azure ExpressRoute force tunneling or to a Network Virtual Appliance (NVA) from Azure Marketplace that supports IDS/IPS capabtilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used.
-
-* [Join an Azure-SSIS Integratoin Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+* [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
 
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -143,9 +122,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 ### 1.7: Manage traffic to web applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24000).
-
 **Guidance**: Not applicable; this recommendation is intended for Azure Apps Service or compute resources hosting web applications.
 
 **Azure Security Center monitoring**: Not applicable
@@ -154,12 +130,9 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24001).
-
 **Guidance**: Use virtual network service tags to define network access controls on network security group (NSG) or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., DataFactoryManagement) in the appropriate source or destination field of a rule, you can allow or deny inbound traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-* [Understand and use service yags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Understand and use service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 * [Understand Azure Data Factory specific service tags](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
 
@@ -168,9 +141,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 **Responsibility**: Customer
 
 ### 1.9: Maintain standard security configurations for network devices
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24002).
 
 **Guidance**: Define and implement standard security configurations for network settings and network resources associated with your Azure data Factory instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.DataFactory" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Data Factory instances. You may also make use of built-in policy definitions related to networking or your Azure Data factory instances, such as:
 - DDoS Protection Standard should be enabled
@@ -187,9 +157,6 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 ### 1.10: Document traffic configuration rules
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24003).
-
 **Guidance**: Use tags for resources related to network security and traffic flow for your Azure Data Factory instances to provide metadata and logical organization.
 
 Use any of the built-in Azure policy definitions related to tagging, such as, "Require tag and its value," to ensure that all resources are created with tags and to notify you of existing untagged resources.
@@ -203,9 +170,6 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 **Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24004).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Data Factory instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
@@ -223,9 +187,6 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ### 2.1: Use approved time synchronization sources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24005).
-
 **Guidance**: Microsoft maintains the time source used for Azure resources, such as Azure Data Factory for timestamps in the logs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -233,9 +194,6 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 **Responsibility**: Microsoft
 
 ### 2.2: Configure central security log management
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24006).
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure Data Factory. Within Azure Monitor, you are able to query the Log Analytics workspace that is configured to receive your Azure Data Factory activity logs. Use Azure Storage Accounts for long-term/archival log storage or event hubs for exporting data to other systems.
 
@@ -255,14 +213,11 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.3: Enable audit logging for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24007).
-
 **Guidance**: For control plane audit logging, enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure Event Hubs, or Azure Storage Account for archive. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure resources.
 
 Use diagnostic settings to configure diagnostic logs for noncompute resources in Azure Data Factory, such as metrics and pipeline-run data. Azure Data Factory stores pipeline-run data for 45 days. To retain this data for longer period of time, save your diagnostic logs to a storage account for auditing or manual inspection and specify the retention time in days. You can also stream the logs to Azure Event Hubs or send the logs to a Log Analytics workspace for analysis.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Understand Azure Data Factory diagnostic logs](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor)
 
@@ -271,9 +226,6 @@ Use diagnostic settings to configure diagnostic logs for noncompute resources in
 **Responsibility**: Customer
 
 ### 2.4: Collect security logs from operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24008).
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you can use Azure Monitor to collect data from the virtual machine. Installing the Log Analytics VM extension allows Azure Monitor to collect data from your Azure VMs. Azure Security Center can then provide Security Event log monitoring for Virtual Machines. Given the volume of data that the security event log generates, it is not stored by default.
 
@@ -289,9 +241,6 @@ If your organization would like to retain the security event log data, it can be
 
 ### 2.5: Configure security log storage retention
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24009).
-
 **Guidance**: Enable diagnostic settings for Azure Data Factory. If choosing to store logs in a Log Analytics Workspace, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
 * [How to enable diagnostic logs in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#set-up-diagnostic-logs)
@@ -304,14 +253,11 @@ If your organization would like to retain the security event log data, it can be
 
 ### 2.6: Monitor and review Logs
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24010).
-
 **Guidance**: Enable diagnostic settings for Azure Data Factory and send logs to a Log Analytics workspace. Use Log Analytics to analyze and monitor your logs for anomalous behavior and regularly review results. Ensure that you also enable diagnostic settings for any data stores related to your Azure Data Factory deployments. Refer to each service's security baseline for guidance on how to enable diagnostic settings.
 
 If you are running your Integration Runtime in an Azure Virtual Machine (VM), enable diagnostic settings for the VM as well.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [Log Analytics schema](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)
 
@@ -325,12 +271,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 2.7: Enable alerts for anomalous activities
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24011).
-
 **Guidance**: You can raise alerts on supported metrics in Data Factory by going to the Alerts &amp; Metrics section in Azure Monitor.
 
-Configure diagnostic settings for Azure Data Factory and send logs to a Log Analytics workspace. Within your Log Analytics workspace, configure alerts to take place for when a pre-defined set of conditions takes place. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Configure diagnostic settings for Azure Data Factory and send logs to a Log Analytics workspace. Within your Log Analytics workspace, configure alerts to take place for when a pre-defined set of conditions takes place. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 Additionally, ensure that you enable diagnostic settings for services related to your data stores. You can refer to each service's security baseline for guidance.
 
@@ -346,9 +289,6 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 ### 2.8: Centralize anti-malware logging
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24012).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine, you may use Microsoft Antimalware for Azure Cloud Services and Virtual Machines and configure your virtual machines to log events to an Azure Storage Account. Configure a Log Analytics workspace to ingest the events from the Storage Accounts and create alerts where appropriate. Follow recommendations in Azure Security Center: "Compute &amp; Apps".
 
 * [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
@@ -361,19 +301,13 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 ### 2.9: Enable DNS query logging
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24013).
-
-**Guidance**: Not applicable; Azure Data Factory does not process or produce DNS related logs.
+**Guidance**: Not applicable; Azure Data Factory does not process or produce DNS-related logs.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
 ### 2.10: Enable command-line audit logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24014).
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you can enable command-line audit logging. The Azure Security Center provides Security Event log monitoring for Azure VMs. Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created if automatic provisioning is enabled or you can install the agent manually. The agent enables the process creation event 4688 and the CommandLine field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services.
 
@@ -389,9 +323,6 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 ### 3.1: Maintain an inventory of administrative accounts
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24015).
-
 **Guidance**: Within Azure Data Factory, ensure that you track and reconcile user access on a regular basis. To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription.
 
 Additionally, at the tenant level, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups that have administrative access to the control plane of your Azure Data Factory instances.
@@ -406,16 +337,13 @@ While Azure AD is the recommended method to administrate user access, keep in mi
 
 * [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Information for Local Accounts is available at](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+* [Information for Local Accounts](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24016).
 
 **Guidance**: Azure Data Factory uses Azure Active Directory (AD) to provide access to the Azure portal as well as the Azure Data Factory console. Azure AD does not have the concept of default passwords, however, you are responsible to change or not permit default passwords for any custom or third-party applications.
 
@@ -424,9 +352,6 @@ While Azure AD is the recommended method to administrate user access, keep in mi
 **Responsibility**: Customer
 
 ### 3.3: Use dedicated administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24017).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts for access to the Azure control plane (Azure portal) as well as the Azure Data Factory console. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts within Azure AD.
 
@@ -451,9 +376,6 @@ If you are running your Integration Runtime on an Azure Virtual Machine, the adm
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24018).
-
 **Guidance**: Use an Azure app registration (service principal) to retrieve a token that your application or function can use to access and interact with your Recovery Services vaults.
 
 * [How to call Azure REST APIs](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
@@ -470,9 +392,6 @@ If you are running your Integration Runtime on an Azure Virtual Machine, the adm
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24019).
-
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
 * [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
@@ -484,9 +403,6 @@ If you are running your Integration Runtime on an Azure Virtual Machine, the adm
 **Responsibility**: Customer
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24020).
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
@@ -500,9 +416,6 @@ If you are running your Integration Runtime on an Azure Virtual Machine, the adm
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24021).
-
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
 If you are running your Integration Runtime on an Azure Virtual Machine (VM), you can, additionally, on-board your VM to Azure Sentinel. Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
@@ -511,16 +424,13 @@ If you are running your Integration Runtime on an Azure Virtual Machine (VM), yo
 
 * [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-* [How to on-board Azure Sentine](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### 3.8: Manage Azure resources from only approved locations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24022).
 
 **Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -531,9 +441,6 @@ If you are running your Integration Runtime on an Azure Virtual Machine (VM), yo
 **Responsibility**: Customer
 
 ### 3.9: Use Azure Active Directory
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24023).
 
 **Guidance**: A data factory can be associated with a managed identity for Azure resources that represents the specific data factory. You can use this managed identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 
@@ -553,9 +460,6 @@ If you are running your Integration Runtime (IR) on an Azure Virtual Machine, yo
 
 ### 3.10: Regularly review and reconcile user access
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24024).
-
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
 If you are running your Runtime Integration in an Azure Virtual Machine, you will need to review the local security groups and users to make sure that there are no unexpected accounts which could compromise the system.
@@ -572,9 +476,6 @@ If you are running your Runtime Integration in an Azure Virtual Machine, you wil
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24025).
-
 **Guidance**: You have access to Azure Active Directory (AD) sign-in activity, audit and risk event log sources, which allow you to integrate with any SIEM/Monitoring tool. You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
 If you are running your Integration Runtime in an Azure Virtual Machine (VM), on-board that VM to Azure Sentinel. Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
@@ -590,9 +491,6 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 **Responsibility**: Customer
 
 ### 3.12: Alert on account login behavior deviation
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24026).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Data Factory resources, such Azure SQL Database or Azure Virtual Machines. For account login behavior deviation on the control plane (the Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -612,9 +510,6 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24027).
-
 **Guidance**: In support scenarios where Microsoft needs to access customer data, Azure Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests. Note that while Azure Lockbox is not available for Azure Data Factory itself, Azure Lockbox does support Azure SQL Databases and Azure Virtual Machines.
 
 * [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
@@ -629,9 +524,6 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 
 ### 4.1: Maintain an inventory of sensitive Information
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24028).
-
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
 Use the Azure SQL Database data discovery and classification feature. Data discovery and classification provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling &amp; protecting the sensitive data in your databases.
@@ -645,9 +537,6 @@ Use the Azure SQL Database data discovery and classification feature. Data disco
 **Responsibility**: Customer
 
 ### 4.2: Isolate systems storing or processing sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24029).
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Integration Runtimes should be separated by virtual network (VNet)/subnet and tagged appropriately.
 
@@ -667,9 +556,6 @@ Use the Azure SQL Database data discovery and classification feature. Data disco
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24030).
-
 **Guidance**: For data sources (such as Azure SQL Database) storing or processing sensitive information for your Azure Data Factory deployment, mark the related resources as sensitive using tags.
 
 Where Private Link is available, use private endpoints to secure any resources being linked to your Azure Data Factory pipeline. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can also reduce the risk of data exfiltration by configuring a strict set of outbound rules on a network security group (NSG) and associating that NSG with your subnet.
@@ -688,9 +574,6 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 ### 4.4: Encrypt all sensitive information in transit
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24031).
-
 **Guidance**: If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS. TLS version used is 1.2.
 
 All connections to Azure SQL Database and Azure SQL Data Warehouse require encryption (SSL/TLS) while data is in transit to and from the database. When you're authoring a pipeline by using JSON, add the encryption property and set it to true in the connection string. For Azure Storage, you can use HTTPS in the connection string.
@@ -703,12 +586,9 @@ All connections to Azure SQL Database and Azure SQL Data Warehouse require encry
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24032).
-
 **Guidance**: If you use Azure Data Factory to copy and transform your Azure SQL Database instances, use the Azure SQL Database data discovery and classification feature. Data discovery and classification provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling &amp; protecting the sensitive data in your databases.
 
-Data discovery and classifaction features are not yet availble for other Azure services.
+Data discovery and classification features are not yet available for other Azure services.
 
 * [How to use data discovery and classification for Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
@@ -717,9 +597,6 @@ Data discovery and classifaction features are not yet availble for other Azure s
 **Responsibility**: Customer
 
 ### 4.6: Use Role-based access control to control access to resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24033).
 
 **Guidance**: Use Azure Active Directory (AD) role-based access control (RBAC) to control access to the Azure Data Factory control plane (the Azure portal).
 
@@ -737,9 +614,6 @@ For your Data Factory data sources, such as Azure SQL Database, refer to the sec
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24034).
-
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
@@ -751,9 +625,6 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 **Responsibility**: Shared
 
 ### 4.8: Encrypt sensitive information at rest
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24035).
 
 **Guidance**: We recommend that you enable the data encryption mechanism for any data stores related to your Azure Data Factory deployments. You can refer to the security baseline for that service for more information regarding the encryption of data at rest.
 
@@ -777,9 +648,6 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24036).
-
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure Data Factory and related resources.
 
 * [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
@@ -798,9 +666,6 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 ### 5.1: Run automated vulnerability scanning tools
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24037).
-
 **Guidance**: If you are using Azure SQL Database as a data store, enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL Servers.
 
 If you are running your Integration Runtime in an Azure Virtual Machine (VM), follow recommendations from Azure Security Center on performing vulnerability assessments on your VMs. Use Azure Security recommended or third-party solution for performing vulnerability assessments for your virtual machines.
@@ -816,9 +681,6 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), fo
 **Responsibility**: Customer
 
 ### 5.2: Deploy automated operating system patch management solution
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24038).
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), use the Azure Update Management solution to manage updates and patches for your VMs. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
@@ -836,9 +698,6 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24039).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), you may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
 * [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
@@ -851,21 +710,15 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 5.4: Compare back-to-back vulnerability scans
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24040).
-
 **Guidance**: If you are running your Integration Runtime on an Azure Virtual Machine, export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Azure Security Center, you may pivot into the selected solution's portal to view historical scan data.
 
-* [Understand integrated vulnterability scanner for virtual machines](https://docs.microsoft.com/azure/security-center/built-in-vulnerability-assessment)
+* [Understand integrated vulnerability scanner for virtual machines](https://docs.microsoft.com/azure/security-center/built-in-vulnerability-assessment)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24041).
 
 **Guidance**: If you running your Integration Runtime in an Azure Virtual Machine, you can use the native vulnerability scanner. The vulnerability scanner included with Azure Security Center is powered by Qualys. Qualys's scanner is the leading tool for real-time identification of vulnerabilities in your Azure Virtual Machines.
 
@@ -883,9 +736,6 @@ When Security Center identifies vulnerabilities, it presents findings and relate
 
 ### 6.1: Use automated Asset Discovery solution
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24042).
-
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
@@ -902,9 +752,6 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.2: Maintain asset metadata
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24043).
-
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -914,9 +761,6 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Responsibility**: Customer
 
 ### 6.3: Delete unauthorized Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24044).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -936,9 +780,6 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.4: Define and Maintain an inventory of approved Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24045).
-
 **Guidance**: Define approved Azure resources and approved software for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
@@ -946,9 +787,6 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 **Responsibility**: Customer
 
 ### 6.5: Monitor for unapproved Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24046).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
@@ -964,9 +802,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24047).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.
 
 Note: Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
@@ -980,9 +815,6 @@ Note: Software Name, Version, Publisher, and Refresh time are available from the
 **Responsibility**: Customer
 
 ### 6.7: Remove unapproved Azure resources and software applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24048).
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine, Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. You may use Change Tracking to identify all software installed on Virtual Machines. You can implement your own process or use Azure Automation State Configuration for removing unauthorized software.
 
@@ -998,9 +830,6 @@ Note: Software Name, Version, Publisher, and Refresh time are available from the
 
 ### 6.8: Use only approved applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24049).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on VMs.
 
 * [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
@@ -1010,9 +839,6 @@ Note: Software Name, Version, Publisher, and Refresh time are available from the
 **Responsibility**: Customer
 
 ### 6.9: Use only approved Azure services
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24050).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
@@ -1028,10 +854,7 @@ Note: Software Name, Version, Publisher, and Refresh time are available from the
 
 ### 6.10: Maintain an inventory of approved software titles
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24051).
-
-**Guidance**: Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third party solution if this does not meet your organization's requirement.
+**Guidance**: Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement a third-party solution if this does not meet your organization's requirements.
 
 Note that this only applies if your Integration Runtime is running in an Azure Virtual Machine.
 
@@ -1043,9 +866,6 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24052).
-
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 * [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
@@ -1056,10 +876,7 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24053).
-
-**Guidance**: If you are running your Runtime Integration in an Azure Virtual Machine, depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
+**Guidance**: If you are running your Runtime Integration in an Azure Virtual Machine, depending on the type of scripts, you may use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
 * [How to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
@@ -1070,9 +887,6 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 **Responsibility**: Customer
 
 ### 6.13: Physically or logically segregate high risk applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24081).
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
@@ -1100,9 +914,6 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ### 7.1: Establish secure configurations for all Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24054).
-
 **Guidance**: Define and implement standard security configurations for Azure Data Factory with Azure Policy. Use Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to audit or enforce the configuration of your Azure Data Factory instances.
 
 * [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
@@ -1115,9 +926,6 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ### 7.2: Establish secure operating system configurations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24055).
-
 **Guidance**: If you are running your Runtime Integration in an Azure Virtual Machine, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on all compute resources.
 
 * [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
@@ -1129,9 +937,6 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 **Responsibility**: Customer
 
 ### 7.3: Maintain secure Azure resource configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24056).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
@@ -1147,13 +952,9 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ### 7.4: Maintain secure operating system configurations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24057).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), note that there are several options for maintaining a secure configuration for VMs for deployment:
-- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
-- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
-- Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
+- Azure Resource Manager templates: These are JSON-based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
+- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means. - Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
@@ -1169,9 +970,6 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.5: Securely store configuration of Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24058).
-
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
@@ -1183,9 +981,6 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 **Responsibility**: Customer
 
 ### 7.6: Securely store custom operating system images
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24059).
 
 **Guidance**: If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
 
@@ -1205,9 +1000,6 @@ The Data Factory Contributor role can be used to create and manage data factorie
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24060).
-
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
@@ -1217,9 +1009,6 @@ The Data Factory Contributor role can be used to create and manage data factorie
 **Responsibility**: Customer
 
 ### 7.8: Deploy configuration management tools for operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24061).
 
 **Guidance**: This recommendation can apply if your Integration Runtime is running in an Azure Virtual Machine. Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified.
 
@@ -1231,9 +1020,6 @@ The Data Factory Contributor role can be used to create and manage data factorie
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24062).
-
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
@@ -1244,9 +1030,6 @@ The Data Factory Contributor role can be used to create and manage data factorie
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24063).
-
 **Guidance**: This recommendation can apply if your Integration Runtime is running in an Azure Virtual Machine. Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified.
 
 * [Onboarding machines for management by Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
@@ -1256,9 +1039,6 @@ The Data Factory Contributor role can be used to create and manage data factorie
 **Responsibility**: Customer
 
 ### 7.11: Manage Azure secrets securely
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24064).
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
@@ -1280,9 +1060,6 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 
 ### 7.12: Manage identities securely and automatically
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24065).
-
 **Guidance**: When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Active Directory, and represents this specific data factory.
 
 * [Managed identity for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
@@ -1292,9 +1069,6 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 **Responsibility**: Customer
 
 ### 7.13: Eliminate unintended credential exposure
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24066).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -1310,9 +1084,6 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 
 ### 8.1: Use centrally managed anti-malware software
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24067).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine, you can use Microsoft Antimalware for Azure Windows Virtual Machines to continuously monitor and defend your resources.
 
 * [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
@@ -1322,9 +1093,6 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 **Responsibility**: Customer
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24068).
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on your content.
 
@@ -1342,10 +1110,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24069).
-
-**Guidance**: When deployed, Microsoft Antimalware for Azure will automatically install the latest signature, platform, and engine updates by default. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. The Windows OS can be further protected with additional security to limit the risk of virus or malware based attacks with the Microsoft Defender Advanced Threat Protection service that integrates with Azure Security Center.
+**Guidance**: When deployed, Microsoft Antimalware for Azure will automatically install the latest signature, platform, and engine updates by default. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. The Windows OS can be further protected with additional security to limit the risk of virus or malware-based attacks with the Microsoft Defender Advanced Threat Protection service that integrates with Azure Security Center.
 
 * [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
@@ -1361,9 +1126,6 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 9.1: Ensure regular automated back ups
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24070).
-
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and configure the VM, as well as the desired frequency and retention period for automatic backups.
 
 For any of your data stores, refer to that service's security baseline for recommendations on how to perform regular, automated backups.
@@ -1378,10 +1140,7 @@ For any of your data stores, refer to that service's security baseline for recom
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24071).
-
-**Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer managed keys within Azure Key Vault.
+**Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM), enable Azure Backup and target Azure VMs, as well as the desired frequency and retention periods. Backup customer-managed keys within Azure Key Vault.
 
 For any of your data stores, refer to that service's security baseline for recommendations on how to perform regular, automated backups.
 
@@ -1395,10 +1154,7 @@ For any of your data stores, refer to that service's security baseline for recom
 
 ### 9.3: Validate all backups including customer managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24072).
-
-**Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine, ensure the ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated Vlan. Periodically test restoration of backed up customer managed keys.
+**Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine, ensure the ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated VLAN. Periodically test restoration of backed up customer-managed keys.
 
 For any of your data stores, refer to that service's security baseline for guidance on validating backups.
 
@@ -1411,9 +1167,6 @@ For any of your data stores, refer to that service's security baseline for guida
 **Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer managed keys
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24073).
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM) and you back that VM up with Azure Backup, your VM is encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
@@ -1431,9 +1184,6 @@ For any of your data stores, refer to that service's security baseline for guida
 
 ### 10.1: Create an incident response guide
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24074).
-
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
 * [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
@@ -1450,9 +1200,6 @@ For any of your data stores, refer to that service's security baseline for guida
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24075).
-
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
@@ -1462,9 +1209,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.3: Test security response procedures
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24076).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
@@ -1476,9 +1220,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24077).
-
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 * [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -1488,9 +1229,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24078).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
@@ -1503,9 +1241,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 **Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24079).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
@@ -1520,9 +1255,6 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/24080).
 
 **Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
