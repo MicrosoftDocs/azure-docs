@@ -16,8 +16,8 @@ Before you upload a Windows virtual machine (VM) from on-premises to Azure, you 
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
 VHD file format and that have a fixed-size disk. The maximum size allowed for the OS VHD on a generation 1 VM is 2 TB.
 
-In a generation 1 VM, you can convert a VHDX file system to VHD. You can also convert a dynamically
-expanding disk to a fixed-size disk. But you can't change a VM's generation. For more information,
+You can convert a VHDX file to VHD, convert a dynamically
+expanding disk to a fixed-size disk, but you can't change a VM's generation. For more information,
 see
 [Should I create a generation 1 or 2 VM in Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)
 and [Support for generation 2 VMs on Azure](generation-2.md).
@@ -44,7 +44,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 
 1. Resize the virtual disk to meet Azure requirements:
 
-   1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD.
+   1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB you will need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD. To verify this you can use the PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) comdlet to show "Size", which must be a multiple of 1 MiB in Azure, and "FileSize" which will be equal to "Size" plus 512 bytes for the VHD footer.
    
    1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB), 
    1. The maximum size for a data disk is 32,767 GiB (32 TiB).
@@ -67,7 +67,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 ### Use PowerShell to convert the disk
 
 You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
-cmdlet in PowerShell.
+cmdlet in PowerShell. If you need information about installing this cmdlet click [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
@@ -99,7 +99,7 @@ to convert it to VHD format. For more information, see
 ### Use PowerShell to resize the disk
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
-cmdlet in PowerShell.
+cmdlet in PowerShell. If you need information about installing this cmdlet click [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example resizes the disk from 100.5 MiB to 101 MiB to meet the Azure alignment requirement.
 
