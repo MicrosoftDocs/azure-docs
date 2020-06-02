@@ -71,7 +71,7 @@ As you work with the node resource group, keep in mind that you cannot:
 * Specify a different subscription for the node resource group.
 * Change the node resource group name after the cluster has been created.
 * Specify names for the managed resources within the node resource group.
-* Modify or delete non-user created tags of managed resources within the node resource group. (See additional information in the next section.)
+* Modify or delete Azure-created tags of managed resources within the node resource group. (See additional information in the next section.)
 
 ## Can I modify tags and other properties of the AKS resources in the node resource group?
 
