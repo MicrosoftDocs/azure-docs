@@ -381,7 +381,7 @@ additionalContent:
             - text: Azure Security Benchmark
               url: ../governance/blueprints/samples/azure-security-benchmark.md
             - text: Canada Federal PBMM
-              url: ./governance/blueprints/samples/canada-federal-pbmm/index.md
+              url: ../governance/blueprints/samples/canada-federal-pbmm/index.md
             - text: CIS benchmarks
               url: ../governance/blueprints/samples/cis-azure-1-1-0.md
             - text: FedRAMP Moderate
