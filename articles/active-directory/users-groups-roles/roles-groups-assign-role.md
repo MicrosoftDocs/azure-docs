@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 06/02/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a role to a cloud group in Azure Active Directory
 
-This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to a group.
+This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to an Azure AD group.
 
 ## Using Azure AD admin center
 

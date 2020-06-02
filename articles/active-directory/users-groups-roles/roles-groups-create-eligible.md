@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/02/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -32,15 +32,15 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 
    ![Make the new group eligible for role assignment](./media/roles-groups-create-eligible/eligible-switch.png)
 
-1. Select the members and roles for the group. You don't have to assign roles when you create the group.
+1. Select the members and owners for the group. You also have the option to assign roles to the group, but assigning a role isn't required here.
 
    ![Add members at the role-assignable group and assign roles](./media/roles-groups-create-eligible/specify-members.png)
 
-1. After members and roles are selected, select **Create**.
+1. After the members and owners are specified, select **Create**.
 
    ![The Create button is at the bottom of the page](./media/roles-groups-create-eligible/create-button.png)
 
-The group is created with any selected roles assigned to it. You can also choose not to assign roles during creation and assign them later on.
+The group is created with any roles you might have assigned to it.
 
 ## Using PowerShell
 
@@ -111,5 +111,6 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ## Next steps
 
+- [Assign a role to a cloud group](roles-groups-assign-role.md)
 - [Use cloud groups to manage role assignments](roles-groups-concept.md)
 - [Troubleshooting roles assigned to cloud groups](roles-groups-faq-troubleshooting.md)
