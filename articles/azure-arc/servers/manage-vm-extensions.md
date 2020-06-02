@@ -24,8 +24,6 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-We also support the Dependency Agent extension for AzMon for VMs - so I need to take the extension template and tweak to reflect the proper resource type and we need to explain tie-in to each service and summarize benefit/capability. Auto-update is same experience on a minor update of the extension when released, just like Azure VM.
-
 >[!NOTE]
 > VM extension functionality is available only in the following regions:
 > * EastUS
