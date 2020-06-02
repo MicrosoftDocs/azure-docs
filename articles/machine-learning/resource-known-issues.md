@@ -37,11 +37,11 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 
 ## Installation and import
                            
-* **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation:** 
+* **Pip Installation: Dependencies are not guaranteed to be consistent with single-line installation:** 
 
    This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
 
-   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single-line pip install. 
      ```
        pip install azure-ml-datadrift, azureml-train-automl
      ```
@@ -56,13 +56,13 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
      
 * **Explanation package not guaranteed to be installed when installing the azureml-train-automl-client:** 
    
-   When running a remote automl run with model explanation enabled you will see an error message saying ""Please install azureml-explain-model package for model explanations." This is a known issue and as a workaround please follow one of the steps below:
+   When running a remote AutoML run with model explanation enabled you will see an error message saying ""Please install azureml-explain-model package for model explanations." This is a known issue and as a workaround please follow one of the steps below:
   
   1. Install azureml-explain-model locally.
    ```
       pip install azureml-explain-model
    ```
-  2. Disable the explainability feature entirely by passing model_explainability=False in the automl configuration.
+  2. Disable the explainability feature entirely by passing model_explainability=False in the AutoML configuration.
    ```
       automl_config = AutoMLConfig(task = 'classification',
                              path = '.',
@@ -302,6 +302,6 @@ See more troubleshooting articles for Azure Machine Learning:
 
 * [Docker deployment troubleshooting with Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debug machine learning pipelines](how-to-debug-pipelines.md)
-* [Debug the ParallelRunStep slass from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
+* [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
 * [Interactive debugging of a machine learning compute instance with VS Code](how-to-set-up-vs-code-remote.md)
 * [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)
