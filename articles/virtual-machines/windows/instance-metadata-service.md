@@ -161,14 +161,16 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 
 ### Data output
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
+
+By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, some APIs are able to return data in different formats if requested.
 The following table is a reference of other data formats APIs may support.
 
 API | Default Data Format | Other Formats
 --------|---------------------|--------------
+/attested | json | none
+/identity | json | none
 /instance | json | text
 /scheduledevents | json | none
-/attested | json | none
 
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
@@ -215,14 +217,14 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 
 ## Metadata APIs
 
-IMDS contains multiple API interfaces representing different data sources. 
+Metadata Service contains multiple APIs representing different data sources.
 
-Data | Description | Version Introduced
------|-------------|-----------------------
-instance | See [Instance API](#instance-api) | 2017-04-02
-attested | See [Attested Data](#attested-data) | 2018-10-01
-identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
+API | Description | Version Introduced
+----|-------------|-----------------------
+/attested | See [Attested Data](#attested-data) | 2018-10-01
+/identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+/instance | See [Instance API](#instance-api) | 2017-04-02
+/scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
 ## Instance API
 
@@ -782,17 +784,17 @@ Samples of calling metadata service using different languages inside the VM:
 
 Language      | Example
 --------------|----------------
-Go            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
-Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
-NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 C++ (Windows) | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+Go            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
-Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet        | https://github.com/keirans/azuremetadata
+Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## Error and Debugging
 
