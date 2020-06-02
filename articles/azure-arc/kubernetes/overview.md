@@ -16,7 +16,9 @@ ms.custom: references_regions
 
 You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes Preview. When a Kubernetes cluster is attached to Azure Arc, it will appear in the Azure portal. It will have an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource. 
 
-To connect a Kubernetes cluster to Azure, the cluster administrator needs to deploy agents. These agents run in a Kubernetes namespace named `azure-arc` and are standard Kubernetes deployments. The agents are responsible for connectivity to Azure, collecting Azure Arc logs and metrics, and watching for configuration requests.  
+To connect a Kubernetes cluster to Azure, the cluster administrator needs to deploy agents. These agents run in a Kubernetes namespace named `azure-arc` and are standard Kubernetes deployments. The agents are responsible for connectivity to Azure, collecting Azure Arc logs and metrics, and watching for configuration requests. 
+
+Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in transit. Also, data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
  
  > [!NOTE]
 > Azure Arc-enabled Kubernetes is in preview. We don't recommend it for production workloads. 
@@ -42,7 +44,6 @@ Azure Arc-enabled Kubernetes is currently supported in these regions:
 * East US 
 * West Europe 
 
-
 ## Next steps
 
-* [Connect a cluster ](./connect-cluster.md)
+* [Connect a cluster](./connect-cluster.md)
