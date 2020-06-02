@@ -78,7 +78,7 @@ readBooksDF.show
 
 ### Apply filters
 
-Currently predicate pushdown is not supported, the samples below reflect client-side filtering. 
+You can push down predicates to the database to allow for better optimized Spark queries. A predicate is a condition on a query that returns true or false, typically located in the WHERE clause. A predicate push down filters the data in the database query, reducing the number of entries retrieved from the database and improving query performance. By default the Spark Dataset API will automatically push down valid WHERE clauses to the database. 
 
 ```scala
 val readBooksDF = spark
@@ -97,6 +97,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+The PushedFilters section of the physical plan includes the GreaterThan push down filter. 
+
+![partitions](./media/cassandra-spark-read-ops/pushdown-predicates.png)
 
 ## RDD API
 
