@@ -25,7 +25,7 @@ You can receive notifications about the detected threats via [email notification
 ##  Azure portal
 
 1. Sign into the  [Azure portal](https://portal.azure.com). 
-2. Navigate to the configuration page of the SQL Managed Instance you want to protect. In the **Settings** page, select **Advanced Data Security**.
+2. Navigate to the configuration page of the instance of SQL Managed Instance you want to protect. In the **Settings** page, select **Advanced Data Security**.
 3. In the Advanced Data Security configuration page
    - Turn **ON** Advanced Data Security.
    - Configure the **list of emails** to receive security alerts upon detection of anomalous database activities.
