@@ -51,12 +51,12 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
     The examples in this article use PowerShell. You can also use various API tools such as [Postman](https://www.getpostman.com/), [Insomnia](https://insomnia.rest/), and [Paw](https://paw.cloud/).  
 
-    Using the $RBAC_SP variable, we will now get the Bearer token. 
+    Using the `$RBAC_SP` variable, we will now get the Bearer token. 
 
         $body = "grant_type=client_credentials&client_id=$($RBAC_SP.appId)&client_secret=$($RBAC_SP.password)&resource=https://management.azure.com/"
         $BearerToken = Invoke-RestMethod -Method Post -body $body -Uri https://login.microsoftonline.com/$($RBAC_SP.tenant)/oauth2/token
 
-    The output provides a Bearer Token object. You can see the access token by typing $BearerToken.access_token. It looks similar to the following example:
+    The output provides a Bearer Token object. You can see the access token by typing `$BearerToken.access_token`. It looks similar to the following example:
 
         eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
 
@@ -154,7 +154,6 @@ You use a PUT request to create new objects in Azure NetApp Files, as the follow
             `"fileSystemId`": `"$FileSystemID`"
         }
     }"
-
     $api_version = '2020-02-01'
     Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume/Snapshots/$ANFSnapshot`?api-version=$api_version"
 
@@ -196,7 +195,7 @@ The following example shows how to create a new volume. (The default protocol fo
             "creationToken": "MY-FILEPATH",
             "snapshotId": "",
             "subnetId": "/subscriptions/$SUBID/resourceGroups/$RESOURCEGROUP/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
-            }
+        }
     }
 
 The following example shows how to create a snapshot of a volume: 
@@ -216,7 +215,7 @@ The following example shows how to create a snapshot of a volume:
 
 ### GET request examples
 
-An error will occur if the resource does not exist. You use a GET request to query objects of Azure NetApp Files in a subscription, as the following examples show:
+An error occurs if the resource does not exist. You use a GET request to query objects of Azure NetApp Files in a subscription, as the following examples show:
 
     #get NetApp accounts 
     Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15 | ConvertTo-Json
@@ -230,7 +229,8 @@ An error will occur if the resource does not exist. You use a GET request to que
     #get snapshots for a volume 
     Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.com/subscriptions/$SUBID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFACCOUNT/capacityPools/$ANFCAPACITYPOOL/volumes/$ANFVOLUME/snapshots?api-version=2017-08-15 | ConvertTo-Json
 
-### Complete PowerShell script
+### Complete PowerShell scripts
+This section shows sample scripts for PowerShell.
 
     <#
     Disclaimer 
@@ -273,10 +273,9 @@ An error will occur if the resource does not exist. You use a GET request to que
        $response.properties.provisioningState
        sleep 5
        $response = Invoke-RestMethod -Method ‘GET’ -Headers $headers -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup`?api-version=$api_version" 
-       }  
+       } 
     
     " ** Creating Virtual Network $ANFvnetname *************"
-    
     $body = "{
       `"properties`": {
         `"addressSpace`": {
@@ -328,7 +327,6 @@ An error will occur if the resource does not exist. You use a GET request to que
             `"name`": `"$ANFAccount`" 
         }
     } "
-    
     $api_version = "2020-02-01"
     $response = Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount`?api-version=$api_version" 
     $response.properties.provisioningState
@@ -355,7 +353,6 @@ An error will occur if the resource does not exist. You use a GET request to que
        $response = Invoke-RestMethod -Method ‘GET’ -Headers $headers -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount`?api-version=$api_version" 
        }  
     
-    
     " ** Creating ANF Volume $ANFVolume *************"
     $body = "{
         `"name`": `"$ANFVolume`",
@@ -380,7 +377,6 @@ An error will occur if the resource does not exist. You use a GET request to que
     $FileSystemID = $response.properties.fileSystemId
     
     " ** Creating ANF Volume Snapshot $ANFSnapshot *************"
-    
     $body = "{
         `"name`": `"$ANFAccount/$ANFCapacityPool/$ANFVolume/$ANFSnapshot`",
         `"type`": `"Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots`",
@@ -390,7 +386,6 @@ An error will occur if the resource does not exist. You use a GET request to que
             `"fileSystemId`": `"$FileSystemID`"
         }
     }"
-    
     $api_version = '2020-02-01'
     $response = Invoke-RestMethod -Method 'PUT' -Headers $headers -Body $body -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume/Snapshots/$ANFSnapshot`?api-version=$api_version" 
     While ($response.properties.provisioningState -notmatch "Succeeded") {
@@ -398,7 +393,6 @@ An error will occur if the resource does not exist. You use a GET request to que
        sleep 5
        $response = Invoke-RestMethod -Method ‘GET’ -Headers $headers -Uri "https://management.azure.com/subscriptions/$SubID/resourceGroups/$ResourceGroup/providers/Microsoft.NetApp/netAppAccounts/$ANFAccount/capacityPools/$ANFCapacityPool/volumes/$ANFVolume/Snapshots/$ANFSnapshot`?api-version=$api_version" 
        }  
-
 
 ## Next steps
 
