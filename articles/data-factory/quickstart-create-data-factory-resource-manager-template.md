@@ -33,7 +33,7 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ## Create an Azure Data Factory
 
-## Data Factory JSON
+### Review template
 
 Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (Create the ADFTutorial folder if it doesn't already exist) with the following content:
 
@@ -270,7 +270,6 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
     ]
 }
 ```
-## Parameters JSON
 
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
 
@@ -310,7 +309,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 > [!IMPORTANT]
 > You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
 
-## Deploy Data Factory entities
+### Deploy Data Factory entities
 
 In PowerShell, run the following command to deploy Data Factory entities in your resource group (in this case, take ADFTutorialResourceGroup as an example) using the Resource Manager template you created earlier in this quickstart.
 
@@ -341,7 +340,7 @@ Outputs                 :
 DeploymentDebugLogLevel : 
 ```
 
-## Start the trigger
+### Start the trigger
 
 The template deploys the following Data Factory entities:
 
@@ -415,7 +414,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     RuntimeState      : Started
     ```
 
-## Monitor the pipeline
+### Monitor the pipeline
 
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **All services**, search with the keyword such as **data fa**, and select **Data factories**.
 
@@ -446,7 +445,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
+### <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
 
 The following Data Factory entities are defined in the JSON template:
 
@@ -685,6 +684,27 @@ Notice that the first command uses parameter file for the development environmen
 
 You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.
 
+## Clean up resources
+
+If you plan to continue on to work with subsequent and tutorials, you may wish to leave these resources in place.
+When no longer needed, delete the resource group, which deletes the Azure Cosmos account and the related resources. To delete the resource group by using Azure CLI or Azure Powershell:
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
 
 ## Next steps
 
