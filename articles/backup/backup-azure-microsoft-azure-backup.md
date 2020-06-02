@@ -169,7 +169,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
+    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL according to the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
    **Manual configuration**
 
@@ -307,8 +307,8 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 If you are using ExpressRoute Microsoft peering, please select the following services/regions:
 
 * Azure Active Directory (12076:5060)
-* Microsoft Azure Region (as per the location of your Recovery Services vault)
-* Azure Storage (as per the location of your Recovery Services vault)
+* Microsoft Azure Region (according to the location of your Recovery Services vault)
+* Azure Storage (according to the location of your Recovery Services vault)
 
 For more details, visit [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
@@ -339,7 +339,7 @@ Use the following steps to upgrade MABS:
 
    > [!NOTE]
    >
-   > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
+   > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and so an attempt to re-upgrade MABS will fail.
 
    > [!IMPORTANT]
    >
