@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Authenticate a client application with Azure Digital Twins
 
-After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. This article shows you how to set up and properly authenticate that client application with the Azure Digital Twins instance.
+After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
 
 This is done in two steps:
 1. Create an app registration
@@ -87,6 +87,8 @@ This section describes the code you will need to include in your client applicat
 The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 ### Prerequisites
+
+If you don't have a starter client app project already set up, create a basic .NET project to use with this tutorial.
 
 In order to use the .NET SDK, you'll need to include the following packages in your project:
 * `Azure.DigitalTwins.Core`
