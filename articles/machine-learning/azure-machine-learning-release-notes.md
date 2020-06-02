@@ -205,7 +205,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + Fix typo in azureml.train.dnn.Nccl class.
     + Supporting PyTorch version 1.5 in the PyTorch Estimator
-    + Fix the issue that framework image can't be fetched in fairfax region when using training framework estimators
+    + Fix the issue that framework image can't be fetched in Fairfax region when using training framework estimators
 
   
 ## 2020-05-04
