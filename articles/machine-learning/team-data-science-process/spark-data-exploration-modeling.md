@@ -48,6 +48,7 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): Provides information on how to perform data exploration, modeling, and scoring with several different algorithms.
 
 ### Spark 2.0 notebooks
+
 The regression and classification tasks that are implemented using a Spark 2.0 cluster are in separate notebooks and the classification notebook uses a different data set:
 
 - [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). This notebook may be a good starting point for quickly exploring the code we have provided for Spark 2.0. For a more detailed notebook analyzes the NYC Taxi data, see the next notebook in this list. See the notes following this list that compares these notebooks. 
@@ -60,12 +61,7 @@ The regression and classification tasks that are implemented using a Spark 2.0 c
 > The airline dataset was added to the Spark 2.0 notebooks to better illustrate the use of classification algorithms. See the following links for information about airline on-time departure dataset and weather dataset:
 > 
 > - Airline on-time departure data: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
-> 
 > - Airport weather data: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
-
-<!-- -->
-
-<!-- -->
 
 > [!NOTE]
 > The Spark 2.0 notebooks on the NYC taxi and airline flight delay data-sets can take 10 mins or more to run (depending on the size of your HDI cluster). The first notebook in the above list shows many aspects of the data exploration, visualization and ML model training in a notebook that takes less time to run with down-sampled NYC data set, in which the taxi and fare files have been pre-joined: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) This notebook takes a much shorter time to finish (2-3 mins) and may be a good starting point for quickly exploring the code we have provided for Spark 2.0. 
@@ -237,8 +233,6 @@ This code creates a local data-frame from the query output and plots the data. T
 
 > [!NOTE]
 > This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
-> 
-> 
 
     #CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
 
@@ -752,6 +746,7 @@ Here is the code to make predictions and plot the ROC-curve.
 ![Logistic regression ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 ### Random forest classification
+
 The code in this section shows how to train, evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING RANDOM FOREST
@@ -865,6 +860,7 @@ These models were described in the introduction. Each model building code sectio
 3. **Saving model** in blob for future consumption
 
 ### Linear regression with SGD
+
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
 > [!TIP]
@@ -922,6 +918,7 @@ R-sqr = 0.608017146081
 Time taken to execute above cell: 58.42 seconds
 
 ### Random Forest regression
+
 The code in this section shows how to train, evaluate, and save a random forest regression that predicts tip amount for the NYC taxi trip data.
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -1058,6 +1055,7 @@ Here is the code to plot the data using the Jupyter server.
 ![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## Clean up objects from memory
+
 Use `unpersist()` to delete objects cached in memory.
 
     # REMOVE ORIGINAL DFs
