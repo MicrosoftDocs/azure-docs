@@ -169,7 +169,7 @@ Here’s a way to find out using your browser of choice:
    - Navigate to https:\//login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+   - The result posts back to the page in attribute/value pairs using JavaScript Object Notation (JSON) format that resembles:
 
      ```json
      {
