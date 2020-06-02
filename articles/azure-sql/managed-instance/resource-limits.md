@@ -39,7 +39,7 @@ SQL Managed Instance has characteristics and resource limits that depend on the 
 
 ### In-memory OLTP available space 
 
-The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table list limits of memory that can be used for In-memory OLTP objects.
+The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
 
 | In-memory OLTP space	| **Gen5** | **Gen4** |
 | --- | --- | --- |
