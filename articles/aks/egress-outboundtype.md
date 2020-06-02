@@ -203,7 +203,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ### Create a UDR with a hop to Azure Firewall
 
 > [!IMPORTANT]
-> Outbound type requires that there is a route for 0.0.0.0/0 and and next hop destination of NVA (Network Virtual Appliance) in the route table.
+> Outbound type requires that there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
