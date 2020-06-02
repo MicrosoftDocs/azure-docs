@@ -13,7 +13,7 @@ ms.author: dbradish
 
 # Azure CLI for Azure Data Share
 
-The Azure command-line interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for data share!  These commands give you the ability to work effectively with the service from a command-line.
+The Azure Command Line Interface ([Azure CLI](/cli/azure/what-is-azure-cli)) is a set of commands used to create and manage Azure resources.  It is available across many Azure services including Azure Data Share.  There are over 65 different commands for data share!  These commands give you the ability to work effectively with the service from a command line.
 
 ## References for Data Share
 
@@ -28,11 +28,11 @@ All Azure CLI commands for Azure Data Share are currently extensions to the Azur
 | [az datashare invitation](/cli/azure/ext/datashare/datashare/invitation) | Commands for consumers to manage Azure Data Share invitations.
 | [az datashare provider-share-subscription](/cli/azure/ext/datashare/datashare/provider-share-subscription) | Commands for providers to manage Azure Data Share subscriptions.
 | [az datashare synchronization](/cli/azure/ext/datashare/datashare/synchronization)  | Commands to manage Azure Data Share synchronization.
-| [az datashare datashare synchronization-setting](/cli/azure/ext/datashare/datashare/synchronization-setting)  | Commands for providers to manage Azure Data Share synchronization settings.
+| [az datashare synchronization-setting](/cli/azure/ext/datashare/datashare/synchronization-setting)  | Commands for providers to manage Azure Data Share synchronization settings.
 
 ## Reference examples
 
-Examples are provided with every Azure CLI reference. Although you can also complete these tasks through the Azure portal, using the Azure CLI requires a single command-line.  Here are a few code blocks to give you an idea of how easy it is to use the Azure CLI.
+Examples are provided with every Azure CLI reference. Although you can also complete these tasks through the Azure portal, using the Azure CLI requires a single command line.  Here are a few code blocks to give you an idea of how easy it is to use the Azure CLI.
 
 To work with Azure Data Share, you'll first need a resource group.  Azure resource groups are simple to create and manage using the Azure CLI.  
 
