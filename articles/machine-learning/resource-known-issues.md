@@ -284,7 +284,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## Authentication errors
 
-If you perform a management operation on a compute target from a remote job, you will receive one of the following errors: {}
+If you perform a management operation on a compute target from a remote job, you will receive one of the following errors: 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
