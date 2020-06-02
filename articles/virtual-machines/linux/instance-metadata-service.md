@@ -16,8 +16,8 @@ ms.reviewer: azmetadata
 # Azure Instance Metadata service
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis). 
-Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
+This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
+Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
 Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
 
@@ -178,7 +178,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 
 > [!NOTE]
-> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
+> For leaf nodes in /metadata/instance the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified since the default format is json.
 
 ### Versioning
 
@@ -215,6 +215,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance"
 ```
 
 ## Metadata APIs
+
 IMDS contains multiple API interfaces representing different data sources. 
 
 Data | Description | Version Introduced
@@ -397,13 +398,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
+
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Response**
 
-```bash
+```text
 AzurePublicCloud
 ```
 
@@ -434,13 +436,13 @@ macAddress | VM mac address | 2017-04-02
 
 #### Sample 1: Retrieving network information
 
-***Request***
+**Request**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
-***Response***
+**Response**
 
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
@@ -477,7 +479,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
-
 ```
 
 ## Storage Metadata
@@ -485,7 +486,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 Storage metadata is part of the instance API under instance/compute/storageProfile endpoint.
 It provides details about the storage disks associated with the VM. 
 
-The storage profile of a VM is divided into three categories - image reference, OS disk, and data disks.
+The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
 
 The image reference object contains the following information about the OS image:
 
@@ -619,7 +620,7 @@ The `tags` field is a string with the tags delimited by semicolons. This can be 
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
 ```
 
 **Response**
@@ -650,17 +651,19 @@ Part of the scenario served by Instance Metadata Service is to provide guarantee
 > [!NOTE]
 > All API responses are JSON strings. The following example responses are pretty-printed for readability.
 
-***Request***
+**Request**
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
-
 ```
 
 Api-version is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place.
 
- ***Response***
+> [!NOTE]
+> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+
+**Response**
 
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
@@ -672,53 +675,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 ```
 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
-
-### Sample 2: Validating that the VM is running in Azure
-
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
-
-> [!NOTE]
-> Requires jq to be installed.
-
-***Request***
-
-```bash
-  # Get the signature
-   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
-  # Decode the signature
-  base64 -d signature > decodedsignature
-  #Get PKCS7 format
-  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
-  # Get Public key out of pkc7
-  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
-  #Get the intermediate certificate
-  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
-  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
-  #Verify the contents
-  openssl smime -verify -in sign.pk7 -inform pem -noverify
- ```
-
- **Response**
-
-```json
-Verification successful
-{"nonce":"20181128-001617",
-  "plan":
-    {
-     "name":"",
-     "product":"",
-     "publisher":""
-    },
-"timeStamp":
-  {
-    "createdOn":"11/28/18 00:16:17 -0000",
-    "expiresOn":"11/28/18 06:16:17 -0000"
-  },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-"sku": "RS3-Pro"
-}
-```
+The document contains the following fields:
 
 Data | Description
 -----|------------
@@ -730,24 +687,57 @@ vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
 
-#### Sample 3: Verifying the signature
+### Sample 2: Validating that the VM is running in Azure
 
-Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different.
+> Requires jq to be installed.
 
- Cloud | Certificate
----------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
-
-There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
+**Request**
 
 ```bash
+# Get the signature
+curl --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+# Decode the signature
+base64 -d signature > decodedsignature
+# Get PKCS7 format
+openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+# Get Public key out of pkc7
+openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
+# Get the intermediate certificate
+wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+openssl x509 -inform der -in intermediate.cer -out intermediate.pem
+# Verify the contents
+openssl smime -verify -in sign.pk7 -inform pem -noverify
+```
 
+**Response**
+
+```json
+Verification successful
+{
+  "nonce": "20181128-001617",
+  "plan":
+    {
+      "name": "",
+      "product": "",
+      "publisher": ""
+    },
+  "timeStamp":
+    {
+      "createdOn": "11/28/18 00:16:17 -0000",
+      "expiresOn": "11/28/18 06:16:17 -0000"
+    },
+  "vmId": "d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+  "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+  "sku": "RS3-Pro"
+}
+```
+
+Once you get the signature above verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+
+```bash
 # Verify the subject name for the main certificate
 openssl x509 -noout -subject -in signer.pem
 # Verify the issuer for the main certificate
@@ -760,10 +750,28 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+It is also best practice to compare the nonce in the signed document if you provided a nonce parameter in the initial request.
+
+> [!NOTE]
+> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+
+> [!NOTE]
+> The certificate for Public cloud and sovereign cloud will be different.
+
+Cloud | Certificate
+------|------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)     | *.metadata.azure.cn
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                | *.metadata.microsoftazure.de
+
+> [!NOTE]
+> There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
+
 In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
->The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
+> The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
 Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
 
 ## Managed Identity via Metadata Service
@@ -785,18 +793,18 @@ The service is **generally available** in all Azure regions. This includes:
 
 Samples of calling metadata service using different languages inside the VM:
 
-Language | Example
----------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
-Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
-C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
-C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-Puppet | https://github.com/keirans/azuremetadata
+Language      | Example
+--------------|----------------
+Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Go            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Puppet        | https://github.com/keirans/azuremetadata
 
 ## Error and Debugging
 
@@ -805,7 +813,7 @@ If there is a data element not found or a malformed request, the Instance Metada
 HTTP Status Code | Reason
 ----------------|-------
 200 OK |
-400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
+400 Bad Request | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
 404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` requests are supported
 410 Gone | Retry after some time for a max of 70 seconds
@@ -816,34 +824,32 @@ HTTP Status Code | Reason
 
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
-2. Why am I not getting compute information for my VM?
+1. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
-3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
-4. I am not seeing all data populated for new version
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
-5. Why am I getting the error `500 Internal Server Error`?
-   * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
-6. Where do I share additional questions/comments?
-   * Send your comments on https://feedback.azure.com.
-7. Would this work for Virtual Machine Scale Set Instance?
-   * Yes Metadata service is available for Scale Set Instances.
-8. How do I get support for the service?
-   * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
-9. I get request timed out for my call to the service?
-   * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM, in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
-10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
-    * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
+1. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
+   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
+1. I am not seeing all data populated for new version
+   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
+1. Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
+   * Retry your request based on exponential back off system. If the issue persists create a support issue in Azure Portal for the VM.
+1. Would this work for Virtual Machine Scale Set instances?
+   * Yes Metadata service is available for Scale Set instances.
+1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
+   * Currently tags for Scale Sets only show to the VM on a reboot, reimage, or disk change to the instance.
+1. I get request timed out for my call to the service?
+   * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. In addition in case you have changed your routes there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
 ## Support and Feedback
 
-Send your feedback and comments on https://feedback.azure.com.
-To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
+Submit your feedback and comments on https://feedback.azure.com.
 
-![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
+To get support for the service, create a support issue in Azure Portal for the VM where you are not able to get metadata response after long retries.
+Use the Problem Type of `Management` and select `Instance Metadata Service` as the Category.
+
+![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png "Screenshot: Opening a support case when having issues with Instance Metadata Service")
 
 ## Next Steps
 
 Learn more about:
-1.  [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-2.  [Scheduled Events](scheduled-events.md) 
+1. [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+1. [Scheduled Events](scheduled-events.md)
