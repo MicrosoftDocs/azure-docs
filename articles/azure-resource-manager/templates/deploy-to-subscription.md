@@ -398,7 +398,7 @@ To deploy this template with PowerShell, use:
 New-AzSubscriptionDeployment `
   -Name demoDeployment `
   -Location centralus `
-  -TemplateUri "26047913"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## Template samples
