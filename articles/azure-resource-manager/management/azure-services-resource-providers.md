@@ -15,7 +15,7 @@ This article shows how resource provider namespaces map to Azure services.
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
-| Microsoft.ADHybridHealthService<br><br>(enabled by default) | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft.ADHybridHealthService<sup>1</sup> | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -23,7 +23,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AppConfiguration | core |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure Attestation Service |
-| Microsoft.Authorization<br><br>(enabled by default) | [Azure Resource Manager](../index.yml) |
+| Microsoft.Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
@@ -32,7 +32,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing<br><br>(enabled by default) | [Cost Management and Billing](/azure/billing/) |
+| Microsoft.Billing<sup>1</sup> | [Cost Management and Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Maps](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain Service](/azure/blockchain/workbench/) |
 | Microsoft.BlockchainTokens | [Azure Blockchain Tokens](https://azure.microsoft.com/services/blockchain-tokens/) |
@@ -47,15 +47,15 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
 | Microsoft.ClassicStorage | Classic deployment model storage |
-| Microsoft.ClassicSubscription<br><br>(enabled by default) | Classic deployment model |
+| Microsoft.ClassicSubscription<sup>1</sup> | Classic deployment model |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
-| Microsoft.Commerce<br><br>(enabled by default) | core |
+| Microsoft.Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
-| Microsoft.Consumption<br><br>(enabled by default) | [Cost Management](/azure/cost-management/) |
+| Microsoft.Consumption<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
-| Microsoft.CostManagement<br><br>(enabled by default) | [Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
 | Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
@@ -84,7 +84,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](/azure/event-grid/) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
-| Microsoft.Features<br><br>(enabled by default) | [Azure Resource Manager](../index.yml) |
+| Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
@@ -111,7 +111,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Maps | [Azure Maps](../../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
-| Microsoft.MarketplaceOrdering<br><br>(enabled by default) | core |
+| Microsoft.MarketplaceOrdering<sup>1</sup> | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
@@ -124,7 +124,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal<br><br>(enabled by default) | [Azure portal](/azure/azure-portal/) |
+| Microsoft.Portal<sup>1</sup> | [Azure portal](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.PowerPlatform | [Power Platform](/power-platform/) |
@@ -132,15 +132,15 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
-| Microsoft.ResourceGraph<br><br>(enabled by default) | [Azure Resource Graph](/azure/governance/resource-graph/) |
+| Microsoft.ResourceGraph<sup>1</sup> | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
-| Microsoft.Resources<br><br>(enabled by default) | [Azure Resource Manager](../index.yml) |
+| Microsoft.Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
-| Microsoft.SerialConsole<br><br>(enabled by default) | [Azure Serial Console for Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole<sup>1</sup> | [Azure Serial Console for Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -155,7 +155,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
-| microsoft.support<br><br>(enabled by default) | core |
+| microsoft.support<sup>1</sup> | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
@@ -167,7 +167,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsESU | Extended Security Updates |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
-| Microsoft.WorkloadMonitor<br><br>(enabled by default) | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
+
+<sup>1</sup> Enabled by default
 
 ## Next steps
 
