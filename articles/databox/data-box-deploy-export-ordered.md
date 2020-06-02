@@ -6,8 +6,8 @@ author: priestlg
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: tutorial
-ms.date: 05/28/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: v-grpr
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -61,33 +61,6 @@ Before you begin, make sure that:
 > * A maximum of 80 TBs can be exported.
 > * File history is not exported.
 
-### Constraints
-
-* Max of 500 containers are exported
-* File limit
-* < 80 TBs of data is the maximum amount that can be exported
-* 5,000,000 million files
-* There's a 1:1 mapping from prefix to container
-<!-- * Link [Preview export command](../storage/common/storage-import-export-data-from-blobs.md#example-of-previewexport-command) -->
-* We support only 1024 characters files in length, anything over this will not export.
-* Duplicate prefixes in the xml file are counted(export) twice
-
-### Verbose logs
-
-<!-- All files successfully exported will be logged in the verbose log (file size, cloud format, file path, and CRC)
-Premium storage account has verbose log only.
-Verbose log is equivalent to a bill of materials (BOM).
-The log is sent to customer and downloaded. The customer can also delete the log from the cloud
-Error log is also created.
-Customers can 
-Check-sum of file (CRC).
-
-ERROR LOG:
-Similar format to the one in import. Was it in the cloud or in the read. Be used to create an export job. You can use the old error log to construct an new export job! You can use the error log as a template. -->
-
-<!-- Start at 44:00 in video -->
-### Local account
-
 ## Order Data Box
 
 Perform the following steps in the Azure portal to order a device.
@@ -139,8 +112,8 @@ Perform the following steps in the Azure portal to order a device.
     |Setting  |Value  |
     |---------|---------|
     |Storage account     | The Azure Storage account from where you want to export data. |
-    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<br> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.<br> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is not supported for the preview release. The file needs to be a non-empty .xml file.        |
-    |Transfer options     |  Specifies the data transfer options from **Select all**, **all blobs**, and **All files**. <br> **Select all** - Specifies that all blobs and Azure files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.<br> **all blobs** - Specifies that only block and page blobs are exported.<br> **All files** - Specifies that all files are exported excluding blobs.<br><br> The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export.         |
+    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<ul><li> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.</li><li> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is not supported for the preview release. The file needs to be a non-empty .xml file.</li></ul>        |
+    |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../storage/common/storage-import-export-requirements#supported-storage-types).</li></ul>         |
     |Include verbose log     | Indicates whether you want a verbose log file that contains all operations and files that were transferred.        |
 
     > [!NOTE]
@@ -219,6 +192,37 @@ To cancel this order, in the Azure portal, go to **Overview** and select **Cance
 After placing an order, you can cancel it at any point before the order status is marked processed.
 
 To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
+
+## Sample XML file
+
+The export blob list file may contain blob names and blob prefixes, as shown here:  
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<BlobList>  
+   <BlobPath>pictures/animals/koala.jpg</BlobPath>  
+   <BlobPathPrefix>/vhds/</BlobPathPrefix>  
+   <BlobPathPrefix>/movies/</BlobPathPrefix>  
+</BlobList>
+<AzureFileList>
+   <FilePathPrefix>/export-fileshare-prefix</FilePathPrefix>
+   <FilePath>/export-filelist1/windows/NgcPopKeySrv.log</FilePath>
+</AzureFileList>  
+```
+
+### Examples of valid blob paths
+
+The following table shows examples of valid blob paths:
+
+   | Selector | Blob Path | Description |
+   | --- | --- | --- |
+   | Starts with |/ |Exports all blobs in the storage account |
+   | Starts with |/$root/ |Exports all blobs in the root container |
+   | Starts with |/book |Exports all blobs in any container that begins with prefix **book** |
+   | Starts with |/music/ |Exports all blobs in container **music** |
+   | Starts with |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
+   | Equal to |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
+   | Equal to |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
 
 ## Next steps
 
