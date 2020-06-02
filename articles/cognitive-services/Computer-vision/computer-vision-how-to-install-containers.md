@@ -33,7 +33,7 @@ You must meet the following prerequisites before using the containers:
 
 ## Request access to the private container registry
 
-Fill out and submit the [request form](https://aka.ms/VisionContainersPreview) to request access to the container. 
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

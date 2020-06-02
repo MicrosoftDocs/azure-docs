@@ -99,6 +99,8 @@
         href: andromedascm-tutorial.md
       - name: AnswerHub
         href: answerhub-tutorial.md
+      - name: Anyone Home CRM
+        href: anyone-home-crm-tutorial.md
       - name: Apex Portal
         href: apexportal-tutorial.md
       - name: AppBlade
@@ -133,6 +135,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: askSpoke
+        href: askspoke-tutorial.md
       - name: AskYourTeam
         href: askyourteam-tutorial.md
       - name: Asset Bank
@@ -395,6 +399,8 @@
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Curricula SAML
+        href: curricula-saml-tutorial.md
       - name: Cyara CX Assurance Platform
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
@@ -467,6 +473,8 @@
         href: eab-navigate-strategic-care-tutorial.md
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
+      - name: EasySSO for BitBucket
+        href: easysso-for-bitbucket-tutorial.md
       - name: EasySSO for Confluence
         href: easysso-for-confluence-tutorial.md
       - name: EasySSO for Jira
@@ -511,6 +519,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -958,6 +968,8 @@
         href: mail-luck-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
+      - name: Mapbox
+        href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
       - name: Maxient Conduct Manager Software
@@ -1170,6 +1182,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1534,6 +1548,8 @@
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
+      - name: TextExpander
+        href: textexpander-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1642,6 +1658,8 @@
         href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
+      - name: Vyond
+        href: vyond-tutorial.md
     - name: W - Z
       items:
       - name: Watch by Colors
@@ -1833,6 +1851,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-provisioning-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
@@ -1959,8 +1979,12 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
-      - name: Workday
+      - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
+      - name: Workday to Azure AD
+        href: workday-inbound-cloud-only-tutorial.md
+      - name: Workday Writeback
+        href: workday-writeback-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook

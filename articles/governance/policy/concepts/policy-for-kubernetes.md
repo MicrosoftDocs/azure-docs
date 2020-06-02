@@ -40,6 +40,10 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
    - [Azure Arc enabled Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
 
+   > [!NOTE]
+   > For common issues with installation, see
+   > [Troubleshoot - Azure Policy add-on](../troubleshoot/general.md#add-on-installation-errors).
+
 1. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
 1. [Assign a built-in definition to your Kubernetes cluster](#assign-a-built-in-policy-definition)
@@ -487,8 +491,9 @@ following steps:
 
 1. Set **parameter values**	
 
-   - To exclude Kubernetes namespaces from policy evaluation, specify the list of namespaces in	
-     parameter **Namespace exclusions**. It's recommended to exclude: _kube-system_	
+   - To exclude Kubernetes namespaces from policy evaluation, specify the list of namespaces in
+     parameter **Namespace exclusions**. It's recommended to exclude: _kube-system_,
+     _gatekeeper-system_, and _azure-arc_.
 
 1. Select **Review + create**.
 
