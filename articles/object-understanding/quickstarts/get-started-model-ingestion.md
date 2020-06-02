@@ -11,9 +11,7 @@ ms.service: azure-object-understanding
 ---
 # Quickstart: Create an Object Understanding model from a 3D model
 
-Azure Object Understanding is a managed cloud service that converts 3D assets into AI models that enable object-aware
-mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Understanding model from a 3D
-CAD drawing using the C#/.NET Core SDK.
+Azure Object Understanding is a managed cloud service that converts 3D models into AI models that enable object-aware mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Understanding model from a 3D model using the C#/.NET Core SDK.
 
 You'll learn how to:
 
@@ -91,7 +89,7 @@ Now, you can go ahead and ingest your 3D model.
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath                 | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | InputAssetPath                 | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
     | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 
