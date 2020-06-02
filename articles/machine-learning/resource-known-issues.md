@@ -17,7 +17,7 @@ ms.date: 03/31/2020
 
 This article helps you troubleshoot known issues you may encounter when using Azure Machine Learning. 
 
-For troubleshooting other scenarios, see [Next steps](#next-steps) at the end of this article.
+For more information on troubleshooting, see [Next steps](#next-steps) at the end of this article.
 
 > [!TIP]
 > Errors or other issues might be the result of [resource quotas](how-to-manage-quotas.md) you encounter when working with Azure Machine Learning. 
