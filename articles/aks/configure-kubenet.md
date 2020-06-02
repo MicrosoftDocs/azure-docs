@@ -193,12 +193,18 @@ az aks create \
 
 When you create an AKS cluster, a network security group and route table are automatically created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
 
-## User-defined route table
+## Bring your own subnet and route table with kubenet
 
-> [!NOTE]
-> To bring your own route table, you must use a service principal that contains write permissions to your user-defined route table. Managed identities are not currently supported.
+With kubenet, a route table must exist on your cluster subnet(s). AKS supports bringing your own existing subnet and route table.
 
-You can create a custom route table and associate it to each subnet in your AKS cluster’s virtual network. When you create a cluster, AKS automatically configures the AKS-required route table rules for you. You can then define your additional route table rules as needed.
+Limitations:
+
+* Managed identities are not supported with custom route tables in kubenet.
+* Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
+* A custom route table for your cluster must exist on the subnet brought to a cluster at creation time. This route table cannot be updated, and all routing rules must be added or removed from the initial route table setup at cluster creation.
+* All subnets within an AKS virtual network must use be associated with the same route table.
+
+If your custom subnet doesn’t contain a route table, AKS creates one for you and adds rules to it. If your custom subnet contains a route table when you create your cluster, AKS acknowledges that the existing route table during cluster operations and updates rules accordingly for cloud provider operations.
 
 
 ## Next steps
