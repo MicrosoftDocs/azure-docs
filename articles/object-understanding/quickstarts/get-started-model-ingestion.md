@@ -11,15 +11,13 @@ ms.service: azure-object-understanding
 ---
 # Quickstart: Create an Object Understanding model from a 3D model
 
-Azure Object Understanding is a managed cloud service that converts 3D assets into AI models that enable object-aware
-mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Understanding model from a 3D
-CAD drawing using the C#/.NET Core SDK.
+Azure Object Understanding is a managed cloud service that converts 3D models into AI models that enable object-aware mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Understanding model from a 3D model using the C#/.NET Core SDK.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Create an Object Understanding account
-> * Ingest a 3D asset to create an Object Understanding model
+> * Ingest a 3D model to create an Object Understanding model
 
 ## Prerequisites
 
@@ -64,14 +62,18 @@ First, you need to create an account with the Object Understanding service.
    Go to **Keys** and take note of the **Primary Key**. You'll need it later.
 
    :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
+   
+   Go to **Properties** and take note of the **Location ID**. You'll need it later.
+
+   :::image type="content" source="./media/copy-ou-account-region.png" alt-text="Copy Account Region":::
 
 ## Get the sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-understanding-clone-sample-repository.md)]
 
-## Ingest a 3D asset
+## Ingest a 3D model
 
-Now, you can go ahead and ingest your 3D asset.
+Now, you can go ahead and ingest your 3D model.
 
 1. Open `quickstarts/ingestion/Ingestion.sln` in Visual Studio. This solution contains a C# console project.
 
@@ -81,18 +83,17 @@ Now, you can go ahead and ingest your 3D asset.
     | ---                            | ---                                                                   |
     | AccountId                      | The **Account ID** of the Object Understanding Account created above. |
     | AccountKey                     | The **Primary key** of the Object Understanding Account created above |
-    | Account Region                 | The **Region** of the Object Understanding Account created above.     |
+    | Account Region                 | The **Location ID** of the Object Understanding Account created above.     |
 
    There are four additional fields that need to be verified:
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath                 | Absolute path to a 3D file on your local machine (there's a sample model in `assets/models` folder you can use). Supported 3D file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | InputAssetPath                 | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
     | Unit                     | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Microsoft.Azure.ObjectUnderstanding.Ingestion.Unit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
-    | AssetId                  | An arbitrary string used to identify the object being ingested. It could be a randomly generated GUID/UUID, object's identifier in an inventory database, stock keeping unit, etc. |
 
-3. Build and run the project to upload your 3D asset to your blob store, register a new ingestion job with the service, and wait for it to be completed. Once the job is completed, the Object Understanding model will be downloaded either next to the file specified in the `InputAssetPath` or the path specified in `OutputModelDirectoryPath`. You should see something similar to the following console output:
+3. Build and run the project to upload your 3D model, register a new ingestion job with the service, and wait for it to be completed. Once the job is completed, the Object Understanding model will be downloaded either next to the file specified in the `InputAssetPath` or the path specified in `OutputModelDirectoryPath`. You should see something similar to the following console output:
 
    ```shell
     Successfully created model ingestion job. Job ID: ******************************
@@ -108,7 +109,7 @@ Now, you can go ahead and ingest your 3D asset.
 
 ## Next steps
 
-In this quickstart, you created an Object Understanding account, set up storage resources, and ingested a 3D model to create an Object Understanding model. To learn how to integrate that model with the Object Understanding SDK in your mixed reality app, continue with any of the following articles:
+In this quickstart, you created an Object Understanding account and ingested a 3D model to create an Object Understanding model. To learn how to integrate that model with the Object Understanding SDK in your mixed reality app, continue with any of the following articles:
 
 > [!div class="nextstepaction"]
 > [Unity HoloLens](get-started-unity-hololens.md)
