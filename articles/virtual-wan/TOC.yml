@@ -98,10 +98,16 @@
           href: virtual-wan-route-table.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: Multiple ISP links - Azure Path Selection
+      href: path-selection-multiple-links.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+  - name: Monitoring
+    items:
+    - name: Logs and metrics
+      href: logs-metrics.md
 - name: Reference
   items:
   - name: Azure PowerShell

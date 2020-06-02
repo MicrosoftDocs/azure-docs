@@ -160,7 +160,7 @@
     topicHref: /azure/spatial-anchors/
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
-    topicHref: /azure/remote-rendering/
+    topicHref: /azure/remote-rendering/   
   - name: Azure Object Understanding
     tocHref: /azure/object-understanding/
     topicHref: /azure/object-understanding/
@@ -629,6 +629,9 @@
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
+      - name: Live Video Analytics on IoT Edge
+        tocHref: /azure/media-services/live-video-analytics-edge/
+        topicHref: /azure/media-services/live-video-analytics-edge/        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/

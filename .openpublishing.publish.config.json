@@ -521,6 +521,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-dotnet-table",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmos-java-sql-api-samples",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
       "branch": "master"
