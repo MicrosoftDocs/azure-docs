@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 06/02/2020
 ms.author: spelluru
 ---
 
@@ -21,6 +21,9 @@ When you create first event subscription for an Azure event source such as Azure
 
 System topic isn't applicable to custom topic scenarios, that is, Event Grid topics and Event Grid domains. 
 
+## Name 
+Earlier, when you created a subscription for an event raised by Azure sources, the Event Grid service automatically created a system topic with a **randomly generated name**. Now, you can specify a name for the system topic while creating the topic in the Azure portal. You can use this system topic resource to discover metrics and diagnostic logs.
+
 ## Location
 For Azure event sources that are in a specific region/location, system topic is created in the same location as the Azure event source. For example, if you create an event subscription for an Azure blob storage in East US, the system topic is created in East US. For global Azure event sources such as Azure subscriptions, resource groups, or Azure Maps, Event Grid creates the system topic in **global** location. 
 
@@ -31,8 +34,6 @@ When you try to delete the resource group with the storage account, you'll see t
 
 ![Delete resource group](./media/system-topics/delete-resource-group.png)
 
-## Next steps
-See the following articles: 
 
-- [Custom topics](custom-topics.md)
-- [Domains](event-domains.md)
+## Next steps
+See the following article: [Create, view, and manage system topics](create-view-manage-system-topics.md).
