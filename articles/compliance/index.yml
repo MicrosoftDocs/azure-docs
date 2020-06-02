@@ -380,6 +380,8 @@ additionalContent:
           links:
             - text: Azure Security Benchmark
               url: ../governance/blueprints/samples/azure-security-benchmark.md
+            - text: Canada Federal PBMM
+              url: ./governance/blueprints/samples/canada-federal-pbmm/index.md
             - text: CIS benchmarks
               url: ../governance/blueprints/samples/cis-azure-1-1-0.md
             - text: FedRAMP Moderate
@@ -398,8 +400,6 @@ additionalContent:
               url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
             - text: SWIFT CSP-CSCF v2020
               url: ../governance/blueprints/samples/swift-2020/index.md
-            - text: PCI DSS v3.2.1
-              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
             - text: UK NHS and UK OFFICIAL (G-Cloud)
               url: ../governance/blueprints/samples/ukofficial/index.md
 
