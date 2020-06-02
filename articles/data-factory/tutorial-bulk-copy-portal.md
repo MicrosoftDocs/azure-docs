@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
+ms.date: 05/28/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory
@@ -209,7 +209,8 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
     ![New pipeline menu](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. In the **General** tab, specify **IterateAndCopySQLTables** for name. 
+ 
+1. In the General panel under **Properties**, specify **IterateAndCopySQLTables** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. Switch to the **Parameters** tab, and do the following actions: 
 

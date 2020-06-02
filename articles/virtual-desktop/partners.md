@@ -240,7 +240,7 @@ sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT ma
 sepago's innovation and development lab builds smart solutions using big data and AI technologies. These solutions focus on improving the business, user experience, and administrations of partner products like Windows Virtual Desktop.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Go to the partner website](https://www.sepago.de/wvd-value-add-tools/).
+- [Go to the partner website](https://www.sepago.de/en/).
 
 ## ThinPrint
 
