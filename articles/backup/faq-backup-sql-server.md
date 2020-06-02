@@ -46,7 +46,7 @@ The default value of DefaultBackupTasksThreshold is **20**.
  While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
-> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, as per the above example.
+> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, according to the above example.
 
 ## Can I run a full backup from a secondary replica?
 
@@ -86,7 +86,7 @@ If you do **stop backup with delete data**, no future backups will take place an
 
 ## If I change the name of the database after it has been protected, what will be the behavior?
 
-A renamed database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
+A renamed database is treated as a new database. So the service will treat this situation as if the database were not found and with fail the backups.
 
 You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
