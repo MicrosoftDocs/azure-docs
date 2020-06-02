@@ -34,7 +34,7 @@ All Azure CLI commands for Azure Data Share are currently extensions to the Azur
 
 Examples are provided with every Azure CLI reference. Although you can also complete these tasks through the Azure portal, using the Azure CLI requires a single command line.  Here are a few code blocks to give you an idea of how easy it is to use the Azure CLI.
 
-To work with Azure Data Share, you'll first need a resource group.  Azure resource groups are simple to create and manage using the Azure CLI.  
+To work with Azure Data Share, you'll first need a resource group.  Azure resource groups are simple to create and manage with the Azure CLI.  
 
 ```azurecli
 #create a resource group
@@ -46,7 +46,7 @@ az group create -location westus -name MyResourceGroup
 az group list --subscription MySubscription --output table
 ```
 
-It is just as straightforward to create a data share account.
+It is as straightforward to create a data share account.
 
 ```azurecli
 #create a data share account
