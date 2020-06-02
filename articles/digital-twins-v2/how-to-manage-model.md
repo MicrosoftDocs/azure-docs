@@ -60,7 +60,7 @@ Models for Azure Digital Twins are written in DTDL. A patient room in this scena
 ```
 
 > [!NOTE]
-> This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. If you are defining a model in the body of an API call, remember to fit the code above into the context of a complete API call body (including *[]* brackets around this section).
+> This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call takes an array of model definition as the one above, which maps to a `IEnumerable<string>` in the C# SDK).
 
 This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this *Room* model to the actual devices.
 
@@ -76,7 +76,7 @@ The following sections show how to complete different model management operation
 > [!NOTE]
 > The examples below do not include error handling for brevity. However, it's strongly recommended within your projects to wrap service calls in try/catch blocks.
 
-> [!Tip] 
+> [!TIP] 
 > Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
 
 ### Upload models

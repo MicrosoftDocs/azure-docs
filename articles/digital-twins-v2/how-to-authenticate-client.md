@@ -35,7 +35,7 @@ To create an app registration, you need to provide the resource IDs for the Azur
 
 ```json
 [{
-    "resourceAppId": "https://digitaltwins.azure.net",
+    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
     "resourceAccess": [
      {
        "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
@@ -46,6 +46,8 @@ To create an app registration, you need to provide the resource IDs for the Azur
 ``` 
 
 Save this file as *manifest.json*.
+
+> [!NOTE] In other parts of the Azure Digital Twins documentation, you will find the friendly human-readable string `https://digitaltwins.azure.net` in place of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. The friendly form of Azure Digital Twins resource app ID works great for authentication using the MSAL library (that we use in all examples in this documentation set), but for creation of the app registration, the GUID form of the id is required, as shown in the manifest above. 
 
 In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
 
