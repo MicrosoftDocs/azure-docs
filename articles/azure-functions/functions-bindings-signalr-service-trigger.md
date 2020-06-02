@@ -42,7 +42,19 @@ Traditional model obeys the convention of Azure Function developing by C#. If yo
 
 ```cs
 [FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", "message")]InvocationContext invocationContext, string message, ILogger logger)
+public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage", parameterNames: new string[] {"message"})]InvocationContext invocationContext, string message, ILogger logger)
+{
+    logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
+}
+```
+
+#### Use attribute `[SignalRParameter]` to simplify `ParameterNames`
+
+As it's bit cumbersome to use `ParameterNames`, `SignalRParameter` is provided to achieve the same purpose.
+
+```cs
+[FunctionName("SignalRTest")]
+public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMessage")]InvocationContext invocationContext, [SignalRParameter]string message, ILogger logger)
 {
     logger.LogInformation($"Receive {message} from {invocationContext.ConnectionId}.");
 }
@@ -194,55 +206,6 @@ await connection.invoke("broadcast", message1, message2);
 ```
 
 You can access these two arguments from parameter as well as assign type of parameter for them by using `ParameterNames`.
-
-# [C#](#tab/parameter-name-csharp)
-
-```cs
-[FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "broadcast", parameterNames: new string[] {"message1, message2"})]InvocationContext invocationContext, string message1, string message2)
-{
-}
-```
-
-### Use attribute `[SignalRParameter]` to simplify `ParameterNames`
-
-As it's bit cumbersome to use `ParameterNames`, `SignalRParameter` is provided to achieve the same purpose.
-
-```cs
-[FunctionName("SignalRTest")]
-public static async Task Run([SignalRTrigger("SignalRTest", "messages", "broadcast")]InvocationContext invocationContext, [SignalRParameter]string message1, [SignalRParameter]string message2)
-{
-}
-```
-
-# [JavaScript](#tab/parameter-name-javascript)
-
-`ParameterNames` is in the *function.json*.
-
-```json
-{
-    "type": "signalRTrigger",
-    "name": "invocation",
-    "hubName": "SignalRTest",
-    "category": "messages",
-    "event": "SendMessage",
-    "parameterNames": [
-        "message"
-    ],
-    "direction": "in"
-}
-```
-
-In JavaScript codes, you can access parameters through `context.bindingData`:
-
-```javascript
-module.exports = function (context, invocation) {
-    context.log(`Receive ${context.bindingData.message} from ${invocation.ConnectionId}.`)
-    context.done();
-};
-```
-
----
 
 ### Remarks
 
