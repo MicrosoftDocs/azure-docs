@@ -108,4 +108,4 @@ Using a combination of the sources, processors, and sinks defined above, you can
 
 ## Next steps
 
-Follow the [Quickstart: Run Live Video Analytics with your own model](use-your-model-quickstart.md) article to see how you can run motion detection on a live video feed.
+To see how you can run motion detection on a live video feed, see [Quickstart: Run Live Video Analytics with your own model](use-your-model-quickstart.md).
