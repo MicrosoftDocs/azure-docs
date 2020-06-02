@@ -22,6 +22,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |MicrosoftMonitoringAgent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+We also support the Dependency Agent extension for AzMon for VMs - so I need to take the extension template and tweak to reflect the proper resource type and we need to explain tie-in to each service and summarize benefit/capability. Auto-update is same experience on a minor update of the extension when released, just like Azure VM.
 
 >[!NOTE]
 > VM extension functionality is available only in the following regions:
@@ -195,7 +196,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). However, there are some differing characteristics that you need to understand:
 
-<List those differences in experience and configuration with the extension>.
+From a functionality perspective, it is the same experience as the Azure VM. For proxy, look for the environment variable and use that value. Some property values - resource provider. Same with DSC provider template.
 
 The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
 
