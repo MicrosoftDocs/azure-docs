@@ -95,7 +95,7 @@ Access control to the underlying data is split into three parts:
 ## Access control to SQL Databases
 
 > [!TIP]
-> The below steps need to be run for **each** SQL database to grant user access to all SQL databases except in section [Server level permission](#Server-level-permission) where you can assign user a sysadmin role.
+> The below steps need to be run for **each** SQL database to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
 
 ### SQL on-demand
 
