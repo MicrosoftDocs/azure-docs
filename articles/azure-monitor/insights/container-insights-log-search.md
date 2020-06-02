@@ -14,8 +14,8 @@ Azure Monitor for containers collects performance metrics, inventory data, and h
 
 In the following table, details about the records collected by Azure Monitor for containers for use in log searches are provided.
 
-| Data | Data source | Data type in Log Search | Fields |
-| --- | --- | --- | --- |
+| Data | Data source | Data type | Fields |
+|------|-------------|-----------|--------|
 | Performance for hosts and containers | Usage metrics are obtained from cAdvisor and limits from Kube api | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Container inventory | Docker | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container log | Docker | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
