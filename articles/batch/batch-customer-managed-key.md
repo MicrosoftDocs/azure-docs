@@ -26,12 +26,12 @@ The keys you provide must from [Azure Key Vault](https://docs.microsoft.com/azur
 ### Using Azure Portal
 In the [Azure Portal](https://portal.azure.com/), when you create Batch accounts, pick **System assigned** in the identity type under the **Advanced** tab.
 
-![](./media/batch-customer-managed-key/createbackaccount.png)
+![](./media/batch-customer-managed-key/create-batch-account.png)
  
 
 After the account is created, you could find a unique GUID in **Identity Principal Id** field under the **Property** section and the **Identity Type** is `SystemAssigned`.
 
-![](./media/batch-customer-managed-key/Inkedbatchprincipalid_LI.jpg)
+![](./media/batch-customer-managed-key/principal-id.jpg)
  
 ### Using Azure CLI
 When you create a new Batch Acount, Specify `SystemAssigned` under the `--identity` parameter.
