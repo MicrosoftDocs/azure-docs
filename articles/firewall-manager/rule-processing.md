@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
@@ -29,4 +29,4 @@ By default, your policy inherits it's parent policy threat intelligence mode. Yo
 
 ## Next steps
 
-- [Learn more about Azure Firewall Manager Preview](overview.md)
+- [Learn more about Azure Firewall Manager](overview.md)

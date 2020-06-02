@@ -39,11 +39,11 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-        - text: What are trusted security partners (preview)?
+        - text: What are trusted security partners?
           url: trusted-security-partners.md
     - linkListType: how-to-guide
       links:
-       - text: Deploy a trusted security partner (preview)
+       - text: Deploy a trusted security partner
          url: deploy-trusted-security-partner.md
   # Card
   - title: Secure you Azure cloud network

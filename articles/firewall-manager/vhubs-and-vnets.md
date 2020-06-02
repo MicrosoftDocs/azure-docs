@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
@@ -32,8 +32,8 @@ The following table compares these two architecture options and can help you dec
 |**On-prem connectivity**     |VPN Gateway up to 10 Gbps and 30 S2S connections; ExpressRoute|More scalable VPN Gateway up 20 Gbps and 1000 S2S connections; Express Route|
 |**Automated branch connectivity using SDWAN**      |Not supported|Supported|
 |**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
-|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated. To be available by GA.|
-|**Azure Firewall Availability Zones**     |Supported|Not available in preview. To be available by GA|
+|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated|
+|**Azure Firewall Availability Zones**     |Supported|Supported|
 |**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via Trusted Security Partner flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
@@ -41,5 +41,5 @@ The following table compares these two architecture options and can help you dec
 
 ## Next steps
 
-- Review [Azure Firewall Manager Preview deployment overview](deployment-overview.md)
+- Review [Azure Firewall Manager deployment overview](deployment-overview.md)
 - Learn about [secured Virtual Hubs](secured-virtual-hub.md).

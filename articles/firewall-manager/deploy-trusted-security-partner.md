@@ -5,24 +5,22 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Deploy a trusted security partner (preview)
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# Deploy a trusted security partner
 
 *Trusted security partners* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
-To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
+To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners?](trusted-security-partners.md).
 
-The supported security partners are **ZScaler** and **iboss** for this preview. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+The supported security partners are **ZScaler** and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+> Azure Firewall Manager must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
 
 From a PowerShell command prompt, run the following commands:
 
@@ -110,7 +108,7 @@ After finishing the route setting steps, the VNet virtual machines as well as th
 
 ## Next steps
 
-- [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)
+- [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)
 
 
 

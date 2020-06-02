@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall Manager Preview policy overview
+title: Azure Firewall Manager policy overview
 description: Learn about Azure Firewall Manager policies
 author: vhorne
 ms.service: firewall-manager
@@ -9,9 +9,7 @@ ms.date: 02/18/2020
 ms.author: victorh
 ---
 
-# Azure Firewall Manager Preview policy overview
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# Azure Firewall Manager policy overview
 
 Firewall policy is an Azure resource that contains NAT, network, and application rule collections as well as Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
 
@@ -21,7 +19,7 @@ Firewall policy is an Azure resource that contains NAT, network, and application
 
 A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, and CLI.
 
-You can also migrate existing rules from Azure Firewall using the portal or Azure PowerShell to create policies. For more information, see [How to migrate Azure Firewall configurations to Azure Firewall policy (preview)](migrate-to-policy.md). 
+You can also migrate existing rules from Azure Firewall using the portal or Azure PowerShell to create policies. For more information, see [How to migrate Azure Firewall configurations to Azure Firewall policy](migrate-to-policy.md). 
 
 Policies can be associated with one or more virtual hubs or VNets. The firewall can be in any subscription associated with your account and in any region.
 
@@ -51,7 +49,6 @@ Azure Firewall supports both traditional rules and policies. The following table
 |Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using third-party management solutions |
 |Pricing     |Billed based on firewall association. See [Pricing](#pricing).|Free|
 |Supported deployment mechanisms     |Portal, REST API, templates, Azure PowerShell, and CLI|Portal, REST API, templates, PowerShell, and CLI. |
-|Release Status     |Public Preview|General Availability|
 
 ## Pricing
 
@@ -59,4 +56,4 @@ Policies are billed based on firewall associations. A policy with zero or one fi
 
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md).
+To learn how to deploy an Azure Firewall, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).

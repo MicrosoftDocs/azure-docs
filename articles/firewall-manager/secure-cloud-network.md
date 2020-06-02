@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager preview'
+title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager'
 description: In this tutorial, you learn how to secure your virtual WAN with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your virtual WAN using Azure Firewall Manager preview 
+# Tutorial: Secure your virtual WAN using Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Using Azure Firewall Manager Preview, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
