@@ -410,7 +410,21 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
@@ -39206,6 +39220,12 @@
       "redirect_url": "/azure/active-directory-b2c/page-layout",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/active-directory-b2c/add-web-application.md",
+      "redirect_url": "/azure/active-directory-b2c/add-web-api-application",
+      "redirect_document_id": true
+    },
+
     {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
