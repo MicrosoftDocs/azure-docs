@@ -1237,6 +1237,8 @@
       href: whitepapers.md
     - name: Partners
       href: partners-migration-cosmosdb.md
+    - name: Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

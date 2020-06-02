@@ -9,6 +9,7 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
+ms.custom: references_regions
 ---
 
 # Supported regions for linked Log Analytics workspace
