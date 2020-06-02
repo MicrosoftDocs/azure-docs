@@ -22,18 +22,6 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
-## Region Availability
-
-Uptime SLA is available in the following regions:
-
-* Australia East
-* Canada Central
-* East US
-* East US 2
-* South Central US
-* South East Asia
-* West US 2
-
 ## Before you begin
 
 * The Azure CLI version 2.7.0 or later

@@ -410,7 +410,21 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
@@ -4381,6 +4395,11 @@
     {
       "source_path": "articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
       "redirect_document_id": false
     },
     {
@@ -39207,6 +39226,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/add-web-application.md",
+      "redirect_url": "/azure/active-directory-b2c/add-web-api-application",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
@@ -51755,8 +51780,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
-      "redirect_url": "/azure/azure-monitor/overview",
+      "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     },
     {
