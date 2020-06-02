@@ -63,59 +63,34 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > #### Step 1: Configure your application
 > For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
+> > [Make those changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 
 #### Step 2: Download the sample project
 
-- [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+>[!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> - [Download the Code Sample for iOS]()
+> - [Download the Code Sample for macOS]()
+
+> [!div renderon="docs"]
+> - [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### Step 3: Install dependencies
 
 In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
 
-#### Step 4: Configure your project
+> [!div renderon="portal" class="sxs-lookup"]
+> #### Step 4: Your app is configured and ready to run
+> We have configured your project with values of your app's properties and it's ready to run.
 
 > [!div renderon="docs"]
+>#### Step 4: Configure your project
 > If you selected Option 1 above, you can skip these steps.
-
-> [!div renderon="portal" class="sxs-lookup"]
-> 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the client ID that you saved when you registered your app in the portal earlier in the quickstart:
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
->    ```swift
->    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
->    ```
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
->    ```swift
->    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
->    ```
-> 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
-> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
-> 1. Build & run the app!
-> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-> [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
