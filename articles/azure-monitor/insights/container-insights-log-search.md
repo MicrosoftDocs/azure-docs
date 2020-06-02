@@ -8,7 +8,7 @@ ms.date: 06/01/2020
 
 # How to query logs from Azure Monitor for containers
 
-Azure Monitor for containers collects performance metrics, inventory data, and health state information from container hosts and containers, and forwards it to the Log Analytics workspace in Azure Monitor. Data is collected every three minutes. This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Azure Monitor for containers collects performance metrics, inventory data, and health state information from container hosts and containers. The data is collected every three minutes and forwarded to the Log Analytics workspace in Azure Monitor. This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Container records
 
@@ -28,7 +28,7 @@ Examples of records that are collected by Azure Monitor for containers and the d
 | Performance metrics for containers part of the Kubernetes cluster || Perf &#124; where ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Custom Metrics ||`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags<sup>1</sup>, TimeGenerated, Type, Va, _ResourceId | 
 
-<sup>1</sup> The *Tags* property represents [multiple dimensions](../platform/data-platform-metrics.md#multi-dimensional-metrics) for the corresponding metric. For additional information about the metrics collected and stored in the `InsightsMetrics` table and a description of the record properties, see [InsightsMetrics overview](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+<sup>1</sup> The *Tags* property represents [multiple dimensions](../platform/data-platform-metrics.md#multi-dimensional-metrics) for the corresponding metric. For more information about the metrics collected and stored in the `InsightsMetrics` table and a description of the record properties, see [InsightsMetrics overview](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
 
 ## Search logs to analyze data
 
