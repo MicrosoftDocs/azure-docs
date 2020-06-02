@@ -261,13 +261,13 @@ Protection groups gather multiple VMs and apply the same data retention and back
    > [!TIP]
    > You can select the members individually, or click **Select All** to choose all members.
 
-    ![Specify online protection data](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+   ![Specify online protection data](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1.  On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure and click **Next**. 
 
-    -   Cloud recovery points for the data to get generated according to the schedule. 
+    -  Cloud recovery points for the data to get generated according to the schedule. 
 
-    -   After the recovery point gets generated, it then gets transferred to the Recovery Services vault in Azure.
+    -  After the recovery point gets generated, it then gets transferred to the Recovery Services vault in Azure.
 
     ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
@@ -275,7 +275,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
     - There's no time limit for how long you can keep data in Azure.
 
-    -   The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
+    - The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
     ![Specify online retention policy](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
 

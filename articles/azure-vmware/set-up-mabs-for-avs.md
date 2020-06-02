@@ -59,8 +59,10 @@ In this article, we help you prepare your AVS environment to backup virtual mach
 
 -   Add storage to Azure Backup Server 
 
+**Deployment Architecture**  
+Microsoft Azure Backup Server is deployed as Azure IaaS VM to protect AVS VMs.
 
-![Deploy Azure Backup Server solution diagram](./media/avs-backup/deploy-mabs-avs-diagram.png)
+![AVS deployment architecture](./media/avs-backup/deploy-mabs-avs-diagram.png)
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -298,29 +300,13 @@ If you downloaded the software package to a different server, copy the files ont
 
     **SSRS Configuration with SQL 2017**
 
-    When using your own instance of SQL 2017, you need to configure SSRS manually. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When set to True, Azure Backup Server assumes that SSRS is already configured and skips the SSRS configuration.
-
-    To check the SSRS configuration status, you can use the following command.
-
-    ```powershell
-
-    $configset =Get-WmiObject –namespace
-    "root\Microsoft\SqlServer\ReportServer\RS_SSRS\v14\Admin" -class
-    MSReportServer_ConfigurationSetting -ComputerName localhost
-
-    $configset.IsInitialized
-
-    `"
+    When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
     Use the following values for SSRS configuration:
-
-    -   Service Account: 'Use built-in account' should be Network Service
-
-    -   Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-
-    -   Database: DatabaseName should be ReportServer$<SQLInstanceName>
-
-    -   Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    * Service Account: ‘Use built-in account’ should be Network Service
+    * Web Service URL: ‘Virtual Directory’ should be ReportServer_\<SQLInstanceName>
+    * Database: DatabaseName should be ReportServer$\<SQLInstanceName>
+    * Web Portal URL: ‘Virtual Directory’ should be Reports_\<SQLInstanceName>
 
     [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 
@@ -371,7 +357,7 @@ If you downloaded the software package to a different server, copy the files ont
 
 ### Install Update Rollup 1
 
-Download and install the Update Rollup 1 for Azure Backup Server v3 before protecting the workloads. You can download the update from this link. [still need the link to the download]
+Installation of update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before protecting the workloads. To view the list of bug fixes and  the installation instructions for Microsoft Azure Backup Server V3 UR1, see KB article [4534062 -- link is broken](https%3A%2F%2Fsupport.microsoft.com%2Fhelp%2F4534062&data=02%7C01%7Cv-patsho%40microsoft.com%7C758c90bec587408478dc08d8070f784f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637267110339472161&sdata=JoGQufGdnWohNYlwKXozFIyvWRAAzcwaH%2BxwTFVQsxM%3D&reserved=0).
 
 ## Add storage to Azure Backup Server
 
