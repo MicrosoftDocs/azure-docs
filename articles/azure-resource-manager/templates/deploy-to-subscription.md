@@ -381,7 +381,7 @@ New-AzSubscriptionDeployment `
 
 You can [create](../../governance/blueprints/tutorials/create-from-sample.md) a blueprint definition from a template.
 
-:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+:::code language="json" source="~/azure-quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
 
 To create the blueprint definition in your subscription, use the following CLI command:
 
@@ -398,7 +398,7 @@ To deploy this template with PowerShell, use:
 New-AzSubscriptionDeployment `
   -Name demoDeployment `
   -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+  -TemplateUri "26047913"
 ```
 
 ## Template samples
