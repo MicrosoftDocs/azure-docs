@@ -271,6 +271,8 @@ Read all configuration | Default user role ([see documentation](https://docs.mic
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
+Configure password protection | Security administrator
+Configure smart lockout | Security administrator
 Read all configuration | Global reader | 
 
 ## Security - Conditional Access

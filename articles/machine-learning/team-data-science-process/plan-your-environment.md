@@ -146,7 +146,7 @@ There are many options for languages, development environments, and tools. Be aw
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Anaconda](https://www.anaconda.com/)
 * [Jupyter notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
