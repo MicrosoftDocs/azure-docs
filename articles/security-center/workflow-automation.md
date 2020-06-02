@@ -27,7 +27,7 @@ This article describes the workflow automation feature of Azure Security Center.
 - Release state: **Generally Available**
 - Required roles and permissions:
     - **Reader** on the subscription containing the export configuration
-    - **Security admin role** (or **Owner** with Security Admin permissions) on the resource group
+    - **Security admin role** on the resource group (or **Owner**)
     - Must also have write permissions for the target resource
     - Also, to work with Azure Logic Apps workflows, you must have the following Logic Apps roles/permissions:
 
