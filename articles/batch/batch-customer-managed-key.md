@@ -31,7 +31,7 @@ In the [Azure Portal](https://portal.azure.com/), when you create Batch accounts
 
 After the account is created, you could find a unique GUID in **Identity Principal Id** field under the **Property** section and the **Identity Type** is `SystemAssigned`.
 
-![](./media/batch-customer-managed-key/principal-id.jpg)
+![](./media/batch-customer-managed-key/linked-batch-principal.png)
  
 ### Using Azure CLI
 When you create a new Batch Acount, Specify `SystemAssigned` under the `--identity` parameter.
