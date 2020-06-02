@@ -25,20 +25,20 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Groups** > **All groups** > **New group**.
 
-    :::image type="content" source="./media/roles-groups-create-eligible/new-group.png alt-text="Open Azure Active Directory and create a new group":::
+    :::image type="content" source="/media/roles-groups-create-eligible/new-group.png" alt-text="Open Azure Active Directory and create a new group":::
 
 1. On the **New Group** tab, provide group type, name and description.
 1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
 
-    :::image type="content" source="./media/roles-groups-create-eligible/eligible-switch.png alt-text="Make the new group eligible for role assignment":::
+    :::image type="content" source="/media/roles-groups-create-eligible/eligible-switch.png" alt-text="Make the new group eligible for role assignment":::
 
 1. Select the members and owners for the group. You also have the option to assign roles to the group, but assigning a role isn't required here.
 
-    :::image type="content" source="./media/roles-groups-create-eligible/specify-members.png alt-text="Add members to the role-assignable group and assign roles":::
+    :::image type="content" source="/media/roles-groups-create-eligible/specify-members.png" alt-text="Add members to the role-assignable group and assign roles":::
 
 1. After the members and owners are specified, select **Create**.
 
-    :::image type="content" source="./media/roles-groups-create-eligible/create-button.png alt-text="The Create button is at the bottom of the page":::
+    :::image type="content" source="/media/roles-groups-create-eligible/create-button.png" alt-text="The Create button is at the bottom of the page":::
 
 The group is created with any roles you might have assigned to it.
 
