@@ -34,7 +34,7 @@ SQL Managed Instance has characteristics and resource limits that depend on the 
 | Max instance reserved storage |  General Purpose: 8 TB<br/>Business Critical: 1 TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> - Gen4 hardware is being phased out and is not available anymore for new deployments. All new instance of SQL Managed Instance must be deployed on Gen5 hardware.
+> - Gen4 hardware is being phased out and is not available anymore for new deployments. All new instances of SQL Managed Instance must be deployed on Gen5 hardware.
 > - Consider [moving your instance of SQL Managed Instance to Gen 5](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
 ### In-memory OLTP available space 

@@ -160,7 +160,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
     - Export a database from SQL Managed Instance and import to SQL Database within the same Azure AD domain. 
     - Export a database from SQL Database and import to SQL Managed Instance within the same Azure AD domain.
     - Export a database from SQL Managed Instance and import to SQL Server (version 2012 or later).
-      - In this configuration all Azure AD users are created as SQL Database principals (users) without logins. The type of users are listed as SQL (visible as SQL_USER in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
+      - In this configuration all Azure AD users are created as SQL Server database principals (users) without logins. The type of users are listed as `SQL` and are visible as `SQL_USER` in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
 
 - Only the server-level principal login, which is created by the SQL Managed Instance provisioning process, members of the server roles, such as `securityadmin` or `sysadmin`, or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for SQL Managed Instance.
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
@@ -324,7 +324,7 @@ SQL Managed Instance can't access file shares and Windows folders, so the files 
 
 - `DATASOURCE` is required in the `BULK INSERT` command while you import files from Azure Blob storage. See [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` is required in the `OPENROWSET` function when you read the content of a file from Azure Blob storage. See [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET` can be used to read data from other Azure SQL single databases, SQL Managed Instance or SQL Server instances. Other sources such as Oracle databases or Excel files are not supported.
+- `OPENROWSET` can be used to read data from Azure SQL Database, Azure SQL Managed Instance, or SQL Server instances. Other sources such as Oracle databases or Excel files are not supported.
 
 ### CLR
 
