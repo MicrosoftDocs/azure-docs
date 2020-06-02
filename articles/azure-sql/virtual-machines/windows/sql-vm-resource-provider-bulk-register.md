@@ -150,15 +150,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Specific VMs in a single resource group
-=======
-## Register specific VMs in single resource group
->>>>>>> a476a51947eb47e856dc04da93fb8052c9b7b9ab
-=======
 ## Register specific VMs in a single resource group
->>>>>>> 1aea2996de2b8e51e285b957d8dd7c2ba7b9e5de
 
 Use the following cmdlet to register specific SQL Server virtual machines within a single resource group:
 
