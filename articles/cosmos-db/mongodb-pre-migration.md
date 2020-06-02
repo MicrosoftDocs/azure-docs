@@ -11,7 +11,7 @@ ms.author: lbosq
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
 
-Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB’s API for MongoDB, you should:
+Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 
 1. [Read the key considerations about using Azure Cosmos DB's API for MongoDB](#considerations)
 2. [Choose an option to migrate your data](#options)

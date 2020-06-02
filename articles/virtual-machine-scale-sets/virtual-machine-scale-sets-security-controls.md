@@ -1,12 +1,14 @@
 ---
 title: Security controls for Azure Virtual Machine Scale Sets
 description: A checklist of security controls for evaluating Azure Virtual Machine Scale Sets
-ms.service: virtual-machine-scale-sets
-author: msmbaldwin
-
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: security
 ms.date: 09/05/2019
-ms.author: mbaldwin
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Security controls for Azure Virtual Machine Scale Sets

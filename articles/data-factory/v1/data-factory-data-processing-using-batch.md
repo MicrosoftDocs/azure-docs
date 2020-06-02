@@ -33,8 +33,8 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../batch/batch-technical-overview.md)
-* [Batch feature overview](../../batch/batch-api-basics.md)
+* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
 Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
 
@@ -956,7 +956,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 After you process data, you can consume it with online tools such as Power BI. Here are links to help you understand Power BI and how to use it in Azure:
 
 * [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Get started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Get started with Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -968,8 +968,8 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Basics of Batch](../../batch/batch-technical-overview.md)
-  * [Overview of Batch features](../../batch/batch-api-basics.md)
+  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 

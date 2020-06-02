@@ -44,9 +44,9 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### Will backups work after migrating SAP HANA from 1.0 to 2.0?
+### Will backups work after migrating SAP HANA from SDC to MDC?
 
-Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) of the troubleshooting guide.
+Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
 
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
@@ -55,6 +55,18 @@ Currently we do not have the capability to set up the solution against a virtual
 ### I have a SAP HANA System Replication (HSR), how should I configure backup for this setup?
 
 The primary and secondary nodes of the HSR will be treated as two individual, un-related VMs. You need to configure backup on the primary node and when the fail-over happens, you need to configure backup on the secondary node (which now becomes the primary node). There is no automatic 'fail-over' of backup to the other node.
+
+### How can I move an on-demand backup to the local file system instead of the Azure vault?
+
+1. Wait for the currently running backup to complete on the desired database (check from studio for completion)
+1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
+1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
+    1. Set enable_auto_log_backup to **no**
+    1. Set log_backup_using_backint to **false**
+1. Take an on-demand backup on the desired database, and wait for the backup and catalog backup to complete.
+1. Revert to the previous settings to allow backups to flow to the Azure vault:
+    1. Set enable_auto_log_backup to **yes**
+    1. Set log_backup_using_backint to **true**
 
 ## Restore
 
@@ -69,6 +81,10 @@ Ensure that the **Force Overwrite** option is selected while restoring.
 ### Why do I see the "Source and target systems for restore are incompatible" error?
 
 Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
+
+### Can I use a backup of a database running on SLES to restore to a RHEL HANA system or vice versa?
+
+Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to a RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you will have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
 
 ## Next steps
 

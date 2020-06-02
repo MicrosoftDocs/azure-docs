@@ -12,7 +12,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/17/2020
+  ms.date: 03/24/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -83,16 +83,13 @@ conceptualContent:
           text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
-          text: Translator Text
+          text: Translator
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
         - url: ./speech-service/index.yml
           itemType: overview
           text: Speech service
-        - url: ./speaker-recognition/home.md
-          itemType: overview
-          text: Speaker Recognition (Preview)
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)

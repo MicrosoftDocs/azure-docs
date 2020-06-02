@@ -49,11 +49,11 @@ To discuss azure technologies and services for creating IoT solutions. MSDN is t
 
 If you can't find an answer to your problem via search, submit a new question to MSDN in the service-related forum:
 
-- [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Microsoft Q&A question page for Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Microsoft Q&A question page for Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Microsoft Q&A question page for Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Microsoft Q&A question page for Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Microsoft Q&A question page for Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## Submit feedback on Azure Feedback
 
