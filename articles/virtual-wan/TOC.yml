@@ -104,6 +104,10 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+  - name: Monitoring
+    items:
+    - name: Logs and metrics
+      href: logs-metrics.md
 - name: Reference
   items:
   - name: Azure PowerShell
