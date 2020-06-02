@@ -55,7 +55,7 @@ Use the scroll bar at the bottom of the table to view the "AS Path".
 
 ### <a name="abouthubroute"></a>About the hub route table
 
-You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table. This lets you set a route for destination VNet via an IP address (typically the Network Virtual Appliance (NVA) in a spoke VNet). For more information about NVAs, see [Route traffic from a virtual hub to an NVA](virtual-wan-route-table-portal.md).
+You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table. This lets you set a route for destination VNet via an IP address (typically the Network Virtual Appliance (NVA) in a spoke VNet). For more information about NVAs, see [Route traffic from a virtual hub to an NVA](virtual-wan-route-table-portal.md). Note that these routes will not show up in the effective virtual hub route table. The effective route table contains only the prefixes for local and remote hubs, plus the connected virtual network address space and routes learned via BGP.
 
 ### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
 
