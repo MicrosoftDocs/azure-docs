@@ -70,7 +70,7 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY (user, id));
 ```
 
-In this design, we are now defining `user` as the `partition key`, and `id` as the `clustering key`. You can define as many clustering keys as you wish, but each value (or combination of values) of the clustering key must be unique in order to result in multiple records being added to the same partition, for example:
+In this design, we are now defining `user` as the partition key, and `id` as the clustering key. You can define as many clustering keys as you wish, but each value (or a combination of values) for the clustering key must be unique in order to result in multiple records being added to the same partition, for example:
 
 ```shell
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
