@@ -25,16 +25,16 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Groups** > **All groups** > **New group**.
 
-    ![Open Azure Active Directory and create a new group](/media/roles-groups-create-eligible/new-group.png)
+    ![Open Azure Active Directory and create a new group](./media/roles-groups-create-eligible/new-group.png)
 
 1. On the **New Group** tab, provide group type, name and description.
 1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
 
-    ![Make the new group eligible for role assignment](/media/roles-groups-create-eligible/eligible-switch.png)
+    ![Make the new group eligible for role assignment](./media/roles-groups-create-eligible/eligible-switch.png)
 
 1. Select the members and owners for the group. You also have the option to assign roles to the group, but assigning a role isn't required here.
 
-    ![Add members to the role-assignable group and assign roles.](/media/roles-groups-create-eligible/specify-members.png)
+    ![Add members to the role-assignable group and assign roles.](./media/roles-groups-create-eligible/specify-members.png)
 
 1. After the members and owners are specified, select **Create**.
 
