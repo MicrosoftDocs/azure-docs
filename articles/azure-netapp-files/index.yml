@@ -72,7 +72,5 @@ landingContent:
         links:
           - text: REST API
             url: azure-netapp-files-develop-with-rest-api.md
-          - text: REST API using PowerShell
-            url: develop-rest-api-powershell.md
           - text: Azure NetApp Files SDKs and CLI tools
             url: azure-netapp-files-sdk-cli.md
