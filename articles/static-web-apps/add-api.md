@@ -122,7 +122,7 @@ Next, you'll change the `GetMessage` function to return a message to the front-e
 
 With the above settings, the API endpoint is:
 
-- Triggered with an HTTP request is made to the function
+- Triggered when an HTTP request is made to the function
 - Available to all requests regardless of authentication status
 - Exposed via the _/api/message_ route
 
