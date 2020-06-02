@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
-ms.author: Amkarmak,arremana
+ms.author: Amkarmak;arremana
 
 ---
 
