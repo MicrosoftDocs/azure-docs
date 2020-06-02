@@ -14,6 +14,8 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, cont
 ---
 # Data exploration and modeling with Spark
 
+Learn how to use HDInsight Spark to train binary classification and regression models for taxi fare prediction using Spark MLLib.
+
 This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
 * The **binary classification** task is to predict whether or not a tip is paid for the trip. 
@@ -34,9 +36,11 @@ The modeling steps also contain code showing how to train, evaluate, and save ea
 > 
 
 ## Prerequisites
+
 You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. 
 
-## Spark clusters and notebooks
+### Spark clusters and notebooks
+
 Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 (to be run in the pySpark kernel of the Jupyter Notebook server) and  Spark 2.0 (to be run in the pySpark3 kernel of the Jupyter Notebook server):
 
 ### Spark 1.6 notebooks
@@ -78,11 +82,13 @@ The regression and classification tasks that are implemented using a Spark 2.0 c
 <!-- -->
 
 ## Setup
+
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
 
 ### Set directory paths for storage locations in WASB
+
 The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved:
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
@@ -96,6 +102,7 @@ The following code sample specifies the location of the data to be read and the 
 
 
 ### Import libraries
+
 Set up also requires importing necessary libraries. Set spark context and import necessary libraries with the following code:
 
     # IMPORT LIBRARIES
@@ -115,6 +122,7 @@ Set up also requires importing necessary libraries. Set spark context and import
 
 
 ### Preset Spark context and PySpark magics
+
 The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
 
 * sc - for Spark 
@@ -201,7 +209,7 @@ Here is the code for data ingestion.
 
 Time taken to execute above cell: 51.72 seconds
 
-## Data exploration & visualization
+## Explore the data
 
 Once the data has been brought into Spark, the next step in the data science process is to gain deeper understanding of the data through exploration and visualization. In this section, we examine the taxi data using SQL queries and plot the target variables and prospective features for visual inspection. Specifically, we plot the frequency of passenger counts in taxi trips, the frequency of tip amounts, and how tips vary by payment amount and type.
 
@@ -318,7 +326,8 @@ This code cell uses the SQL query to create three plots the data.
 
 ![Tip amount by fare amount](./media/spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## Feature engineering, transformation, and data preparation for modeling
+## Prepare the data
+
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
 
 * Create a new feature by binning hours into traffic time buckets
@@ -410,6 +419,7 @@ Here is the code to index and encode categorical features:
 Time taken to execute above cell: 1.28 seconds
 
 ### Create labeled point objects for input into ML functions
+
 This section contains code that shows how to index categorical text data as a labeled point data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.  
 
 This section contains code that shows how to index categorical text data as a [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) consisting of a label (target/response variable) and feature vector. This format is needed as input by many ML algorithms in MLlib.
@@ -464,6 +474,7 @@ Here is the code to encode and index categorical text features for linear regres
 
 
 ### Create a random subsampling of the data and split it into training and testing sets
+
 This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample here so you know how to use it for your own problem when needed. When samples are large, sampling can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
     # RECORD START TIME
@@ -505,12 +516,11 @@ This code creates a random sampling of the data (25% is used here). Although it 
 Time taken to execute above cell: 0.24 second
 
 ### Feature scaling
+
 Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
 
 > [!NOTE]
 > We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
-> 
-> 
 
 Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
