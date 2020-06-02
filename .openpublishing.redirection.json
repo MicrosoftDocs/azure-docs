@@ -43822,7 +43822,7 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/overview.md",
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/index.md",
         "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
         "redirect_document_id": false
     },
@@ -43837,7 +43837,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/overview.md",
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/index.md",
         "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
         "redirect_document_id": false
     },
@@ -43852,7 +43852,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/overview.md",
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
         "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
         "redirect_document_id": false
     },
