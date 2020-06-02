@@ -94,4 +94,4 @@ The created application has a default command added by name of **Fallback Comman
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How To: Add simple commands to Custom Command application](./how-to-custom-commands-add-basic-commands.md)
+> [How To: Add simple commands to Custom Command application](./how-to-custom-commands-add-simple-commands.md)

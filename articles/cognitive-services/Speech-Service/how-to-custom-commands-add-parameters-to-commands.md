@@ -41,7 +41,7 @@ Let's edit the existing **TurnOn** command to turn on and turn off multiple devi
        > [!div class="mx-imgBorder"]
        > ![Create required parameter response](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   - Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md#Commands-configuration). Configure the rest of the properties of the parameter as follows:
+   - Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the rest of the properties of the parameter as follows:
       
 
        | Configuration      | Suggested value     | Description                                                      |

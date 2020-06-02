@@ -28,7 +28,7 @@ To the **smart room-lite** Custom Commands application, let's add a simple comma
 1. Provide value for the **Name** field as **TurnOn**.
 1. Select **Create**.
 
-The middle pane lists the different properties of the command. You will be configuring the following properties of the command. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md#Commands-configuration).
+The middle pane lists the different properties of the command. You will be configuring the following properties of the command. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md).
 
 | Configuration            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
