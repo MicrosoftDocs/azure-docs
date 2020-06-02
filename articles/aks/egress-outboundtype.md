@@ -531,4 +531,4 @@ See [how to create, change, or delete a route table](https://docs.microsoft.com/
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[byo-route-table]: configure-kubenet.md#user-defined-route-table
+[byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
