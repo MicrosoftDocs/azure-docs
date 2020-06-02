@@ -290,7 +290,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/maps?view=azure-cli-latest
+    href: /cli/azure/maps
 - name: Resources
   items:
   - name: Support and help options
