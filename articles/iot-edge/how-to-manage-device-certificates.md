@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/28/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,10 +17,10 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 When you first install IoT Edge and provision your device, the device is set up with temporary certificates so that you can test the service.
 These temporary certificates expire in 90 days, or can be reset by restarting your machine.
-Once you're ready to move your devices into a production scenario, or you want to create a gateway scenario, you need to provide your own certificates.
+Once you move into a production scenario, or you want to create a gateway device, you need to provide your own certificates.
 This article demonstrates the steps to install certificates on your IoT Edge devices.
 
-To learn more about the different types of certificates and their roles in an IoT Edge scenario, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
+To learn more about the different types of certificates and their roles, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 >[!NOTE]
 >The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.

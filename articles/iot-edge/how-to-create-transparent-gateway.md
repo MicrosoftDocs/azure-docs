@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/28/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -62,10 +62,12 @@ Have the following files ready:
 For production scenarios, you should generate these files with your own certificate authority. For development and test scenarios, you can use demo certificates.
 
 1. If you're using demo certificates, use the following set of steps to create your files:
-   1. [Create root CA certificate](how-to-create-test-certificates.md#create-root-ca-certificate)
-      * At the end of these instructions, you'll have one file: `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
-   2. [Create IoT Edge device CA certificate](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates)
-      * At the end of these instructions you'll have two files: `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and `<path>/private/iot-edge-device-<cert name>.key.pem`
+   1. [Create root CA certificate](how-to-create-test-certificates.md#create-root-ca-certificate). At the end of these instructions, you'll have a root CA certificate file:
+      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+
+   2. [Create IoT Edge device CA certificate](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). At the end of these instructions you'll have two files, a device CA certificate and its private key:
+      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and
+      * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
 2. If you created these files on a different machine, copy them over to your IoT Edge device.
 

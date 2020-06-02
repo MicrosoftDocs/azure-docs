@@ -36,7 +36,7 @@ This article refers to the *gateway hostname* at several points. The gateway hos
 
 Choose how you want your downstream device to authenticate with IoT Hub:
 
-* [Symmetric key authentication](#symmetric-key-authentication): IoT Hub creates a key that you put on the downstream device. When the device authenticates, IoT Hub checks that the two keys match. This is the simplest way to get started because you don't need to create additional certificates, but it's less secure for production scenarios.
+* [Symmetric key authentication](#symmetric-key-authentication): IoT Hub creates a key that you put on the downstream device. When the device authenticates, IoT Hub checks that the two keys match. You don't need to create additional certificates to use symmetric key authentication.
 * [X.509 self-signed authentication](#x509-self-signed-authentication): Sometimes called thumbprint authentication, because you share the thumbprint from the device's X.509 certificate with IoT Hub.
 * [X.509 CA-signed authentication](#x509-ca-signed-authentication): Upload the root CA certificate to IoT Hub. When devices present their X.509 certificate for authentication, IoT Hub checks that it belongs to a chain of trust signed by the same root CA certificate.
 
