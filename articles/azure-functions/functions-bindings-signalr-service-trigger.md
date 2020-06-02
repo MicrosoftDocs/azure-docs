@@ -195,7 +195,7 @@ await connection.invoke("broadcast", message1, message2);
 
 You can access these two arguments from parameter as well as assign type of parameter for them by using `ParameterNames`.
 
-# [C#](#tab/csharp)
+# [C#](#tab/parameter-name-csharp)
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -215,7 +215,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "broadca
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript](#tab/parameter-name-javascript)
 
 `ParameterNames` is in the *function.json*.
 
