@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Service Fabric
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
