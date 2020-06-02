@@ -164,6 +164,11 @@
       "branch": "dev"
     },
     {
+        "path_to_root": "azure-functions-samples-java",
+        "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
+        "branch": "master"
+    },
+    {
       "path_to_root": "functions-quickstart-java",
       "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
       "branch": "master"
@@ -513,6 +518,11 @@
     {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-dotnet-table",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started",
       "branch": "master"
     },
     {

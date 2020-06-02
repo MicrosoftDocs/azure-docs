@@ -93,7 +93,7 @@ $ctx = $storageAccount.Context
 $blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
 
 #Change the blob’s access tier to Hot using Standard priority rehydrate
-$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 ```
 ---
 

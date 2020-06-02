@@ -2,8 +2,8 @@
 title: Configure Azure SQL Edge (Preview)
 description: Learn about configuring Azure SQL Edge (Preview)
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -67,7 +67,7 @@ Azure SQL Edge does not include the [mssql-conf configuration utility](/sql/linu
 ```
 
 The following mssql.conf options are not applicable to SQL Edge:
-</br></br>
+
 |Option|Description|
 |:---|:---|
 |**Customer feedback** | Choose whether or not SQL Server sends feedback to Microsoft. |
