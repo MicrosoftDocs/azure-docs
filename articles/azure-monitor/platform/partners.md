@@ -3,7 +3,7 @@ title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 ms.subservice: ""
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/29/2020
 
 ---
 
@@ -102,7 +102,8 @@ Grafana is an open-source application that enables you to visualize time series 
 
 ![InfluxData Logo](./media/partners/Influxdata.png)
 
-InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform built from the ground up for analyzing metrics and events (time series data) for DevOps and IoT applications. Whether the data comes from humans, sensors, or machines, InfluxData empowers developers to build next-generation monitoring, analytics, and IoT applications faster, easier, and to scale delivering real business value quickly. Based in San Francisco, InfluxData's more than 420 customers include Cisco, eBay, IBM, and Siemens.
+InfluxData is the creator of InfluxDB, the open source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open source contributions to Telegraf.
+
 
 [Go to the documentation.][influxdata-doc]
 
