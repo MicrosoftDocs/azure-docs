@@ -120,8 +120,8 @@ You can restrict access to the public endpoint using the storage account firewal
 - [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
 
-### Restrict all access to the public endpoint
-When all access to the public endpoint is restricted, the storage account can still be accessed through its the private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
+### Disable access to the public endpoint
+When access to the public endpoint is disabled, the storage account can still be accessed through its the private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
 Navigate to the storage account for which you would like to restrict all access to the public endpoint. In the table of contents for the storage account, select **Firewalls and virtual networks**.

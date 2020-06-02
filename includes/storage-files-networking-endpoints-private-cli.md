@@ -63,7 +63,7 @@ privateEndpoint=$(az network private-endpoint create \
         --location $region \
         --subnet $subnet \
         --private-connection-resource-id $storageAccount \
-        --group-ids "file" \
+        --group-id "file" \
         --connection-name "$storageAccountName-Connection" \
         --query "id" | \
     tr -d '"')
@@ -83,10 +83,13 @@ storageAccountSuffix=$(az cloud show \
 dnsZoneName="privatelink.file.$storageAccountSuffix"
 
 # Find a DNS zone matching desired name attached to this virtual network.
+possibleDnsZones=""
 possibleDnsZones=$(az network private-dns zone list \
         --query "[?name == '$dnsZoneName'].id" \
         --output tsv)
 
+dnsZone=""
+possibleDnsZone=""
 for possibleDnsZone in $possibleDnsZones
 do
     possibleResourceGroupName=$(az resource show \

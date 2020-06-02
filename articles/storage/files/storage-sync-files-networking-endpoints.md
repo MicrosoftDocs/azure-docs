@@ -219,55 +219,16 @@ To create a private endpoint for your Storage Sync Service, first you will need 
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-# Uncomment if you are running the steps independently of the above
-# steps to create a private endpoint for Azure Files.
-# $virtualNetworkResourceGroupName = "<vnet-resource-group-name>"
-# $virtualNetworkName = "<vnet-name>"
-# $subnetName = "<vnet-subnet-name>"
-
-# These are the production commands, but they are commented out
-# since they won't work with the INT RP.
-# $storageSyncService = Get-AzStorageSyncService `
-#         -ResourceGroupName $storageSyncServiceResourceGroupName `
-#         -Name $storageSyncServiceName `
-#         -ErrorAction SilentlyContinue
-
-$storageSyncService = Get-AzResource `
+$storageSyncService = Get-AzStorageSyncService `
         -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSyncInt/storageSyncServices"
+        -Name $storageSyncServiceName `
+        -ErrorAction SilentlyContinue
 
 if ($null -eq $storageSyncService) {
     $errorMessage = "Storage Sync Service $storageSyncServiceName not found "
     $errorMessage += "in resource group $storageSyncServiceResourceGroupName."
     Write-Error -Message $errorMessage -ErrorAction Stop
 }
-
-# Uncomment if you are running the steps independently of the above
-# steps to create a private endpoint for Azure Files.
-
-# Get virtual network reference, and throw error if it doesn't exist
-# $virtualNetwork = Get-AzVirtualNetwork `
-#         -ResourceGroupName $virtualNetworkResourceGroupName `
-#         -Name $virtualNetworkName `
-#         -ErrorAction SilentlyContinue
-
-# if ($null -eq $virtualNetwork) {
-#     $errorMessage = "Virtual network $virtualNetworkName not found "
-#     $errorMessage += "in resource group $virtualNetworkResourceGroupName."
-#     Write-Error -Message $errorMessage -ErrorAction Stop
-# }
-
-# Get reference to virtual network subnet, and throw error if it doesn't exist
-# $subnet = $virtualNetwork | `
-#     Select-Object -ExpandProperty Subnets | `
-#     Where-Object { $_.Name -eq $subnetName }
-
-# if ($null -eq $subnet) {
-#     Write-Error `
-#             -Message "Subnet $subnetName not found in virtual network $virtualNetworkName." `
-#             -ErrorAction Stop
-# }
 ```
 
 To create a private endpoint, you must create a private link service connection to the Storage Sync Service. The private link connection is an input to the creation of the private endpoint.
@@ -306,9 +267,7 @@ $azureEnvironment = Get-AzContext | `
 
 switch($azureEnvironment) {
     "AzureCloud" {
-        # Commented out for testing
-        # $storageSyncSuffix = "afs.azure.net"
-        $storageSyncSuffix = "afsint.azure.net"
+        $storageSyncSuffix = "afs.azure.net"
     }
 
     "AzureUSGovernment" {
@@ -403,24 +362,17 @@ To create a private endpoint for your Storage Sync Service, first you will need 
 storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
 storageSyncServiceName="<storage-sync-service>"
 
-# storageSyncService=$(az resource show \
-#         --resource-group $storageSyncServiceResourceGroupName \
-#         --name $storageSyncServiceName \
-#         --resource-type "Microsoft.StorageSync/storageSyncServices" \
-#         --query "id" | \
-#     tr -d '"')
-
 storageSyncService=$(az resource show \
         --resource-group $storageSyncServiceResourceGroupName \
         --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSyncInt/storageSyncServices" \
+        --resource-type "Microsoft.StorageSync/storageSyncServices" \
         --query "id" | \
     tr -d '"')
 
 storageSyncServiceRegion=$(az resource show \
         --resource-group $storageSyncServiceResourceGroupName \
         --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSyncInt/storageSyncServices" \
+        --resource-type "Microsoft.StorageSync/storageSyncServices" \
         --query "location" | \
     tr -d '"')
 ```
@@ -447,7 +399,7 @@ privateEndpoint=$(az network private-endpoint create \
         --location $region \
         --subnet $subnet \
         --private-connection-resource-id $storageSyncService \
-        --group-ids "Afs" \
+        --group-id "Afs" \
         --connection-name "$storageSyncServiceName-Connection" \
         --query "id" | \
     tr -d '"')
@@ -465,8 +417,7 @@ azureEnvironment=$(az cloud show \
 storageSyncSuffix=""
 if [ $azureEnvironment == "AzureCloud" ]
 then
-    # storageSyncSuffix="afs.azure.net"
-    storageSyncSuffix="afsint.azure.net"
+    storageSyncSuffix="afs.azure.net"
 elif [ $azureEnvironment == "AzureUSGovernment" ]
 then
     storageSyncSuffix="afs.azure.us"
@@ -479,10 +430,13 @@ fi
 dnsZoneName="privatelink.$storageSyncSuffix"
 
 # Find a DNS zone matching desired name attached to this virtual network.
+possibleDnsZones=""
 possibleDnsZones=$(az network private-dns zone list \
         --query "[?name == '$dnsZoneName'].id" \
         --output tsv)
 
+dnsZone=""
+possibleDnsZone=""
 for possibleDnsZone in $possibleDnsZones
 do
     possibleResourceGroupName=$(az resource show \
@@ -583,11 +537,74 @@ done
 ---
 
 ## Restrict access to the public endpoints
+You can restrict access to the public endpoints of both the storage account and the Storage Sync Services. Restrict access to the public endpoint provides additional security by ensuring that network packets are only accepted from approved locations. 
 
 ### Restrict access to the storage account public endpoint
+Access restriction to the public endpoint is done using the storage account firewall settings. In general, most firewall policies for a storage account will restrict networking access to one or more virtual networks. There are two approaches to restricting access to a storage account to a virtual network:
 
-### Restrict access to the Storage Sync Service public endpoint
+- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
+- Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
+
+#### Disable access to the storage account public endpoint
+When access to the public endpoint is disabled, the storage account can still be accessed through its the private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
+
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
+# [Azure CLI](#tab/azure-cli)
+
+---
+
+#### Restrict access to the storage account public endpoint to specific virtual networks
+When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
+
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
+# [Azure CLI](#tab/azure-cli)
+
+---
+
+### Disable access to the Storage Sync Service public endpoint
+Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync does not support service endpoints for restricting access to the public endpoint to specific virtual networks. Therefore, the two options for controlling access to the Storage Sync Service's public endpoint are enabled and disabled.
+
+# [Portal(#tab/azure-portal)]
+This is not possible through the Azure portal. Please select the Azure PowerShell or Azure CLI instructions to get instructions on how to disable the Storage Sync Service public endpoint. 
+
+# [PowerShell](#tab/azure-powershell)
+To disable access to the Storage Sync Service's public endpoint, we will set the `incomingTrafficPolicy` property on the Storage Sync Service to `AllowVirtualNetworksOnly`. If you would like to enable access to the Storage Sync Service's public endpoint, set `incomingTrafficPolicy` to `AllowAllTraffic` instead. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>`.
+
 ```powershell
+$storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
+$storageSyncServiceName = "<storage-sync-service>"
+
+$storageSyncService = Get-AzResource `
+        -ResourceGroupName $storageSyncServiceResourceGroupName `
+        -ResourceName $storageSyncServiceName `
+        -ResourceType "Microsoft.StorageSync/storageSyncServices"
+
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
 ```
+
+# [Azure CLI](#tab/azure-cli)
+To disable access to the Storage Sync Service's public endpoint, we will set the `incomingTrafficPolicy` property on the Storage Sync Service to `AllowVirtualNetworksOnly`. If you would like to enable access to the Storage Sync Service's public endpoint, set `incomingTrafficPolicy` to `AllowAllTraffic` instead. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>`.
+
+```bash
+storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
+storageSyncServiceName="<storage-sync-service>"
+
+az resource update \
+        --resource-group $storageSyncServiceResourceGroupName \
+        --name $storageSyncServiceName \
+        --resource-type "Microsoft.StorageSync/storageSyncServices" \
+        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
+        --output none
+```
+---
+
+## See also
+- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
