@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 05/24/2018
+ms.date: 05/12/2020
 
 ---
 
@@ -200,8 +200,10 @@ Ensure the following prerequisites are met:
 > 2) **We recommend to establish an internal procedure to ensure the connection remains alive:**
 > According to the Refresh Token Lifespan to refresh the token. Please make sure to perform the following operations prior refresh token expected expiration time (Couple of days before the Refresh Token Lifespan expires we recommend):
 >
->>  1) [Complete a manual sync process for ITSM connector configuration](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Revoke to the old refresh token as it is not recommended to keep old keys from for security reasons. In ServiceNow blade search for System OAuth than select Manage Tokens. Pick the old token from the list according to the OAuth name and expiration date. Click on Revoke Access and than on Revoke.
+> 1. [Complete a manual sync process for ITSM connector configuration](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 2. Revoke to the old refresh token as it is not recommended to keep old keys from for security reasons. In ServiceNow blade search for System OAuth than select Manage Tokens. Pick the old token from the list according to the OAuth name and expiration date.
+> ![SNOW system OAuth definition](media/itsmc-connections/snow-system-oauth.png)
+> 3. Click on Revoke Access and than on Revoke.
 
 - Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).

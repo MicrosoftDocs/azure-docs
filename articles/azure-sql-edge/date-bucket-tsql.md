@@ -2,8 +2,8 @@
 title: Date_Bucket (Transact-SQL) - Azure SQL Edge (Preview)
 description: Learn about using Date_Bucket in Azure SQL Edge (Preview)
 keywords: Date_Bucket, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
@@ -244,10 +244,10 @@ SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where Geo
   
 #### Specifying numeric expressions and scalar system functions as number and date
 
-This example uses a numeric expression (-`(10/2))`, and scalar system functions (`SYSDATETIME`) as arguments for *number* and *date*.
+This example uses a numeric expression ((10/2)), and scalar system functions (SYSDATETIME) as arguments for number and date.
   
 ```sql
-SELECT Date_Bucket(week,-(10/2), SYSDATETIME());
+SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 ```
 
 #### Specifying an aggregate window function as number

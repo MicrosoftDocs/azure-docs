@@ -53,7 +53,7 @@ The offer setup page is where you can opt into different channels and selling mo
 | Channels  | Optional. Default: Not opted into the CSP (reseller) channel.  |
 | Test Drive | Optional. Default: No test drive enabled.  |
 | Type of Test Drive | Required if enabled a test drive. Default: None selected. Options: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead Management - connect to a CRM system | Required if selling through Microsoft, or if listing offers as "Contact me." Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
+| Customer leads - connect to a CRM system | Required if selling through Microsoft, or if listing offers as "Contact me." Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
 
 ## Properties page
 

@@ -2,8 +2,8 @@
 title: Deploy Azure SQL Edge (Preview) using the Azure portal
 description: Learn how to deploy Azure SQL Edge (Preview) using the Azure portal
 keywords: deploy SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -114,4 +114,4 @@ In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 ## Next Steps
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
-- Building an end to end IoT Solution with SQL Edge using IoT Edge.
+- [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).

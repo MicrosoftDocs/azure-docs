@@ -48,7 +48,9 @@ If you believe your metric alert shouldn't have fired but it did, the following 
 3. Review the alert rule configuration to make sure it’s properly configured:
     - Check that the **Aggregation type**, **Aggregation granularity (period)**, and **Threshold value** or **Sensitivity** are configured as expected
     - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated
-**Note:** Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.
+
+   > [!NOTE]
+   > Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.
 
 4. If you are visualizing the metric using [Metrics chart](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics), ensure that:
     - The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule
@@ -127,7 +129,7 @@ To check the current usage of metric alert rules, follow the steps below.
 
 ## Issues managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
 
-If you are running into issues creating, updating, retrieving, or deleting metric alerts using resource manager templates, REST API, PowerShell, or the Azure command-line interface (CLI), the following steps may help resolve the issue.
+If you are running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure command-line interface (CLI), the following steps may help resolve the issue.
 
 ### Resource Manager templates
 - Review [common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) list and troubleshoot accordingly

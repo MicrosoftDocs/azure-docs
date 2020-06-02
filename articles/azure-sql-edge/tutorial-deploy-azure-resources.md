@@ -2,8 +2,8 @@
 title: Set up resources for deploying an ML model in Azure SQL Edge
 description: In part one of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll install the prerequisite software and set up required Azure resources for deploying a machine learning model in Azure SQL Edge.
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
@@ -37,9 +37,12 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Declare the variables required by the PowerShell script.
 

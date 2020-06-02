@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 05/11/2020
 ms.author: zhshang
 
 ---
@@ -26,6 +26,9 @@ ms.author: zhshang
 | Connections per unit per day for Free tier |20 |20 |
 | Connections per unit per day for Standard tier |1,000 |1,000|
 | Included messages per unit per day for Free tier|20,000 |20,000 |
+| Additional messages per unit per day for Free tier|0 |0 |
 | Included messages per unit per day for Standard tier|1,000,000 |1,000,000 |
+| Additional messages per unit per day for Standard tier|Unlimited |Unlimited |
 
-To request an update to your subscription's default limits, open a support ticket. 
+To request an update to your subscription's default limits, open a support ticket.
+

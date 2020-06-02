@@ -14,7 +14,7 @@ ms.author: jaredro
 
 ## What is ExpressRoute?
 
-ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet.
+ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet.
 
 ### What are the benefits of using ExpressRoute and private network connections?
 
@@ -24,7 +24,7 @@ ExpressRoute connections do not go over the public Internet. They offer higher s
 
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
 
-### How can I use ExpressRoute to connect to Microsoft if I don’t have partnerships with one of the ExpressRoute-carrier partners?
+### How can I use ExpressRoute to connect to Microsoft if I don't have partnerships with one of the ExpressRoute-carrier partners?
 
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
 
@@ -83,15 +83,15 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
-* Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc)  
+* Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
 * Most of the other Azure services are also supported. Please check directly with the service that you want to use to verify support.
 
 **Not supported:**
 
 * CDN
 * Azure Front Door
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
 
@@ -114,7 +114,7 @@ If you see the message 'Validation needed', collect the document(s) that show th
 Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and therefore customers benefit from the underlying ExpressRoute support for Azure resources. You can connect to its service endpoints if your router filter includes the Azure regions your Dynamics 365/CDS environments are hosted in.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) is **not** required for Dynamics 365 connectivity via Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) is **not** required for Dynamics 365 connectivity via Azure ExpressRoute if the ExpressRoute circuit is deployed within the same [geopolitical region](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
 
 ## Data and connections
 
@@ -273,7 +273,7 @@ The hold time is 180. The keep-alive messages are sent every 60 seconds. These a
 
 Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure portal, or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change succeeds. 
 
-If your change fails, it means either there isn’t enough capacity left on the current port and you need to create a new ExpressRoute circuit with the higher bandwidth, or that there is no additional capacity at that location, in which case you won't be able to increase the bandwidth. 
+If your change fails, it means either there isn't enough capacity left on the current port and you need to create a new ExpressRoute circuit with the higher bandwidth, or that there is no additional capacity at that location, in which case you won't be able to increase the bandwidth. 
 
 You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.
 
@@ -338,7 +338,7 @@ Compared to a Standard ExpressRoute circuit, a Local circuit has the same set of
 ExpressRoute Local also has the same limits on resources (e.g. the number of VNets per circuit) as Standard. 
 
 ### Where is ExpressRoute Local available and which Azure regions is each peering location mapped to?
-ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It is not available at a peering location where there is no Azure region in that state or province or country. Please see the exact mappings on [the Locations page](expressroute-locations-providers.md).  
+ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It is not available at a peering location where there is no Azure region in that state or province or country/region. Please see the exact mappings on [the Locations page](expressroute-locations-providers.md).  
 
 ## ExpressRoute for Office 365
 

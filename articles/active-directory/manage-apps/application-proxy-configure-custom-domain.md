@@ -140,6 +140,6 @@ You can use the same certificate for multiple applications. If an uploaded certi
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
 ## Next steps
-* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable Conditional Access](../conditional-access/overview.md) to your published apps.
 
+* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
+* [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) for your published cloud apps.

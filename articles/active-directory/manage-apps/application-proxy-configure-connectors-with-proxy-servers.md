@@ -159,7 +159,7 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
 
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 
@@ -201,4 +201,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) or create a ticket with our support team.

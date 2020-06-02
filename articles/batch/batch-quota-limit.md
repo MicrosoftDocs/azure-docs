@@ -1,7 +1,7 @@
 ---
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
 ---
@@ -121,16 +121,16 @@ Once you've submitted your support request, Azure support will contact you. Quot
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
 * One [network security group](../virtual-network/security-overview.md#network-security-groups)
-* One [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* One [public IP address](../virtual-network/public-ip-addresses.md)
 * One [load balancer](../load-balancer/load-balancer-overview.md)
 
 These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
-## Related topics
-* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
-* [Azure Batch feature overview](batch-api-basics.md)
-* [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## Next steps
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
