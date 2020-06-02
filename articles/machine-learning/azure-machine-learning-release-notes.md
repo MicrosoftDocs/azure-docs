@@ -72,7 +72,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improve download_model_explanations() and list_model_explanations() performance
     + Small tweaks to notebooks, to aid with debugging
   + **azureml-opendatasets**
-    + azureml-opendatasets needs azureml-dataprep version 1.4.0 or higher. Added warning if lower is detected
+    + azureml-opendatasets needs azureml-dataprep version 1.4.0 or higher. Added warning if lower version is detected
   + **azureml-pipeline-core**
     + This change allows user to provide an optional runconfig to the moduleVersion when calling module.Publish_python_script.
     + Enable node account can be a pipeline parameter in ParallelRunStep in azureml.pipeline.steps
