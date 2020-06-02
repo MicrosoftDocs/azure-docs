@@ -43,7 +43,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 ### [Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -71,7 +71,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 ### [PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -190,7 +190,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## Find the website URL
 
@@ -229,7 +229,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## Enable metrics on static website pages
 

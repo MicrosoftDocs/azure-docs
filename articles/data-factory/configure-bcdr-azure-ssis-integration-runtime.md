@@ -24,11 +24,11 @@ For more info about geo-replication and failover for SQL Database, see [Overview
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Azure-SSIS IR failover with a SQL Database managed instance
+## Azure-SSIS IR failover with a SQL Managed Instance
 
 ### Prerequisites
 
-An Azure SQL Database managed instance uses a *database master key (DMK)* to help secure data, credentials, and connection information that's stored in a database. To enable the automatic decryption of DMK, a copy of the key is encrypted through the *server master key (SMK)*. 
+An Azure SQL Managed Instance uses a *database master key (DMK)* to help secure data, credentials, and connection information that's stored in a database. To enable the automatic decryption of DMK, a copy of the key is encrypted through the *server master key (SMK)*. 
 
 The SMK is not replicated in a failover group. You need to add a password on both the primary and secondary instances for DMK decryption after failover.
 
@@ -38,7 +38,7 @@ The SMK is not replicated in a failover group. You need to add a password on bot
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Create a failover group on an Azure SQL Database managed instance.
+2. Create a failover group on an SQL Managed Instance.
 
 3. Run **sp_control_dbmasterkey_password** on the secondary instance, by using the new encryption password.
 
@@ -92,9 +92,9 @@ When failover occurs, take the following steps:
 
 3. Restart the Azure-SSIS IR.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
 #### Solution
 

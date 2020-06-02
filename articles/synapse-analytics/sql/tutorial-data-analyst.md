@@ -25,18 +25,6 @@ In particular, you analyze the [New York City (NYC) Taxi dataset](https://azure.
 - Payment types. 
 - Driver-reported passenger counts.
 
-The focus of the analysis is to find trends in changes of the number of taxi rides over time. You analyze two other Azure Open Datasets, [Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) and [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/), to understand the outliers in the number of taxi rides.
-
-## Create a data source
-
-A data source object is used to reference an Azure Storage account where you need to analyze data. Publicly available storage doesn't need a credential to access storage.
-
-```sql
--- There is no credential in a data source. We are using a public storage account, which doesn't need a credential.
-CREATE EXTERNAL DATA SOURCE AzureOpenData
-WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
-```
-
 ## Automatic schema inference
 
 Since data is stored in the Parquet file format, automatic schema inference is available. You can easily query the data without a need to list the data types of all columns in the files. You also can use the virtual column mechanism and the filepath function to filter out a certain subset of files.
@@ -46,8 +34,7 @@ Let's first get familiar with the NYC Taxi data by running the following query:
 ```sql
 SELECT TOP 100 * FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 ```
@@ -61,8 +48,7 @@ Similarly, you can query the Public Holidays dataset by using the following quer
 ```sql
 SELECT TOP 100 * FROM
     OPENROWSET(
-        BULK 'holidaydatacontainer/Processed/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
@@ -78,8 +64,7 @@ SELECT
     TOP 100 *
 FROM  
     OPENROWSET(
-        BULK 'isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [weather]
 ```
@@ -100,8 +85,7 @@ SELECT
     COUNT(*) AS rides_per_year
 FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) >= '2009' AND nyc.filepath(1) <= '2019'
@@ -130,8 +114,7 @@ SELECT
     COUNT(*) as rides_per_day
 FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) = '2016'
@@ -159,8 +142,7 @@ WITH taxi_rides AS
         COUNT(*) as rides_per_day
     FROM  
         OPENROWSET(
-            BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            DATA_SOURCE = 'AzureOpenData',
+            BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
             FORMAT='PARQUET'
         ) AS [nyc]
     WHERE nyc.filepath(1) = '2016'
@@ -173,8 +155,7 @@ public_holidays AS
         date
     FROM
         OPENROWSET(
-            BULK 'holidaydatacontainer/Processed/*.parquet',
-            DATA_SOURCE = 'AzureOpenData',
+            BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
             FORMAT='PARQUET'
         ) AS [holidays]
     WHERE countryorregion = 'United States' AND YEAR(date) = 2016
@@ -213,8 +194,7 @@ SELECT
     MAX(snowdepth) AS max_snowdepth
 FROM
     OPENROWSET(
-        BULK 'isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [weather]
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'

@@ -1,7 +1,7 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample controls
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
@@ -235,7 +235,7 @@ ensure SQL server logs are retained for at least 90 days.
 ## 4.4 Ensure that 'Advanced Data Security' on a SQL server is set to 'On'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure advanced data security is enabled on SQL servers and SQL managed instances.
+ensure advanced data security is enabled on SQL Database and SQL Managed Instance servers.
 
 - Advanced data security should be enabled on your SQL servers
 - Advanced data security should be enabled on your SQL managed instances
@@ -243,7 +243,7 @@ ensure advanced data security is enabled on SQL servers and SQL managed instance
 ## 4.5 Ensure that 'Threat Detection types' is set to 'All'
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
-advanced threat protection is properly configured on SQL servers and SQL managed instances.
+advanced threat protection is properly configured on SQL Database and SQL Managed Instance servers.
 
 - Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security
   settings
@@ -287,8 +287,8 @@ ensure Transparent Data Encryption is enabled on SQL databases.
 ## 4.10 Ensure SQL server's TDE protector is encrypted with BYOK (Use your own key)
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
-the transparent data encrypted protector for SQL servers and SQL managed instances is encrypted with
-your own key.
+the transparent data encrypted protector for SQL Database and SQL Managed Instance servers is
+encrypted with your own key.
 
 - SQL server TDE protector should be encrypted with your own key
 - SQL managed instance TDE protector should be encrypted with your own key
