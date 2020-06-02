@@ -17,7 +17,7 @@ Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Datab
 
 To minimize the risk of catastrophic data loss, you should back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database, to prepare you to respond effectively to a disaster.
 
-To read more about why backups are important, see [Backup and restore of SQL Server Databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases/).
+To read more about why backups are important, see [Backup and restore of SQL Server databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases/).
 
 Azure SQL Edge enables you to back up to and restore from both local storage and Azure blobs. For more information, see [SQL Server backup and restore with Azure Blob storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service/) and [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 

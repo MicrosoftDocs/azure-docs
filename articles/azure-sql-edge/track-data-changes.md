@@ -58,7 +58,7 @@ For more information, see [Temporal tables](https://docs.microsoft.com/sql/relat
 - [Data streaming in Azure SQL Edge (Preview) ](stream-data.md)
 - [Machine learning and AI with ONNX in Azure SQL Edge (Preview) ](onnx-overview.md)
 - [Configure replication to Azure SQL Edge (Preview)](configure-replication.md)
-- [Back up and restore databases in Azure SQL Edge (Preview)](backup-restore.md)
+- [Backup and restore databases in Azure SQL Edge (Preview)](backup-restore.md)
 
 
 

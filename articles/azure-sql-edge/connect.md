@@ -16,7 +16,7 @@ ms.date: 05/19/2020
 In Azure SQL Edge, after you deploy a container, you can connect to the SQL database engine from any of the following locations:
 
 - Inside the container
-- From another docker container running on the same host
+- From another Docker container running on the same host
 - From the host machine
 - From any other client machine on the network
 
@@ -32,7 +32,7 @@ You can connect to an instance of Azure SQL Edge instance from any of these comm
 To connect to an Azure SQL Edge database engine from a network machine, you need the following:
 
 - **IP Address or network name of the host machine**: This is the host machine where the Azure SQL Edge container is running.
-- **Azure SQL Edge container host port mapping**: This is the mapping for the docker container port to a port on the host. Within the container, Azure SQL Edge is always mapped to port 1433. You can change this if you want to. To change the port number, update the **Container Create Options** for the Azure SQL Edge module in Azure IoT Edge. In the following example, port 1433 on the container is mapped to port 1600 on the host.
+- **Azure SQL Edge container host port mapping**: This is the mapping for the Docker container port to a port on the host. Within the container, Azure SQL Edge is always mapped to port 1433. You can change this if you want to. To change the port number, update the **Container Create Options** for the Azure SQL Edge module in Azure IoT Edge. In the following example, port 1433 on the container is mapped to port 1600 on the host.
 
     ```JSON
     {
@@ -73,7 +73,7 @@ The [SQL Server command-line tools](https://docs.microsoft.com/sql/linux/sql-ser
 
 ## Connect to Azure SQL Edge from another container on the same host
 
-Because two containers that are running on the same host are on the same docker network, you can easily access them by using the container name and the port address for the service. For example, if you're connecting to the instance of Azure SQL Edge from another python module (container) on the same host, you can use a connection string similar to the following. (This example assumes that Azure SQL Edge is configured to listen on the default port.)
+Because two containers that are running on the same host are on the same Docker network, you can easily access them by using the container name and the port address for the service. For example, if you're connecting to the instance of Azure SQL Edge from another python module (container) on the same host, you can use a connection string similar to the following. (This example assumes that Azure SQL Edge is configured to listen on the default port.)
 
 ```python
 
@@ -89,7 +89,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## Connect to Azure SQL Edge from another network machine
 
-You might want to connect to the instance of Azure SQL Edge from another machine on the network. To do so, use the IP address of the docker host and the host port to which the Azure SQL Edge container is mapped. For example, if the IP address of the Docker host is *xxx.xxx.xxx.xxx*, and the Azure SQL Edge container is mapped to host port *1600*, then the server address for the instance of Azure SQL Edge would be *xxx.xxx.xxx.xxx,1600*. The updated python script is:
+You might want to connect to the instance of Azure SQL Edge from another machine on the network. To do so, use the IP address of the Docker host and the host port to which the Azure SQL Edge container is mapped. For example, if the IP address of the Docker host is *xxx.xxx.xxx.xxx*, and the Azure SQL Edge container is mapped to host port *1600*, then the server address for the instance of Azure SQL Edge would be *xxx.xxx.xxx.xxx,1600*. The updated python script is:
 
 ```python
 
