@@ -19,7 +19,7 @@ Serverless is a compute tier for single Azure SQL Databases that automatically s
 
 ## Serverless compute tier
 
-The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an autopause delay. The configuration of these parameters shape the database performance experience and compute cost.
+The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an autopause delay. The configuration of these parameters shapes the database performance experience and compute cost.
 
 ![serverless billing](./media/serverless-tier-overview/serverless-billing.png)
 
