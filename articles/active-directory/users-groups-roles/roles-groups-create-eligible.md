@@ -38,7 +38,7 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 
 1. After the members and owners are specified, select **Create**.
 
-    ![The Create button is at the bottom of the page.](./media/roles-groups-pim-eligible/create-button.png)
+    ![The Create button is at the bottom of the page.](./media/roles-groups-create-eligible/create-button.png)
 
 The group is created with any roles you might have assigned to it.
 
