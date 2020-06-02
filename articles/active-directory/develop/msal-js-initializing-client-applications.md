@@ -96,7 +96,11 @@ function authCallback(error, response) {
     // Handle redirect response in this callback
 }
 
-msalInstance.handleRedirectCallback(authCallback);
+msalInstance.handleRedirectPromise().then((tokenResponse) => {
+    // Handle redirect response
+}).catch((error) => {
+    // Handle redirect error
+});
 ```
 
 ## Initialize MSAL.js 1.x apps
