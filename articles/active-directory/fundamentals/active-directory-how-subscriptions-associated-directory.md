@@ -67,11 +67,9 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
     ![Change the directory page, showing the directory to change to](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    The directory is changed for the subscription and you get a success message.
+    After the directory is changed for the subscription, you will get a success message.
 
-    ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-
-Use **Switch directory** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
+    Use **Switch directory** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
 
 ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
