@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 05/31/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -21,7 +21,9 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |----------|----------|-----------------------|
 |CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
-|MicrosoftMonitoringAgent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+
 We also support the Dependency Agent extension for AzMon for VMs - so I need to take the extension template and tweak to reflect the proper resource type and we need to explain tie-in to each service and summarize benefit/capability. Auto-update is same experience on a minor update of the extension when released, just like Azure VM.
 
 >[!NOTE]
@@ -45,7 +47,7 @@ If they are not already registered, follow the steps under [Register Azure resou
 
 ### Connected Machine agent
 
-Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent. 
+Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
 
 The minimum version of the Connected Machine agent that is supported with this feature is:
 
@@ -194,9 +196,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ### Deploy the Custom Script Extension
 
-To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). However, there are some differing characteristics that you need to understand:
+To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
-From a functionality perspective, it is the same experience as the Azure VM. For proxy, look for the environment variable and use that value. Some property values - resource provider. Same with DSC provider template.
+* The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc for servers. The list of supported OSs for Arc for servers can be found [here](agent-overview.md#supported-operating-systems).
+
+* Configuration details regarding Azure Virtual Machine Scale Sets or Classic VMs are not applicable.
+
+* If your machines need to download a script externally and can only communicate through a proxy server, you need to [configure the Connected Machine agent](manage-agent.md#update-or-remove-proxy-settings) to set the proxy server envionmental variable.
 
 The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
 
