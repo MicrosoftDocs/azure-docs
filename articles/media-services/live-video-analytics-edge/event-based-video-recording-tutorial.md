@@ -128,9 +128,9 @@ For the objectCounter module, see the string (${MODULES.objectCounter}) used for
 
 Read [this](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) section on how to declare routes in the IoT Edge deployment manifest and then examine the routes in the template JSON file. Note how:
 
-* LVAToObjectCounter is used to send specific events to a specific endpoint in the objectCounter module
-* ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub Source node) in the lvaEdge module
-* objectCounterToIoTHub is used as a debug tool – to help you see the output from objectCounter when you run this tutorial
+* LVAToObjectCounter is used to send specific events to a specific endpoint in the objectCounter module.
+* ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub Source node) in the lvaEdge module.
+* objectCounterToIoTHub is used as a debug tool, to help you see the output from objectCounter when you run this tutorial.
 
 > [!NOTE]
 > Check the desired properties for the objectCounter module, which are set up to look for objects that are tagged as “truck”, with a confidence level of at least 50%.
@@ -143,9 +143,9 @@ Using Visual Studio Code, follow [these](https://docs.microsoft.com/azure/iot-ed
 
 ![Build and Push IoT Edge solution](./media/event-based-video-recording-tutorial/build-push.png)
 
-This will build the objectCounter module for object counting and push the image to your Azure Container Registry (ACR)
+This will build the objectCounter module for object counting and push the image to your Azure Container Registry (ACR).
 
-* Check that you have the environment variables CONTAINER_REGISTRY_USERNAME_myacr and CONTAINER_REGISTRY_PASSWORD_myacr defined in the .env file
+* Check that you have the environment variables CONTAINER_REGISTRY_USERNAME_myacr and CONTAINER_REGISTRY_PASSWORD_myacr defined in the .env file.
 
 The above step will create the IoT Edge deployment manifest at src/edge/config/deployment.objectCounter.amd64.json. Right click on that file and click on "Create Deployment for Single Device".
 
@@ -156,7 +156,7 @@ If this is your first tutorial with Live Video Analytics on IoT Edge, Visual Stu
 Next, Visual Studio Code will ask you select an IoT hub device. Select your IoT Edge device (should be “lva-sample-device”).
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
-In about 30 seconds, refresh the Azure IoT Hub on the bottom left section in Visual Studio Code, and you should see that there are 4 modules deployed (note again the names: lvaEdge, rtspsim, yolov3, and objectCounter)
+In about 30 seconds, refresh the Azure IoT Hub on the bottom left section in Visual Studio Code, and you should see that there are 4 modules deployed (note again the names: lvaEdge, rtspsim, yolov3, and objectCounter).
 
 ![4 modules deployed](./media/event-based-video-recording-tutorial/iot-hub.png)
 
@@ -166,20 +166,23 @@ In order to see the events from the object counter module and from Live Video An
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node.
-1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring".
+1. Right-clink on lva-sample-device and chose the option **Start Monitoring Built-in Event Monitoring**.
 
 ![Start monitoring Built-In event endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## Run the program
 
 1. Visual Studio Code, navigate to "src/cloud-to-device-console-app/operations.json"
+
 1. Under the node GraphTopologySet, edit the following:
 
     `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    
 1. Next, under the nodes GraphInstanceSet and GraphTopologyDelete, edit,
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. Start a debugging session (hit F5). You will start seeing some messages printed in the TERMINAL window.
+
 1. The operations.json starts off with calls to GraphTopologyList and GraphInstanceList. If you have cleaned up resources after previous quickstarts or tutorials, this will return empty lists, and then pause for you to hit Enter, such as below:
 
     ```
@@ -229,10 +232,14 @@ In order to see the events from the object counter module and from Live Video An
      * A call to GraphInstanceActivate to start the graph instance, and start the flow of video
      * A second call to GraphInstanceList to show that the graph instance is indeed in the running state
      
-1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked
+1. The output in the TERMINAL window will pause now at a 'Press Enter to continue' prompt. Do not hit "Enter" at this time. You can scroll up to see the JSON response payloads for the direct methods you invoked.
+
 1. If you now switch over to the OUTPUT window in Visual Studio Code, you will see messages that are being sent to the IoT Hub, by the  Live Video Analytics on IoT Edge module.
-     * These messages are discussed in the section below
-1. The graph instance will continue to run, and record the video – the RTSP simulator will keep looping the source video. Review the messages as discussed in the section below, and then, to stop the instance, go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resources:
+
+     * These messages are discussed in the following section.
+     
+1. The graph instance will continue to run, and record the video—the RTSP simulator will keep looping the source video. Review the messages as discussed in the section below, and then, to stop the instance, go back to the TERMINAL window and hit "Enter". The next series of calls are made to clean up resources:
+
      * A call to GraphInstanceDeactivate to deactivate the graph instance
      * A call to GraphInstanceDelete to delete the instance
      * A call to GraphTopologyDelete to delete the topology
@@ -240,7 +247,7 @@ In order to see the events from the object counter module and from Live Video An
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge Hub. These events are the messages you see in the OUTPUT window of Visual Studio Code, which contain a "body" section and an "applicationProperties" section. To understand what these sections represent, read [this](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) article.
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge Hub. These events are the messages you see in the OUTPUT window of Visual Studio Code, which contain a "body" section and an "applicationProperties" section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the messages below, the application properties and the content of the body are defined by the Live Video Analytics module.
 
@@ -268,9 +275,13 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 
 
 * The message is a Diagnostics event, MediaSessionEstablished, indicates that the RTSP source node (the subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
+
 * The "subject" in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message is originating from the RTSP source node.
+
 * "eventType" in applicationProperties indicates that this is a Diagnostics event.
+
 * "eventTime" indicates the time when the event occurred, which is the time that the traffic video (MKV file) started to arrive into the module as a live stream.
+
 * "body" contains data about the diagnostic event, which, in this case, is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 
@@ -369,7 +380,7 @@ You can examine the Media Services asset that was created by the graph by loggin
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Media Services account among the resources you have in your subscription, and open the account blade
-1. Click on Assets in the Media Services listing
+1. Click on Assets in the Media Services listing.
 
     ![Assets](./media/continuous-video-recording-tutorial/assets.png)
 1. You will find an asset listed with the name sampleAssetFromEVR-LVAEdge-{DateTime} – this is the name provided in the outputLocation property of the RecordingStarted event. The assetNamePattern in the topology determines how this name was generated.
@@ -382,7 +393,7 @@ You can examine the Media Services asset that was created by the graph by loggin
 
     > [!TIP]
     > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
-1. The player should load the video, and you should be able to hit **Play**>** to view it.
+1. The player should load the video, and you should be able to hit **Play** to view it.
 
 > [!NOTE]
 > Since the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the graph instance, and when you deactivated it. If you use the playback controls built into the [Playback multi-day recordings](playback-multi-day-recordings-tutorial.md) tutorial, you can see the timestamps in the video displayed on screen.
