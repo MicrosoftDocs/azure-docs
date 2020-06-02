@@ -25,10 +25,9 @@ By default, if no security contacts are defined, Azure Security Center sends not
 
 To avoid alert fatigue, Security Center restricts the volume of outgoing mails. For each subscription, Security Center sends:
 
-- **For high-severity alerts**, a maximum of **four** emails are sent per day
-- **For medium-severity alerts**, a maximum of **two** emails are sent per day
-- **For low-severity alerts**, a maximum of **one** emails are sent per day
-
+- **For high-severity alerts**, a maximum of **four** emails per day are sent
+- **For medium-severity alerts**, a maximum of **two** emails per day are sent
+- **For low-severity alerts**, a maximum of **one** email per day is sent
 
 
 ## Availability
@@ -38,7 +37,6 @@ To avoid alert fatigue, Security Center restricts the volume of outgoing mails. 
 - Clouds: 
     - ✔ Commercial clouds
     - ✘ National/Sovereign (US Gov, China Gov, Other Gov)
-
 
 
 
@@ -55,11 +53,9 @@ You can send email notifications to subscription owners (classic Service Adminis
 
 1. By default, Security Center will send emails about high severity alerts only. To receive mails about:
 
-    - medium and high severity alerts, change the **Send emails on alert from severity** option to Medium
-    - all alerts, change the **Send emails on alert from severity** option to Low
+    - medium and high severity alerts, change the **Send emails on alert from severity** option to **Medium**
+    - all alerts, change the **Send emails on alert from severity** option to **Low**
     
-accordingly  To configure the types of alerts receive emails about high severity alerts, turn on the option **Send me emails about alerts**. For other severity levels use a Logic App as explained in [workflow automation](workflow-automation.md).
-
 1. To apply the security contact information to your subscription, select **Save**.
 
 
