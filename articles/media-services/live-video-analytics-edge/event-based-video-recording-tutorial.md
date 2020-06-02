@@ -55,14 +55,14 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 
 The diagram above is a pictorial representation of a [media graph](media-graph-concept.md) and additional modules that accomplish the desired scenario. There are four IoT Edge modules involved:
 
-* Live Video Analytics on IoT Edge module
+* Live Video Analytics on IoT Edge module.
 * An Edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which is capable of detecting many types of objects.
-* A custom module to count and filter objects (referred to as Object Counter in the diagram above) that you will build and deploy in this tutorial
-* An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera
+* A custom module to count and filter objects (referred to as Object Counter in the diagram above) that you will build and deploy in this tutorial.
+* An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
     
-As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video (of traffic on a highway), and send that video to two paths.
+    As the diagram shows, you will use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video (of traffic on a highway), and send that video to two paths.
 
-* First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node, which then relays the frames (as images) to the AI module (YOLO v3 – which is an object detector) and receives results – which will be the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge Hub
+* First path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node, which then relays the frames (as images) to the AI module (YOLO v3 – which is an object detector) and receives results – which will be the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge Hub.
 * The object counter module is set up to receive messages from the IoT Edge Hub – which include the object detection results (vehicles in traffic). It checks these messages looking for objects of a certain type (configured via a setting). When such an object is found, this module sends a message to IoT Edge Hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, causing the latter to open for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Service account.
 
 ## Set up your development environment
@@ -73,8 +73,8 @@ Before you begin, check that you have completed the 3rd bullet in [Prerequisites
 
 Of interest in this tutorial are:
 
-     * ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device
-     * ~/clouddrive/lva-sample/appsetting.json - used by Visual Studio Code for running the sample code
+* ~/clouddrive/lva-sample/edge-deployment/.env  - contains properties that Visual Studio Code uses to deploy modules to an edge device.
+* ~/clouddrive/lva-sample/appsetting.json - used by Visual Studio Code for running the sample code.
 
 You will need these files for the steps below.
 
@@ -82,6 +82,7 @@ You will need these files for the steps below.
 1. Launch Visual Studio Code and open the folder where you downloaded the repo.
 1. In Visual Studio Code, browse to "src/cloud-to-device-console-app" folder and create a file named "appsettings.json". This file will contain the settings needed to run the program.
 1. Copy the contents from ~/clouddrive/lva-sample/appsettings.json file. The text should look like:
+
     ```
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
@@ -89,6 +90,7 @@ You will need these files for the steps below.
         "moduleId" : "lvaEdge"  
     }
     ```
+
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the Edge modules via Azure IoT Hub.
     
 1. Next, browse to "src/edge" folder and create a file named ".env".
