@@ -36,7 +36,6 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-
 * The data that you want to label, either in local files or in Azure blob storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
@@ -63,6 +62,8 @@ Select **Next** when you're ready to continue.
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
+> [!NOTE]
+> A project cannot contain more than 500,000 images.  If your dataset has more, only the first 500,000 images will be loaded.  
 
 ### Create a dataset from an Azure datastore
 
@@ -81,8 +82,6 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-> [!NOTE]
-> The data you choose is loaded into your project.  Adding more data to the datastore will not appear in this project once the project is created.  
 
 ### Create a dataset from uploaded data
 
@@ -98,6 +97,12 @@ To directly upload your data:
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+
+## <a name="incremental-refresh"> </a> Configure incremental refresh
+
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.  When enabled, every three hours the datastore is checked for new data to be added to the project. The check is skipped when there are already more than 20,000 unlabeled images in the project.  Checking for new data stops when the project contains the maximum 500,000 images.
+
+Uncheck this box if you do not want new data that appears in the datastore to be added to your project.
 
 ## Specify label classes
 
