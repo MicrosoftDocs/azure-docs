@@ -17417,7 +17417,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/service-bus-relay/",
+      "source_path": "articles/service-bus-relay/index.yml",
       "redirect_url": "/azure/azure-relay/",
       "redirect_document_id": false
     },    
