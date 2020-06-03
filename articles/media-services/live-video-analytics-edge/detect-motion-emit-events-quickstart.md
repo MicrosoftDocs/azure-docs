@@ -15,14 +15,14 @@ This article is based on [sample code](https://github.com/Azure-Samples/live-vid
 
 ## Prerequisites
 
-* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) 
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
 
 > [!TIP]
-> You might be prompted to install Docker while installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
 ## Set up Azure resources
 
@@ -36,7 +36,7 @@ This tutorial requires the following Azure resources:
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required Azure resources in your Azure subscription. To do so, follow these steps:
 
 1. Open [Azure Cloud Shell](https://shell.azure.com).
-1. If this is your first time using Cloud Shell, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account the script will create to use with your Azure Media Services account.
+1. If you're using Cloud Shell for the first time, then you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
     ![Environment selector](./media/quickstarts/env-selector.png)
@@ -47,7 +47,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
-    If the script finishes successfully, you should see all of the required resources in your subscription.
+    If the script finishes successfully, then you should see all of the required resources in your subscription.
 
 1. After the script finishes, select the curly brackets to expose the folder structure. You'll see a few files in the *~/clouddrive/lva-sample* directory. Of interest in this quickstart are:
 
@@ -62,7 +62,7 @@ You'll need these files to update the files in Visual Studio Code later in the q
 
 1. Clone the repo from this location: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
-1. In Visual Studio Code, go to the *src/cloud-to-device-console-app* folder. There, create a file named *appsettings.json*. This file will contain the settings needed to run the program.
+1. In Visual Studio Code, go to the *src/cloud-to-device-console-app* folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
 1. Copy the contents from the *~/clouddrive/lva-sample/appsettings.json* file that you generated earlier in this quickstart.
 
     The text should look like the following output.
@@ -99,13 +99,13 @@ You'll need these files to update the files in Visual Studio Code later in the q
     The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see the *appsettings.json* file and a few other files:
 
-    * ***c2d-console-app.csproj*** - This is the project file for Visual Studio Code.
-    * ***operations.json*** - This file lists the operations that you want the program to run.
-    * ***Program.cs*** - This is the sample program code. It does the following:
+    * ***c2d-console-app.csproj*** - The project file for Visual Studio Code.
+    * ***operations.json*** - A list of the operations that you want the program to run.
+    * ***Program.cs*** - The sample program code. This code:
     
         * Loads the app settings.
         * Invokes direct methods that are exposed by the Live Video Analytics on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
-        * Pauses so you can examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
+        * Pauses so you can examine the output from the program in the **TERMINAL** window and examine the events generated by the module in the **OUTPUT** window.
         * Invokes direct methods to clean up resources.   
 
 ## Generate and deploy the deployment manifest
@@ -123,16 +123,16 @@ Follow these steps to generate the manifest from the template file and then depl
 
     ![Generate the IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    This should create a manifest file named *deployment.amd64.json* in the *src/edge/config* folder.
+    This action should create a manifest file named *deployment.amd64.json* in the *src/edge/config* folder.
 1. Right-click **src/edge/config/deployment.amd64.json**, select **Create Deployment for Single Device**, and then select the name of your edge device.
 
     ![Create a deployment for a single device](./media/quickstarts/create-deployment-single-device.png)
 
 1. When you're prompted to select an IoT Hub device, choose **lva-sample-device** from the drop-down menu.
-1. After about 30 seconds, refresh the IoT Hub in the lower-left section, and you should see that the edge device has the following modules deployed:
+1. After about 30 seconds, refresh the IoT hub in the lower-left section, and you should see that the edge device has the following modules deployed:
 
     * Live Video Analytics on IoT Edge (module name **lvaEdge**)
-    * RTSP simulator (module name **rtspsim**)
+    * Real-Time Streaming Protocol (RTSP) simulator (module name **rtspsim**)
 
 The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
@@ -156,12 +156,12 @@ Follow these steps to run the sample code:
 1. On the **GraphTopologySet** node, make sure you see the following value:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. On the **GraphInstanceSet** and **GraphTopologyDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the above graph topology:
+1. On the **GraphInstanceSet** and **GraphTopologyDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
 
     `"topologyName" : "MotionDetection"`
     
-1. Start a debugging session by selecting F5. The **TERMINAL** window will display some messages.
-1. The *operations.json* file starts off with calls to `GraphTopologyList` and `GraphInstanceList`. If you have cleaned up resources after you finished previous quickstarts, this process will return empty lists and then pause. To continue, select Enter.
+1. Start a debugging session by selecting the F5 key. The **TERMINAL** window will display some messages.
+1. The *operations.json* file starts off with calls to `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after you finished previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     ```
     --------------------------------------------------------------------------
@@ -178,7 +178,8 @@ Follow these steps to run the sample code:
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. When you select Enter, the **TERMINAL** window shows the next set of direct method calls:
+
+    The **TERMINAL** window shows the next set of direct method calls:
      
      * A call to `GraphTopologySet` that uses `topologyUrl`
      * A call to `GraphInstanceSet` that uses the following body:
@@ -208,10 +209,13 @@ Follow these steps to run the sample code:
          }
          ```
      
-     * A call to `GraphInstanceActivate` that starts the graph instance and starts the flow of video
+     * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video
      * A second call to `GraphInstanceList` that shows that the graph instance is in the running state
-1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section discusses these messages.
+1. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. 
+    
+    The following section of this quickstart discusses these messages.
+
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the **TERMINAL** window and select Enter. 
 
     The next series of calls cleans up resources:
@@ -222,13 +226,13 @@ Follow these steps to run the sample code:
 
 ## Interpret results
 
-When you run the media graph, the results from the motion detector processor node are sent through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a **body** section and an **applicationProperties** section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-In the messages, the Live Video Analytics module defines the application properties and the content of the body.
+In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
-## MediaSessionEstablished event
+### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If connection succeeds, the following event is printed.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  
@@ -246,16 +250,19 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 }
 ```
 
-The message is a diagnostics event. `MediaSessionEstablished` indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and has begun to receive a (simulated) live feed.
+In the preceding output: 
+* The message is a diagnostics event, `MediaSessionEstablished`. It indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and has begun to receive a (simulated) live feed.
 * The `subject` in `applicationProperties` references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
-* The `eventType` in `applicationProperties` indicates that this is a diagnostics event.
+* The `eventType` in `applicationProperties` indicates that this event is a diagnostics event.
 * The `eventTime` indicates the time when the event occurred.
-* The `body` contains data about the diagnostic event, which in this case is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+* The `body` contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 
-## Motion Detection event
+### MotionDetection event
 
-When motion is detected, the Live Video Analytics Edge module sends an inference event. The type is set to “motion” to indicate it’s a result from the Motion Detection Processor, and the eventTime tells you at what time (UTC) motion occurred. Below is an example:
+When motion is detected, the Live Video Analytics on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` tells you when (in UTC) the motion occurred. 
+
+Here's an example of this message:
 
 ```
   {  
@@ -285,12 +292,14 @@ When motion is detected, the Live Video Analytics Edge module sends an inference
 }  
 ```
 
-* "subject" in applicationProperties references the node in the media graph from which the message was generated. In this case, the message is originating from the motion detection processor node.
-* "eventType" in applicationProperties indicates that this is an Analytics event.
-* "eventTime" indicates the time when the event occurred.
-"body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "timestamp" and "inferences" data.
-* "inferences" data indicates that the "type" is "motion" and has additional data about that "motion" event.
-* "box" section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video in pixels (eg. width of 1920 and height of 1080).
+In this example: 
+
+* The `subject` in `applicationProperties` references the node in the media graph from which the message was generated. In this case, the message originates from the motion detection processor node.
+* The `eventType` in `applicationProperties` indicates that this event is an analytics event.
+* The `eventTime` indicates the time when the event occurred.
+* The `body` contains data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
+* The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.
+* The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, the width is 1920 and the height is 1080.
 
     ```
     l - distance from left of image
@@ -299,10 +308,10 @@ When motion is detected, the Live Video Analytics Edge module sends an inference
     h - height of bounding box
     ```
     
-## Cleanup resources
+## Clean up resources
 
-If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
+If you intend to try the other quickstarts, then you should keep the resources you created. Otherwise, in the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and then delete all of the resources.
 
 ## Next steps
 
-Run the other Quickstarts, such as detecting an object in a live video feed.        
+Run the other quickstarts, such as detecting an object in a live video feed.        
