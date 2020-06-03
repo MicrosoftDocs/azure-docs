@@ -944,16 +944,14 @@
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Business Continuity
         items:
-        - name: High availability options
+        - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-        - name: Always On availability group
-          href: virtual-machines/windows/availability-group-overview.md
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
-        - name: Automated backup for SQL Server 2014
-          href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Automated backup for SQL Server 2016+
-          href: virtual-machines/windows/automated-backup.md
+        - name: Always On availability group
+          href: virtual-machines/windows/availability-group-overview.md
+        - name: Failover cluster instance
+          href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Management
         items:
         - name: Dedicated host
@@ -1005,8 +1003,14 @@
           href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
         - name: VM to a new region
           href: virtual-machines/windows/move-sql-vm-different-region.md
-      - name: Configure High Availability
+      - name: Business continuity
         items:
+        - name: Backup and restore
+          items:
+          - name: Automated backup (SQL 2016+)
+            href: virtual-machines/windows/automated-backup.md
+          - name: Automated backup (SQL 2014)
+            href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
           - name: Azure SQL VM CLI
@@ -1031,10 +1035,17 @@
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
         - name: Failover Cluster Instance
           items:
-          - name: With Storage Spaces Direct
-            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+          - name: With Shared Storage (SQL 2019+)
+            href: virtual-machines/windows/failover-cluster-instance-shared-storage-manually-configure.md
           - name: With Premium File Share
             href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: With Storage Spaces Direct
+            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+          - name: Configure quorum 
+            href: virtual-machines/windows/failover-cluster-instance-quorum-configure.md
+          - name: Configure connectivity 
+            href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
+
     - name: Reference
       items:
       - name: Azure PowerShell
