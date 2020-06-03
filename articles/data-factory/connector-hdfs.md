@@ -33,7 +33,7 @@ The HDFS connector is supported for the following activities:
 Specifically, the HDFS connector supports:
 
 - Copying files by using *Windows* (Kerberos) or *Anonymous* authentication.
-- Copying files by using *webhdfs* protocol or *built-in DistCp* support.
+- Copying files by using the *webhdfs* protocol or *built-in DistCp* support.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
@@ -55,12 +55,12 @@ The following properties are supported for the HDFS linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to *Hdfs*. | Yes |
+| type | The *type* property must be set to *Hdfs*. | Yes |
 | url |The URL to the HDFS |Yes |
-| authenticationType | Allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for HDFS connector](#use-kerberos-authentication-for-hdfs-connector) section. |Yes |
+| authenticationType | The allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector) section. |Yes |
 | userName |The username for Windows authentication. For Kerberos authentication, specify **\<username>@\<domain>.com**. |Yes (for Windows authentication) |
-| password |Password for Windows authentication. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, it uses the default Azure Integration Runtime. |No |
+| password |The password for Windows authentication. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
 
@@ -116,9 +116,9 @@ The following properties are supported for HDFS under `location` settings in the
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | The type property under `location` in the dataset must be set to **HdfsLocation**. | Yes      |
-| folderPath | The path to the folder. If you want to use a wildcard to filter the folder, skip this setting and specify it in activity source settings. | No       |
-| fileName   | The file name under the specified folderPath. If you want to use a wildcard to filter files, skip this setting and specify it in activity source settings. | No       |
+| type       | The *type* property under `location` in the dataset must be set to *HdfsLocation*. | Yes      |
+| folderPath | The path to the folder. If you want to use a wildcard to filter the folder, skip this setting and specify the path in activity source settings. | No       |
+| fileName   | The file name under the specified folderPath. If you want to use a wildcard to filter files, skip this setting and specify the file name in activity source settings. | No       |
 
 **Example:**
 
@@ -158,15 +158,15 @@ The following properties are supported for HDFS under `storeSettings` settings i
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **HdfsReadSettings**. | Yes                                           |
+| type                     | The *type* property under `storeSettings` must be set to **HdfsReadSettings**. | Yes                                           |
 | ***Locate the files to copy*** |  |  |
 | OPTION 1: static path<br> | Copy from the folder or file path that's specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape character inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
-| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the specified folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has a wildcard or this escape character inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
+| OPTION 2: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape character inside. <br>For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
+| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the specified folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has a wildcard or this escape character inside.  For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a specified file set. Point to a text file that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset).<br/>When you use this option, do not specify file name in the dataset. For more examples, see [File list examples](#file-list-examples). |No |
 | ***Additional settings*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When `recursive` is set to *true* and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
-| modifiedDatetimeStart    | Files are filtered based on the attribute Last Modified. <br>The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
 | maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No                                            |
 | ***DistCp settings*** |  | |
 | distcpSettings | The property group to use when you use HDFS DistCp. | No |
@@ -265,7 +265,7 @@ For DistCp-related configurations and examples, go to the [HDFS as source](#hdfs
 
 ## Use Kerberos authentication for the HDFS connector
 
-There are two options to set up the on-premises environment to use Kerberos authentication in the HDFS connector. You can choose the one that better fits your case.
+There are two options for setting up the on-premises environment to use Kerberos authentication for the HDFS connector. You can choose the one that better fits your situation.
 * Option 1: [Join a self-hosted integration runtime machine in the Kerberos realm](#kerberos-join-realm)
 * Option 2: [Enable mutual trust between the Windows domain and the Kerberos realm](#kerberos-mutual-trust)
 
@@ -279,7 +279,7 @@ There are two options to set up the on-premises environment to use Kerberos auth
 
 **On the self-hosted integration runtime machine:**
 
-1.	Run the **Ksetup** utility to configure the Kerberos Key Distribution Center (KDC) server and realm.
+1.	Run the Ksetup utility to configure the Kerberos Key Distribution Center (KDC) server and realm.
 
     The machine must be configured as a member of a workgroup, because a Kerberos realm is different from a Windows domain. You can achieve this configuration by setting the Kerberos realm and adding a KDC server by running the following commands. Replace *REALM.COM* with your own realm name.
 
@@ -288,7 +288,7 @@ There are two options to set up the on-premises environment to use Kerberos auth
 
 	After you run these commands, restart the machine.
 
-2.	Verify the configuration with the **Ksetup** command. The output should be like:
+2.	Verify the configuration with the `Ksetup` command. The output should be like:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -359,7 +359,7 @@ There are two options to set up the on-premises environment to use Kerberos auth
 
 **On the domain controller:**
 
-1.	Run the following Ksetup commands to add a realm entry:
+1.	Run the following `Ksetup` commands to add a realm entry:
 
         C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
         C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
@@ -372,13 +372,13 @@ There are two options to set up the on-premises environment to use Kerberos auth
 
     a. Select **Server Manager** > **Group Policy Management** > **Domain** > **Group Policy Objects** > **Default or Active Domain Policy**, and then select **Edit**.
 
-    b. In the **Group Policy Management Editor** pop-up window, select **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**, and then configure **Network security: Configure Encryption types allowed for Kerberos**.
+    b. On the **Group Policy Management Editor** pane, select **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**, and then configure **Network security: Configure Encryption types allowed for Kerberos**.
 
     c. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
     ![Screenshot of the "Network security: Configure encryption types allowed for Kerberos" pane](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    d. Use the **Ksetup** command to specify the encryption algorithm to be used on the specified realm.
+    d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
         C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
@@ -396,7 +396,7 @@ There are two options to set up the on-premises environment to use Kerberos auth
 
 **On the self-hosted integration runtime machine:**
 
-* Run the following Ksetup commands to add a realm entry.
+* Run the following `Ksetup` commands to add a realm entry.
 
         C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
         C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
@@ -418,11 +418,11 @@ For information about Lookup activity properties, see [Lookup activity in Azure 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **FileShare** |Yes |
-| folderPath | The path to the folder. Wildcard filter is supported. Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has a wildcard or this escape character inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes |
-| fileName |  **Name or wildcard filter** for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual folder name has a wildcard or this escape character inside. |No |
-| modifiedDatetimeStart | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to huge amounts of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
-| modifiedDatetimeEnd | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to huge amounts of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| type | The *type* property of the dataset must be set to *FileShare* |Yes |
+| folderPath | The path to the folder. A wildcard filter is supported. Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual file name has a wildcard or this escape character inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes |
+| fileName |  The name or wildcard filter for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual folder name has a wildcard or this escape character inside. |No |
+| modifiedDatetimeStart | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeEnd | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse files with a specific format, the following file format types are supported: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*, *ParquetFormat*. Set the *type* property under format to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are: *Gzip*, *Deflate*, *Bzip2*, and *ZipDeflate*.<br/>Supported levels are: *Optimal* and *Fastest*. |No |
 
@@ -465,7 +465,7 @@ For information about Lookup activity properties, see [Lookup activity in Azure 
 |:--- |:--- |:--- |
 | type | The *type* property of the Copy activity source must be set to *HdfsSource*. |Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to *true* and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are *true* (default)and *false*. | No |
-| distcpSettings | Property group when using HDFS DistCp. | No |
+| distcpSettings | The property group when you're using HDFS DistCp. | No |
 | resourceManagerEndpoint | The YARN Resource Manager endpoint | Yes, if using DistCp |
 | tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated by Data Factory and will be removed after the Copy job is finished. | Yes, if using DistCp |
 | distcpOptions | Additional options are provided to DistCp command. | No |

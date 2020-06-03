@@ -8,11 +8,8 @@ ms.author: jingwang
 <!--
     Common for all ADF file-based connectors
 -->
-<<<<<<< HEAD
-Azure Data Factory supports the following file formats:
-=======
+
 Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
->>>>>>> 91643c729edfeb6f87f2ced397af304ae4abd1ad
 
 - [Avro format](../articles/data-factory/format-avro.md)
 - [Binary format](../articles/data-factory/format-binary.md)
