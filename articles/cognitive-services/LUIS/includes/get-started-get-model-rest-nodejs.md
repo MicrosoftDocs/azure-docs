@@ -9,6 +9,15 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
 ---
+
+Use the Language Understanding (LUIS) REST API to:
+
+* Add example utterances
+* Send a training request
+* Get the status of the training request
+
+[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
+
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/) programming language
