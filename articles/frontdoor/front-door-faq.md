@@ -41,7 +41,7 @@ The key scenarios why one should use Application Gateway behind Front Door are:
 
 - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
 - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
-- With an Application Gateway behind AFD, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
+- With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
 - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
 
 ### Can we deploy Azure Load Balancer behind Front Door?
