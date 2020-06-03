@@ -18,12 +18,12 @@ To complete this tutorial, you need:
 * A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
 * At least one application already created in your service instance.
 
-## Navigate to the Diagnose and solve problems page in Azure portal
+## Navigate to the diagnostics page
 1. Sign in to the Azure portal.
 2. Go to your Azure Spring Cloud **Overview** page.
 3. Open **Diagnose and solve problems** in the menu on the left side of the page.
 
- ![Diagnose, solve dialog](media/spring-cloud-diagnose/diagnose-solve-dlg.png)
+ ![Diagnose, solve dialog](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 
  ## Search logged issues
 To find an issue, you can either search by typing a keyword or click solution group to explore all in that category.
