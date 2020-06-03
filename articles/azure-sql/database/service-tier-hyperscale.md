@@ -191,6 +191,8 @@ Enabled Regions:
 - Korea South
 - North Central US
 - North Europe
+- Norway East
+- Norway West
 - South Africa North
 - South Central US
 - Southeast Asia
@@ -199,6 +201,8 @@ Enabled Regions:
 - UK West
 - US DoD Central
 - US DoD East
+- Us Govt Arizona
+- US Govt Texas
 - West Central US
 - West Europe
 - West US
