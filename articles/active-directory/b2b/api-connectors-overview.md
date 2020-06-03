@@ -16,9 +16,9 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Use API connectors to customize and extend your user flows via Web APIs
+# Use API connectors to customize and extend your user flows by leveraging Web APIs
 
-As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you might want to extend your user flow by integrating with a user approval system, validate user input data, or run custom business logic. For example, you can use API connectors to:
+As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you can use API connectors to:
 
 - [**Enable custom approvals**](self-service-sign-up-add-approvals.md). Enable your custom user approval system for managing account creation.
 - **Perform identity proofing**). Use an identity proofing and verification service to add an extra level of security to account creation decisions.
