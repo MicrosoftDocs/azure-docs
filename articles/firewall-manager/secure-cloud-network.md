@@ -71,10 +71,10 @@ Create your secured virtual hub using Firewall Manager.
 1. For the **Secured virtual hub name**, type **Hub-01**.
 2. For **Hub address space**, type **10.1.0.0/16**.
 3. For the new vWAN name, type **Vwan-01**.
-4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
+4. Leave the **Include VPN gateway to enable security partner providers** check box cleared.
 5. Select **Next:Azure Firewall**.
-6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
-7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
+6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: security partner provider**.
+7. Accept the default **security partner provider** **Disabled** setting, and select **Next: Review + create**.
 8. Select **Create**. It will take about 30 minutes to deploy.
 
 ### Connect the hub and spoke VNets
@@ -214,4 +214,4 @@ So now you've verified that the firewall rules are working:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about trusted security partners](trusted-security-partners.md)
+> [Learn about security partner providers](trusted-security-partners.md)

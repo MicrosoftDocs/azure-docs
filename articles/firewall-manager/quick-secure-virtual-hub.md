@@ -96,4 +96,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about trusted security partners](trusted-security-partners.md)
+> [Learn about security partner providers](trusted-security-partners.md)

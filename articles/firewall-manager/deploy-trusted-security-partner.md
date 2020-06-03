@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Firewall Manager trusted security partner
+title: Deploy an Azure Firewall Manager security partner provider
 description: Learn how to deploy an Azure Firewall Manager trusted security using the Azure portal. 
 services: firewall-manager
 author: vhorne
@@ -9,11 +9,11 @@ ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Deploy a trusted security partner
+# Deploy a security partner provider
 
-*Trusted security partners* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
+*security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
-To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners?](trusted-security-partners.md).
+To learn more about supported scenarios and best practice guidelines, see [What are security partner providers?](trusted-security-partners.md).
 
 The supported security partners are **ZScaler** and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
@@ -38,14 +38,14 @@ It takes up to 30 minutes for the feature registration to complete. Run the foll
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
 3. Navigate to **Getting Started**. Select **Create a Secured Virtual Hub**. 
 4. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
-5. **Deploy VPN gateway** is enabled by default. A VPN Gateway is required to deploy a Trusted security partner in the hub. 
+5. **Deploy VPN gateway** is enabled by default. A VPN Gateway is required to deploy a security partner provider in the hub. 
 6. Select **Next: Azure Firewall**
    > [!NOTE]
-   > Trusted security partners connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your Trusted security partners are lost.
+   > security partner providers connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your security partner providers are lost.
 7. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
 8. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
-9. Select  **Next: Trusted Security Partners**.
-10. Select **Trusted Security Partner** to set it to **Enabled**. Select a partner. 
+9. Select  **Next: security partner providers**.
+10. Select **security partner provider** to set it to **Enabled**. Select a partner. 
 11. Select **Next**. 
 12. Review the content and then select **Create**.
 
@@ -98,7 +98,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 5. You must select **secure connections** and select the connections on which these routes should be set. This indicates which VNets/branches can start sending Internet traffic to the third-party provider.
 6. From **Route settings**, select **Secure connections** under Internet traffic, then select the VNet or branches (*sites* in Virtual WAN) to be secured. Select **Secure Internet traffic**.
    ![Secure Internet traffic](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Navigate back to the hubs page. The hub’s **Trusted security partner** status should now be  **Secured**.
+7. Navigate back to the hubs page. The hub’s **security partner provider** status should now be  **Secured**.
 
 ## Branch or VNet Internet traffic via third-party service
 

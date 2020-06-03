@@ -34,7 +34,7 @@ The following table compares these two architecture options and can help you dec
 |**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
 |**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated|
 |**Azure Firewall Availability Zones**     |Supported|Supported|
-|**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via Trusted Security Partner flow and partner management experience|
+|**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via security partner provider flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
 |**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|

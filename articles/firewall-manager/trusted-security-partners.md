@@ -1,6 +1,6 @@
 ---
-title: What are Azure Firewall Manager trusted security partners
-description: Learn about Azure Firewall Manager trusted security partners
+title: What are Azure Firewall Manager security partner providers
+description: Learn about Azure Firewall Manager security partner providers
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -9,9 +9,9 @@ ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# What are trusted security partners?
+# What are security partner providers?
 
-*Trusted security partners* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
+*Security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
 With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. This is done using automated route management, without setting up and managing User Defined Routes (UDRs).
 
@@ -19,7 +19,7 @@ You can deploy secured hubs configured with the security partner of your choice 
 
 The supported security partners are **ZScaler** and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
-![Trusted security partners](media/trusted-security-partners/trusted-security-partners.png)
+![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
 ## Key scenarios
 
@@ -72,4 +72,4 @@ Furthermore Office 365 connections are strongly encrypted for privacy and use ef
 
 ## Next steps
 
-[Deploy a trusted security offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).
+[Deploy a security partner offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).

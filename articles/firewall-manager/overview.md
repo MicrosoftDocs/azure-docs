@@ -53,7 +53,7 @@ This feature is available only with secured virtual hub deployments.
 
    Leverage your Azure connectivity and global distribution to easily add third-party filtering for branch to Internet scenarios.
 
-For more information about trusted security providers, see [What are Azure Firewall Manager trusted security partners?](trusted-security-partners.md)
+For more information about security partner providers, see [What are Azure Firewall Manager security partner providers?](trusted-security-partners.md)
 
 ### Centralized route management
 
