@@ -241,8 +241,6 @@ The tool also supports the **Spark SQL** query:
 
    ![Run IPYNB results](./media/hdinsight-for-vscode/run-ipynb-results.PNG)
 
-> [!NOTE]  
-> "Failed to connect to Jupyter notebook." is a known issue. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
 
 ## Submit PySpark batch job
 
@@ -445,6 +443,10 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
+## Known Issues
+### Python on 2020.5.80290 version is not surpported on this extention 
+
+"Failed to connect to Jupyter notebook." is a known issue for python version 2020.5.80290. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
 ## Next steps
 
 For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).
