@@ -9,7 +9,7 @@ ms.date: 05/29/2020
 ---
 
 # How to self diagnose and solve problems in Azure Spring Cloud
-This tutorial shows you how to self diagnose and solve problems for Azure Spring Cloud with AppLens detectors. AppLens detectors provide an easy way to collect metrics and logs.
+This tutorial shows you how to self diagnose and solve problems for Azure Spring Cloud. It provides an easy way to collect metrics and logs.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -25,14 +25,14 @@ To complete this tutorial, you need:
 
  ![Diagnose, solve dialog](media/spring-cloud-diagnose/diagnose-solve-dlg.png)
 
- ## Search and execute detectors
-To find a detector, you can either search detectors by typing a keyword or click solution group to explore all detectors.
+ ## Search logged issues
+To find an issue, you can either search by typing a keyword or click solution group to explore all in that category.
 
- ![Search detectors](media/spring-cloud-diagnose/search-detectors.png)
+ ![Search issues](media/spring-cloud-diagnose/search-detectors.png)
 
 Selection of **Config Server Health Check**, **Config Server Health Status**, or **Config Server Update History** will display various results.
 
-![Detectors options](media/spring-cloud-diagnose/detectors-options.png)
+![Issues options](media/spring-cloud-diagnose/detectors-options.png)
 
 Find your target detector, and click it to execute. A summary of diagnostics will be shown after you execute the detector. You can select **View Full Report** to check diagnostic details or click **Show Tile Menu** button to go back to detector list.
 
@@ -42,7 +42,7 @@ In diagnostic details page, you can change the diagnostic time range with the co
 
  ![Diagnostics details](media/spring-cloud-diagnose/diagnostics-details.png)
 
-Some detectors also contain related documentation.
+Some results contain related documentation.
 
  ![Related details](media/spring-cloud-diagnose/related-details.png)
 
