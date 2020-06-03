@@ -169,7 +169,7 @@ Here’s a way to find out using your browser of choice:
    - Navigate to https:\//login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+   - The result posts back to the page in attribute/value pairs using JavaScript Object Notation (JSON) format that resembles:
 
      ```json
      {
@@ -190,7 +190,7 @@ See “Choosing your Identity Authority” earlier in this article.
 
 **I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?**
 
-Yes, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
+Yes, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
 **Can an Azure Government subscription be associated with a directory in Azure AD Public?**
 

@@ -24,7 +24,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
 
-+ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global query parameter](index-similarity-and-scoring.md#scoring-statistics).
++ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) and sessionId query parameters.
 
 ### March 2020
 

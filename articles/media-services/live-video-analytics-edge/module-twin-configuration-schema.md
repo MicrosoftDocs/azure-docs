@@ -61,7 +61,7 @@ See the article on [Monitoring and logging](monitoring-logging.md) for more info
         "diagnosticsEventsOutputName": "lvaEdgeDiagnostics",
         "operationalEventsOutputName": "lvaEdgeOperational",
         "logLevel": "Information",
-        "logCategories": "Application,Event"
+        "logCategories": "Application,Events"
     } 
 } 
 ```
