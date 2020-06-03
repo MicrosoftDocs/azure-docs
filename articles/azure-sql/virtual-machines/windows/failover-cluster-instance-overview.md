@@ -1,6 +1,6 @@
 ---
 title: Failover cluster instances 
-description: "This article introduces the failover cluster instance feature with SQL Server on Azure Virtual Machines."
+description: "Learn about the differences with the failover cluster instance (FC) feature for SQL Server on Azure Virtual Machines." 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -46,7 +46,7 @@ To get started, see [SQL Server failover cluster instance with shared managed di
 
 ### Storage spaces direct
 
-[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) are a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtaul SAN. 
+[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) are a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN. 
 
 Benefits:
 
@@ -58,7 +58,7 @@ To get started, see [SQL Server failover cluster instance storage spaces direct]
 
 ###  Premium file share
 
-[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance. 
+[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
 Benefits:
 

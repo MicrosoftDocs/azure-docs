@@ -1,30 +1,28 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "This article explains how to create a SQL Server failover cluster instance on Azure virtual machines."
+title: Configure FCI with Storage Spaces Direct | SQL Server on Azure VMs
+description: "Learn to create a failover cluster instance using Storage Spaces Direct with SQL Server on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
-
-ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
 
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/11/2018
-ms.author: mikeray
+ms.date: 06/02/2020
+ms.author: mathoma
 ---
 
-# Configure a SQL Server failover cluster instance on Azure virtual machines
+# Configure FCI with Storage Spaces Direct (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
+This article explains how to create a failover cluster instance (FCI) using [Strorage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) with SQL Server on Azure Virtual Machines (VMs). Storage Spaces Direct act as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. 
 
-The following diagram shows the complete solution on Azure virtual machines:
+
+The following diagram shows the complete solution for SQL Server on Azure VMs: 
 
 ![The complete solution](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 

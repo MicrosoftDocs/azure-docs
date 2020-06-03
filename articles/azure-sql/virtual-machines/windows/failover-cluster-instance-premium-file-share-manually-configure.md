@@ -1,25 +1,24 @@
 ---
-title: SQL Server FCI with premium file share - Azure Virtual Machines 
-description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure virtual machines."
+title: Configure FCI with premium file share
+description: "Learn to create a failover cluster instance (FCI) using a premium file share with SQL Server on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
 editor: monicar
 tags: azure-service-management
-ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/09/2019
+ms.date: 06/02/2020
 ms.author: mathoma
 ---
 
-# Configure a SQL Server failover cluster instance with premium file share on Azure virtual machines
+# Configure an FCI with premium file share (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+This article explains how to create a failover cluster instance (FCI) with SQL Server on Azure virtual machines (VMs) using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
 Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 

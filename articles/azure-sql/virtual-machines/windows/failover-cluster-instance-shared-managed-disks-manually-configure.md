@@ -1,49 +1,38 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "This article explains how to create a SQL Server failover cluster instance on Azure virtual machines."
+title: FCI with shared managed disks 
+description: "Learn to create a failover cluster instance (FCI) using shared managed disks with SQL Server on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
-manager: craigg
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
-ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
 ms.service: virtual-machines-sql
 
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/11/2018
-ms.author: mikeray
+ms.date: 06/02/2020
+ms.author: mathoma
 ---
 
-# Configure a SQL Server failover cluster instance on Azure virtual machines
+# Configure an FCI with shared managed disks (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
+This article explains how to create a failover cluster instance (FCI) using shared managed disks with SQL Server on Azure Virtual Machines. 
 
-The following diagram shows the complete solution on Azure virtual machines:
 
-![The complete solution](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 
-This diagram shows:
 
-- Two Azure virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
-- Each virtual machine has two or more data disks.
-- Storage Spaces Direct synchronizes the data on the data disks and presents the synchronized storage as a storage pool.
-- The storage pool presents a Cluster Shared Volume (CSV) to the failover cluster.
-- The SQL Server FCI cluster role uses the CSV for the data drives.
-- An Azure load balancer to hold the IP address for the SQL Server FCI.
-- An Azure availability set holds all the resources.
 
->[!NOTE]
->All Azure resources in the diagram are in the same resource group.
 
-For details about Storage Spaces Direct, see [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
-Storage Spaces Direct supports two types of architectures: converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
+
+
+
+
+
 
 ## Licensing and pricing
 
