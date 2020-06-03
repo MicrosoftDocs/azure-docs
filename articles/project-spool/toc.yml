@@ -18,8 +18,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  #- name: Get Started
-  #  href: quickstarts/get-started.md
+  - name: Get Started
+    href: quickstarts/get-started.md
   #- name: Get Started With Voice
   #  href: quickstarts/get-started-with-voice.md
   #- name: Get Started With SMS
