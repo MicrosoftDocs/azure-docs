@@ -11,6 +11,96 @@ ms.date: 04/06/2020
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
+## May 2020
+
+### General
+
+- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Various changes in prep for general availability.
+- [Azure Monitor FAQ](faq.md) - Added section for Metrics.
+- [Built-in policy definitions for Azure Monitor](samples/policy-samples.md) - New article
+- [Customer-owned storage accounts for log ingestion](platform/private-storage.md) - New article
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - 
+- [Use Azure Private Link to securely connect networks to Azure Monitor](platform/private-link-security.md) - New article
+
+
+#### New Resource Manager template samples 
+- [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md)
+- [Resource Manager template samples for action groups](samples/resource-manager-action-groups.md)
+- [Resource Manager template samples for agents](samples/resource-manager-agent.md)
+- [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)
+- [Resource Manager template samples for Azure Monitor for VMs](samples/resource-manager-vminsights.md)
+- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md)
+- [Resource Manager template samples for Log Analytics workspaces](samples/resource-manager-workspace.md)
+- [Resource Manager template samples for log queries](samples/resource-manager-log-queries.md)
+- [Resource Manager template samples for log query alert rules](samples/resource-manager-alerts-log.md)
+- [Resource Manager template samples for metric alert rules](samples/resource-manager-alerts-metric.md)
+- [Resource Manager template samples for workbooks](samples/resource-manager-workbooks.md)
+
+### Agents
+- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
+- [Log Analytics agent overview](platform/log-analytics-agent.md) - Added supported Linux versions.
+
+### Application Insights
+
+- [Monitor applications running on Azure Functions with Application Insights - Azure Monitor](app/monitor-functions.md) - New article
+- [Monitor Node.js services with Azure Application Insights](app/nodejs.md) - General updates including new section on migration from prior versions.
+- [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) - Added IP addresses for webhooks and US Government
+- [Monitor applications on Azure Kubernetes Service (AKS) with Application Insights - Azure Monitor](app/kubernetes-codeless.md) - New article
+- [Troubleshooting no data - Application Insights for .NET](app/asp-net-troubleshoot-no-data.md) - Added section on collecting logs with dotnet-trace.
+- [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Multiple updates in the Change Analysis feature.
+
+#### New and updated articles for preview of workspace-based applications
+- [Azure Monitor Application Insights workspace-based resource schema](app/apm-tables.md)
+- [Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md)
+- [app() expression in Azure Monitor log queries](log-query/app-expression.md)
+- [Log query scope in Azure Monitor Log Analytics](log-query/scope.md)
+- [Query across resources with Azure Monitor](log-query/cross-workspace-query.md)
+- [Standard properties in Azure Monitor log records](platform/log-standard-properties.md)
+- [Structure of Azure Monitor Logs](log-query/logs-structure.md)
+
+
+
+
+
+### Containers
+- [How to enable Azure Monitor for containers](insights/container-insights-onboard.md) - Updated firewall configuration table.
+- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) - Update for using managed identities to collect metrics.
+- [Monitoring cost for Azure Monitor for containers](insights/container-insights-cost.md) - New article
+- [Set up Azure Monitor for containers Live Data (preview)](insights/container-insights-livedata-setup.md) - Support for new cluster role binding.
+
+### Insights
+- [Azure Monitor for Azure Cache for Redis (preview)](insights/redis-cache-insights-overview.md) - New article
+- [Monitor Key Vault with Azure Monitor for Key Vault (preview)](insights/key-vaults-insights-overview.md) - New article
+
+### Logs
+- [Create & configure Log Analytics with PowerShell](platform/powershell-workspace-configuration.md) - Added troubleshooting section.
+- [Create a Log Analytics workspace in the Azure Portal](learn/quick-create-workspace.md) - Added troubleshooting section.
+- [Create a Log Analytics workspace using Azure CLI](learn/quick-create-workspace-cli.md) - Added troubleshooting section.
+- [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Updated information on recovering a deleted workspace.
+- [Functions in Azure Monitor log queries](log-query/functions.md) - Removed note about functions not containing other functions.
+- [Structure of Azure Monitor Logs](log-query/logs-structure.md) - Clarified property descriptions for Application Insights table.
+- [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added limits section.
+- [Use PowerShell to Create and Configure a Log Analytics Workspace](platform/powershell-workspace-configuration.md) - Added troubleshooting section.
+
+
+### Metrics
+- [Azure Monitor supported metrics by resource type](platform/metrics-supported.md) - Clarified guest metrics and metrics routing. 
+
+### Solutions
+- [Optimize your Active Directory environment with Azure Monitor](insights/ad-assessment.md) - Added Windows Server 2019 to supported versions.
+- [Optimize your SQL Server environment with Azure Monitor](insights/sql-assessment.md) - Added to supported versions of SQL Server.
+
+
+### Virtual machines
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added to supported versions of Ubuntu Server. Added supported regions for Log Analytics workspace.
+- [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md) - Added limitations section for unavailable metrics.
+
+### Visualizations
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](platform/workbooks-automate.md) - Added resource manager update for deploying a workbook template.
+- [Azure Monitor Workbooks Groups](platform/workbooks-groups.md) - New article
+- [Azure Monitor Workbooks - Transform JSON data with JSONPath](platform/workbooks-jsonpath.md) - New article
+
+
 ## April 2020
 
 ### General
