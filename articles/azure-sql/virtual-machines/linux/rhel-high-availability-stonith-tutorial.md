@@ -1,6 +1,6 @@
 ---
 title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
-description: Learn about setting up high availability in a RHEL cluster environment and set up STONITH
+description: Learn about setting up high availability in an RHEL cluster environment and set up STONITH
 ms.service: virtual-machines-linux
 ms.subservice:
 ms.topic: tutorial
@@ -739,7 +739,7 @@ On all SQL Server instances, save the credentials used for the SQL Server login.
     GO
     ```
 
-1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
+1. Run the following Transact-SQL script on the primary replica and each secondary replica:
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -784,7 +784,7 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
+If the `synchronization_state_desc` lists SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
 
 ## Create availability group resources in the Pacemaker cluster
 
@@ -911,7 +911,7 @@ Daemon Status:
 
 To ensure that the configuration has succeeded so far, we will test a failover. For more information, see [Always On availability group failover on Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-1. Run the following command to manually failover the primary replica to `<VM2>`. Replace `<VM2>` with the value of your server name.
+1. Run the following command to manually fail over the primary replica to `<VM2>`. Replace `<VM2>` with the value of your server name.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master

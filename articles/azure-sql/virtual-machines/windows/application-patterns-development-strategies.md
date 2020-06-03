@@ -120,7 +120,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates how you can place the application tiers in multiple virtual machines in Azure by scaling out the presentation tier due to increased volume of incoming client requests. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the web servers behind a load balancer ensures the high availability of the presentation tier.
 
-![Application pattern - presentation tier scale out](./media/application-patterns-development-strategies/IC728010.png)
+![Application pattern - presentation tier scale-out](./media/application-patterns-development-strategies/IC728010.png)
 
 ### Best practices for 2-tier, 3-tier, or n-tier patterns that have multiple VMs in one tier
 It’s recommended that you place the virtual machines that belong to the same tier in the same cloud service and in the same the availability set. For example, place a set of web servers in **CloudService1** and **AvailabilitySet1** and a set of database servers in **CloudService2** and **AvailabilitySet2**. An availability set in Azure enables you to place the high availability nodes into separate fault domains and upgrade domains.
@@ -147,7 +147,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you place the application tiers in multiple virtual machines in Azure by scaling out the business tier, which contains the business logic tier and data access components. As seen in the diagram, Azure Load Balancer is responsible for distributing traffic across multiple virtual machines and also determining which web server to connect to. Having multiple instances of the application servers behind a load balancer ensures the high availability of the business tier. For more information, see [Best practices for 2-tier, 3-tier, or n-tier application patterns that have multiple virtual machines in one tier](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier).
 
-![Application pattern with business tier scale out](./media/application-patterns-development-strategies/IC728011.png)
+![Application pattern with business tier scale-out](./media/application-patterns-development-strategies/IC728011.png)
 
 ## 2-tier and 3-tier with presentation and business tiers scale-out and HADR
 In this application pattern, you deploy a 2-tier or 3-tier database application to Azure Virtual Machines by distributing the presentation tier (web server) and the business tier (application server) components to multiple virtual machines. In addition, you implement high-availability and disaster recovery (HADR) solutions for your databases in Azure Virtual Machines.

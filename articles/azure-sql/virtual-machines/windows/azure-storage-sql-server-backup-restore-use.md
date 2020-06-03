@@ -20,7 +20,7 @@ ms.author: mikeray
 # Use Azure Storage for SQL Server backup and restore
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to Azure Blob storage. You can use this functionality to back up to and restore from Azure Blob storage and a SQL Server database. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
+Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to Azure Blob storage. You can use this functionality to back up to and restore from Azure Blob storage and a SQL Server database. Backup to the cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.
 
 ## Overview
 SQL Server 2016 introduces new capabilities; you can use [file-snapshot backup](https://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.

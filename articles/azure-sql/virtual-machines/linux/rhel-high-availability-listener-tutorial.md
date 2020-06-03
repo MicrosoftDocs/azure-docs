@@ -31,7 +31,7 @@ This tutorial will go over steps on how to create an availability group listener
 
 ## Prerequisite
 
-Completed [**Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure**](rhel-high-availability-stonith-tutorial.md)
+Completed [Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## Create the load balancer in the Azure portal
 
@@ -109,19 +109,19 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 Azure creates the probe and then uses it to test which SQL Server instance has the listener for the availability group.
 
-### Set the load balancing rules
+### Set the load-balancing rules
 
-The load balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the three SQL Server instances owns the availability group listener resource at a time.
+The load-balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the three SQL Server instances owns the availability group listener resource at a time.
 
 1. On the load balancer **Settings** blade, click **Load balancing rules**. 
 
 2. On the **Load balancing rules** blade, click **Add**.
 
-3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
+3. On the **Add load balancing rules** blade, configure the load-balancing rule. Use the following settings: 
 
    | Setting | Value |
    | --- | --- |
-   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Name** |A text name representing the load-balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
    | **Protocol** |**TCP** |
    | **Port** |*1433* |
    | **Backend port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
@@ -133,7 +133,7 @@ The load balancing rules configure how the load balancer routes traffic to the S
    :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Add load balancing rule":::
 
 4. Click **OK**. 
-5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
+5. Azure configures the load-balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
 
 At this point, the resource group has a load balancer that connects to all SQL Server machines. The load balancer also contains an IP address for the SQL Server Always On availability group listener, so that any machine can respond to requests for the availability groups.
 
@@ -236,7 +236,7 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
 ### Test a failover
 
-1. Run the following command to manually failover the primary replica to `<VM2>` or another replica. Replace `<VM2>` with the value of your server name.
+1. Run the following command to manually fail over the primary replica to `<VM2>` or another replica. Replace `<VM2>` with the value of your server name.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
