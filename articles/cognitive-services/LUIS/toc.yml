@@ -130,6 +130,8 @@
     items:
     - name: Source control and branch strategies for LUIS
       href: luis-concept-devops-sourcecontrol.md
+    - name: Testing for DevOps
+      href: luis-concept-devops-testing.md
 - name: How-to guides
   items:
   - name: Start a new app

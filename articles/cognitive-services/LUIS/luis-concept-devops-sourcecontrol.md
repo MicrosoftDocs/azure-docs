@@ -12,8 +12,8 @@ Software engineers want to follow DevOps practices around source control, automa
 In these documents, you can learn how to follow DevOps practices when developing a LUIS app:
 
 - [Source control and branch strategies for LUIS](#source-control-and-branch-strategies-for-luis) (this document)
-- [Unit Testing and F-measure testing for LUIS DevOps](luis-concept-devops-testing.md)
-- [Automation workflows for LUIS DevOps](link tbd)
+- [Testing for LUIS DevOps](luis-concept-devops-testing.md)
+- [Automation workflows for LUIS DevOps](luis-concept-devops-automation.md)
 - [Release management](link tbd)
 
 ## Source control and branch strategies for LUIS
@@ -21,9 +21,9 @@ In these documents, you can learn how to follow DevOps practices when developing
 By following the procedures described in this document, you can develop a LUIS app while observing these software engineering best practices:
 
 - **Source Control** 
-  - Source code for your LUIS app is in a human-readable format
-  - The model can be built from source in a repeatable fashion
-  - The source code can be managed by a source code repository
+  - Source code for your LUIS app is in a human-readable format.
+  - The model can be built from source in a repeatable fashion.
+  - The source code can be managed by a source code repository.
   - Credentials and secrets such as authoring and subscription keys are never stored in source code.
 
 - **Branching and Merging** 
@@ -32,12 +32,15 @@ By following the procedures described in this document, you can develop a LUIS a
   - rebase and merge from the parent branch, 
   - and merge a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to the parent branch.
 
+- **Versioning**
+  - Each component in a large application should be versioned independently hence allowing developers to detect breaking changes or seamless updates just by looking at the version number.
+
 - **Code Reviews** 
   - The changes in the PR are presented as human readable source code that can be reviewed before accepting the PR.
 
 ### Source Control
 
-To maintain the [App schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/docs/lu-file-format.md)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to modify and to review changes in PRs.
+To maintain the [App schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to modify and to review changes in PRs.
 
 #### Saving a LUIS app using the LUDown format
 
@@ -63,7 +66,7 @@ The following types of files for your LUIS application should be maintained unde
 
 - [Unit Test definition files](link tbd) (utterances and expected results)
 
-- [Batch test files](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (utterances and expected results) used for F-measure testing
+- [Batch test files](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (utterances and expected results) used for performance testing
 
 #### Credentials and keys are not checked in
 
@@ -112,15 +115,15 @@ Developers can work on updates on a LUIS app independently from other branches b
 
 1. Check in your updates and invite peer review of your updates. If you're using GitHub, you'll raise a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. When the changes are approved, merge the updates into the parent branch. At this point, a new version of the LUIS app for the *master* branch should be created using the updated `.lu` representation of the app that is now in the master branch. This new version can be created manually, or preferably, [built by an automation workflow](link tbd).
+1. When the changes are approved, merge the updates into the master branch. At this point, a new [version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) of the LUIS app for the *master* branch should be created, using the updated `.lu` in master. See [Versioning](#versioning) for considerations on setting the version name.
 
 1. When the feature branch is deleted, it is good practice also to delete the LUIS app you created for the feature branch work.
 
 #### Developers can work in multiple branches concurrently
 
-If you follow the pattern described above in [Developers can work from independent branches](#developers-can-work-from-independent-branches), then each branch will use a unique LUIS application to support development. This enables a single developer to work on multiple branches concurrently, as long as they switch to the correct development app for the branch they are currently working on.
+If you follow the pattern described above in [Developers can work from independent branches](#developers-can-work-from-independent-branches), then each branch will use a unique LUIS application to support development. This enables a single developer to work on multiple branches concurrently, as long as they switch to the correct LUIS app for the branch they are currently working on.
 
-It is highly recommended that you name the development apps with the same name as the feature branch so as to reduce the likelihood of accidentally working on the wrong app.
+It is highly recommended that you use the same name for both the feature branch and for the LUIS app that you create for the feature branch work, so as to reduce the likelihood of accidentally working on the wrong app.
 
 #### Multiple Developers can work on the same branch concurrently
 
@@ -161,7 +164,35 @@ Just as with code assets, it is recommended that LUIS app updates are accompanie
 - updates in a PR before the PR is merged
 - the master branch LUIS app after a PR has been approved and the changes have been merged into master.
 
-See [Unit Testing and F-measure testing](luis-concept-devops-testing.md) for more details on testing for LUIS DevOps. See [Continuous integration workflows](link tbd) for more details on implementing workflows.
+See [Testing for DevOps for LUIS](luis-concept-devops-testing.md) for more details on testing for LUIS DevOps. See [Continuous integration workflows](link tbd) for more details on implementing workflows.
+
+### Versioning
+
+An application consists of multiple components, that might include things such as a bot running in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), a [QnA Maker](https://www.qnamaker.ai/) service, an [Azure Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), and more. To achieve the goal of loosely coupled applications, each component of an application should be versioned independently hence allowing developers to detect breaking changes or seamless updates just by looking at the version number.
+
+The LUIS app for the master branch should have a versioning scheme applied. When you merge updates to the LUDown representation of a LUIS app into the master branch, you will then import that updated source into a new version in the LUIS app that you are maintaining for the master branch.
+
+It is recommended that you use a numeric versioning scheme for the LUIS app version, e.g.
+
+`major.minor[.build[.revision]]`
+
+Each update the version number is incremented at the last digit.
+
+The major / minor version can be used to indicate the scope of the changes to the LUIS app functionality, e.g.
+
+* Major Version: A significant change, such as support for a new [Intent](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) or [Entity](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types)
+* Minor Version: A backwards-compatible minor change, such as after significant new training
+* Build / Revision: No functionality change, just a different build.
+
+Once you have determined the version number for the latest revision of your LUIS app, you need to test and release it. It is highly recommended that all of these functions are performed automatically by a continuous integration (CI) workflow. This workflow should also test your new version to ensure that them quality assurance bar is being met, and should release and deploy your app for use by other components in your application and to different build environments, such as Quality Assurance or Production.
+
+See:
+- [Automation workflows](luis-concept-devops-automation.md) for details on how to implement a CI workflow to test and release a LUIS app.
+- [Release Management](luis-concept-devops-release-management.md) for information on how to create a continuous delivery (CD) workflow to deploy your LUIS app. 
+
+#### Versioning the 'feature branch' LUIS app 
+
+When you are working with a LUIS app that you have created to support work in a feature branch, the app is a transient thing that should be deleted after the branch has been merged to master. There is no particular versioning scheme you need to apply to this app.
 
 ### Code Reviews
 
@@ -174,4 +205,4 @@ A LUIS app in LUDown format is human readable which supports the communication o
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Unit Testing and F-measure testing](luis-concept-devops-testing.md)
+> [Testing for LUIS DevOps](luis-concept-devops-testing.md)
