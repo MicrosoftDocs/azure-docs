@@ -140,6 +140,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen KTC Technology Co., Ltd. 
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.

@@ -6,11 +6,11 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/15/2019
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge issues 
+# Troubleshoot your Azure Stack Edge issues
 
 This article describes how to troubleshoot issues on your Azure Stack Edge. 
 

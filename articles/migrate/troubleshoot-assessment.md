@@ -97,6 +97,8 @@ Azure Migrate Server Assessment currently considers the operating system license
 
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
+## Why is my assessment showing a warning that it was created with an invalid combintion of Reserved Instances, VM uptime and Discount (%)?
+When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## Dependency visualization in Azure Government
 
