@@ -19,7 +19,7 @@ Serverless is a compute tier for single Azure SQL Databases that automatically s
 
 ## Serverless compute tier
 
-The serverless compute tier for single Azure SQL Databases is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
+The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an autopause delay. The configuration of these parameters shapes the database performance experience and compute cost.
 
 ![serverless billing](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -177,11 +177,11 @@ Creating a new database or moving an existing database into a serverless compute
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 10 minutes<br>Disable autopause: -1|60 minutes|
 
 
-### Create new database in serverless compute tier 
+### Create a new database in the serverless compute tier
 
 The following examples create a new database in the serverless compute tier.
 
-#### Use Azure portal
+#### Use the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](single-database-create-quickstart.md).
 
@@ -193,7 +193,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -212,7 +212,7 @@ CREATE DATABASE testdb
 
 For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### Move database from provisioned compute tier into serverless compute tier
+### Move a database from the provisioned compute tier into the serverless compute tier
 
 The following examples move a database from the provisioned compute tier into the serverless compute tier.
 
@@ -225,7 +225,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -244,7 +244,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### Move database from serverless compute tier into provisioned compute tier
+### Move a database from the serverless compute tier into the provisioned compute tier
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
@@ -254,7 +254,7 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore`, `MinVcore`, and `AutoPauseDelayInMinutes` arguments.
 
-### Use Azure CLI
+### Use the Azure CLI
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
@@ -301,7 +301,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
