@@ -68,7 +68,7 @@ To configure and test Azure AD SSO with SiteIntel, complete the following buildi
 
 1. **[Configure SiteIntel SSO](#configure-siteintel-sso)** to configure the single sign-on settings on the application side.
 
-    * **[Create a SiteIntel test user](#create-siteintel-test-user)** to have a counterpart of user B.Simon in SiteIntel that's linked to the Azure AD representation of the user.
+    * **[Create a SiteIntel test user](#create-a-siteintel-test-user)** to have a counterpart of user B.Simon in SiteIntel that's linked to the Azure AD representation of the user.
 
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
