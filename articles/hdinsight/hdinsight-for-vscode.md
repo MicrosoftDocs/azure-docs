@@ -191,7 +191,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
         print(sortedCollection[i])
    ```
 
-4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to procced for the PySpark installations; or click on **Skip** button to skip this step.
+4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to proceed for the PySpark installations; or click on **Skip** button to skip this step.
 
    ![Install PySpark kernel](./media/hdinsight-for-vscode/Install-PySpark-kernel.png)
 
@@ -228,18 +228,18 @@ The tool also supports the **Spark SQL** query:
 
 2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
 
-   ![Run cell results](./media/hdinsight-for-vscode/Run-cell-results.PNG)
+   ![Run cell results](./media/hdinsight-for-vscode/Run-cell-results.png)
 
    > [!NOTE]  
    > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
 
 ## Leverage IPYNB support from Python extension
 
-1. You can create a Jupter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+1. You can create a Jupyter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
 
 2. Click on PySpark to switch kernel to **PySpark**, and then click on **Run Cell**, after a while, the result will be displayed.
 
-   ![Run IPYNB results](./media/hdinsight-for-vscode/run-ipynb-results.PNG)
+   ![Run IPYNB results](./media/hdinsight-for-vscode/run-ipynb-results.png)
 
 
 ## Submit PySpark batch job
@@ -444,7 +444,7 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
 ## Known Issues
-### Python on 2020.5.80290 version is not surpported on this extention 
+### Python on 2020.5.80290 version is not supported on this extention 
 
 "Failed to connect to Jupyter notebook." is a known issue for python version 2020.5.80290. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
 
