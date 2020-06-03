@@ -43132,6 +43132,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/powershell-samples.md",
+      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-creating.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-solution-file.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-automation.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-searches-alerts.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-views.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
