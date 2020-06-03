@@ -23,7 +23,7 @@ You can order the Data Box device via the Azure portal to import or export data 
 
 Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. 
 
-Here are the various scenarios where Data Box can be used for importing data to Azure.
+Here are the various scenarios where Data Box can be used to import data to Azure.
 
  - **One time migration** - when large amount of on-premises data is moved to Azure. 
      - Moving a media library from offline tapes into Azure to create an online media library.
@@ -35,14 +35,13 @@ Here are the various scenarios where Data Box can be used for importing data to 
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms. 
 
-Here are the various scenarios where Data Box can be used for exporting data from Azure.
+Here are the various scenarios where Data Box can be used to export data from Azure.
 
 - **Disaster recovery** - when a copy of the data from Azure is restored to an on-premises network. This is typically done in case of a disaster recovery scenario where a large amount of Azure data is exported to Data Box. Microsoft then ships this Data Box and the data is restored on your premises in a short period of time. 
 
 - **Security requirements** - when you need to be able to export data out fo Azure due to government or security requirements. For example, Azure Storage is available in US Secret and Top Secret clouds, and you can use Data Box to export data out of Azure. 
 
 - **Migrate back to on-premises or to another cloud service provider** - when you want to move all the data back to on-premises, or to another cloud service provider, export data via Data Box to migrate the workloads.
-
 
 
 ## Benefits
@@ -135,11 +134,15 @@ Throughout the export process, you are notified via email on all status changes.
 
 Data Box can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
-- **Service availability** - When using Data Box for import order, to get information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+### For import
 
-    When using Data Box for export order, the device is currently available in all regions in US and EU only. The export feature on Data Box is in preview. 
+- **Service availability for import** - When using Data Box for import order, to get information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
-- **Destination storage accounts for import** - The storage accounts that store the data are available in all Azure regions where the service is available. 
+- **Destination storage accounts for import** - The storage accounts that store the data are available in all Azure regions where the service is available.
+
+### For export
+
+- **Service availability for export** - When using Data Box for export order, the device is currently available in all regions in US and EU only. The export feature on Data Box is in preview.
 
 - **Source storage accounts for export** - The storage accounts that store the data are available in all Azure regions in US and EU in this release.
 
