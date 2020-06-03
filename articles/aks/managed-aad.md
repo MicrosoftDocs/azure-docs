@@ -74,6 +74,20 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+## Azure AD authentication overview
+
+Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
+
+From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster. For more information on Webhook token authentication, see the [webhook authentication documentation][kubernetes-webhook].
+
+> [!NOTE]
+> When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator.
+
+## Webhook and API server - TODO
+
+The API server calls the AKS webhook server and peforms various steps:
+
+* 
 
 ## Create an AKS cluster with Azure AD enabled
 

@@ -238,8 +238,6 @@
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
-        - name: Use the Azure portal
-          href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
