@@ -47,7 +47,7 @@ Azure Automation allows you to configure a schedule to trigger your runbooks.
 2. For example, you can create two schedules. One that represents when you want your job to scale up and another that represents when you want your job to scale down. You can define a recurrence for these schedules.
    ![Schedules in Azure Automation](./media/autoscale/schedules.png)
 
-3. Now open your **ScaleUpRunbook** and then select **Schedules** under **Resources**. You can then link your runbook to a schedule you created in the previous steps. You can have multiple schedules linked with the same runbook which can be helpful when you want to run the same scale operation at different times of the day.
+3. Open your **ScaleUpRunbook** and then select **Schedules** under **Resources**. You can then link your runbook to a schedule you created in the previous steps. You can have multiple schedules linked with the same runbook which can be helpful when you want to run the same scale operation at different times of the day.
 ![Scheduling runbooks in Azure Automation](./media/autoscale/schedulerunbook.png)
 
 1. Repeat the previous step for **ScaleDownRunbook** as well.
