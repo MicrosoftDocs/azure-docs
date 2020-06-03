@@ -55,7 +55,7 @@ Check that the zipped file is secure, before you deploy it.
         --- | --- | ---
         Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - For Azure government:
+    - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
