@@ -13,4 +13,4 @@ Navigate to the storage account for which you would like to restrict all access 
 
 At the top of the page, select the **Selected networks** radio button. This will un-hide a number of settings for controlling the restriction of the public endpoint. Check **Allow trusted Microsoft services to access this service account** to allow trusted first party Microsoft services such as Azure File Sync to access the storage account.
 
-![Screenshot of the Firewalls and virtual networks blade with the appropriate restricts in place](media/storage-files-networking-endpoints-public-disable-portal/disable-public-endpoint-0.png)
+[![Screenshot of the Firewalls and virtual networks blade with the appropriate restricts in place](media/storage-files-networking-endpoints-public-disable-portal/disable-public-endpoint-0.png)](media/storage-files-networking-endpoints-public-disable-portal/disable-public-endpoint-0.png#lightbox)
