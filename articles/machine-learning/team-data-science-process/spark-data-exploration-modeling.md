@@ -1,6 +1,6 @@
 ---
 title: Data exploration and modeling with Spark - Team Data Science Process
-description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure HDInsight Spark.
+description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on HDInsight Spark.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: sample
-ms.date: 06/02/2020
+ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ---
