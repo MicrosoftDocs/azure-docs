@@ -65,7 +65,7 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## Get infornation about the VM
+## Get information about the VM
 
 You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az-vm-list). 
 
