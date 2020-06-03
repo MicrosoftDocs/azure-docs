@@ -53,8 +53,9 @@ You can troubleshoot VMs created using DevTest Labs and the Resource Manager dep
 
 ## Symptoms, causes, and potential resolutions 
 
-### Artifact appears to hang   
-An artifact appears to hang until a pre-defined timeout period expires, and the artifact is marked as **Failed**.
+### Artifact appears to stop responding
+
+An artifact appears to stop responding until a pre-defined timeout period expires, and the artifact is marked as **Failed**.
 
 When an artifact appears to hang, first determine where it's stuck. An artifact can be blocked at any of the following steps during execution:
 
@@ -63,11 +64,11 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
     - Look for errors under these entries. Sometimes, the error won't be tagged accordingly, and you'll have to investigate each entry.
     - When investigating the details of each entry, make sure to review the contents of the JSON payload. You may see an error at the bottom of that document.
 - **When trying to execute the artifact**. It could be because of networking or storage issues. See the respective section later in this article for details. It can also happen because of the way the script is authored. For example:
-    - A PowerShell script has **mandatory parameters**, but one fails to pass a value to it, either because you allow the user to leave it blank, or because you don’t have a default value for the property in the artifactfile.json definition file. The script will hang because it's awaiting user input.
+    - A PowerShell script has **mandatory parameters**, but one fails to pass a value to it, either because you allow the user to leave it blank, or because you don’t have a default value for the property in the artifactfile.json definition file. The script will stop responding because it's awaiting user input.
     - A PowerShell script **requires user input** as part of execution. Scripts must be written to work silently without requiring any user intervention.
 - **VM Agent takes long to be ready**. When the VM is first started, or when the custom script extension is first installed to serve the request to apply artifacts, the VM may require either upgrading the VM Agent or wait for the VM Agent to initialize. There may be services on which the VM Agent depends that are taking a long time to initialize. In such cases, see [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md) for further troubleshooting.
 
-### To verify if the artifact appears to hang because of the script
+### To verify if the artifact appears to stop responding because of the script
 
 1. Log in to the virtual machine in question.
 2. Copy the script locally in the virtual machine or locate it on the virtual machine under `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. It's the location where the artifact scripts are downloaded.
@@ -79,7 +80,7 @@ When an artifact appears to hang, first determine where it's stuck. An artifact 
 > 
 > For information about writing your own artifacts, see [AUTHORING.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) document.
 
-### To verify if the artifact appears to hang because of the VM Agent:
+### To verify if the artifact appears to stop responding because of the VM Agent:
 1. Log in to the virtual machine in question.
 2. Using File Explorer navigate to **C:\WindowsAzure\logs**.
 3. Locate and open file **WaAppAgent.log**.
@@ -133,4 +134,3 @@ There are other less frequent possible sources of error. Make sure to evaluate e
 
 ## Next steps
 If none of these errors occurred and you still can’t apply artifacts, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
-
