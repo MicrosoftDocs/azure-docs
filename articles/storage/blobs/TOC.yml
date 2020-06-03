@@ -486,7 +486,7 @@
   - name: Reference
     items:
     - name: Azure Blob storage reference
-      href: ../blobs/blob-storage-reference.md
+      href: ../blobs/reference.md
     - name: AzCopy v10
       items:
       - name: azcopy

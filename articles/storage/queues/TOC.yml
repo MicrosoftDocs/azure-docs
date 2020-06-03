@@ -225,7 +225,7 @@
 - name: Reference
   items:
   - name: Azure Queue storage reference
-    href: ../queues/queue-storage-reference.md
+    href: ../queues/reference.md
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions

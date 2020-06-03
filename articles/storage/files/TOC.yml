@@ -217,7 +217,7 @@
 - name: Reference
   items:
   - name: Azure File Shares storage reference
-    href: ../files/files-storage-reference.md
+    href: ../files/reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
