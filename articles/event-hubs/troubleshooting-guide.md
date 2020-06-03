@@ -143,7 +143,7 @@ If you are experiencing intermittent connectivity issues, go through the followi
 ### Use the latest version of the client SDK
 Some of the transient connectivity issues may have been fixed in the later versions of the SDK than what you are using. Ensure that you are using the latest version of client SDKs in your applications. SDKs are continuously improved with new/updated features and bug fixes, so always test with latest package. Check the release notes for issues that are fixed and features added/updated. 
 
-For information about client SDKs, see the [Azure Event Hubs - Client SDKs](client-sdks.md) article. 
+For information about client SDKs, see the [Azure Event Hubs - Client SDKs](sdks.md) article. 
 
 ### Run the command to check dropped packets
 When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
