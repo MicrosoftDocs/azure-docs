@@ -16,4 +16,4 @@ At the top of the page, select the **Selected networks** radio button. This will
 
 Check **Allow trusted Microsoft services to access this service account** to allow trusted first party Microsoft services such as Azure File Sync to access the storage account.
 
-![Screenshot of the Firewalls and virtual networks blade with a specific virtual network allowed to access the storage account via the public endpoint](media/storage-files-networking-endpoints-public-restrict-portal/restrict-public-endpoint-0.png)
+[![Screenshot of the Firewalls and virtual networks blade with a specific virtual network allowed to access the storage account via the public endpoint](media/storage-files-networking-endpoints-public-restrict-portal/restrict-public-endpoint-0.png)](media/storage-files-networking-endpoints-public-restrict-portal/restrict-public-endpoint-0.png#lightbox)

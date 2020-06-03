@@ -11,7 +11,7 @@
 ---
 Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint. 
 
-![A screenshot of the private endpoint connections item in the storage account table of contents](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)
+[![A screenshot of the private endpoint connections item in the storage account table of contents](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
 
 The resulting wizard has multiple pages to complete.
 
