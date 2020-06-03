@@ -10,44 +10,39 @@ ms.date: 06/XX/2020
 
 # Tutorial: Build and deploy a custom skill with Azure Machine Learning 
 
-Introductory paragraph.
+In this tutorial, you will use the (hotel reviews dataset)[https://www.kaggle.com/datafiniti/hotel-reviews] (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a custom skill using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
 
-In this tutorial, you learn how to:
+To train the aspect-based sentiment model, you will be using the [nlp recipes repository](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). The model will then be deployed as an endpoint on an Azure Kubernetes cluster. Once deployed, the model is added to the enrichment pipeline as a custom skill for use by the Cognitive Search service.
+
+There are two datasets provided. If you wish to train the model yourself, the hotel_reviews_1000.csv file is required. Prefer to skip the training step? Download the hotel_reviews_100.csv.
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-If you don’t have a <service> subscription, create a free trial account...
+> * Create an Azure Cognitive Search instance
+> * Create an Azure Machine Learning workspace
+> * Train and deploy a model to an Azure Kubernetes cluster
+> * Link an AI enrichment pipeline to the deployed model
+> * Ingest output from deployed model as a custom skill
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
+* Azure subscription - get a [free subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Cognitive Search service](https://docs.microsoft.com/azure/search/search-get-started-arm)
+* [Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
+* [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+* [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 
-## Procedure 1
+## Setup
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+* Clone or download the contents of [the sample repository](this is a placeholder).
+* Extract contents if the download is a zip file. Make sure the files are read-write.
+* While setting up the Azure accounts and services, copy the names and keys to an easily accessed text file. The names and keys will be added to the first cell in the notebook where variables for accessing the Azure services are defined.
+* If you are unfamiliar with Azure Machine Learning and its requirements, you will want to review these documents before getting started:
+ * [Configure a development environment for Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
+ * [Create and manage Azure Machine Learning workspaces in the Azure portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+ * When configuring the development environment for Azure Machine Learning, consider using the [cloud-based compute instance](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) for speed and ease in getting started.
+* Upload the dataset file to a container in the storage account. The larger file is necessary if you wish to perform the training step in the notebook. If you prefer to skip the training step, the smaller file is recommended.
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+## Open notebook and connect to Azure services
 
 1. Step 1 of the procedure
 1. Step 2 of the procedure
