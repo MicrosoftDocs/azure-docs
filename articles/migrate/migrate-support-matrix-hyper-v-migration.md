@@ -31,7 +31,7 @@ The replication provider software on the Hyper-V hosts will need access to these
 --- | ---
 login.microsoftonline.com | Access control and identity management using Active Directory.
 backup.windowsazure.com | Replication data transfer and coordination.
-*.hypervrecoverymanager.windowsazure.com | Used for migration.
+*.hypervrecoverymanager.windowsazure.com | Used for replication management.
 *.blob.core.windows.net | Upload data to storage accounts. 
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 time.windows.com | Verifies time synchronization between system and global time.
@@ -44,7 +44,7 @@ The replication provider software on the Hyper-V hosts will need access to these
 --- | ---
 login.microsoftonline.us | Access control and identity management using Active Directory.
 backup.windowsazure.us | Replication data transfer and coordination.
-*.hypervrecoverymanager.windowsazure.us | Used for migration.
+*.hypervrecoverymanager.windowsazure.us | Used for replication management.
 *.blob.core.usgovcloudapi.net | Upload data to storage accounts.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 time.nist.gov | Verifies time synchronization between system and global time.
@@ -57,20 +57,19 @@ time.nist.gov | Verifies time synchronization between system and global time.
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure. |
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
-| **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.
-  |
-| **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.
-| **Disk number** | A maximum of 16 disks per VM.
-| **Encrypted disks/volumes**    | Not supported for migration. |
-| **RDM/passthrough disks**      | Not supported for migration. |
-| **Shared disk** | VMs using shared disks aren't supported for migration.
-| **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated. |
+| **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.|
+| **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.|
+| **Disk number** | A maximum of 16 disks per VM.|
+| **Encrypted disks/volumes**    | Not supported for migration.|
+| **RDM/passthrough disks**      | Not supported for migration.|
+| **Shared disk** | VMs using shared disks aren't supported for migration.|
+| **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated.|
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
-| **IPv6** | Not supported.
-| **NIC teaming** | Not supported.
-| **Azure Site Recovery** | You can't replicate using Azure Migrate Server Migration if the VM is enabled for replication with Azure Site Recovery.
-| **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.
+| **IPv6** | Not supported.|
+| **NIC teaming** | Not supported.|
+| **Azure Site Recovery** | You can't replicate using Azure Migrate Server Migration if the VM is enabled for replication with Azure Site Recovery.|
+| **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
 
 ## Azure VM requirements
 
