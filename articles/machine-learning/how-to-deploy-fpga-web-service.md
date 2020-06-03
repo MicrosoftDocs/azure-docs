@@ -223,6 +223,8 @@ Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/pytho
 
 ## 2. Convert the model
 
+Before deploying the model, you have to convert it to ONNX format.
+
 1. [Register](concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
    ```python
@@ -266,7 +268,7 @@ Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/pytho
 
 ## 3. Containerize and deploy the model
 
-1. Create Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include AKS in the cloud or an  edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
+Create Docker image from the converted model and all dependencies.  This Docker image can then be deployed and instantiated.  Supported deployment targets include AKS in the cloud or an  edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
 
    ```python
    from azureml.core.image import Image
