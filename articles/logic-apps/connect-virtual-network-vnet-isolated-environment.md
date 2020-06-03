@@ -60,7 +60,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
     
-    You must then link this route table to each subnet that's used by your ISE. The route table is required so that Logic Apps components can communicate with other dependent Azure Services, such as Azure Storage and Azure SQL DB. For more information about this route, see [0.0.0.0/0 address prefix](../virtual-network/virtual-networks-udr-overview.md#default-route).
+    You need to then link this route table to each subnet that's used by your ISE. The route table is required so that Logic Apps components can communicate with other dependent Azure Services, such as Azure Storage and Azure SQL DB. For more information about this route, see [0.0.0.0/0 address prefix](../virtual-network/virtual-networks-udr-overview.md#default-route).
    
   * If you use a [network virtual appliance (NVA)](../virtual-network/virtual-networks-udr-overview.md#user-defined), make sure that you don't enable TLS/SSL termination or change the outbound TLS/SSL traffic. Also, make sure that you don't enable inspection for traffic that originates from your ISE's subnet. For more information, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
 
