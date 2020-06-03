@@ -410,7 +410,21 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/geo-ai-dsvm-overview.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/provision-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path" : "articles/machine-learning/data-science-virtual-machine/use-geo-ai-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
@@ -759,6 +773,21 @@
     {
       "source_path": "articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/samples-notebooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/cognitive-services/immersive-reader/quickstart-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-nodejs",
       "redirect_document_id": false
     },
     {
@@ -4366,6 +4395,11 @@
     {
       "source_path": "articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
       "redirect_document_id": false
     },
     {
@@ -17382,6 +17416,11 @@
       "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-relay/",
+      "redirect_url": "/azure/azure-relay/",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/service-bus-relay/diagnostic-logs.md",
       "redirect_url": "/azure/azure-relay/diagnostic-logs",
@@ -39192,6 +39231,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/add-web-application.md",
+      "redirect_url": "/azure/active-directory-b2c/add-web-api-application",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
@@ -39899,6 +39944,16 @@
     {
       "source_path": "articles/dev-spaces/how-to/helm-3.md",
       "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/connect.md",
+      "redirect_url": "/azure/dev-spaces/how-to/local-process-kubernetes-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-connect.md",
+      "redirect_url": "/azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes",
       "redirect_document_id": false
     },
     {
@@ -43089,6 +43144,36 @@
     {
       "source_path": "articles/azure-monitor/platform/powershell-samples.md",
       "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-creating.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-solution-file.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-automation.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-searches-alerts.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-views.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
       "redirect_document_id": false
     },
     {
@@ -51740,8 +51825,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
-      "redirect_url": "/azure/azure-monitor/overview",
+      "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     },
     {
