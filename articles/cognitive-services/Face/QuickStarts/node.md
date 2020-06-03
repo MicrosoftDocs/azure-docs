@@ -27,15 +27,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up the Node environment
 
-Go to the folder where you'd like to create your project and create a new file, *facedetection.js*. Then install the `requests` module to this project. This allows your scripts to make HTTP requests.
+Go to the folder where you'd like to create your project and create a new file, *facedetection.js*. Then install the `axios` module to this project. This allows your scripts to make HTTP requests.
 
 ```shell
-npm install request --save
+npm install axios --save
 ```
 
 ## Write the Node.js script
 
-Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to add your Face subscription key and endpoint to your environment variables. You may wish to change the `imageUrl` field to point to your own input image.
+Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. [Create environment variables](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) and add your Face subscription key and endpoint to them. You may wish to change the `imageUrl` field to point to your own input image.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
