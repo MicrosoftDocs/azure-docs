@@ -93,7 +93,8 @@ To prepare the target Azure Database for MySQL server for faster data loads, the
 - slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
 - query_store_capture_mode – set both to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
 - innodb_buffer_pool_size – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size. Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server.
-- innodb_write_io_threads & innodb_write_io_threads - Change to 16 from the Server parameters in Azure portal to improve the speed of migration.
+- innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
+- innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
 - Scale up Storage tier – The IOPs for Azure Database for MySQL server increases progressively with the increase in storage tier. For faster loads, you may want to increase the storage tier to increase the IOPs provisioned. Please do remember the storage can only be scaled up, not down.
 
 Once the migration is completed, you can revert back the server parameters and compute tier configuration to its previous values. 
