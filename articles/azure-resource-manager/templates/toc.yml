@@ -61,7 +61,7 @@
     - name: HDInsight - ML Services
       href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault
-      href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Managed application
@@ -81,7 +81,7 @@
     - name: Site Recovery
       href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
-      href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
       href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
@@ -164,6 +164,8 @@
   items:
   - name: Template best practices
     href: template-best-practices.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes

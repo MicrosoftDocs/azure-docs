@@ -4398,6 +4398,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/azure-monitor-log-hub.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
@@ -39937,6 +39942,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/how-to/connect.md",
+      "redirect_url": "/azure/dev-spaces/how-to/local-process-kubernetes-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-connect.md",
+      "redirect_url": "/azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/monitoring/monitoring-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
@@ -43124,6 +43139,36 @@
     {
       "source_path": "articles/azure-monitor/platform/powershell-samples.md",
       "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-creating.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-solution-file.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-automation.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-searches-alerts.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-views.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
       "redirect_document_id": false
     },
     {
@@ -51870,8 +51915,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
-      "redirect_url": "/azure/azure-monitor/overview",
+      "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     },
     {
