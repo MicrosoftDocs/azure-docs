@@ -61,7 +61,7 @@ There might be cases where you cannot predict input load. In such cases, it more
 5. Fill out the required fields. Choose **Automation Runbook** when you select the **Action Type**. Select the runbook you want to trigger when the alert fires. Then, create the action group.
    ![Create action group](./media/autoscale/create-actiongroup.png)
 6. Create a [**New alert rule**](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) in your job. Specify a condition based on a metric of your choice. *Input Events*, *SU% Utilization* or *Backlogged Input Events* are recommended metrics to use for defining autoscaling logic. It is also recommended to use 1 minute *Aggregation granularity* and *Frequency of evaluation* when triggering scale up operations. Doing so ensures your job has ample resources to cope with large spikes in input volume.
-7. Then select the Action Group created in the last step. And then create the alert.
+7. Select the Action Group created in the last step, and create the alert.
 8. Repeat steps 2 through 4 for any additional scale operations you want to trigger based on condition of job metrics.
 
 It is a best practice to run scale tests before running your job in production. By testing your job against varying input load, you will get a sense of how many SUs your job needs for different input throughput. This can inform the conditions you define in your alert rules that trigger scale up/down operations. 
