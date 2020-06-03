@@ -149,7 +149,7 @@ The following table shows the **default regional limits** for supported subscrip
 \*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
 > [!IMPORTANT]
-> In case your vCore and subnet limit is 0, it means that default regional limit for your subscription type is not set. You can also use quota increase request for getting subscription access in specific region by providing required vCore and subnet values.
+> In case your vCore and subnet limit is 0, it means that default regional limit for your subscription type is not set. You can also use quota increase request for getting subscription access in specific region following the same procedure - providing required vCore and subnet values.
 
 ## Request a quota increase
 
