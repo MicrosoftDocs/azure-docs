@@ -1081,20 +1081,6 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Custom solutions
-      items:
-      - name: Design and build
-        href: insights/solutions-creating.md
-      - name: Solution file
-        href: insights/solutions-solution-file.md
-      - name: Automation resources
-        href: insights/solutions-resources-automation.md
-      - name: Log searches and alerts
-        href: insights/solutions-resources-searches-alerts.md
-      - name: Views
-        href: insights/solutions-resources-views.md
-      - name: Best practices
-        href: insights/solutions-best-practices.md
   - name: Workbooks
     items:
     - name: Overview
