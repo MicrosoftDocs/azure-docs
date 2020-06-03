@@ -3,9 +3,7 @@ title: Troubleshooting issues caused by applications that don’t support TLS 1.
 description: Troubleshooting issues caused by applications that don’t support TLS 1.2
 services: cloud-services
 documentationcenter: ''
-author: mimckitt
-manager: vashan
-editor: ''
+author: tanmaygore
 tags: top-support-issue
 ms.assetid: 
 ms.service: cloud-services
@@ -22,7 +20,7 @@ This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) a
 We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, our customers may need to support the older protocols and cipher suites until they can plan for their deprecation.  While we don't recommend re-enabling these legacy values, we are providing guidance to help customers. We encourage customers to evaluate the risk of regression before implementing the changes outlined in this article. 
 
 > [!NOTE]
-> Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.
+> Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites.For more information on Guest OS families see [Guest OS release news](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
@@ -221,7 +219,7 @@ $reboot = Set-CryptoSetting 1 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 2 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 2 Enabled 1 DWord $reboot
 
-# Ensure TLS 1.1 disabled for client/server
+# Ensure TLS 1.1 enabled for client/server
 $reboot = Set-CryptoSetting 4 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 4 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 5 DisabledByDefault 0 DWord $reboot
@@ -338,7 +336,7 @@ Here is an example that shows both the worker role and web role.
 
 ## Step 4: Add the scripts to your Cloud Service 
 
-1) In Visual Studio, right-click on your WebRole
+1) In Visual Studio, right-click on your WebRole or WorkerRole
 2) Select **Add**
 3) Select **Existing Item**
 4) In the file explorer, navigate to your desktop where you stored the **TLSsettings.ps1** and **RunTLSSettings.cmd** files 
@@ -348,7 +346,7 @@ Here is an example that shows both the worker role and web role.
 
 To ensure the scripts are uploaded with every update pushed from Visual Studio, the setting *Copy to Output Directory* needs to be set to *Copy Always*
 
-1) Under your WebRole, right-click on RunTLSSettings.cmd
+1) Under your WebRole or WorkerRole, right-click on RunTLSSettings.cmd
 2) Select **Properties**
 3) In the properties tab, change *Copy to Output Directory* to *Copy Always"*
 4) Repeat the steps for **TLSsettings.ps1**

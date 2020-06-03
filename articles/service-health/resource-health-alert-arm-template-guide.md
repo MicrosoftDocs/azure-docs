@@ -225,6 +225,9 @@ You may only want to be notified when a resource becomes unhealthy, in which cas
 
 If you want to be notified for all four stages of health events, you can remove this condition all together, and the alert will notify you irrespective of the `status` property.
 
+> [!NOTE]
+> Each "anyOf" section should contain just one field type values.
+
 ### Adjusting the Resource Health alerts to avoid "Unknown" events
 
 Azure Resource Health can report to you the latest health of your resources by constantly monitoring them using test runners. The relevant reported health statuses are: "Available", "Unavailable", and "Degraded". However, in situations where the runner and the Azure resource are unable to communicate, an "Unknown" health status is reported for the resource, and that is considered an "Active" health event.

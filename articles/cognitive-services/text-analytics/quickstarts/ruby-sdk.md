@@ -26,7 +26,7 @@ Use the Text Analytics client library to perform:
 > [!NOTE]
 > This quickstart only applies to Text Analytics version 2.1. Currently, a v3 client library for Ruby is unavailable.
 
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Library source code](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -78,7 +78,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Code examples
 
-These code snippets show you how to do the following with the Text Analytics client library for Python:
+These code snippets show you how to do the following with the Text Analytics client library for Ruby:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)

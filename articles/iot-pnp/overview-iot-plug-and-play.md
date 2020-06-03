@@ -1,8 +1,8 @@
 ---
 title: Introduction to IoT Plug and Play Preview | Microsoft Docs
 description: Learn about IoT Plug and Play Preview. IoT Plug and Play is based on an open modeling language that enables IoT devices to declare their capabilities. IoT devices present that declaration, called a device capability model, when they connect to cloud solutions such as Azure IoT Central or partner applications. The cloud solution can then automatically understand the device and start interacting with it — all without writing any code.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc

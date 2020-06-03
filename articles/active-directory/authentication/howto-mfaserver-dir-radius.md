@@ -5,7 +5,7 @@ description: Deploying RADIUS Authentication and Azure Multi-Factor Authenticati
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -73,9 +73,9 @@ You've successfully configured the Azure Multi-Factor Authentication Server. The
 
 To configure the RADIUS client, use the guidelines:
 
-* Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server’s IP address, which acts as the RADIUS server.
+* Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server's IP address, which acts as the RADIUS server.
 * Use the same shared secret that was configured earlier.
-* Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user’s credentials, perform two-step verification, receive their response, and then respond to the RADIUS access request.
+* Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user's credentials, perform two-step verification, receive their response, and then respond to the RADIUS access request.
 
 ## Next steps
 

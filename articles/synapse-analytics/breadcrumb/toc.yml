@@ -4,7 +4,7 @@
   items:
   - name: Synapse Analytics
     tocHref: /azure/sql-database/
-    topicHref: /azure/sql-data-warehouse/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
@@ -12,7 +12,7 @@
   items:
   - name: Synapse Analytics
     tocHref: /azure/azure-databricks/
-    topicHref: /azure/sql-data-warehouse/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
@@ -20,7 +20,7 @@
   items:
   - name: Synapse Analytics
     tocHref: /azure/data-factory/
-    topicHref: /azure/sql-data-warehouse/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
@@ -28,4 +28,30 @@
   items:
   - name: Synapse Analytics
     tocHref: /sql/t-sql/
-    topicHref: /azure/sql-data-warehouse/index
+    topicHref: /azure/synapse-analytics/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/machine-learning
+    topicHref: /azure/synapse-analytics/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/active-directory
+    topicHref: /azure/synapse-analytics/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/cosmos-db
+    topicHref: /azure/synapse-analytics/index
+
+

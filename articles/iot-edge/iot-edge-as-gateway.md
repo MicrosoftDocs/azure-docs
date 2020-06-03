@@ -8,6 +8,7 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 # How an IoT Edge device can be used as a gateway
 

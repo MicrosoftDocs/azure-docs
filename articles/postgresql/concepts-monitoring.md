@@ -37,7 +37,7 @@ These metrics are available for Azure Database for PostgreSQL:
 |pg_replica_log_delay_in_seconds|Replica Lag|Seconds|The time since the last replayed transaction. This metric is available for replica servers only.|
 
 ## Server logs
-You can enable logging on your server. These logs are also available through Azure Diagnostic Logs in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable logging on your server. These resource logs can be sent to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, and a Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## Query Store
 [Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in a system database named **azure_sys** under the query_store schema. You can control the collection and storage of data via various configuration knobs.
@@ -69,7 +69,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Planned maintenance notifications are currently in preview
+> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
 ## Next steps
 - See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.

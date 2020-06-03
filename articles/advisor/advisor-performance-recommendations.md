@@ -17,12 +17,16 @@ Azure Advisor identifies Traffic Manager profiles with a longer TTL configured a
 
 ## Improve database performance with SQL DB Advisor
 
-Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your database. SQL Database Advisor assesses the performance of your databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
 
 > [!NOTE]
 > To get recommendations, a database must have about a week of usage, and within that week there must be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
 For more information about SQL Database Advisor, see [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## Upgrade your Storage Client Library to the latest version for better reliability and performance
+
+The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage. Advisor provides you recommendations and steps to upgrade to latest version of SDK if you are on a stale version. The recommendations is for supported languages - C++ and .Net.
 
 ## Improve App Service performance and reliability
 
@@ -68,6 +72,26 @@ Migrate your Storage Account deployment model to Azure Resource Manager (Resourc
 ## Design your storage accounts to prevent hitting the maximum subscription limit
 
 An Azure region can support a maximum of 250 storage accounts per subscription. Once the limit is reached, you will be unable to create any more storage accounts in that region/subscription combination. Advisor will check your subscriptions and surface recommendations for you to design for fewer storage accounts for any that are close to reaching the maximum limit.
+
+## Consider increasing the size of your VNet Gateway SKU to adress high P2S use
+
+Each gateway SKU can only support a specified count of concurrent P2S connections. If your connection count is close to your gateway limit, so additional connection attempts may fail. Increasing the size of your gateway will allow you to support more concurrent P2S users.Advisor provides recommendation and steps to take, for this.
+
+## Consider increasing the size of your VNet Gateway SKU to address high CPU
+
+Under high traffic load, the VPN gateway may drop packets due to high CPU. You should consider upgrading your VPN Gateway SKU since your VPN has consistently been running at.Increasing the size of your VPN gateway will ensure that connections aren't dropped due to high CPU. Advisor provdes recommendation to address this issue proactively. 
+
+## Increase batch size when loading to maximize load throughput, data compression, and query performance
+
+Advisor can detect that you can increase load performance and throughput by increasing the batch size when loading into your database. You could consider using the COPY statement. If you are unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows. This will in increasing load throughput, data compression, and query performance.
+
+## Co-locate the storage account within the same region to minimize latency when loading
+
+Advisor can detect that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data. This will help minimize latency and increase load performance.
+
+## Unsupported Kubernetes version is detected
+
+Advisor can detect if an unsupported Kubernetes version is detected. The recommendation will help to ensure Kubernetes cluster runs with a supported version.
 
 ## Optimize the performance of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers 
 

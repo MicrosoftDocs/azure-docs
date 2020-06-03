@@ -4,7 +4,7 @@ description: This article walks you through the steps needed to create a support
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ---

@@ -3,7 +3,7 @@ title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 ms.subservice: ""
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/29/2020
 
 ---
 
@@ -45,7 +45,7 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus is a microservices monitoring and analytics platform built for on premises or SaaS deployment. It is fully automatable API-Centric platform is more scalable and reliable than systems it monitors. Developed for the requirements of DevOps, Circonus delivers percentile-based alerts, graphs, dashboards, and machine-learning intelligence that enable business optimization. Circonus monitors your Microsoft Azure cloud resources and their applications in real time. You can use Circonus to collect and track metrics for the variables you want to measure for your resources and applications. With Circonus, you gain system-wide visibility into Azure's resource utilization, application performance, and operational health.
+Circonus is the machine data intelligence expert, providing the only machine data intelligence platform capable of handling billions of metric streams in real time to drive unprecedented business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
 
 [Go to the documentation.][circonus-doc]
 
@@ -102,7 +102,8 @@ Grafana is an open-source application that enables you to visualize time series 
 
 ![InfluxData Logo](./media/partners/Influxdata.png)
 
-InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform built from the ground up for analyzing metrics and events (time series data) for DevOps and IoT applications. Whether the data comes from humans, sensors, or machines, InfluxData empowers developers to build next-generation monitoring, analytics, and IoT applications faster, easier, and to scale delivering real business value quickly. Based in San Francisco, InfluxData's more than 420 customers include Cisco, eBay, IBM, and Siemens.
+InfluxData is the creator of InfluxDB, the open source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open source contributions to Telegraf.
+
 
 [Go to the documentation.][influxdata-doc]
 
@@ -201,6 +202,14 @@ Serverless360 is a one platform tool to operate, manage, and monitor Azure serve
 
 [Learn more.][serverless360-doc]
 
+## ServiceNow
+
+![ServiceNow Logo](./media/partners/servicenow.png)
+
+Reduce incidents and MTTR with NOW AIOps platform to eliminate noise, prioritize, identify root cause detection using ML, and remediate with ITX workflows.  Understand the current state of your Iaas/PaaS/FaaS services from Azure and build service maps from tags to build application service context for the business impact analysis.    
+
+[Learn more.](https://www.servicenow.com/solutions/aiops.html)
+
 ## SignalFx
 
 ![SignalFX Logo](./media/partners/signalfx.png)
@@ -267,7 +276,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
-[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
+[circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."

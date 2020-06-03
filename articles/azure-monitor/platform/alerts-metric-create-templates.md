@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 2/24/2020
+ms.date: 6/2/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -557,7 +557,7 @@ az group deployment create \
 
 ## Template for a static threshold metric alert that monitors multiple criteria
 
-Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics as well as support defining multiple criteria (up to 5 criterions per alert rule). You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
 
 Please note the following constraints when using dimensions in an alert rule that contains multiple criteria:
 - You can only select one value per dimension within each criterion.
@@ -1512,6 +1512,10 @@ This section will describe Azure Resource Manager templates for three scenarios 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
 - Monitoring all virtual machines (in one Azure region) in a subscription.
 - Monitoring a list of virtual machines (in one Azure region) in a subscription.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 
@@ -3539,7 +3543,6 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",

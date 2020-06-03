@@ -46,7 +46,7 @@ The Azure Kinect device consists of the following size and weight dimensions.
 
 Azure Kinect DK is intended for developers and commercial businesses operating under the following ambient conditions:
 
-- **Temperature**: 10-25⁰C
+- **Temperature**: 10-25<sup>0</sup>C
 - **Humidity**: 8-90% (non-condensing) Relative Humidity
 
 > [!NOTE]
@@ -164,7 +164,7 @@ The status LED behind the device indicates device state:
 | When the light is     | It means                                                   |
 |-----------------------|------------------------------------------------------------|
 | Solid white           | Device is on and working properly.                         |
-| Flashing white        | Device is on but doesn’t have a USB 3.0 data connection.   |
+| Flashing white        | Device is on but doesn't have a USB 3.0 data connection.   |
 | Flashing amber        | Device doesn't have enough power to operate.               |
 | Amber flashing white  | Firmware update or recovery in progress                    |
 
@@ -172,7 +172,7 @@ The status LED behind the device indicates device state:
 
 The device can be powered in two ways:
 
-1. Using the in-box power supply. Data is connected by a separate USB Type-C to Type-A cable.
+1. Using the in-box power supply. The power connector is a 4.5mm OD with 3.0mm ID and a pin diameter of 0.6mm.
 2. Using a Type-C to Type-C cable for both power and data.
 
 A Type-C to Type-C cable isn't included with the Azure Kinect DK.

@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
 ---
 
 # Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs
 
-HDInsight clusters provide access to the Apache Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Apache Oozie service can't be accessed over the internet without an SSh tunnel.
+HDInsight clusters provide access to the Apache Ambari web UI over the Internet. Some features require an SSH tunnel. For example, the Apache Oozie web UI can't be accessed over the internet without an SSH tunnel.
 
 ## Why use an SSH tunnel
 
@@ -26,7 +26,7 @@ The following Web UIs require an SSH tunnel:
 * Oozie web UI
 * HBase Master and Logs UI
 
-If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web service require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
+Services installed with Script Actions that expose a web service will require an SSH tunnel. Hue installed with Script Action requires an SSH tunnel to access the web UI.
 
 > [!IMPORTANT]  
 > If you have direct access to HDInsight through a virtual network, you do not need to use SSH tunnels. For an example of directly accessing HDInsight through a virtual network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
@@ -59,14 +59,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 This command creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
 
-* **D 9876** - The local port that routes traffic through the tunnel.
-* **C** - Compress all data, because web traffic is mostly text.
-* **2** - Force SSH to try protocol version 2 only.
-* **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since you're just forwarding a port.
-* **n** - Prevent reading of STDIN, since you're just forwarding a port.
-* **N** - Do not execute a remote command, since you're just forwarding a port.
-* **f** - Run in the background.
+    |Option |Description |
+    |---|---|
+    |D 9876|The local port that routes traffic through the tunnel.|
+    |C|Compress all data, because web traffic is mostly text.|
+    |2|Force SSH to try protocol version 2 only.|
+    |q|Quiet mode.|
+    |T|Disable pseudo-tty allocation, since you're just forwarding a port.|
+    |n|Prevent reading of STDIN, since you're just forwarding a port.|
+    |N|Do not execute a remote command, since you're just forwarding a port.|
+    |f|Run in the background.|
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
 

@@ -3,12 +3,12 @@ title: Container support
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure container instance resource from the Azure CLI.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/06/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Azure Container Instance resource from the Azure CLI
@@ -19,11 +19,11 @@ The YAML below defines the Azure Container Instance resource. Copy and paste the
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required when pulling a non-public image
+properties:
+  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
-properties:
   containers:
   - name: # < Container name >
     properties:

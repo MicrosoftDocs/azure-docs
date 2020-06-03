@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from an OData source by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odata-connector.md)

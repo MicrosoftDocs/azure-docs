@@ -5,10 +5,12 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
+ms.date: 05/25/2020
 ---
 
 # Mapping data flow video tutorials
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
@@ -44,6 +46,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Lookup Transformation Updates & Tips](https://youtu.be/MBskWoeuTLw)
+
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Pivot transformation: mapping drifted columns](https://youtu.be/5MygzCX0wnM)
@@ -51,6 +55,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Select transformation](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Select transformation: Rule-based mapping](https://youtu.be/5lf1lh1qMwU)
+
+[Select transformation: Large Datasets](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Surrogate key transformation](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
@@ -88,6 +94,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
+[Data lake file output options](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+
 ## Optimizing mapping data flows
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
@@ -103,6 +111,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
+[Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## Mapping data flow scenarios
 
@@ -138,6 +148,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
 
+[Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
@@ -145,3 +157,9 @@ As updates are constantly made to the product, some features have added or diffe
 [Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)
+
+[Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+
+[Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+
+[Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)

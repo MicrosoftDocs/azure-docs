@@ -5,7 +5,7 @@ description: This article shows you how to deploy Service Fabric application wit
 ms.topic: article
 ms.date: 12/09/2019
 ---
-# Deploy Service Fabric application with a User-Assigned Managed Identity (preview)
+# Deploy Service Fabric application with a User-Assigned Managed Identity
 
 To deploy a Service Fabric application with managed identity, the application needs to be deployed through Azure Resource Manager, typically with an Azure Resource Manager template. For more information on how to deploy Service Fabric application through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
 

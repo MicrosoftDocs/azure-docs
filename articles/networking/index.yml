@@ -1,11 +1,11 @@
 ### YamlMime:Hub 
 
-title: Azure Networking documentation 
-summary: Learn about the various networking services available in Azure. 
+title: Azure networking documentation 
+summary: Learn about the various Azure networking services available that provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: Azure Networking documentation
+  title: Azure networking documentation
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
   ms.service: virtual-network
   ms.topic: hub-page
@@ -30,12 +30,12 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Private access to a SQL database server
-      itemType: tutorial
-      url: ../private-link/create-private-endpoint-portal.md
-    - title: What is virtual network NAT?
+    - title: What is routing preference?
       itemType: concept
-      url: ../virtual-network/nat-overview.md
+      url: ../virtual-network/routing-preference-overview.md
+    - title: Working remotely using Azure services
+      itemType: concept
+      url: working-remotely-support.md
     
 
 
@@ -316,7 +316,7 @@ conceptualContent:
         url: ../cdn/index.yml
         text: See more  
 
-    - title: Automated branch connectivity
+    - title: Unified hub and spoke networking
       links:
         - url: ../virtual-wan/virtual-wan-about.md
           itemType: overview

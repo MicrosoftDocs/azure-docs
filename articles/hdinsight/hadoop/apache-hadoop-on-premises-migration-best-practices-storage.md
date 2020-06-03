@@ -47,7 +47,7 @@ You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservi
 
 The following methods can be used to import certificates into the Java trust store:
 
-Download the Azure Blob SSL cert to a file
+Download the Azure Blob TLS/SSL cert to a file
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
