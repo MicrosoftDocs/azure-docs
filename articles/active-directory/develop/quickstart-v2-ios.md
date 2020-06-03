@@ -77,8 +77,8 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > [!div renderon="docs"]
 > #### Step 2: Download the sample project
 > 
-> - [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-> - [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> - [Download the code sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [Download the code sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### Step 3: Install dependencies
 
