@@ -95,7 +95,7 @@ The following tables show the available metrics and details.
 >|----|----|----|------------|
 >| System CPU Usage Percentage (deprecated)<br><br>(to be removed after July 1st, 2020) | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
 >| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
->| AppCpuUsagePercentage<br><br>App CPU Usage Percentage (deprecated) (removed on July 1st 2020) | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| App CPU Usage Percentage (deprecated) (removed on July 1st 2020) | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| App Memory Assigned (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
@@ -120,29 +120,29 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| TomcatSentBytes<br><br>Tomcat Total Sent Bytes (deprecated) (removed on July 1st 2020) | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
+>| Tomcat Total Sent Bytes (deprecated) (removed on July 1st 2020) | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
 >| tomcat.global.sent | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
->| TomcatReceivedBytes<br><br>Tomcat Total Received Bytes (deprecated) (removed on July 1st 2020) | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
+>| Tomcat Total Received Bytes (deprecated) (removed on July 1st 2020) | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
 >| tomcat.global.received | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
->| TomcatRequestTotalTime<br><br>Tomcat Request Total Time (deprecated) (removed on July 1st 2020) | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests |
->| TomcatRequestTotalCount<br><br>Tomcat Request Total Count (deprecated) (removed on July 1st 2020) | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
+>| Tomcat Request Total Time (deprecated) (removed on July 1st 2020) | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests |
+>| Tomcat Request Total Count (deprecated) (removed on July 1st 2020) | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
->| TomcatRequestMaxTime<br><br>Tomcat Request Max Time (deprecated) (removed on July 1st 2020) | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
+>| Tomcat Request Max Time (deprecated) (removed on July 1st 2020) | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 >| tomcat.global.request.max | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 
 ### Session
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| TomcatSessionActiveMaxCount<br><br>Tomcat Session Max Active Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
+>| Tomcat Session Max Active Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
 >| tomcat.sessions.active.max | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
->| TomcatSessionAliveMaxTime<br><br>Tomcat Session Max Alive Time (deprecated) (removed on July 1st 2020) | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
+>| Tomcat Session Max Alive Time (deprecated) (removed on July 1st 2020) | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session had been alive |
->| TomcatSessionCreatedCount<br><br>Tomcat Session Created Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.created | Count | Number of sessions that have been created |
+>| Tomcat Session Created Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.created | Count | Number of sessions that have been created |
 >| tomcat.sessions.created | tomcat.sessions.created | Count | Number of sessions that have been created |
->| TomcatSessionExpiredCount<br><br>Tomcat Session Expired Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.expired | Count | Number of sessions that have expired |
+>| Tomcat Session Expired Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.expired | Count | Number of sessions that have expired |
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Number of sessions that have expired |
->| TomcatSessionRejectedCount<br><br>Tomcat Session Rejected Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
+>| Tomcat Session Rejected Count (deprecated) (removed on July 1st 2020) | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
