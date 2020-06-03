@@ -7,7 +7,7 @@ ms.date: 05/26/2020
 
 # Quickstart: Add questions and answer with QnA Maker portal
 
-Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure service.
+Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 
 <a name="qna-table"></a>
 
