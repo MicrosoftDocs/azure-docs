@@ -64,7 +64,7 @@ There might be cases where you cannot predict input load. In such cases, it more
 7. Select the Action Group created in the last step, and create the alert.
 8. Repeat steps 2 through 4 for any additional scale operations you want to trigger based on condition of job metrics.
 
-It is a best practice to run scale tests before running your job in production. By testing your job against varying input load, you will get a sense of how many SUs your job needs for different input throughput. This can inform the conditions you define in your alert rules that trigger scale up/down operations. 
+It's a best practice to run scale tests before running your job in production. When you test your job against varying input loads, you get a sense of how many SUs your job needs for different input throughput. This can inform the conditions you define in your alert rules that trigger scale up and scale down operations. 
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
