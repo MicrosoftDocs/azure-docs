@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
 ---
 
@@ -78,41 +78,41 @@ Follow these steps to request a quota increase for your Batch account or your su
 1. Select **New support request** > **Basics**.
 1. In **Basics**:
    
-    a. **Issue Type** > **Service and subscription limits (quotas)**
+    1. **Issue Type** > **Service and subscription limits (quotas)**
    
-    b. Select your subscription.
+    1. Select your subscription.
    
-    c. **Quota type** > **Batch**
+    1. **Quota type** > **Batch**
       
-    Select **Next**.
+       Select **Next**.
     
 1. In **Details**:
       
-    a. In **Provide details**, specify the location, quota type, and Batch account.
+    1. In **Provide details**, specify the location, quota type, and Batch account.
     
-    ![Batch quota increase][quota_increase]
+       ![Batch quota increase][quota_increase]
 
-    Quota types include:
+       Quota types include:
 
-    * **Per Batch account**  
-        Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
+       * **Per Batch account**  
+         Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
         
-    * **Per region**  
-        Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
+       * **Per region**  
+         Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
-    Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+       Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
 
-    b. Select a **Severity** according to your [business impact][support_sev].
+    1. Select a **Severity** according to your [business impact][support_sev].
 
-    Select **Next**.
+       Select **Next**.
 
 1. In **Contact information**:
    
-    a. Select a **Preferred contact method**.
+    1. Select a **Preferred contact method**.
    
-    b. Verify and enter the required contact details.
+    1. Verify and enter the required contact details.
    
-    Select **Create** to submit the support request.
+       Select **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.
 
