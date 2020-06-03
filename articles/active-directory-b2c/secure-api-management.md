@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -31,23 +31,23 @@ You need the following resources in place before continuing with the steps in th
 
 When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to get the application ID. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Under **Manage**, select **Applications**.
-1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
+#### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, then select the **Owned applications** tab.
+1. Select **App registrations**, then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or another application you've previously created.
+
+#### [Applications (Legacy)](#tab/applications-legacy/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Under **Manage**, select **Applications (Legacy)**.
+1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
 
 * * *
 
@@ -65,15 +65,15 @@ Next, get the well-known config URL for one of your Azure AD B2C user flows. You
 1. Select the hyperlink to browse to the OpenID Connect well-known configuration page.
 1. In the page that opens in your browser, record the `issuer` value, for example:
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     You use this value in the next section when you configure your API in Azure API Management.
 
 You should now have two URLs recorded for use in the next section: the OpenID Connect well-known configuration endpoint URL and the issuer URI. For example:
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## Configure inbound policy in Azure API Management
@@ -95,12 +95,12 @@ You're now ready to add the inbound policy in Azure API Management that validate
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -228,7 +228,7 @@ Similarly, to support multiple token issuers, add their endpoint URIs to the `<i
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
@@ -249,14 +249,14 @@ The following example APIM inbound policy illustrates how to accept tokens issue
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

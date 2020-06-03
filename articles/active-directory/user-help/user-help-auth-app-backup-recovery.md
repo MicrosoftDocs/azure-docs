@@ -8,8 +8,8 @@ manager: daveba
 ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/14/2020
+ms.topic: end-user-help
+ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---

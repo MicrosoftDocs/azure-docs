@@ -161,7 +161,6 @@ The following table provides information about what kind of weather information 
 | Tunisia                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | United Arab Emirates        | ✓               |                              |        ✓| 
-| Western Sahara              | ✓               |                              |        ✓| 
 | Yemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 

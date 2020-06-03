@@ -27,7 +27,7 @@ You can use Azure PowerShell to create an incremental snapshot. You will need th
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Once that is installed, login to your PowerShell session with `az login`.
+Once that is installed, login to your PowerShell session with `Connect-AzAccount`.
 
 To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
 

@@ -56,7 +56,7 @@ However, there are limitations to consider:
 
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 
-When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
+When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.The replica server is always created in the same resource group and same subscription as the master server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation.
 
 Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent an interruption in replication caused by out-of-storage errors.
 
@@ -101,6 +101,9 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 ### Pricing tiers
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
+
+> [!NOTE]
+> The cost of running the replica server is based on the region where the replica server is running.
 
 ### Master server restart
 

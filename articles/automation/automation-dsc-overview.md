@@ -1,13 +1,13 @@
 ---
 title: Azure Automation State Configuration overview
-description: An overview of Azure Automation State Configuration, its terms, and known issues
+description: This article provides an overview of Azure Automation State Configuration.
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -97,15 +97,17 @@ If you are using DSC resources that communicate between nodes,
 such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource),
 you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
 
+To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
-used to register nodes.
+Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
+used to register nodes. 
 
 >[!NOTE]
 >Azure Automation State Configuration does not provide DSC proxy support for previous versions of Windows.
 
-For Linux nodes, the DSC agent supports proxy and uses the `http_proxy` variable to determine the URL.
+For Linux nodes, the DSC agent supports proxy and uses the `http_proxy` variable to determine the URL. To find out more about proxy support, see [Generate DSC metaconfigurations](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
 #### Azure Automation State Configuration network ranges and namespace
 
@@ -140,10 +142,10 @@ Azure ExpressRoute users should note that this file is used to update the Border
 
 ## Next steps
 
-- To get started using DSC in Azure Automation State Configuration, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn how to enable nodes, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn how to enable nodes, see [Enable Azure Automation State Configuration](automation-dsc-onboarding.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
+- For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
-- For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous deployment using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

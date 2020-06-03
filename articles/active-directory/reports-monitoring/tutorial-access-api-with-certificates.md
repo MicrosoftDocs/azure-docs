@@ -19,6 +19,7 @@ ms.reviewer: dhanyahk
 
 # Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
