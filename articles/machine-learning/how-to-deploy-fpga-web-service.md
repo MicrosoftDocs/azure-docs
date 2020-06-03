@@ -52,7 +52,7 @@ This article provides an introduction to field-programmable gate arrays (FPGA), 
     pip install --upgrade azureml-accel-models[cpu]
     ```
 
-## What is an FPGA
+## What are FPGAs
 
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. 
 
@@ -88,6 +88,7 @@ FPGAs on Azure supports:
 + Intel FPGA hardware
 
 These DNN models are currently available:
+
   - ResNet 50
   - ResNet 152
   - DenseNet-121
@@ -95,6 +96,7 @@ These DNN models are currently available:
   - SSD-VGG
 
 FPGAs are available in these Azure regions:
+
   - East US
   - Southeast Asia
   - West Europe
