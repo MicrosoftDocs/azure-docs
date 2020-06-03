@@ -54508,6 +54508,11 @@
       "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
       "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-concepts.md",
+      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+      "redirect_document_id": false
     }
   ]
 }

@@ -69,7 +69,8 @@ V3 Translator is neural by default and statistical systems are only available wh
 |Irish | `ga`| Neural
 |Italian|    `it`    |    Neural|
 |Japanese|    `ja`    |    Neural|
-|Kannada|`kn`| Neural
+|Kannada|`kn`| Neural|
+|Kazakh |`kk`| Neural|
 |Kiswahili|    `sw`    |    Statistical|
 |Klingon|    `tlh`    |    Statistical|
 |Klingon (plqaD)|    `tlh-Qaak`    |    Statistical|
@@ -125,20 +126,20 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
 | Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Oriya | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
 
 ## Dictionary
 
