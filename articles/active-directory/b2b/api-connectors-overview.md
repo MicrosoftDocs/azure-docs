@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 
 As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you might want to extend your user flow by integrating with a user approval system, validate user input data, or run custom business logic. For example, you can use API connectors to:
 
-- [**Enable custom approvals**](self-service-sign-up-add-approvals.md) – Enable your custom user approval system for managing account creation.
-- **Perform identity proofing** - Use an identity proofing and verification service to add an extra level of security to account creation decisions.
+- [**Enable custom approvals**](self-service-sign-up-add-approvals.md). Enable your custom user approval system for managing account creation.
+- **Perform identity proofing**). Use an identity proofing and verification service to add an extra level of security to account creation decisions.
 - **Validate user input data**. Prevent malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite user attributes**. Reformat or assign an overwriting value to an attribute collected from the user . For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data**. Integrate with your external cloud systems that store user information to pull them into the authentication flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
@@ -29,7 +29,30 @@ As a developer or IT administrator, you can use API connectors to integrate your
 
 An API connector represents a contract between Azure AD and an API endpoint by defining the HTTP **endpoint**, **authentication**, **request** and **expected response**. Once you configure an API connector, you can enable it for a specific step in a user flow. 
 
-An API connector materializes as an **HTTP POST** request, sending the claims as key-value pairs in a JSON body. The response should also have the HTTP header **Content-Type: application/json**. Attributes are serialized in the same way as user attributes in Microsoft Graph. <!--# TODO: Add link to MS Graph or create separate reference.-->
+## Request to the API
+An API connector materializes as an **HTTP POST** request, sending selected claims as key-value pairs in a JSON body. The response should also have the HTTP header **Content-Type: application/json**. Attributes are serialized similarly to Microsoft Graph user attributes. <!--# TODO: Add link to MS Graph or create separate reference.-->
+
+**Example request**
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "postalCode": "33971",
+ "extension_<app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<app-id>_CustomAttribute2": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
 
 ## Where you can enable an API connector for a user flow
 
@@ -38,7 +61,7 @@ There are two places in a sign-up user flow where you can enable an API connecto
 - After signing in with an identity provider
 - Before creating the user
 
-If enabled, Azure AD will initiate an HTTP call to the configured endpoint at the specific step in the user flow.
+Both are only invoked during sign-up, not sign-in.
 
 ### After signing in with an identity provider
 
@@ -54,7 +77,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 - Validate user input data and ask a user to resubmit data.
 - Block a user sign-up based on data entered by the user.
 - Perform identity proofing.
-- Query external systems for existing data about the user. You can return the data as part of the token and store it in Azure AD.
+- Query external systems for existing data about the user to return it in the application token or store it in Azure AD.
 
 ## Expected response types from the web API
 
@@ -77,8 +100,7 @@ If a claim is returned from the API, the claim does the following:
 > [!NOTE]
 > A claim is stored in the directory only if it is selected in the **User attributes** blade and collected in the attribute collection page. You can always return a claim in the token by selecting it in the **Application claims** blade.
 
-The following is an example of a continuation response:
-
+**Example of a continuation response**
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -89,16 +111,19 @@ Content-type: application/json
     "postalCode": "12349" // return claim 
 }
 ```
-
-The `version` and `action` are required in the response.
+**Parameters**
+| Parameter       | Type             | Required | Description                                                                                                                                           |
+|-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| version         | String           | Yes      | The version of the API.                                                                                                          |
+| action          | String           | Yes      | Value must be "**Continue**".                                                                         |                                                           
+| \<userAttribute> | \<attribute-type> | No       | Returned values can be returned in the application token or stored in the directory. Must also be selected a 'Claim to receive' in the API connector configuration. |
 
 
 ### Blocking Response
 
 A blocking response exits the user flow. It can be purposely issued by the API to stop the continuation of the user flow by displaying a block page to the user. The block page displays the `userMessage` provided by the API. The `code` value can be used for troubleshooting but is optional and not displayed to the user.
 
-The following is an example of an Blocking Response:
-
+**Example of an Blocking Response**
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -109,16 +134,22 @@ Content-type: application/json
     "userMessage": "There was a problem with your request. You are not able to sign up at this time."
 } 
 ```
+**Parameters**
+| Parameter       | Type             | Required | Description                                                                                                                                           |
+|-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| version         | String           | Yes      | The version of the API.                                                                                                                               |
+| action          | String           | Yes      | Value must be "**ShowBlockPage**"                 |
+| userMessage     | String           | Yes      | Message to display to the user.                                                                                                                       |
+| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       |
 
-The `version`, `action`, `userMessage`, and `code` are required in the response.
-
-![Example  block page](./media/api-connectors/<insert-image>)
+**End user experience**
+![Example  block page](./media/self-service-sign-up-overview/blocking-page-response.png)
 
 ### Validation-error response
 
 An API call invoked after an attribute collection page may return a validation-error response.  When doing so, the user flow stays on the attribute collection page and the `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
-The following is an example of a validation-error response:
+**Example of a validation-error response**
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -132,9 +163,18 @@ Content-type: application/json
 }
 ```
 
-The `version`, `action`, `userMessage`, and `code` are required in the response.
+**Parameters**
+| Parameter       | Type             | Required | Description                                                                                                                                           |
+|-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| version         | String           | Yes      | The version of the API.                                                                                                                               |
+| action          | String           | Yes      | Value must be "**ValidationError**".                                                                             |
+| status          | Integer           | Yes      | Must be value **400** for a ValidationError response.     
+| userMessage     | String           | Yes      | Message to display to the user.                                                                                                                       |
+| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       |
+                                                                                                
+**End user experience**
 
-![Example validation page](./media/api-connectors/<insert-image>)
+![Example  validation page](./media/self-service-sign-up-overview/validation-error-postal-code.png)
 
 > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be shown a block page with a generic error message and asked to try again.
@@ -147,4 +187,4 @@ You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/azur
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
-- Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
+- Learn how to [use API connectors for identity proofing](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
