@@ -23,7 +23,8 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 ## Start the Kubernetes dashboard
 
 > [!WARNING]
-> The builtin dashboard add-on is set for deprecation in the future. Today, the Kubernetes dashboard is enabled by default for all clusters running a Kubernetes version less than 1.18. The dashboard add-on will be disabled by default for all new clusters created on K8s 1.18 or greater. Existing clusters with the add-on already installed will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
+> **The builtin dashboard add-on is set for deprecation.** Currently, the Kubernetes dashboard is enabled by default for all clusters running a Kubernetes version less than 1.18.
+> The dashboard add-on will be disabled by default for all new clusters created on K8s 1.18 or greater. Starting with K8s 1.19 availability in preview, AKS will no longer support installation of the managed kube-dashboard addon. Existing clusters with the add-on already installed will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
 
 To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster which is included by default on clusters running any version older than K8s 1.18.
 
@@ -80,21 +81,21 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## Login to the dashboard
 
 > [!IMPORTANT]
-> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, previous steps to create new cluster role bindings no longer function and will result in a 401 unauthorized error. A token retrieved from a service account can still be used, but this changes the login flow compared to older versions of the dashboard.
+> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, requests without auth info will return a 401 unauthorized error. A bearer token retrieved from a service account can still be used as in this [Kubernetes Dashboard example](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), but this impacts the login flow of the dashboard add-on compared to older versions.
 
-As of version 2.0 for the Kubernetes dashboard, the first screen presented requires an admin kubeconfig or a token.
+As of v2.0 of the Kubernetes dashboard, the initial screen presented requires a kubeconfig or token. Both options require resource permissions to display those resources in the dashboard.
 
 ![login screen](./media/kubernetes-dashboard/login.png)
 
-To use your kubeconfig file, it requires admin rights to retrieve the required dashboard data.
+**Use a kubeconfig**
 1. Set the admin kubeconfig with `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Select `Kubeconfig` and click `Choose kubeconfig file` to open file selector
 1. Select your kubeconfig file (defaults to $HOME/.kube/config)
 1. Click `Sign In`
 
-To use a token, it also requires admin rights.
+**Use a token**
 1. Run `kubectl config view`
-1. Copy the token associated with the admin account of your cluster
+1. Copy the desired token associated with the account of your cluster
 1. Paste into the token option at login
 1. Click `Sign In`
 
