@@ -977,41 +977,42 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Best practices
+    - name: Performance & Troubleshooting
       items:
-      - name: Performance tips
-        items:
+      - name: Query
+        items: 
         - name: Get query execution metrics
-          displayName: query profile, profile
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Performance tips for .NET SDK
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+      - name: .NET
+        items: 
+        - name: Performance tips for .NET SDK v3
+          href: performance-tips-dotnet-sdk-v3-sql.md
+        - name: Performance tips for .NET SDK v2
           href: performance-tips.md
+        - name: Troubleshoot .NET SDK v2
+          href: troubleshoot-dot-net-sdk.md
+      - name: Java
+        items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Performance tips for older Java SDKs
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Older Java SDKs
           items:
           - name: Async Java SDK v2
             href: performance-tips-async-java.md          
           - name: Sync Java SDK v2
             href: performance-tips-java.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+          - name: Async Java SDK v2
+            href: troubleshoot-java-async-sdk.md
+      - name: Performance test - sample app
+        href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot query performance
-        href: troubleshoot-query-performance.md
-      - name: Troubleshoot Java SDK v4
-        href: troubleshoot-java-sdk-v4-sql.md  
-      - name: Troubleshoot older Java SDKs
-        items:
-        - name: Async Java SDK v2
-          href: troubleshoot-java-async-sdk.md
-      - name: Troubleshoot .NET SDK
-        href: troubleshoot-dot-net-sdk.md
     - name: Migrate to newer SDKs
       items:
       - name: Migrate to Java V4 SDK
