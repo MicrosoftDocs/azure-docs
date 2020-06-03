@@ -76,7 +76,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| Max concurrent workers (requests) | Gen4: 210 * vCore count + 800<br>Gen5: 105 * vCore count + 800 | Gen4: 210 * vCore count + 800<br>Gen5: 105 * vCore count + 800 |
+| Max concurrent workers (requests) | Gen4: 210 * number of vCores + 800<br>Gen5: 105 * number of vCores + 800 | Gen4: 210 * vCore count + 800<br>Gen5: 105 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
 | Compute isolation | Gen5:<br/>-supported for 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|Gen5:<br/>-supported for 60, 64, 80 vCores<br/>-not supported for other sizes<br/><br/>Gen4 is not supported due to deprecation|
 
