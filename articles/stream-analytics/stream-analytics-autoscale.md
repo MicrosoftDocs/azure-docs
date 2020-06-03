@@ -43,7 +43,7 @@ You now have runbooks that can automatically trigger scale up and scale down ope
 
 ## Autoscale based on a schedule
 Azure Automation allows you to configure a schedule to trigger your runbooks.
-1. In your Azure Automation account, select **Schedules** under **Shared resources**. And then select **Add a schedule**.
+1. In your Azure Automation account, select **Schedules** under **Shared resources**. Then, select **Add a schedule**.
 2. For example, you can create two schedules. One that represents when you want your job to scale up and another that represents when you want your job to scale down. You can define a recurrence for these schedules.
    ![Schedules in Azure Automation](./media/autoscale/schedules.png)
 
