@@ -17,7 +17,7 @@ ms.date: 01/25/2019
 
 Batching operations to Azure SQL Database and Azure SQL Managed Instance significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a database in Azure SQL Database or Azure SQL Managed Instance. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
 
-## Why is batching important for Azure SQL Database and Azure SQL Managed Instance
+## Why is batching important for Azure SQL Database and Azure SQL Managed Instance?
 
 Batching calls to a remote service is a well-known strategy for increasing performance and scalability. There are fixed processing costs to any interactions with a remote service, such as serialization, network transfer, and deserialization. Packaging many separate transactions into a single batch minimizes these costs.
 
@@ -91,9 +91,9 @@ Transactions are actually being used in both of these examples. In the first exa
 
 The following table shows some ad hoc testing results. The tests performed the same sequential inserts with and without transactions. For more perspective, the first set of tests ran remotely from a laptop to the database in Microsoft Azure. The second set of tests ran from a cloud service and database that both resided within the same Microsoft Azure datacenter (West US). The following table shows the duration in milliseconds of sequential inserts with and without transactions.
 
-**On-Premises to Azure**:
+**On-premises to Azure**:
 
-| Operations | No Transaction (ms) | Transaction (ms) |
+| Operations | No transaction (ms) | Transaction (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -102,7 +102,7 @@ The following table shows some ad hoc testing results. The tests performed the s
 
 **Azure to Azure (same datacenter)**:
 
-| Operations | No Transaction (ms) | Transaction (ms) |
+| Operations | No transaction (ms) | Transaction (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -189,7 +189,7 @@ In most cases, table-valued parameters have equivalent or better performance tha
 
 The following table shows ad hoc test results for the use of table-valued parameters in milliseconds.
 
-| Operations | On-Premises to Azure (ms) | Azure same datacenter (ms) |
+| Operations | On-premises to Azure (ms) | Azure same datacenter (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -227,7 +227,7 @@ There are some cases where bulk copy is preferred over table-valued parameters. 
 
 The following ad hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
 
-| Operations | On-Premises to Azure (ms) | Azure same datacenter (ms) |
+| Operations | On-premises to Azure (ms) | Azure same datacenter (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -242,7 +242,7 @@ In smaller batch sizes, the use table-valued parameters outperformed the **SqlBu
 
 For more information on bulk copy in ADO.NET, see [Bulk Copy Operations](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server).
 
-### Multiple-row Parameterized INSERT statements
+### Multiple-row parameterized INSERT statements
 
 One alternative for small batches is to construct a large parameterized INSERT statement that inserts multiple rows. The following code example demonstrates this technique.
 
@@ -325,7 +325,7 @@ In our tests, there was typically no advantage to breaking large batches into sm
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 
-You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
+You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000-row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
 
 Another factor to consider is that if the total batch becomes too large, Azure SQL Database or Azure SQL Managed Instance might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
 
