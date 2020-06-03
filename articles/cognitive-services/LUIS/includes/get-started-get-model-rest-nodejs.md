@@ -33,7 +33,9 @@ ms.author: diberry
 1. Install the request-promise module by entering the following command:
 
     ```console
+    npm install --save request
     npm install --save request-promise
+    npm install --save querystring
     ```
 
 ## Change model programmatically
