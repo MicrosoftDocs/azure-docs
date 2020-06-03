@@ -33,11 +33,11 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the *Room* twin should update. To make this happen, you will map from a telemetry event on a device to a property setter on the digital twin. You will use topology information from the [twin graph](concepts-twins-graph.md) to find the *Room* twin, and then you can set the twin's property. 
+Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the *Room* twin should update. To make this happen, you will map from a telemetry event on a device to a property setter on the digital twin. You will use topology information from the [twin graph](concepts-twins-graph.md) to find the *Room* twin, and then you can set the twin's property. In other scenarios, users might want to set a property on the matching twin (in this example, the twin with the id 123). Azure Digital Twins gives you a lot of flexibility to decide how telemetry data maps into twins. 
 
 This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A device uses system topics to send data to digital twins" border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events2.png" alt-text="A device uses system topics to send data to digital twins" border="false":::
 
 ## Prerequisites
 
