@@ -39942,6 +39942,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/how-to/connect.md",
+      "redirect_url": "/azure/dev-spaces/how-to/local-process-kubernetes-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-connect.md",
+      "redirect_url": "/azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/monitoring/monitoring-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
