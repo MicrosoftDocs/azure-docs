@@ -47,25 +47,25 @@ More recent SKUs of HANA Large Instances are delivered with storage configuratio
 
 | HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
-| S224 | 4.224 GB | 512 GB | 1,024 GB | 512 GB |
+| S224 | 4,224 GB | 512 GB | 1,024 GB | 512 GB |
 | S224oo | 6,336 GB | 512 GB | 1,024 GB | 512 GB |
 | S224m | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
 | S224om | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
 | S224ooo | 10,560 GB | 512 GB | 1,024 GB | 512 GB |
 | S224oom | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
-| S448 | 8.448 GB | 512 GB | 1,024 GB | 512 GB |
+| S448 | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
 | S448oo | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
 | S448m | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
 | S448om | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
 | S448ooo | 21,120 GB | 512 GB | 1,024 GB | 512 GB |
 | S448oom | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
-| S672 | 12.672 GB | 512 GB | 1,024 GB | 512 GB |
+| S672 | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
 | S672oo | 19,008 GB | 512 GB | 1,024 GB | 512 GB |
 | S672m | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
 | S672om | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
 | S672ooo | 31,680 GB | 512 GB | 1,024 GB | 512 GB |
 | S672oom | 38,016 GB | 512 GB | 1,024 GB | 512 GB |
-| S896 | 16.896 GB | 512 GB | 1,024 GB | 512 GB |
+| S896 | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
 | S896oo | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
 | S896m | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
 | S896om | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
