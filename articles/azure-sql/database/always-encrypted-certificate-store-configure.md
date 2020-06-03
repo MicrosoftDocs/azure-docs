@@ -1,6 +1,6 @@
 ---
-title: Configure Always Encrypted using Windows certificate store
-description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
+title: Configure Always Encrypted by using the Windows certificate store
+description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,12 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 04/23/2020
 ---
-# Configure Always Encrypted using Windows certificate store
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-This tutorial shows you how to secure sensitive data in a database in Azure SQL Database or Azure SQL Managed Instance with database encryption using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+# Configure Always Encrypted by using the Windows certificate store
+
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+This article shows you how to secure sensitive data in Azure SQL Database or Azure SQL Managed Instance with database encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -50,7 +52,7 @@ To get the *Application ID* and *key*, follow the steps in [create an Azure Acti
 
 ## Connect with SSMS
 
-Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials.

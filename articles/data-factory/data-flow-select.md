@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
+ms.date: 06/02/2020
 ---
 
 # Select transformation in mapping data flow
@@ -33,6 +33,9 @@ Fixed mappings can be used to map a subcolumn of a hierarchical column to a top-
 ![hierarchical mapping](media/data-flow/select-hierarchy.png "hierarchical mapping")
 
 ## Rule-based mapping
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
 
 If you wish to map many columns at once or pass drifted columns downstream, use rule-based mapping to define your mappings using column patterns. Match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
 

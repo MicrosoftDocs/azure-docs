@@ -24,7 +24,7 @@ This article describes how you can use an Azure VM to enable the [Update Managem
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Enable Update Management
+## Enable the feature for deployment
 
 1. In the [Azure portal](https://portal.azure.com), select **Virtual machines** or search for and select **Virtual machines** from the Home page.
 
@@ -38,16 +38,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Enable Update Management](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-## <a name="scope-configuration"></a>Limit the scope for the deployment
-
-Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
-
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* For scope configurations, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
-* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
-* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

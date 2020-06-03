@@ -71,7 +71,7 @@ To begin, you will need a properly configured Azure App Configuration instance. 
 1. Create a system assigned managed identity using the Azure CLI, substituting the name of your App Configuration instance and resource group used in the previous steps. The managed identity will be used to access the managed key. We use `contoso-app-config` to illustrate the name of an App Configuration instance:
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     The output of this command includes the principal ID ("principalId") and tenant ID ("tenandId") of the system assigned identity.  This will be used to grant the identity access to the managed key.
