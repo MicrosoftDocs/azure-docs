@@ -19,7 +19,7 @@ This article provides the detailed resource limits for single databases in Azure
 
 For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
 
-You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-database-manage.md#azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#azure-cli), or the [REST API](single-database-manage.md#rest-api).
+You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#the-azure-cli), or the [REST API](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
