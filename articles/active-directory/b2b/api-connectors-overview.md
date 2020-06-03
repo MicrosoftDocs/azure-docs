@@ -111,14 +111,15 @@ Content-type: application/json
     "postalCode": "12349" // return claim 
 }
 ```
-
+The `version` and `action` parameters are required.
+<!-- 
 **Parameters**
 
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | version         | String           | Yes      | The version of the API.                                                                                                          |
 | action          | String           | Yes      | Value must be "**Continue**".                                                                         |                                                           
-| \<userAttribute> | \<attribute-type> | No       | Returned values can be returned in the application token or stored in the directory. Must also be selected a 'Claim to receive' in the API connector configuration. |
+| \<userAttribute> | \<attribute-type> | No       | Returned values can be returned in the application token or stored in the directory. Must also be selected a 'Claim to receive' in the API connector configuration. | -->
 
 
 ### Blocking Response
@@ -131,19 +132,21 @@ HTTP/1.1 200 OK
 Content-type: application/json
 
 { 
-    "version": "1.0.0", 
+    "version": "1.0.0",
     "action": "ShowBlockPage", 
     "userMessage": "There was a problem with your request. You are not able to sign up at this time."
 } 
+
+<!-- The `version` and `action` parameters are required. -->
 ```
-**Parameters**
+<!-- **Parameters**
 
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | version         | String           | Yes      | The version of the API.                                                                                                                               |
 | action          | String           | Yes      | Value must be "**ShowBlockPage**"                 |
 | userMessage     | String           | Yes      | Message to display to the user.                                                                                                                       |
-| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       |
+| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       | -->
 
 **End user experience**
 ![Example  block page](./media/self-service-sign-up-overview/blocking-page-response.png)
@@ -165,8 +168,7 @@ Content-type: application/json
     "userMessage": "Please enter a valid Postal Code."
 }
 ```
-
-**Parameters**
+<!-- **Parameters**
 
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -174,7 +176,7 @@ Content-type: application/json
 | action          | String           | Yes      | Value must be "**ValidationError**".                                                                             |
 | status          | Integer           | Yes      | Must be value **400** for a ValidationError response.     
 | userMessage     | String           | Yes      | Message to display to the user.                                                                                                                       |
-| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       |
+| code            | String           | No       | Error code. Can be used for debugging purposes.                                                                                                       | -->
                                                                                                 
 **End user experience**
 
