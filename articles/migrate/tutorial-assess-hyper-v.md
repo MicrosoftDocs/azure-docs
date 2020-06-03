@@ -95,15 +95,15 @@ Check that the zipped file is secure, before you deploy it.
 
     - For the Azure public cloud:
 
-        **Scenario*** | **Download** | **SHA256**
+        **Scenario** | **Download** | **SHA256**
         --- | --- | ---
         Hyper-V (8.93 MB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
-    - : For Azure Government:
+    - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.93 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+        Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 
 
 ### Create the appliance VM
