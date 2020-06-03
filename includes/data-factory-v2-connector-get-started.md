@@ -8,7 +8,8 @@ ms.author: jingwang
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-To perform the copy activity with a pipeline, you can use one of the following tools or SDKs:
+
+To perform the Copy activity with a pipeline, you can use one of the following tools or SDKs:
 
 - [The Copy Data tool](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [The Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)

@@ -2,7 +2,7 @@
 title: Assess VMware VMs with Azure Migrate Server Assessment
 description: Describes how to assess on-premises VMware VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
 ---
 
@@ -80,18 +80,26 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 Check that the OVA file is secure, before you deploy it:
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-1. Run the following command to generate the hash for the OVA file:
+2. Run the following command to generate the hash for the OVA file:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-For version 2.19.07.30, the generated hash should match these values:
+3. Verify the latest appliance versions and hash values:
 
-**Algorithm** | **Hash value**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - For the Azure public cloud:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - For Azure Goverment:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### Create the appliance VM
 
