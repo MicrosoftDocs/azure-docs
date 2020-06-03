@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -110,6 +110,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 05/21/2020: Change in [Setting up Pacemaker on SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Setting up Pacemaker on RHEL in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to add a link to [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Add important message not to use root volume group when using LVM for HANA related volumes in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 05/19/2020: Add new supported OS for HANA Large Instance Type II in [Compatible Operating Systems for HANA Large Instances](https://docs.microsoft.com/
 - azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)

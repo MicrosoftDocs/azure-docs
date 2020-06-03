@@ -32,10 +32,10 @@ Customer usage attribution supports three deployment options:
 
 ## Create GUIDs
 
-A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
 
 > [!NOTE]
-> It is highly recommended that you use [Azure Storage's GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) to create your GUID. For more information, see our [FAQ](#faq).
+> It is highly recommended that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
@@ -54,9 +54,12 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
+> [!NOTE]
+> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to the Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. Sign up as a [commercial marketplace publisher](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
    * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
@@ -281,7 +284,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 
 ### How to submit a technical consultation request
 
-1. Visit [Partner Technical Services](https://partner.microsoft.com/training/partner-technical-services).
+1. Visit [Partner Technical Services](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
 1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your sign-in credentials, an online request form will open:
@@ -290,7 +293,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
     * Enter a title and the description of the problem (provide as much detail as possible).
 1. Click Submit
 
-View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
 ### What's next
 

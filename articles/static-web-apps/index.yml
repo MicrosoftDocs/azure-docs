@@ -42,7 +42,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Build and deploy a static web app
-            url: https://aka.ms/staticwebappsqs
+            url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
   - title: Publish scenarios
     linkLists: 
       - linkListType: tutorial

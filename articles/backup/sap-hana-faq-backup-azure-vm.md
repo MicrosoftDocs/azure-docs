@@ -44,9 +44,9 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### Will backups work after migrating SAP HANA from 1.0 to 2.0?
+### Will backups work after migrating SAP HANA from SDC to MDC?
 
-Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) of the troubleshooting guide.
+Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
 
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
@@ -81,6 +81,10 @@ Ensure that the **Force Overwrite** option is selected while restoring.
 ### Why do I see the "Source and target systems for restore are incompatible" error?
 
 Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
+
+### Can I use a backup of a database running on SLES to restore to a RHEL HANA system or vice versa?
+
+Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to a RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you will have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
 
 ## Next steps
 

@@ -183,7 +183,7 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 
 | Resource | Default limit |
 | --- | --- |
-| Duration of the trial | 30 days (can be renewed any number of times) |
+| Duration of the trial | 30 days (a new trial can be requested after expiration) <br> After expiration, the information stored is deleted. |
 | Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
 | Maximum containers per subscription (MongoDB API) | 3 |
 | Maximum throughput per container | 5000 |

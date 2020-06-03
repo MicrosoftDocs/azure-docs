@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create an Azure Automation runbook | Microsoft Docs
-description: Learn how to create an Azure Automation runbook
+description: This article helps you get started creating an Azure Automation runbook.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
@@ -93,4 +93,4 @@ When no longer needed, delete the runbook. To do so, select the runbook in the r
 In this quickstart, you’ve created, edited, tested, and published a runbook and started a runbook job. To learn more about Automation runbooks, continue to the article on the different runbook types that you can create and use in Automation.
 
 > [!div class="nextstepaction"]
-> [Automation How To - Runbook Types](./automation-runbook-types.md)
+> [Azure Automation runbook types](./automation-runbook-types.md)

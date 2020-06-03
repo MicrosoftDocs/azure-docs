@@ -49,14 +49,6 @@ Azure Security Center integrates with Azure services to monitor and protect your
 
     When Microsoft Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Microsoft Defender ATP console, and perform a detailed investigation to uncover the scope of the attack. For more information about Microsoft Defender ATP, see [Onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Crash dump analysis** <a name="windows-dump"></a> - When software crashes, a crash dump captures a portion of memory at the time of the crash.
-
-    A crash might have been caused by malware or contain malware. To avoid being detected by security products, various forms of malware use a fileless attack, which avoids writing to disk or encrypting software components written to disk. This type of attack is difficult to detect by using traditional disk-based approaches.
-
-    However, by using memory analysis, you can detect this kind of attack. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using. For example, the attack might be attempting to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. Security Center does this work with minimal performance impact to hosts.
-
-    For details of the crash dump analysis alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
-
 * **Fileless attack detection** <a name="windows-fileless"></a> - Fileless attacks targeting your endpoints are common. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes, and perform a wide range of malicious activities.
 
     With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of security-critical processes.
@@ -165,11 +157,15 @@ For more information, see:
 
 ## Threat protection for Azure Storage <a name="azure-storage"></a>
 
-Advanced Threat Protection for Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems.
+Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems. 
 
-Advanced threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+Security alerts are triggered when there are suspicious activities on your storage account or anomalous behavior is detected. Suspicious activities might include the upload of a blob suspected of containing malware. Anomalous behavior alerts include changes in the access pattern to a storage account.
 
-This service is available in all public clouds and US government clouds, but no other sovereign or Azure Government cloud regions.
+The alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
+
+Threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+This service is available in all public clouds and US government clouds, but no other sovereign or Azure Government cloud regions. 
 
 For pricing details, including a free 30-day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 

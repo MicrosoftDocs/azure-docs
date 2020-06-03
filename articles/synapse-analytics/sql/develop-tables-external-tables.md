@@ -376,4 +376,4 @@ The external table is now created, for future exploration of the content of this
 
 ## Next steps
 
-Check the [CETAS](develop-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Spark tables](develop-storage-files-spark-tables.md).
+Check the [CETAS](develop-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).

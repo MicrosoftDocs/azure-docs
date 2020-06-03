@@ -27,7 +27,6 @@ Build the 3 applications that will be used in this tutorial:
 * recommendation-service: A simple REST service that has a single endpoint of /recommendations, which will be called by user-service.
 * hystrix-turbine: A Hystrix dashboard service to display Hystrix streams and a Turbine service aggregating Hystrix metrics stream from other services.
 ```
-cd spring-cloud/spring-turbine
 mvn clean package -D skipTests -f user-service/pom.xml
 mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
@@ -55,7 +54,7 @@ After all the apps are running and discoverable, access `user-service` with the 
 Verify using public endpoints or private test endpoints.
 
 ### Using public endpoints
-Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
+Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
 ![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
