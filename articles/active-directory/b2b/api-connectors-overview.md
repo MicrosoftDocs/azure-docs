@@ -91,7 +91,7 @@ When the web API receives an HTTP request from Azure AD during a user flow, it c
 
 A continuation response indicates that the user flow should continue to the next step. In a continuation response, the API can return claims.
 
-If a claim is returned from the API, the claim does the following:
+If a claim is returned from the API and selected in the expected response configuration, the claim does the following:
 
 - Pre-fills input fields in the attribute collection page if the claims are returned  before the page is presented. The claim must be selected in the **User attributes** for the user flow.
 - Overrides any value that has already been assigned to the claim.
@@ -111,7 +111,9 @@ Content-type: application/json
     "postalCode": "12349" // return claim 
 }
 ```
+
 **Parameters**
+
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | version         | String           | Yes      | The version of the API.                                                                                                          |
@@ -135,6 +137,7 @@ Content-type: application/json
 } 
 ```
 **Parameters**
+
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | version         | String           | Yes      | The version of the API.                                                                                                                               |
@@ -164,6 +167,7 @@ Content-type: application/json
 ```
 
 **Parameters**
+
 | Parameter       | Type             | Required | Description                                                                                                                                           |
 |-----------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | version         | String           | Yes      | The version of the API.                                                                                                                               |
@@ -176,8 +180,8 @@ Content-type: application/json
 
 ![Example  validation page](./media/self-service-sign-up-overview/validation-error-postal-code.png)
 
-> [!IMPORTANT]
-> If an invalid response is returned or another error occurs (for example, a network error), the user will be shown a block page with a generic error message and asked to try again.
+<!-- > [!IMPORTANT]
+> If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
 
 ## Frequently asked questions (FAQ)
 
