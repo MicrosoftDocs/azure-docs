@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
 ---
@@ -18,6 +18,7 @@ This article describes how to manage the access, power, and connectivity mode fo
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Manage device access
 > * Manage connectivity mode
 > * Manage power
