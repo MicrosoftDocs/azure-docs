@@ -44,6 +44,7 @@ Check that the zipped file is secure, before you deploy it.
     - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
 
 3. Verify the latest appliance version and hash value:
+
     **Algorithm** | **Download** | **SHA256**
     --- | --- | ---
     VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
@@ -98,7 +99,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Scenario** | **Download** | **SHA256**
     --- | --- | ---
-    Hyper-V (8.93 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+    Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 
           
 
