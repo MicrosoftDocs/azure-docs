@@ -243,7 +243,7 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 ### Handle non-terminating errors
 
-You can control how PowerShell responds to non-terminating errors by using the $ErrorActionPreference variable in your deployment script. If the variable is not set in your deployment script, the script service uses the default value **Continue**.
+You can control how PowerShell responds to non-terminating errors by using the **$ErrorActionPreference** variable in your deployment script. If the variable is not set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of $ErrorActionPreference.
 
