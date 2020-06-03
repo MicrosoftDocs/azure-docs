@@ -14,7 +14,7 @@ Microsoft Azure Backup Server (MABS) version 3 UR1 is the latest update, and inc
 >[!NOTE]
 >Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
 
-### Faster backups with Tiered storage using SSDs
+### Faster backups with tiered storage using SSDs
 
 MABS V2 introduced [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), improving storage utilization and performance. MBS uses ReFS as underlying file system and is designed to make use of hybrid storage such as tiered storage.
 
@@ -34,7 +34,7 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 
 ### Azure VMware Solution protection support
 
-With MABS v3 UR1 you can now protect virtual machines deployed in [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/). For more information, see [Set up Microsoft Azure Backup Server for AVS](https://review.docs.microsoft.com/azure/azure-vmware/set-up-mabs-for-avs?branch=pr-en-us-116923).
+With MABS v3 UR1, you can now protect virtual machines deployed in [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/). For more information, see [Set up Microsoft Azure Backup Server for AVS](https://review.docs.microsoft.com/azure/azure-vmware/set-up-mabs-for-avs?branch=pr-en-us-116923).
 
 ### VMware parallel backups
 
@@ -48,6 +48,13 @@ With MABS V3 UR1, you can exclude specific disks from a VMware VM backup. Learn 
 ### Support for additional layer of authentication to delete online backup
 
 With MABS V3 UR1, an additional a layer of authentication is added for critical operations. You'll be prompted to enter a security PIN when you perform **Stop Protection with Delete data** operations.
+
+### Offline backup improvements
+
+MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+
+>[!NOTE]
+>The update also brings the preview for Offline Backup using Azure Data Box in MABS. Contact [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) to learn more.
 
 ### New cmdlet parameter
 
