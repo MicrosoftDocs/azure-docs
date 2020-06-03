@@ -47,8 +47,8 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 Before you begin, make sure that:
 
-* You should have a host computer connected to the datacenter network. Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+* You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ### Supported storage accounts
 
@@ -65,9 +65,9 @@ Before you begin, make sure that:
 
 * Maximum of 500 containers are supported for export
 * Maximum of 500 million files are supported for export
-* Azure Data Box usage capacity may be less than 80 TB due to Refs metadata space consumption
+* Azure Data Box usage capacity may be less than 80 TB because of Refs metadata space consumption
 * There's a 1:1 mapping from prefix to container
-* Maximum filename size is 1024 characters files, anything over this will not export.
+* Maximum filename size is 1024 characters files, filenames that exceed this length will not export
 * Duplicate prefixes in the xml file are exported (duplicates are not ignored)
 
 <!--### Verbose logs -->
@@ -107,7 +107,7 @@ Perform the following steps in the Azure portal to order a device.
     |Transfer type     | Select **Export to Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
-    |Source Azure region    |    Select the Azure region where your data currently. resides.         |
+    |Source Azure region    |    Select the Azure region where your data currently is.         |
     |Destination country     |     Select the country where you want to ship the device.        |
 
    ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-01.png)
