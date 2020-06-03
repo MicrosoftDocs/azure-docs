@@ -13,9 +13,9 @@ ms.author: punagpal
 # IoMT connector (preview) Mapping Templates
 This article details how to configure IoMT connector using mapping templates.
 
-The IoMT connector requires two JSON-based mapping templates. The first, **Device Mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second template controls the mapping for FHIR resource. The **FHIR Mapping** template allows configuration of the length of the observation period, FHIR data type used to store the values, and code(s). 
+The IoMT connector requires two types of JSON-based mapping templates. The first type, **Device Mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR Mapping** , controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The two mapping templates should be added to your IoMT connector through Azure portal. The Device Mapping script is added through **Configure Device Mapping** page and the FHIR mapping script through **Configure FHIR mapping** page.
+The mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoMT connector through the Azure portal. The Device Mapping document is added through the **Configure Device Mapping** page and the FHIR mapping document through the **Configure FHIR mapping** page.
 
 > [!NOTE]
 > Mapping templates are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
@@ -56,7 +56,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 ```
 
 ### Mapping with JSON Path
-The two device content template types supported today rely on JSON Path to both match the desired template and extract values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). Both template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
+The two device content template types supported today rely on JSON Path to both match the desired template and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). Both template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
 
 #### JsonPathContentTemplate
 The JsonPathContentTemplate allows matching on and extracting values from an Event Hub message using JSON Path.
@@ -332,7 +332,7 @@ The assumption when using this template is the messages being evaluated were sen
 Once the device content is extracted into a normalized model the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a FHIR resource ([Observation](https://www.hl7.org/fhir/observation.html) currently). Here the FHIR Mapping template controls how the data is mapped into a FHIR Observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should be value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR Mapping configuration controls.
 
 ### CodeValueFhirTemplate
-The CodeValueFhirTemplate is currently the only template supported in FHIR Mapping at this time.  It allows you defined codes, the effective period, and value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), and [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). In addition to these configurable values the identifier for the Observation resource, along with linking to the proper Device and Patient resources are handled automatically.
+The CodeValueFhirTemplate is currently the only template supported in FHIR Mapping at this time.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), and [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). In addition to these configurable values the identifier for the Observation resource, along with linking to the proper Device and Patient resources are handled automatically.
 
 | Property | Description 
 | --- | ---
