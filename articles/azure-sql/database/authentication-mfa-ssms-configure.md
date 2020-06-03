@@ -46,7 +46,7 @@ The following steps show how to connect using the latest SSMS.
 
    ![mfa-tenant-ssms](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user ( i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md). Then click **Connect**.  
+4. Select **Options** and specify the database on the **Options** dialog box. (If the connected user is a guest user (i.e. joe@outlook.com), you must check the box and add the current AD domain name or tenant ID as part of Options. See [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md). Then click **Connect**.  
 5. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity. No password is required if a user is part of a domain federated with Azure AD.
 
    ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  

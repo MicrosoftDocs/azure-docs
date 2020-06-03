@@ -277,7 +277,7 @@ The following example shows the structure of an output definition:
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
-<a id="comments" />
+<a id="comments"></a>
 
 ## Comments and metadata
 

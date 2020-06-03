@@ -325,7 +325,7 @@ In our tests, there was typically no advantage to breaking large batches into sm
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 
-You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
+You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000-row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
 
 Another factor to consider is that if the total batch becomes too large, Azure SQL Database or Azure SQL Managed Instance might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
 

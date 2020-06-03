@@ -70,7 +70,7 @@ Intelligent Insights options available are:
 | **Configure Intelligent Insights** - Configure Intelligent Insights analysis for your databases. | Yes | Yes |
 | **Stream insights to Azure SQL Analytics** -- Stream insights to Azure SQL Analytics. | Yes | Yes |
 | **Stream insights to Azure Event Hubs** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes |
-| **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long term archival. | Yes | Yes |
+| **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long-term archival. | Yes | Yes |
 
 ## Configure the export of the Intelligent Insights log
 
@@ -80,7 +80,7 @@ Output of the Intelligent Insights can be streamed to one of several destination
 - Output streamed to Azure Event Hubs can be used for development of custom monitoring and alerting scenarios
 - Output streamed to Azure Storage can be used for custom application development, such are for example custom reporting, long-term data archival and so forth.
 
-Integration of Azure SQL Analytics, Azure Event Hubs, Azure Storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a database, and then configuring Intelligent Insights log data to be streamed into one of these destinations.
+Integration of Azure SQL Analytics, Azure Event Hubs, Azure Storage, or third-party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a database, and then configuring Intelligent Insights log data to be streamed into one of these destinations.
 
 For more information on how to enable Intelligent Insights logging and to configure metric and resource log data to be streamed to a consuming product, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -98,7 +98,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 To use Event Hubs to set up custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
@@ -108,7 +108,7 @@ To use Intelligent Insights with Storage, configure Intelligent Insights log dat
 
 ### Custom integrations of Intelligent Insights log
 
-To use Intelligent Insights with third party tools, or for custom alerting and monitoring development, see [Use the Intelligent Insights database performance diagnostics log](intelligent-insights-use-diagnostics-log.md).
+To use Intelligent Insights with third-party tools, or for custom alerting and monitoring development, see [Use the Intelligent Insights database performance diagnostics log](intelligent-insights-use-diagnostics-log.md).
 
 ## Detection metrics
 

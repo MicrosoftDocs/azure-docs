@@ -131,7 +131,7 @@ CREATE PROCEDURE schemaname.procedurename
         END;
 ```
 
-* For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
+* For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However, a subset of the other values is also supported:
   
   * REPEATABLE READ
   * SERIALIZABLE

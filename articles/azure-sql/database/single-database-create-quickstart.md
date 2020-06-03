@@ -21,7 +21,7 @@ A [single database](single-database-overview.md) is the quickest and simplest op
 
 You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](purchasing-models.md). This quickstart creates a provisioned database using the [vCore-based](service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](service-tiers-dtu.md) model.
 
-The serverless compute tier is only available in the vCore-based purchasing model, and has an auto-scaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](serverless-tier-overview.md#create-new-database-in-serverless-compute-tier).
+The serverless compute tier is only available in the vCore-based purchasing model, and has an auto-scaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## Prerequisite
 

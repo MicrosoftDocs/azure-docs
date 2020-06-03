@@ -126,7 +126,7 @@ The following json is an example.  The latest template schema can be found [here
 ```
 
 > [!NOTE]
-> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
+> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUri** can't coexist in a template.
 
 Property value details:
 
