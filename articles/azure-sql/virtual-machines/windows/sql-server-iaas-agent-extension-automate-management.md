@@ -76,7 +76,7 @@ Here are the requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 
 ##  Installation
-The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md). If necessary, you can install the SQL Server IaaS agent manually using the below PowerShell command: 
+The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL Server VM resource provider](sql-vm-resource-provider-register.md). If necessary, you can install the SQL Server IaaS agent manually using the below PowerShell command: 
 
   ```powershell-interactive
     Set-AzVMSqlServerExtension -VMName "sql2017" `

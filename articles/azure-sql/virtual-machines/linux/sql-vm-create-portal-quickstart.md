@@ -14,7 +14,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 
-# Provision a Linux SQL Server virtual machine in the Azure portal
+# Provision a Linux virtual machine running SQL Server in the Azure portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.reviewer: jroth
 In this quickstart tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed. You learn the following: 
 
 
-* [Create a Linux SQL VM from the gallery](#create)
+* [Create a Linux VM running SQL Server from the gallery](#create)
 * [Connect to the new VM with ssh](#connect)
 * [Change the SA password](#password)
 * [Configure for remote connections](#remote)
@@ -121,7 +121,7 @@ If you're running on Windows and don't have a BASH shell, install an SSH client,
 
 For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
 
 ## <a id="password"></a> Change the SA password
