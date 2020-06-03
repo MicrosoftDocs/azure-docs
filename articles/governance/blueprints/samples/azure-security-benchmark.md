@@ -137,8 +137,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|
-List of users excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
+|Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users that must be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users that Windows VM Administrators group must *only* include|A semicolon-separated list of all the expected members of the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of regions where Network Watcher should be enabled|To see a complete list of regions use Get-AzLocation|
