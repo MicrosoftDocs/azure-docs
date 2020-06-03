@@ -15,7 +15,7 @@ You can optimize the cost of your Stream Analytics jobs by configuring autoscale
 2. **Trigger scale up and scale down operations based on job metrics** when you don't have a predictable input load. You can dynamically change the number of SUs based on your job metrics such as the number of input events or backlogged input events.
 
 ## Prerequisites
-Before you start configure autoscaling for your job, you should complete the following steps.
+Before you start to configure autoscaling for your job, complete the following steps.
 1. Your job is optimized to have a [parallel topology](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). If you can change the scale of your job while it is running, then your job has a parallel topology and can be configured to autoscale.
 2. [Create an Azure Automation account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account) with the option "RunAsAccount" enabled. This account must have permissions to manage your Stream Analytics jobs.
 
