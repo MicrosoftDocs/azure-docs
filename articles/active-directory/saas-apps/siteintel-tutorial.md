@@ -107,7 +107,7 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal called *B.Simon*.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. On the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
 1. Select **New user** at the top of the pane.
@@ -124,7 +124,7 @@ In this section, you create a test user in the Azure portal called *B.Simon*.
 
 ### Assign the Azure AD test user
 
-In this section, you enable B.Simon to use Azure single sign-on by granting access to SiteIntel.
+In this section, you enable user B.Simon to use Azure single sign-on by granting access to SiteIntel.
 
 1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the **Applications** list, select **SiteIntel**.
