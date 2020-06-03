@@ -63,6 +63,8 @@
     items: 
     - name: Planning for an Azure File Sync deployment
       href: storage-sync-files-planning.md
+    - name: Networking considerations for hybrid access
+      href: storage-sync-files-networking-overview.md
     - name: About cloud tiering
       href: storage-sync-cloud-tiering.md
   - name: Scalability and performance targets
