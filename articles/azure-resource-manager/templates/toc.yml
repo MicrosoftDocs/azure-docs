@@ -66,6 +66,8 @@
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Managed application
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Machine Learning
+      href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
