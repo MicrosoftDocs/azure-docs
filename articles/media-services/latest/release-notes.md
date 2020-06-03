@@ -37,7 +37,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ### Live Video Analytics on IoT Edge preview release
 
-The Live Video Analytics on IoT Edge had the preview release. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
+The preview of Live Video Analytics on IoT Edge went public. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
 
 ## May 2020
 
