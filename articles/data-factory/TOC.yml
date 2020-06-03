@@ -200,6 +200,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Management hub
+      href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
