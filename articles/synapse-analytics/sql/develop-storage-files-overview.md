@@ -60,7 +60,7 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 OPENROWSET
 (
     { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 )
 AS table_alias(column_alias,...n)
 <bulk_options> ::=
@@ -102,7 +102,7 @@ To specify columns that you want to read, you can provide an optional WITH claus
 OPENROWSET
 ...
 | BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 

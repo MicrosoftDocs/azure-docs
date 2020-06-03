@@ -38,6 +38,12 @@ For top-level resources such as pipelines, datasets, and data flows, high-level 
 
 The properties pane only opens by default on resource creation. To edit it, click on the properties pane icon located in the top-right corner of the canvas.
 
+## Management hub
+
+The management hub, accessed by the *Manage* tab in the Azure Data Factory UX, is a portal that hosts global management actions for your data factory. Here, you can manage your connections to data stores and external computes, source control configuration, and trigger settings. For more information, learn about the capabilities of the [management hub](author-management-hub.md).
+
+![Manage linked services](media/author-management-hub/management-hub-linked-services.png)
+
 ## Expressions and functions
 
 Expressions and functions can be used instead of static values to specify many properties in Azure Data Factory.
