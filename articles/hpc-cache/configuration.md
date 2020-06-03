@@ -19,7 +19,7 @@ To see the settings, open the cache's **Configuration** page in the Azure portal
 ![screenshot of configuration page in Azure portal](media/configuration.png)
 
 > [!TIP]
-> The [**Azure HPC Cache: Manage** video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings.
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings.
 
 ## Adjust MTU value
 <!-- linked from troubleshoot-nas article -->

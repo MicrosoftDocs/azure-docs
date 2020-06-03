@@ -22,7 +22,7 @@ Watch these videos for a quick overview of the system's components and what they
 
   [![video thumbnail image: Azure HPC Cache: How it works (click to visit video page)](media/video2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
 
-* [Prerequisites](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) - An overview of requirements for NAS storage, Azure Blob storage, network access, and client access
+* [Prerequisites](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) - Describes requirements for NAS storage, Azure Blob storage, network access, and client access
 
   [![video thumbnail image: Azure HPC Cache: Prerequisites (click to visit video page)](media/video3-prereqs.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
 

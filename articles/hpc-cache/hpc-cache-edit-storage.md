@@ -13,7 +13,7 @@ ms.author: v-erkel
 You can remove or modify a storage target from the cache's **Storage targets** page.
 
 > [!TIP]
-> The [**Azure HPC Cache: Manage** video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target.
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target.
 
 ## Remove a storage target
 

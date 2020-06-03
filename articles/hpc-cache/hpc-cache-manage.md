@@ -26,7 +26,7 @@ The buttons at the top of the page can help you manage the cache:
 
 Read more about these options below.
 
-Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates useful cache management tasks.
+Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
 [![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
