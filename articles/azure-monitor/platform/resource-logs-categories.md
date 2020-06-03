@@ -17,249 +17,691 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Supported log categories per resource type
 
-Some categories may only be supported for specific types of resources. This is list of all that are available in some form.  For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
-# Supported Diagnostic Log categories
-|Resource Type|Category|Category Display Name|
-|---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
-|Microsoft.AnalysisServices/servers|Engine|Engine|
-|Microsoft.AnalysisServices/servers|Service|Service|
-|Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
-|Microsoft.AppPlatform/Spring|ApplicationConsole|Application Console|
-|Microsoft.AppPlatform/Spring|SystemLogs|System Logs|
-|Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
-|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
-|Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
-|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
-|Microsoft.BatchAI/workspaces|BaiClusterEvent|BaiClusterEvent|
-|Microsoft.BatchAI/workspaces|BaiClusterNodeEvent|BaiClusterNodeEvent|
-|Microsoft.BatchAI/workspaces|BaiJobEvent|BaiJobEvent|
-|Microsoft.Blockchain/blockchainMembers|BlockchainApplication|Blockchain Application|
-|Microsoft.Blockchain/blockchainMembers|Proxy|Proxy|
-|Microsoft.Blockchain/cordaMembers|BlockchainApplication|Blockchain Application|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
-|Microsoft.Cdn/cdnwebapplicationfirewallpolicies|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
-|Microsoft.Cdn/profiles|AzureCdnAccessLog|Azure Cdn Access Log|
-|Microsoft.ClassicNetwork/networksecuritygroups|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
-|Microsoft.CognitiveServices/accounts|Audit|Audit Logs|
-|Microsoft.CognitiveServices/accounts|RequestResponse|Request and Response Logs|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Login Events|
-|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API Server|
-|Microsoft.ContainerService/managedClusters|kube-audit|Kubernetes Audit|
-|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
-|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes Scheduler|
-|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Kubernetes Cluster Autoscaler|
-|Microsoft.CustomProviders/resourceproviders|AuditLogs|Audit logs for MiniRP calls|
-|Microsoft.Databricks/workspaces|dbfs|Databricks File System|
-|Microsoft.Databricks/workspaces|clusters|Databricks Clusters|
-|Microsoft.Databricks/workspaces|accounts|Databricks Accounts|
-|Microsoft.Databricks/workspaces|jobs|Databricks Jobs|
-|Microsoft.Databricks/workspaces|notebook|Databricks Notebook|
-|Microsoft.Databricks/workspaces|ssh|Databricks SSH|
-|Microsoft.Databricks/workspaces|workspace|Databricks Workspace|
-|Microsoft.Databricks/workspaces|secrets|Databricks Secrets|
-|Microsoft.Databricks/workspaces|sqlPermissions|Databricks SQLPermissions|
-|Microsoft.Databricks/workspaces|instancePools|Instance Pools|
-|Microsoft.DataCatalog/datacatalogs|ScanStatusLogEvent|ScanStatus|
-|Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
-|Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
-|Microsoft.DataFactory/factories|TriggerRuns|Trigger runs log|
-|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
-|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
-|Microsoft.DataShare/accounts|Shares|Shares|
-|Microsoft.DataShare/accounts|ShareSubscriptions|Share Subscriptions|
-|Microsoft.DataShare/accounts|SentShareSnapshots|Sent Share Snapshots|
-|Microsoft.DataShare/accounts|ReceivedShareSnapshots|Received Share Snapshots|
-|Microsoft.DBforMariaDB/servers|MySqlSlowLogs|MariaDB Server Logs|
-|Microsoft.DBforMariaDB/servers|MySqlAuditLogs|MariaDB Audit Logs|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL Server Logs|
-|Microsoft.DBforMySQL/servers|MySqlAuditLogs|MySQL Audit Logs|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server Logs|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|
-|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|PostgreSQL Server Logs|
-|Microsoft.DBforPostgreSQL/singleservers|PostgreSQLLogs|PostgreSQL Server Logs|
-|Microsoft.DesktopVirtualization/workspaces|Checkpoint|Checkpoint|
-|Microsoft.DesktopVirtualization/workspaces|Error|Error|
-|Microsoft.DesktopVirtualization/workspaces|Management|Management|
-|Microsoft.DesktopVirtualization/workspaces|Feed|Feed|
-|Microsoft.DesktopVirtualization/applicationgroups|Checkpoint|Checkpoint|
-|Microsoft.DesktopVirtualization/applicationgroups|Error|Error|
-|Microsoft.DesktopVirtualization/applicationgroups|Management|Management|
-|Microsoft.DesktopVirtualization/hostpools|Checkpoint|Checkpoint|
-|Microsoft.DesktopVirtualization/hostpools|Error|Error|
-|Microsoft.DesktopVirtualization/hostpools|Management|Management|
-|Microsoft.DesktopVirtualization/hostpools|Connection|Connection|
-|Microsoft.DesktopVirtualization/hostpools|HostRegistration|HostRegistration|
-|Microsoft.Devices/IotHubs|Connections|Connections|
-|Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
-|Microsoft.Devices/IotHubs|C2DCommands|C2D Commands|
-|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Device Identity Operations|
-|Microsoft.Devices/IotHubs|FileUploadOperations|File Upload Operations|
-|Microsoft.Devices/IotHubs|Routes|Routes|
-|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
-|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D Twin Operations|
-|Microsoft.Devices/IotHubs|TwinQueries|Twin Queries|
-|Microsoft.Devices/IotHubs|JobsOperations|Jobs Operations|
-|Microsoft.Devices/IotHubs|DirectMethods|Direct Methods|
-|Microsoft.Devices/IotHubs|DistributedTracing|Distributed Tracing (Preview)|
-|Microsoft.Devices/IotHubs|Configurations|Configurations|
-|Microsoft.Devices/IotHubs|DeviceStreams|Device Streams (Preview)|
-|Microsoft.Devices/provisioningServices|DeviceOperations|Device Operations|
-|Microsoft.Devices/provisioningServices|ServiceOperations|Service Operations|
-|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
-|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
-|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
-|Microsoft.DocumentDB/databaseAccounts|PartitionKeyStatistics|PartitionKeyStatistics|
-|Microsoft.DocumentDB/databaseAccounts|PartitionKeyRUConsumption|PartitionKeyRUConsumption|
-|Microsoft.DocumentDB/databaseAccounts|ControlPlaneRequests|ControlPlaneRequests|
-|Microsoft.DocumentDB/databaseAccounts|CassandraRequests|CassandraRequests|
-|Microsoft.EnterpriseKnowledgeGraph/services|AuditEvent|AuditEvent log|
-|Microsoft.EnterpriseKnowledgeGraph/services|DataIssue|DataIssue log|
-|Microsoft.EnterpriseKnowledgeGraph/services|Requests|Configuration log|
-|Microsoft.EventGrid/topics|DeliveryFailures|Delivery Failure Logs|
-|Microsoft.EventGrid/topics|PublishFailures|Publish Failure Logs|
-|Microsoft.EventGrid/domains|DeliveryFailures|Delivery Failure Logs|
-|Microsoft.EventGrid/domains|PublishFailures|Publish Failure Logs|
-|Microsoft.EventGrid/systemTopics|DeliveryFailures|Delivery Failure Logs|
-|Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
-|Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
-|Microsoft.EventHub/namespaces|KafkaCoordinatorLogs|Kafka Coordinator Logs|
-|Microsoft.EventHub/namespaces|KafkaUserErrorLogs|Kafka User Error Logs|
-|Microsoft.EventHub/namespaces|EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
-|Microsoft.EventHub/namespaces|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
-|Microsoft.HealthcareApis/services|AuditLogs|Audit logs|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Autoscale Evaluations|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Autoscale Scale Actions|
-|Microsoft.Insights/Components|AppAvailabilityResults|Availability results|
-|Microsoft.Insights/Components|AppBrowserTimings|Browser timings|
-|Microsoft.Insights/Components|AppEvents|Events|
-|Microsoft.Insights/Components|AppMetrics|Metrics|
-|Microsoft.Insights/Components|AppDependencies|Dependencies|
-|Microsoft.Insights/Components|AppExceptions|Exceptions|
-|Microsoft.Insights/Components|AppPageViews|Page views|
-|Microsoft.Insights/Components|AppPerformanceCounters|Performance counters|
-|Microsoft.Insights/Components|AppRequests|Requests|
-|Microsoft.Insights/Components|AppSystemEvents|System events|
-|Microsoft.Insights/Components|AppTraces|Traces|
-|Microsoft.IoTSpaces/Graph|Trace|Trace|
-|Microsoft.IoTSpaces/Graph|Operational|Operational|
-|Microsoft.IoTSpaces/Graph|Audit|Audit|
-|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
-|Microsoft.IoTSpaces/Graph|Ingress|Ingress|
-|Microsoft.IoTSpaces/Graph|Egress|Egress|
-|Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
-|Microsoft.Kusto/Clusters|SucceededIngestion|Successful ingest operations|
-|Microsoft.Kusto/Clusters|FailedIngestion|Failed ingest operations|
-|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeClusterEvent|AmlComputeClusterEvent|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeJobEvent|AmlComputeJobEvent|
-|Microsoft.Media/mediaservices|KeyDeliveryRequests|Key Delivery Requests|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
-|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection notifications|
-|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
-|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Reports of DDoS mitigations|
-|Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM protection alerts|
-|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
-|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
-|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
-|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall Application Rule|
-|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall Network Rule|
-|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
-|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
-|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route Diagnostic Logs|
-|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE Diagnostic Logs|
-|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S Diagnostic Logs|
-|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
-|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering Route Table Logs|
-|Microsoft.Network/vpnGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
-|Microsoft.Network/vpnGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
-|Microsoft.Network/vpnGateways|RouteDiagnosticLog|Route Diagnostic Logs|
-|Microsoft.Network/vpnGateways|IKEDiagnosticLog|IKE Diagnostic Logs|
-|Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor Access Log|
-|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|
-|Microsoft.Network/p2sVpnGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
-|Microsoft.Network/p2sVpnGateways|IKEDiagnosticLog|IKE Diagnostic Logs|
-|Microsoft.Network/p2sVpnGateways|P2SDiagnosticLog|P2S Diagnostic Logs|
-|Microsoft.Network/bastionHosts|BastionAuditLogs|Bastion Audit Logs|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
-|Microsoft.PowerBIDedicated/capacities|Engine|Engine|
-|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
-|Microsoft.RecoveryServices/Vaults|CoreAzureBackup|Core Azure Backup Data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupJobs|Addon Azure Backup Job Data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupStorage|Addon Azure Backup Storage Data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
-|Microsoft.Relay/namespaces|HybridConnectionsEvent|HybridConnections Events|
-|Microsoft.Search/searchServices|OperationLogs|Operation Logs|
-|Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
-|Microsoft.SignalRService/SignalR|AllLogs|Azure SignalR Service Logs.|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Automatic tuning|
-|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
-|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store Wait Statistics|
-|Microsoft.Sql/servers/databases|Errors|Errors|
-|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Database Wait Statistics|
-|Microsoft.Sql/servers/databases|Timeouts|Timeouts|
-|Microsoft.Sql/servers/databases|Blocks|Blocks|
-|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
-|Microsoft.Sql/servers/databases|Audit|Audit Logs|
-|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL Security Audit Event|
-|Microsoft.Sql/servers/databases|DmsWorkers|Dms Workers|
-|Microsoft.Sql/servers/databases|ExecRequests|Exec Requests|
-|Microsoft.Sql/servers/databases|RequestSteps|Request Steps|
-|Microsoft.Sql/servers/databases|SqlRequests|Sql Requests|
-|Microsoft.Sql/servers/databases|Waits|Waits|
-|Microsoft.Sql/managedInstances|ResourceUsageStats|Resource Usage Statistics|
-|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|SQL Security Audit Event|
-|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
-|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
-|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Query Store Wait Statistics|
-|Microsoft.Sql/managedInstances/databases|Errors|Errors|
-|Microsoft.Storage/storageAccounts/tableServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/tableServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/tableServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/blobServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/blobServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/blobServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/fileServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/fileServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/fileServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/queueServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/queueServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/queueServices|StorageDelete|StorageDelete|
-|Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
-|Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
-|microsoft.web/hostingenvironments|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
-|microsoft.web/sites|FunctionAppLogs|Function Application Logs|
-|microsoft.web/sites|AppServiceHTTPLogs|HTTP logs|
-|microsoft.web/sites|AppServiceConsoleLogs|App Service Console Logs|
-|microsoft.web/sites|AppServiceAppLogs|App Service Application Logs|
-|microsoft.web/sites|AppServiceFileAuditLogs|Site Content Change Audit Logs|
-|microsoft.web/sites|AppServiceAuditLogs|Access Audit Logs|
-|microsoft.web/sites|ScanLogs|Antivirus scan logs|
-|microsoft.web/sites/slots|FunctionAppLogs|Function Application Logs|
-|microsoft.web/sites/slots|AppServiceHTTPLogs|HTTP logs|
-|microsoft.web/sites/slots|AppServiceConsoleLogs|App Service Console Logs|
-|microsoft.web/sites/slots|AppServiceAppLogs|App Service Application Logs|
-|microsoft.web/sites/slots|AppServiceFileAuditLogs|Site Content Change Audit Logs|
-|microsoft.web/sites/slots|AppServiceAuditLogs|Access Audit Logs|
-|microsoft.web/sites/slots|ScanLogs|Antivirus scan logs|
+Following is a list of the types of logs available for each resource type. 
+
+Some categories may only be supported for specific types of resources. See the resource specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
+
+If you still something is missing, you can open a GitHub comment at the bottom of this article.
+
+## microsoft.aadiam/tenants
+
+|Category|Category Display Name|
+|---|---|
+|Signin|Signin|
+
+
+## Microsoft.AnalysisServices/servers
+
+|Category|Category Display Name|
+|---|---|
+|Engine|Engine|
+|Service|Service|
+
+
+## Microsoft.ApiManagement/service
+
+|Category|Category Display Name|
+|---|---|
+|GatewayLogs|Logs related to ApiManagement Gateway|
+
+
+## Microsoft.AppPlatform/Spring
+
+|Category|Category Display Name|
+|---|---|
+|ApplicationConsole|Application Console|
+|SystemLogs|System Logs|
+
+
+## Microsoft.Automation/automationAccounts
+
+|Category|Category Display Name|
+|---|---|
+|JobLogs|Job Logs|
+|JobStreams|Job Streams|
+|DscNodeStatus|Dsc Node Status|
+
+
+## Microsoft.Batch/batchAccounts
+
+|Category|Category Display Name|
+|---|---|
+|ServiceLog|Service Logs|
+
+
+## Microsoft.BatchAI/workspaces
+
+|Category|Category Display Name|
+|---|---|
+|BaiClusterEvent|BaiClusterEvent|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|
+|BaiJobEvent|BaiJobEvent|
+
+
+## Microsoft.Blockchain/blockchainMembers
+
+|Category|Category Display Name|
+|---|---|
+|BlockchainApplication|Blockchain Application|
+|Proxy|Proxy|
+
+
+## Microsoft.Blockchain/cordaMembers
+
+|Category|Category Display Name|
+|---|---|
+|BlockchainApplication|Blockchain Application|
+
+
+## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
+
+|Category|Category Display Name|
+|---|---|
+|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
+
+
+## Microsoft.Cdn/profiles
+
+|Category|Category Display Name|
+|---|---|
+|AzureCdnAccessLog|Azure Cdn Access Log|
+
+
+## Microsoft.Cdn/profiles/endpoints
+
+|Category|Category Display Name|
+|---|---|
+|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
+
+
+## Microsoft.ClassicNetwork/networksecuritygroups
+
+|Category|Category Display Name|
+|---|---|
+|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
+
+
+## Microsoft.CognitiveServices/accounts
+
+|Category|Category Display Name|
+|---|---|
+|Audit|Audit Logs|
+|RequestResponse|Request and Response Logs|
+
+
+## Microsoft.ContainerRegistry/registries
+
+|Category|Category Display Name|
+|---|---|
+|ContainerRegistryLoginEvents|Login Events|
+|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
+
+
+## Microsoft.ContainerService/managedClusters
+
+|Category|Category Display Name|
+|---|---|
+|cluster-autoscaler|Kubernetes Cluster Autoscaler|
+|kube-apiserver|Kubernetes API Server|
+|kube-audit|Kubernetes Audit|
+|kube-controller-manager|Kubernetes Controller Manager|
+|kube-scheduler|Kubernetes Scheduler|
+
+
+## Microsoft.CustomProviders/resourceproviders
+
+|Category|Category Display Name|
+|---|---|
+|AuditLogs|Audit logs for MiniRP calls|
+
+
+## Microsoft.Databricks/workspaces
+
+|Category|Category Display Name|
+|---|---|
+|accounts|Databricks Accounts|
+|clusters|Databricks Clusters|
+|dbfs|Databricks File System|
+|instancePools|Instance Pools|
+|jobs|Databricks Jobs|
+|notebook|Databricks Notebook|
+|secrets|Databricks Secrets|
+|sqlPermissions|Databricks SQLPermissions|
+|ssh|Databricks SSH|
+|workspace|Databricks Workspace|
+
+
+## Microsoft.DataCatalog/datacatalogs
+
+|Category|Category Display Name|
+|---|---|
+|ScanStatusLogEvent|ScanStatus|
+
+
+## Microsoft.DataFactory/factories
+
+|Category|Category Display Name|
+|---|---|
+|ActivityRuns|Pipeline activity runs log|
+|PipelineRuns|Pipeline runs log|
+|TriggerRuns|Trigger runs log|
+
+
+## Microsoft.DataLakeStore/accounts
+
+|Category|Category Display Name|
+|---|---|
+|Audit|Audit Logs|
+|Requests|Request Logs|
+
+
+## Microsoft.DBforMariaDB/servers
+
+|Category|Category Display Name|
+|---|---|
+|MySqlAuditLogs|MariaDB Audit Logs|
+|MySqlSlowLogs|MariaDB Server Logs|
+
+
+## Microsoft.DBforMySQL/servers
+
+|Category|Category Display Name|
+|---|---|
+|MySqlAuditLogs|MySQL Audit Logs|
+|MySqlSlowLogs|MySQL Server Logs|
+
+
+## Microsoft.DBforPostgreSQL/servers
+
+|Category|Category Display Name|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|
+|QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|
+|QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|
+
+
+## Microsoft.DBforPostgreSQL/serversv2
+
+|Category|Category Display Name|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|
+
+
+## Microsoft.DBforPostgreSQL/singleservers
+
+|Category|Category Display Name|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|
+
+
+## Microsoft.DesktopVirtualization/applicationgroups
+
+|Category|Category Display Name|
+|---|---|
+|Checkpoint|Checkpoint|
+|Error|Error|
+|Management|Management|
+
+
+## Microsoft.DesktopVirtualization/hostpools
+
+|Category|Category Display Name|
+|---|---|
+|Checkpoint|Checkpoint|
+|Connection|Connection|
+|Error|Error|
+|HostRegistration|HostRegistration|
+|Management|Management|
+
+
+## Microsoft.DesktopVirtualization/workspaces
+
+|Category|Category Display Name|
+|---|---|
+|Checkpoint|Checkpoint|
+|Error|Error|
+|Feed|Feed|
+|Management|Management|
+
+
+## Microsoft.Devices/IotHubs
+
+|Category|Category Display Name|
+|---|---|
+|C2DCommands|C2D Commands|
+|C2DTwinOperations|C2D Twin Operations|
+|Configurations|Configurations|
+|Connections|Connections|
+|D2CTwinOperations|D2CTwinOperations|
+|DeviceIdentityOperations|Device Identity Operations|
+|DeviceStreams|Device Streams (Preview)|
+|DeviceTelemetry|Device Telemetry|
+|DirectMethods|Direct Methods|
+|DistributedTracing|Distributed Tracing (Preview)|
+|FileUploadOperations|File Upload Operations|
+|JobsOperations|Jobs Operations|
+|Routes|Routes|
+|TwinQueries|Twin Queries|
+
+
+## Microsoft.Devices/provisioningServices
+
+|Category|Category Display Name|
+|---|---|
+|DeviceOperations|Device Operations|
+|ServiceOperations|Service Operations|
+
+
+## Microsoft.DocumentDB/databaseAccounts
+
+|Category|Category Display Name|
+|---|---|
+|CassandraRequests|CassandraRequests|
+|ControlPlaneRequests|ControlPlaneRequests|
+|DataPlaneRequests|DataPlaneRequests|
+|MongoRequests|MongoRequests|
+|PartitionKeyRUConsumption|PartitionKeyRUConsumption|
+|PartitionKeyStatistics|PartitionKeyStatistics|
+|QueryRuntimeStatistics|QueryRuntimeStatistics|
+
+
+## Microsoft.EnterpriseKnowledgeGraph/services
+
+|Category|Category Display Name|
+|---|---|
+|AuditEvent|AuditEvent log|
+|DataIssue|DataIssue log|
+|Requests|Configuration log|
+
+## Microsoft.EventGrid/domains
+
+|Category|Category Display Name|
+|---|---|
+|DeliveryFailures|Delivery Failure Logs|
+|PublishFailures|Publish Failure Logs|
+
+
+## Microsoft.EventGrid/systemTopics
+
+|Category|Category Display Name|
+|---|---|
+|DeliveryFailures|Delivery Failure Logs|
+
+
+## Microsoft.EventGrid/topics
+
+|Category|Category Display Name|
+|---|---|
+|DeliveryFailures|Delivery Failure Logs|
+|PublishFailures|Publish Failure Logs|
+
+
+## Microsoft.EventHub/namespaces
+
+|Category|Category Display Name|
+|---|---|
+|ArchiveLogs|Archive Logs|
+|AutoScaleLogs|Auto Scale Logs|
+|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
+|EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
+|KafkaCoordinatorLogs|Kafka Coordinator Logs|
+|KafkaUserErrorLogs|Kafka User Error Logs|
+|OperationalLogs|Operational Logs|
+
+
+## Microsoft.HealthcareApis/services
+
+|Category|Category Display Name|
+|---|---|
+|AuditLogs|Audit logs|
+
+
+## Microsoft.Insights/AutoscaleSettings
+
+|Category|Category Display Name|
+|---|---|
+|AutoscaleEvaluations|Autoscale Evaluations|
+|AutoscaleScaleActions|Autoscale Scale Actions|
+
+
+## Microsoft.Insights/Components
+
+|Category|Category Display Name|
+|---|---|
+|AppAvailabilityResults|Availability results|
+|AppBrowserTimings|Browser timings|
+|AppDependencies|Dependencies|
+|AppEvents|Events|
+|AppExceptions|Exceptions|
+|AppMetrics|Metrics|
+|AppPageViews|Page views|
+|AppPerformanceCounters|Performance counters|
+|AppRequests|Requests|
+|AppSystemEvents|System events|
+|AppTraces|Traces|
+
+
+## Microsoft.IoTSpaces/Graph
+
+|Category|Category Display Name|
+|---|---|
+|Audit|Audit|
+|Egress|Egress|
+|Ingress|Ingress|
+|Operational|Operational|
+|Trace|Trace|
+|UserDefinedFunction|UserDefinedFunction|
+
+
+## Microsoft.KeyVault/vaults
+
+|Category|Category Display Name|
+|---|---|
+|AuditEvent|Audit Logs|
+
+
+## Microsoft.Kusto/Clusters
+
+|Category|Category Display Name|
+|---|---|
+|FailedIngestion|Failed ingest operations|
+|SucceededIngestion|Successful ingest operations|
+
+
+## Microsoft.Logic/integrationAccounts
+
+|Category|Category Display Name|
+|---|---|
+|IntegrationAccountTrackingEvents|Integration Account track events|
+
+
+## Microsoft.Logic/workflows
+
+|Category|Category Display Name|
+|---|---|
+|WorkflowRuntime|Workflow runtime diagnostic events|
+
+
+## Microsoft.MachineLearningServices/workspaces
+
+|Category|Category Display Name|
+|---|---|
+|AmlComputeClusterEvent|AmlComputeClusterEvent|
+|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
+|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|
+|AmlComputeJobEvent|AmlComputeJobEvent|
+|AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|
+
+
+## Microsoft.Media/mediaservices
+
+|Category|Category Display Name|
+|---|---|
+|KeyDeliveryRequests|Key Delivery Requests|
+
+
+## Microsoft.Network/applicationGateways
+
+|Category|Category Display Name|
+|---|---|
+|ApplicationGatewayAccessLog|Application Gateway Access Log|
+|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
+
+
+## Microsoft.Network/azurefirewalls
+
+|Category|Category Display Name|
+|---|---|
+|AzureFirewallApplicationRule|Azure Firewall Application Rule|
+|AzureFirewallNetworkRule|Azure Firewall Network Rule|
+
+
+## Microsoft.Network/bastionHosts
+
+|Category|Category Display Name|
+|---|---|
+|BastionAuditLogs|Bastion Audit Logs|
+
+
+## Microsoft.Network/expressRouteCircuits
+
+|Category|Category Display Name|
+|---|---|
+|PeeringRouteLog|Peering Route Table Logs|
+
+
+## Microsoft.Network/frontdoors
+
+|Category|Category Display Name|
+|---|---|
+|FrontdoorAccessLog|Frontdoor Access Log|
+|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|
+
+
+## Microsoft.Network/loadBalancers
+
+|Category|Category Display Name|
+|---|---|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
+
+
+## Microsoft.Network/networksecuritygroups
+
+|Category|Category Display Name|
+|---|---|
+|NetworkSecurityGroupEvent|Network Security Group Event|
+|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
+|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+
+
+## Microsoft.Network/publicIPAddresses
+
+|Category|Category Display Name|
+|---|---|
+|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
+|DDoSMitigationReports|Reports of DDoS mitigations|
+|DDoSProtectionNotifications|DDoS protection notifications|
+
+
+## Microsoft.Network/trafficManagerProfiles
+
+|Category|Category Display Name|
+|---|---|
+|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
+
+
+## Microsoft.Network/virtualNetworkGateways
+
+|Category|Category Display Name|
+|---|---|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|
+|IKEDiagnosticLog|IKE Diagnostic Logs|
+|P2SDiagnosticLog|P2S Diagnostic Logs|
+|RouteDiagnosticLog|Route Diagnostic Logs|
+|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
+
+
+## Microsoft.Network/virtualNetworks
+
+|Category|Category Display Name|
+|---|---|
+|VMProtectionAlerts|VM protection alerts|
+
+
+## Microsoft.PowerBIDedicated/capacities
+
+|Category|Category Display Name|
+|---|---|
+|Engine|Engine|
+
+
+## Microsoft.RecoveryServices/Vaults
+
+|Category|Category Display Name|
+|---|---|
+|AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
+|AddonAzureBackupJobs|Addon Azure Backup Job Data|
+|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|
+|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|
+|AddonAzureBackupStorage|Addon Azure Backup Storage Data|
+|AzureBackupReport|Azure Backup Reporting Data|
+|AzureSiteRecoveryEvents|Azure Site Recovery Events|
+|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
+|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
+|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
+|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
+|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
+|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
+|CoreAzureBackup|Core Azure Backup Data|
+
+
+## Microsoft.Relay/namespaces
+
+|Category|Category Display Name|
+|---|---|
+|HybridConnectionsEvent|HybridConnections Events|
+
+
+## Microsoft.Search/searchServices
+
+|Category|Category Display Name|
+|---|---|
+|OperationLogs|Operation Logs|
+
+
+## Microsoft.ServiceBus/namespaces
+
+|Category|Category Display Name|
+|---|---|
+|OperationalLogs|Operational Logs|
+
+
+## Microsoft.SignalRService/SignalR
+
+|Category|Category Display Name|
+|---|---|
+|AllLogs|Azure SignalR Service Logs.|
+
+
+## Microsoft.Sql/managedInstances
+
+|Category|Category Display Name|
+|---|---|
+|DevOpsOperationsAudit|Devops operations Audit Logs|
+|ResourceUsageStats|Resource Usage Statistics|
+|SQLSecurityAuditEvents|SQL Security Audit Event|
+
+
+## Microsoft.Sql/managedInstances/databases
+
+|Category|Category Display Name|
+|---|---|
+|Errors|Errors|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|
+|SQLInsights|SQL Insights|
+
+
+## Microsoft.Sql/servers/databases
+
+|Category|Category Display Name|
+|---|---|
+|AutomaticTuning|Automatic tuning|
+|Blocks|Blocks|
+|DatabaseWaitStatistics|Database Wait Statistics|
+|Deadlocks|Deadlocks|
+|DevOpsOperationsAudit|Devops operations Audit Logs|
+|DmsWorkers|Dms Workers|
+|Errors|Errors|
+|ExecRequests|Exec Requests|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|
+|RequestSteps|Request Steps|
+|SQLInsights|SQL Insights|
+|SqlRequests|Sql Requests|
+|SQLSecurityAuditEvents|SQL Security Audit Event|
+|Timeouts|Timeouts|
+|Waits|Waits|
+
+
+## Microsoft.Storage/storageAccounts/blobServices
+
+|Category|Category Display Name|
+|---|---|
+|StorageDelete|StorageDelete|
+|StorageRead|StorageRead|
+|StorageWrite|StorageWrite|
+
+
+## Microsoft.Storage/storageAccounts/fileServices
+
+|Category|Category Display Name|
+|---|---|
+|StorageDelete|StorageDelete|
+|StorageRead|StorageRead|
+|StorageWrite|StorageWrite|
+
+
+## Microsoft.Storage/storageAccounts/queueServices
+
+|Category|Category Display Name|
+|---|---|
+|StorageDelete|StorageDelete|
+|StorageRead|StorageRead|
+|StorageWrite|StorageWrite|
+
+
+## Microsoft.Storage/storageAccounts/tableServices
+
+|Category|Category Display Name|
+|---|---|
+|StorageDelete|StorageDelete|
+|StorageRead|StorageRead|
+|StorageWrite|StorageWrite|
+
+
+## Microsoft.StreamAnalytics/streamingjobs
+
+|Category|Category Display Name|
+|---|---|
+|Authoring|Authoring|
+|Execution|Execution|
+
+
+## microsoft.web/hostingenvironments
+
+|Category|Category Display Name|
+|---|---|
+|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
+
+
+## microsoft.web/sites
+
+|Category|Category Display Name|
+|---|---|
+|AppServiceAppLogs|App Service Application Logs|
+|AppServiceAuditLogs|Access Audit Logs|
+|AppServiceConsoleLogs|App Service Console Logs|
+|AppServiceFileAuditLogs|Site Content Change Audit Logs|
+|AppServiceHTTPLogs|HTTP logs|
+|FunctionAppLogs|Function Application Logs|
+|ScanLogs|Antivirus scan logs|
+
+
+## microsoft.web/sites/slots
+
+|Category|Category Display Name|
+|---|---|
+|AppServiceAppLogs|App Service Application Logs|
+|AppServiceAuditLogs|Access Audit Logs|
+|AppServiceConsoleLogs|App Service Console Logs|
+|AppServiceFileAuditLogs|Site Content Change Audit Logs|
+|AppServiceHTTPLogs|HTTP logs|
+|FunctionAppLogs|Function Application Logs|
+|ScanLogs|Antivirus scan logs|
+
 
 ## Next Steps
 
