@@ -22,7 +22,7 @@ This article provides an introduction to field-programmable gate arrays (FPGA), 
 ## Prerequisites
 
 - An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
     ```azurecli-interactive
@@ -79,7 +79,7 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 
 Microsoft Azure is the world's largest cloud investment in FPGAs. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
 
-Azure FPGAs are integrated with Azure Machine Learning. Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
 
 FPGAs on Azure supports:
 
@@ -115,7 +115,7 @@ Deploying a model to an FPGA involves the following steps:
 
 * Define the TensorFlow model
 * Convert the model to ONNX
-* Deploy the model
+* Deploy the model to the cloud or an edge device
 * Consume the deployed model
 
 In this sample, you create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set. Then, the model is deployed to an AKS cluster.
@@ -388,7 +388,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## 5. Clean up resources
+## Clean up resources
 
 Delete your web service, image, and model (must be done in this order since there are dependencies).
 
