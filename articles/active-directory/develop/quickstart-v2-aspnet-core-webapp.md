@@ -153,7 +153,7 @@ The line containing `.AddAzureAd` adds the Microsoft identity platform authentic
 > Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
 >
-> Also note the `Configure` method which contains two important methods: `app.UserCookiePolicy()` and `app.UseAuthentication()`
+> Also note the `Configure` method which contains two important methods: `app.UseCookiePolicy()` and `app.UseAuthentication()`
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
