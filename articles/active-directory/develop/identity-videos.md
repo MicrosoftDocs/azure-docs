@@ -28,13 +28,13 @@ ___
 
 :::row:::
     :::column:::
-        1 - Overview of the Microsoft identity platform for developers (33:55)
+        1 - <a href="https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1" target="_blank">Overview of the Microsoft identity platform for developers <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:55)
     :::column-end:::
     :::column:::
         [![img][id-plat-01-img]][id-plat-01-vid]
     :::column-end:::
      :::column:::
-        2 - How to authenticate users of your apps with the Microsoft identity platform (29:09)
+        2 - <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2" target="_blank">How to authenticate users of your apps with the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (29:09)
     :::column-end:::
     :::column:::
         [![img][id-plat-02-img]][id-plat-02-vid]
@@ -42,13 +42,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        3 - Microsoft identity platform’s permissions and consent framework (45:08)
+        3 - <a href="https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3" target="_blank">Microsoft identity platform’s permissions and consent framework <span class="docon docon-navigate-external x-hidden-focus"></span></a> (45:08)
     :::column-end:::
     :::column:::
         [![img][id-plat-03-img]][id-plat-03-vid]
     :::column-end:::
     :::column:::
-        4 - How to protect APIs using the Microsoft identity platform (33:17)
+        4 - <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4" target="_blank">How to protect APIs using the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:17)
     :::column-end:::
     :::column:::
         [![img][id-plat-04-img]][id-plat-04-vid]
@@ -56,7 +56,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        5 - Application roles and security groups on the Microsoft identity platform (15:52)
+        5 - <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">Application roles and security groups on the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
     :::column-end:::
     :::column:::
         [![img][id-plat-05-img]][id-plat-05-vid]
