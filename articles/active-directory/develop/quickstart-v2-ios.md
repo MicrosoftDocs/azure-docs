@@ -70,10 +70,10 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > 
 > #### Step 2: Download the sample project
 > > [!div id="autoupdate" class="nextstepaction"]
-> > [Download the Code Sample for iOS]()
+> > [Download the code sample for iOS]()
 > 
 > > [!div id="autoupdate" class="nextstepaction"]
-> > [Download the Code Sample for macOS]()
+> > [Download the code sample for macOS]()
 > [!div renderon="docs"]
 > #### Step 2: Download the sample project
 > 
