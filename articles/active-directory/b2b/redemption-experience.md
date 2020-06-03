@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -41,9 +41,9 @@ As an alternative to the invitation email, you can give a guest a direct link to
 
 > [!IMPORTANT]
 > The direct link must be tenant-specific. In other words, it must include a tenant ID or verified domain so the guest can be authenticated in your tenant, where the shared app is located. A common URL like https://myapps.microsoft.com won’t work for a guest because it will redirect to their home tenant for authentication. Here are some examples of direct links with tenant context:
- > - Apps access panel: https://myapps.microsoft.com/?tenantid=&lt;tenant id&gt; 
- > - Apps access panel for a verified domain: https://myapps.microsoft.com/&lt;verified domain&gt;
- > - Azure portal: https://portal.azure.com/&lt;tenant id&gt;
+ > - Apps access panel: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Apps access panel for a verified domain: `https://myapps.microsoft.com/<;verified domain>`
+ > - Azure portal: `https://portal.azure.com/<tenant id>`
  > - Individual app: see how to use a [direct sign-on link](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 There are some cases where the invitation email is recommended over a direct link. If these special cases are important to your organization, we recommend that you invite users by using methods that still send the invitation email:
@@ -98,7 +98,7 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing new terms of use](media/redemption-experience/terms-of-use-accept.png) 
 
-   You can configure see [terms of use](../governance/active-directory-tou.md) in **Manage** > **Organizational relationships** > **Terms of use**.
+   You can configure [terms of use](../governance/active-directory-tou.md) in **External Identities** > **Terms of use**.
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 

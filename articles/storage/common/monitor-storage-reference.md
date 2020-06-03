@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
+ms.custom: monitoring
 ---
 
 # Azure Storage monitoring data reference
@@ -78,7 +79,7 @@ Azure Storage provides the following transaction metrics in Azure Monitor.
 | SuccessE2ELatency | The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. <br/><br/> Unit: Milliseconds <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 1024 |
 | Availability | The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation. <br/><br/> Unit: Percent <br/> Aggregation Type: Average <br/> Applicable dimensions: GeoType, ApiName, and Authentication ([Definition](#metrics-dimensions)) <br/> Value example: 99.99 |
 
-<a id="metrics-dimensions" />
+<a id="metrics-dimensions"></a>
 
 ## Metrics dimensions
 
@@ -137,7 +138,7 @@ The following table lists the properties for Azure Storage resource logs when th
 |**correlationId** | The ID that is used to correlate logs across resources. For example: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**location** | The location of storage account. For example: `North Europe`. |
 |**protocol**|The protocol that is used in the operation. For example: `HTTP`, `HTTPS`, `SMB`, or `NFS`|
-| **uri** | Uniform resource identifier that is requested. For example: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+| **uri** | Uniform resource identifier that is requested. For example: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### Fields that describe how the operation was authenticated
 

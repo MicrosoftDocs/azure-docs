@@ -26,6 +26,8 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 
 In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
+Integration runtimes can be created in the Azure Data Factory UX via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
+
 ## Integration runtime types
 
 Data Factory offers three types of Integration Runtime (IR), and you should choose the type that best serve the data integration capabilities and network environment needs you're looking for.  These three types are:
@@ -103,14 +105,14 @@ Azure-SSIS IR can be provisioned in either public network or private network.  O
 
 ### Azure-SSIS IR compute resource and scaling
 
-Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. You can bring your own Azure SQL Database or Managed Instance server to host the catalog of SSIS projects/packages (SSISDB) that is going to be attached to it. You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster. You can manage the cost of running your Azure-SSIS Integration Runtime by stopping and starting it as you see fit.
+Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. You can bring your own Azure SQL Database or SQL Managed Instance for the catalog of SSIS projects/packages (SSISDB). You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster. You can manage the cost of running your Azure-SSIS Integration Runtime by stopping and starting it as you see fit.
 
 For more information, see how to create and configure Azure-SSIS IR article under how to guides.  Once created, you can deploy and manage your existing SSIS packages with little to no change using familiar tools such as SQL Server Data Tools (SSDT) and SQL Server Management Studio (SSMS), just like using SSIS on premises.
 
 For more information about Azure-SSIS runtime, see the following articles: 
 
 - [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL Database to host the SSIS catalog. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database Managed Instance and joining the IR to a virtual network. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using SQL Managed Instance and joining the IR to a virtual network. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network. It also provides steps to use Azure portal to configure virtual network so that Azure-SSIS IR can join the virtual network. 
@@ -123,6 +125,10 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 ### Azure IR location
 
+You can set a certain location of an Azure IR, in which case the activity execution or dispatch will happen in that specific region.
+
+If you choose to use the auto-resolve Azure IR, which is the default,
+
 - For copy activity, ADF will make a best effort to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
 
   For example, you have your factory created in East US, 
@@ -130,7 +136,8 @@ The IR Location defines the location of its back-end compute, and essentially th
   - When copy data to Azure Blob in West US, if ADF successfully detected that the Blob is in West US, copy activity is executed on IR in West US; if the region detection fails, copy activity is executed on IR in East US.
   - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
 
-- For copy activity, ADF makes a best effort to automatically detect your sink and source data store to choose the best location, either in the same region (if available), or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
+  >[!TIP] 
+  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 - For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF uses the IR in the data factory region.
 
@@ -151,9 +158,9 @@ When used to perform data movement, the self-hosted IR extracts data from the so
 
 Selecting the right location for your Azure-SSIS IR is essential to achieve high performance in your extract-transform-load (ETL) workflows.
 
-- The location of your Azure-SSIS IR does not need to be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database or Managed Instance server where SSISDB is to be hosted. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
-- If you do not have an existing Azure SQL Database or Managed Instance server to host SSISDB, but you have on-premises data sources/destinations, you should create a new Azure SQL Database or Managed Instance server in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database or Managed Instance server and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
-- If the location of your existing Azure SQL Database or Managed Instance server where SSISDB is hosted is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database or Managed Instance server and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
+- The location of your Azure-SSIS IR does not need to be the same as the location of your data factory, but it should be the same as the location of your own Azure SQL Database or SQL Managed Instance where SSISDB. This way, your Azure-SSIS Integration Runtime can easily access SSISDB without incurring excessive traffics between different locations.
+- If you do not have an existing SQL Database or SQL Managed Instance, but you have on-premises data sources/destinations, you should create a new Azure SQL Database or SQL Managed Instance in the same location of a virtual network connected to your on-premises network.  This way, you can create your Azure-SSIS IR using the new Azure SQL Database or SQL Managed Instance and joining that virtual network, all in the same location, effectively minimizing data movements across different locations.
+- If the location of your existing Azure SQL Database or SQL Managed Instance is not the same as the location of a virtual network connected to your on-premises network, first create your Azure-SSIS IR using an existing Azure SQL Database or SQL Managed Instance and joining another virtual network in the same location, and then configure a virtual network to virtual network connection between different locations.
 
 The following diagram shows location settings of Data Factory and its integration run times:
 
@@ -187,4 +194,4 @@ See the following articles:
 
 - [Create Azure integration runtime](create-azure-integration-runtime.md)
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)
-- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database Managed Instance and joining the IR to a virtual network. 
+- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using SQL Managed Instance and joining the IR to a virtual network. 

@@ -79,7 +79,7 @@ In general, Azure Files features and interoperability with other services are th
     - Premium file shares are billed using a provisioned billing model, which means you pay for how much storage you provision rather than how much storage you actually ask for. 
     - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.
 - **Redundancy options**
-    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage. 
+    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage.
     - Standard file shares are available for locally redundant, zone redundant, geo-redundant (GRS), and geo-zone redundant (GZRS) storage.
 - **Maximum size of file share**
     - Premium file shares can be provisioned for up to 100 TiB without any additional work.

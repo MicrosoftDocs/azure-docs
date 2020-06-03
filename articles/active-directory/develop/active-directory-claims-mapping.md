@@ -270,7 +270,7 @@ Set the Source element to one of the following values:
 - "application": The data in the claim is a property on the application (client) service principal. 
 - "resource": The data in the claim is a property on the resource service principal.
 - "audience": The data in the claim is a property on the service principal that is the audience of the token (either the client or resource service principal).
-- “company”: The data in the claim is a property on the resource tenant’s Company object.
+- "company": The data in the claim is a property on the resource tenant's Company object.
 - "transformation": The data in the claim is from claims transformation (see the "Claims transformation" section later in this article).
 
 If the source is transformation, the **TransformationID** element must be included in this claim definition as well.
@@ -314,7 +314,7 @@ The ID element identifies which property on the source provides the value for th
 | User | extensionattribute14 | Extension Attribute 14 |
 | User | extensionattribute15 | Extension Attribute 15 |
 | User | othermail | Other Mail |
-| User | country | Country |
+| User | country | Country/Region |
 | User | city | City |
 | User | state | State |
 | User | jobtitle | Job Title |
@@ -323,9 +323,9 @@ The ID element identifies which property on the source provides the value for th
 | application, resource, audience | displayname | Display Name |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
-| Company | tenantcountry | Tenant’s country |
+| Company | tenantcountry | Tenant's country/region |
 
-**TransformationID:** The TransformationID element must be provided only if the Source element is set to “transformation”.
+**TransformationID:** The TransformationID element must be provided only if the Source element is set to "transformation".
 
 - This element must match the ID element of the transformation entry in the **ClaimsTransformation** property that defines how the data for this claim is generated.
 
@@ -454,67 +454,67 @@ In this example, you create a policy that removes the basic claim set from token
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
    1. To create the policy, run this command: 
-	
+    
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. To see your new policy, and to get the policy ObjectId, run the following command:
-	
+    
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
-	 
+     
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
 #### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a service principal
 
-In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
+In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country/region claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
    1. To create the policy, run the following command:  
-	 
+     
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-	
+    
    2. To see your new policy, and to get the policy ObjectId, run the following command:
-	 
+     
       ``` powershell  
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
-	 
+     
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
 #### Example: Create and assign a policy that uses a claims transformation in tokens issued to a service principal
 
-In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we exclude the basic claims set in the tokens.
+In this example, you create a policy that emits a custom claim "JoinedData" to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with ".sandbox". In this example, we exclude the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
    1. To create the policy, run the following command:
-	 
+     
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-	
+    
    2. To see your new policy, and to get the policy ObjectId, run the following command: 
-	 
+     
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
    1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command: 
-	 
+     
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

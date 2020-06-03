@@ -87,6 +87,7 @@ Yes. Each Azure AD Domain Services managed domain includes two domain controller
 * [Can I modify or add DNS records in my managed domain?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [What is the password lifetime policy on a managed domain?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Does Azure AD Domain Services provide AD account lockout protection?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Can I configure Distributed File System (DFS) and replication within Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
@@ -114,6 +115,9 @@ The default password lifetime on an Azure AD Domain Services managed domain is 9
 
 ### Does Azure AD Domain Services provide AD account lockout protection?
 Yes. Five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked. Invalid password attempts on the managed domain don't lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain. For more information, see [Password and account lockout policies on managed domains](password-policy.md).
+
+### Can I configure Distributed File System and replication within Azure AD Domain Services?
+No. Distributed File System (DFS) and replication aren't available when using Azure AD Domain Services.
 
 ## Billing and availability
 

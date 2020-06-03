@@ -66,7 +66,7 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 * [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [How to: Associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrator role permissions in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
 ## Need help? Contact support

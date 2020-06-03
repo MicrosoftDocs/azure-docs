@@ -11,11 +11,12 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 ## Key benefits of Azure file share backup
 
-* Zero infrastructure: No deployment is needed to configure protection for your file shares.
-* Customized retention: You can configure backups with daily/weekly/monthly/yearly retention according to your requirements.
-* Built in management capabilities: You can schedule backups and specify the desired retention period without the additional overhead of data pruning.
-* Instant restore: Azure file share backup uses file share snapshots, so you can select just the files you want to restore instantly.
-* Alerting and reporting: You can configure alerts for backup and restore failures and use the reporting solution provided by Azure Backup to get insights on backups across your files shares.
+* **Zero infrastructure**: No deployment is needed to configure protection for your file shares.
+* **Customized retention**: You can configure backups with daily/weekly/monthly/yearly retention according to your requirements.
+* **Built in management capabilities**: You can schedule backups and specify the desired retention period without the additional overhead of data pruning.
+* **Instant restore**: Azure file share backup uses file share snapshots, so you can select just the files you want to restore instantly.
+* **Alerting and reporting**: You can configure alerts for backup and restore failures and use the reporting solution provided by Azure Backup to get insights on backups across your files shares.
+* **Protection against accidental deletion of file shares**: Azure Backup enables the [soft delete feature](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) on a storage account level with a retention period of 14 days. Even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for a configurable retention period, allowing the successful and complete recovery of source contents and snapshots with no data loss.
 
 ## Architecture
 

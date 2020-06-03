@@ -97,9 +97,14 @@ Yes. When you create a Site Recovery vault in a region, we ensure that all metad
 ### Does Site Recovery encrypt replication?
 For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
-### How can I enforce TLS 1.2 on all on-premises Azure Site Recovery components?
+### Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
+Yes, TLS 1.2 protocol is enforced by default for Azure-to-Azure Site Recovery scenario. 
+
+### How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
 Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
 
+### How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
+All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One will need to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services. 
 
 ## Disaster recovery
 
@@ -185,7 +190,40 @@ Yes. You can read more about throttling bandwidth in these articles:
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
 * [Capacity planning for replicating Hyper-V VMs to Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### Can I enable replication with app-consistency in Linux servers? 
+Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. Below are the steps to enable it.
 
+1. Sign in as root into the machine.
+2. Change directory to Azure Site Recovery Mobility Agent install location. Default is "/usr/local/ASR"<br>
+    `# cd /usr/local/ASR`
+3. Change directory to "VX/scripts" under install location<br>
+    `# cd VX/scripts`
+4. Create a bash shell script named "customscript.sh" with execute permissions for root user.<br>
+    a. The script should support "--pre" and "--post" (Note the double dashes) command-line options<br>
+    b. When the script is called with pre-option, it should freeze the application input/output and when called with post-option, it should thaw the application input/output.<br>
+    c. A sample template -<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Add the freeze and unfreeze input/output commands in pre and post-steps for the applications requiring app-consistency. You can choose to add another script specifying those and invoke it from "customscript.sh" with pre and post-options.
+
+>[!Note]
+>The Site Recovery agent version should be 9.24 or above to support custom scripts.
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure VMs after failover?

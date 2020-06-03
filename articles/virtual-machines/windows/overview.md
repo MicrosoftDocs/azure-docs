@@ -62,7 +62,7 @@ Your subscription has default [quota limits](../../azure-resource-manager/manage
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
-Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). Only 64-bit operating systems are supported. For more information on the supported guest operating systems, roles, and features, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+Azure provides many [marketplace images](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). Only 64-bit operating systems are supported. For more information on the supported guest operating systems, roles, and features, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 This table shows some ways that you can find the information for an image.
 
@@ -92,7 +92,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Resource group](../../azure-resource-manager/management/overview.md) |Yes |The VM must be contained in a resource group. |
 | [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
-| [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
+| [Public IP address](../../virtual-network/public-ip-addresses.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
 | [Data disks](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 

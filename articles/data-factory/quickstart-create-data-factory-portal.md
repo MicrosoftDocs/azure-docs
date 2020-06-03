@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 05/28/2020
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory by using the Azure Data Factory UI
@@ -21,10 +21,10 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. For a tutorial on how to *transform* data by using Azure Data Factory, see [Tutorial: Transform data by using Spark](tutorial-transform-data-spark-portal.md).
+This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. To *transform* data by using Azure Data Factory, see [Mapping data flow](concepts-data-flow-overview.md) and [Wrangling data flow (Preview)](wrangling-data-flow-overview.md).
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -139,12 +139,13 @@ In the linked service settings, you specified the Azure Storage account that con
     f. Select **OK**.   
 
     ![Set properties for OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## Create a pipeline 
 In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
 
 1. Select the **+** (plus) button, and then select **Pipeline**. 
 
-1. In the **General** tab, specify **CopyPipeline** for **Name**. 
+1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy Data** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
    ![Creating a copy data activity](./media/quickstart-create-data-factory-portal/copy-activity.png)

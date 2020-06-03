@@ -3,6 +3,7 @@ title: View Live Data (preview) with Azure Monitor for containers | Microsoft Do
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Azure Monitor for containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
+ms.custom: references_regions
 ---
 
 # How to view Kubernetes logs, events, and pod metrics in real-time
@@ -37,7 +38,7 @@ To suspend autoscroll and control the behavior of the pane, allowing you to manu
 >We recommend only suspending or pausing autoscroll for a short period of time while troubleshooting an issue. These requests may impact the availability and throttling of the Kubernetes API on your cluster. 
 
 >[!IMPORTANT]
->No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it. Data only remains present for visualization inside the five minute window of the metrics feature; any metrics older than five minutes are also deleted. The Live Data (preview) buffer queries within reasonable memory usage limits (need to be more specific here, what is reasonable?). 
+>No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it. Data only remains present for visualization inside the five minute window of the metrics feature; any metrics older than five minutes are also deleted. The Live Data (preview) buffer queries within reasonable memory usage limits.
 
 ## View logs
 

@@ -2,11 +2,14 @@
 title: Create a scale set that uses Azure Spot VMs 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+
 ---
 
 # Azure Spot VMs for virtual machine scale sets 
@@ -154,7 +157,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 | Pay As You Go                | Yes                               |
 | Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
+| Sponsored                    | Yes                               |
 | Free Trial                   | Not available                     |
 
 

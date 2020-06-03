@@ -175,8 +175,8 @@ If the source VM has Azure disk encryption (ADE) enabled, review the settings.
    1. **Key encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. The name has an `asr` suffix, and is based on the source VM key encryption keys. If the key vault created by Site Recovery already exists, it's reused.
 1. Select **Customize** to select custom key vaults.
 
-> [!NOTE]
-> Only Azure VMs running Windows operating systems and [enabled for encryption with Azure AD app](https://aka.ms/ade-aad-app) are currently supported by Azure Site Recovery.
+>[!NOTE]
+> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without AAD. Moreover, for machines running ADE 1.1 (without AAD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
 
 ### Track replication status
 

@@ -46,6 +46,7 @@ You can do the following operations with node pools:
 * Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
+* If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
 
 ## Create a new AKS cluster with a system node pool
 
@@ -173,4 +174,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

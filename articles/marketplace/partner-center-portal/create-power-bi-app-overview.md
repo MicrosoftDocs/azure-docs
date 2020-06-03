@@ -1,7 +1,7 @@
 ---
-title: Power BI app creation overview - Azure Marketplace
+title: Power BI app creation overview - Microsoft AppSource
 description: This article describes the high-level steps for publishing a Power BI app to Microsoft AppSource. The technical and business requirements your Power BI app must meet to be published to the commercial marketplace are also provided.
-author:  anbene
+author: anbene
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,9 +10,6 @@ ms.date: 04/02/2020
 ---
 
 # Power BI app creation overview
-
-> [!IMPORTANT]
-> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Power BI app offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer) for Cloud Partner Portal to manage your offers.
 
 This article explains how to publish a Power BI app to Microsoft [AppSource](https://appsource.microsoft.com/). A Power BI app packages customizable content, including datasets, reports, and dashboards. You can then use the app with other Power BI platforms using AppSource, perform the adjustments and customizations allowed by the developer, and connect it to your own data.
 
