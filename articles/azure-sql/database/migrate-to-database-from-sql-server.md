@@ -29,7 +29,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
 ## Method 1: Migration with downtime during the migration
 
- Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](../../dms/tutorial-sql-server-to-azure-sql.md).
+ Use this method to migrate to a single or a pooled database if you can afford some downtime or you're performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](../../dms/tutorial-sql-server-to-azure-sql.md).
 
 The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to SQL Managed Instance, see [Migration to SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md).
 
@@ -50,7 +50,7 @@ The following list contains recommendations for best performance during the impo
 
 - Choose the highest service tier and compute size that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money.
 - Minimize the distance between your BACPAC file and the destination data center.
-- Disable auto-statistics during migration
+- Disable autostatistics during migration
 - Partition tables and indexes
 - Drop indexed views, and recreate them once finished
 - Remove rarely queried historical data to another database and migrate this historical data to a separate database in Azure SQL Database. You can then query this historical data using [elastic queries](elastic-query-overview.md).
@@ -61,11 +61,11 @@ The following list contains recommendations for best performance during the impo
 
 ## Method 2: Use Transactional Replication
 
-When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this method, the source database must meet the [requirements for transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) and be compatible for Azure SQL Database. For information about SQL replication with Always On, see [Configure Replication for Always On Availability Groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+When you can't afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this method, the source database must meet the [requirements for transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) and be compatible for Azure SQL Database. For information about SQL replication with Always On, see [Configure Replication for Always On Availability Groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 To use this solution, you configure your database in Azure SQL Database as a subscriber to the SQL Server instance that you wish to migrate. The transactional replication distributor synchronizes data from the database to be synchronized (the publisher) while new transactions continue occur.
 
-With transactional replication, all changes to your data or schema show up in your database in Azure SQL Database. Once the synchronization is complete and you are ready to migrate, change the connection string of your applications to point them to your database. Once transactional replication drains any changes left on your source database and all your applications point to Azure DB, you can uninstall transactional replication. Your database in Azure SQL Database is now your production system.
+With transactional replication, all changes to your data or schema show up in your database in Azure SQL Database. Once the synchronization is complete and you're ready to migrate, change the connection string of your applications to point them to your database. Once transactional replication drains any changes left on your source database and all your applications point to Azure DB, you can uninstall transactional replication. Your database in Azure SQL Database is now your production system.
 
  ![SeedCloudTR diagram](./media/migrate-to-database-from-sql-server/SeedCloudTR.png)
 
@@ -94,12 +94,12 @@ Some tips and differences for migrating to SQL Database
   - Doing so causes a performance impact on the server.
   - If the performance impact is unacceptable, you can use another server but it adds complexity in management and administration.
 - When selecting a snapshot folder, make sure the folder you select is large enough to hold a BCP of every table you want to replicate.
-- Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately.
+- Snapshot creation locks the associated tables until it's complete, so schedule your snapshot appropriately.
 - Only push subscriptions are supported in Azure SQL Database. You can only add subscribers from the source database.
 
 ## Resolving database migration compatibility issues
 
-There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
+There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you're migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
 
 - [SQL Server database features not supported in Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
 - [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)

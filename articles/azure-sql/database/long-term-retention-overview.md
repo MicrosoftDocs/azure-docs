@@ -66,7 +66,7 @@ If you modify the above policy and set W=0 (no weekly backups), the cadence of b
 
 ## Geo-replication and long-term backup retention
 
-If you are using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the secondary database or instance. Your LTR storage cost will not increase as backups are not generated from the secondaries. The backups are only created when the secondary becomes primary the backups will be created. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
+If you're using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the secondary database or instance. Your LTR storage cost won't increase as backups aren't generated from the secondaries. The backups are only created when the secondary becomes primary the backups will be created. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
 
 > [!NOTE]
 > When the original primary database recovers from an outage that caused the failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
@@ -76,9 +76,9 @@ If you are using active geo-replication or failover groups as your business cont
 Using long-term backup retention with Azure SQL Managed Instance has the following limitations:
 
 - **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
-- [**PowerShell only**](../managed-instance/long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
+- [**PowerShell only**](../managed-instance/long-term-backup-retention-configure.md) - There's currently no Azure portal support. LTR must be enabled using PowerShell. 
 
-To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Managed Instance and for the problem type select **Backup, Restore, and Business continuity / Long-term backup retention**. In your request, please state you would like to be enrolled into limited public preview of LTR for SQL Managed Instance.
+To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Managed Instance, and for the problem type select **Backup, Restore, and Business continuity / Long-term backup retention**. In your request, please state you would like to be enrolled into limited public preview of LTR for SQL Managed Instance.
 
 ## Configure long-term backup retention
 

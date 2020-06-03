@@ -130,8 +130,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication isn't supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
-- Columns with User Defined Data Types aren't supported
-- Moving servers between different subscriptions is not supported. 
+- Columns with User-Defined Data Types aren't supported
+- Moving servers between different subscriptions isn't supported. 
 
 #### Unsupported data types
 
@@ -202,7 +202,7 @@ Yes. You can sync between databases that belong to resource groups owned by diff
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
-Yes. You can sync between databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+Yes. You can sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
 
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them
 
@@ -210,7 +210,7 @@ Yes. Create the schema manually in the new database by scripting it from the ori
 
 ### Should I use SQL Data Sync to back up and restore my databases
 
-It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
+It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations aren't versioned. Furthermore, SQL Data Sync doesn't back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
 
 For one recommended backup technique, see [Copy an Azure SQL database](database-copy.md).
 

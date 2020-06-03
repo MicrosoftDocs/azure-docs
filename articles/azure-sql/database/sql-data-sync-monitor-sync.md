@@ -73,7 +73,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
 1.  Under your Azure Automation account, select the **Runbooks** tab under Process Automation.
 
-2.  Select **Add a Runbook** at the top left corner of the Runbooks page.
+2.  Select **Add a Runbook** at the top-left corner of the Runbooks page.
 
 3.  Select **Import an existing Runbook**.
 
@@ -181,7 +181,7 @@ In most cases, this solution is free.
 
 **Azure Automation:** There may be a cost incurred with the Azure Automation account, depending on your usage. The first 500 minutes of job run time per month are free. In most cases, this solution is expected to use less than 500 minutes per month. To avoid charges, schedule the runbook to run at an interval of two hours or more. For more info, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
-**Azure Monitor logs:** There may be a cost associated with Azure Monitor logs depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Azure Monitor logs pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure Monitor logs:** There may be a cost associated with Azure Monitor logs depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you're using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Azure Monitor logs pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## Code samples
 

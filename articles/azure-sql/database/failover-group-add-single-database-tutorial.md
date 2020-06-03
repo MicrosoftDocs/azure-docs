@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add a database to a failover group"
-description: Add a database in Azure SQL Database to an auto-failover group using the Azure portal, PowerShell, or the Azure CLI.  
+description: Add a database in Azure SQL Database to an autofailover group using the Azure portal, PowerShell, or the Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ---
-# Tutorial: Add an Azure SQL Database to an auto-failover group
+# Tutorial: Add an Azure SQL Database to an autofailover group
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-A [failover group](auto-failover-group-overview.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or the Azure CLI.  In this tutorial, you will learn how to:
+A [failover group](auto-failover-group-overview.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or the Azure CLI.  In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -53,13 +53,13 @@ To complete the tutorial, make sure you have the following items:
 
 ## 2 - Create the failover group
 
-In this step, you will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
+In this step, you' will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
 
 # [The portal](#tab/azure-portal)
 
 Create your failover group and add your database to it using the Azure portal.
 
-1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** isn't in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
 1. Select the database created in section 1, such as `mySampleDatabase`.
 1. Failover groups can be configured at the server level. Select the name of the server under **Server name** to open the settings for the server.
 
@@ -76,7 +76,7 @@ Create your failover group and add your database to it using the Azure portal.
       - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`.
       - **Server admin login**: Type `azureuser`
       - **Password**: Type a complex password that meets password requirements.
-      - **Location**: Choose a location from the drop-down, such as `East US`. This location cannot be the same location as your primary server.
+      - **Location**: Choose a location from the drop-down, such as `East US`. This location can't be the same location as your primary server.
 
      > [!NOTE]
      > The server login and firewall settings must match that of your primary server.
@@ -199,13 +199,13 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 ## 3 - Test failover
 
-In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal.
+In this step, you'll fail your failover group over to the secondary server, and then fail back using the Azure portal.
 
 # [The portal](#tab/azure-portal)
 
 Test failover using the Azure portal.
 
-1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** isn't in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
 1. Select the database created in the section 2, such as `mySampleDatbase`.
 1. Select the name of the server under **Server name** to open the settings for the server.
 
@@ -216,13 +216,13 @@ Test failover using the Azure portal.
    ![Select the failover group from the portal](./media/failover-group-add-single-database-tutorial/select-failover-group.png)
 
 1. Review which server is primary and which server is secondary.
-1. Select **Failover** from the task pane to failover your failover group containing your sample database.
+1. Select **Failover** from the task pane to fail over your failover group containing your sample database.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
    ![Fail over your failover group containing your database in SQL database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
-1. Review which server is now primary and which server is secondary. If fail over succeeded, the two servers should have swapped roles.
-1. Select **Failover** again to fail the servers back to their originally roles.
+1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
+1. Select **Failover** again to fail the servers back to their original roles.
 
 # [PowerShell](#tab/azure-powershell)
 
