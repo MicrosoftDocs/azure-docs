@@ -77,11 +77,11 @@
       #- name: Spam and Robocall Protection
       #  href: concepts/voice/spam-robocall.md
   - name: Video
-    items: 
+    items:
       - name: About Video
         href: concepts/video/video.md
-      #- name: About WebRTC
-      #  href: concepts/video/about-webrtc.md
+      - name: Introduction to WebRTC
+        href: concepts/video/about-webrtc.md
       - name: ICE, STUN, NAT, TURN, and SDP
         href: concepts/video/ice-stun-nat-turn-sdp.md
       #- name: Data Channels
