@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 05/29/2020
+ms.date: 06/03/2020
 ---
 
 # Hyperscale service tier
@@ -40,7 +40,7 @@ The Hyperscale service tier in Azure SQL Database provides the following additio
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
 - Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads when needed, and then scale the compute resources back down when not needed.
 
-The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, storage grows as needed. In fact, Hyperscale databases aren’t created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads.
+The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, storage grows as needed. In fact, Hyperscale databases aren't created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads.
 
 Additionally, the time required to create database backups or to scale up or down is no longer tied to the volume of data in the database. Hyperscale databases can be backed up virtually instantaneously. You can also scale a database in the tens of terabytes up or down in minutes. This capability frees you from concerns about being boxed in by your initial configuration choices.
 
@@ -164,10 +164,17 @@ If you need to restore an Azure SQL Database Hyperscale DB to a region other tha
 
 ## <a name=regions></a>Available regions
 
-The Azure SQL Database Hyperscale tier is currently available in the following regions:
+The Azure SQL Database Hyperscale tier is available in all regions but enabled by default available in the following regions listed below.
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
 
+- Use the [Other quota request](quota-increase-request.md#other) SQL database quota type.
+- In the text details, add the compute SKU/total cores including readable replicas.
+- Also specify the estimated TB.
+
+Enabled Regions:
 - Australia East
 - Australia Southeast
+- Australia Central
 - Brazil South
 - Canada Central
 - Central US
@@ -177,26 +184,30 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 - East US
 - East Us 2
 - France Central
+- Germany West Central
 - Japan East
 - Japan West
 - Korea Central
 - Korea South
 - North Central US
 - North Europe
+- Norway East
+- Norway West
 - South Africa North
 - South Central US
 - Southeast Asia
+- Switzerland West
 - UK South
 - UK West
+- US DoD Central
+- US DoD East
+- Us Govt Arizona
+- US Govt Texas
+- West Central US
 - West Europe
 - West US
 - West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
-
-- Use the [Other quota request](quota-increase-request.md#other) SQL database quota type.
-- In the text details, add the compute SKU/total cores including readable replicas.
-- Also specify the estimated TB.
 
 ## Known limitations
 
