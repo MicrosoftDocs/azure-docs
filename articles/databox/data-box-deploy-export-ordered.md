@@ -68,7 +68,7 @@ Before you begin, make sure that:
 * Azure Data Box usage capacity may be less than 80 TB due to Refs metadata space consumption
 * There's a 1:1 mapping from prefix to container
 * Maximum filename size is 1024 characters files, anything over this will not export.
-* Duplicate prefixes in the xml file are counted(export) twice
+* Duplicate prefixes in the xml file are exported (duplicates are not ignored)
 
 <!--### Verbose logs -->
 
