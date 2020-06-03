@@ -51,13 +51,7 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-## Configure the account identifier and key
-
-In the **Project** pane, go to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Save the scene by selecting **File** > **Save**.
 
 ## Export the HoloLens Visual Studio project
 
