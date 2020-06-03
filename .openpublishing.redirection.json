@@ -17417,6 +17417,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-relay/index.yml",
+      "redirect_url": "/azure/azure-relay/",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/service-bus-relay/diagnostic-logs.md",
       "redirect_url": "/azure/azure-relay/diagnostic-logs",
       "redirect_document_id": false
@@ -30297,6 +30302,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-logstash.md",
+      "redirect_url": "/azure/sentinel/connect-data-sources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-apply-system-updates.md",
       "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false
@@ -43139,6 +43149,36 @@
     {
       "source_path": "articles/azure-monitor/platform/powershell-samples.md",
       "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-creating.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-solution-file.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-automation.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-searches-alerts.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-resources-views.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
+      "redirect_url": "/azure/azure-monitor/insights/solutions",
       "redirect_document_id": false
     },
     {
