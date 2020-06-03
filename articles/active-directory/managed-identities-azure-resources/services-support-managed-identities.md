@@ -174,7 +174,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
-For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
+For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity).
 
 
 ### Azure Virtual Machine Scale Sets
