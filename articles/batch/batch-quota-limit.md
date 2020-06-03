@@ -92,15 +92,15 @@ Follow these steps to request a quota increase for your Batch account or your su
     
     ![Batch quota increase][quota_increase]
 
-       Quota types include:
+      Quota types include:
 
-       * **Per Batch account**  
+      * **Per Batch account**  
          Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
         
-       * **Per region**  
+      * **Per region**  
          Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
-       Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+      Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
 
     1. Select a **Severity** according to your [business impact][support_sev].
 
