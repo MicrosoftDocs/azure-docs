@@ -37,7 +37,7 @@ Whenever a temperature telemetry event is sent by the thermometer device, the *t
 
 This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A device uses system topics to send data to digital twins" border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="An IoT Hub device sends Temperature telemetry through IoT Hub, Event Grid, or system topics to an Azure Function, which updates a temperature property on twins in Azure Digital Twins." border="false":::
 
 ## Prerequisites
 
