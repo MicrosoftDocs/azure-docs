@@ -123,6 +123,8 @@
         href: backup-azure-linux-app-consistent.md
     - name: Restore
       items:
+      - name: About Azure VM restore
+        href: about-azure-vm-restore.md
       - name: Restore Azure VMs in the portal
         href: backup-azure-arm-restore-vms.md
       - name: Recover files from Azure VM backups
@@ -355,6 +357,8 @@
         href: soft-delete-virtual-machines.md
       - name: For SQL Server and SAP HANA in Azure VMs
         href: soft-delete-sql-saphana-in-azure-vm.md
+    - name: Delete protection for Azure file shares
+      href: soft-delete-azure-file-share.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints

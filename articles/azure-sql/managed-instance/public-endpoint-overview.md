@@ -1,5 +1,5 @@
 ---
-title: Secure managed instance public endpoints
+title: Secure Azure SQL Managed Instance public endpoints
 description: "Securely use public endpoints in Azure SQL Managed Instance"
 services: sql-database
 ms.service: sql-database
@@ -11,7 +11,7 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ---
-# Use  Azure SQL Managed Instance securely with public endpoints
+# Use Azure SQL Managed Instance securely with public endpoints
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance can provide user connectivity over [public endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
@@ -30,7 +30,7 @@ Although not mandatory, the common deployment model for a managed instance with 
 
 ## Secure data in motion
 
-Managed instance data traffic is always encrypted if the client driver supports encryption. Data sent between the managed instance and other Azure virtual machines or Azure services never leaves Azure's backbone. If there's a connection between the managed instance and an on-premises network, we recommend you use Azure ExpressRoute. ExpressRoute helps you avoid moving data over the public internet. For managed instance private connectivity, only private peering can be used.
+SQL Managed Instance data traffic is always encrypted if the client driver supports encryption. Data sent between the managed instance and other Azure virtual machines or Azure services never leaves Azure's backbone. If there's a connection between the managed instance and an on-premises network, we recommend you use Azure ExpressRoute. ExpressRoute helps you avoid moving data over the public internet. For managed instance private connectivity, only private peering can be used.
 
 ## Lock down inbound and outbound connectivity
 

@@ -261,12 +261,12 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 
 ## 4. Setup application in the Azure AD B2C Directory
 
-### 4.1 Register your application in Azure Active Directory
+### 4.1 Register your application in Azure AD B2C
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *SAMLApp1*.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**
 1. Under **Redirect URI**, select **Web**, and then enter `https://localhost`. You modify this value later in the application registration's manifest.
