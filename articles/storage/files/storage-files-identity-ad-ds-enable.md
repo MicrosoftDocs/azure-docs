@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/02/2020
 ms.author: rogarana
 ---
 
@@ -84,7 +84,18 @@ First, you must check the state of your environment. Specifically, you must chec
 
 ### Creating an identity representing the storage account in your AD manually
 
-To create this account manually, create a new Kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that Kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account. Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
+To create this account manually, create a new Kerberos key for your storage account. Then, use that Kerberos key as the password for your account with the PowerShell cmdlets below. This key is only used during setup and cannot be used for any control or data plane operations against the storage account. 
+
+```PowerShell
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
+Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
+```
+
+Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
 
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
 Password: Kerberos key for your storage account.

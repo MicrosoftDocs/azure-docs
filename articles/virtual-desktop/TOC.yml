@@ -136,6 +136,8 @@
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
+  - name: PowerShell
+    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator

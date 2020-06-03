@@ -1,6 +1,6 @@
 ---
 title: Use Spark Connector with Microsoft Azure SQL and SQL Server
-description: Learn how to use the Spark Connector with Microsoft Azure SQL and SQL Server
+description: Learn how to use the Spark Connector with Azure SQL Database, Azure SQL Managed Instance, and SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -15,7 +15,7 @@ ms.date: 09/25/2018
 # Accelerate real-time big data analytics using the Spark connector 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-The Spark connector enables Azure SQL Database, Azure SQL Managed Instance and SQL Server databases to act as input data source or output data sink for Spark jobs. It allows you to utilize real-time transactional data in big data analytics and persist results for adhoc queries or reporting. Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into Microsoft Azure SQL and SQL Server databases. It can outperform row by row insertion with 10x to 20x faster performance. The Spark connector supports AAD authentication for connecting to Azure SQL databases. It allows you securely connecting to your Azure SQL database from Azure Databricks using your AAD account. It provides similar interfaces with the built-in JDBC connector. It is easy to migrate your existing Spark jobs to use this new connector.
+The Spark connector enables databases in Azure SQL Database, Azure SQL Managed Instance, and SQL Server to act as the input data source or output data sink for Spark jobs. It allows you to utilize real-time transactional data in big data analytics and persist results for ad hoc queries or reporting. Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into your database. It can outperform row by row insertion with 10x to 20x faster performance. The Spark connector supports Azure Active Directory (Azure AD) authentication to connect to Azure SQL Database and Azure SQL Managed Instance, allowing you to connect your database from Azure Databricks using your Azure AD account. It provides similar interfaces with the built-in JDBC connector. It is easy to migrate your existing Spark jobs to use this new connector.
 
 ## Download and build Spark connector
 
@@ -137,9 +137,9 @@ val config = Config(Map(
 sqlContext.sqlDBQuery(config)
 ```
 
-## Connect from Spark to Azure SQL using AAD authentication
+## Connect from Spark using Azure AD authentication
 
-You can connect to Azure SQL using Azure Active Directory (AAD) authentication. Use AAD authentication to centrally manage identities of database users and as an alternative to SQL Server authentication.
+You can connect to SQL Database and SQL Managed Instance using Azure Active Directory (Azure AD) authentication. Use Azure AD authentication to centrally manage identities of database users and as an alternative to SQL Server authentication.
 
 ### Connecting using ActiveDirectoryPassword Authentication Mode
 
