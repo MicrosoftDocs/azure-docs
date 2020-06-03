@@ -2,7 +2,7 @@
 title: APIs and tools for developers
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 ms.topic: conceptual
-ms.date: 05/22/2010
+ms.date: 05/22/2020
 ms.custom: seodec18
 ---
 
