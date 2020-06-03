@@ -55,8 +55,8 @@ To create the sample in Visual Studio, do the following steps:
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+1. Replace the value of `imageFilePath` with the path to your own image. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use.
 1. Run the program.
-1. At the prompt, enter the path to a local image.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -219,8 +219,8 @@ To create the sample in Visual Studio, do the following steps:
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+1. Replace the value of `imageFilePath` with the path to your own image. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use.
 1. Run the program.
-1. At the prompt, enter the path to a local image and the language to recognize.
 
 ```csharp
 using Newtonsoft.Json.Linq;

@@ -86,7 +86,7 @@ if 'COMPUTER_VISION_ENDPOINT' in os.environ:
 text_recognition_url = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
+image_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 data = {'url': image_url}
@@ -179,7 +179,7 @@ if missing_env:
 text_recognition_url = endpoint + "/vision/v3.0-preview/read/analyze"
 
 # Set image_url to the URL of an image that you want to recognize.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
+image_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
 
 # Set the langauge that you want to recognize. The value can be "en" for English, and "es" for Spanish
 language = "en"

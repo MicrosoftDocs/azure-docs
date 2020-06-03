@@ -173,7 +173,7 @@ Endpoint URL:
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg" />
+    value="https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg" />
 <button onclick="processImage()">Read image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
@@ -335,7 +335,7 @@ Language:
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg" />
+    value="https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg" />
 <button onclick="processImage()">Read image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
