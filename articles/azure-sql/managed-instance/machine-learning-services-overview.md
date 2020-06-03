@@ -58,4 +58,4 @@ Machine Learning Services in SQL Managed Instance is not recommended for product
 - See the [key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md).
 - To learn how to use Python in Machine Learning Services, see [Run Python scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
 - To learn how to use R in Machine Learning Services, see [Run R scripts](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- For more information, see also the [SQL machine learning documentation](https://docs.microsoft.com/sql/machine-learning/).
+- For more information about machine learning on other SQL platforms, see the [SQL machine learning documentation](https://docs.microsoft.com/sql/machine-learning/).
