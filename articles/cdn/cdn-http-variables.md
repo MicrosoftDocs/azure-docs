@@ -21,11 +21,11 @@ ms.author: allensu
 # HTTP variables for Azure CDN rules engine
 HTTP variables provide the means through which you can retrieve HTTP request and response metadata. This metadata can then be used to dynamically alter a request or a response. The use of HTTP variables is restricted to the following rules engine features:
 
-- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Modify Client Request Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Modify Client Response Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [URL Redirect](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [URL Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## Definitions
 The following table describes the supported HTTP variables. A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.

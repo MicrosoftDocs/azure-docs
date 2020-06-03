@@ -1,6 +1,6 @@
 ---
-title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux Virtual Machines | Microsoft Docs
-description: Learn about setting up High Availability in a RHEL cluster environment and set up STONITH
+title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
+description: Learn about setting up high availability in an RHEL cluster environment and set up STONITH
 ms.service: virtual-machines-linux
 ms.subservice:
 ms.topic: tutorial
@@ -15,21 +15,21 @@ ms.date: 02/27/2020
 > [!NOTE]
 > The tutorial presented is in **public preview**. 
 >
-> We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 7 or RHEL 8 to configure HA. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article, [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
+> We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 7 or RHEL 8 to configure high availability. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a new resource group, Availability Set, and Azure Linux Virtual Machines (VM)
-> - Enable High Availability (HA)
+> - Create a new resource group, availability set, and Linux virtual machines (VMs)
+> - Enable high availability (HA)
 > - Create a Pacemaker cluster
 > - Configure a fencing agent by creating a STONITH device
 > - Install SQL Server and mssql-tools on RHEL
-> - Configure SQL Server Always On Availability Group
+> - Configure SQL Server Always On availability group
 > - Configure availability group (AG) resources in the Pacemaker cluster
 > - Test a failover and the fencing agent
 
-This tutorial will use Azure command-line interface (CLI) to deploy resources in Azure.
+This tutorial will use the Azure CLI to deploy resources in Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,19 +37,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Create a Resource Group
+## Create a resource group
 
 If you have more than one subscription, [set the subscription](/cli/azure/manage-azure-subscriptions-azure-cli) that you want deploy these resources to.
 
-Use the following command to create a Resource Group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../../../application-gateway/quick-create-cli.md).
+Use the following command to create a resource group `<resourceGroupName>` in a region. Replace `<resourceGroupName>` with a name of your choosing. We're using `East US 2` for this tutorial. For more information, see the following [Quickstart](../../../application-gateway/quick-create-cli.md).
 
 ```azurecli-interactive
 az group create --name <resourceGroupName> --location eastus2
 ```
 
-## Create an Availability Set
+## Create an availability set
 
-The next step is to create an Availability Set. Run the following command in Azure Cloud Shell, and replace `<resourceGroupName>` with your Resource Group name. Choose a name for `<availabilitySetName>`.
+The next step is to create an availability set. Run the following command in Azure Cloud Shell, and replace `<resourceGroupName>` with your resource group name. Choose a name for `<availabilitySetName>`.
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -82,14 +82,14 @@ You should get the following results once the command completes:
 }
 ```
 
-## Create RHEL VMs inside the Availability Set
+## Create RHEL VMs inside the availability set
 
 > [!WARNING]
-> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541.
+> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure high availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541.
 >
 > To avoid being "double billed", use a RHEL HA image when creating the Azure VM. Images offered as RHEL-HA images are also PAYG images with HA repo pre-enabled.
 
-1. Get a list of Virtual Machine (VM) images that offer RHEL with HA:
+1. Get a list of virtual machine images that offer RHEL with HA:
 
     ```azurecli-interactive
     az vm image list --all --offer "RHEL-HA"
@@ -126,9 +126,9 @@ You should get the following results once the command completes:
     For this tutorial, we're choosing the image `RedHat:RHEL-HA:7.6:7.6.2019062019`.
 
     > [!IMPORTANT]
-    > Machine names must be less than 15 characters to set up Availability Group. Username cannot contain upper case characters, and passwords must have more than 12 characters.
+    > Machine names must be less than 15 characters to set up availability group. Username cannot contain upper case characters, and passwords must have more than 12 characters.
 
-1. We want to create 3 VMs in the Availability Set. Replace the following in the command below:
+1. We want to create 3 VMs in the availability set. Replace the following in the command below:
 
     - `<resourceGroupName>`
     - `<VM-basename>`
@@ -191,7 +191,7 @@ If the connection is successful, you should see the following output representin
 
 Type `exit` to leave the SSH session.
 
-## Enable High Availability
+## Enable high availability
 
 > [!IMPORTANT]
 > In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add-on. If you are using an image recommended in the previous section, you do not have to register another subscription.
@@ -446,7 +446,7 @@ Run the following commands on node 1:
 
 - Replace the `<ApplicationID>` with the ID value from your application registration.
 - Replace the `<servicePrincipalPassword>` with the value from the client secret.
-- Replace the `<resourceGroupName>` with the Resource Group from your subscription used for this tutorial.
+- Replace the `<resourceGroupName>` with the resource group from your subscription used for this tutorial.
 - Replace the `<tenantID>` and the `<subscriptionId>` from your Azure Subscription.
 
 ```bash
@@ -466,7 +466,7 @@ sudo firewall-cmd --reload
 
 ## Install SQL Server and mssql-tools
  
-Use the below section to install SQL Server and mssql-tools on the VMs. Perform each of these actions on all nodes. For more information, see [install SQL Server a Red Hat VM](/sql/linux/quickstart-install-connect-red-hat).
+Use the below section to install SQL Server and mssql-tools on the VMs. Perform each of these actions on all nodes. For more information, see [Install SQL Server on a Red Hat VM](/sql/linux/quickstart-install-connect-red-hat).
 
 ### Installing SQL Server on the VMs
 
@@ -525,13 +525,13 @@ You should see the following output:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## Configure SQL Server Always On Availability Group
+## Configure an availability group
 
-Use the following steps to configure SQL Server Always On Availability Group for your VMs. For more information, see [configure SQL Server Always On Availability Group for high availability on Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
+Use the following steps to configure a SQL Server Always On availability group for your VMs. For more information, see [Configure SQL Server Always On availability groups for high availability on Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 
-### Enable AlwaysOn availability groups and restart mssql-server
+### Enable Always On availability groups and restart mssql-server
 
-Enable AlwaysOn availability groups on each node that hosts a SQL Server instance. Then restart mssql-server. Run the following script:
+Enable Always On availability groups on each node that hosts a SQL Server instance. Then restart mssql-server. Run the following script:
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -542,7 +542,7 @@ sudo systemctl restart mssql-server
 
 We currently don't support AD authentication to the AG endpoint. Therefore, we must use a certificate for AG endpoint encryption.
 
-1. Connect to **all nodes** using SQL Server Management Studio (SSMS) or SQL CMD. Run the following commands to enable AlwaysOn_health session and create a master key:
+1. Connect to **all nodes** using SQL Server Management Studio (SSMS) or SQL CMD. Run the following commands to enable an AlwaysOn_health session and create a master key:
 
     > [!IMPORTANT]
     > If you are connecting remotely to your SQL Server instance, you will need to have port 1433 open on your firewall. You'll also need to allow inbound connections to port 1433 in your NSG for each VM. For more information, see [Create a security rule](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) for creating an inbound security rule.
@@ -560,19 +560,19 @@ We currently don't support AD authentication to the AG endpoint. Therefore, we m
 1. Connect to the primary replica using SSMS or SQL CMD. The below commands will create a certificate at `/var/opt/mssql/data/dbm_certificate.cer` and a private key at `var/opt/mssql/data/dbm_certificate.pvk` on your primary SQL Server replica:
 
     - Replace the `<Private_Key_Password>` with your own password.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 Exit the SQL CMD session by running the `exit` command, and return back to your SSH session.
  
@@ -597,7 +597,7 @@ Exit the SQL CMD session by running the `exit` command, and return back to your 
     scp /var/opt/mssql/data/dbm_certificate.* <username>@<VM2>:/home/<username>
     ```
 
-1. On the target Server, run the following command:
+1. On the target server, run the following command:
 
     - Replace `<username>` with your user name.
     - The `mv` command moves the files or directory from one place to another.
@@ -625,7 +625,7 @@ Exit the SQL CMD session by running the `exit` command, and return back to your 
 
 ### Create the database mirroring endpoints on all replicas
 
-Run the following script on all SQL instances using SQL CMD or SSMS:
+Run the following script on all SQL Server instances using SQL CMD or SSMS:
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -641,9 +641,9 @@ ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 GO
 ```
 
-### Create the Availability Group
+### Create the availability group
 
-Connect to the SQL Server instance that hosts the primary replica using SQL CMD or SSMS. Run the following command to create the Availability Group:
+Connect to the SQL Server instance that hosts the primary replica using SQL CMD or SSMS. Run the following command to create the availability group:
 
 - Replace `ag1` with your desired Availability Group name.
 - Replace the `<VM1>`, `<VM2>`, and `<VM3>` values with the names of the SQL Server instances that host the replicas.
@@ -681,7 +681,7 @@ GO
 
 ### Create a SQL Server login for Pacemaker
 
-On all SQL Servers, create a SQL login for Pacemaker. The following Transact-SQL creates a login.
+On all SQL Server instances, create a SQL Server login for Pacemaker. The following Transact-SQL creates a login.
 
 - Replace `<password>` with your own complex password.
 
@@ -696,7 +696,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-On all SQL Servers, save the credentials used for the SQL Server login. 
+On all SQL Server instances, save the credentials used for the SQL Server login. 
 
 1. Create the file:
 
@@ -739,7 +739,7 @@ On all SQL Servers, save the credentials used for the SQL Server login.
     GO
     ```
 
-1. Run the following Transact-SQL script on the primary replica and each secondary replicas:
+1. Run the following Transact-SQL script on the primary replica and each secondary replica:
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -784,7 +784,7 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
+If the `synchronization_state_desc` lists SYNCHRONIZED for `db1`, this means the replicas are synchronized. The secondaries are showing `db1` in the primary replica.
 
 ## Create availability group resources in the Pacemaker cluster
 
@@ -837,7 +837,7 @@ We will be following the guide to [create the availability group resources in th
     sudo pcs resource create virtualip ocf:heartbeat:IPaddr2 ip=<availableIP>
     ```
 
-### Add Constraints
+### Add constraints
 
 1. To ensure that the IP address and the AG resource are running on the same node, a colocation constraint must be configured. Run the following command:
 
@@ -909,9 +909,9 @@ Daemon Status:
 
 ## Test failover
 
-To ensure that the configuration has succeeded so far, we will test a failover. For more information, see [Always On Availability Group failover on Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
+To ensure that the configuration has succeeded so far, we will test a failover. For more information, see [Always On availability group failover on Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-1. Run the following command to manually failover the primary replica to `<VM2>`. Replace `<VM2>` with the value of your server name.
+1. Run the following command to manually fail over the primary replica to `<VM2>`. Replace `<VM2>` with the value of your server name.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -953,7 +953,7 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-## Test Fencing
+## Test fencing
 
 You can test STONITH by running the following command. Try running the below command from `<VM1>` for `<VM3>`.
 
@@ -979,7 +979,7 @@ For more information on testing a fence device, see the following [Red Hat](http
 
 ## Next steps
 
-In order to utilize an Availability Group Listener for your SQL Servers, you will need to create and configure a load balancer.
+In order to utilize an availability group listener for your SQL Server instances, you will need to create and configure a load balancer.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure](rhel-high-availability-listener-tutorial.md)
+> [Tutorial: Configure an availability group listener for SQL Server on RHEL virtual machines in Azure](rhel-high-availability-listener-tutorial.md)
