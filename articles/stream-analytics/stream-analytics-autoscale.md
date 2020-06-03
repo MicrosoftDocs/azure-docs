@@ -50,7 +50,7 @@ Azure Automation allows you to configure a schedule to trigger your runbooks.
 3. Open your **ScaleUpRunbook** and then select **Schedules** under **Resources**. You can then link your runbook to a schedule you created in the previous steps. You can have multiple schedules linked with the same runbook which can be helpful when you want to run the same scale operation at different times of the day.
 ![Scheduling runbooks in Azure Automation](./media/autoscale/schedulerunbook.png)
 
-1. Repeat the previous step for **ScaleDownRunbook** as well.
+1. Repeat the previous step for **ScaleDownRunbook**.
 
 ## Autoscale based on load
 There might be cases where you cannot predict input load. In such cases, it more optimal to scale up/down in steps within a minimum and maximum bound. You can configure alert rules in your Stream Analytics jobs to trigger runbooks when job metrics go above or below a threshold.
