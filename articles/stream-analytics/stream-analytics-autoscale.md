@@ -12,7 +12,7 @@ ms.date: 06/01/2020
 
 You can optimize the cost of your Stream Analytics jobs by configuring autoscale. Autoscaling increases or decreases your job's Streaming Units (SUs) to match the change in your input load. Instead of over-provisioning your job, you can scale up or down as needed. There are two ways to configure your jobs to autoscale:
 1. **Pre-define a schedule** when you have a predictable input load. For example, you expect a higher rate of input events during the daytime and want your job to run with more SUs.
-2. **Triggering scale up/down operations based on job metrics** when you don't have a predictable input load. You can dynamically change the number of SUs based on your job metrics such as number of input events or backlogged input events.
+2. **Trigger scale up and scale down operations based on job metrics** when you don't have a predictable input load. You can dynamically change the number of SUs based on your job metrics such as the number of input events or backlogged input events.
 
 ## Prerequisites
 Before you start configure autoscaling for your job, you should complete the following steps.
