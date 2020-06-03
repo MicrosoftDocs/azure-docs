@@ -137,7 +137,7 @@ In the following tables:
 | IKE Version                   |IKEv1          |IKEv1 and IKEv2                              |
 | Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | SA Lifetime (Time)            |3,600 seconds  |27,000 seconds                               |
-| SA Lifetime (Bytes)           |102,400,000 KB | -                                           |
+| SA Lifetime (Bytes)           |102,400,000 KB |102,400,000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
 
