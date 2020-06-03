@@ -67,14 +67,16 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
-
-#### Step 2: Download the sample project
-
->[!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> 
+> #### Step 2: Download the sample project
+> [!div id="autoupdate" class="nextstepaction"]
 > - [Download the Code Sample for iOS]()
+> 
+> [!div id="autoupdate" class="nextstepaction"]
 > - [Download the Code Sample for macOS]()
-
 > [!div renderon="docs"]
+> #### Step 2: Download the sample project
+> 
 > - [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -85,7 +87,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 4: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run.
-> > > [!NOTE]
+> >  [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
