@@ -46,7 +46,7 @@ At this point, [Device](https://www.hl7.org/fhir/device.html) resource, along wi
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR server. If you plan on reusing devices with multiple patients it is advised you create a virtual device resource that is specific to the patient and send virtual device identifier in the message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR server, the outcome depends upon the value of `Resolution Type` set at the time of installation. When set to `Lookup`, message processing will error and stop. If set to `Create`, IoMT connector will create a bare-bones Device and Patient resources on the FHIR server.  
+If no Device resource for a given device identifier exists in the FHIR server, the outcome depends upon the value of `Resolution Type` set at the time of creation. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to `Create`, IoMT connector will create a bare-bones Device and Patient resources on the FHIR server.  
 
 ## Persist ##
 Once the Observation FHIR resource is generated in the Transform stage, resource is saved into Azure API for FHIR. If the FHIR resource is new, it will be created on the server. If the FHIR resource already existed, it will get updated.
