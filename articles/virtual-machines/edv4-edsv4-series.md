@@ -14,10 +14,6 @@ ms.date: 02/04/2020
 
 The Edv4 and Edsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, and are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). These new VM sizes will have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) sizes with [Gen2 VMs](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
 
-
-> [!IMPORTANT]
-> If you are deploying a new Virtual Machine using the Edv4 or Edsv4-series and intend to use a Linux Image, you need to use either RHEL 8.x, CentOS 8.x, or Oracle 7.x or newer. If choosing RHEL 7.x, CentOS 7.x or Orcale 6.x there will be a Kernel Panic error. Microsoft is actively deploying a fix. Only RHEL, CentOS and Oracle are impacted.
-
 ## Edv4-series
 
 Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors. The Edv4 virtual machine sizes feature up to 504 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to the Edv4 VMs. 

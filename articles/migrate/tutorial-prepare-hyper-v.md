@@ -121,11 +121,10 @@ Run the script as follows:
     ```
     Example usage:
     ```
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
-    SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 
-4.    After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+4. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
