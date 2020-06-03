@@ -90,6 +90,10 @@
           href: tutorial-incremental-copy-change-tracking-feature-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      - name: Using CDC in Azure SQL MI
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-change-data-capture-feature-portal.md
       - name: New files by last modified data
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
