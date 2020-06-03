@@ -507,6 +507,4 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 > [!NOTE]
 > The user might be prompted for additional consents as you increase the number of scopes.
 
-If a back-end API doesn't require a scope (not recommended), you can use *clientId* as the scope in the calls to acquire tokens.
-
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
