@@ -26,7 +26,7 @@ You can do custom setups on your Azure-SSIS IR in either of two ways:
 * **Standard custom setup with a script**: Prepare a script and its associated files, and upload them all together to a blob container in your Azure storage account. You then provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you set up or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR then downloads the script and its associated files from your container and runs your custom setup with elevated permissions. When your custom setup is finished, each node uploads the standard output of execution and other logs to your container.
 * **Express custom setup without a script**: Run some common system configurations and Windows commands or install some popular or recommended additional components without using any scripts.
 
-You can install both free, unlicensed components and paid, licensed components with standard and express custom setups. If you're an independent software vendor (ISV), see [Develop paid or licensed components for an Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
+You can install both free, unlicensed components and paid, licensed components with standard and express custom setups. If you're an independent software vendor (ISV), see [Develop paid or licensed components for Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
 > To benefit from future enhancements, we recommend using v3 or later series of nodes for your Azure-SSIS IR with custom setup.
@@ -318,5 +318,5 @@ To view and reuse some samples of standard custom setups, complete the following
 
 ## Next steps
 
-- [Set up the Enterprise Edition of the Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
-- [Develop paid or licensed custom components for the Azure-SSIS Integration Runtime](how-to-develop-azure-ssis-ir-licensed-components.md
+- [Set up the Enterprise Edition of Azure-SSIS IR](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Develop paid or licensed components for Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)
