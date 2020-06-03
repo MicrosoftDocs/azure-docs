@@ -40,7 +40,7 @@ Azure Private Link provides the following benefits:
 |Supported services  |Available regions | Status  |
 |:-------------------|:-----------------|:--------|
 |Private Link services behind standard Azure Load Balancer | All public regions  | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Storage        |  All public regions       | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
+| Azure Storage (BlobStorage, StorageV2)        |  All public regions       | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  All public regions      | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (SQL Data Warehouse)| All public regions |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
@@ -54,7 +54,7 @@ Azure Private Link provides the following benefits:
 |Azure Container Registry | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
 |Azure App Configuration | All public regions      |   Preview   |
 |Azure Backup | All public regions     |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Azure Event Hub | All public regions      |    GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Event Hub (dedicated cluster) | All public regions      |    GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
 |Azure Service Bus | All public regions      |  GA   <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | All public regions      |   Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| All public regions       |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
