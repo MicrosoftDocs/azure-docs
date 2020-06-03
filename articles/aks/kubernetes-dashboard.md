@@ -105,6 +105,8 @@ Once successful, a page similar to the below will be displayed.
 
 ## Create an application
 
+The following steps require permissions to many resources. It is recommended to use an admin account when testing these capabilities.
+
 To see how the Kubernetes dashboard can reduce the complexity of management tasks, let's create an application. You can create an application from the Kubernetes dashboard by providing text input, a YAML file, or through a graphical wizard.
 
 To create an application, complete the following steps:
