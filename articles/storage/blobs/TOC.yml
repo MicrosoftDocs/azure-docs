@@ -190,6 +190,18 @@
         href: storage-blob-reserved-capacity.md
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md
+      - name: Scalability and performance targets
+        items:
+        - name: Blob storage
+          href: scalability-targets.md
+        - name: Standard storage accounts
+          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Premium block blob storage accounts
+          href: scalability-targets-premium-block-blobs.md
+        - name: Premium page blob storage accounts
+          href: scalability-targets-premium-page-blobs.md
+        - name: Storage resource provider
+          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
@@ -473,60 +485,8 @@
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Scalability and performance targets
-      items:
-      - name: Blob storage
-        href: scalability-targets.md
-      - name: Standard storage accounts
-        href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Premium block blob storage accounts
-        href: scalability-targets-premium-block-blobs.md
-      - name: Premium page blob storage accounts
-        href: scalability-targets-premium-page-blobs.md
-      - name: Storage resource provider
-        href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure PowerShell
-      href: /powershell/module/az.storage
-    - name: Azure CLI
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-      - name: Blobs (version 12.x)
-        href: /dotnet/api/azure.storage.blobs
-      - name: Data Movement
-        href: /dotnet/api/microsoft.azure.storage.datamovement
-      - name: Storage Resource Provider
-        href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-      - name: Blobs (version 12.x)
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
-      - name: Blobs (version 8.x)
-        href: /java/api/com.microsoft.azure.storage.blob
-      - name: Storage Resource Provider
-        href: /java/api/overview/azure/storage/management
-    - name: JavaScript (version 12.x)
-      href: /javascript/api/@azure/storage-blob/
-    - name: Python (version 12.x)
-      href: /python/api/azure-storage-blob/
-    - name: REST
-      items:
-      - name: Blobs, Queues, Tables, and Files
-        href: /rest/api/storageservices
-      - name: Storage Resource Provider
-        href: /rest/api/storagerp
-      - name: Import/Export
-        href: /rest/api/storageimportexport
-    - name: C++
-      href: https://azure.github.io/azure-storage-cpp
-    - name: Ruby
-      href: https://azure.github.io/azure-storage-ruby
-    - name: PHP
-      href: https://azure.github.io/azure-storage-php/
-    - name: iOS
-      href: https://azure.github.io/azure-storage-ios/
-    - name: Android
-      href: https://azure.github.io/azure-storage-android
+    - name: Azure Blob storage reference
+      href: ../blobs/reference.md
     - name: AzCopy v10
       items:
       - name: azcopy

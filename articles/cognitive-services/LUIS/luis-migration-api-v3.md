@@ -1,7 +1,7 @@
 ---
 title: Prediction endpoint changes in the V3 API
 description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: diberry
 ---
