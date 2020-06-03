@@ -18,6 +18,8 @@ For both Azure Files and Azure File Sync, the Azure management objects, the stor
 
 This article focuses on how to configure the networking endpoints for both Azure Files and Azure File Sync. To learn more about how to configure networking endpoints for accessing Azure file shares directly, rather than caching on-premises with Azure File Sync, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md).
 
+We recommend reading [Azure File Sync networking considerations](storage-sync-files-networking-overview.md) prior to reading this how to guide.
+
 ## Prerequisites 
 This article assumes that:
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

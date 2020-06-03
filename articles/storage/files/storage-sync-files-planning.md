@@ -249,9 +249,7 @@ Based on your organization's policy or unique regulatory requirements, you may r
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-To learn more about configuring the networking functionality of Azure File Sync, see:
-- [Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md)
-- [Ensuring Azure File Sync is a good neighbor in your datacenter](storage-sync-files-server-registration.md)
+To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](storage-sync-files-networking-overview.md).
 
 ## Encryption
 When using Azure File Sync, there are three different layers of encryption to consider: encryption on the at-rest storage of Windows Server, encryption in transit between the Azure File Sync agent and Azure, and encryption at rest of your data in the Azure file share. 
