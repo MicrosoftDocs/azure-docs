@@ -15,7 +15,7 @@ Deleting backups of a protected item is a significant operation that has to be m
 
 But there are scenarios in which this capability is not required. An Azure Recovery Services vault cannot be deleted if there are backup items within it, even soft-deleted ones. This may pose a problem if the vault needs to be immediately deleted. For for example: deployment operations often clean up the created resources in the same workflow. A deployment can create a vault, configure backups for an item, do a test restore and then proceed to delete the backup items and the vault. If the vault deletion fails, the entire deployment might fail. Disabling soft-delete is the only way to guarantee immediate deletion.
 
-Hence, the customer needs to carefully choose whether or not to disable soft-delete for a particular vault depending on the scenario. For more information, see the [soft-delete article](backup-azure-security-feature-cloud.md).
+So you need to carefully choose whether or not to disable soft-delete for a particular vault depending on the scenario. For more information, see the [soft-delete article](backup-azure-security-feature-cloud.md).
 
 ### Fetch soft delete state using REST API
 

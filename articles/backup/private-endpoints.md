@@ -19,6 +19,7 @@ This article will help you understand the process of creating private endpoints 
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Azure Active Directory doesn't currently support private endpoints. So IPs and FQDNs required for Azure Active Directory to work in a region will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
 - Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to disable Network Polices before continuing.
+- You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1st 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and click **Re-register**.
 
 ## Recommended and supported scenarios
 
@@ -105,7 +106,7 @@ If you wish to create a separate private DNS zone in Azure, you can do the same 
 
 Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
 
-For URL naming conventions in national geos:
+For URL naming conventions in national regions:
 
 - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)

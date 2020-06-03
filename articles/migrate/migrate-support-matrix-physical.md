@@ -2,7 +2,7 @@
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ---
 
 # Support matrix for physical server assessment 
@@ -30,7 +30,7 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
 | **Permissions**           | **Windows:** You need to be a domain admin, or local admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) server operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.<br/><br/> Windows 10 and Windows 8 client operating systems. |
+| **Operating system** | All operating systems can be assessed for migration. |
 
 
 ## Azure Migrate appliance requirements
@@ -49,7 +49,7 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
-**Physical servers** | **Windows:** Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (UDP), to pull configuration and performance metadata from Linux servers. |
+**Physical servers** | **Windows:** Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
 
 ## Agent-based dependency analysis requirements
 
