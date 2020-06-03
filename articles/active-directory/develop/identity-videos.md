@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 06/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
