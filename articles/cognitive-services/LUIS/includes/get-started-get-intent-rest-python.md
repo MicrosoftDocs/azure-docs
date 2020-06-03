@@ -10,10 +10,6 @@ ms.date: 06/03/2020
 ms.author: diberry
 ---
 
-Use the Language Understanding (LUIS) REST API to:
-
-* Predict the intent of an utterance
-
 [Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-predict-with-rest/predict.py)
 
 ## Prerequisites
