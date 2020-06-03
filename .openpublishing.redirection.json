@@ -43132,11 +43132,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/powershell-samples.md",
-      "redirect_url": "/azure/azure-monitor/samples/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/insights/solutions-creating.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions",
       "redirect_document_id": false
