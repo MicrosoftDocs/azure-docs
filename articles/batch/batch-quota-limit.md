@@ -24,9 +24,6 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-> [!IMPORTANT]
-> We are changing how you request and manage dedicated quota.  The total dedicated vCPUs is the currently enforced value, but soon we will enforce dedicated quota per VM series. Low-priority quota will continue being enforced based on the total limit; it will not be enforced by VM series.
-
 ### Cores quotas in user subscription mode
 
 If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
