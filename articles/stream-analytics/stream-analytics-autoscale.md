@@ -39,7 +39,7 @@ The next step is to create two PowerShell runbooks. One for scale up and the oth
 3. Create another runbook called *ScaleDownRunbook* with the type PowerShell. Use the [ScaleDownRunbook PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) available in GitHub. Save and publish it.
 ![Autoscale runbooks in Azure Automation](./media/autoscale/runbooks.png)
 
-You now have runbooks that can automatically trigger scale up/down operations on your Stream Analytics job. These runbooks can be triggered using a pre-defined scheduled or dynamically based on job metrics.
+You now have runbooks that can automatically trigger scale up and scale down operations on your Stream Analytics job. These runbooks can be triggered using a pre-defined schedule or can be set dynamically based on job metrics.
 
 ## Autoscale based on a schedule
 Azure Automation allows you to configure a schedule to trigger your runbooks.
