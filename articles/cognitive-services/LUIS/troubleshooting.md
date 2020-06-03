@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions (FAQ) - LUIS
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
 ---
