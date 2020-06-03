@@ -692,7 +692,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
   # Get Public key out of pkc7
   openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
-  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+  curl -s -o intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem
   #Verify the contents
   openssl smime -verify -in sign.pk7 -inform pem -noverify
@@ -846,4 +846,4 @@ To get support for the service, create a support issue in Azure portal for the V
 
 Learn more about:
 1.  [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-2.  [Scheduled Events](scheduled-events.md) 
+2.  [Scheduled Events](scheduled-events.md)
