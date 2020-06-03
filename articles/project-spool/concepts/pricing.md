@@ -24,6 +24,32 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 | iOS |  Public Preview |  TBD |
 | Android | Public Preview | TBD |
 
+###Estimating billing for VOIP
+
+[Case 1: VoIP where a direct connection between two devices is possible ](https://github.com/mikben/azure-docs-pr/blob/release-project-spool/articles/project-spool/concepts/voice/call-flows.md#case-1-voip-where-a-direct-connection-between-two-devices-is-possible)
+
+UserA makes a call to UserB who were on the same network for 2 hours. 
+Total: 120 * $TBD = $0.xxx
+
+
+[Case 2: VoIP where a direct connection between devices is not possible, but where connection between NAT devices is possible](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/call-flows?branch=pr-en-us-104477#case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible)
+
+UserA makes a VOP call to userB who are in seperate cities for 1 hour
+Total: (60 * $TBD) + (54MB * $TBD)
+
+Average relay usage for Audio only:
+Average relay usage for Screen Share:
+Average relay usage for SD video stream:
+Average relay usage for HD video stream:
+
+
+
+
+[Case 3: VoIP where neither a direct nor NAT connection is possible](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/call-flows?branch=pr-en-us-104477#case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible)
+
+
+
+
 
 ## Chat
 
@@ -42,6 +68,8 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 | Android | Public Preview | TBD |
 
 ## PSTN
+
+[Case 4: Group calls with PSTN](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/call-flows?branch=pr-en-us-104477#case-4-group-calls-with-pstn)
 
 ## SMS 
 
