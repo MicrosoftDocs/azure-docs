@@ -46,7 +46,7 @@ Previous versions also currently supported include: `3.0.2`
 
 ## Search
 
-All search parameter types are supported. Chained searches are supported in OSS (SQL). Reverse chaining is *not* supported.
+All search parameter types are supported. 
 
 | Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
