@@ -1,12 +1,14 @@
 ---
 title: Manage fault domains in Azure virtual machine scale sets
 description: Learn how to choose the right number of FDs while creating a virtual machine scale set.
-author: rajsqr
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 12/18/2018
-ms.author: drewm
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Choosing the right number of fault domains for virtual machine scale set

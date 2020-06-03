@@ -31,7 +31,7 @@ Our recommendation is to use a vault per application per environment (Developmen
 
 ## Backup
 
-Make sure you take regular back ups of your [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) on update/delete/create of objects within a Vault.
+Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
 
 ## Turn on Logging
 

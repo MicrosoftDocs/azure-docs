@@ -42,7 +42,7 @@ ms.reviewer: olegan
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## Export and data analysis
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## Unsupported SDKs

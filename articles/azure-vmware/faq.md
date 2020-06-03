@@ -52,6 +52,20 @@ on-premises environments for vMotion.
 
 Updates made to the service itself will follow Microsoft Azure’s standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
 
+**How is this different from Azure VMware Solution by CloudSimple?**
+
+With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
+
+**If I'm an existing Azure VMware Solution customer, what does this preview mean for me?**
+
+There is no change to the existing Azure VMware Solution by CloudSimple. We continue to support the solution on Azure. Azure VMware Solution is backed by our service level agreement [(SLA)](https://aka.ms/CSVMwareSLA). Customers should continue to use the service for production workloads; this is an available solution governed by [Microsoft’s service terms](https://azure.microsoft.com/support/legal/).
+
+**Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
+
+Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
+
+
+
 ## Compute, network, and storage
 
 **Is there more than one type of host available?**
@@ -120,7 +134,7 @@ No, you aren't required to use NSX on-premises.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle form VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
 
 **How often will the private cloud software stack be updated?**
 
@@ -184,11 +198,40 @@ For general questions on pricing see the Azure VMware Solution [pricing](https:/
 
 **Who supports AVS?**
 
-Support for AVS is delivered by Microsoft. Please note as per our preview guidelines support parameters are scoped. Details on support for this specific service during preview is available on request to your account team.
+Support for AVS is delivered by Microsoft. Please note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday thru Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **What accounts do I need to create an AVS private cloud?**
 
 You'll need an Azure account in an Azure subscription.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**How do I request a host quota increase for Azure VMware Solution?**
+
+You can request a quota increase by [submitting a support request](..\azure-portal\supportability\how-to-create-azure-support-request.md). The Quota Management team evaluates the request and approves it within three business days.  
+
+> [!IMPORTANT]
+> Before you can request a quota increase, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> For additional ways to register the resource provider, see [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
+   - **Issue type:** Technical
+   - **Subscription:** Your subscription ID
+   - **Service:**  Azure VMware Solution 
+   - **Summary:** Quota increase
+   - **Problem type:** Capacity Management Issues
+   - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+
+1. In the Description of the support ticket, on the Details tab, provide the:
+   - Number of additional nodes   
+   - Node SKU
+   - Region
+
+   > [!NOTE] 
+   > By default, a minimum of four nodes will be granted.
+
+1. Click **Review + Create** to submit the request.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

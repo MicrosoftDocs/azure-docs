@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 
@@ -24,11 +24,9 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos DB account for Gremlin with autoscale throughput
+## Azure Cosmos DB account for Gremlin with autoscale provisioned throughput
 
-This template will create an Azure Cosmos account for Gremlin API with a database and graph with autoscale throughput.
-
-This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos account for Gremlin API with a database and graph with autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
@@ -36,11 +34,9 @@ This template is also available for one-click deploy from Azure Quickstart Templ
 
 <a id="create-manual"></a>
 
-## Azure Cosmos DB account for Gremlin with manual throughput
+## Azure Cosmos DB account for Gremlin with standard provisioned throughput
 
-This template will create an Azure Cosmos account for Gremlin API with a database and graph with manual throughput.
-
-This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos account for Gremlin API with a database and graph with standard (manual) throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 

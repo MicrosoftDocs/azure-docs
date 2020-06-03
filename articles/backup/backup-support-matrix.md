@@ -51,7 +51,7 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Limit** | **Details**
 --- | ---
-**Azure VM data disks** | Limit of 16 <br> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+**Azure VM data disks** | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
 **Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options

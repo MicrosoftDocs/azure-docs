@@ -18,6 +18,9 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 Your first step when troubleshooting IoT Edge should be to use the `check` command, which runs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
+>[!NOTE]
+>The troubleshooting tool can't run connectivity checks if the IoT Edge device is behind a proxy server.
+
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
 On Linux:
@@ -34,9 +37,9 @@ iotedge check
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
-* Configuration checks: Examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
-* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
-* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
+* *Configuration checks* examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
+* *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
@@ -127,6 +130,20 @@ On Windows:
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog -StartTime ([datetime]::Now.AddMinutes(-5))
    ```
+
+* View more detailed logs of the IoT Edge security manager:
+
+  * Add a system-level environment variable:
+
+      ```powershell
+      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "edgelet=debug", [EnvironmentVariableTarget]::Machine)
+      ```
+
+  * Restart the IoT Edge Security Daemon:
+
+      ```powershell
+      Restart-Service iotedge
+      ```
 
 ### If the IoT Edge security manager is not running, verify your yaml configuration file
 

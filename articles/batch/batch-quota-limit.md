@@ -1,8 +1,8 @@
 ---
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
-ms.topic: article
-ms.date: 08/13/2019
+ms.topic: conceptual
+ms.date: 06/03/2020
 ms.custom: seodec18
 ---
 
@@ -78,41 +78,41 @@ Follow these steps to request a quota increase for your Batch account or your su
 1. Select **New support request** > **Basics**.
 1. In **Basics**:
    
-    a. **Issue Type** > **Service and subscription limits (quotas)**
+    1. **Issue Type** > **Service and subscription limits (quotas)**
    
-    b. Select your subscription.
+    1. Select your subscription.
    
-    c. **Quota type** > **Batch**
+    1. **Quota type** > **Batch**
       
-    Select **Next**.
+       Select **Next**.
     
 1. In **Details**:
       
-    a. In **Provide details**, specify the location, quota type, and Batch account.
+    1. In **Provide details**, specify the location, quota type, and Batch account.
     
-    ![Batch quota increase][quota_increase]
+       ![Batch quota increase][quota_increase]
 
-    Quota types include:
+       Quota types include:
 
-    * **Per Batch account**  
-        Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
+       * **Per Batch account**  
+         Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
         
-    * **Per region**  
-        Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
+       * **Per region**  
+         Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
-    Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+       Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
 
-    b. Select a **Severity** according to your [business impact][support_sev].
+    1. Select a **Severity** according to your [business impact][support_sev].
 
-    Select **Next**.
+       Select **Next**.
 
 1. In **Contact information**:
    
-    a. Select a **Preferred contact method**.
+    1. Select a **Preferred contact method**.
    
-    b. Verify and enter the required contact details.
+    1. Verify and enter the required contact details.
    
-    Select **Create** to submit the support request.
+       Select **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.
 
@@ -121,16 +121,16 @@ Once you've submitted your support request, Azure support will contact you. Quot
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
 * One [network security group](../virtual-network/security-overview.md#network-security-groups)
-* One [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* One [public IP address](../virtual-network/public-ip-addresses.md)
 * One [load balancer](../load-balancer/load-balancer-overview.md)
 
 These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
-## Related topics
-* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
-* [Azure Batch feature overview](batch-api-basics.md)
-* [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## Next steps
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

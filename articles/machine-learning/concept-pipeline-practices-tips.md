@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 04/29/2020
+ms.date: 05/01/2020
 # As a data scientist, I want to rapidly evolve my code in collaboration with my colleagues
 ---
 

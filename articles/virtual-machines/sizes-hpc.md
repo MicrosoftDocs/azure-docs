@@ -35,7 +35,7 @@ Azure H-series virtual machines (VMs) are designed to deliver leadership-class p
 
 ## RDMA-capable instances
 
-Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series] (https://docs.microsoft.com/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
+Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series](https://docs.microsoft.com/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
 
 This interface allows the RDMA-capable instances to communicate over an InfiniBand (IB) network, operating at HDR rates for HBv2, EDR rates for HB, HC, FDR rates for H16r, H16mr, and RDMA-capable N-series virtual machines, and QDR rates for A8 and A9 VMs. These RDMA capabilities can boost the scalability and performance of certain Message Passing Interface (MPI) applications. For more information on speed, see the details in the tables on this page.
 
@@ -88,7 +88,7 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 - **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same scale set or availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service.
 
-- **Virtual machine scale sets** - In a virtual machine scale set (VMSS), ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. Note that the maximum VMSS size that can be spun up with `singlePlacementGroup` property to `true` is capped at 100 VMs by default. If your HPC job scale needs are higher than 100 VMs in a single VMSS tenant, you may request an increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+- **Virtual machine scale sets** - In a virtual machine scale set (VMSS), ensure that you limit the deployment to a single placement group for InfiniBand communication within the VMSS. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. Note that the maximum VMSS size that can be spun up with `singlePlacementGroup` property to `true` is capped at 100 VMs by default. If your HPC job scale needs are higher than 100 VMs in a single VMSS tenant, you may request an increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge. The limit on the number of VMs in a single VMSS can be increased to 300. Note that when deploying VMs using Availability Sets the maximum limit is at 200 VMs per Availability Set.
 
 - **MPI among virtual machines** - If RDMA (e.g. using MPI communication) is required between virtual machines (VMs), ensure that the VMs are in the same virtual machine scale set or availability set.
 
@@ -125,6 +125,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

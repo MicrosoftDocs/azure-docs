@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server  offline to a SQL single database"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from SQL Server on-premises to a single database or pooled database in Azure SQL Database offline by using Azure Database Migration Service.
+description: Learn to migrate from SQL Server to Azure SQL Database offline by using Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/08/2020
 ---
 
-# Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS
+# Tutorial: Migrate SQL Server to Azure SQL Database offline using DMS
 
-You can use Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). In this tutorial, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). In this tutorial, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -63,13 +63,13 @@ To complete this tutorial, you need to:
 - Open your Windows firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
-- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure SQL Database to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 - Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 - Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases.
 
 ## Assess your on-premises database
 
-Before you can migrate data from an on-premises SQL Server instance to a single database or pooled database in Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. Using the Data Migration Assistant v3.3 or later, follow the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:
+Before you can migrate data from a SQL Server instance to a single database or pooled database in Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. Using the Data Migration Assistant v3.3 or later, follow the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:
 
 1. In the Data Migration Assistant, select the New (+) icon, and then select the **Assessment**  project type.
 2. Specify a project name, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database**, and then select **Create** to create the project.
@@ -95,7 +95,7 @@ Before you can migrate data from an on-premises SQL Server instance to a single 
     For single databases or pooled databases in Azure SQL Database, the assessments identify feature parity issues and migration blocking issues for deploying to  a single database or pooled database.
 
     - The **SQL Server feature parity** category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects.
-    - The **Compatibility issues** category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Database. Recommendations are also provided to help you address those issues.
+    - The **Compatibility issues** category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating SQL Server database(s) to Azure SQL Database. Recommendations are also provided to help you address those issues.
 
 6. Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
 
@@ -224,7 +224,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database Server, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the Data Migration Assistant.
+1. Select **Save**, and then on the **Migration target details** screen, specify the connection details for the target Azure SQL Database, which is the pre-provisioned Azure SQL Database to which the **AdventureWorks2012** schema was deployed by using the Data Migration Assistant.
 
     ![Select Target](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -266,7 +266,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 2. After the migration completes, select **Download report** to get a report listing the details associated with the migration process.
 
-3. Verify the target database(s) on the target Azure SQL Database server.
+3. Verify the target database(s) on the target Azure SQL Database.
 
 ### Additional resources
 
