@@ -61,6 +61,33 @@ Before you begin, make sure that:
 > * A maximum of 80 TBs can be exported.
 > * File history is not exported.
 
+<!-- ### Constraints
+
+* Max of 500 containers are exported
+* File limit
+* < 80 TBs of data is the maximum amount that can be exported
+* 5,000,000 million files
+* There's a 1:1 mapping from prefix to container
+* Link [Preview export command](../storage/common/storage-import-export-data-from-blobs.md#example-of-previewexport-command)
+* We support only 1024 characters files in length, anything over this will not export.
+* Duplicate prefixes in the xml file are counted(export) twice
+
+### Verbose logs -->
+
+<!-- All files successfully exported will be logged in the verbose log (file size, cloud format, file path, and CRC)
+Premium storage account has verbose log only.
+Verbose log is equivalent to a bill of materials (BOM).
+The log is sent to customer and downloaded. The customer can also delete the log from the cloud
+Error log is also created.
+Customers can 
+Check-sum of file (CRC).
+
+ERROR LOG:
+Similar format to the one in import. Was it in the cloud or in the read. Be used to create an export job. You can use the old error log to construct an new export job! You can use the error log as a template. -->
+
+<!-- Start at 44:00 in video -->
+<!-- ### Local account -->
+
 ## Order Data Box
 
 Perform the following steps in the Azure portal to order a device.
@@ -196,6 +223,8 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 ## Sample XML file
 
 The export blob list file may contain blob names and blob prefixes, as shown here:  
+
+<!-- Edit this sample to match Raghav's sample he presented in the meeting 6/2/20 -->
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
