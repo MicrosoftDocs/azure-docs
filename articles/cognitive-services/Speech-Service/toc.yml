@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
@@ -454,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
+- name: Speaker Recognition
+  items:
+    - name: Overview
+      items:
+        - name: What is Speaker Recognition?
+          href: speaker-recognition-overview.md
+    - name: Reference
+      items:
+        - name: REST APIs
+          items:
+            - name: Speech Recognition REST API
+              href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
     - name: Hosting documentation
