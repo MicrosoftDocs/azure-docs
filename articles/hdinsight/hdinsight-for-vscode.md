@@ -193,13 +193,13 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
 4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to proceed for the PySpark installations; or click on **Skip** button to skip this step.
 
-   ![Install PySpark kernel](./media/hdinsight-for-vscode/Install-PySpark-kernel.png)
+   ![Install PySpark kernel](./media/hdinsight-for-vscode/install-pyspark-kernel.png)
 
 5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **Hdinsight: Enable Skip Pyspark Installation** in the settings. 
-    ![Install PySpark kernel](./media/hdinsight-for-vscode/Hdinsight-Enable-Skip-Pyspark-Installation.png)
+    ![Install PySpark kernel](./media/hdinsight-for-vscode/hdinsight-enable-skip-pyspark-installation.png)
 
 6. If the installation is successful in step 4, the "PySpark installed successfully" message box is displayed in the lower right corner of the window. Click on **Reload** button to reload the window.
-    ![PySpark installed successfully](./media/hdinsight-for-vscode/PySpark-installed-successfully.png)
+    ![PySpark installed successfully](./media/hdinsight-for-vscode/pyspark-installed-successfully.png)
 
 7. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
@@ -224,11 +224,11 @@ The tool also supports the **Spark SQL** query:
 
 1. Add **#%%** before the Py code to get notebook experience.
 
-    ![Add #%%](./media/hdinsight-for-vscode/Add-before-the-code.png)
+    ![Add #%%](./media/hdinsight-for-vscode/add-before-the-code.png)
 
 2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
 
-   ![Run cell results](./media/hdinsight-for-vscode/Run-cell-results.png)
+   ![Run cell results](./media/hdinsight-for-vscode/run-cell-results.png)
 
    > [!NOTE]  
    > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
