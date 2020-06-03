@@ -1033,7 +1033,7 @@
               href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
             - name: Load balancer - Azure PowerShell
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-        - name: Failover Cluster Instance
+        - name: Failover cluster instance (FCI)
           items:
           - name: Configure
             items: 
