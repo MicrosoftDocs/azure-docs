@@ -30302,6 +30302,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-logstash.md",
+      "redirect_url": "/azure/sentinel/connect-data-sources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-apply-system-updates.md",
       "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false
