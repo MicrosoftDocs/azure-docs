@@ -75,10 +75,6 @@ FPGAs make it possible to achieve low latency for real-time inference (or model 
 
 You can reconfigure FPGAs for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used. Because FPGAs are reconfigurable, you can stay current with the requirements of rapidly changing AI algorithms.
 
-## Deploy models on FPGAs
-
-You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
-
 ### FPGA support in Azure
 
 Microsoft Azure is the world's largest cloud investment in FPGAs. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
@@ -109,18 +105,20 @@ FPGAs are available in these Azure regions:
 
 The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
+## Deploy models on FPGAs
+
+You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+
 Deploying a model to an FPGA involves the following steps:
 
 * Define the TensorFlow model
-* Convert the model
+* Convert the model to ONNX
 * Deploy the model
 * Consume the deployed model
 
-In this sample, you create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set. Then, the model is deployed 
+In this sample, you create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set. Then, the model is deployed to an AKS cluster.
 
 ## 1. Define the TensorFlow model
-
-
 
 Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
@@ -291,51 +289,57 @@ Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/pytho
            i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
    ```
 
-<!-- ### 4. Deploy to cloud or edge -->
+### Deploy to AKS Cluster
 
-To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or [Azure Machine Learning studio](https://ml.azure.com).
+1. To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or [Azure Machine Learning studio](https://ml.azure.com).
 
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+    
+    # Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
+    prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                        agent_count = 1,
+                                                        location = "eastus")
+    
+    aks_name = 'my-aks-cluster'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace=ws,
+                                      name=aks_name,
+                                      provisioning_configuration=prov_config)
+    ```
 
-# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
-prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
-                                                    agent_count = 1,
-                                                    location = "eastus")
+    The AKS deployment may take around 15 minutes.  Check to see if the deployment succeeded.
 
-aks_name = 'my-aks-cluster'
-# Create the cluster
-aks_target = ComputeTarget.create(workspace=ws,
-                                  name=aks_name,
-                                  provisioning_configuration=prov_config)
-```
+    ```python
+    aks_target.wait_for_completion(show_output=True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
 
-The AKS deployment may take around 15 minutes.  Check to see if the deployment succeeded.
+1. Deploy the container to the AKS cluster.
 
-```python
-aks_target.wait_for_completion(show_output=True)
-print(aks_target.provisioning_state)
-print(aks_target.provisioning_errors)
-```
+    ```python
+    from azureml.core.webservice import Webservice, AksWebservice
+    
+    # For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
+    aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                    num_replicas=1,
+                                                    auth_enabled=False)
+    
+    aks_service_name = 'my-aks-service'
+    
+    aks_service = Webservice.deploy_from_image(workspace=ws,
+                                               name=aks_service_name,
+                                               image=image,
+                                               deployment_config=aks_config,
+                                               deployment_target=aks_target)
+    aks_service.wait_for_deployment(show_output=True)
+    ```
 
-Deploy the container to the AKS cluster.
-```python
-from azureml.core.webservice import Webservice, AksWebservice
+### Deploy to a local edge server
 
-# For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
-aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
-                                                num_replicas=1,
-                                                auth_enabled=False)
-
-aks_service_name = 'my-aks-service'
-
-aks_service = Webservice.deploy_from_image(workspace=ws,
-                                           name=aks_service_name,
-                                           image=image,
-                                           deployment_config=aks_config,
-                                           deployment_target=aks_target)
-aks_service.wait_for_deployment(show_output=True)
-```
+All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
+) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ## 4. Consume the deployed model
 
@@ -394,11 +398,6 @@ registered_model.delete()
 converted_model.delete()
 ```
 
-### Deploy to a local edge server
-
-All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
-) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
-
 ## Secure FPGA web services
 
 To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
@@ -408,13 +407,8 @@ To secure your FPGA web services, see the [Secure web services](how-to-secure-we
 Check out these notebooks, videos, and blogs:
 
 + Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks)
-
 + [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
-
 + [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)
-
 + [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
-
 + [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
