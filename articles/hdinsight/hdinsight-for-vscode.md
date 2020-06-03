@@ -447,6 +447,9 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 ### Python on 2020.5.80290 version is not surpported on this extention 
 
 "Failed to connect to Jupyter notebook." is a known issue for python version 2020.5.80290. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
+
+![known issues](./media/hdinsight-for-vscode/known-issue.png)
+
 ## Next steps
 
 For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).
