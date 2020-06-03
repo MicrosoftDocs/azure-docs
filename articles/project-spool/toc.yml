@@ -20,6 +20,8 @@
   items:
   - name: Get Started
     href: quickstarts/get-started.md
+  - name: Fetch A User Access Token
+    href: quickstarts/fetch-user-access-token.md
   #- name: Get Started With Voice
   #  href: quickstarts/get-started-with-voice.md
   #- name: Get Started With SMS
