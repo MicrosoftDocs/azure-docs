@@ -5,7 +5,7 @@ services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 06/01/2020
+ms.date: 06/03/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
