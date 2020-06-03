@@ -34,7 +34,7 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 
 ### Azure VMware Solution protection support
 
-With MABS v3 UR1, you can now protect virtual machines deployed in [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/). For more information, see [Set up Microsoft Azure Backup Server for AVS](https://review.docs.microsoft.com/azure/azure-vmware/set-up-mabs-for-avs?branch=pr-en-us-116923).
+With MABS v3 UR1, you can now protect virtual machines deployed in [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/).
 
 ### VMware parallel backups
 
@@ -63,6 +63,9 @@ MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new p
 ### 32-Bit protection agent deprecation
 
 With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain backup data for these agents, you can stop the protection with the retain data option. Otherwise, the protection agent can be removed.
+
+>[!NOTE]
+>Review the [updated protection matrix](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) to learn the supported workloads for protection with MABS UR 1.
 
 ## What's new in MABS V3 RTM
 
