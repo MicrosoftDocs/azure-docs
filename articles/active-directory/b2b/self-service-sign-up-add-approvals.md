@@ -226,6 +226,7 @@ Content-type: application/json
  "userPrincipalName": "johnsmith_outlook.com#EXT@contoso.onmicrosoft.com",
  "accountEnabled": true,
  "mail": "johnsmith@outlook.com",
+ "userType": "Guest",
  "identities": [
      {
      "signInType":"federated",
