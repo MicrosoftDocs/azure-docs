@@ -149,7 +149,8 @@ Property | Details | Azure readiness status
 Along with reviewing VM properties, Server Assessment looks at the guest operating system of a machine to determine whether it can run on Azure.
 
 > [!NOTE]
-> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. For Linux VMs running on VMware, Server Assessment currently doesn't identify the kernel version of the guest OS.
+> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. However, vCenter Server doesn't provide the kernel version for Linux VM operating systems. To discover the version, you need to set up [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Then, the appliance discovers version information using the guest credentials you specify when you set up app-discovery.
+
 
 Server Assessment uses the following logic to identify Azure readiness based on the operating system:
 
@@ -194,7 +195,8 @@ If you use performance-based sizing, Server Assessment makes sizing recommendati
 
 For storage sizing, Azure Migrate tries to map each disk that is attached to the machine to an Azure disk. Sizing works as follows:
 
-1. Server Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk.
+1. Server Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+
 1. If you've specified the storage type as automatic, the selected type is based on the effective IOPS and throughput values. Server Assessment determines whether to map the disk to a Standard HDD, Standard SSD, or Premium disk in Azure. If the storage type is set to one of those disk types, Server Assessment tries to find a disk SKU within the storage type selected.
 1. Disks are selected as follows:
     - If Server Assessment can't find a disk with the required IOPS and throughput, it marks the machine as unsuitable for Azure.
