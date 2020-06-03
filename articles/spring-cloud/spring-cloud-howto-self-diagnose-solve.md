@@ -1,6 +1,6 @@
 ---
-title: "How to self diagnose and solve problems in Azure Spring Cloud"
-description: Learn how to self diagnose and solve problems in Azure Spring Cloud.
+title: "How to self-diagnose and solve problems in Azure Spring Cloud"
+description: Learn how to self-diagnose and solve problems in Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -8,8 +8,8 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ---
 
-# How to self diagnose and solve problems in Azure Spring Cloud
-This tutorial shows you how to self diagnose and solve problems for Azure Spring Cloud. It provides an easy way to collect metrics and logs.
+# How to self-diagnose and solve problems in Azure Spring Cloud
+This tutorial shows you how to self-diagnose and solve problems for Azure Spring Cloud. It provides an easy way to collect metrics and logs.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -38,7 +38,7 @@ Find your target detector, and click it to execute. A summary of diagnostics wil
 
  ![Summary diagnostics](media/spring-cloud-diagnose/summary-diagnostics.png)
 
-In diagnostic details page, you can change the diagnostic time range with the controller at top right corner. To see more metrics or logs, toggle each diagnostic. There can be a 15-minute delay for metrics and logs.
+In diagnostic details page, you can change the diagnostic time range with the controller at top-right corner. To see more metrics or logs, toggle each diagnostic. There can be a 15-minute delay for metrics and logs.
 
  ![Diagnostics details](media/spring-cloud-diagnose/diagnostics-details.png)
 
