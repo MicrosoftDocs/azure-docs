@@ -11,6 +11,8 @@ ms.topic: include
 ms.custom: include file
 ms.author: roy-har
 ---
+Create the pizza app.
+
 1. Select [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) to bring up the GitHub page for the `pizza-app-for-luis.json` file.
 1. Right-click or long tap the **Raw** button and select **Save link as** to save the `pizza-app-for-luis.json` to your computer.
 1. Sign into the [LUIS portal](https://www.luis.ai).
@@ -23,7 +25,7 @@ ms.author: roy-har
 
 The app will be imported.
 
-If you see the dialog **How to create an effective LUIS app**, close the dialog.
+If you see a dialog **How to create an effective LUIS app**, close the dialog.
 
 ## Train and publish the Pizza app
 
@@ -33,16 +35,31 @@ You should see the **Intents** page with a list of the intents in the Pizza app.
 
 [!INCLUDE [How to publish](howto-publish.md)]
 
+## Add an authoring resource to the Pizza app
+
+1. Select **MANAGE**.
+1. Select **Azure Resources**.
+1. Select **Authoring Resource**.
+1. Select **Change authoring resource**.
+
+If you have an authoring resource, enter the **Tenant Name**, **Subscription Name**, and **LUIS resource name** of your authoring resource.
+
+If you do not have an authoring resource:
+
+1. Select **Create new resource**.
+1. Enter a **Tenant Name**, **Resource Name**, **Subscription Name**, and **Azure Resource Group Name**.
+
 Your Pizza app is now ready to use.
 
 ## Record the app ID, prediction key, and prediction endpoint of your Pizza app
 
-To use your new Pizza app, you will need the app ID, prediction key, and prediction endpoint of your Pizza app.
+To use your new Pizza app, you will need the app ID, authoring key, and authoring endpoint of your Pizza app.
 
 To find these values:
 
 1. From the **Intents** page, select **MANAGE**.
 1. From the **Application Settings** page, record the **App ID**.
 1. Select **Azure Resources**.
-1. From the **Azure Resources** page, record the **Primary Key**. This value is your prediction key.
-1. Record the **Endpoint URL**. This value is your prediction endpoint.
+1. Select **Authoring Resource**.
+1. From the **Authoring Resource** tab, record the **Primary Key**. This value is your authoring key.
+1. Record the **Endpoint URL**. This value is your authoring endpoint.
