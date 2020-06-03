@@ -162,7 +162,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 {
     "properties":
     {
-        "storageAccountIds  " : 
+        "storageAccountIds" : 
         [  
             "<storage_account_resource_id_1>",
             "<storage_account_resource_id_2>"
