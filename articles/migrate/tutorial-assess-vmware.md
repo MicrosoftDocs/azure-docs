@@ -89,11 +89,13 @@ Check that the OVA file is secure, before you deploy it:
 3. Verify the latest appliance versions and hash values:
 
     - For the Azure public cloud:
+    
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
         VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
     - For Azure Goverment:
+    
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
         VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
