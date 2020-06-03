@@ -197,8 +197,8 @@ This resource is used as an intermediate identity connection between your Key Va
 You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 The *billingType* property determines the billing attribution for the *Cluster* resource and its data:
-- *cluster* (default) -- The billing is attributed to the subscription hosting your *Cluster* resource
-- *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
+- *Cluster* (default) -- The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
+- *Workspaces* -- The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
 
 > [!NOTE]
 > After you create your *Cluster* resource, you can update it with *sku*, *keyVaultProperties* or *billingType* using PATCH REST request.
