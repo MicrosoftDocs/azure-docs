@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Deploy a security partner provider
 
-*security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
+*Security partner providers* in Azure Firewall Manager allow you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
 To learn more about supported scenarios and best practice guidelines, see [What are security partner providers?](trusted-security-partners.md).
 
@@ -36,18 +36,21 @@ It takes up to 30 minutes for the feature registration to complete. Run the foll
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Getting Started**. Select **Create a Secured Virtual Hub**. 
-4. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
-5. **Deploy VPN gateway** is enabled by default. A VPN Gateway is required to deploy a security partner provider in the hub. 
-6. Select **Next: Azure Firewall**
+3. Navigate to **Getting Started**. Select **View secured virtual hubs**.
+4. Select **Create new secured virtual hub**.
+5. Enter you subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
+6. Select **Include VPN gateway to enable Security Partner Providers**.
+7. Select the **Gateway scale units** appropriate for your requirements.
+8. Select **Next: Azure Firewall**
    > [!NOTE]
-   > security partner providers connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your security partner providers are lost.
-7. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
-8. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
-9. Select  **Next: security partner providers**.
-10. Select **security partner provider** to set it to **Enabled**. Select a partner. 
-11. Select **Next**. 
-12. Review the content and then select **Create**.
+   > Security partner providers connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your security partner providers are lost.
+9. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
+10. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
+11. Select  **Next: Security Partner Provider**.
+12. Set **Security Partner Provider** to **Enabled**. 
+13. Select a partner. 
+14. Select **Next: Review + create**. 
+15. Review the content and then select **Create**.
 
 The VPN gateway deployment can take more than 30 minutes.
 
@@ -59,8 +62,9 @@ Once the hub is created and the security partner is set up, continue on to conne
 
 You can also select an existing hub in a Virtual WAN and convert that to a *secured virtual hub*.
 
-1. In **Getting Started**, select **Convert Existing Hubs**.
-2. Select a subscription and an existing hub. Follow rest of the steps to deploy a third-party provider in a new hub.
+1. In **Getting Started**, select **View secured virtual hubs**.
+2. Select **Convert existing hubs**.
+3. Select a subscription and an existing hub. Follow rest of the steps to deploy a third-party provider in a new hub.
 
 Remember that a VPN gateway must be deployed to convert an existing hub to secured hub with third-party providers.
 
