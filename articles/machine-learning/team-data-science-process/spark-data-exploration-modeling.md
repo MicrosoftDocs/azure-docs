@@ -1,6 +1,6 @@
 ---
 title: Data exploration and modeling with Spark - Team Data Science Process
-description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure.
+description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure HDInsight Spark.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -14,26 +14,9 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, cont
 ---
 # Data exploration and modeling with Spark
 
-Learn how to use HDInsight Spark to train binary classification and regression models for taxi fare prediction using Spark MLLib.
+Learn how to use HDInsight Spark to train machine learning models for taxi fare prediction using Spark MLlib.
 
-This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
-
-* The **binary classification** task is to predict whether or not a tip is paid for the trip. 
-* The **regression** task is to predict the amount of the tip based on other tip features. 
-
-The models in this tutorial include: 
-
-* [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
-* [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
-* [Random forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
-* [Gradient boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS train decision trees iteratively to minimize a loss function. GBTS is used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
-
-The modeling steps also contain code showing how to train, evaluate, and save each type of model. Python has been used to code the solution and to show the relevant plots.   
-
-> [!NOTE]
-> Although the Spark MLlib toolkit is designed to work on large datasets, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used here for convenience. The exercise given here runs efficiently (in about 10 minutes) on an HDInsight cluster with 2 worker nodes. The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory and changing the cluster size.
-> 
-> 
+This sample showcases the various steps in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). A subset of the NYC taxi trip and fare 2013 dataset is used to load, explore and prepare data. Then, using Spark MLlib, binary classification and regression models are trained to predict whether a tip will be paid for the trip and estimate the tip amount.
 
 ## Prerequisites
 
@@ -87,6 +70,7 @@ To save models or files in WASB, the path needs to be specified properly. The de
 
 The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved:
 
+    ```python
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
     # LOCATION OF TRAINING DATA
@@ -95,7 +79,7 @@ The following code sample specifies the location of the data to be read and the 
     # SET THE MODEL STORAGE DIRECTORY PATH 
     # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
     modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
-
+    ```
 
 ### Import libraries
 
@@ -1111,4 +1095,3 @@ Now that you have created regression and classification models with the Spark Ml
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](spark-model-consumption.md).
 
 **Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping
-
