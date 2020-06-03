@@ -93,7 +93,7 @@
       - name: Using CDC in Azure SQL MI
         items:
         - name: User interface (UI)
-          href: tutorial-incremental-copy-CDC-feature-portal.md
+          href: tutorial-incremental-copy-cdc-feature-portal.md
       - name: New files by last modified data
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
