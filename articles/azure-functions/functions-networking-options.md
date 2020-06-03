@@ -135,98 +135,19 @@ Outbound IP restrictions are available in a Premium plan, App Service plan, or A
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
 
-## Troubleshooting
-
-[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
-
 ## Automation
 
 ### Azure CLI
 
-CLI support is available for regional VNet Integration. To access the following commands, [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/).
-
-```azurecli
-az functionapp vnet-integration --help
-
-Group
-    az functionapp vnet-integration : Methods that list, add, and remove virtual networks
-    integrations from a functionapp.
-
-Commands:
-    add    : Add a regional virtual network integration to a functionapp.
-    list   : List the virtual network integrations on a functionapp.
-    remove : Remove a regional virtual network integration from functionapp.
-```
-
-To learn more, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/functionapp/vnet-integration?view=azure-cli-latest).
+CLI support is available for regional VNet Integration by using the `az functionapp vnet-integration` commands.  To learn more, please refer to the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/functionapp/vnet-integration?view=azure-cli-latest).
 
 ### Resource manager template
 
-Regional VNet Integration can be enabled via an Azure Resource Manager template. To do so, one virtual network subnet should be delegated to `Microsoft.Web/serverFarms`.  Additionally, the `networkConfig` resource of the `Microsoft.Web/sites` function app should reference the delegated subnet.
+Regional VNet Integration can be enabled via an Azure Resource Manager template. For a full example, please refer to the [Azure Quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
-```json
-{
-    "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2019-11-01",
-    "location": "[parameters('location')]",
-    "name": "[parameters('vnetName')]",
-    "properties": {
-        "addressSpace": {
-            "addressPrefixes": [
-                "[variables('vnetAddressPrefix')]"
-            ]
-        },
-        "subnets": [
-            {
-                "name": "[parameters('subnetName')]",
-                "properties": {
-                    "addressPrefix": "[variables('subnetAddressPrefix')]",
-                    "delegations": [
-                        {
-                            "name": "delegation",
-                            "properties": {
-                                "serviceName": "Microsoft.Web/serverFarms",
-                                "actions": [
-                                    "Microsoft.Network/virtualNetworks/subnets/action"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-},
-{
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2019-08-01",
-    "name": "[parameters('functionAppName')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-    ],
-    "kind": "functionapp",
-    "properties": {
-    },
-    "resources": [
-        {
-            "type": "networkConfig",
-            "apiVersion": "2019-08-01",
-            "name": "virtualNetwork",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
-            ],
-            "properties": {
-                "subnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
-                "isSwift": true
-            }
-        }
-    ]
-}
-```
+## Troubleshooting
 
-For a full example, refer to the [Azure Quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## Next steps
 
