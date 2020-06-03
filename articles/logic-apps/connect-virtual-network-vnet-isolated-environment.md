@@ -57,6 +57,9 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
     **Name**: <*route-name*><br>
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
+    
+    For more information about this route, see [0.0.0.0/0 address prefix](../virtual-network/virtual-networks-udr-overview.md#default-route).
+     
 
     This route table is required for Logic Apps components to communicate with other dependent Azure Services, such as Azure Storage and Azure SQL DB.
    
