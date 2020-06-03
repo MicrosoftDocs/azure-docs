@@ -17417,7 +17417,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/service-bus-relay/",
+      "source_path": "articles/service-bus-relay/index.yml",
       "redirect_url": "/azure/azure-relay/",
       "redirect_document_id": false
     },    
@@ -30299,6 +30299,11 @@
     {
       "source_path": "articles/sentinel/connect-fusion.md",
       "redirect_url": "/azure/sentinel/fusion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/connect-logstash.md",
+      "redirect_url": "/azure/sentinel/connect-data-sources",
       "redirect_document_id": false
     },
     {
