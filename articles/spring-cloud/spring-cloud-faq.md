@@ -55,7 +55,10 @@ During preview release, Azure Spring Cloud has the following known limitations:
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` is not allowed in the configuration file from the Git repo. Adding it to the configuration file will likely render your application unreachable from other applications or the internet.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
-* To learn about quota limitations, see [What service plans does Azure Spring Cloud offer?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### What pricing tiers are available? 
+Which one should I use and what are the limits within each tier?
+* Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](placeholder: link to ACOM page) for limits and feature level comparison.
 
 ### How can I provide feedback and report issues?
 
