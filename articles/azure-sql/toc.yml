@@ -1035,16 +1035,21 @@
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
         - name: Failover Cluster Instance
           items:
-          - name: With Shared Storage (SQL 2019+)
-            href: virtual-machines/windows/failover-cluster-instance-shared-storage-manually-configure.md
-          - name: With Premium File Share
-            href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: With Storage Spaces Direct
-            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
-          - name: Configure quorum 
-            href: virtual-machines/windows/failover-cluster-instance-quorum-configure.md
-          - name: Configure connectivity 
-            href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
+          - name: Configure
+            items: 
+            - name: Quorum 
+              href: virtual-machines/windows/failover-cluster-instance-quorum-configure.md
+            - name: Connectivity 
+              href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
+          - name: Create FCI with
+            items: 
+            - name: Shared Managed Disks (Win2019+)
+              href: virtual-machines/windows/failover-cluster-instance-shared-managed-disks-manually-configure.md
+            - name: Storage Spaces Direct (Win2016+)
+              href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+            - name: Premium File Share (Win2012+)
+              href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+
 
     - name: Reference
       items:
