@@ -87,7 +87,12 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 The API server calls the AKS webhook server and peforms various steps:
 
-* 
+* AAD client application is used by kubectl to login user into AAD to access "Server application". It corresponds to step 1 and 2 in the chart.
+* kubectl sends the access token to APIServer, which is configured with the Authentication Webhook Server. The job of the Authentication Webhook Server is to validate the Access token and tell APIServer who the user is behind the token
+* Authentication webhook server performs step 5 and 6 in above chart TODO. In addition, it uses "Server Application" to query Microsoft Graph api to get group membership of logged in user.
+* Then it responds to the APIServer with user information such as who he/she is (upn claim of access token), what groups he/she is in
+* Finally, APIServer based on the "user info", performs authorization decision based on Kubernetes Role/RoleBinding. This is the step 7 in above chart.
+ 
 
 ## Create an AKS cluster with Azure AD enabled
 
