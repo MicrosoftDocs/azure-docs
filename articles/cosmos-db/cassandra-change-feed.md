@@ -17,6 +17,43 @@ The following example shows how to get a change feed on all the rows in a Cassan
 
 In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the table in the Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported.
 
+# [Java](#tab/java)
+
+```java
+        Session cassandraSession = utils.getSession();
+
+        try {
+        	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+        	   LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+        	   String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+           			+ dtf.format(now)+ "'";
+        	   
+        	 byte[] token=null; 
+        	 System.out.println(query); 
+        	 while(true)
+        	 {
+        		 SimpleStatement st=new  SimpleStatement(query);
+        		 st.setFetchSize(100);
+        		 if(token!=null)
+        			 st.setPagingStateUnsafe(token);
+        		 
+        		 ResultSet result=cassandraSession.execute(st) ;
+        		 token=result.getExecutionInfo().getPagingState().toBytes();
+        		 
+        		 for(Row row:result)
+        		 {
+        			 System.out.println(row.getString("user_name"));
+        		 }
+        	 }
+                  	
+
+        } finally {
+            utils.close();
+            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+        }
+
+```
+
 # [C#](#tab/csharp)
 
 ```C#
@@ -65,43 +102,6 @@ In each iteration, the query resumes at the last point changes were read, using 
             Console.WriteLine("Exception " + e);
         }
     }
-
-```
-
-# [Java](#tab/java)
-
-```java
-        Session cassandraSession = utils.getSession();
-
-        try {
-        	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-        	   LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-        	   String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
-        	   
-        	 byte[] token=null; 
-        	 System.out.println(query); 
-        	 while(true)
-        	 {
-        		 SimpleStatement st=new  SimpleStatement(query);
-        		 st.setFetchSize(100);
-        		 if(token!=null)
-        			 st.setPagingStateUnsafe(token);
-        		 
-        		 ResultSet result=cassandraSession.execute(st) ;
-        		 token=result.getExecutionInfo().getPagingState().toBytes();
-        		 
-        		 for(Row row:result)
-        		 {
-        			 System.out.println(row.getString("user_name"));
-        		 }
-        	 }
-                  	
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
-        }
 
 ```
 ---
