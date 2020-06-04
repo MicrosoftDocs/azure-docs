@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -220,7 +220,14 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [REST](qs-configure-rest-vm.md)
 
 
+### Azure VM Image Builder
 
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Not Available | Not Available | Not Available | Not Available | 
+| User assigned | [Available in supported regions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview#regions) | Not Available | Not Available | Not Available |
+
+Refer to the Image Builder [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview#permissions) to configure managed identity for Azure VM Image Builder (in regions where available).
 
 ## Azure services that support Azure AD authentication
 
