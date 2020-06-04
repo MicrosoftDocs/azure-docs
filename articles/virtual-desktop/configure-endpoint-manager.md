@@ -27,24 +27,35 @@ To receive updates for Windows 10 Enterprise multi-session, you need to enable W
 
 To receive updates:
 
-1. Open Microsoft Endpoint Configuration Manager and go to your Primary Site Server Software Update Point.
+1. Open Microsoft Endpoint Configuration Manager and select **Sites**.
 2. Select **Configure Site Components**.
-3. Select the **Products** tab.
-4. Select the check box that says **Windows Server, version 1903 and later**.
+3. Select **Software Update Point** in the drop-down menu.
+4. Select the **Products** tab.
+5. Select the check box that says **Windows Server, version 1903 and later**.
+6. Go to **Software Library** > **Overview** > **Software Updates** > **All Software Updates** and select **Synchronize Software Updates**.
+7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved.
 
 ## Create a Microsoft Endpoint Configuration Manager collection
 
 To create a collection of Windows 10 Enterprise multi-session virtual machines, a query-based collection can be used to identify the specific operating system SKU.
 
-To make a query:
+To make a collection:
 
-1. Open the **Windows 10 Multi Session Query Statement Properties** window.
-2. Select the **Criteria** tab and enter the following parameters:
+1. Select **Assets and Compliance**.
+2. Go to **Overview** > **Device Collections** and right-click **Device collections** and select **Create Device Collection** from the drop-down menu.
+3. In the **General** tab of the menu that opens, enter a name that describes your collection in the **Name** field. In the **Comment** field, you can give additional information describing what the collection is. In **Limiting Collection**, define which machines you're including in the collection query.
+4. In the **Membership Rules** tab, add a rule for your query by selecting **Add Rule**, then selecting **Query Rule**.
+5. In **Query Rule Properties**, enter a name for your rule, then define the parameters of the rule by selecting **Edit Query Statement**.
+6. Select **Show Query Statement**.
+7. In the statement, enter the following string:
 
-```syntax
-select
-SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client
-from SMS_R_System inner join SMS_G_System_OPERATING_SYSTEM on
-SMS_G_System_OPERATING_SYSTEM.ResourceId = SMS_R_System.ResourceId where
-SMS_G_System_OPERATING_SYSTEM.OperatingSystemSKU = 175
-```
+    ```syntax
+    select
+    SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client
+    from SMS_R_System inner join SMS_G_System_OPERATING_SYSTEM on
+    SMS_G_System_OPERATING_SYSTEM.ResourceId = SMS_R_System.ResourceId where
+    SMS_G_System_OPERATING_SYSTEM.OperatingSystemSKU = 175
+    ```
+
+8. Select **OK** to create the collection.
+9. To check if you successfully created the collection, go to **Assets and Compliance** > **Overview** > **Device Collections**.
