@@ -25,14 +25,12 @@ Models are written using the JSON-based **Digital Twin Definition Language (DTDL
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
-Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL *version 2*.
 
 > [!TIP] 
 > Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands. For more information on the DTDL features that are specific to Azure Digital Twins, see the section later in this article on [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
 
-For more information about DTDL in general, see its [spec document (DTDL version 2)](https://github.com/Azure/azure-digital-twins/blob/private-preview/DTDL/DTDL-spec-v2.md) or its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
-
-
+For more information about DTDL in general, see its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## Elements of a model
 
@@ -200,7 +198,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Validating models
 
-There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator).
 
 Or, for more information about the parser library, including an example of how to use it directly, see [How-to: Parse and validate models](how-to-use-parser.md).
 

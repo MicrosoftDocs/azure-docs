@@ -66,6 +66,10 @@
     href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
   - name: Digital Twins service limits
     href: reference-service-limits.md
+  - name: DTDL v2 spec
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+  - name: DTMI spec
+    href: https://github.com/Azure/digital-twin-model-identifier
   - name: Azure CLI
     href: /cli/azure/iot
   - name: Azure IoT CLI extension
