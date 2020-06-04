@@ -77,7 +77,7 @@ If you are using Data Box in Japan, Singapore, Korea, and West Europe and have s
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
-    ---
+---
 
 ## Erasure of data from Data Box
  
