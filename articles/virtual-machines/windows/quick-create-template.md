@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create a Windows VM'
-description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
+description: In this quickstart, you learn how to use a Resource Manager template to create a Windows virtual machine
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: quickstart

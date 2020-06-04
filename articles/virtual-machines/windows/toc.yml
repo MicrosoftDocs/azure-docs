@@ -13,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
