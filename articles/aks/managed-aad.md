@@ -49,7 +49,7 @@ az extension update --name aks-preview
 az extension list
 ```
 
-To install kubectl, use the following:
+To install kubectl, use the following commands:
 
 ```azurecli
 sudo az aks install-cli
@@ -84,7 +84,7 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 ## Webhook and API server - TODO
 
-The API server calls the AKS webhook server and peforms various steps:
+The API server calls the AKS webhook server and performs the following steps:
 
 * AAD client application is used by kubectl to login user into AAD to access "Server application". It corresponds to step 1 and 2 in the chart.
 * kubectl sends the access token to APIServer, which is configured with the Authentication Webhook Server. The job of the Authentication Webhook Server is to validate the Access token and tell APIServer who the user is behind the token
@@ -162,7 +162,7 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Non-interactive login with kubelogin
 
-You can use [kubelogin](https://github.com/Azure/kubelogin) to access advanced feature that are not available in kubectl. You can use non-interactive logins part of automated jobs such as CI/CD (continuous integration and continuous delivery) pipelines.
+You can use [kubelogin](https://github.com/Azure/kubelogin) to access advanced features that are not available in kubectl. You can use non-interactive logins part of automated jobs such as CI/CD (continuous integration and continuous delivery) pipelines.
 
 ## Next steps
 
