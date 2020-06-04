@@ -34,7 +34,8 @@ The dates when these changes take effect are:
 | Azure Government     |  March 13, 2020    | Postponed due to COVID 19  |
 | Azure Germany        |  March 13, 2020    | Postponed due to COVID 19  |
 | Azure China 21Vianet |  March 13, 2020    | Postponed due to COVID 19  |
-\* New date for Phase 2 not yet determined
+
+NOTE: New date for Phase 2 not yet determined
 
 ## Check whether your application is already compliant
 
