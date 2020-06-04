@@ -30,7 +30,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 ### Microsoft Online Services Program
 
- ![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
+![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
 
 |Scope  |Definition  |
 |---------|---------|
