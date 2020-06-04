@@ -61,7 +61,12 @@ If you created your cluster before February 2020 and have never did any cluster 
 
 "The following list of images referenced from the deployment template are not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage for instructions on finding available images."
 
-To fix this, first [upgrade the cluster][upgrade-cluster]. Next, add new agent pools to migrate pods from the old agent pools to new ones.
+To fix this:
+
+1. Upgrade the [cluster control plane][upgrade-cluster-cp]. This will update the image offer and publisher.
+1. Create new Windows agent pools.
+1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
+1. Delete old Windows agent pools.
 
 ## How do I rotate the service principal for my Windows node pool?
 
@@ -118,6 +123,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
