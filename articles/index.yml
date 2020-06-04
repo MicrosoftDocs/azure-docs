@@ -833,6 +833,7 @@ productDirectory:
       imageSrc: ./media/index/github-actions-icon.svg
       azureCategories:
         - devops
+        - developer-tools
       url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
     # Card
     - title: Azure Active Directory (AD)
