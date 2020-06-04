@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/06/2020
 tags: connectors
 ---
 
@@ -31,7 +31,9 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-  * For Azure SQL Database, you can find these details in the connection string or in the Azure portal under the SQL database properties:
+  * For Azure SQL Database, you can find these details in the connection string.
+  
+    For example, to find this string in the Azure portal, open your database. On the database menu, select either **Connection strings** or **Properties**:
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -43,31 +45,101 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 * The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="create-connection"></a>
+
+## Connect to your database
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+* For cloud-based Azure SQL Database, follow [Connect to Azure SQL Database](#connect-azure-sql-db).
+* For on-premises SQL Server, follow [Connect to SQL Server](#connect-sql-server).
+
+<a name="connect-azure-sql-db"></a>
+
+### Connect to Azure SQL Database
+
+1. For **Authentication Type**, select **Azure AD Integrated**.
+
+1. Select the following values for your Azure SQL database:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Server name** | Your Azure SQL server |
+   | **Database name** | Your Azure SQL database |
+   | **Table name** | The table that you want to use |
+   |||
+
+   > [!TIP]
+   > You can find this information in your database's connection string. For example, 
+   > in the Azure portal, find and open your database. On the database menu, 
+   > select either **Connection strings** or **Properties** where you can find this string:
+   >
+   > `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+
+   For example:
+
+   ![Create connection to Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+
+1. Return to either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### Connect to SQL Server
+
+When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. For scenarios that require that you install the [on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) on a local computer and [create the Azure data gateway resource](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), make sure that you complete these requirements first. Otherwise, your gateway resource won't appear in the gateways list when you create your connection.
+
+Also, to use Windows authentication with the SQL Server connector in an [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), use the connector's non-ISE version and the on-premises data gateway. The ISE-labeled version doesn't support Windows authentication.
+
+1. For **Connection Name**, create a name for your connection.
+
+1. In the trigger or action, select **Connect via on-premises data gateway** so that the SQL server options appear.
+
+1. For **SQL server Name** and **SQL database name**, provide the address for your SQL server and name for your database. For **Username** and **Password**, provide the user name and password for your server.
+
+   You can also find this information in your connection string:
+
+   * `Server=<your-server-address>`
+   * `Database=<your-database-name>`
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
+
+   ![Create connection to SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+
+1. If your SQL server uses Windows or Basic authentication, select the **Authentication Type**.
+
+1. Under **Gateways**, select the Azure subscription that's associated with your previously created on-premises data gateway, and select the name for your on-premises data gateway.
+
+   If your gateway doesn't appear in the list, check that you correctly [set up your gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   ![Create SQL Server connection completed](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+
+1. When you're done, select **Create**.
+
+1. After you create your connection, continue with [Add SQL trigger](#add-sql-trigger) or [Add SQL action](#add-sql-action).
+
 <a name="add-sql-trigger"></a>
 
 ## Add a SQL trigger
 
-In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. Each time that the trigger fires, the Logic Apps engine creates a logic app instance and starts running your logic app's workflow.
+1. In the [Azure portal](https://portal.azure.com) or in Visual Studio, create a blank logic app, which opens the Logic App Designer. This example continues with the Azure portal.
 
-1. In the Azure portal or Visual Studio, create a blank logic app, which opens Logic Apps Designer. This example uses the Azure portal.
-
-1. On the designer, in the search box, enter "sql server" as your filter. From the triggers list, select the SQL trigger that you want.
-
-   This example uses the **When an item is created**  trigger.
+1. On the designer, in the search box, enter `sql server`. From the triggers list, select the SQL trigger that you want. This example uses the **When an item is created** trigger.
 
    ![Select "When an item is created" trigger](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
 
-1. If you are prompted to create a connection, [create your SQL connection now](#create-connection). If your connection exists, select a **Table name**.
+1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
-   ![Select the table that you want](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
+1. In the trigger, specify the interval and frequency for how often the trigger checks the table.
 
-1. Set the **Interval** and **Frequency** properties, which specify how often your logic app checks the table.
+1. To add other available properties for this trigger, open the **Add new parameter** list.
 
-   This trigger returns only one row from the selected table, nothing else. To perform other tasks, add other actions that perform the tasks you want. For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
+   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+   
+   For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
 
-1. When you're done, on the designer toolbar, select **Save**.
+1. On the designer toolbar, select **Save**. 
 
-   This step automatically enables and publishes your logic app live in Azure.
+   Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
 
 <a name="add-sql-action"></a>
 
@@ -98,14 +170,6 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 1. When you're done, on the designer toolbar, select **Save**.
 
    This step automatically enables and publishes your logic app live in Azure.
-
-<a name="create-connection"></a>
-
-## Connect to your database
-
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
-[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Handle bulk data
 
