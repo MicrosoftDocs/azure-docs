@@ -162,9 +162,7 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Non-interactive login with kubelogin
 
-You can use [kubelogin](https://github.com/Azure/kubelogin), to access advanced feature that are not available in kubectl. 
-
-* TODO 2 or 3 bullets
+You can use [kubelogin](https://github.com/Azure/kubelogin) to access advanced feature that are not available in kubectl. You can use non-interactive logins part of automated jobs such as CI/CD (continuous integration and continuous delivery) pipelines.
 
 ## Next steps
 
