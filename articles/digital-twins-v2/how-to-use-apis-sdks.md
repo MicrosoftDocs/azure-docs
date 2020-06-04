@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to work with the Azure Digital Twins APIs, including via SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/08/2020
+ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 

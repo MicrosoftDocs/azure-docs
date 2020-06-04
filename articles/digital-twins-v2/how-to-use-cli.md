@@ -3,9 +3,9 @@
 title: Use the Azure Digital Twins CLI
 titleSuffix: Azure Digital Twins
 description: See how to get started with and use the Azure Digital Twins CLI.
-author: alinamstanciu
-ms.author: alinast # Microsoft employees only
-ms.date: 3/30/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
 
