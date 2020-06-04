@@ -12,7 +12,7 @@ ms.date: 03/18/2020
 ms.author: iainfou
 
 ---
-# Review security audit events in Azure AD Domain Services using Azure Monitor Workbooks
+# Review security audit events in Azure Active Directory Domain Services using Azure Monitor Workbooks
 
 To help you understand the state of your Azure Active Directory Domain Services (Azure AD DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Azure AD DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
 

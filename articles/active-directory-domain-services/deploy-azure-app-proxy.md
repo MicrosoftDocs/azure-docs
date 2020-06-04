@@ -14,7 +14,7 @@ ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
-# Deploy Azure AD Application Proxy for secure access to internal applications in an Azure AD Domain Services managed domain
+# Deploy Azure AD Application Proxy for secure access to internal applications in an Azure Active Directory Domain Services managed domain
 
 With Azure AD Domain Services (Azure AD DS), you can lift-and-shift legacy applications running on-premises into Azure. Azure Active Directory (AD) Application Proxy then helps you support remote workers by securely publishing those internal applications part of an Azure AD DS managed domain so they can be accessed over the internet.
 

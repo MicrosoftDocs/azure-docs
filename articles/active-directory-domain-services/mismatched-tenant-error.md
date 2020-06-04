@@ -14,7 +14,7 @@ ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
-# Resolve mismatched directory errors for existing Azure AD Domain Services managed domains
+# Resolve mismatched directory errors for existing Azure Active Directory Domain Services managed domains
 
 If an Azure Active Directory Domain Services (Azure AD DS) managed domain shows a mismatched tenant error, you can't administer the managed domain until resolved. This error occurs if the underlying Azure virtual network is moved to a different Azure AD directory.
 

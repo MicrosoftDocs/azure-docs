@@ -13,7 +13,7 @@ ms.date: 04/16/2020
 ms.author: iainfou
 
 ---
-# Administer DNS and create conditional forwarders in an Azure AD Domain Services managed domain
+# Administer DNS and create conditional forwarders in an Azure Active Directory Domain Services managed domain
 
 In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS (Domain Name Resolution). Azure AD DS includes a DNS server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
 
