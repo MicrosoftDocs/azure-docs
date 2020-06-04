@@ -115,15 +115,15 @@ After the policy assignments are deployed, the compliance dashboard shows evalua
 
 The screenshot shows the following compliance evaluation results for in-scope Azure Cosmos DB accounts:
 
-1. Zero of two accounts are compliant with a policy that Virtual Network (VNet) filtering must be configured.
-1. Zero of two accounts are compliant with a policy that requires the account to be configured for multiple write locations
-1. Zero of two accounts are compliant with a policy that resources were deployed to allowed Azure regions.
+- Zero of two accounts are compliant with a policy that Virtual Network (VNet) filtering must be configured.
+- Zero of two accounts are compliant with a policy that requires the account to be configured for multiple write locations
+- Zero of two accounts are compliant with a policy that resources were deployed to allowed Azure regions.
 
 :::image type="content" source="./media/policy/compliance.png" alt-text="Compliance results for Azure Policy assignments listed":::
 
 To remediate the non-compliant resources, see [how to remediate resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
-## Next Steps
+## Next steps
 
 - [Review sample custom policy definitions for Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), including for the multiple write location and VNet filtering policies shown above.
 - [Create a policy assignment in the Azure portal](../governance/policy/assign-policy-portal.md)
