@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/03/2020
 ---
 # Autoscale Stream Analytics jobs using Azure Automation
 
@@ -28,8 +28,10 @@ Add the following variables inside the Azure Automation account. These variables
 | **jobName** | String | Name of your Stream Analytics job that you want to autoscale. |
 | **resourceGroupName** | String | Name of the resource group in which your job is present. |
 | **subId** | String | Subscription ID in which your job is present. |
-| **increasedSU** | Integer | The higher SU value you want your job to scale to. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
-| **decreasedSU** | Integer | The lower SU value you want your job to scale to. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **increasedSU** | Integer | The higher SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **decreasedSU** | Integer | The lower SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **maxSU** | Integer | The maximum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **minSU** | Integer | The minimum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
 
 ![Add variables in Azure Automation](./media/autoscale/variables.png)
 
