@@ -303,7 +303,7 @@ az lock delete --ids $lockid
 The following sections demonstrate how to manage the Azure Cosmos DB container, including:
 
 * [Create a container](#create-a-container)
-* [Create a container with TTL enabled](#create-a-container-with-TTL)
+* [Create a container with TTL enabled](#create-a-container-with-ttl)
 * [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
 * [Change container throughput](#change-container-throughput)
 * [Manage locks on a container](#manage-lock-on-a-container)
