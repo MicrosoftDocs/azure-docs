@@ -53,7 +53,7 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### Send and receive messages
+## Send and receive messages
 
 To run the code, do the following:
 

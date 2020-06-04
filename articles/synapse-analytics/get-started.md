@@ -13,12 +13,13 @@ ms.date: 05/19/2020
 
 # Getting Started with Azure Synapse Analytics
 
-This tutorial will guide you through all the basic steps needed to setup and use Azure Synapse Analytics.
+This document guides you through all the basic steps needed to setup and use Azure Synapse Analytics.
 
 ## Prepare a storage account for use with a Synapse workspace
 
 * Open the [Azure portal](https://portal.azure.com)
 * Create a new storage account with the following settings:
+
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
     |Basics|**Storage account name**| You can give it any name.|In this document, we'll refer to it as `contosolake`.|
@@ -27,15 +28,19 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |Advanced|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse only works with storage accounts where this setting is enabled.|
 
 1. Once the storage account is created, select **Access control (IAM)** from the left navigation. Then assign the following roles or ensure they are already assigned. 
+
     a. * Assign yourself to the **Owner** role on the storage account
     b. * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
+
 1. From the left navigation, select **Containers** and create a container. You can give it any name. Accept the default **Public access level**. In this document, we will call the container `users`. Select **Create**. 
+
+In the following step, you will configure your Synapse workspace to use this storage account as its "primary" storage account and the container to store workspace data. The workspace will store data in Apache Spark tables and Spark application logs in this account under a folder called `/synapse/workspacename`.
 
 ## Create a Synapse workspace
 
 * Open the [Azure portal](https://portal.azure.com) and at the top search for `Synapse`.
 * In the search results under **Services**, select **Azure Synapse Analytics (workspaces preview)**
-* Select **+ Add** to create a new workspace with these settings
+* Select **+ Add** to create a workspace using these settings
 
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
@@ -43,8 +48,6 @@ This tutorial will guide you through all the basic steps needed to setup and use
     |Basics|**Region**|Match the region of the storage account|
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
-    > [!NOTE]
-    > We refer to the storage account chosen here as the "primary" storage account of the Synapse workspace. This account is used for storing data in Apache spark tables and for logs created when Spark pools are created or Spark applications run.
 
 1. Select **Review + create**. Select **Create**. Your workspace will be ready in a few minutes.
 
@@ -66,10 +69,6 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
 ## Create a SQL pool
 
 1. In Synapse Studio, on the left side navigation, select **Manage > SQL pools**
-
-    > [!NOTE] 
-    > All Synapse workspaces come with a pre-created pool called **SQL on-demand**.
-
 1. Select **+New** and enter these settings:
 
     |Setting | Suggested value | 
@@ -78,14 +77,9 @@ Once your Synapse workspace is created, you have two ways to open Synapse Studio
     |**Performance level**|`DW100C`|
 
 1. Select **Review+create** and then select **Create**.
-1. Your SQL pool will be ready in a few minutes.
+1. Your SQL pool will be ready in a few minutes. When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
 
-    > [!NOTE]
-    > A Synapse SQL pool corresponds to what used to be called an "Azure SQL Data Warehouse"
-
-A SQL pool consumes billable resources as long as it's running. So, you can pause the pool when needed to reduce costs.
-
-When your SQL pool is created, it will be associated with a SQL pool database also called **SQLDB1**.
+A SQL pool consumes billable resources as long as it is active. You can pause the pool later to reduce costs.
 
 ## Create an Apache Spark pool
 
@@ -109,7 +103,7 @@ Because they are metadata, Spark pools cannot be started or stopped.
 When you do any Spark activity in Synapse, you specify a Spark pool to use. The pool informs Synapse how many Spark resources to use. You pay only for the resources thar are used. When you actively stop using the pool, the resources will automatically time out and be recycled.
 
 > [!NOTE]
-> Spark databases are independently created from Spark pools. A workspace always has a Spark DB called **default** and you can create additional Spark databases.
+> Spark databases are independently created from Spark pools. A workspace always has a Spark database called **default** and you can create additional Spark databases.
 
 ## The SQL on-demand pool
 
@@ -132,7 +126,7 @@ Every workspace comes with a pre-built and undeleteable pool called **SQL on-dem
 1. Navigate to **SQLDB1 > Tables**. You'll see several tables have been loaded.
 1. Right-click on the **dbo.Trip** table and select **New SQL Script > Select TOP 100 Rows**
 1. A new SQL script will be created and automatically run.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called SQLDB1.
+1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called `SQLDB1`.
 1. Replace the text of the SQL script with this code and run it.
 
     ```sql
@@ -150,7 +144,7 @@ Every workspace comes with a pre-built and undeleteable pool called **SQL on-dem
 
 ## Load the NYC Taxi Sample data into the Spark nyctaxi database
 
-We have data available in a table in `SQLDB1`. Now we load it into a Spark database named 'nyctaxi`.
+We have data available in a table in `SQLDB1`. Now we load it into a Spark database named `nyctaxi`.
 
 1. In Synapse Studio, navigate to the **Develop** hub
 1. Select **+** and select **Notebook**
@@ -172,7 +166,7 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
 ## Analyze the NYC Taxi data using Spark and notebooks
 
 1. Return to your notebook
-1. Create a new code cell, enter the text below, and run the cell to example the NYC taxi data we loaded into the `nyctaxi` Spark DB.
+1. Create a new code cell, enter the text below, and run the cell to example the NYC taxi data we loaded into the `nyctaxi` Spark database.
 
    ```py
    %%pyspark
@@ -285,8 +279,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Select **Linked**
 1. Navigate to **Storage accounts > myworkspace (Primary - contosolake)**
 1. Select **users (Primary)"**
-1. You should see a folder called `NYCTaxi'. Inside you should see two folders 'PassengerCountStats.csv' and 'PassengerCountStats.parquet'.
-1. Navigate into the `PassengerCountStats.parquet' folder.
+1. You should see a folder called `NYCTaxi`. Inside you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
+1. Navigate into the `PassengerCountStats.parquet` folder.
 1. Right-click on the parquet file inside, and select **new notebook**, it will create a notebook with a cell like this:
 
     ```py

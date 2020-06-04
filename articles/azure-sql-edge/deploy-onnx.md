@@ -2,8 +2,8 @@
 title: Deploy and make predictions with ONNX in Azure SQL Edge (Preview)
 description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (Preview), and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice:
 ms.topic: conceptual
 author: dphansen
