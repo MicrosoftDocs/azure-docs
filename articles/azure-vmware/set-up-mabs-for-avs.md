@@ -357,7 +357,7 @@ If you downloaded the software package to a different server, copy the files ont
 
 ### Install Update Rollup 1
 
-Installation of update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before protecting the workloads. To view the list of bug fixes and  the installation instructions for Microsoft Azure Backup Server V3 UR1, see KB article [4534062](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsupport.microsoft.com%2Fhelp%2F4534062&data=02%7C01%7Cv-patsho%40microsoft.com%7C476e4340341c42c0786108d807e2c1a7%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637268017777756122&sdata=%2Bu7zAbdte1Yiqj%2BQ%2BHNKehyr28fW7ywAiYAy%2F1DsqKs%3D&reserved=0).
+Installation of update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before protecting the workloads. To view the list of bug fixes and  the installation instructions for Microsoft Azure Backup Server V3 UR1, see KB article [4534062](https://support.microsoft.com/en-us/help/4534062/).
 
 ## Add storage to Azure Backup Server
 
