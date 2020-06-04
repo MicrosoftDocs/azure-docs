@@ -81,6 +81,10 @@ A complete solution using Azure Digital Twins may contain the following parts:
 * An IoT hub to provide device management and IoT data stream capabilities.
 * Downstream services to handle tasks such as workflow integration (like [Logic Apps](../logic-apps/logic-apps-overview.md), cold storage, time series integration, or analytics. 
 
+The following diagram shows where Azure Digital Twins lies in the context of a larger Azure IoT solution.
+
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
+
 ## Service limits in public preview
 
 For a list of Azure Digital Twins limits during public preview, see [Reference: Public preview service limits](reference-service-limits.md).
