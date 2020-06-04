@@ -172,7 +172,7 @@ ___
         <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank"> <img src="./media/identity-videos/graph-and-msal.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">How MSAL makes authentication easier <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank">What is the MSAL family of libraries? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=yLVEBU9Z96Q" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
@@ -242,7 +242,7 @@ ___
 
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank">Endpoints and the benefits of moving to v2.0 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank">Why migrate from ADAL to MSAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
@@ -256,15 +256,15 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank">Why migrate from ADAL to MSAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=qpdC45tZYDg" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank">Advantages of MSAL over ADAL <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <!-- BLANK TITLE CELL -->
+    :::column-end:::
+    :::column:::
+        <!-- BLANK VIDEO CELL -->
     :::column-end:::
 :::row-end:::
