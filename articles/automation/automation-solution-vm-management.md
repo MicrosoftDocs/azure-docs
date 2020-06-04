@@ -13,7 +13,7 @@ The Start/Stop VMs during off-hours feature starts or stops enabled Azure VMs. I
 This feature uses [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-4.2.0) cmdlet to start VMs. It uses [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm?view=azps-4.2.0) for stopping VMs.
 
 > [!NOTE]
-> While the scripts have been updated to use the new Azure Az module cmdlets, they use the AzureRM alias prefix for **Start-AzVM** (that is, Start-AzureRMVm) and **Stop-AzVM** (that is, Stop-AzureRMVm).
+> While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM alias prefix for **Start-AzVM** (that is, Start-AzureRMVm) and **Stop-AzVM** (that is, Stop-AzureRMVm).
 
 > [!NOTE]
 > Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
