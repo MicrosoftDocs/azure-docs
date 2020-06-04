@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Start/Stop VMs during off-hours overview
 
-The Start/Stop VMs during off-hours feature starts or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
+The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
 
 This feature uses [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-4.2.0) cmdlet to start VMs. It uses [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm?view=azps-4.2.0) for stopping VMs.
 
@@ -87,7 +87,7 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 
 ## Components
 
-The Start/Stop VMs during off-hours feature includes preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
+The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 
