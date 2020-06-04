@@ -29,12 +29,10 @@ To use this feature, please download and install the latest SSDT with SSIS Proje
 ### Create new Azure-enabled SSIS projects
 On SSDT, you can create new Azure-enabled SSIS projects using the **Integration Services Project (Azure-Enabled)** template.
 
-   [!div class="mx-imgBorder"]
    ![New Azure-enabled SSIS Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
 
 After the Azure-enabled project is created, you will be prompted to connect to SSIS in Azure Data Factory.
 
-   [!div class="mx-imgBorder"]
    ![Connect Azure-SSIS IR Prompt](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-integration-runtime-connect-prompt.png)
 
 If you want to connect to your Azure-SSIS IR right away, please refer to [Connect to Azure-SSIS IR](#irconnect) for details. You can also connect later by right-clicking on the project node in Solution Explorer panel of SSDT to pop up a menu and then selecting the **Connect to SSIS in Azure Data Factory** menu item under the **SSIS in Azure Data Factory** submenu.
@@ -44,17 +42,14 @@ For existing SSIS projects, you can Azure-enable them by following these steps:
 
 1. Right-click on the project node in Solution Explorer panel of SSDT to pop up a menu and then selecting the **Azure-Enabled Project** menu item under the **SSIS in Azure Data Factory** submenu to launch the **Azure-Enabled Project Wizard**.
 
-   [!div class="mx-imgBorder"]
    ![Azure-enable Existing SSIS Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
 2. On the **Select Visual Studio Configuration** page, select the Visual Studio configuration to apply package execution settings in Azure. A good practice is to create a new Visual Studio configuration for cloud and Azure-enable your project against the cloud configuration. With multiple configurations, you can assign different values to your parameters based on the different environments (either locally or in Azure). Please refer to [this example](#example) for more details.
 
-   [!div class="mx-imgBorder"]
    ![Select Visual Studio Configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
 3. Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR, which is currently **SQL Server 2017**. So if you have not done so already, you need to check if your package contains additional components that are not supported on SQL Server 2017 and click on the Next button to continue if there is no concern.
 
-   [!div class="mx-imgBorder"]
    ![Switch Target Server Version](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
 4. Refer to [Connect to Azure-SSIS IR](#irconnect) to complete the connection to Azure-SSIS IR.
@@ -65,7 +60,6 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
 
 1. On the **SSIS in ADF Introduction** page, review the introduction and click on the **Next** button to continue.
 
-   [!div class="mx-imgBorder"]
    ![SSIS in ADF Introduction](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard.png)
 
 2. On the **Select SSIS IR in ADF** page, select your existing ADF and Azure-SSIS IR to run packages or create new ones if you do not have any.
@@ -73,7 +67,6 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
    - If you select your existing ADF that does not have any Azure-SSIS IR, click on the **Create SSIS IR** button to create a new one on ADF portal/app.
    - If you select your existing Azure subscription that does not have any ADF, click on the **Create SSIS IR** button to launch the **Integration Runtime Creation Wizard**, where you can enter the location and prefix for us to automatically create a new Azure Resource Group, Data Factory, and SSIS IR on your behalf, named in the following pattern: **YourPrefix-RG/DF/IR-YourCreationTime**.
 
-   [!div class="mx-imgBorder"]
    ![Select SSIS IR in ADF](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
 3. On the **Select Azure Storage** page, select your existing Azure Storage account to upload packages into Azure Files or create a new one if you do not have any.
@@ -81,7 +74,6 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
    - If you select the same Azure subscription as your Azure-SSIS IR that does not have any Azure Storage account, click on the **Create Azure Storage** button for us to automatically create a new one on your behalf in the same location as your Azure-SSIS IR, named by combining a prefix of your Azure-SSIS IR name and its creation date.
    - If you select a different Azure subscription that does not have any Azure Storage account, click on the **Create Azure Storage** button to create a new one on Azure portal.
 
-   [!div class="mx-imgBorder"]
    ![Select Azure Storage](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 4. Click on the **Connect** button to complete your connection.  We will display your selected Azure-SSIS IR and Azure Storage account under the **Linked Azure Resources** node in Solution Explorer panel of SSDT.  We will also refresh the status of your Azure-SSIS IR, while you can manage it by right-clicking on its node to pop up a menu and then selecting the **Start\Stop\Manage** menu item that takes you to ADF portal/app to do so.
@@ -92,29 +84,24 @@ Before executing your packages in Azure, you can choose to configure execution s
 
 1. Right-click on the project node in Solution Explorer panel of SSDT to pop up a menu and then selecting the **Azure-Enabled Settings** menu item under the **SSIS in Azure Data Factory** submenu.
 
-   [!div class="mx-imgBorder"]
    ![Azure-enabled Settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
 2. Click the **Enable Windows Authentication** drop down list and choose **True**. Then click the edit button for **Windows Authentication Credentials** option to enter the credentials.
 
-   [!div class="mx-imgBorder"]
    ![Enable Windows Authentication](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
 
 3. Provide credentials in the **Windows Authentication Credentials** editor.
 
-   [!div class="mx-imgBorder"]
    ![Windows Authentication Credentials](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-credential.png)
 
 ### Starting package executions
 After connecting your projects to SSIS in ADF, you can execute packages on Azure-SSIS IR.  You have two options to start package executions:
 -  Click on the **Start** button in SSDT toolbar to drop down a menu and select the **Execute in Azure** menu item 
 
-   [!div class="mx-imgBorder"]
    ![Execute in Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package.png)
 
 -  Right-click on the package node in Solution Explorer panel of SSDT to pop up a menu and select the **Execute Package in Azure** menu item.
 
-   [!div class="mx-imgBorder"]
    ![Execute Package in Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package2.png)
 
 > [!NOTE]
@@ -151,26 +138,22 @@ To switch package execution environments with Azure-enabled projects, you can cr
 
 1. Define a parameter **FilePath** of string type, which is the file path of the target file.
 
-   [!div class="mx-imgBorder"]
    ![Define Package Parameter](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-define-parameters.png)
 
 2. Associate the **Source Connection** with this parameter. 
 
-   [!div class="mx-imgBorder"]
    ![Update Source Connection](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
 
 3. Create new Visual Studio configuration for cloud in Visual Studio Configuration Manager.
 
 4. Define the values for this parameter against each Visual Studio configuration.
 
-   [!div class="mx-imgBorder"]
    ![Override Parameter Values](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-override-parameter.png)
 
 5. Azure-enabled this SSIS project against the Visual Studio configuration for cloud.
 
 6. Execute this package in Azure. You can easily switch the environment back to the local one by switching the current Visual Studio configuration.
 
-   [!div class="mx-imgBorder"]
    ![Switch Visual Studio Configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
 
 ## Next steps
