@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins APIs and SDKs
 
-Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. This article gives an overview of the APIs available, and the methods for interacting with them—particularly through the associated Swaggers and through the provided SDKs.
+Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
 
 ## Overview: control plane APIs
 
@@ -31,36 +31,25 @@ To use the control plane APIs...
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
-## Overview: data Plane APIs
+## Overview: data plane APIs
 
-The data plane APIs are used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins.
-
-The most current data plane API version for public preview is *2020-05-31-preview*.
-
-To use the data plane APIs...
-* you can call them directly by referencing the Swagger [here]().
-* you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
-  - For .NET users, you can find the SDK source [here](); the SDK NuGet [here](); and its reference docs [here](). 
-  - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
-
-You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
-
-The Azure Digital Twins data plane REST APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
-
+The data plane APIs are used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins. They can be broadly divided into the following categories:
 * **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-You can either use the REST APIs directly, or through an SDK. 
+The most current data plane API version for public preview is *2020-05-31-preview*.
 
-### REST API Swagger (data plane)
+To use the data plane APIs...
+* you can call them directly by referencing the Swagger [here](). You can also view the API reference documentation [here]().
+* you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
+  - For .NET users, you can find the SDK source [here](); the SDK NuGet [here](); and its reference docs [here](). You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+  - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
-Use the [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json) as a resource for calling the APIs directly.
+You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
 
-You can also view example call bodies in the Swagger's accompanying [examples folder](https://github.com/Azure/azure-digital-twins/tree/private-preview/OpenApiSpec/examples).
-
-### Azure Digital Twins .NET (C#) SDK (data plane)
+## .NET (C#) SDK (data plane)
 
 The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
@@ -79,7 +68,7 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 
 For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
 
-#### .NET SDK usage examples
+### .NET SDK usage examples
 
 Here are some code samples illustrating use of the C# SDK.
 
@@ -143,7 +132,7 @@ await foreach (string twin in result)
 
 See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
 
-##### Serialization Helpers
+#### Serialization Helpers
 
 As described earlier, the core SDK methods return twin data as JSON. However, the SDK also contains helper classes for serialization. These helper functions let you quickly create or deserialize twin data for access to basic information.
 
@@ -153,7 +142,7 @@ The available helper classes are:
 * `UpdateOperationUtility`: Represents JSON Patch information used in update calls
 * `WriteableProperty`: Represents property metadata
 
-###### Deserialize a digital twin
+##### Deserialize a digital twin
 
 You can always deserialize twin data using the JSON library of your choice, like `System.Test.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes make this a bit more convenient.
 
@@ -176,7 +165,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-###### Create a digital twin
+##### Create a digital twin
 
 Using the `BasicDigitalTwin` class, you can prepare data for creating a twin instance:
 
@@ -207,7 +196,7 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```
 
-###### Deserialize a relationship
+##### Deserialize a relationship
 
 You can always deserialize relationship data using the JSON library of your choice, like `System.Test.Json` or `Newtonsoft.Json`. For basic access to a relationship, the helper classes make this a bit more convenient.
 
@@ -230,7 +219,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 }
 ```
 
-###### Create a relationship
+##### Create a relationship
 
 Using the `BasicDigitalTwin` class, you can also prepare data for creating relationships on a twin instance:
 
@@ -245,7 +234,7 @@ rel.CustomProperties = props;
 client.CreateRelationship("mySourceTwin", "rel001", JsonSerializer.Serialize<BasicRelationship>(rel));
 ```
 
-###### Create a patch for twin update
+##### Create a patch for twin update
 
 Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. To create lists of JSON Patch operations, you can use the `UpdateOperationsUtility` class as shown below.
 
