@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/04/2020
 ms.author: tomfitz
 ---
 # ARM template deployment what-if operation (Preview)
@@ -17,15 +17,17 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 
 ## Install PowerShell module
 
-To use what-if in PowerShell, you must install a preview version of the Az.Resources module from the PowerShell gallery. But, before installing the module, make sure you have PowerShell Core (6.x or 7.x). If you have PowerShell 5.x or earlier, [update your version of PowerShell](/powershell/scripting/install/installing-powershell). You can't install the preview module on PowerShell 5.x or earlier.
+To use what-if in PowerShell, you must have version **4.2 or later** of the Az module. But, before installing the module, make sure you have PowerShell Core (6.x or 7.x). If you have PowerShell 5.x or earlier, [update your version of PowerShell](/powershell/scripting/install/installing-powershell). You can't install the required module on PowerShell 5.x or earlier.
 
-### Install preview version
+### Install latest version
 
-To install the preview module, use:
+To install the module, use:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### Uninstall alpha version
 
