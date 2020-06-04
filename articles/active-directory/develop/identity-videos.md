@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/03/2020
+ms.date: 06/05/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
@@ -31,13 +31,13 @@ ___
         1 - <a href="https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1" target="_blank">Overview of the Microsoft identity platform for developers <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:55)
     :::column-end:::
     :::column:::
-        [![img][id-plat-01-img]][id-plat-01-vid]
+        <a href="https://www.youtube.com/watch?v=zjezqZPPOfc" target="_blank"> <img src="./media/identity-videos/id-for-devs-01.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
      :::column:::
         2 - <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=2" target="_blank">How to authenticate users of your apps with the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (29:09)
     :::column-end:::
     :::column:::
-        [![img][id-plat-02-img]][id-plat-02-vid]
+        <a href="https://www.youtube.com/watch?v=Mtpx_lpfRLs" target="_blank"> <img src="./media/identity-videos/id-for-devs-02.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -45,13 +45,13 @@ ___
         3 - <a href="https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3" target="_blank">Microsoft identity platform’s permissions and consent framework <span class="docon docon-navigate-external x-hidden-focus"></span></a> (45:08)
     :::column-end:::
     :::column:::
-        [![img][id-plat-03-img]][id-plat-03-vid]
+        <a href="https://www.youtube.com/watch?v=toAWRNqqDL4" target="_blank"> <img src="./media/identity-videos/id-for-devs-03.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
         4 - <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4" target="_blank">How to protect APIs using the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (33:17)
     :::column-end:::
     :::column:::
-        [![img][id-plat-04-img]][id-plat-04-vid]
+        <a href="https://www.youtube.com/watch?v=IIQ7QW4bYqA" target="_blank"> <img src="./media/identity-videos/id-for-devs-04.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -59,7 +59,7 @@ ___
         5 - <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5" target="_blank">Application roles and security groups on the Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
     :::column-end:::
     :::column:::
-        [![img][id-plat-05-img]][id-plat-05-vid]
+        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
         <!-- BLANK TITLE CELL -->
@@ -93,13 +93,13 @@ ___
         1 - <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1" target="_blank">Basics: The concepts of modern authentication <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:33)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-01-img]][auth-fund-01-vid]
+        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
      :::column:::
         2 - <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2" target="_blank">Modern authentication for web applications <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:02)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-02-img]][auth-fund-02-vid]
+        <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-02.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,13 +107,13 @@ ___
         3 - <a href="https://www.youtube.com/watch?v=51B-jSOBF8U&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=3" target="_blank">Web single sign-on <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:13)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-03-img]][auth-fund-03-vid]
+        <a href="https://www.youtube.com/watch?v=51B-jSOBF8U" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-03.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
         4 - <a href="https://www.youtube.com/watch?v=CjarTgjKcX8&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=4" target="_blank">Federated web authentication <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:19)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-04-img]][auth-fund-04-vid]
+        <a href="https://www.youtube.com/watch?v=CjarTgjKcX8" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-04.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -121,13 +121,13 @@ ___
         5 - <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=5" target="_blank">Native client applications - Part 1 <span class="docon docon-navigate-external x-hidden-focus"></span></a> (8:12)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-05-img]][auth-fund-05-vid]
+        <a href="https://www.youtube.com/watch?v=OGMDnuDrAcQ" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
         6 - <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=6" target="_blank">Native client applications - Part 2 <span class="docon docon-navigate-external x-hidden-focus"></span></a> (5:33)
     :::column-end:::
     :::column:::
-        [![img][auth-fund-06-img]][auth-fund-06-vid]
+        <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
