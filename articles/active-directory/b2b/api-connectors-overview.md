@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 As a developer or IT administrator, you can use API connectors to integrate your user flows with external systems. For example, you can use API connectors to:
 
 - **Enable custom approvals**. [Enable your custom user approval system](self-service-sign-up-add-approvals.md) for managing account creation.
-- **Perform identity proofing**). Use an identity proofing and verification service to add an extra level of security to account creation decisions.
+- **Perform identity proofing**. Use an identity proofing and verification service to add an extra level of security to account creation decisions.
 - **Validate user input data**. Prevent malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. Based on the validation, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite user attributes**. Reformat or assign an overwriting value to an attribute collected from the user . For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Enrich user data**. Integrate with your external cloud systems that store user information to pull them into the authentication flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token. 
