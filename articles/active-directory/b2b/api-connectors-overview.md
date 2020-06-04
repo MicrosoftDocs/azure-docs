@@ -148,7 +148,7 @@ The blocking response contains the following parameters:
 
 #### End user experience with a blocking response
 
-![Example  block page](./media/self-service-sign-up-overview/blocking-page-response.png)
+![Example  block page](./media/api-connectors-overview/blocking-page-response.png)
 
 ### Validation-error response
 
@@ -180,7 +180,7 @@ The validation-error response contains the following parameters:
 
 #### End user experience with a validation-error response
 
-![Example  validation page](./media/self-service-sign-up-overview/validation-error-postal-code.png)
+![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
 <!-- > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
