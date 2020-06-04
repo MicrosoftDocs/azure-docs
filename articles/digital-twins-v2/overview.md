@@ -83,7 +83,7 @@ A complete solution using Azure Digital Twins may contain the following parts:
 
 The following diagram shows where Azure Digital Twins lies in the context of a larger Azure IoT solution.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Input sources send data into Azure Digital Twins and output services receive data from Azure Digital Twins. There is two-way communication between Azure Digital Twins and client apps, and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
 
 ## Service limits in public preview
 
