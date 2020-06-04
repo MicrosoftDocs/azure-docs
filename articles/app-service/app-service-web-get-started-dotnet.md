@@ -145,3 +145,6 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

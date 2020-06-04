@@ -626,3 +626,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

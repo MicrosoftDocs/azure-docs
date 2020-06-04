@@ -248,7 +248,7 @@ Once you've modified the Python file and saved it, you must rebuild and push the
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Enable SSH connections
 

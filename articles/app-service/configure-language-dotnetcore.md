@@ -1,6 +1,6 @@
 ---
-title: Configure Linux ASP.NET Core apps
-description: Learn how to configure a pre-built ASP.NET Core container for your app. This article shows the most common configuration tasks. 
+title: Configure ASP.NET Core apps
+description: Learn how to configure a ASP.NET Core app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: dotnet
 ms.topic: article
@@ -8,33 +8,26 @@ ms.date: 06/02/2020
 
 ---
 
-# Configure a Linux ASP.NET Core app for Azure App Service
+# Configure an ASP.NET Core app for Azure App Service
 
-ASP.NET Core apps must be deployed as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
+> [!NOTE]
+> For ASP.NET in .NET Framework, see [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md)
 
-This guide provides key concepts and instructions for ASP.NET Core developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries. For information about Linux apps, see [Configure a Linux ASP.NET Core app for Azure App Service](containers/configure-language-dotnetcore.md).
 
-## Show .NET Core version
+This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](app-service-web-tutorial-dotnetcore-sqldb.md) first.
 
-To show the current .NET Core version, run the following command in the [Cloud Shell](https://shell.azure.com):
+## Show supported .NET Core runtime versions
 
-```azurecli-interactive
-az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
-```
-
-To show all supported .NET Core versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+In App Service, the Windows instances already have all the supported .NET Core versions installed. To show the .NET Core runtime and SDK versions available to you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and run the following command in the browser-based console:
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep DOTNETCORE
+dotnet --info
 ```
 
 ## Set .NET Core version
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 2.1:
-
-```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
-```
+Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](https://docs.microsoft.com/dotnet/core/versions/selection) in .NET Core documentation.
 
 ## Customize build automation
 
@@ -60,7 +53,7 @@ For more information on how App Service runs and builds ASP.NET Core apps in Lin
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them in any class using the standard ASP.NET Core dependency injection pattern:
+In App Service, you can [set app settings](configure-common.md#configure-app-settings) outside of your app code. Then you can access them in any class using the standard ASP.NET Core dependency injection pattern:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -96,13 +89,48 @@ If you configure an app setting with the same name in App Service and in *appset
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
 ```
 
-## Get detailed exceptions page
+## Deploy multi-project solutions
 
-When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** error or **An error occurred while processing your request.** message. To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git or with ZIP deploy, with build automation turned on, the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
 ```
+
+## Get detailed exceptions page
+
+When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic error message. To display the detailed exception page in App Service, open the *Web.config* file and add the `<customErrors mode="Off"/>` element under the `<system.web>` element. For example:
+
+```xml
+<system.web>
+    <customErrors mode="Off"/>
+</system.web>
+```
+
+Redeploy your app with the updated *Web.config*. You should now see the same detailed exception page.
+
+## Access diagnostic logs
+
+ASP.NET Core provides a [built-in logging provider for App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* of your project, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureLogging(logging =>
+        {
+            logging.AddAzureWebAppDiagnostics();
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+You can then configure and generate logs with the [standard .NET Core pattern](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
+
+For more information on troubleshooting ASP.NET Core apps in App Service, see [Troubleshoot ASP.NET Core on Azure App Service and IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
 
 ## Get detailed exceptions page
 
@@ -149,62 +177,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-## Deploy multi-project solutions
-
-When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with a *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
-
-To deploy a multi-project solution, you can specify the project to use in App Service in two different ways:
-
-### Using .deployment file
-
-Add a *.deployment* file to the repository root and add the following code:
-
-```
-[config]
-project = <project-name>/<project-name>.csproj
-```
-
-### Using app settings
-
-In the <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, add an app setting to your App Service app by running the following CLI command. Replace *\<app-name>*, *\<resource-group-name>*, and *\<project-name>* with the appropriate values.
-
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
-```
-
-## Access diagnostic logs
-
-ASP.NET Core provides a [built-in logging provider for App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* of your project, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
-
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureLogging(logging =>
-        {
-            logging.AddAzureWebAppDiagnostics();
-        })
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-        });
-```
-
-You can then configure and generate logs with the [standard .NET Core pattern](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
-
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
-
-For more information on troubleshooting ASP.NET Core apps in App Service, see [Troubleshoot ASP.NET Core on Azure App Service and IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
-
-## Open SSH session in browser
-
-[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](app-service-linux-faq.md)
+> [Tutorial: ASP.NET Core app with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
