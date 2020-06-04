@@ -278,7 +278,7 @@
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
-    - name: Github
+    - name: GitHub
       href: connector-github.md
     - name: Google AdWords
       href: connector-google-adwords.md
