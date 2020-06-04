@@ -49,7 +49,7 @@
     - name: Send push notifications to iOS apps
       items:
       - name: Prerequisites for all platforms
-        href: ios-sdk-get-srarted.md
+        href: ios-sdk-get-started.md
       - name: Objective-C (version 2.0.4)
         href: ios-sdk-obc-204.md
       - name: Objective-C (version 3.0.0-preview1)
