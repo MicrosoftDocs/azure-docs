@@ -83,7 +83,7 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
-The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/feature/digitaltwins/sdk/digitaltwins/Azure.DigitalTwins.Core). In order to use the SDK, you'll need to include the following packages in your project:
+The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). In order to use the SDK, you'll need to include the following packages in your project:
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 
