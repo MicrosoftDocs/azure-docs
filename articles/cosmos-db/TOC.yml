@@ -592,8 +592,12 @@
         items:
         - name: .NET
           href: create-cassandra-dotnet.md
-        - name: Java
-          href: create-cassandra-java.md
+        - name: .NET Core
+          href: create-cassandra-dotnet-core.md          
+        - name: Java v3
+          href: create-cassandra-java.md         
+        - name: Java v4        
+          href: create-cassandra-java-v4.md
         - name: Node.js
           href: create-cassandra-nodejs.md
         - name: Python
@@ -615,6 +619,8 @@
           href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
+        - name: Partitioning
+          href: cassandra-partitioning.md          
         - name: Secondary Indexes
           href: cassandra-secondary-index.md          
       - name: How-to guides
