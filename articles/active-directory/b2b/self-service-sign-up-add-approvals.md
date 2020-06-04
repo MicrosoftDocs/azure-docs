@@ -234,6 +234,8 @@ Content-type: application/json
 The way in which your approval systems provisions the user account depends on the identity provider that the user used. 
 
 ### For a federated Google or Facebook user
+> [!IMPORTANT]
+> The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals to 'facebook' or 'google' to use this method. 
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
@@ -292,8 +294,6 @@ Content-type: application/json
 | identities                           | yes      | The federated identity information.                                               |
 | otherBuiltInAttribute             | No       | Other built-in attributes like 'displayName', 'city', and more. Parameter names are the same as those sent by the API connector.|
 | extension_\<guid>\_CustomAttribute | No       | Custom attributes about the user. Parameter names are the same as those sent by the API connector.                                                            |
-> [!IMPORTANT]
-> The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals to 'facebook' or 'google' to use this method. 
 
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
@@ -306,18 +306,15 @@ Content-type: application/json
 {
  "email_address": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
- "givenName": "John",
- "surname": "Smith",
  "city": "Redmond",
- "country": "United States",
  "extension_<guid>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
+
 }
 ```
 
 2. Create the invitation using the **email_address** provided by the API connector.
 
-**Request**
 ```http
 POST https://graph.microsoft.com/v1.0/invitations 
 Content-type: application/json
@@ -349,13 +346,11 @@ Content-type: application/json
 
 { 
     "displayName": "John Smith",
-    "givenName": "John",
-    "surname": "Smith",
     "city": "Redmond",
-    "country": "United States",
     "extension_<guid>_CamelCaseAttributeName": "custom attribute value"
 } 
 ```
 
 ## Further reference
-- See an example approval system with the [Woodgrove self-service sign-up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->
+- See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-systems). <!--TODO: link to sample-->
+

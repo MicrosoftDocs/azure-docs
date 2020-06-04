@@ -32,9 +32,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
-
-   > [!NOTE]
-   > Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, enter a dummy **Username** and **Password**, so that your API will ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+    - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, enter a dummy **Username** and **Password**, so that your API will ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -45,14 +43,36 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 10. Select **Save**.
 
+**Example generated request**
+
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@outlook.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "city": "Redmond",
+ "extension_<guid>_CustomAttribute": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
+
+If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
+
+Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
+
 > [!TIP]
 > [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
-
-> [!NOTE]
-> - The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
-> - If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
-> - Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
-<!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
  
 ## Enable the API connector in a user flow
 
