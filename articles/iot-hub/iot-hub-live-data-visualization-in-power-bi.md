@@ -123,7 +123,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-stream-analytics-job-azure.png)
 
-4. Select **Save**.
+4. Select **Save query**.
 
 ### Run the Stream Analytics job
 
