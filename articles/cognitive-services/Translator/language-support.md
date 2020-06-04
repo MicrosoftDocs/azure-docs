@@ -72,8 +72,8 @@ V3 Translator is neural by default and statistical systems are only available wh
 |Kannada|`kn`| Neural|
 |Kazakh |`kk`| Neural|
 |Kiswahili|    `sw`    |    Statistical|
-|Klingon|    `tlh`    |    Statistical|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Statistical|
+|Klingon|    `tlh-Latn`    |    Statistical|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Statistical|
 |Korean    |`ko`    |    Neural|
 |Latvian|    `lv`    |    Neural|
 |Lithuanian|    `lt`    |    Neural|
@@ -173,7 +173,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 | Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
