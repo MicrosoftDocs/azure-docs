@@ -26,8 +26,8 @@ The control plane APIs are used to manage your Azure Digital Twins instance as a
 The most current control plane API version for public preview is *2020-03-01-preview*.
 
 To use the control plane APIs...
-* you can call them directly by referencing the Swagger [here]().
-* you can access SDKs for control APIs in .NET, Python and Go [here]().
+* you can call them directly by referencing the Swagger.
+* you can access SDKs for control APIs in .NET, Python and Go.
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
@@ -42,9 +42,9 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 The most current data plane API version for public preview is *2020-05-31-preview*.
 
 To use the data plane APIs...
-* you can call them directly by referencing the Swagger [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins). You can also view the API reference documentation [here](https://docs.microsoft.com/en-us/azure-digitaltwins-rest-api).
+* you can call them directly by referencing the Swagger [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins). You can also view the API reference documentation.
 * you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
-  - For .NET users, you can find the SDK source [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core); the SDK NuGet [here](); and its reference docs [here](). You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+  - For .NET users, you can find the SDK source [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core); the SDK NuGet; and its reference docs. You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
   - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
