@@ -198,6 +198,7 @@ The following is a list of components that Azure AD Connect installs on the serv
 The table below shows the minimum requirements for the Azure AD Connect sync computer.
 
 ### Azure AD Connect with SQL local or Remote SQL Server Requirements
+
 | Number of objects in Active Directory | CPU | Memory | Hard drive size |
 | --- | --- | --- | --- |
 | Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
