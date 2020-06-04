@@ -46,12 +46,12 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 10. Select **Save**.
 
 > [!TIP]
-> [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. These claims are always sent.
+> [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
 
 > [!NOTE]
 > - The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
 > - If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
-> - Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information about custom and extension attributes, see [Add custom data to users using open extensions](user-flow-add-custom-attributes.md).
+> - Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
 <!--TODO: Nick, ask Shantanu what happens if an API doesn't return a claim that's marked as 'claim to receive'. Does the call fail?-->
  
 ## Enable the API connector in a user flow

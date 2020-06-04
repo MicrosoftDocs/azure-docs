@@ -326,7 +326,7 @@ Content-type: application/json
 ```
 
 #### Custom Attributes
-Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
+For more information regarding custom & extension attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 ## Further reference
 - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->
