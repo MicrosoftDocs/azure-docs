@@ -18,7 +18,7 @@ Wire data is consolidated network and performance data collected from Windows-co
 In addition to the Log Analytics agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Azure Monitor using agents.  
 
 >[!NOTE]
->The Wire Data solution is in the process of being replaced with the [Service Map solution](service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
+>The Wire Data solution has been replaced with the [Service Map solution](service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
 > 
 >Existing customers using the Wire Data solution may continue to use it. We will publish guidance for a migration timeline for moving to Service Map.
 >
@@ -163,7 +163,7 @@ The following sections list the supported operating systems for the Dependency a
 
 Perform the following steps to configure the Wire Data solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 2. Install the Dependency agent on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 > [!NOTE]
