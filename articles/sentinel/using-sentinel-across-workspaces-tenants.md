@@ -85,7 +85,8 @@ A function can also simplify a commonly used union. For example, by saving the f
 
 `union workspace(“hard-to-remember-workspace-name-1”).SecurityEvent, workspace(“hard-to-remember-workspace-name-2”).SecurityEvent`
 
-> [!NOTE] Querying multiple workspaces in the same query might affect performance, and therefore is recommended only when the logic requires this capability.
+> [!NOTE] 
+> Querying multiple workspaces in the same query might affect performance, and therefore is recommended only when the logic requires this capability.
 
 ### Use cross-workspace workbooks
 
