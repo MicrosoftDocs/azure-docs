@@ -42,7 +42,7 @@
   - name: Configure optional settings
     href: configuration.md
 
-- Reference
+- name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/ext/hpc-cache/hpc-cache
