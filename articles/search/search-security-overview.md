@@ -15,11 +15,11 @@ ms.date: 06/03/2020
 
 This article describes the key security features in Azure Cognitive Search that can protect content and operations. 
 
-+ At the storage layer, encryption-at-rest is implemented at the platform level, with an added double encryption option for customers who want to encrypt data and objects before content is saved to disk.
++ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search adds a "double encryption" option for customers who want to encrypt content before encrypting and saving to disk.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
-+ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for a user identity or password on the connection. For more information, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
++ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for a user identity or password on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 
@@ -27,11 +27,11 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 ## Encrypted transmissions and storage
 
-Encryption is pervasive in Azure Cognitive Search, starting with connections and transmissions, extending to content stored on disk.
-
-For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
+Encryption is pervasive in Azure Cognitive Search, starting with connections and transmissions, extending to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
 ### Data encryption-at-rest
+
+Azure Cognitive Search stores index definitions and content, data source definitions, indexer definitions, skillset definitions, and synonym maps.
 
 Across the storage layer, data is encrypted on disk using keys managed by Microsoft. You cannot turn encryption on or off, or view encryption settings in the portal or programmatically. Encryption is fully internalized, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).
 
@@ -42,7 +42,7 @@ Internally, encryption is based on [Azure Storage Service Encryption](../storage
 
 ### Customer-managed key (CMK) encryption
 
-Customers who want additional storage protection can encrypt data and objects before they are stored and encrypted on disk. This approach is based on a user-owned key, managed and stored through Azure Key Vault, independently of Microsoft. Encrypting content before it is encrypted on disk is referred to as "double encryption". Currently, you can double encrypt indexes and synonym maps. For more information, see [Customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Customers who want additional storage protection can encrypt data and objects before they are stored and encrypted on disk. This approach is based on a user-owned key, managed and stored through Azure Key Vault, independently of Microsoft. Encrypting content before it is encrypted on disk is referred to as "double encryption". Currently, you can selectively double encrypt indexes and synonym maps. For more information, see [Customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 > [!NOTE]
 > CMK encryption is generally available for search services created after January 2019. It is not supported on Free (shared) services. 
@@ -81,7 +81,7 @@ Alternatively, you can use the management REST APIs. API version 2020-03-13, wit
 
 ### Private endpoint (no Internet traffic)
 
-A [Private Endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link]../private-link/private-link-overview.md). 
+A [Private Endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). 
 
 The private endpoint uses an IP address from the virtual network address space for connections to your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. A VNET allows for secure communication among resources, with your on-premises network as well as the Internet. 
 
