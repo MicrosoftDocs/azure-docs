@@ -15,11 +15,11 @@ ms.date: 06/03/2020
 
 This article describes the key security features in Azure Cognitive Search that can protect content and operations. 
 
-+ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search adds a "double encryption" option for customers who want to encrypt content before encrypting and saving to disk.
++ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search also offers a "double encryption" option for customers who want the dual protection of both user-owned and Microsoft-managed keys.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
-+ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for a user identity or password on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
++ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 
