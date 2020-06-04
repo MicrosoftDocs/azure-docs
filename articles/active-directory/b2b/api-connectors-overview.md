@@ -98,7 +98,7 @@ If a claim is returned by the API and selected in the expected response configur
 - Assigns a value to the claim if it was previously null.
 
 > [!NOTE]
-> A returned claim is stored in the directory only if it is also collected from the user by selecting it in the **User attributes**. You can always include a returned claim in the application token by selecting it in the **Application claims** blade.
+> A returned claim is stored in the directory only if it is also collected from the user by selecting it in **User attributes**. You can always include a returned claim in the application token by selecting it in **Application claims**.
 
 #### Example of a continuation response
 ```http
