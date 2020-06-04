@@ -40,14 +40,14 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
     ```
 2. If you have Windows Server nodes then check the status of the agent by running the command:
 
-    `kubectl get ds omsagent-win-preview --namespace=kube-system`
+    `kubectl get ds omsagent-win --namespace=kube-system`
 
     The output should resemble the following, which indicates that it was deployed properly:
 
     ```
-    User@aksuser:~$ kubectl get ds omsagent-win-preview --namespace=kube-system
+    User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
     NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-    omsagent-win-preview   2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+    omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
     ```
 3. Check the deployment status with agent version *06072018* or later using the command:
 
@@ -73,6 +73,7 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
     azure-vote-front-3826909965-30n62   1/1       Running   0          22d
     omsagent-484hw                      1/1       Running   0          1d
     omsagent-fkq7g                      1/1       Running   0          1d
+    omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
 5. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and displays the version of the agent and provider.

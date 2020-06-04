@@ -311,15 +311,15 @@ omsagent   2         2         2         2            2           beta.kubernete
 If there are Windows Server nodes on the cluster then you can run the following command to verify that the agent is deployed successfully.
 
 ```
-kubectl get ds omsagent --namespace=kube-system
+kubectl get ds omsagent-win --namespace=kube-system
 ```
 
 The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
-User@aksuser:~$ kubectl get ds omsagent-win-preview --namespace=kube-system
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
 NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-omsagent-win-preview   2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
 ```
 
 To verify deployment of the solution, run the following command:
