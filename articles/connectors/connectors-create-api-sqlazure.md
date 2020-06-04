@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 06/03/2020
 tags: connectors
 ---
 
@@ -27,19 +27,19 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 * Your SQL server name, database name, your user name, and your password. You need these credentials so that you can authorize your logic to access your SQL server.
 
-  * For SQL Server, you can find these details in the connection string:
+  * For on-premises SQL Server, you can find these details in the connection string:
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-  * For Azure SQL Database, you can find these details in the connection string, or in the Azure portal under the SQL Database properties:
+  * For Azure SQL Database, you can find these details in the connection string or in the Azure portal under the SQL database properties:
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and an [Azure data gateway resource created in the Azure portal](../logic-apps/logic-apps-gateway-connection.md) for these scenarios:
+* Based on whether your logic apps are going to run in global, multi-tenant Azure or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), here are other requirements for connecting to on-premises SQL Server:
 
-  * Your logic apps don't run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+  * For logic apps in global, multi-tenant Azure that connect to on-premises SQL Server, you need to have the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and an [Azure data gateway resource created in the Azure portal](../logic-apps/logic-apps-gateway-connection.md).
 
-  * Your logic apps *do* run in an integration service environment, but you have to use Windows authentication for your SQL Server connection. For this scenario, use the SQL Server connector's non-ISE version along with the data gateway because the ISE version doesn't support Windows authentication.
+  * For logic apps in an ISE that connect to on-premises SQL Server and use Windows authentication, the ISE-versioned SQL Server connector doesn't support Windows authentication. So, you still need to use the data gateway and the non-ISE SQL Server connector. For other authentication types, you don't need to use the data gateway and can use the ISE-versioned connector.
 
 * The logic app where you need access to your SQL database. To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
