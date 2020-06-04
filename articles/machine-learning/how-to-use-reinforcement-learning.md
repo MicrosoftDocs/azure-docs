@@ -5,7 +5,7 @@ description: Learn how to use Azure Machine Learning Reinforcement Learning (RL)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
