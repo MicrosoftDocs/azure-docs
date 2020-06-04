@@ -19,23 +19,31 @@ ms.service: digital-twins
 
 Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. This article gives an overview of the APIs available, and the methods for interacting with them—particularly through the associated Swaggers and through the provided SDKs.
 
-## Control plane APIs
+## Overview: control plane APIs
 
-* Use these to create or delete your ADT instances and endpoints.  
-* The most current API version for Public Preview is 2020-03-01-preview.
-* Link to Swagger for Control Plane APIs: <here>
-* Also find SDKs for Control APIs in .NET, Python and Go here: <link>
-* Note that you can also exercise control plane APIs via Azure Portal <link> and CLI <link>
+The control plane APIs are used to manage your Azure Digital Twins instance as a whole, so operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
 
-## Data Plane APIs
+The most current control plane API version for public preview is *2020-03-01-preview*.
 
-* Use these to create routes, upload models, create relationships, manage twins and more.
-* The most current API version for Public Preview is 2020-05-31-preview
-* Link to Swagger for Data Plane APIs: <here>
-* A .NET SDK is now available for data plane operations.  Find SDK source <here>, nuget <here>, reference docs <here>.  
-* SDKs for other languages to follow as we head towards GA. In the meantime, you can use autorest to generate your own SDK.  See how to article <here>.
-* Note that you can also exercise date plane APIs via CLI <link>
+To use the control plane APIs...
+* you can call them directly by referencing the Swagger [here]().
+* you can access SDKs for control APIs in .NET, Python and Go [here]().
 
+You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
+
+## Overview: data Plane APIs
+
+The data plane APIs are used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins.
+
+The most current data plane API version for public preview is *2020-05-31-preview*.
+
+To use the data plane APIs...
+* you can call them directly by referencing the Swagger [here]().
+* you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
+  - For .NET users, you can find the SDK source [here](); the SDK NuGet [here](); and its reference docs [here](). 
+  - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
+
+You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
 
 The Azure Digital Twins data plane REST APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
 
@@ -44,7 +52,7 @@ The Azure Digital Twins data plane REST APIs are used to manage the major elemen
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-You can either use the REST APIs directly, or through an SDK. Currently, the only published SDK for interacting with these APIs is in C#. If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
+You can either use the REST APIs directly, or through an SDK. 
 
 ### REST API Swagger (data plane)
 
