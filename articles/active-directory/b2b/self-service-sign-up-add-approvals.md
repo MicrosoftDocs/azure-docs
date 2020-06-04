@@ -88,8 +88,25 @@ Follow these steps to add the API connectors to a self-service sign-up user flow
 
 Your approval system can leverage the [ API response types](api-connectors-overview.md) from the two API endpoints to control the sign up flow.
 
-### Check approval status - responses
+### Check approval status
 
+#### Example request received by the API
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@outlook.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "ui_locales":"en-US"
+}
+```
 #### Continuation response
 The **Check approval status** API endpoint should return a **continuation response** if:
 - User has not previously requested an approval.
@@ -135,10 +152,31 @@ Content-type: application/json
 } 
 ```
 
-### Request approval - responses
+### Request approval
+
+#### Example HTTP request received by the API
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@outlook.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "city": "Redmond",
+ "extension_<guid>_CustomAttribute": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
 #### Continuation response
-The create approval request should return a **continuation response** if:
-- the user can automatically be approved. 
+The create approval request should return a **continuation response** if the user can be ***automatically be approved***.
 
 
 **Example response**
@@ -153,7 +191,7 @@ Content-type: application/json
 ```
 
 > [!IMPORTANT]
-> Azure AD will create the user an account and take the redirect the user to the application that invoked the sign up flow.
+> Azure AD will create the user an account and direct the user to the application.
 
 #### Blocking Response
 The create approval request should return an **blocking response** if:
@@ -215,10 +253,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "givenName": "John",
- "surname": "Smith",
  "city": "Redmond",
- "country": "United States",
  "extension_<guid>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
@@ -242,10 +277,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "givenName": "John",
- "surname": "Smith",
  "city": "Redmond",
- "country": "United States",
  "extension_<guid>_CustomAttribute": "custom attribute value"
 }
 ```
@@ -266,7 +298,7 @@ Content-type: application/json
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
-1. Receive the HTTP request from the user flow:
+1. Receive the HTTP request from the user flow.
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
@@ -324,9 +356,6 @@ Content-type: application/json
     "extension_<guid>_CamelCaseAttributeName": "custom attribute value"
 } 
 ```
-
-#### Custom Attributes
-For more information regarding custom & extension attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 ## Further reference
 - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->
