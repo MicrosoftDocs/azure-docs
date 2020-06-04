@@ -27,7 +27,7 @@ In this article, we’ll show how to set up a class that uses SolidWorks 2019 an
 ## License server
 SolidWorks Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SolidWorks install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they will be needed in later steps.
 
-After your license server is set up, you will need to peer the [virtual network (VNet)](https://docs.microsoft.com/en-us/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and vice versa.
+After your license server is set up, you will need to peer the [virtual network (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and vice versa.
 
 > [!NOTE]
 > You should verify that the appropriate ports are opened on your firewalls to allow communication between the lab virtual machines and the license server.  For example, see the instructions on [Modifying License Manager Computer Ports for Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) that show how to add inbound and outbound rules to the license server's firewall.  You may also need to open up ports to the lab virtual machines.  Follow the steps in the article on [firewall settings for labs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) for more information on this, including how to get the lab's public IP address.
@@ -57,7 +57,7 @@ Use the settings in the table below when setting up a classroom lab. For more in
 > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience.  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Don’t forget to [peer the virtual network](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for the lab account to the virtual network for the license server before creating the lab.
+> Don’t forget to [peer the virtual network](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for the lab account to the virtual network for the license server **before** creating the lab.
 
 ## Template virtual machine configuration
 The steps in this section show how to set up your template virtual machine by downloading the SolidWorks installation files and installing the client software:
@@ -78,12 +78,13 @@ The steps in this section show how to set up your template virtual machine by do
 1. After you are done installing the client software, you also need to enable the GPU to be used over RDP connection. See the article on [how to enable GPU over RDP connection](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) for more information.
 
 ## Cost
-To estimate the cost of this lab, let's use the following example.
 
-For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be:
+Let's cover a possible cost estimate for this class. This estimate does not include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
 
-25 students * (20 + 10) hours * 160 Lab Units * 0.01 USD per hour = 1200.00 USD
-Further more details on pricing, see Azure Lab Services Pricing.
+25 students * (20 scheduled hours + 10 quota hours) * 160 Lab Units * 0.01 USD per hour = 1200.00 USD
+
+>[!IMPORTANT]
+> Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
 
 ## Next steps
 
