@@ -8,7 +8,7 @@ ms.reviewer: ravastra
 
 # What's new in Azure Blockchain Service?
 
-> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
+> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your RSS feed reader [![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us).
 
 Azure Blockchain Service receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
