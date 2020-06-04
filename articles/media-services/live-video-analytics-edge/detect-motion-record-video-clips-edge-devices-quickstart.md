@@ -58,7 +58,7 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see the *appsettings.json* file and a few other files:
     * ***c2d-console-app.csproj*** - The project file for Visual Studio Code.
     * ***operations.json*** - The list of operations that you want the program to run.
-    * ***Program.cs*** - The sample program code. This code does the following:
+    * ***Program.cs*** - The sample program code. This code:
 
         * Loads the app settings.
         * Invokes direct methods that the Live Video Analytics on IoT Edge module exposes. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md). 
@@ -73,7 +73,7 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
     
       `"topologyName" : "EVRToFilesOnMotionDetection"`
 
-    * Edit the RTSP URL to point to the desired video file:
+    * Edit the RTSP URL to point to the video file:
 
         `"value": "rtsp://rtspsim:554/media/lots_015.mkv"`
 
@@ -83,10 +83,10 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 
 ## Review - Check the modules' status
 
-In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, if you expand the **lva-sample-device** node under **AZURE IOT HUB** (in the lower-left section), you should see the following modules deployed:
+In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, expand the **lva-sample-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
 
 * The Live Video Analytics module, named **lvaEdge**
-* A **rtspsim** module, which simulates an RTSP server that acts as the source of a live video feed
+* An **rtspsim** module, which simulates an RTSP server that acts as the source of a live video feed
 
   ![Modules](./media/quickstarts/lva-sample-device-node.png)
 
@@ -99,7 +99,7 @@ Make sure you've completed the steps to [Prepare for monitoring events](detect-m
 ## Run the sample program
 
 1. Start a debugging session by selecting the F5 key. The **TERMINAL** window prints some messages.
-1. The *operations.json* code calls the direct methods `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after previous quickstarts, this process will return empty lists and then pause. Select the Enter key.
+1. The *operations.json* code calls the direct methods `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after previous quickstarts, then this process will return empty lists and then pause. Select the Enter key.
 
     ```
     --------------------------------------------------------------------------
@@ -117,7 +117,7 @@ Make sure you've completed the steps to [Prepare for monitoring events](detect-m
     Press Enter to continue
     ```
 
-    The TERMINAL window shows the next set of direct method calls:
+    The **TERMINAL** window shows the next set of direct method calls:
 
      * A call to `GraphTopologySet` that uses the `topologyUrl` 
      * A call to `GraphInstanceSet` that uses the following body:
@@ -149,9 +149,7 @@ Make sure you've completed the steps to [Prepare for monitoring events](detect-m
      * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video
      * A second call to `GraphInstanceList` that shows that the graph instance is in the running state
 1. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
-1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub.
-
-    The following section of this quickstart discusses these messages.
+1. Switch to the **OUTPUT** window in Visual Studio Code. You see the messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the **TERMINAL** window and select Enter. 
 
@@ -217,8 +215,10 @@ Here's an example of this message:
 }
 ```
 
-* The `subject` in `applicationProperties` references the node in the media graph from which the message was generated. In this case, the message is originates from the file sink node.
-* The `eventType` in `applicationProperties` indicates that this is an operational event.
+In the preceding message: 
+
+* The `subject` in `applicationProperties` references the node in the media graph from which the message was generated. In this case, the message originates from the file sink node.
+* The `eventType` in `applicationProperties` indicates that this event is operational.
 * The `eventTime` indicates the time when the event occurred. This time is 5 to 6 seconds after `MediaSessionEstablished` and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move](#review-the-sample-video) into the parking lot.
 * The `body` contains data about the operational event. In this case, the data comprises `outputType` and `outputLocation`.
 * The `outputType` indicates that this information is about the file path.
@@ -262,5 +262,5 @@ If you intend to try the other quickstarts, then keep the resources you created.
 * Follow the [Run Live Video Analytics with your own model](use-your-model-quickstart.md) quickstart to apply AI to live video feeds.
 * Review additional challenges for advanced users:
 
-    * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://en.wikipedia.org/wiki/IP_camera) Wikipedia page by looking for devices that conform with profiles G, S, or T.
-    * Use an AMD64 or X64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. You can follow instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) and then follow instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+    * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://en.wikipedia.org/wiki/IP_camera) Wikipedia page. Look for devices that conform with profiles G, S, or T.
+    * Use an AMD64 or X64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
