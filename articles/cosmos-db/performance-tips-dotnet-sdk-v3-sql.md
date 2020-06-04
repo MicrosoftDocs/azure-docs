@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB performance tips for .NET v3
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2=3 SDK performance.
-author: jawilley
+author: j82w
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: j82w 
+ms.author: jawilley
 
 ---
 
@@ -164,7 +164,7 @@ Pre-fetching works the same way regardless of the degree of parallelism, and the
 
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
 
-For more information, see [RetryAfter](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 There's a mechanism for logging additional diagnostic information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand how many times you received 429 errors for a given request.
 
