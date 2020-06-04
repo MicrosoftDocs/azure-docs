@@ -23,7 +23,7 @@ Azure SQL Database and Azure SQL Managed Instance let you easily purchase a full
 
 There are two purchasing models:
 
-- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single instances of SQL Database that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [DTU-based purchasing model](service-tiers-dtu.md) is available for [Azure SQL Database](single-database-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
@@ -62,7 +62,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single instances of Azure SQL Database, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -74,7 +74,7 @@ The vCore-based purchasing model lets you independently choose compute and stora
 > Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database. For more information about SQL Managed Instance charges, see [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that currently isn't supported, [send a support request via the Azure portal](quota-increase-request.md).
 
-If your Azure SQL Database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
+If your database consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
 
 To convert from the DTU-based purchasing model to the vCore-based purchasing model, see [Migrate from DTU to vCore](migrate-dtu-to-vcore.md).
 
@@ -90,11 +90,11 @@ For a single database at a specific compute size within a [service tier](single-
 
 The ratio among these resources is originally determined by an [online transaction processing (OLTP) benchmark workload](service-tiers-dtu.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled, resulting in slower performance and time-outs.
 
-The resources used by your workload don't impact the resources available to other SQL Database instances in the Azure cloud. Likewise, the resources used by other workloads don't impact the resources available to your SQL Database instance.
+The resources used by your workload don't impact the resources available to other databases in the Azure cloud. Likewise, the resources used by other workloads don't impact the resources available to your database.
 
 ![Bounding box](./media/purchasing-models/bounding-box.png)
 
-DTUs are most useful for understanding the relative resources that are allocated for Azure SQL Database instances at different compute sizes and service tiers. For example:
+DTUs are most useful for understanding the relative resources that are allocated for databases at different compute sizes and service tiers. For example:
 
 - Doubling the DTUs by increasing the compute size of a database equates to doubling the set of resources available to that database.
 - A premium service tier P11 database with 1750 DTUs provides 350 times more DTU compute power than a basic service tier database with 5 DTUs.  
@@ -107,7 +107,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 
 ### Elastic database transaction units (eDTUs)
 
-For SQL Database instances that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](elastic-pool-overview.md). The databases in an elastic pool are on a single server and share a pool of resources.
+For databases that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](elastic-pool-overview.md). The databases in an elastic pool are on a single server and share a pool of resources.
 
 The shared resources in an elastic pool are measured by elastic database transaction units (eDTUs). Elastic pools provide a simple, cost-effective solution to manage performance goals for multiple databases that have widely varying and unpredictable usage patterns. An elastic pool guarantees that all the resources can't be consumed by one database in the pool, while ensuring that each database in the pool always has a minimum amount of necessary resources available.
 

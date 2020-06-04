@@ -554,7 +554,7 @@ productDirectory:
         - containers
       url: service-fabric/index.yml
     # Card
-    - title: SQL Server on Virtual Machines
+    - title: SQL Server on Azure Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
       azureCategories:
@@ -681,7 +681,7 @@ productDirectory:
     # Card
     - title: Azure SQL 
       summary: Modern SQL family for migration and app modernization
-      imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+      imageSrc:  https://static.docs.com/ui/media/product/azure/sql.svg
       azureCategories:
         - featured
         - hybrid

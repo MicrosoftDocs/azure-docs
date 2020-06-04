@@ -3,9 +3,9 @@ title: Create integration service environments (ISEs) with Logic Apps REST API
 description: Create an integration service environment (ISE) by using the Logic Apps REST API so you can access Azure virtual networks (VNETs) from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 05/29/2020
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
@@ -56,9 +56,11 @@ In the request header, include these properties:
 
 * `Authorization`: Set this property value to the bearer token for the customer who has access to the Azure subscription or resource group that you want to use.
 
-### Request body syntax
+<a name="request-body"></a>
 
-Here is the request body syntax, which describes the properties to use when you create your ISE:
+## Request body
+
+Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see also [HTTP connector - Self-signed certificates](../connectors/connectors-native-http.md#self-signed).
 
 ```json
 {
@@ -90,6 +92,13 @@ Here is the request body syntax, which describes the properties to use when you 
                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
+      },
+      // Include `certificates` object to enable self-signed certificate support
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
       }
    }
 }
@@ -129,7 +138,12 @@ This example request body shows the sample values:
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
             }
          ]
-      }
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
+            "kind": "TrustedRoot"
+         }
    }
 }
 ```

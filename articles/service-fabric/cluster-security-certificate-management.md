@@ -76,8 +76,8 @@ This topic is covered in detail in the Key Vault [documentation](../key-vault/cr
     - once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
       - under {vaultUri}/certificates/{name}: the certificate including the public key and metadata
       - under {vaultUri}/keys/{name}: the certificate's private key, available for cryptographic operations (wrap/unwrap, sign/verify)
-      - under {vaultUri}/secrets/{name}: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file
-    Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
+      - under {vaultUri}/secrets/{name}: the certificate inclusive of its private key, available for downloading as an unprotected pfx or pem file  
+	Recall that a vault certificate is, in fact, a chronological line of certificate instances, sharing a policy. Certificate versions will be created according to the lifetime and renewal attributes of the policy. It is highly recommended that vault certificates not share subjects or domains/DNS names; it can be disruptive in a cluster to provision certificate instances from different vault certificates, with identical subjects but substantially different other attributes, such as issuer, key usages etc.
 
 At this point, a certificate exists in the vault, ready for consumption. Onward to:
 
