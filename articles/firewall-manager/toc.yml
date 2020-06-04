@@ -26,8 +26,8 @@
     href: deployment-overview.md
   - name: Trusted security partners
     href: trusted-security-partners.md
-    - name: IP Groups
-      href: ip-groups.md
+  - name: IP Groups
+    href: ip-groups.md
   - name: Rule processing logic
     href: rule-processing.md
   - name: Architecture options
