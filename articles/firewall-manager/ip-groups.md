@@ -32,7 +32,7 @@ The following IPv4 address format examples are valid to use in IP Groups:
 
 ## Create an IP Group
 
-An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group (preview)](create-ip-group.md).
+An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group](../firewall/create-ip-group.md).
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
