@@ -3,23 +3,23 @@ title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 10/22/2019
+ms.date: 06/03/2020
 ---
 
-# Supported services, schemas, and categories for Azure Resource Logs
+# Supported categories for Azure Resource Logs
 
 > [!NOTE]
-> Resource logs were previously known as diagnostic logs.
+> Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 
 [Azure Monitor resource logs](../../azure-monitor/platform/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for resource logs and links to the schemata for each service.
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs](resource-logs-categories.md)
 
 ## Supported log categories per resource type
 
 Following is a list of the types of logs available for each resource type. 
 
-Some categories may only be supported for specific types of resources. See the resource specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
+Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
 
@@ -97,7 +97,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|
 |---|---|
-|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
+|WebApplicationFirewallLogs|Web Application Firewall Logs|
 
 
 ## Microsoft.Cdn/profiles
@@ -111,7 +111,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|
 |---|---|
-|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
+|CoreAnalytics|Gets the metrics of the endpoint, for example, bandwidth, egress, etc.|
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
@@ -342,7 +342,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |---|---|
 |ArchiveLogs|Archive Logs|
 |AutoScaleLogs|Auto Scale Logs|
-|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
+|CustomerManagedKeyUserLogs|Customer-Managed Key Logs|
 |EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
 |KafkaCoordinatorLogs|Kafka Coordinator Logs|
 |KafkaUserErrorLogs|Kafka User Error Logs|
@@ -691,6 +691,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 
 ## microsoft.web/sites/slots
+
 
 |Category|Category Display Name|
 |---|---|
