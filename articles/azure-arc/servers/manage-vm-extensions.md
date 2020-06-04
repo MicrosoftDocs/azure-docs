@@ -59,7 +59,6 @@ This feature depends on the following Azure resource providers in your subscript
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
 
-
 ### Connected Machine agent
 
 Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
@@ -617,8 +616,85 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 }
 ```
 
-## Troubleshoot and support
+### Dependency agent
 
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+
+#### Template file for Linux
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of existing Linux machine."
+      }
+    }
+  },
+  "variables": {
+    "vmExtensionsApiVersion": "2017-03-30"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "[concat(parameters('vmName'),'/DAExtension')]",
+      "apiVersion": "[variables('vmExtensionsApiVersion')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentLinux",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true
+      }
+    }
+  ],
+    "outputs": {
+    }
+}
+```
+
+#### Template file for Windows
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of existing Windows machine."
+      }
+    }
+  },
+  "variables": {
+    "vmExtensionsApiVersion": "2017-03-30"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "name": "[concat(parameters('vmName'),'/DAExtension')]",
+      "apiVersion": "[variables('vmExtensionsApiVersion')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true
+      }
+    }
+  ],
+    "outputs": {
+    }
+}
+```
 
 ## Next steps
 
