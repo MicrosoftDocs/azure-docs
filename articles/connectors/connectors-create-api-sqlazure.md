@@ -69,7 +69,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | Authentication | Description |
    |----------------|-------------|
    | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your Azure SQL database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your Azure SQL database. <p>For more information, see <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your Azure SQL database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    This example continues with **Azure AD Integrated**:
@@ -115,7 +115,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | Authentication | Description |
    |----------------|-------------|
    | [**Windows Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supports only the non-ISE SQL Server connector, which requires a data gateway resource that's previously created in Azure for your connection, regardless whether you use multi-tenant Azure or an ISE. <p><p>- Requires a valid Windows user name and password to confirm your identity through your Windows account. <p>For more information, see [Windows Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in SQL Server. <p>For more information, see [SQL Server Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your SQL Server. <p>For more information, see [SQL Server Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    This example continues with **Windows Authentication**:
@@ -224,17 +224,27 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
 ### Handle dynamic bulk data
 
-Sometimes, when you make a call to a stored procedure in the SQL Server connector, the returned output is dynamic. In this scenario, follow these steps:
+When you call a stored procedure by using the SQL Server connector, the returned output is sometimes dynamic. In this scenario, follow these steps:
 
-1. Open **Logic Apps Designer**.
-1. Perform a test run of your logic app to see the output format. Copy down your sample output.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+
+1. View the output format by performing a test run. Copy and save your sample output.
+
 1. In the designer, under the action where you call the stored procedure, select **New step**.
-1. Under **Choose an action**, search for and select the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) action.
+
+1. Under **Choose an action**, find and select the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) action.
+
 1. In the **Parse JSON** action, select **Use sample payload to generate schema**.
-1. In the **Enter or paste a sample JSON payload** window, paste your sample output, then select **Done**.
-1. If you get an error that Logic Apps can't generate a schema, check that your sample output's syntax is correctly formatted. If you still can't generate the schema, manually enter one in the **Schema** box.
+
+1. In the **Enter or paste a sample JSON payload** box, paste your sample output, and select **Done**.
+
+   > [!NOTE]
+   > If you get an error that Logic Apps can't generate a schema, check that your sample output's syntax is correctly formatted. 
+   > If you still can't generate the schema, in the **Schema** box, manually enter the schema.
+
 1. On the designer toolbar, select **Save**.
-1. To access the JSON content properties, use the data tokens that appear in the dynamic content list under the [**Parse JSON** action](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+
+1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
 
 ## Connector-specific details
 
