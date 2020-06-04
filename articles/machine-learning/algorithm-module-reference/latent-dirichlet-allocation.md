@@ -1,7 +1,7 @@
 ---
-title:  "Latent Dirichlet Allocation"
+title: "Latent Dirichlet Allocation: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Latent Dirichlet Allocation module to group otherwise unclassified text into a number of categories.
+description: Learn how to use the Latent Dirichlet Allocation module to group otherwise unclassified text into categories.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,23 +11,23 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/11/2020
 ---
-# Latent Dirichlet Allocation
+# Latent Dirichlet Allocation module
 
-This article describes how to use the **Latent Dirichlet Allocation** module in Azure Machine Learning designer (preview), to group otherwise unclassified text into a number of categories. 
+This article describes how to use the Latent Dirichlet Allocation module in Azure Machine Learning designer (preview), to group otherwise unclassified text into categories. 
 
 Latent Dirichlet Allocation (LDA) is often used in natural language processing (NLP) to find texts that are similar. Another common term is *topic modeling*.
 
-This module takes a column of text, and generates these outputs:
+This module takes a column of text and generates these outputs:
 
 + The source text, together with a score for each category
 
-+ A feature matrix, containing extracted terms and coefficients for each category
++ A feature matrix that contains extracted terms and coefficients for each category
 
 + A transformation, which you can save and reapply to new text used as input
 
-This module uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository, which includes tutorials and an explanation of the algorithm.
+This module uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository](https://github.com/scikit-learn/scikit-learn), which includes tutorials and an explanation of the algorithm.
 
-### More about Latent Dirichlet Allocation (LDA)
+## More about Latent Dirichlet Allocation
 
 Generally speaking, LDA is not a method for classification per se, but uses a generative approach. What this means is that you don't need to provide known class labels and then infer the patterns.  Instead, the algorithm generates a probabilistic model that is used to identify groups of topics. You can use the probabilistic model to classify either existing training cases, or new cases that you provide to the model as input.
 

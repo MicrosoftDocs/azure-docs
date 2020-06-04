@@ -1,5 +1,5 @@
 ---
-title:  "Web Service Input/Output"
+title:  "Web Service Input/Output: Module reference"
 description: Learn about the web service modules in Azure Machine Learning designer (preview)
 titleSuffix: Azure Machine Learning
 services: machine-learning
