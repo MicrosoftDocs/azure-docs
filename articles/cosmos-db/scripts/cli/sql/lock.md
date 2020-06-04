@@ -35,7 +35,7 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
--[Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md)
+-[Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md)
 
 -[Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 

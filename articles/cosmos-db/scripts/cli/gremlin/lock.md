@@ -4,7 +4,7 @@ description: Create resource lock for a Gremlin database and graph for Azure Cos
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-gremlin
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 06/03/2020
 ---
@@ -35,7 +35,7 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
--[Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md)
+-[Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md)
 
 -[Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
