@@ -2,11 +2,10 @@
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
-author: saudas
-manager: saudas
+author: mlearned
 ms.topic: article
-ms.date: 04/02/2020
-ms.author: saudas
+ms.date: 06/03/2020
+ms.author: mlearned
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -20,13 +19,19 @@ AKS creates two managed identities:
 - **System-assigned managed identity**: The identity that the Kubernetes cloud provider uses to create Azure resources on behalf of the user. The life cycle of the system-assigned identity is tied to that of the cluster. The identity is deleted when the cluster is deleted.
 - **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize AKS to use Azure Container Registries (ACRs), or to authorize the kubelet to get metadata from Azure.
 
-Add-ons also authenticate using a managed identity. For each add-on, a managed identity is created by AKS and lasts for the life of the add-on. 
+Add-ons also authenticate using a managed identity. For each add-on, a managed identity is created by AKS and lasts for the life of the add-on.
 
 ## Before you begin
 
 You must have the following resource installed:
 
 - The Azure CLI, version 2.2.0 or later
+
+## Limitations
+
+* AKS clusters with managed identities can be enabled only during creation of the cluster.
+* Existing AKS clusters cannot be updated or upgraded to enable managed identities.
+* During cluster **upgrade**, the managed identity is temporarily unavailable for retrieval.
 
 ## Create an AKS cluster with managed identities
 
@@ -66,8 +71,3 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
-
-> [!IMPORTANT]
->
-> - AKS clusters with managed identities can be enabled only during creation of the cluster.
-> - Existing AKS clusters cannot be updated or upgraded to enable managed identities.
