@@ -18,7 +18,7 @@ ms.author: mathoma
 # Prepare a virtual machine for FCI (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to prepare two SQL Server on Azure Virtual Machines (VMs) to use the two-node failover cluster instance (FCI) feature. Configuration settings vary depending on the storage solution so ensure you're choosing the correct configuration to suit your environment and business. 
+This article describes how to prepare two SQL Server on Azure Virtual Machines (VMs) to use the two-node failover cluster instance (FCI) feature. Configuration settings vary depending on the storage solution so validate you're choosing the correct configuration to suit your environment and business. 
 
 For an overview, see [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md).
 
@@ -52,7 +52,7 @@ Carefully select the VM availability option that matches your intended cluster c
 
 ## Create the virtual machine
 
-Once you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or does not have SQL Server already installed on it. However, if you choose a SQL Server on Azure VM, you will need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. So if you choose a virtual machine from the Azure marketplace without SQL Server already installed, you can skip the step to uninstall SQL Server. 
+Once you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or does not have SQL Server already installed on it. However, if you choose a SQL Server on Azure VM, you will need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
 If you're deploying a virtual machine with storage already attached, be sure to select at least 2 premium SSDs. We recommend at least P30 (1-TB) disks.
 
@@ -62,6 +62,9 @@ If you're deploying a virtual machine with storage already attached, be sure to 
    - On the same network as your domain controller.
    - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
    - In the Azure availability set or availability zone.
+
+You can create an Azure Virtual Machine using an image with [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server pre-installed to it, but you will need manually uninstall the SQL Server instance before installing the failover cluster instance. 
+
 
 ## Uninstall SQL Server
 
