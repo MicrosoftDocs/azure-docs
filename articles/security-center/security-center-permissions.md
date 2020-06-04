@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 06/04/2020
 ms.author: memildin
 
 ---
@@ -32,13 +32,12 @@ In addition to these roles, there are two specific Security Center roles:
 > [!NOTE]
 > The security roles, Security Reader and Security Admin, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
 >
->
 
 ## Roles and allowed actions
 
 The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts and recommendations | View alerts and recommendations |
+| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts | View alerts and recommendations |
 |:--- |:---:|:---:|:---:|:---:|
 | Subscription Owner | ✔ | ✔ | ✔ | ✔ |
 | Subscription Contributor | -- | ✔ | ✔ | ✔ |
