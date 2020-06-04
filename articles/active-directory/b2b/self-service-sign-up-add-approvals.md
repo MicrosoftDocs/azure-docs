@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 In this guide, the self-service sign-up user flow collects user data during the sign-up process and passes it to your approval system. The approval system can then:
 1. Automatically approve the user and allow Azure AD to create the user account.
-2. Trigger a manual review. If the request is approved, the approval system can use Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
+2. Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
 ## Register an application for your approval system
 
@@ -55,7 +55,7 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 
 To create the API connectors for your self-service sign-up user flow, see [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector). Your approval system API needs two API connectors and corresponding endpoints to:
 
-- **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request or has already been denied. If you approval system only does automatic approval decisions, this API connector may not be needed.
+- **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request or has already been denied. If your approval system only does automatic approval decisions, this API connector may not be needed.
 
    ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -188,8 +188,10 @@ Content-type: application/json
 **Example user experience for waiting for approval**
 ![Example pending approval page](./media/self-service-sign-up-add-approvals/approval-pending.png)
 
-## Create a user account
-After obtaining the approval, a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account can be created using  [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
+## Create a user account on manual approval
+
+> [!NOTE]
+> After obtaining a manual approval, a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account can be created using  [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
 
 The way in which your approval systems provisions the user account depends on the identity provider that the user used. 
 
@@ -197,9 +199,10 @@ The way in which your approval systems provisions the user account depends on th
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-Example HTTP request that the API receives
+1. Receive the HTTP request from the user flow
+
 ```http
-POST <API-endpoint>
+POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
@@ -221,8 +224,7 @@ Content-type: application/json
 }
 ```
 
-The following HTTP POST request can be used to create a user account:
-
+2. Use Microsoft Graph to create a user account
 ```http
 POST https://graph.microsoft.com/v1.0/users
 Content-type: application/json
@@ -264,7 +266,24 @@ Content-type: application/json
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
-1. Create the invitation using the **email_address** provided by the API connector.
+1. Receive the HTTP request from the user flow:
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "displayName": "John Smith",
+ "givenName": "John",
+ "surname": "Smith",
+ "city": "Redmond",
+ "country": "United States",
+ "extension_<guid>_CustomAttribute": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+2. Create the invitation using the **email_address** provided by the API connector.
 
 **Request**
 ```http
@@ -290,7 +309,7 @@ Content-type: application/json
 } 
 ```
 
-2. Use the invited user's ID to update the user's account with collected user attributes (optional).
+3. Use the invited user's ID to update the user's account with collected user attributes (optional).
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
