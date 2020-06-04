@@ -92,11 +92,15 @@ Depending on your language, these other files are created:
 
 * [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
 
+At this point, you can add input and output bindings to your function by [adding a parameter to a C# class library function](#add-input-and-output-bindings).
+
 # [JavaScript](#tab/nodejs)
 
 * A package.json file in the root folder.
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -109,8 +113,6 @@ Depending on your language, these other files are created:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
