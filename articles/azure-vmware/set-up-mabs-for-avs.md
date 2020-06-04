@@ -62,7 +62,7 @@ In this article, we help you prepare your AVS environment to backup virtual mach
 **Deployment Architecture**  
 Microsoft Azure Backup Server is deployed as Azure IaaS VM to protect AVS VMs.
 
-![AVS deployment architecture](media/avs-backup/deploy-mabs-avs-diagram.png)
+![AVS deployment architecture](./media/avs-backup/deploy-mabs-avs-diagram.png)
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -230,7 +230,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  From the **Where is your workload running** menu, select **On-premises**.
 
-       :::image type="content" source="media/avs-backup/deploy-mabs-on-premises-workload.png" alt-text="Where is your workload running?":::
+       ![Where is your workload running?](./media/avs-backup/deploy-mabs-on-premises-workload.png)
 
     1.  From the **What do you want to back up** menu, select the workloads you want to protect using Azure Backup Server.
 
