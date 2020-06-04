@@ -95,8 +95,8 @@ The following example returns the resource ID for a resource group lock.
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## list*
 
