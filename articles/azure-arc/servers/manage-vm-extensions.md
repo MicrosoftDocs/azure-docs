@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 06/02/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -13,17 +13,7 @@ ms.author: magoedte
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs that simplifies the management of your hybrid machine on-premises, edge and other cloud environments through their lifecycle.
 
-Now you can manage and monitor your hybrid machines in a consistent manner at scale using Azure services, insights, and solutions:
-
-* Use Azure Automation DSC to centrally store configurations and maintain the desired state of hybrid machines by installing the DCS VM extension. 
-
-* Collect log data for analysis with Azure Monitor Logs by installing the Log Analytics agent VM extension and correlate between other infrastructure and application data.
-
-* With Azure Monitor for VMs, analyzes the performance of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. This is achieved using the Log Analytics agent and Dependency agent VM extensions.
-
-* 
-
-VM extensions can be run with the Azure REST API, Azure Resource Manager templates, the Azure portal, or Azure policies on hybrid servers managed by Arc for servers (preview).
+VM extensions can be run with the Azure Resource Manager templates, the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
 In this preview, we are supporting the following VM extensions on Windows and Linux machines.
 
@@ -34,15 +24,17 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
->[!NOTE]
-> VM extension functionality is available only in the following regions:
-> * EastUS
-> * WestUS2
-> * WestEurope
->
-> Ensure you onboard your machine in one of these regions.
+## Key benefits
 
-VM extensions can be run with the Azure PowerShell, Azure Resource Manager templates, and the Azure portal.
+Azure Arc for servers (preview) VM extension support provides the following key benefits:
+
+* Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid machines enabled through the DCS VM extension.
+
+* Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension, and correlate between other infrastructure and application data.
+
+* With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
+
+* Download and execute scripts on hybrid machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
 ## Prerequisite
 
@@ -51,7 +43,19 @@ This feature depends on the following Azure resource providers in your subscript
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
-If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers). 
+If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+
+VM extension functionality is available only in the following regions:
+
+ * WestUS2
+
+ * WestEurope
+
+ * SoutheastAsia
+
+Ensure you onboard your machine in one of these regions.
+
+VM extensions can be run with the Azure PowerShell, Azure Resource Manager templates, and the Azure portal.
 
 ### Connected Machine agent
 
