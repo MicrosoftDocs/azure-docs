@@ -17,7 +17,12 @@ You can connect to an Azure Batch account configured with Private Link by using 
 
 This article describes the steps to create a private Batch account and access it using private endpoint.
 
-## Create a private batch account and private endpoint connections by using the Azure portal
+> [!IMPORTANT]
+> Support for private connectivity in Azure Batch is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Azure portal
 
 Use the following steps to create a private batch account using the Azure portal:
 
@@ -46,7 +51,7 @@ After the private endpoint is provisioned, you can access the batch account from
 
 **INSERT IMAGE HERE**
 
-## Create a private Batch account and private endpoint connection by using Azure Resource Manager template
+## Azure Resource Manager template
 
 When [creating a Batch account by using Azure Resource Manager template](quick-create-template.md), modify the template to set **publicNetworkAccess** to **Disabled** as shown below.
 
