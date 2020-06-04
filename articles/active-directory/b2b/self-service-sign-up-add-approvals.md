@@ -16,13 +16,13 @@ ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
  
-# Add a custom approvals system to self-service sign-up user flow
+# Add a custom approvals system to self-service sign-up
 
-[API connectors](api-connectors-overview.md) enable you to implement your own approvals logic to your self-service sign-up user flow. This lets you manage which users are successfully created in your tenant.
+[API connectors](api-connectors-overview.md) enable you to integrate with your own custom approvals system to manage which users accounts are created in your tenant when you enable self-service sign-up.
 
-In this example, the self-service sign-up user flow collects user data during the sign-up process and passes it to an approval system. The approval system can then:
-1. Automatically approve them.
-2. Trigger a manual review. If the request is approved, the approval system can use Microsoft Graph to provision the user. The approval system can also notify the user that their account has been created.
+In this guide, the self-service sign-up user flow collects user data during the sign-up process and passes it to your approval system. The approval system can then:
+1. Automatically approve the user and allow Azure AD to create the user account.
+2. Trigger a manual review. If the request is approved, the approval system can use Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
 ## Register an application for your approval system
 
@@ -53,13 +53,13 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 
 ## Create the API connectors
 
-To create the API connectors for your user flow, see [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector). Your approval system API needs two API connectors and corresponding endpoints to:
+To create the API connectors for your self-service sign-up user flow, see [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector). Your approval system API needs two API connectors and corresponding endpoints to:
 
-- **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request or has already been denied. If you approval system only does automatic approval decisions, this API connector not be needed.
+- **Check approval status** - Send a call to the approval system immediately after a user signs in with an identity provider to check if the user has an existing approval request or has already been denied. If you approval system only does automatic approval decisions, this API connector may not be needed.
 
    ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, before the user is created, to request approval. The approval request can be automatically granted or manually reviewed.
+- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed.
 
    ![Create approval request API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -71,7 +71,7 @@ Follow these steps to add the API connectors to a self-service sign-up user flow
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select the user flow you want to add the API connector to.
+4. Select **User flows (Preview)**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
    - **After signing in with an identity provider**: 'Check approval status'
    - **Before creating the user**: 'Request approval'
@@ -81,6 +81,8 @@ Follow these steps to add the API connectors to a self-service sign-up user flow
 6. Select **Save**.
 
 ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
+
+<!-- TODO: new screenshot -->
 
 ## Control the sign up flow with API responses
 
@@ -116,8 +118,8 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your access request is already processing. You'll be notified when your request has been approved."
-
+    "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
+    "code": "CONTOSO-APPROVAL-PENDING"
 } 
 ```
 
@@ -128,7 +130,8 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error."
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.",
+    "code": "CONTOSO-APPROVAL-DENIED"
 } 
 ```
 
@@ -165,7 +168,8 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved." 
+    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
+    "code": "CONTOSO-APPROVAL-REQUESTED"
 } 
 ```
 
@@ -176,7 +180,8 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error."
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.",
+    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 } 
 ```
 
@@ -211,7 +216,7 @@ Content-type: application/json
  "surname": "Smith",
  "city": "Redmond",
  "country": "United States",
- "extension_<app-id>_CustomAttribute": "custom attribute value",
+ "extension_<guid>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -239,20 +244,22 @@ Content-type: application/json
  "surname": "Smith",
  "city": "Redmond",
  "country": "United States",
- "extension_<app-id>_CustomAttribute": "custom attribute value"
+ "extension_<guid>_CustomAttribute": "custom attribute value"
 }
 ```
 
+**Parameters**
+| Parameter                            | Required | Description                                                                       |
+| ------------------------------------ | -------- | --------------------------------------------------------------------------------- |
+| userPrincipalName                    | yes      | Can be generated by taking the `email_address` claim sent to the API, replacing the `@`character with `_`, and pre-pending it to `#EXT@<tenant-name>.onmicrosoft.com`. |
+| accountEnabled                       | yes      | Must be set to 'true'.                                                            |
+| mail                                 | yes      | Equivalent to the `email_address` claim sent to the API.                         |
+| userType                             | yes      | Must be 'Guest'. Designates this user as a guest user.                            |
+| identities                           | yes      | The federated identity information.                                               |
+| otherBuiltInAttribute             | No       | Other built-in attributes like 'displayName', 'city', and more. Parameter names are the same as those sent by the API connector.|
+| extension_\<guid>\_CustomAttribute | No       | Custom attributes about the user. Parameter names are the same as those sent by the API connector.                                                            |
 > [!IMPORTANT]
 > The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals to 'facebook' or 'google' to use this method. 
-
-> [!NOTE]
-> The `userPrincipalName` parameter can be generated by taking the `email_address` claim sent from a user flow, replacing the `@`character with `_`, and pre-pending it to `#EXT@<tenant-name>.onmicrosoft.com`.
->
-> The `mail` parameter should be equivalent to `email_address` claim sent from a user flow. 
-
-> [!NOTE]
-> Aside from `userPrincipalName`, `accountEnabled`, and `mail`, the rest of the user attributes, including custom attributes, are in the same serialized format as that of the claims sent by the API connector.  
 
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
@@ -283,7 +290,7 @@ Content-type: application/json
 } 
 ```
 
-2. Use the invited user's ID to update the user's account with collected user attributes.
+2. Use the invited user's ID to update the user's account with collected user attributes (optional).
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
@@ -295,12 +302,12 @@ Content-type: application/json
     "surname": "Smith",
     "city": "Redmond",
     "country": "United States",
-    "extension_<app-id>_CamelCaseAttributeName": "custom attribute value"
+    "extension_<guid>_CamelCaseAttributeName": "custom attribute value"
 } 
 ```
 
 #### Custom Attributes
-Custom attributes can be created for the user using the **extension_\<app-id>_\<CamelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
+Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. More information regarding custom & extension attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 ## Further reference
 - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](<enter-sample-link>). <!--TODO: link to sample-->

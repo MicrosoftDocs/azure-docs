@@ -25,7 +25,7 @@
     items:
     - name: Samples for self-service sign-up
       href: code-samples-self-service-sign-up.md
-      - name: Code and Azure PowerShell samples
+    - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
     expanded: false
