@@ -5,7 +5,7 @@ description: Create Azure Machine Learning datasets monitors (preview), monitor 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount

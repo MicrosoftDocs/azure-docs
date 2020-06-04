@@ -110,7 +110,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
 >[!NOTE]
->The pronunciation assessment feature is currently only available on `westus` and `eastasia` regions. And this feature is currently only available on `en-US` language.
+>The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
 
 ## Sample request
 

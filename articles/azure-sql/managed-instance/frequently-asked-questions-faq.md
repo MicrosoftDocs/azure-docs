@@ -238,7 +238,7 @@ SQL Managed Instance offers the same performance levels per compute and storage 
 
 ## Password policy 
 
-**What password policies are applied for SQL Managed instance SQL logins?**
+**What password policies are applied for SQL Managed Instance SQL logins?**
 
 SQL Managed Instance password policy for SQL logins inherits Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
 
@@ -268,11 +268,8 @@ FROM sys.sql_logins
 After that, you can modify specified login settings by executing :
 
 ```sql
-ALTER LOGIN test WITH CHECK_POLICY = ON;
-ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
-(replace 'test' with desired login name)
-
- > [!Note]
- > Default values for CHECK_POLICY and CHECK_EXPIRATION are set to OFF.
+(replace 'test' with desired login name and adjust policy and expiration values)
