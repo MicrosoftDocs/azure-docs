@@ -68,7 +68,7 @@ Azure Database for PostgreSQL - Single server supports encryption for clients co
 
 Azure Database for PostgreSQL single server provides the ability to enforce the TLS version for the client connections. To enforce the TLS version, use the **Minimum TLS version** option setting. The following values are allowed for this option setting:
 
-|  Minimum TLS Setting             | Client TLS Version supported                |
+|  Minimum TLS setting             | Client TLS version supported                |
 |:---------------------------------|-------------------------------------:|
 | TLSEnforcementDisabled (default) | No TLS required                      |
 | TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 and higher |
@@ -81,7 +81,7 @@ For example, setting this Minimum TLS setting version to TLS 1.0 means your serv
 > [!Note] 
 > Azure Database for PostgreSQL defaults to TLS being disabled for all new servers.
 >
-> Currently the TLS versions supported by Azure Database for PostgreSQL are TLS 1.0, 1.1, and 1.2. Once enforced to a specific Minimum TLS version, we cannot
+> Currently the TLS versions supported by Azure Database for PostgreSQL are TLS 1.0, 1.1, and 1.2. Once enforced to a specific Minimum TLS version, you cannot
 > change it to disabled.
 
 To learn how to set the TLS setting for your Azure Database for PostgreSQL Single server, refer to [How to configure TLS setting](howto-tls-configurations.md).
