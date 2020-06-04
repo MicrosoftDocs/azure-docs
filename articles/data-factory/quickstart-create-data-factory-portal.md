@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 05/28/2020
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory by using the Azure Data Factory UI
@@ -139,12 +139,13 @@ In the linked service settings, you specified the Azure Storage account that con
     f. Select **OK**.   
 
     ![Set properties for OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## Create a pipeline 
 In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
 
 1. Select the **+** (plus) button, and then select **Pipeline**. 
 
-1. In the **General** tab, specify **CopyPipeline** for **Name**. 
+1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy Data** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
    ![Creating a copy data activity](./media/quickstart-create-data-factory-portal/copy-activity.png)

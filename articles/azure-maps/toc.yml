@@ -289,6 +289,8 @@
       href: https://aka.ms/am-indoor-module-websdk/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
+  - name: Azure CLI
+    href: /cli/azure/maps
 - name: Resources
   items:
   - name: Support and help options

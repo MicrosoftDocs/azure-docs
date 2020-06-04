@@ -39,6 +39,7 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | East US | 40.121.158.30, 191.238.6.43	 |
 | East US 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | France Central | 40.79.137.0, 40.79.129.1	 |
+| France South | 40.79.177.0	 |
 | Germany Central | 51.4.144.100	 |
 | Germany North East | 51.5.144.179	 |
 | India Central | 104.211.96.159	 |

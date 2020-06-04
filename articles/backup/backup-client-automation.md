@@ -688,7 +688,7 @@ Uninstalling the agent binaries from the machine has some consequences to consid
 * All policy information is removed from the machine, but the policy information continues to be stored in the service.
 * All backup schedules are removed, and no further backups are taken.
 
-However, the data stored in Azure remains and is retained as per the retention policy setup by you. Older points are automatically aged out.
+However, the data stored in Azure remains and is retained according to the retention policy setup by you. Older points are automatically aged out.
 
 ## Remote management
 
