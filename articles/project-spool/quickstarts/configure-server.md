@@ -1,5 +1,5 @@
 ---
-title: Configure Your Server
+title: Implement a Token Provisioning Service
 description: TODO
 author: mikben    
 manager: jken
@@ -15,10 +15,9 @@ ms.service: azure-project-spool
 > [!WARNING]
 > This document is under construction.
 
+## Implement a Token Provisioning Service
 
-## Configure Your Server
-
-In this quickstart, you'll learn how to configure your server so that you can fetch user access tokens for your client applications.
+In this quickstart, you'll learn how to implement a token provisioning service so that your client applications can fetch user access tokens.
 
 ### Prerequisites
 - An active Azure Communication Services resource. [This quickstart](./get-started.md) shows you how to create and manage your first resource.

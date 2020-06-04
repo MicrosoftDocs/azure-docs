@@ -13,13 +13,9 @@ ms.service: azure-project-spool
 
 # Client and Server Architecture
 
-Every ACS app has the following components:
+Every Azure Communication Services application will have **client applications** that use **serverside services** to facilitate peer-to-peer connectivity.
 
-1. **Clients**. These are your users' devices.
-2. **Server(s)**. Your clients talk to your server to establish connectivity with other clients.
-3. **Spaces**. Conversations between any number of clients are facilitated by "spaces". When one client wants to talk to another client, it does so through a Space. Spaces can have one or many connected clients.
-
-TODO
+TODO: Architectural diagram
 
 
 ### meta
