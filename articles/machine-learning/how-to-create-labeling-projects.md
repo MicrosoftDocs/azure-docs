@@ -100,9 +100,9 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
-If you plan to add new images to your dataset, incremental refresh will find these new images and add them to your project.   When enabled,  the dataset is checked periodically for new images to be added to an project based on the labeling completion rate.   Checking for new data stops when the project contains the maximum 500,000 images.
+If you plan to add new images to your dataset, use incremental refresh to add these new images your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 images.
 
-To add more images, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage.  
+To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
 Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
 
