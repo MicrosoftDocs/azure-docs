@@ -41,7 +41,7 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 
 ## Invite guest users with a simple invitation and redemption process
 
-Guest users sign in to your apps and services with their own work, school, or social identities. If the guest user doesn’t have a Microsoft account or an Azure AD account, one is created for them when they redeem their invitation. 
+Guest users sign in to your apps and services with their own work, school, or social identities. If the guest user doesn't have a Microsoft account or an Azure AD account, one is created for them when they redeem their invitation. 
 
 - Invite guest users using the email identity of their choice.
 - Send a direct link to an app, or send an invitation to the guest user's own Access Panel.
@@ -81,7 +81,7 @@ You can delegate guest user management to application owners so that they can ad
 
 ## Customize the onboarding experience for B2B guest users
 
-Bring your external partners on board in ways customized to your organization’s needs.
+Bring your external partners on board in ways customized to your organization's needs.
 
 - Use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) to configure policies that [manage access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences.

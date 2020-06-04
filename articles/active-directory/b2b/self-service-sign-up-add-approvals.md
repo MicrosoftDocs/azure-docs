@@ -1,5 +1,5 @@
 ---
-title: Use API connectors for approvals in self-service sign-up - Azure AD
+title: Use API connectors for approval in self-service sign-up - Azure AD
 description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
 
 services: active-directory
@@ -16,9 +16,9 @@ ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
  
-# Add a custom approvals system to self-service sign-up
+# Add a custom approval system to self-service sign-up
 
-[API connectors](api-connectors-overview.md) enable you to integrate with your own custom approvals system to manage which users accounts are created in your tenant when you enable self-service sign-up.
+[API connectors](api-connectors-overview.md) enable you to integrate with your own custom approval system to manage which user accounts are created in your tenant using self-service sign-up.
 
 In this guide, the self-service sign-up user flow collects user data during the sign-up process and passes it to your approval system. The approval system can then:
 1. Automatically approve the user and allow Azure AD to create the user account.
@@ -34,7 +34,7 @@ Your approval system will need to be registered as an App in your Azure AD tenan
 4. Select **New registration**.
 5. Enter a **Name**.
 
-   <!-- ![Register an application for the approvals system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
+   <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
 6. Select **Register**.
 7. Select **API permissions**.
@@ -88,7 +88,7 @@ Follow these steps to add the API connectors to a self-service sign-up user flow
 
 Your approval system can leverage the [ API response types](api-connectors-overview.md) from the two API endpoints to control the sign up flow.
 
-### Check approval status
+### Request and responses for 'Check approval status' API connector
 
 #### Example request received by the API
 ```http
@@ -147,12 +147,12 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.",
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
     "code": "CONTOSO-APPROVAL-DENIED"
 } 
 ```
 
-### Request approval
+### Request and responses for 'Request approval' API connector
 
 #### Example HTTP request received by the API
 ```http
@@ -218,7 +218,7 @@ Content-type: application/json
 { 
     "version": "1.0.0", 
     "action": "ShowBlockPage", 
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error.",
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
     "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 } 
 ```
@@ -229,9 +229,9 @@ Content-type: application/json
 ## Create a user account on manual approval
 
 > [!NOTE]
-> After obtaining a manual approval, a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account can be created using  [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
+> After obtaining a manual approval, the custom approval system creates a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account by using  [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
 
-The way in which your approval systems provisions the user account depends on the identity provider that the user used. 
+The way in which your approval system provisions the user account depends on the identity provider that the user used. 
 
 ### For a federated Google or Facebook user
 > [!IMPORTANT]

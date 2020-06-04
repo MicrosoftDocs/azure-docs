@@ -95,4 +95,4 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-API-connector-for-a-user-flow)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
-- Learn how to [use API connectors for identity proofing using IDology](sample-identity-proofing-idology.md) <!--#TODO: Make doc, link.-->
+- Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing)

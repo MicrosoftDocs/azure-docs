@@ -28,11 +28,11 @@ The following tables provide links to code samples for leveraging Web APIs in yo
 
 <!-- \| [Java](../../azure-docs-pr/articles/active-directory/b2b/invite-internal-users.md#use-the-invitation-api-to-send-a-b2b-invitation) |  The sample below illustrates how to call the invitation API to invite an internal user as a B2B user. | -->
 
-## Custom approval system
+## custom approval system
 
 | Sample | Description |
 |--------| ----------- |
-| [Woodgrove](code-samples.md) | This Woodgrove sample demonstrates how an end-to-end approval systems can be implemented. |
+| [Woodgrove](code-samples.md) | This Woodgrove sample demonstrates how an end-to-end approval system can be implemented. |
 
 ## Identity proofing
 
