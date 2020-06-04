@@ -13,17 +13,6 @@ ms.author: magoedte
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
 
-VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
-
-In this preview, we are supporting the following VM extensions on Windows and Linux machines.
-
-|Extension |Publisher |Additional information |
-|----------|----------|-----------------------|
-|CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
-|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
-|Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
-
 ## Key benefits
 
 Azure Arc for servers (preview) VM extension support provides the following key benefits:
@@ -36,14 +25,7 @@ Azure Arc for servers (preview) VM extension support provides the following key 
 
 * Download and execute scripts on hybrid machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
-## Prerequisite
-
-This feature depends on the following Azure resource providers in your subscription:
-
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
-
-If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+## Availability
 
 VM extension functionality is available only in the following regions:
 
@@ -54,6 +36,29 @@ VM extension functionality is available only in the following regions:
  * SoutheastAsia
 
 Ensure you onboard your machine in one of these regions.
+
+## Extensions
+
+In this preview, we are supporting the following VM extensions on Windows and Linux machines.
+
+|Extension |Publisher |Additional information |
+|----------|----------|-----------------------|
+|CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
+|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+
+VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
+
+## Prerequisite
+
+This feature depends on the following Azure resource providers in your subscription:
+
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
+
+If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+
 
 ### Connected Machine agent
 
