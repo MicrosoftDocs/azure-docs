@@ -8,7 +8,7 @@ ms.reviewer: v-umha
 
 # Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 
-You can use the Hyperledger Fabric (HLF) on Azure Kubernetes Service (AKS) template to deploy and configure a Hyperledger Fabric consortium network on Azure.
+You can use the Hyperledger Fabric (HLF) on Azure Kubernetes Service (AKS) template to deploy and configure a Hyperledger Fabric consortium network on.
 
 After reading this article, you will:
 
