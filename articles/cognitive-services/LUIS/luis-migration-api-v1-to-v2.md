@@ -1,20 +1,20 @@
 ---
 title: v1 to v2 API Migration
 titleSuffix: Azure Cognitive Services
-description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
+description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
 ms.author: diberry
 ---
 
 # API v1 to v2 Migration guide for LUIS apps
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
 
 ## New Azure regions
 LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different portal for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
@@ -107,7 +107,7 @@ The subscription endpoint key APIs are deprecated, returning 410 GONE.
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-azure-subscription.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
+Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-azure-subscription.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment.
 
 ## New versioning route
 The v2 model is now contained in a [version](luis-how-to-manage-versions.md). A version name is 10 characters in the route. The default version is "0.1".
@@ -148,22 +148,22 @@ LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## Importing 1.x app into 2.x
-The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
+The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0.
 
-### Prebuilt entities 
-The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-reference-prebuilt-datetimev2.md), instead of datetime. 
+### Prebuilt entities
+The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-reference-prebuilt-datetimev2.md), instead of datetime.
 
 ### Actions
-The actions property is no longer valid. It should be an empty 
+The actions property is no longer valid. It should be an empty
 
 ### Labeled utterances
-V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces. 
+V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces.
 
 ## Common reasons for HTTP response status codes
 See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 
-Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
+Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
