@@ -493,6 +493,8 @@
         href: edigitalresearch-tutorial.md
       - name: EduBrite LMS
         href: edubrite-lms-tutorial.md
+      - name: edX for Business SAML Integration
+        href: edx-for-business-saml-integration-tutorial.md
       - name: EFI Digital StoreFront
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
