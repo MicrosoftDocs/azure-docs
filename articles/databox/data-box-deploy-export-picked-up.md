@@ -13,7 +13,7 @@ ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box 
+# Tutorial: Return Azure Data Box (Preview)
 
 
 This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure.
@@ -25,6 +25,8 @@ In this tutorial, you will learn about topics such as:
 > * Prepare to ship
 > * Ship Data Box to Microsoft
 > * Erasure of data from Data Box
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 
@@ -75,6 +77,7 @@ If you are using Data Box in Japan, Singapore, Korea, and West Europe and have s
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
+    ---
 
 ## Erasure of data from Data Box
  

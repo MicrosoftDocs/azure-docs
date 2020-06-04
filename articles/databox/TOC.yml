@@ -18,8 +18,6 @@
         items: 
         - name: 1 - Order
           href: data-box-deploy-ordered.md
-        - name: 1B - Export Order
-          href: data-box-deploy-export-ordered.md
         - name: 2 - Set up
           href: data-box-deploy-set-up.md
         - name: 3 - Connect & copy
