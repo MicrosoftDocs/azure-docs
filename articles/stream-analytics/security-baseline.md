@@ -4,7 +4,7 @@ description: Azure security baseline for Stream Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -52,8 +52,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Use Azure Security Center threat protection to detect and alert on communications with known malicious or unused Internet IP addresses.
 
-* [Threat protection for the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
-
+* [Threat protectionfor the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Yes
 
@@ -67,7 +66,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Use Azure Security Center threat protection to detect unusual or potentially harmful operations in your Azure subscription environment.
 
@@ -177,7 +176,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.6: Monitor and review Logs
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results for your Stream Analytics resources. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results for your Stream Analytics resources. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -213,7 +212,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 2.9: Enable DNS query logging
 
-**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Stream Analytics however you can use third party dns logging solution.
+**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Stream Analytics however you can use third-party dns logging solution.
 
 * [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)
 
@@ -563,7 +562,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Stream Analytics resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -587,7 +586,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -702,7 +701,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -760,7 +759,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Stream Analytics resources.
+**Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Stream Analytics resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -866,11 +865,11 @@ Soft delete for Azure Storage blobs: https://docs.microsoft.com/azure/storage/bl
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can backup on a regular basis.
 
-In order to backup data from Storage account supported services, there are multiple methods available including using azcopy or third party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
+In order to backup data from Storage account supported services, there are multiple methods available including using azcopy or third-party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
 
 * [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
 
@@ -878,7 +877,7 @@ In order to backup data from Storage account supported services, there are multi
 
 * [Set and manage immutability policies for Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
 
-Customer managed / provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell.
+Customer-managed / provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell.
 
 * [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -886,7 +885,7 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Periodically perform data restoration of your backup data to test the integrity of the data.
 
@@ -894,7 +893,7 @@ Customer managed / provided keys can be backed within Azure Key Vault using Azur
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Stream Analytics backups stored within your Azure Storage supports encryption by default and cannot be turned off. You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.
 
