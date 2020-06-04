@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 06/04/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -142,7 +142,13 @@ Once your application is successfully processing reads and writes, you have comp
 This section summarizes considerations about the read replica feature.
 
 ### Prerequisites
-Before you create a read replica, the `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect. The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only.
+Before you create a read replica, the azure replication support parameter must be set. The server needs to be restarted to apply changes. There are three settings for the replication support parameter:
+
+* **Replica** - Choose this setting to use read replicas.
+* **Logical** - Choose this setting to use [Postgres logical decoding](concepts-logical.md). Read replicas will also work with this setting. However, **logical** should only be used if you are currently using logical decoding because larger WAL files are generated for this functionality.
+* **Off** - Choose **Off** if you have no plans to use read replicas. This is not an available setting on all Azure Database for PostgreSQL servers.
+
+Internally, the replication support parameter controls several Postgres parameters like `wal_level`, `max_replication_slots`, `max_wal_senders`.
 
 ### New replicas
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
