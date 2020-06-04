@@ -9,7 +9,7 @@ ms.author: mblythe
 ms.date: 05/14/2020
 ---
 
-# Quickstart: Use a Resource Manager template to create an Azure Database for MariaDB server
+# Quickstart: Use an ARM template to create an Azure Database for MariaDB server
 
 Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB databases in the cloud. In this quickstart, you use an ARM template to create an Azure Database for MariaDB server in the Azure portal, PowerShell, or Azure CLI.
 

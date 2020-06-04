@@ -167,6 +167,56 @@ Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. It should
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
+## Z-fighting
+
+While ARR offers [z-fighting mitigation functionality](../overview/features/z-fighting-mitigation.md), z-fighting can still show up in the scene. This guide aims at troubleshooting these remaining problems.
+
+### Recommended steps
+
+Use the following workflow to mitigate z-fighting:
+
+1. Test the scene with the default settings of ARR (z-fighting mitigation on)
+
+1. Disable the z-fighting mitigation via its [API](../overview/features/z-fighting-mitigation.md) 
+
+1. Change the camera near and far plane to a closer range
+
+1. Troubleshoot the scene via the next section
+
+### Investigating remaining z-fighting
+
+If the above steps have been exhausted and the remaining z-fighting is unacceptable, the underlying cause of the z-fighting needs to be investigated. As stated in the [z-fighting mitigation feature page](../overview/features/z-fighting-mitigation.md), there are two main reasons for z-fighting: depth precision loss at the far end of the depth range, and surfaces that intersect while being coplanar. Depth precision loss is a mathematical eventuality and can only be mitigated by following step 3 above. Coplanar surfaces indicate a source asset flaw and are better fixed in the source data.
+
+ARR has a feature for determining if surfaces could z-fight: [Checkerboard highlighting](../overview/features/z-fighting-mitigation.md). You can also determine visually what causes the z-fighting. The following first animation shows an example of depth-precision loss in the distance, and the second one shows an example of nearly coplanar surfaces:
+
+![depth-precision-z-fighting](./media/depth-precision-z-fighting.gif)  ![coplanar-z-fighting](./media/coplanar-z-fighting.gif)
+
+Compare these examples with your z-fighting to determine the cause or optionally follow this step-by-step workflow:
+
+1. Position the camera above the z-fighting surfaces to look directly at the surface.
+1. Slowly move the camera backwards, away from the surfaces.
+1. If the z-fighting is visible all of the time, the surfaces are perfectly coplanar. 
+1. If the z-fighting is visible most of the time, the surfaces are nearly coplanar.
+1. If the z-fighting is only visible from far away, the cause is lack of depth precision.
+
+Coplanar surfaces can have a number of different causes:
+
+* An object was duplicated by the exporting application because of an error or different workflow approaches.
+
+    Check these problems with the respective application and application support.
+
+* Surfaces are duplicated and flipped to appear double-sided in renderers that use front-face or back-face culling.
+
+    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sidedness of the model. Double-sidedness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sidedness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
+
+* Objects intersect in the source assets.
+
+     Objects transformed in a way that some of their surfaces overlap also creates z-fighting. Transforming parts of the scene tree in the imported scene in ARR can also create this problem.
+
+* Surfaces are purposefully authored to touch, like decals or text on walls.
+
+
+
 ## Next steps
 
 * [System requirements](../overview/system-requirements.md)

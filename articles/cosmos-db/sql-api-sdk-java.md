@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
 
 
@@ -43,6 +43,12 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## Release notes
+
+### <a name="2.5.1"></a>2.5.1
+* Fixes master partition cache issue on documentCollection query.
+
+### <a name="2.5.0"></a>2.5.0
+* Added support for 449 retry custom configuration.
 
 ### <a name="2.4.7"></a>2.4.7
 * Fixes connection pool timeout issue.
@@ -264,6 +270,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |June 03, 2020 |--- |
+| [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
 | [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
 | [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
