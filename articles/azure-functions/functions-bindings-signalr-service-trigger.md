@@ -9,7 +9,7 @@ ms.author: chenyl
 
 # SignalR Service trigger binding for Azure Functions
 
-Use the *SignalR* trigger binding to response to messages sent from Azure SignalR Service. When function is triggered, messages passed to the function is parsed as a json object.
+Use the *SignalR* trigger binding to respond to messages sent from Azure SignalR Service. When function is triggered, messages passed to the function is parsed as a json object.
 
 For information on setup and configuration details, see the [overview](functions-bindings-signalr-service.md).
 
@@ -38,7 +38,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### With Traditional model
 
-Traditional model obeys the convention of Azure Function developing by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
 
 ```cs
 [FunctionName("SignalRTest")]
