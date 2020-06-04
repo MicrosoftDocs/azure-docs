@@ -13,5 +13,3 @@ When you add a trigger or action that connects to a service or system for the fi
 * Your user or account credentials
 * The authentication type to use
 * The Azure subscription and name for the data gateway that you previously create when connecting to on-premises data sources
-
-Now, continue with the steps to connect with either cloud-based Azure SQL Database or on-premises SQL Server.
