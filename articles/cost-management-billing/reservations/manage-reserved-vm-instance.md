@@ -14,7 +14,7 @@ After you buy an Azure reservation, you may need to apply the reservation to a d
 
 If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they are fully used.
 
-*Permission needed to mange a reservation is separate from subscription permission.*
+*Permission needed to manage a reservation is separate from subscription permission.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
