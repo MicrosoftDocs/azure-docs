@@ -11,7 +11,7 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs SDK (version 3.0.0-preview1)
+# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs (version 3.0.0-preview1)
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application, using the Azure Notification Hubs SDK version 2.0.4.
 

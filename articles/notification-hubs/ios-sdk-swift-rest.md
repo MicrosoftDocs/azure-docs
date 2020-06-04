@@ -4,14 +4,14 @@ title: Send push notifications to Swift iOS apps using Azure Notification Hubs a
 description: In this tutorial, you learn how to use Azure Notification Hubs and the REST API to send push notifications to iOS devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/02/2020
+ms.date: 06/03/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
-ms.lastreviewed: 06/01/2020
+ms.lastreviewed: 06/03/2020
 ---
 
-# Tutorial: Send push notifications to Swift iOS apps using Azure Notification Hubs REST API
+# Tutorial: Send push notifications to Swift iOS apps using Notification Hubs REST API
 
 This tutorial describes how to use Azure Notification Hubs to send push notifications to an iOS application.
 
@@ -39,11 +39,9 @@ Before you proceed, be sure to go through the previous tutorial on getting start
 > [!NOTE]
 > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad), instead of the iOS emulator.
 
-## Connect your iOS app to a notification hub
+In the following sections, you build an iOS app that connects to the notification hub.
 
-In this section, you build the iOS app that connects to the notification hub.
-
-### Create an iOS project
+## Create an iOS project
 
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
 
@@ -190,7 +188,7 @@ In this section, you build the iOS app that connects to the notification hub.
 
 17. Check that the project builds and runs on a physical device. Push notifications cannot be tested by using the simulator.
 
-### Create models
+## Create models
 
 In this step, you create a set of models to represent the [Notification Hubs REST API](/rest/api/notificationhubs/) payloads, and to store the required shared access signature (SAS) token data.
 
@@ -246,7 +244,7 @@ In this step, you create a set of models to represent the [Notification Hubs RE
     }
     ```
 
-### Generate a SAS token
+## Generate a SAS token
 
 Notification Hubs uses the same security infrastructure as Azure Service Bus. To call the REST API, [programmatically generate a SAS token](/rest/api/eventhub/generate-sas-token) that can be used in the **Authorization** header of the request.
 
@@ -385,7 +383,7 @@ To add and configure the bridging header:
 
    Be sure to replace the placeholders in the **baseAddress** string with your own  values.
 
-### Verify the SAS token
+## Verify the SAS token
 
 Before you implement the installation service in the client, check that your app is correctly generating the SAS token by using an HTTP utility. For the purposes of this tutorial, our tool of choice is **Postman**.
 
@@ -424,7 +422,7 @@ Follow these steps to call the **installations** API:
 
 No registration exists for the specified **installationId** at this point. The verification should result in a "404 Not Found" response rather than a "401 Unauthorized" response. This result should confirm that the SAS token has been accepted.
 
-### Implement the installation service class
+## Implement the installation service class
 
 Next, implement a basic wrapper around the [Installations REST API](/rest/api/notificationhubs/create-overwrite-installation).
 
@@ -551,7 +549,7 @@ The **getSasToken** function checks whether the currently stored token is vali
 
 Finally, **encodeToJson** converts the respective model objects into JSON for use as part of the request body.
 
-### Invoke the Notification Hubs REST API
+## Invoke the Notification Hubs REST API
 
 The last step is updating **AppDelegate** to use **NotificationRegistrationService** to register with the **NotificationHub**.
 
