@@ -5,7 +5,7 @@ description: Learn how to enable HTTPS in order to secure a web service that's d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.reviewer: jmartens
 ms.author: aashishb
