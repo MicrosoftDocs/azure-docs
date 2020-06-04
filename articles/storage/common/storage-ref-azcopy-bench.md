@@ -10,13 +10,13 @@ ms.subservice: common
 ms.reviewer: zezha-msft
 ---
 
-# azcopy bench
+# azcopy benchmark
 
 Runs a performance benchmark by uploading test data to a specified destination. The test data is automatically generated.
 
 The benchmark command runs the same upload process as 'copy', except that:
 
-  - There's no source parameter.  The command requires only a destination URL. In the current release, this destination URL must refer to a blob container.
+  - There's no source parameter.  The command requires only a destination URL. 
   
   - The payload is described by command line parameters, which control how many files are auto-generated and how big they are. The generation process takes place entirely in memory. Disk is not used.
   
@@ -34,7 +34,7 @@ to create an empty container with a SAS token and use SAS authentication.
 ## Examples
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Run a benchmark test with default parameters (suitable for benchmarking networks up to 1 Gbps):'
