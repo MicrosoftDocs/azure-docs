@@ -4398,6 +4398,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-schema.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-append-blobs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-append-blobs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
       "redirect_document_id": false
@@ -51156,21 +51166,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/mariadb/howto-tls-configurations.md",
-      "redirect_url": "/azure/mariadb/howto-configure-ssl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/mysql/howto-tls-configurations.md",
-      "redirect_url": "/azure/mysql/howto-configure-ssl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/postgresql/howto-tls-configurations.md",
-      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
       "redirect_document_id": false
@@ -54507,6 +54502,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
       "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-concepts.md",
+      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
     }
   ]
