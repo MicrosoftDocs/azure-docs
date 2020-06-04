@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB performance tips for .NET v3
-description: Learn client configuration options to improve Azure Cosmos DB performance.
-author: j82w
+description: Learn client configuration options to improve Azure Cosmos DB .NET v2=3 SDK performance.
+author: jawilley
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: jawilley
+ms.author: j82w 
 
 ---
 
@@ -42,7 +42,7 @@ We recommend Windows 64-bit host processing for improved performance. The SQL SD
     
 **Turn on server-side garbage collection (GC)**
 
-Reducing the frequency of garbage collection can help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to `true`.
+Reducing the frequency of garbage collection can help in some cases. In .NET, set [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) to `true`.
 
 **Scale out your client workload**
 
@@ -58,7 +58,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. There are two key configuration settings available for configuring client connection policy: the connection *mode* and the connection *protocol*.  The two available modes are:
 
-   * Direct mode
+   * Direct mode (Default)
 
      Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). This offer better performance and requires fewer network hops than Gateway mode.
 

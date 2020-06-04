@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB performance tips for .NET SDK v2
-description: Learn client configuration options to improve Azure Cosmos DB performance.
+description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: sngun
 
 ---
 
-# Performance tips for Azure Cosmos DB and .NET
+# Performance tips for Azure Cosmos DB and .NET SDK v2
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -21,6 +21,13 @@ ms.author: sngun
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 So, if you're trying to improve your database performance, consider these options:
+
+## Upgrade to the .NET V3 SDK
+The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you are using the .NET v3 SDK please use the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md)
+1. Defaults to Direct TCP mode
+2. Stream API support
+3. Support custom serializer to allow System.Text.JSON usage
+4. Integrated batch and bulk support
 
 ## Hosting recommendations
 
@@ -58,7 +65,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. There are two key configuration settings available for configuring client connection policy: the connection *mode* and the connection *protocol*.  The two available modes are:
 
-   * Gateway mode
+   * Gateway mode (Default)
       
      Gateway mode is supported on all SDK platforms and is the configured default for the [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
@@ -66,19 +73,18 @@ How a client connects to Azure Cosmos DB has important performance implications,
 
    * Direct mode
 
-     Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
+     Direct mode supports connectivity through TCP protocol.
 
 In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
      
-When you use TCP in direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. This table shows the connectivity modes available for various APIs and the service ports used for each API:
+When you use TCP in direct mode, in addition to the gateway ports, you need to ensure the outbound port ranges between 10000 and 20000 are open because Azure Cosmos DB uses dynamic TCP ports. If these outbound ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. This table shows the connectivity modes available for various APIs and the service ports used for each API:
 
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443)    |
-|Direct    |     TCP    |  .NET SDK    | Ports in the 10000 through 20000 range |
+|Direct    |     TCP    |  .NET SDK    | Outbound ports in the 10000 through 20000 range |
 
 Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. TCP protocol uses TLS for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
-
 
 For the Microsoft.Azure.DocumentDB SDK, you configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
 
