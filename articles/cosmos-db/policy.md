@@ -111,7 +111,7 @@ One assignment is based on a built-in policy definition, which checks that the A
 
 The other assignment is based on a custom policy definition. This assignment checks that Cosmos DB accounts are configured for multiple write locations.
 
-After the policy assignments are deployed, the compliance dashboard shows evaluation results. Note that this can take up to 30 minutes after deploying a policy assignment. Additionally, [policy evaluation scans can be started on-demand](../governance/policy/how-to/get-compliance-data#on-demand-evaluation-scan) immediately after creating policy assignments.
+After the policy assignments are deployed, the compliance dashboard shows evaluation results. Note that this can take up to 30 minutes after deploying a policy assignment. Additionally, [policy evaluation scans can be started on-demand](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) immediately after creating policy assignments.
 
 The screenshot shows the following compliance evaluation results for in-scope Azure Cosmos DB accounts:
 
