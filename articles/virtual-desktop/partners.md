@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -96,6 +96,26 @@ deviceTRUST is a Windows Virtual Desktop value-added services provider that cont
 deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
 
 - [Go to the partner website](https://devicetrust.com/wvd).
+
+## Ekran System
+
+![Ekran System Logo](./media/partners/ekran.png)
+
+Ekran System is a Windows Virtual Desktop value-add partner that lets IT teams monitor all remote user activity on Microsoft Azure virtual machines. With Ekran System, you can record on-screen activity for every user session in published applications or virtual desktops while collecting a wide range of context-rich metadata, such as application names, active window titles, visited URLs, and keystrokes. Advanced features offer in-depth visibility and quick incident response times, making Ekran System an efficient insider threat management and compliance solution.  
+
+The unique floating endpoint licensing of Ekran System clients is automated to support dynamically changing virtual desktops. Ekran System lets you automatically unassign licenses from deleted non-persistent virtual desktops and remove them from your database. Ekran System seamlessly integrates with Azure Active Directory and Azure Sentinel.
+
+- [Go to the partner page](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## Flexxible IT
+
+![Flexxible IT Logo](./media/partners/flexxible.png)
+
+Flexxible IT is a Windows Virtual Desktop value-add partner that offers organizations the ability to rapidly scale, monitor, and efficiently manage Windows Virtual Desktop and Citrix Workspace infrastructure. Flexxible|SUITE allows IT admins to intelligently provision and manage Windows Virtual Desktop workloads on-premises and hosted in Azure.
+ 
+Flexxible IT's technology extends the value of both native Windows Virtual Desktop and Citrix Workspace by automating common processes to simplify infrastructure configuration, desktop provisioning, and day-to-day management. With no need for complex PowerShell scripts or time-consuming manual processes, SUITE provides scalable desktop deployment, extensive monitoring and reporting, and secure delegated management. These features allow you to focus on delivering enhanced levels of service and a quality Windows Virtual Desktop experience for your users.
+
+- [Go to the partner website](https://www.flexxible.com/suite-for-windows-virtual-desktop).
 
 ## HP
 
@@ -230,6 +250,16 @@ RDPSoft is a Windows Virtual Desktop partner that provides powerful and inexpens
 RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop administration. Premium Management features simplify delegation of Windows Virtual Desktop management tasks to support desk staff by providing remote assistance, user session, and process management. At the same time, the Remote Desktop Commander Suite collects rich metrics about per-user performance and load, user activity and auditing, Windows Virtual Desktop connection quality (latency and bandwidth), licensing, and security into a central Azure SQL database instance for review. With RDPSoft, rich historic reporting and comprehensive dashboards are just a click away.
 
 - [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
+
+## Rimo3
+
+![Rimo3 logo]()
+
+Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment and improving ongoing change management. Rimo3 equips IT teams with the knowledge they need to support your application portfolio for Azure migration readiness of application workloads. Users can onboard applications and test them in their target Windows Virtual Desktop workspace quickly and painlessly. Users can also proactively understand the impact of any changes as their organization rolls out new applications and updates. Finally, IT admins can leverage Rimo3's Intelligent Smoke Testing capability and automate functionality testing without interrupting user sessions.
+
+Rimo3 offers an easy-to-use, scalable, automated application testing platform. This platform includes capabilities for all three application testing fundamentals: compatibility, functionality, and performance. It allows organizations, leaders, and teams to improve business continuity, adopt change faster, and optimize user experience.
+
+- [Go to the partner website](https://rimo3.com/outcomes/).
 
 ## sepago
 
