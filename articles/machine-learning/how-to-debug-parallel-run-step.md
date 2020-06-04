@@ -5,7 +5,7 @@ description: Debug and troubleshoot ParallelRunStep in machine learning pipeline
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: tmccrmck
