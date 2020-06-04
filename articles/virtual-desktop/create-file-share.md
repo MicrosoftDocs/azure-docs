@@ -38,7 +38,7 @@ To set up a storage account:
     - Enter a unique name for your storage account.
     - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
-    - For **Account type**, select **StorageV2**.
+    - For **Account type**, select **StorageV2** or **FileStorage**.
     - For **Replication**, select **Locally-redundant storage (LRS)**.
 
 5. When you're done, select **Review + create**, then select **Create**.
@@ -59,15 +59,15 @@ To create a file share:
 
 4. Select **Create**.
 
-## Enable Azure Active Directory authentication
+## Enable Active Directory authentication
 
-Next, you'll need to enable Azure Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
+Next, you'll need to enable Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
 2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
-3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Azure Active Directory (AD)** is set to **Enabled**.
+3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
      ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 

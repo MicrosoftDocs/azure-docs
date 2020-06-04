@@ -5,7 +5,7 @@ description: Learn how to apply DevOps practices to a data ingestion pipeline im
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
