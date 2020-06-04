@@ -30,10 +30,10 @@ The dates when these changes take effect are:
 
 | Cloud                | Phase 1 Start Date | Phase 2 Start Date      |
 |----------------------|--------------------|-------------------------|
-| Azure (global)       |  January 13, 2020  | ~~May 11, 2020~~ **Postponed due to COVID 19 \***             |
-| Azure Government     |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19 \***           |
-| Azure Germany        |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19 \***           |
-| Azure China 21Vianet |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19 \***           |
+| Azure (global)       |  January 13, 2020  | ~~May 11, 2020~~ **Postponed due to COVID 19**           |
+| Azure Government     |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19**           |
+| Azure Germany        |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19**           |
+| Azure China 21Vianet |  March 13, 2020    | ~~May 11, 2020~~ **Postponed due to COVID 19**           |
 **\* New date not yet determined**
 
 ## Check whether your application is already compliant
