@@ -61,7 +61,7 @@ Azure resources defined in the template:
 
 You can use the Azure portal to view details of the deployed Azure Blockchain Service member. In the portal, go to the resource group containing you Azure Blockchain Service member. Select the blockchain member you created.
 
-![Deployed Azure Blockchain Member overview details in the Azure portal](../../media/template-deployments/deployed-member.png)
+![Deployed Azure Blockchain Member overview details in the Azure portal](./media/create-member-template/deployed-member.png)
 
 ## Clean up resources
 
