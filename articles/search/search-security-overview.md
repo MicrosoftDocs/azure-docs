@@ -126,10 +126,10 @@ Using Azure-wide mechanisms, you can lock a subscription or resource to prevent 
 
 ## Certifications and compliance
 
-Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](http://aka.ms/azurecompliance) from the official Audit reports page.
+Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://aka.ms/azurecompliance) from the official Audit reports page.
 
 ## See also
 
-+ [Azure security fundamentals](../security/fundamentals/)
-+ [Azure Security](https://azure.microsoft.com/overview/security/)
++ [Azure security fundamentals](../security/fundamentals/index.yml)
++ [Azure Security](https://azure.microsoft.com/overview/security/index.yml)
 + [Azure Security Center](../security-center/index.yml)
