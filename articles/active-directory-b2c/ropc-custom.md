@@ -99,6 +99,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
         <Item Key="response_types">id_token</Item>
         <Item Key="response_mode">query</Item>
         <Item Key="scope">email openid</Item>
+        <Item Key="grant_type">password</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="logonIdentifier" PartnerClaimType="username" Required="true" DefaultValue="{OIDC:Username}"/>
