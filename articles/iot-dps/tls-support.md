@@ -5,7 +5,7 @@
  author: wesmc7777
  ms.service: iot-dps
  ms.topic: conceptual
- ms.date: 05/11/2020
+ ms.date: 06/04/2020
  ms.author: wesmc
 ---
 
@@ -13,7 +13,7 @@
 
 DPS uses Transport Layer Security (TLS) to secure connections from IoT devices. TLS protocol versions supported by DPS include TLS 1.2.
 
-TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). It is strongly recommended that you use TLS 1.2 as the preferred TLS version when connecting to DPS.
+TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
 ## Restrict connections to TLS 1.2
 
