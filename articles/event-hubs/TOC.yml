@@ -273,6 +273,12 @@
         href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
     - name: Management library
       href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+  - name: Go
+    items:
+    - name: Client library
+      href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
+    - name: Management library
+      href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
   - name: REST
     href: /rest/api/eventhub
   - name: Resource Manager template
