@@ -613,6 +613,8 @@
     href: /rest/api/streamanalytics
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
+  - name: Azure CLI
+    href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Resources
   items:
   - name: Stream Analytics previews
