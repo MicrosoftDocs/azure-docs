@@ -225,11 +225,11 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 ## Adding network firewall rules
 
 > [!WARNING]
-> Below shows one example of adding a firewall rule. All egress endpoints defined in the [required egress endpoints](egress.md) must be enabled by application firewall rules for AKS clusters to function. Without these endpoints enabled, your cluster cannot operate.
+> Below shows one example of adding a firewall rule. All egress endpoints defined in the [required egress endpoints](limit-egress-traffic.md) must be enabled by application firewall rules for AKS clusters to function. Without these endpoints enabled, your cluster cannot operate.
 
 Below is an example of a network and application rule. We add a network rule which allows any protocol, source-address, destination-address, and destination-ports. We also add an application rule for **some** of the endpoints required by AKS.
 
-In a production scenario, you should only enable access to required endpoints for your application and those defined in [AKS required egress](egress.md).
+In a production scenario, you should only enable access to required endpoints for your application and those defined in [AKS required egress](limit-egress-traffic.md).
 
 ```
 # Add Network FW Rules
