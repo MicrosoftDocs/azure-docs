@@ -16,9 +16,9 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Use API connectors to customize and extend your self-service sign-up user flows by leveraging Web APIs
+# Use API connectors to customize and extend your self-service sign-up user flows
 
-As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems. For example, you can use API connectors to:
+As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems by leveraging Web APIs. For example, you can use API connectors to:
 
 - [**Enable custom approvals**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing account creation.
 - [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions.

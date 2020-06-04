@@ -292,8 +292,8 @@ Content-type: application/json
 | mail                                 | yes      | Equivalent to the `email_address` claim sent to the API.                         |
 | userType                             | yes      | Must be 'Guest'. Designates this user as a guest user.                            |
 | identities                           | yes      | The federated identity information.                                               |
-| otherBuiltInAttribute             | No       | Other built-in attributes like 'displayName', 'city', and more. Parameter names are the same as those sent by the API connector.|
-| extension_\<guid>\_CustomAttribute | No       | Custom attributes about the user. Parameter names are the same as those sent by the API connector.                                                            |
+| \<otherBuiltInAttribute>             | No       | Other built-in attributes like 'displayName', 'city', and more. Parameter names are the same as those sent by the API connector.|
+| \<extension_\<guid>\_CustomAttribute> | No       | Custom attributes about the user. Parameter names are the same as those sent by the API connector.                                                            |
 
 ### For a federated Azure Active Directory user
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
@@ -309,7 +309,6 @@ Content-type: application/json
  "city": "Redmond",
  "extension_<guid>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
-
 }
 ```
 
