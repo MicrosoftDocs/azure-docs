@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
+ms.date: 06/04/2020
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -131,11 +131,21 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 1. In the **Summary** page, review the settings, and select **Next**.
 
     ![Summary page](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. In the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
-1. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details and to rerun the pipeline.
+1. On the **Deployment page**, select **Edit pipeline** to edit the pipeline.
+
+1. On the pipeline canvas, select **Debug** on the toolbar to debug the pipeline. You see the status of the pipeline run in the Output tab at the bottom of the window.
+
+1. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
+
+1. To run the pipeline, select **Add trigger** on the toolbar, and then select **Trigger Now**. On the Pipeline Run page, select **OK**.
+
+1. When the pipeline run completes, go to the **Monitor** tab on the left. 
+ 
+1. select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details and to rerun the pipeline.
 
     [![Monitor pipeline runs](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
