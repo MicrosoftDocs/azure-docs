@@ -75,21 +75,24 @@ These commands output the list of property alias names for Azure Cosmos DB prope
 
 You can use any of these property alias names in the [custom policy definition rules](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-The following is an example policy definition that checks if an Azure Cosmos DB SQL database's provisioned throughput is greater than a maximum allowed limit of 400 RU/s. A custom policy definition includes two rules: one to check for the specific type of property alias, and the second one for the specific property of the type. Both rules use the alias names.
+The following is an example policy definition that checks if an Azure Cosmos DB account is configured for multiple write locations. The custom policy definition includes two rules: one to check for the specific type of property alias, and the second one for the specific property of the type, in this case the field that stores the multiple write location setting. Both rules use the alias names.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -102,21 +105,26 @@ After the policy assignments are created, Azure Policy evaluates the resources i
 
 You can review the compliance results and remediation details in the [Azure portal](../governance/policy/how-to/get-compliance-data.md#portal) or via the [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) or the [Azure Monitor logs](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-The following screenshot shows two example policy assignments. One assignment is based on a built-in policy definition, which checks that the Azure Cosmos DB resources are deployed only to the allowed Azure regions. The other assignment is based on a custom policy definition. This assignment checks that the provisioned throughput on Azure Cosmos DB resources does not exceed a specified maximum limit.
+The following screenshot shows two example policy assignments.
 
-After the policy assignments are deployed, the compliance dashboard shows evaluation results. Note that this can take up to 30 minutes after deploying a policy assignment.
+One assignment is based on a built-in policy definition, which checks that the Azure Cosmos DB resources are deployed only to the allowed Azure regions. Resource compliance shows policy evaluation outcome (compliant or non-compliant) for in-scope resources.
 
-The screenshot shows the following compliance evaluation results:
+The other assignment is based on a custom policy definition. This assignment checks that Cosmos DB accounts are configured for multiple write locations.
 
-- Zero out of one Azure Cosmos DB accounts in the specified scope are compliant with the policy assignment to check that resources were deployed to allowed regions.
-- One out of two Azure Cosmos DB database or collection resources in the specified scope are compliant with the policy assignment to check for provisioned throughput exceeding the specified maximum limit.
+After the policy assignments are deployed, the compliance dashboard shows evaluation results. Note that this can take up to 30 minutes after deploying a policy assignment. Additionally, [policy evaluation scans can be started on-demand](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) immediately after creating policy assignments.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Search for Azure Cosmos DB built-in policy definitions":::
+The screenshot shows the following compliance evaluation results for in-scope Azure Cosmos DB accounts:
 
-To remediate the non-compliant resources, see the [remediated with Azure Policy](../governance/policy/how-to/remediate-resources.md) article.
+- Zero of two accounts are compliant with a policy that Virtual Network (VNet) filtering must be configured.
+- Zero of two accounts are compliant with a policy that requires the account to be configured for multiple write locations
+- Zero of two accounts are compliant with a policy that resources were deployed to allowed Azure regions.
 
-## Next Steps
+:::image type="content" source="./media/policy/compliance.png" alt-text="Compliance results for Azure Policy assignments listed":::
 
-- [Review sample custom policy definitions for Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+To remediate the non-compliant resources, see [how to remediate resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
+## Next steps
+
+- [Review sample custom policy definitions for Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), including for the multiple write location and VNet filtering policies shown above.
 - [Create a policy assignment in the Azure portal](../governance/policy/assign-policy-portal.md)
 - [Review Azure Policy built-in policy definitions for Azure Cosmos DB](./policy-samples.md)
