@@ -1,15 +1,9 @@
 ---
-title: 'Java SDK: Filesystem operations on Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Use Azure Data Lake Storage Gen1 Java SDK to perform filesystem operations on Data Lake Storage Gen1 such as create folders, etc.
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Java SDK - Filesystem operations on Data Lake Storage Gen1 - Azure
+description: Use the Java SDK for Azure Data Lake Storage Gen1 to perform filesystem operations on Data Lake Storage Gen1 such as creating folders, and uploading and downloading data files.
 
-ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
@@ -54,7 +48,7 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
           </dependency>
         </dependencies>
    
-    The first dependency is to use the Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen1 SDK uses [slf4j](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like log4j, Java logging, logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
+    The first dependency is to use the Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen1 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
 
 3. Add the following import statements to your application.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,6 +47,10 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Teams web client
 - Dynamics CRM Online
 - Azure portal
+
+### User sign-in frequency and multi-factor authentication
+
+Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
 
 ### User sign-in frequency and device identities
 

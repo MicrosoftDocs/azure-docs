@@ -1,5 +1,5 @@
 - name: Azure AD B2C Documentation
-  href: index.yml
+  href: index.yml 
 - name: Overview
   items:
   - name: About Azure AD B2C
@@ -76,6 +76,8 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
+  - name: SSO sessions
+    href: session-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -85,11 +87,11 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
-    - name: Register a Graph application
+    - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
     - name: Add a web API application
-      href: add-web-application.md
+      href: add-web-api-application.md
     - name: Add a native client application
       href: add-native-application.md
     - name: iOS ObjC using App Auth
@@ -224,7 +226,9 @@
     - name: Tokens and session management
       items:
       - name: Customize tokens
-        href: custom-policy-manage-sso-and-token-config.md
+        href: configure-tokens-custom-policy.md
+      - name: Configure session behavior
+        href: session-behavior-custom-policy.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience
@@ -335,8 +339,8 @@
             href: phone-factor-technical-profile.md 
           - name: REST
             href: restful-technical-profile.md
-          - name: SAML
-            href: saml-technical-profile.md
+          - name: SAML identity provider 
+            href: saml-identity-provider-technical-profile.md
           - name: SAML token issuer
             href: saml-issuer-technical-profile.md
           - name: Self-asserted
@@ -393,6 +397,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: App registrations
+    href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples
@@ -405,7 +411,7 @@
   - name: Extensions app
     href: extensions-app.md
   - name: IEF release notes
-    href: custom-policy-developer-notes.md
+    href: custom-policy-developer-notes.md 
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
   - name: Page layout versions

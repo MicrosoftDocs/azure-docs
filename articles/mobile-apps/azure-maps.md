@@ -20,7 +20,7 @@ ms.author: masoucou
 - **Routing**: Presents the shortest or fastest routes available to multiple destinations at a specific time. Routing also provides specialized routes and facts for walkers, bicyclists, and commercial vehicles.
 - **Time zones**: Makes it easy to see what time it is anywhere in the world.
 - **Spatial operations**: Enhance your location intelligence.
-- **Geolocation**: Finds the country of an IP address.
+- **Geolocation**: Finds the country/region of an IP address.
 - **Data service**: Uploads and stores geospatial data for use with spatial operations or image composition.
 - **Mobility**: Provides real-time location intelligence on nearby public transit services. Stops, route information, and travel time estimations are included.
 

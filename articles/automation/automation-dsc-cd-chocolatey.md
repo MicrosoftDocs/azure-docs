@@ -1,12 +1,13 @@
 ---
-title: Azure Automation State Configuration continuous deployment with Chocolatey
-description: Describes DevOps continuous deployment using Azure Automation state configuration with the Chocolatey package manager. Includes an example with full JSON Resource Manager template and PowerShell source.
+title: Set up Azure Automation continuous deployment with Chocolatey
+description: This article tells how to set up continuous deployment with State Configuration and the Chocolatey package manager.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
+ms.custom: references_regions
 ---
-# Provide continuous deployment to virtual machines using Automation State Configuration and Chocolatey
+# Set up continuous deployment with Chocolatey
 
 In a DevOps world, there are many tools to assist with various points in the continuous integration
 pipeline. Azure Automation [State Configuration](automation-dsc-overview.md) is a welcome new addition to the options that DevOps teams can employ. 
@@ -17,9 +18,6 @@ This article demonstrates how to set up Continuous Deployment (CD) for a Windows
 the role, for example, a website, and go from there to additional roles.
 
 ![Continuous Deployment for IaaS VMs](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## At a high level
 
@@ -137,7 +135,7 @@ down into details and ultimately import into your Automation account. This is a 
 your modules up to date from time to time. And, the import feature checks dependencies with other
 modules to ensure nothing gets out of sync.
 
-Or, there's the manual approach. This approach is used only once per resource, unless you want to upgrade it later. For more information on authoring PowerShell integration modules, see [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
+There's also a manual approach, used only once per resource, unless you want to upgrade it later. For more information on authoring PowerShell integration modules, see [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 >[!NOTE]
 >The folder structure of a PowerShell integration module for a Windows computer is a little different from the folder structure expected by the Azure Automation. 
@@ -163,7 +161,7 @@ Or, there's the manual approach. This approach is used only once per resource, u
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 The included example implements these steps for cChoco and xNetworking. 
@@ -241,16 +239,15 @@ These steps result in a new node configuration named **ISVBoxConfig.isvbox** bei
 
 ## Step 5: Create and maintain package metadata
 
-For each package that you put into the package repository, you need a nuspec that describes it.
-That nuspec must be compiled and stored in your NuGet server. This process is described
-[here](https://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
-NuGet server. They sell this service, but have a starter SKU that's free. At NuGet.org, you'll find
-instructions on installing your own NuGet server for your private packages.
+For each package that you put into the package repository, you need a Nuspec that describes it. It must be compiled and stored on your NuGet server. This process is described
+[here](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+You can use **MyGet.org** as a NuGet server. You can buy this service, but thee is a free starter SKU. At [NuGet](https://www.nuget.org/), you'll find instructions on installing your own NuGet server for your private packages.
 
 ## Step 6: Tie it all together
 
 Each time a version passes QA and is approved for deployment, the package is created, and nuspec and
-nupkg are updated and deployed to the NuGet server. The configuration (Step 4 above) must also
+nupkg are updated and deployed to the NuGet server. The configuration (step 4) must also
 be updated to agree with the new version number. It must then be sent to the pull server and compiled.
 
 From that point on, it's up to the VMs that depend on that configuration to pull the update and
@@ -260,16 +257,14 @@ together in a build. This
 provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the available build tasks.
 
 ## Related articles
-* [Azure Automation DSC Overview](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## Next steps
 
-- For an overview, see [Azure Automation State Configuration](automation-dsc-overview.md).
-- To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+- To get started using the feature, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 - For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

@@ -17,16 +17,16 @@ ms.author: iainfou
 
 Azure Active Directory Domain Services (AD DS) supports a one-time move for customers currently using the Classic virtual network model to the Resource Manager virtual network model. Azure AD DS managed domains that use the Resource Manager deployment model provide additional features such as fine-grained password policy, audit logs, and account lockout protection.
 
-This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance.
+This article outlines considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance. For some of the benefits, see [Benefits of migration from the Classic to Resource Manager deployment model in Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
 >
-> For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+> For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## Overview of the migration process
 
-The migration process takes an existing Azure AD DS instance that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution - *preparation* and *migration*.
+The migration process takes an existing Azure AD DS instance that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution: *preparation* and *migration*.
 
 ![Overview of the migration process for Azure AD DS](media/migrate-from-classic-vnet/migration-overview.png)
 
@@ -37,21 +37,6 @@ In the *preparation* stage, Azure AD DS takes a backup of the domain to get the 
 In the *migration* stage, the underlying virtual disks for the domain controllers from the Classic Azure AD DS managed domain are copied to create the VMs using the Resource Manager deployment model. The Azure AD DS managed domain is then recreated, which includes the LDAPS and DNS configuration. Synchronization to Azure AD is restarted, and LDAP certificates are restored. There's no need to rejoin any machines to an Azure AD DS managed domain – they continue to be joined to the managed domain and run without changes.
 
 ![Migration of Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
-
-## Migration benefits
-
-When you move an Azure AD DS managed domain using this migration process, you avoid the need to rejoin machines to the managed domain or delete the Azure AD DS instance and create one from scratch. VMs continue to be joined to the Azure AD DS managed domain at the end of the migration process.
-
-After migration, Azure AD DS provides many features that are only available for domains using Resource Manager virtual networks, such as:
-
-* Fine-grained password policy support.
-* AD account lockout protection.
-* Email notifications of alerts on the Azure AD DS managed domain.
-* Audit logs using Azure Monitor.
-* Azure Files integration
-* HD Insights integration
-
-Azure AD DS managed domains that use a Resource Manager virtual network help you stay up-to-date with the latest new features. Support for Azure AD DS using Classic virtual networks is to be deprecated in the future.
 
 ## Example scenarios for migration
 
@@ -364,6 +349,7 @@ With your Azure AD DS managed domain migrated to the Resource Manager deployment
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+[migration-benefits]: concepts-migration-benefits.md
 
 <!-- EXTERNAL LINKS -->
 [powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

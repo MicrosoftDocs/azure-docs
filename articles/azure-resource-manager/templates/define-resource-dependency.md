@@ -12,7 +12,7 @@ Resource Manager evaluates the dependencies between resources, and deploys them 
 
 ## dependsOn
 
-Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value is a comma-separated list of resource names. The list can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value is a JSON array of strings, each of which is a resource name. The array can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources aren't shown in the following example, but they would need to exist elsewhere in the template.
 

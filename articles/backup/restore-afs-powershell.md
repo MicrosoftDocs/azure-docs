@@ -12,7 +12,7 @@ This article explains how to restore an entire file share, or specific files, fr
 You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
 
 > [!WARNING]
-> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more information, see [the section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) outlining the requirement for this change.
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more information, see [the section](backup-azure-afs-automation.md#important-notice-backup-item-identification) outlining the requirement for this change.
 
 >[!NOTE]
 >Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
@@ -29,10 +29,12 @@ In the following script:
 * In the example, **$rp[0]** selects the latest recovery point.
 
 ```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0] | fl
 ```
 

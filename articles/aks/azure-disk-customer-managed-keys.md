@@ -84,9 +84,6 @@ desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResou
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
-# Assign the reader role
-az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
 ## Create a new AKS cluster and encrypt the OS disk
@@ -109,9 +106,8 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
 
-## Encrypt your AKS cluster data disk
-
-You can also encrypt the AKS data disks with your own keys.
+## Encrypt your AKS cluster data disk(optional)
+OS disk encryption key will be used to encrypt data disk if key is not provided for data disk from v1.17.2, and you can also encrypt AKS data disks with your other keys.
 
 > [!IMPORTANT]
 > Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the service principal does not have permissions.
@@ -165,11 +161,9 @@ kubectl apply -f byok-azure-disk.yaml
 ## Limitations
 
 * BYOK is only currently available in GA and Preview in certain [Azure regions][supported-regions]
-* OS Disk Encryption supported with Kubernetes version 1.17 and above   
+* Data Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
 * Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
-* AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availability Sets
-
 
 ## Next steps
 

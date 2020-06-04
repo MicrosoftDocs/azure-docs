@@ -2,15 +2,15 @@
 title: Defining data types
 description: Recommendations for defining table data types in Synapse SQL pool. 
 services: synapse-analytics
-author: XiaoyuMSFT
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.subservice:
+ms.date: 01/06/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.custom: 
 ---
 
 # Table data types in Synapse SQL pool

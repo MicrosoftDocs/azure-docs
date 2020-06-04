@@ -23,8 +23,8 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
-Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
+<pre>
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -32,12 +32,12 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 You’ve created an empty web app, with git deployment enabled.
 

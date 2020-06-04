@@ -7,15 +7,21 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
-ms.date: 10/14/2019
+ms.topic: overview
+ms.date: 04/23/2020
 ms.author: diberry
 ---
 # What's new in Personalizer
 
-Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
+Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
-## Release notes 
+## Release notes
+
+### May 2020 - //Build conference
+
+The following are available in **Public Preview**:
+
+ * [Apprentice mode](concept-apprentice-mode.md) as a learning behavior.
 
 ### March 2020
 
@@ -36,7 +42,7 @@ The following preview features were released at the Build 2019 Conference:
 
 ### 2019 Build videos
 
-* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## Service updates
 

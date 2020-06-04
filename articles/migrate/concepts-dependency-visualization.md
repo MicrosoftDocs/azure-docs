@@ -2,7 +2,7 @@
 title: Dependency analysis in Azure Migrate Server Assessment
 description: Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/15/2020
 ---
 
 # Dependency analysis
@@ -25,7 +25,7 @@ There are two options for deploying dependency analysis
 - **Agentless**: With agentless analysis, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 > [!NOTE]
-> Dependency analysis isn't available in Azure Government.
+> Agent-based dependency analysis isn't available in Azure Government. You can use agentless dependency analysis.
 
 ## Agentless analysis
 
@@ -46,7 +46,7 @@ For agent-based analysis, Server Assessment uses the [Service Map solution](../a
 
 ### Collected data
 
-For agent-based visualization, the following data is collected:
+For agent-based analysis, the following data is collected:
 
 - Source machine server name, process, application name.
 - Destination machine server name, process, application name, and port.

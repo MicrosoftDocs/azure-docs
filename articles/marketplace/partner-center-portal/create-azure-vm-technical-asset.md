@@ -11,9 +11,6 @@ ms.date: 04/13/2020
 
 # Create your Azure Virtual Machine technical assets
 
-> [!IMPORTANT]
-> We're moving the management of your Azure Virtual Machine offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create technical assets for a virtual machine offer for Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) to manage your offers.
-
 This article describes how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace. A VM contains two components: the operating system virtual hard disk (VHD) and optional associated data disks VHDs:
 
 * **Operating system VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or custom-based VM.
@@ -74,7 +71,7 @@ Select either the Windows operation system or Linux as your base.
 
 The operating system VHD for your Windows-based VM image must be based on an Azure-approved base image that contains Windows Server or SQL Server. To begin, create a VM from one of the following images from the Azure portal:
 
-* Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 * [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 * [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 
@@ -104,7 +101,7 @@ Follow these steps to create the base VM image in the [Azure portal](https://ms.
 
 Azure begins provisioning the virtual machine you specified. You can track its progress by selecting the **Virtual Machines** tab on the left. After it's created, the status will change to **Running**.
 
-If you encounter difficulty creating your new Azure-based VHD, see [Common issues during VHD creation (FAQs)](https://aka.ms/VHDcreationIssues).
+If you encounter difficulty creating your new Azure-based VHD, see [Common issues during VHD creation (FAQs)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
 
 ### Connect to your Azure VM
 
@@ -276,8 +273,8 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 ## Next steps
 
-If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](https://aka.ms/AzureVM_VHDCreationFAQ).
+If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
 
 Otherwise:
 
-* [Certify your VM image](https://aks.ms/CertifyVMimage) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.
+* [Certify your VM image](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.

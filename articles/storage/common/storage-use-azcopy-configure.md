@@ -33,6 +33,17 @@ To configure the proxy settings for AzCopy, set the `https_proxy` environment va
 
 Currently, AzCopy doesn't support proxies that require authentication with NTLM or Kerberos.
 
+### Bypassing a proxy ###
+
+If you are running AzCopy on Windows, and you want to tell it to use _no_ proxy at all (instead of auto-detecting the settings) use these commands. With these settings, AzCopy will not look up or attempt to use any proxy.
+
+| Operating system | Environment | Commands  |
+|--------|-----------|----------|
+| **Windows** | Command prompt (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
+| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+
+On other operating systems, simply leave the HTTPS_PROXY variable unset if you want to use no proxy.
+
 ## Optimize performance
 
 You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
@@ -67,7 +78,7 @@ To view detailed help guidance for this command, type `azcopy bench -h` and then
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabytes (MB) per second. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

@@ -2,7 +2,7 @@
 title: Customize Microsoft Security Code Analysis tasks
 titleSuffix: Azure
 description: This article describes customizing the tasks in the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -37,7 +37,7 @@ Windows Defender uses the Windows Update client to download and install signatur
 
 For more information on Windows Update errors and their mitigation, see [Windows Update error codes by component](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) and the TechNet article [Windows Update Agent - Error Codes](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
-For information about YAML configuration for this task, please check our [Anti-Malware YAML options](yaml-configuration.md#anti-malware-scanner-task)
+For information about YAML configuration for this task, check our [Anti-Malware YAML options](yaml-configuration.md#anti-malware-scanner-task)
 
 ## BinSkim task
 
@@ -78,7 +78,7 @@ Details of task configuration are shown in the following screenshot and list.
 
 For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
-For information about YAML configuration for this task, please check our [BinSkim YAML options](yaml-configuration.md#binskim-task)
+For information about YAML configuration for this task, check our [BinSkim YAML options](yaml-configuration.md#binskim-task)
 
 ## Credential Scanner task
 
@@ -87,7 +87,8 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the Credential Scanner build task](./media/security-tools/3-taskdetails.png)
 
 Available options include:
-
+  - **Display Name**: Name of the Azure DevOps Task. The default value is Run Credential Scanner
+  - **Tool Major Version**: Available values include **CredScan V2**, **CredScan V1**. We recommend customers to use the **CredScan V2** version.
   - **Output Format**: Available values include **TSV**, **CSV**, **SARIF**, and **PREfast**.
   - **Tool Version**: We recommend you select **Latest**.
   - **Scan Folder**: The repository folder to be scanned.
@@ -101,7 +102,7 @@ Available options include:
   - **Control Options** > **Run this task**: Specifies when the task will run. Select **Custom conditions** to specify more complex conditions.
   - **Version**: The build task version within Azure DevOps. This option isn't frequently used.
 
-For information about YAML configuration for this task, please check our [Credential Scanner YAML options](yaml-configuration.md#credential-scanner-task)
+For information about YAML configuration for this task, check our [Credential Scanner YAML options](yaml-configuration.md#credential-scanner-task)
 
 ## Microsoft Security Risk Detection task
 
@@ -131,7 +132,7 @@ Details for configuring this task are shown in the following list. For any UI el
        - **Test Driver Can Be Renamed**: Select this checkbox if the test driver executable file can be renamed and still work correctly.
        - **The Fuzzing Application Runs as a Single OS Process**: Select this checkbox if the test driver runs under a single OS process. Clear it if the test driver spawns additional processes.
 
-For information about YAML configuration for this task, please check our [Microsoft Security Risk Detection YAML options](yaml-configuration.md#microsoft-security-risk-detection-task)
+For information about YAML configuration for this task, check our [Microsoft Security Risk Detection YAML options](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## Roslyn Analyzers task
 
@@ -168,7 +169,7 @@ For additional resources for the Roslyn Analyzers task, check out [The Roslyn-ba
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
-For information about YAML configuration for this task, please check our [Roslyn Analyzers YAML options](yaml-configuration.md#roslyn-analyzers-task)
+For information about YAML configuration for this task, check our [Roslyn Analyzers YAML options](yaml-configuration.md#roslyn-analyzers-task)
 
 ## TSLint task
 
@@ -177,7 +178,7 @@ For More information about TSLint, go to the [TSLint GitHub repo](https://github
 >[!NOTE] 
 >As you might be aware, the [TSLint GitHub repo](https://github.com/palantir/tslint) home page says that TSLint will be deprecated sometime in 2019. Microsoft is investigating [ESLint](https://github.com/eslint/eslint) as an alternative task.
 
-For information about YAML configuration for this task, please check our [TSLint YAML options](yaml-configuration.md#tslint-task)
+For information about YAML configuration for this task, check our [TSLint YAML options](yaml-configuration.md#tslint-task)
 
 ## Publish Security Analysis Logs task
 
@@ -189,7 +190,7 @@ Details of task configuration are shown in the following screenshot and list.
 - **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps Server or to a shared file that is accessible to the build agent.
 - **Tools**: You can choose to preserve logs for specific tools, or you can select **All Tools** to preserve all logs.
 
-For information about YAML configuration for this task, please check our [Publish Security Logs YAML options](yaml-configuration.md#publish-security-analysis-logs-task)
+For information about YAML configuration for this task, check our [Publish Security Logs YAML options](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## Security Report task
 
@@ -202,7 +203,7 @@ Details of Security Report configuration are shown in the following screenshot a
 - **Advanced Options**: If there are no logs for one of the tools selected, you can choose to log a warning or an error. If you log an error, the task fails.
 - **Base Logs Folder**: You can customize the base logs folder where logs are to be found. But this option is typically not used.
 
-For information about YAML configuration for this task, please check our [Security report YAML options](yaml-configuration.md#security-report-task)
+For information about YAML configuration for this task, check our [Security report YAML options](yaml-configuration.md#security-report-task)
 
 ## Post-Analysis task
 
@@ -214,7 +215,7 @@ Details of task configuration are shown in the following screenshot and list.
 - **Report**: You can optionally write the results that are causing the build break. The results are written to the Azure DevOps console window and log file.
 - **Advanced Options**: If there are no logs for one of the tools selected, you can choose to log a warning or an error. If you log an error, the task fails.
 
-For information about YAML configuration for this task, please check our [Post Analysis YAML options](yaml-configuration.md#post-analysis-task)
+For information about YAML configuration for this task, check our [Post Analysis YAML options](yaml-configuration.md#post-analysis-task)
 
 ## Next steps
 

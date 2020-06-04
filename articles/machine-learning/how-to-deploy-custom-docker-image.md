@@ -5,7 +5,7 @@ description: 'Learn how to use a custom Docker base image when deploying your Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -91,7 +91,7 @@ If you've already trained or deployed models using Azure Machine Learning, a con
 
     Follow the prompts to authenticate to the subscription.
 
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 2. Use the following command to list the container registry for the workspace. Replace `<myworkspace>` with your Azure Machine Learning workspace name. Replace `<resourcegroup>` with the Azure resource group that contains your workspace:
 

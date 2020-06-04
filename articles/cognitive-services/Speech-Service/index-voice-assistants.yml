@@ -6,12 +6,12 @@ metadata:
   title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
+  ms.author: trbye
 
 landingContent:
 - title: About voice assistants
@@ -30,6 +30,10 @@ landingContent:
           url: faq-voice-assistants.md
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - linkListType: get-started
+      links:
+        - text: Build and deploy a sample Voice Assistant to your Azure subscription (GitHub)
+          url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
 - title: Develop with Custom Commands
   linkLists:
     - linkListType: quickstart

@@ -393,7 +393,7 @@ conceptualContent:
         - url: ./platform/metrics-charts.md
           itemType: how-to-guide
           text:  Metric charts
-        - url: ./app/usage-workbooks.md
+        - url: ./platform/workbooks-overview.md
           itemType: how-to-guide
           text:  Workbooks (interactive reporting)
         - url: ./app/change-analysis.md

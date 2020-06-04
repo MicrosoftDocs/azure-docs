@@ -148,7 +148,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## After setting the environment
 
-From here going forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+You can now use PowerShell to manage your storage accounts and access blob, queue, file, and table data. For more information, see [Az.Storage](/powershell/module/az.storage).
 
 ## Clean up resources
 

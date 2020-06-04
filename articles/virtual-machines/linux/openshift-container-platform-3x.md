@@ -1,18 +1,11 @@
 ---
 title: Deploy OpenShift Container Platform 3.11 in Azure 
 description: Deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw

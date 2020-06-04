@@ -4,7 +4,7 @@ description: Add feature flags to Spring Boot apps and manage them using Azure A
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -52,14 +52,14 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate  *pom.xml* in the root directory of your app.
 
-1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`.:
+1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
-### Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.1.2</version>
     </dependency>
     <dependency>
@@ -73,12 +73,12 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     </dependency>
     ```
 
-### Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.2.2</version>
     </dependency>
     <dependency>
@@ -175,7 +175,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }

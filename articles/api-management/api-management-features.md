@@ -43,4 +43,4 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
-<sup>3</sup> Limited to a single self-hosted gateway deployment with a single gateway node.<br/>
+<sup>3</sup> In the Developer tier self-hosted gateways are limited to single gateway node.<br/>

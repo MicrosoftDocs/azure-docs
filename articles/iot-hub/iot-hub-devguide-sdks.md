@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
+ms.custom: mqtt
 ---
 
 # Understand and use Azure IoT Hub SDKs
@@ -110,6 +111,11 @@ Azure IoT Hub service SDK for Python:
 * [Source code](https://github.com/Azure/azure-iot-sdk-python/tree/master)
 
 Azure IoT Hub service SDK for C: 
+
+The Azure IoT Service SDK for C is no longer under active development.
+We will continue to fix critical bugs such as crashes, data corruption, and security vulnerabilities. We will NOT add any new feature or fix bugs that are not critical, however.
+
+Azure IoT Service SDK support is available in higher-level languages ([C#](https://github.com/Azure/azure-iot-sdk-csharp), [Java](https://github.com/Azure/azure-iot-sdk-java), [Node](https://github.com/Azure/azure-iot-sdk-node), [Python](https://github.com/Azure/azure-iot-sdk-python)).
 
 * Download from [apt-get, MBED, Arduino IDE, or NuGet](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Source code](https://github.com/Azure/azure-iot-sdk-c)

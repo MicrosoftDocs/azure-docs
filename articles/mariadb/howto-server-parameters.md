@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
+ms.date: 4/16/2020
 ---
 
 # How to configure server parameters in Azure Database for MariaDB by using the Azure portal
@@ -55,7 +55,8 @@ These additional server parameters are not configurable in the system:
 |innodb_file_per_table in Basic tier|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|256MB|
+|innodb_log_files_in_group|2|
 
 Other server parameters that are not listed here are set to their MariaDB out-of-box default values for [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 

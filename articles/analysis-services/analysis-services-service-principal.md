@@ -4,7 +4,7 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -44,7 +44,7 @@ Service principal appID and password or certificate can be used in connection st
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="azmodule" />Using Az.AnalysisServices module
+#### <a name="azmodule"></a>Using Az.AnalysisServices module
 
 When using a service principal for resource management operations with the [Az.AnalysisServices](/powershell/module/az.analysisservices)  module, use `Connect-AzAccount` cmdlet. 
 
@@ -106,4 +106,7 @@ db.Model.SaveChanges();
 
 ## Next steps
 [Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md)   
+[Refresh with Logic Apps](analysis-services-refresh-logic-app.md)  
+[Refresh with Azure Automation](analysis-services-refresh-azure-automation.md)  
+[Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md)  
+[Automate Power BI Premium workspace and dataset tasks with service principals](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

@@ -16,6 +16,8 @@ ms.author: jingwang
 ---
 # Monitor copy activity
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to monitor the copy activity execution in Azure Data Factory. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Monitor visually

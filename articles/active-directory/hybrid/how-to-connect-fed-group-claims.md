@@ -14,15 +14,15 @@ ms.author: billmath
 author: billmath
 ---
 
-# Configure group claims for applications with Azure Active Directory (Public Preview)
+# Configure group claims for applications with Azure Active Directory
 
 Azure Active Directory can provide a users group membership information in tokens for use within applications.  Two main patterns are supported:
 
-- Groups identified by their Azure Active Directory object identifier (OID) attribute (Generally Available)
-- Groups identified by sAMAccountName or GroupSID attributes for Active Directory (AD) synchronized groups and users (Public Preview)
+- Groups identified by their Azure Active Directory object identifier (OID) attribute
+- Groups identified by sAMAccountName or GroupSID attributes for Active Directory (AD) synchronized groups and users
 
 > [!IMPORTANT]
-> There are a number of caveats to note for this preview functionality:
+> There are a number of caveats to note for this functionality:
 >
 >- Support for use of sAMAccountName and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from AD FS and other identity providers. Groups managed in Azure AD do not contain the attributes necessary to emit these claims.
 >- In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application.  

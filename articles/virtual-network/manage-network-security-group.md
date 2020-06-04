@@ -362,9 +362,9 @@ To do tasks on network security groups, security rules, and application security
 
 | Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/networkSecurityGroups/rules/read            |   Get rule                                                            |
-| Microsoft.Network/networkSecurityGroups/rules/write           |   Create or update rule                                               |
-| Microsoft.Network/networkSecurityGroups/rules/delete          |   Delete rule                                                         |
+| Microsoft.Network/networkSecurityGroups/securityRules/read            |   Get rule                                                            |
+| Microsoft.Network/networkSecurityGroups/securityRules/write           |   Create or update rule                                               |
+| Microsoft.Network/networkSecurityGroups/securityRules/delete          |   Delete rule                                                         |
 
 ### Application security group
 
@@ -379,4 +379,4 @@ To do tasks on network security groups, security rules, and application security
 ## Next steps
 
 - Create a network or application security group using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](policy-samples.md) for virtual networks

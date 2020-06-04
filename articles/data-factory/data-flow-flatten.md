@@ -11,6 +11,8 @@ ms.date: 03/09/2020
 
 # Flatten transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
 
 ## Configuration

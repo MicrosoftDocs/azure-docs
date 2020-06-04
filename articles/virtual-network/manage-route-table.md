@@ -343,4 +343,4 @@ To do tasks on route tables and routes, your account must be assigned to the [Ne
 ## Next steps
 
 - Create a route table using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](policy-samples.md) for virtual networks

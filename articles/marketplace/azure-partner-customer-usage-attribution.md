@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 ---
 
@@ -26,7 +26,7 @@ Customer usage attribution supports three deployment options:
 >
 >- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
 >
->- Customer usage attribution is required for [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) offers published to Azure Marketplace.
+>- Customer usage attribution is required for [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offers published to Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,6 +54,9 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
+> [!NOTE]
+> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to the Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
 1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
@@ -78,7 +81,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
 > * [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
->* [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
@@ -281,7 +284,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 
 ### How to submit a technical consultation request
 
-1. Visit [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Visit [Partner Technical Services](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
 1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your sign-in credentials, an online request form will open:
@@ -290,7 +293,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
     * Enter a title and the description of the problem (provide as much detail as possible).
 1. Click Submit
 
-View step-by-step instructions with screenshots at [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
 ### What's next
 

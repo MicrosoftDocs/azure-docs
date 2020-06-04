@@ -86,7 +86,7 @@ Let's take a quick look at the Service Endpoint Policy object.
 Service endpoint policies only apply to the traffic from subnets associated to the policies. To allow access to specific Azure service resources from on-premises, traffic should be filtered using network virtual appliances or firewalls.
 
 ## Logging and troubleshooting
-No centralized logging is available for service endpoint policies. For service diagnostic logs, see [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
+No centralized logging is available for service endpoint policies. For service resource logs, see [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### Troubleshooting scenarios
 - Access denied to storage accounts that were working in preview (not in geo-paired region)

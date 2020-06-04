@@ -1,19 +1,26 @@
 ---
 title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
-author: j82w
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 03/11/2020
-ms.author: jawilley
+ms.date: 05/06/2020
+ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
+
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [.NET SDK](sql-api-sdk-dotnet.md) with Azure Cosmos DB SQL API accounts.
 The .NET SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
-## Checklist for troubleshooting issues:
+## Checklist for troubleshooting issues
 Consider the following checklist before you move your application to production. Using the checklist will prevent several common issues you might see. You can also quickly diagnose when an issue occurs:
 
 *    Use the latest [SDK](sql-api-sdk-dotnet-standard.md). Preview SDKs should not be used for production. This will prevent hitting known issues that are already fixed.
@@ -81,7 +88,7 @@ If your app is deployed on [Azure Virtual Machines without a public IP address](
 * Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](../virtual-network/virtual-networks-acl.md).
-* Assign a [public IP to your Azure VM](../load-balancer/load-balancer-outbound-connections.md#assignilpip).
+* Assign a [public IP to your Azure VM](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### HTTP proxy
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
@@ -95,6 +102,30 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 * If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
 * If the back-end query is slow try [optimizing the query](optimize-cost-queries.md) and looking at the current [indexing policy](index-overview.md) 
 
+### HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature
+If you received the following 401 error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
+
+1. The key was rotated and did not follow the [best practices](secure-access-to-data.md#key-rotation). This is usually the case. Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
+   1. 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
+2. The key is misconfigured on the application so the key does not match the account.
+   1. 401 MAC signature issue will be consistent and happens for all calls
+3. There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this if the application is running, and the container is deleted and recreated with the same name while the application is running. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
+   1. 401 MAC signature issue is seen shortly after a container creation, and only occur until the container creation is completed.
+ 
+ ### HTTP Error 400. The size of the request headers is too long.
+ The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) or [2.x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), which adds header size tracing to the exception message.
+
+Causes:
+ 1. The session token has grown too large. The session token grows as the number of partitions increase in the container.
+ 2. The continuation token has grown to large. Different queries will have different continuation token sizes.
+ 3. It's caused by a combination of the session token and continuation token.
+
+Solution:
+   1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue.
+   2. If the session token is the cause, then a temporary mitigation is to restart the application. Restarting the application instance will reset the session token. If the exceptions stop after the restart, then it confirms the session token is the cause. It will eventually grow back to the size that will cause the exception.
+   3. If the application cannot be converted to Direct + TCP and the session token is the cause, then mitigation can be done by changing the client [consistency level](consistency-levels.md). The session token is only used for session consistency which is the default for Cosmos DB. Any other consistency level will not use the session token. 
+   4. If the application cannot be converted to Direct + TCP and the continuation token is the cause, then try setting the ResponseContinuationTokenLimitInKb option. The option can be found in the FeedOptions for v2 or the QueryRequestOptions in v3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -102,5 +133,3 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

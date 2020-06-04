@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/21/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -76,9 +76,9 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | locks | scope of assignment | 1-90 | Alphanumerics, periods, underscores, hyphens, and parenthesis.<br><br>Can't end in period. |
-> | policyassignments | scope of assignment | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
-> | policydefinitions | scope of definition | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
-> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-260 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space.  |
+> | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
+> | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space. |
+> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't include `%` and can't end with period or space.  |
 
 ## Microsoft.Automation
 
@@ -341,7 +341,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | databaseAccounts | global | 3-31 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
+> | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.EventGrid
 
@@ -530,6 +530,13 @@ In the following tables, the term alphanumeric refers to:
 > | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 > | workspaces | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 
+## Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | solutions | workspace | N/A | For solutions authored by Microsoft, the name must be in the pattern:<br>`SolutionType(WorkspaceName)`<br><br>For solutions authored by third parties, the name must be in the pattern:<br>`SolutionType[WorkspaceName]`<br><br>For example, a valid name is:<br>`AntiMalware(contoso-IT)`<br><br>The solution type is case-sensitive. |
+
 ## Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
@@ -684,6 +691,9 @@ In the following tables, the term alphanumeric refers to:
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
 > | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
+
+> [!NOTE]
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
 
 ## Next steps
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 05/20/2020
 ms.author: aschhab
 
 ---
 
 # Message sessions
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in first in, first out (FIFO) and request-response patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
-
-## First-in, first out (FIFO) pattern
-To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
+Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## First-in, first out (FIFO) pattern
+To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
 
 Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
@@ -61,7 +61,7 @@ When multiple concurrent receivers pull from the queue, the messages belonging t
 
 The previous illustration shows three concurrent session receivers. One Session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered from this specific session. A session acts in many ways like a sub queue.
 
-The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. A receiver can't have two messages concurrently "in flight," but the messages must be processed in order. A new message can only be obtained when the prior message has been completed or dead-lettered. Abandoning a message causes the same message to be served again with the next receive operation.
+The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver may have many in-flight messages, but the messages will be received in order. Abandoning a message causes the same message to be served again with the next receive operation.
 
 ### Message session state
 
@@ -92,7 +92,7 @@ The definition of delivery count per message in the context of sessions varies s
 ## Request-response pattern
 The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
 
-Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on a sessions enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on a specific session ID and correctly process the replies.
+Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on the session enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on the specific session ID and correctly process the replies.
 
 > [!NOTE]
 > The application that sends the initial requests should know about the session ID and use `SessionClient.AcceptMessageSession(SessionID)` to lock the session on which it's expecting the response. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or `AcceptMessageSession(timeout)` on the queue to ensure that responses are available to be locked and processed by specific receivers.

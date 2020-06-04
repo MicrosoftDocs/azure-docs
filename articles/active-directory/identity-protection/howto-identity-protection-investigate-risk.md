@@ -72,6 +72,9 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm sign-in compromise
 - Confirm sign-in safe
 
+> [!NOTE] 
+> Identity Protection evaluates risk for all authentication flows, whether it be interactive or non-interactive. However, the sign-in report shows only the interactive sign-ins. You may see risky sign-ins that occurred on non-interactive sign-ins, but the sign-in will not show up in the Azure AD sign-ins report.
+
 ## Risk detections
 
 The risk detections report contains filterable data for up to the past 90 days (3 months).

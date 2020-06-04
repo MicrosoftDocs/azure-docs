@@ -5,11 +5,11 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 5/12/2020
 ---
 # Performance Recommendations in Azure Database for MySQL
 
-**Applies to:** Azure Database for MySQL 5.7
+**Applies to:** Azure Database for MySQL 5.7, 8.0
 
 The Performance Recommendations feature analyzes your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. If performance schema is OFF, turning on Query Store enables performance_schema and a subset of performance schema instruments required for the feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes.
 

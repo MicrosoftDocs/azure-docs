@@ -4,7 +4,7 @@ description: Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -18,6 +18,10 @@ Azure App Service has two variations:
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## Enable VNet Integration
+
+> [!NOTE]
+> If the "Networking” blade is disabled (grayed out) in the menu for your Linux apps, it means that feature is currently not available.
+>
 
 1. Go to the **Networking** UI in the App Service portal. Under **VNet Integration**, select **Click here to configure**.
 
@@ -36,8 +40,6 @@ Azure App Service has two variations:
     ![Select Classic VNet][3]
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
-
-After your app is integrated with your VNet, it uses the same DNS server that your VNet is configured with, unless it's Azure DNS Private Zones. Currently, you can't use VNet Integration with Azure DNS Private Zones.
 
 ## Regional VNet Integration
 
@@ -120,7 +122,7 @@ The only operation you can take in the app view of your VNet Integration instanc
 
 The App Service plan VNet Integration UI shows you all of the VNet integrations used by the apps in your App Service plan. To see details on each VNet, select the VNet you're interested in. There are two actions you can perform here for gateway-required VNet Integration:
 
-* **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet.
+* **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet. This operation will not work if you are using an app and a vnet belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your VNet.
 
 ### Gateway-required VNet Integration routing
@@ -195,3 +197,4 @@ For gateway-required VNet Integration, you can integrate App Service with an Azu
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

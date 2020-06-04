@@ -1,6 +1,6 @@
 ---
-title: Forward Azure Automation State Configuration reporting data to Azure Monitor logs
-description: This article demonstrates how to send Desired State Configuration (DSC) reporting data from Azure Automation State Configuration to Azure Monitor logs to deliver additional insight and management.
+title: Integrate with Azure Monitor logs
+description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor logs.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,7 +10,7 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Forward Azure Automation State Configuration reporting data to Azure Monitor logs
+# Integrate with Azure Monitor logs
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 
@@ -23,9 +23,6 @@ Azure Monitor logs provides greater operational visibility to your Automation St
 - Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Prerequisites
 
@@ -81,6 +78,7 @@ The Log Search pane opens with a query region scoped to your Automation account 
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Filtering details:
 
 * Filter on `DscNodeStatusData` to return operations for each State Configuration node.
@@ -99,7 +97,7 @@ the alert rule.
 1. From the Log Analytics workspace Overview page, click **Logs**.
 1. Create a log search query for your alert by typing the following search in the query field:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the **DscNodeStatusData** records.
+   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Derive the Automation account name from the `Resource` field in the search of the `DscNodeStatusData` records.
 1. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. 
 
 For more information on the options to configure the alert, see [Create an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -123,46 +121,46 @@ This query displays a chart of the node status over time.
 
 Azure Automation diagnostics create two categories of records in Azure Monitor logs:
 
-* Node status data (**DscNodeStatusData**)
-* Resource status data (**DscResourceStatusData**)
+* Node status data (`DscNodeStatusData`)
+* Resource status data (`DscResourceStatusData`)
 
 ### DscNodeStatusData
 
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |DscNodeStatusData. |
-| ResultType |Whether the node is compliant. |
+| OperationName |`DscNodeStatusData`. |
+| ResultType |Value that indicates if the node is compliant. |
 | NodeName_s |The name of the managed node. |
-| NodeComplianceStatus_s |Whether the node is compliant. |
-| DscReportStatus |Whether the compliance check ran successfully. |
-| ConfigurationMode | How the configuration is applied to the node. Possible values are: <ul><li>`ApplyOnly`: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. DSC attempts to apply the configuration until it is successful before the `ApplyOnly` value takes effect. </li><li>`ApplyAndMonitor`: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. DSC attempts to apply the configuration until it is successful before the `ApplyAndMonitor` value takes effect.</li><li>`ApplyAndAutoCorrect`: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then reapplies the current configuration.</li></ul> |
+| NodeComplianceStatus_s |Status value that specifies if the node is compliant. |
+| DscReportStatus |Status value indicating if the compliance check ran successfully. |
+| ConfigurationMode | The mode used to apply the configuration to the node. Possible values are: <ul><li>`ApplyOnly`: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. DSC attempts to apply the configuration until it is successful before the `ApplyOnly` value takes effect. </li><li>`ApplyAndMonitor`: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. DSC attempts to apply the configuration until it is successful before the `ApplyAndMonitor` value takes effect.</li><li>`ApplyAndAutoCorrect`: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then reapplies the current configuration.</li></ul> |
 | HostName_s | The name of the managed node. |
 | IPAddress | The IPv4 address of the managed node. |
-| Category | DscNodeStatus. |
+| Category | `DscNodeStatus`. |
 | Resource | The name of the Azure Automation account. |
-| Tenant_g | GUID that identifies the tenant for the Caller. |
-| NodeId_g |GUID that identifies the managed node. |
-| DscReportId_g |GUID that identifies the report. |
-| LastSeenTime_t |Date and time when the report was last viewed. |
-| ReportStartTime_t |Date and time when the report was started. |
-| ReportEndTime_t |Date and time when the report completed. |
-| NumberOfResources_d |The number of DSC resources called in the configuration applied to the node. |
-| SourceSystem | How Azure Monitor logs collected the data. Always "Azure" for Azure diagnostics. |
-| ResourceId |Identifier of the Azure Automation account. |
-| ResultDescription | The description for this operation. |
+| Tenant_g | GUID that identifies the tenant for the caller. |
+| NodeId_g | GUID that identifies the managed node. |
+| DscReportId_g | GUID that identifies the report. |
+| LastSeenTime_t | Date and time when the report was last viewed. |
+| ReportStartTime_t | Date and time when the report was started. |
+| ReportEndTime_t | Date and time when the report completed. |
+| NumberOfResources_d | The number of DSC resources called in the configuration applied to the node. |
+| SourceSystem | The source system identifying how Azure Monitor logs has collected the data. Always `Azure` for Azure diagnostics. |
+| ResourceId |The resource identifier of the Azure Automation account. |
+| ResultDescription | The resource description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION. |
 | ResourceType | AUTOMATIONACCOUNTS. |
-| CorrelationId |GUID that is the correlation identifier of the compliance report. |
+| CorrelationId | A GUID that is the correlation identifier of the compliance report. |
 
 ### DscResourceStatusData
 
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | ResultType |Whether the resource is compliant. |
 | NodeName_s |The name of the managed node. |
 | Category | DscNodeStatus. |
@@ -180,23 +178,22 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 | ErrorMessage_s |The error message if the resource failed. |
 | DscResourceDuration_d |The time, in seconds, that the DSC resource ran. |
 | SourceSystem | How Azure Monitor logs collected the data. Always `Azure` for Azure diagnostics. |
-| ResourceId |Specifies the Azure Automation account. |
+| ResourceId |The identifier of the Azure Automation account. |
 | ResultDescription | The description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION. |
 | ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID that is the correlation ID of the compliance report. |
 
-
 ## Next steps
 
-- For an overview, see [Azure Automation State Configuration](automation-dsc-overview.md).
-- To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+- To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 - For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).
+- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
 - To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 - To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/platform/collect-azure-metrics-logs.md).

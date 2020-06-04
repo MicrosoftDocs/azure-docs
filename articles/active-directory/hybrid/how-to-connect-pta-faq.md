@@ -116,7 +116,7 @@ If you are migrating from AD FS (or other federation technologies) to Pass-throu
 
 ## Can I use Pass-through Authentication in a multi-forest Active Directory environment?
 
-Yes. Multi-forest environments are supported if there are forest trusts between your Active Directory forests and if name suffix routing is correctly configured.
+Yes. Multi-forest environments are supported if there are forest trusts (two-way) between your Active Directory forests and if name suffix routing is correctly configured.
 
 ## Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
 

@@ -10,12 +10,6 @@
  ms.custom: include file
 ---
 
-## Sign in to Azure 
-
-Sign in to the Azure portal at https://portal.azure.com.
-
-> [!NOTE]
-> If you registered to use Shared Image Galleries during the preview, you might need to re-register the `Microsoft.Compute` provider. Open [Cloud Shell](https://shell.azure.com/bash) and type: `az provider register -n Microsoft.Compute`
 
 ## Create an image gallery
 
@@ -23,17 +17,18 @@ An image gallery is the primary resource used for enabling image sharing. Allowe
 
 The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Sign in to the Azure portal at https://portal.azure.com.
 1. Use the type **Shared image gallery** in the search box and select **Shared image gallery** in the results.
-1. In the **Shared image gallery** page, click **Create**.
-1. Select the correct subscription.
+1. In the **Shared image gallery** page, click **Add**.
+1. On the **Create shared image gallery** page, select the correct subscription.
 1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
 1. In **Name**, type *myGallery* for the name of the gallery.
 1. Leave the default for **Region**.
 1. You can type a short description of the gallery, like *My image gallery for testing.* and then click **Review + create**.
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
-   
+
+
 ## Create an image definition 
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -41,8 +36,9 @@ Image definitions create a logical grouping for images. They are used to manage 
 Create the gallery image definition inside of your gallery. In this example, the gallery image is named *myImageDefinition*.
 
 1. On the page for your new image gallery, select **Add a new image definition** from the top of the page. 
+1. In the **Add new image definition to shared image gallery**, for **Region**, select *East US*.
 1. For **Image definition name**, type *myImageDefinition*.
-1. For **Operating system**, select the correct option based on your source VM.
+1. For **Operating system**, select the correct option based on your source VM.  
 1. For **VM generation**, select the option based on your source VM. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. For **Publisher**, type *myPublisher*. 

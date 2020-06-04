@@ -46,7 +46,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses 
 
-You can assign these types of [IP addresses](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to a NIC in Azure:
+You can assign these types of [IP addresses](../articles/virtual-network/public-ip-addresses.md) to a NIC in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a VNet. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a VNet, your on-premises network, and the Internet (with NAT). You must assign at least one private IP address to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../articles/load-balancer/load-balancer-outbound-connections.md).
@@ -143,24 +143,7 @@ This table lists the methods that you can use to create an internal load balance
 
 ### Virtual machine scale sets
 
-When working with virtual machine scale sets and load balancer, the following should be considered:
-
-* **Multiple virtual machine scale sets can't use the same load balancer**.
-* **Port Forwarding and inbound NAT rules**:
-  * Each virtual machine scale set must have an inbound NAT rule.
-  * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically, this is by design.
-* **Load balancing rules**:
-  * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically, this is by design.
-* **Outbound rules**:
-  *  To create outbound rule for a backend pool which is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
-
-  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
-
-The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
-
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../articles/load-balancer/configure-vm-scale-set-portal.md).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).
+For more information on load balancer and virtual machine scale sets, see [Networking for Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## VMs
 

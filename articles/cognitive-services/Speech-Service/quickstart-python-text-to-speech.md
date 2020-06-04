@@ -3,13 +3,13 @@ title: "Convert text-to-speech, Python - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Convert text-to-speech using Python

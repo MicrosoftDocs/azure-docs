@@ -2,22 +2,15 @@
 title: User provisioning to Azure AD Gallery app is taking hours or more
 description: How to find out why provisioning to your application may be taking longer than you expected
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
-
-ms.collection: M365-identity-device-management
 ---
 
 # User provisioning to an Azure AD Gallery application is taking hours or more

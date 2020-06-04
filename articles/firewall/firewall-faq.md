@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/18/2020
 ms.author: victorh
 ---
 
@@ -67,9 +67,9 @@ The Web Application Firewall (WAF) is a feature of Application Gateway that prov
 
 The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks.
 
-## Are Network Security Groups (NSGs) supported on the Azure Firewall subnet?
+## Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?
 
-Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the Azure Firewall subnet, and are disabled to ensure no service interruption.
+Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the AzureFirewallSubnet, and are disabled to ensure no service interruption.
 
 ## How do I set up Azure Firewall with my service endpoints?
 
@@ -124,7 +124,7 @@ Azure Firewall doesn't SNAT when the destination IP address is a private IP rang
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is supported. For more information, see [Azure Firewall forced tunneling (preview)](forced-tunneling.md). 
+Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md). 
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 

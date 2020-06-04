@@ -1546,13 +1546,14 @@ Jump to a resource provider namespace:
 > | virtualHubs | Yes | Yes |
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualWans | Yes | No |
 > | vpnGateways | Yes | Yes |
 > | vpnSites | Yes | Yes |
 > | webApplicationFirewallPolicies | Yes | Yes |
 
-<a id="frontdoor" />
+<a id="frontdoor"></a>
 
 > [!NOTE]
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
@@ -1965,7 +1966,7 @@ Jump to a resource provider namespace:
 > | servers / tdeCertificates | No | No |
 > | virtualClusters | No | No |
 
-<a id="sqlnote" />
+<a id="sqlnote"></a>
 
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.

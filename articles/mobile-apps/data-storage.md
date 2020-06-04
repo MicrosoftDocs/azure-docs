@@ -18,21 +18,6 @@ Microsoft provides a variety of services that eliminate the need to spin up serv
 
 Use the following services to manage and store mobile application data in the cloud.
 
-## Visual Studio App Center
-[App Center Data](/appcenter/data/) is a data management service. It enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in online and offline scenarios. Built on top of Azure Cosmos DB, App Center Data scales as your user base and number of applications grow. It ensures low latency, high availability, and high scalability for all of your data.
-
-**Key features**
-- Easy provisioning to a new Azure Cosmos DB database or an existing Azure Cosmos DB database from the Visual Studio App Center portal.
-- NoSQL database support to easily store, sync, and query application data.
-- Built on top of Azure Cosmos DB, this service inherits most of the key features offered by Azure Cosmos DB and can scale globally to meet your business needs.
-- Online and offline sync capabilities to synchronize data across devices.
-- Mobile client SDKs that you can use to easily manage private application data.
-- Platform support for iOS, Android, Xamarin, and React Native.
-
-**References**
-- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Get started with App Center Data](/appcenter/data/getting-started)
-
 ## Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service. You can use it to build planet-scale applications. With Azure Cosmos DB, you can elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can take advantage of fast, single-digit-millisecond data access by using your favorite API surfaces. These surfaces include SQL, MongoDB, Cassandra, Tables, or Gremlin. Azure Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.
 

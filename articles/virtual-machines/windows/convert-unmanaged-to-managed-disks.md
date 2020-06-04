@@ -3,6 +3,7 @@ title: Convert a Windows virtual machine from unmanaged disks to managed disks
 description: How to convert a Windows VM from unmanaged disks to managed disks by using PowerShell in the Resource Manager deployment model
 author: roygara
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana

@@ -1,16 +1,14 @@
 ---
 title: Vertically scale Azure virtual machine scale sets
 description: How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation
-author: mimckitt
-tags: azure-resource-manager
-
-ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/18/2019
-ms.author: mimckitt
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Vertical autoscale with virtual machine scale sets
@@ -151,8 +149,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell quickstart samples](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor Cross-platform CLI quickstart samples](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
 
 ## Summary
 

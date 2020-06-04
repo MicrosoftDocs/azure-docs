@@ -14,6 +14,7 @@ ms.author: jingwang
 ---
 
 # Parquet format in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the Parquet files or write the data into Parquet format**. 
 

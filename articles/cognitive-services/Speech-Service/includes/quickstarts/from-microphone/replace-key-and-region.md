@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual values from the Speech resource.
