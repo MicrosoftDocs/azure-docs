@@ -41,7 +41,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 8. Select the claims you want to send to the API.
 9. Select any claims you plan to receive back from the API.
  
-    ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connectors-claims.png)
+    ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
 
 10. Select **Save**.
 
