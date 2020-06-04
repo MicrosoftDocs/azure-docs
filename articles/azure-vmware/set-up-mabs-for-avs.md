@@ -62,7 +62,7 @@ In this article, we help you prepare your AVS environment to backup virtual mach
 **Deployment Architecture**  
 Microsoft Azure Backup Server is deployed as Azure IaaS VM to protect AVS VMs.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="AVS deployment architecture" border="false":::
+![AVS deployment architecture](media/avs-backup/deploy-mabs-avs-diagram.png)
 
 ## Prerequisites for the Azure Backup Server environment
 
