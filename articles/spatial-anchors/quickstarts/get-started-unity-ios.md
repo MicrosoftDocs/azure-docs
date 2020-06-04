@@ -44,13 +44,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## Configure account identifier and key
-
-In the **Project** pane, navigate to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Save the scene by selecting **File** -> **Save**.
 
 ## Export the Xcode project
 
