@@ -2,7 +2,7 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found when deploying with an Azure Resource Manager template.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/01/2020
 ---
 # Resolve not found errors for Azure resources
 
@@ -89,8 +89,25 @@ If you're deploying a resource that implicitly creates a [managed identity](../.
 
 In the reference function, use `Full` to get all of the properties including the managed identity.
 
-For example, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+The pattern is:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Don't use the pattern:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Your template will fail.
+
+For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```

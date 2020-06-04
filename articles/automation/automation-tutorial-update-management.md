@@ -205,4 +205,4 @@ When your update deployment is finished, you receive the alert that you've speci
 * To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

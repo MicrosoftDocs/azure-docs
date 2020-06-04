@@ -23,7 +23,9 @@
   - name: Classroom Labs concepts
     href: classroom-labs-concepts.md    
   - name: Classroom Labs architecture fundamentals
-    href: classroom-labs-fundamentals.md    
+    href: classroom-labs-fundamentals.md
+  - name: Capacity limits
+    href: capacity-limits.md  
   - name: Scenarios
     items:  
     - name: Use labs for conducting classes
@@ -80,6 +82,8 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
+    - name: Cost management for labs
+      href: cost-management-guide.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs

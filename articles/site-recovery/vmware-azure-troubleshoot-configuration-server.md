@@ -49,6 +49,8 @@ The source machine registers with the configuration server when you install the 
     c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
     d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
 
+8. Ensure that multi-factor authentication is not enabled for user account. Azure Site Recovery does not support multi-factor authentication for user account as of now. Register the configuration server without multi-factor authentication enabled user account.  
+
 ## Installation failure: Failed to load accounts
 
 This error occurs when the service can't read data from the transport connection when it's installing the mobility agent and registering with the configuration server. To resolve the issue, ensure that TLS 1.0 is enabled on your source machine.
