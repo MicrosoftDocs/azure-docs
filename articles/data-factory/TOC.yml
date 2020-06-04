@@ -200,6 +200,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Management hub
+      href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
@@ -376,6 +378,8 @@
       href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
+    - name: Snowflake
+      href: connector-snowflake.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server

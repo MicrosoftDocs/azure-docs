@@ -16,9 +16,6 @@ The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Casc
 
 D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
-> [!IMPORTANT]
-> If you are deploying a new Virtual Machine using the Ddv4 or Ddsv4-series and intend to use a Linux Image, you need to use either RHEL 8.x, CentOS 8.x, or Oracle 7.x or newer. If choosing RHEL 7.x, CentOS 7.x or Orcale 6.x there will be a Kernel Panic error. Microsoft is actively deploying a fix. Only RHEL, CentOS and Oracle are impacted. 
-
 ## Ddv4-series
 
 Ddv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Ddv4-series offer a combination of vCPU, memory and temporary disk for most production workloads.
