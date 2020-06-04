@@ -236,7 +236,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  Click on **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-       :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Prepare Infrastructure":::
+       ![Prepare Infrastructure](./media/avs-backup/deploy-mabs-prepare-infrastructure.png)
 
 1.  In the **Prepare infrastructure** window that opens, do the following:
 
@@ -244,7 +244,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during the registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where you download the software package.
 
-     :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
+    ![Prepare Infrastructure - Azure Backup Server](./media/avs-backup/deploy-mabs-prepare-infrastructure2.png)
 
 1.  On the download page, select all the files and click **Next**.
 
@@ -331,7 +331,7 @@ If you downloaded the software package to a different server, copy the files ont
     > [!NOTE]
     > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
 
-    :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Microsoft Azure Backup PreReq2":::
+    ![Microsoft Azure Backup PreReq2](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1.  Review the *Summary of Settings* and click **Install**.
 
