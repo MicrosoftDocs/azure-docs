@@ -1,5 +1,5 @@
 ---
-title: Configure ASP.NET Core apps
+title: Configure Windows ASP.NET Core apps
 description: Learn how to configure a ASP.NET Core app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: dotnet
@@ -8,7 +8,7 @@ ms.date: 06/02/2020
 
 ---
 
-# Configure an ASP.NET Core app for Azure App Service
+# Configure a Windows ASP.NET Core app for Azure App Service
 
 > [!NOTE]
 > For ASP.NET in .NET Framework, see [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md)
@@ -28,28 +28,6 @@ dotnet --info
 ## Set .NET Core version
 
 Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](https://docs.microsoft.com/dotnet/core/versions/selection) in .NET Core documentation.
-
-## Customize build automation
-
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
-
-1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
-1. Run `dotnet restore` to restore NuGet dependencies.
-1. Run `dotnet publish` to build a binary for production.
-1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
-
-`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
-
-The following example specifies the two variables to a series of commands, separated by commas.
-
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
-```
-
-For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
-
-For more information on how App Service runs and builds ASP.NET Core apps in Linux, see [Oryx documentation: How .NET Core apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
 ## Access environment variables
 

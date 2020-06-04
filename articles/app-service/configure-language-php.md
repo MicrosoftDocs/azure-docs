@@ -1,5 +1,5 @@
 ---
-title: Configure PHP apps
+title: Configure Windows PHP apps
 description: Learn how to configure a PHP app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: php
@@ -8,7 +8,7 @@ ms.date: 06/02/2020
 
 ---
 
-# Configure a PHP app for Azure App Service
+# Configure a Windows PHP app for Azure App Service
 
 This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service. This guide applies to apps hosted on the Windows platform. For information about linux apps, see [Configure a Linux PHP app for Azure App Service](containers/configure-language-php.md).
 

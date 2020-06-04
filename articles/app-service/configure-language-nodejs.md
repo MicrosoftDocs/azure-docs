@@ -1,5 +1,5 @@
 ---
-title: Configure Node.js apps
+title: Configure Windows Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: nodejs
@@ -8,7 +8,7 @@ ms.date: 06/02/2020
 
 ---
 
-# Configure a Node.js app for Azure App Service
+# Configure a Windows Node.js app for Azure App Service
 
 Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually. For information about Linux apps, see [Configure a Linux PHP app for Azure App Service](containers/configure-language-nodejs.md).
 
