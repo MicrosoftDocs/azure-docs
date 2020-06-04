@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -23,7 +23,7 @@ The following table provides a comparison of ultra disks, premium solid-state dr
 |Disk type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
 |Max disk size   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
-|Max throughput   |2,000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max throughput   |2,000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Max IOPS   |160,000    |20,000   |6,000   |2,000   |
 
 ## Ultra disk
