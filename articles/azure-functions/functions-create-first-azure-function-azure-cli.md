@@ -409,3 +409,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
+ 

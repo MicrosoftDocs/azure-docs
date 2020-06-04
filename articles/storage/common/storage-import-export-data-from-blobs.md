@@ -123,7 +123,7 @@ The export is complete.
 
 If using version 1.4.0.300 of the WAImportExport tool, use the following command to unlock the drive:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
 If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
 

@@ -28,7 +28,7 @@ Hyper-V without Virtual Machine Manager | You can perform disaster recovery to A
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-Hyper-V (running without Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (including server core installation), Windows Server 2012 R2 with latest updates | If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (running without Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (including server core installation), Windows Server 2012 R2 with latest updates | If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md) <br/><br/> Note: Failback is not supported for Windows Server 2019 server core version.
 Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.<br/><br/> Note: Failback to alternate location is not supported for Windows Server 2019 hosts.
 
 

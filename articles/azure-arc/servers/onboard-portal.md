@@ -8,6 +8,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from the Azure portal

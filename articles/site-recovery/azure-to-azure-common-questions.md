@@ -48,6 +48,14 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
   - For Azure Disk Encryption version 1.1, you have to use the Windows VMs with managed disks.
   - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
+### Can I select an Automation account from a different resource group?
+
+This is currently not supported via portal but you can choose an Automation account from a different resource group via Powershell.
+
+### After specifying an Automation account that is in a different resource group than the vault, am I permitted to delete the runbook if there is no other vault to specify?
+
+The custom runbook created is a tool and it’s safe to delete if the same is longer not required.
+
 ### Can I replicate VMs to another subscription?
 
 Yes, you can replicate Azure VMs to a different subscription within the same Azure AD tenant.
@@ -167,6 +175,10 @@ The first recovery point that's generated has the complete copy. Any successive 
 ### Does increasing the retention period of recovery points increase the storage cost?
 
 Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
+
+### Can I enable replication with app-consistency in Linux servers?
+
+Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. [Learn more](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## Multi-VM consistency
 

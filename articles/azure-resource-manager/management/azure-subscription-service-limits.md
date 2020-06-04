@@ -318,7 +318,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md), and [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for managed instances](../../azure-sql/managed-instance/resource-limits.md).
 
 ## SQL Data Warehouse limits
 

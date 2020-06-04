@@ -24,7 +24,7 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 * **8266 (TCP+UDP)** - required for data transfer
 * **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
 
-## Error 'Disconnected: VideoFormatNotAvailable'
+## Error '`Disconnected: VideoFormatNotAvailable`'
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
 
@@ -32,7 +32,7 @@ If you are working on a laptop with two GPUs, it is possible that the GPU you ar
 
 ## H265 codec not available
 
-There are two reasons why the server might refuse to connect with a **codec not available** error.
+There are two reasons why the server might refuse to connect with a `codec not available` error.
 
 **The H265 codec isn't installed:**
 
@@ -102,7 +102,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
 
-**The model is not inside the view frustum:**
+**The model is not inside the camera frustum:**
 
 In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
 
@@ -137,7 +137,7 @@ There can be two problems with this bounding box that lead to invisible geometry
 
 **The Unity render pipeline doesn't include the render hooks:**
 
-Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *Window > Analysis > Frame debugger*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
+Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *:::no-loc text="Window > Analysis > Frame debugger":::*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
