@@ -404,6 +404,9 @@ az group delete --name AzureFunctionsQuickstart-rg
 az group delete --name java-functions-group
 ```
 ::: zone-end
+::: zone pivot="programming-language-python"
+To exit the virtual environment, run `deactivate`.
+::: zone-end
 
 ## Next steps
 
