@@ -47,10 +47,10 @@ This script uses the following commands. Each command in the table links to comm
 | [az network nsg](/cli/azure/network/nsg) | Network security group commands. |
 | [az network nsg rule](/cli/azure/network/nsg/rule)| Network security rule commands. |
 | [az network route-table](/cli/azure/network/route-table) | Route table commands. |
-| [az sql mi](/cli/azure/sql/mi) | Managed instance commands. |
+| [az sql mi](/cli/azure/sql/mi) | SQL Managed Instance commands. |
 | [az network public-ip](/cli/azure/network/public-ip) | Network public IP address commands. |
 | [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Virtual Network Gateway commands |
-| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Managed instance failover group commands. |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | SQL Managed Instance failover group commands. |
 
 ## Next steps
 

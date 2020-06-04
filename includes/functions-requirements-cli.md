@@ -20,7 +20,7 @@ Before you begin, you must have the following:
    | Python version | Core Tools version |
    | -------------- | ------------------ |
    | Python 3.8     | [version 3.x](../articles/azure-functions/functions-run-local.md#v2) |
-   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 or a later 2.x version](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 or a later version](../articles/azure-functions/functions-run-local.md#v2) |
   
 ::: zone-end
 

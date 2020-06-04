@@ -107,7 +107,7 @@ Linked services link data stores or compute services to an Azure data factory. S
 ### Create the Azure SQL linked service
 1. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
 2. This time, select **Azure SQL Linked Service**, and click **Add**. 
-3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your logical SQL server, database, user account, and password.    
+3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your server, database, user account, and password.    
 4. Save the **AzureSqlLinkedService1.json** file. 
 	
 	For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).

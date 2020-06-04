@@ -1,6 +1,6 @@
 ---
 title: DNS alias
-description: Your applications can connect to an alias for the name of your logical SQL server. Meanwhile, you can change the SQL Database the alias points to anytime, to facilitate testing and so on.
+description: Your applications can connect to an alias for the name of the server for Azure SQL Database. Meanwhile, you can change the SQL Database the alias points to anytime, to facilitate testing and so on.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -71,7 +71,7 @@ Also, the REST APIs can be seen in GitHub at:
 
 - [Azure SQL Database DNS alias REST APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
-<a name="anchor-powershell-code-62x"/>
+<a name="anchor-powershell-code-62x"></a>
 
 ### PowerShell for managing your DNS aliases
 

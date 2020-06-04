@@ -2,8 +2,8 @@
 title: sys.external_streams (Transact-SQL) - Azure SQL Edge (Preview)
 description: Learn about using sys.external_streams in Azure SQL Edge (Preview)
 keywords: sys.external_streams, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha

@@ -75,7 +75,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) | |  |  | :heavy_check_mark: |
 | [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Marketplace Portal](https://azuremarketplace.microsoft.com/en-us)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Maps](https://azure.microsoft.com/services/azure-maps/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Azure Maps](https://azure.microsoft.com/services/azure-maps/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -286,4 +286,3 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 **&ast;** Some services such as the Azure portal and Azure Resource Manager do not store or process DoD CC SRG IL 5 content, however still inherit the IL5 control set.
-

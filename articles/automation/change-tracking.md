@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
 ---
 
@@ -36,7 +36,7 @@ Change Tracking and Inventory currently doesn't support the following items:
 Other limitations:
 
 * The **Max File Size** column and values are unused in the current implementation.
-* If you collect more than 2500 files in a 30-minute collection cycle, change tracking and inventory performance might be degraded.
+* If you collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 * When network traffic is high, change records can take up to six hours to display.
 * If you modify a configuration while a computer is shut down, the computer might post changes belonging to the previous configuration.
 
@@ -47,7 +47,9 @@ Change Tracking and Inventory currently is experiencing the following issues:
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## Network requirements
 
@@ -81,7 +83,7 @@ You can add, modify, or remove each change. The example below shows a change in 
 
 ![Change Tracking and Inventory details](./media/change-tracking/change-tracking-details.png)
 
-## FIM Support in Azure Security Center
+## FIM support in Azure Security Center
 
 Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
 
@@ -109,13 +111,12 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |
 > | --- | --- |
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitors scripts that run at startup.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitors scripts that run at shutdown.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitors keys that are loaded before the user signs in to the Windows account. The key is used for 32-bit applications running on 64-bit computers.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitors changes to application settings.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitors common autostart entries that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitors context menu handlers that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitors copy hook handlers that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration for 32-bit applications running on 64-bit computers.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
@@ -124,7 +125,7 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit applications running on 64-bit computers.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the **system.ini** file.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit applications running on 64-bit computers. Similar to the [drivers] section in the **system.ini** file.
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitors the list of known or commonly used system DLLs. This system prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitors the list of known or commonly used system DLLs. Monitoring prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitors the list of packages that can receive event notifications from **winlogon.exe**, the interactive logon support model for Windows.
 
 ## Recursion support
@@ -132,7 +133,7 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 Change Tracking and Inventory supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files.
-* Wildcards can be used only in the last segment of a file path, for example, **c:\folder\\file*** or **/etc/*.conf**.
+* You can use wildcards only in the last segment of a file path, for example, **c:\folder\\file*** or **/etc/*.conf**.
 * If an environment variable has an invalid path, validation succeeds but the path fails during execution.
 * You should avoid general path names when setting the path, as this type of setting can cause too many folders to be traversed.
 
@@ -176,7 +177,7 @@ To optimize performance, the Log Analytics agent only tracks changes. Setting a 
 
 ## Support for alerts on configuration state
 
-A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **C:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table. 
+A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table. 
 
 |Query  |Description  |
 |---------|---------|

@@ -2,7 +2,7 @@
 title: Select a VMware migration option with Azure Migrate Server Migration | Microsoft Docs
 description: Provides an overview of options for migrating VMware VMs to Azure with Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 06/03/2020
 ---
 
 
@@ -38,7 +38,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
-**Assessment** | Assess servers before migration.  Assessment is optional. We suggest that you assess machines before you migrate them, but you don't have to. <br/><br/> For assessment, Azure Migrate sets up a lightweight appliance to discover and assess VMs. | If you run an agentless migration after assessment, the same Azure Migrate appliance set up for assessment is used for agentless migration.  |  If you run an agent-based migration after assessment, the appliance set up for assessment isn't used during agentless migration. You can leave the appliance in place, or remove it if you don't want to do further discovery and assessment.
+**Assessment** | Assess servers before migration.  Assessment is optional. We suggest that you assess machines before you migrate them, but you don't have to. <br/><br/> For assessment, Azure Migrate sets up a lightweight appliance to discover and assess VMs. | If you run an agentless migration after assessment, the same Azure Migrate appliance set up for assessment is used for agentless migration.  |  If you run an agent-based migration after assessment, the appliance set up for assessment isn't used during agent-based migration. You can leave the appliance in place, or remove it if you don't want to do further discovery and assessment.
 **Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
 **Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.

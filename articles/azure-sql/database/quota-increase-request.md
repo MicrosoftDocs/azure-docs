@@ -96,7 +96,7 @@ If your subscription needs access in a particular region, please use the **Other
 
 ![Other quota details](./media/quota-increase-request/quota-details-whitelisting.png)
 
-## <a id="sqlmiquota"></a> Managed instance quota type
+## <a id="sqlmiquota"></a> SQL Managed Instance quota type
 
 For the **SQL Managed Instance** quota type, use the following steps:
 
@@ -104,7 +104,7 @@ For the **SQL Managed Instance** quota type, use the following steps:
 
 1. Enter the new limits you are requesting for **Subnet** and **vCore**.
 
-   ![Managed instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
+   ![SQL Managed Instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
 
 For more information, see [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
 
