@@ -36,12 +36,15 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
 
 ### Option 1: Using PowerShell  script
 
-1. Download the Onboarding script
+1. Download the Onboarding script.
 
 	```console
 	curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1
 	 ```
-
+If you recieve an error similar to "Invoke-WebRequest : A parameter cannot be found that matches parameter name 'LO'" you may need to run the following command to remove the default curl to Invoke-WebRequest alias, then re-run the command
+	```console
+	Remove-item alias:curl
+	```
 2. Install [PowerShell core](https://docs.microsoft.com/PowerShell/scripting/install/installing-PowerShell?view=PowerShell-6) on your dev machine to execute the PowerShell onboarding script.
 
 3. Login to Azure
