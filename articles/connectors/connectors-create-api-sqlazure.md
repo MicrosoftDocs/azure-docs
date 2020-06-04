@@ -64,7 +64,7 @@ Now, continue with these steps:
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For **Authentication Type**, select [**Azure AD Integrated**](../azure/azure-sql/database/authentication-aad-overview.md), which applies to either Azure SQL Database or Azure SQL Managed Instance.
+1. For **Authentication Type**, select [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md), which applies to either Azure SQL Database or Azure SQL Managed Instance.
 
    ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
