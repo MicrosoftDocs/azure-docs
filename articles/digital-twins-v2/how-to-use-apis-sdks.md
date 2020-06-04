@@ -42,9 +42,9 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 The most current data plane API version for public preview is *2020-05-31-preview*.
 
 To use the data plane APIs...
-* you can call them directly by referencing the Swagger [here](). You can also view the API reference documentation [here]().
+* you can call them directly by referencing the Swagger [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins). You can also view the API reference documentation [here](https://docs.microsoft.com/en-us/azure-digitaltwins-rest-api).
 * you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
-  - For .NET users, you can find the SDK source [here](); the SDK NuGet [here](); and its reference docs [here](). You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+  - For .NET users, you can find the SDK source [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core); the SDK NuGet [here](); and its reference docs [here](). You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
   - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
