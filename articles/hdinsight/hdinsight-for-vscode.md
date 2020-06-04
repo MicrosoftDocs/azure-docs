@@ -229,7 +229,7 @@ The tool also supports the **Spark SQL** query:
 
 2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
 
-   ![run cell results](./media/hdinsight-for-vscode/run-cell-results.png)
+   ![run cell results](./media/hdinsight-for-vscode/run-cell-get-results.png)
 
    > [!NOTE]  
    > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
