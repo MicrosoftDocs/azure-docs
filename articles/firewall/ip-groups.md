@@ -57,9 +57,6 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
-> [!NOTE]
-> IP Groups are not supported in Firewall Policy. It is currently only supported with traditional firewall rules.
-
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 
 ## Region availability
