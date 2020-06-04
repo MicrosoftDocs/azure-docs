@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 06/01/2020
+ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
 
@@ -46,86 +46,39 @@ Several resources are defined in the template:
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
-2. Select or enter the following values. We recommend using the default values.
+1. Select or enter the following values. Use the default values, when available.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location.  For example, **Central US**.
-    * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
-    * **Tenant Id**: the template function automatically retrieves your tenant ID.  Don't change the default value.
-    * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
-    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
-    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
-    * **I agree to the terms and conditions state above**: Select.
-3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
+    - **Subscription**: select an Azure subscription.
+    - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    - **Location**: select a location.  For example, **Central US**.
+    - **Admin username**: provide a username, such as *azureuser*.
+    - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
+    - **Windows OS version**: select which version of Windows you want to run on the VM.
+    - **VM size**: select the [size](sizes.md) to use for the VM.
+    - **Location**: the default is the same location as the resource group, if it already exists.
+1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 
-    ![Resource Manager template, Key Vault integration, deploy portal notification](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
-You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
+You can use the Azure portal to check on the VM and other resource that were created. After the deployment is finished, select **Go to resource group** to see the VM and other resources.
 
-# [CLI](#tab/CLI)
 
-```azurecli-interactive
-echo "Enter your key vault name:" &&
-read keyVaultName &&
-az keyvault secret list --vault-name $keyVaultName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$keyVaultName = Read-Host -Prompt "Enter your key vault name"
-Get-AzKeyVaultSecret -vaultName $keyVaultName
-Write-Host "Press [ENTER] to continue..."
-```
-
----
-
-The output looks similar to:
-
-# [CLI](#tab/CLI)
-
-![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
-
-# [PowerShell](#tab/PowerShell)
-
-![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
-
----
 ## Clean up resources
 
-Other Key Vault quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, delete the resource group, which deletes the Key Vault and related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
+When no longer needed, delete the resource group, which deletes the VM and all of the resources in the resource group. 
 
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
----
-
+1. Select the **Resource group**.
+1. On the page for the resource group, select **Delete**.
+1. When prompted, type the name of the resource group and then select **Delete**.
 
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine using a Resource Manager template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 
 > [!div class="nextstepaction"]
