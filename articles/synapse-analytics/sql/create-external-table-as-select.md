@@ -38,7 +38,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 GO
 
 CREATE EXTERNAL DATA SOURCE [MyDataSource] WITH (
-    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL [SasTokenWrite]
+    LOCATION = 'https://<storage account name>.blob.core.windows.net/csv', CREDENTIAL = [SasTokenWrite]
 );
 GO
 
@@ -59,7 +59,7 @@ FROM
     OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'sqlondemanddemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0'
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
