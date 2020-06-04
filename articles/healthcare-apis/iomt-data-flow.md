@@ -1,5 +1,5 @@
 ---
-title: 'Concepts: IoMT connector (preview) data flow'
+title: 'Concepts: Data flow in IoMT connector (preview) feature of Azure API for FHIR'
 description: Understand IoMT connector's data flow. IoMT connector ingests, normalizes, groups, transforms, and persists IoMT data to Azure API for FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
