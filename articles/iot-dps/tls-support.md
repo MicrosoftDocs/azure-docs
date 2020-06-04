@@ -5,7 +5,7 @@
  author: wesmc7777
  ms.service: iot-dps
  ms.topic: conceptual
- ms.date: 05/11/2020
+ ms.date: 06/04/2020
  ms.author: wesmc
 ---
 
