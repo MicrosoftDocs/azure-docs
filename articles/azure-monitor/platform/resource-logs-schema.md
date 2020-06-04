@@ -43,7 +43,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Service | Schema & Docs |
 | --- | --- |
 | Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-logging |
+| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
 | API Management | [API Management Resource Logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Application Gateways |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -81,7 +81,7 @@ The schema for resource logs varies depending on the resource and log category. 
 
 ## Next Steps
 
-* [See the resource log categories you can collect](resource-log-categories.md)
+* [See the resource log categories you can collect](resource-logs-categories.md)
 * [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
