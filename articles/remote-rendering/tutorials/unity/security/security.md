@@ -149,8 +149,12 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
     >[!TIP]
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
+1. For the time being, remove or disable the GameObject **TestModel**, to make room for your custom model to load.
+1. Play the scene and connect to a remote session.
+1. Right click on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.\
+    ![Load linked model](./media/load-linked-model.png)
 
-These steps have increased the security of the application by removing the SAS token from the local application. 
+These steps have increased the security of the application by removing the SAS token from the local application.
 
 Now the current state of the application and its access to your Azure resources looks like this:
 
@@ -164,11 +168,26 @@ AAD authentication will allow you to determine which individuals or groups are u
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication](../../../how-tos/authentication.md). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. After configuring the new AAD application, check your AAD application looks like the following images:
 
-    With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which will return a new **AzureFrontendAccountInfo** object. In this case, the account info will be configured with the Azure Access Token.
+    **AAD Application -> Authentication**\
+    ![App authentication](./media/app-authentication-public.png)
 
-2. Create a new script named **AADAuthentication** and replace its code with the following:
+    **AAD Application -> API Permissions**\
+    ![App APIs](./media/request-api-permissions-step-five.png)
+
+1. After configuring your Remote Rendering account, check your configuration looks like the following image:
+
+    **AAR -> AccessControl (IAM)**\
+    ![ARR Role](./media/arr-role-assignment-complete.png)
+
+    >[!NOTE]
+    > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
+
+With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which will return a new **AzureFrontendAccountInfo** object. In this case, the account info will be configured with the Azure Access Token.
+
+1. Create a new script named **AADAuthentication** and replace its code with the following:
 
     ```csharp
     // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -332,8 +351,8 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
 
 1. Press Play in the Unity Editor and consent to running a session.
     Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
-1. Follow the instructions found in the panel to the right of the **AppMenu**
-    You should see something similar to this:
+1. Follow the instructions found in the panel to the right of the **AppMenu**.\
+    You should see something similar to this:\
     ![AAD auth component](./media/device-flow-instructions.png)\
     After entering the provided coded on your secondary device (or browser on the same device) and logging in using your credentials, an Access Token will be returned to the requesting application, in this case, the Unity Editor.
 1. After this point, everything in the application should proceed normally. Check the Unity Console for any errors if you're not progressing through the stages as expected.

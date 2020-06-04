@@ -753,7 +753,7 @@ The **LoadModel** method is designed to accept a model path, progress handler, a
 
 The code above is performing the following steps:
 
-1. Create a remote entity.
+1. Create a [Remote Entity](../../../concepts/entities.md).
 1. Create a local GameObject to represent the remote entity.
 1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
 1. Set a name and add a [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) to assist stabilization.

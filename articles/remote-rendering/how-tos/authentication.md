@@ -41,6 +41,8 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
 
  Azure AD authentication is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
 
+ For additional details, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory (AAD) authentication](../tutorials/unity/security/security.md#azure-active-directory-aad-authentication)
+
 ## Role-based access control
 
 To help control the level of access granted to applications, services or Azure AD users of your service, the following roles have been created for you to assign as needed against your Azure Remote Rendering accounts:
