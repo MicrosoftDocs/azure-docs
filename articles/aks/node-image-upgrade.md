@@ -8,7 +8,7 @@ ms.date: 05/26/2020
 
 # Preview - Azure Kubernetes Service (AKS) node image upgrades
 
-AKS supports upgrading the images on a node so you're up to date with the newest features. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
+AKS supports upgrading the images on a node so you're up to date with the newest OS and Runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
 
 If you're interested in learning about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases) for more details.
 
@@ -48,7 +48,6 @@ Upgrading the node image is done with `az aks upgrade`. To upgrade the node imag
 az aks upgrade \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.15.11 \
     --node-image-only
 ``` 
 
@@ -96,14 +95,13 @@ az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.11 \
     --node-image-only \
     --no-wait
 ```
 
 When updating the node pool OS image, you must use the `--kubernetes-version` that the cluster is currently on.
 
-To verify which image is on your nodes, check the `nodeImageVersion` label. Use the following command to see the `nodeImageVersion` for your node pool:
+To verify which image is on your nodes, check the `nodeImageVersion` property. Use the following command to see the `nodeImageVersion` for your node pool:
 
 ```azurecli
 az aks nodepool show \
