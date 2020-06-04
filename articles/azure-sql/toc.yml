@@ -1037,13 +1037,15 @@
           items:
           - name: Configure
             items: 
+            - name: SQL Server VM 
+              href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
             - name: Quorum 
               href: virtual-machines/windows/failover-cluster-instance-quorum-configure.md
             - name: Connectivity 
               href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
           - name: Create FCI with
             items: 
-            - name: Shared Managed Disks (Win2019+)
+            - name: Shared Managed Disks (SQL2019+)
               href: virtual-machines/windows/failover-cluster-instance-shared-managed-disks-manually-configure.md
             - name: Storage Spaces Direct (Win2016+)
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
