@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ---
 
-# Copy data from MongoDB using Azure Data Factory
+# Copy data from MongoDB using Azure Data Factory using ODBC
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
