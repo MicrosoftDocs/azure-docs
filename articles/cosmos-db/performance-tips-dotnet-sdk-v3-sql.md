@@ -60,7 +60,7 @@ How a client connects to Azure Cosmos DB has important performance implications,
 
    * Direct mode
 
-     Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). This offer better performance and requires fewer network hops than Gateway mode.
+     Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). This offers better performance and requires fewer network hops than Gateway mode.
 
    * Gateway mode
       
