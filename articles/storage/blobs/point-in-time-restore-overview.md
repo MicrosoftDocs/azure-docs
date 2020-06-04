@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: references_regions
 ---
 
 # Point-in-time restore for block blobs (preview)
