@@ -64,11 +64,19 @@ Now, continue with these steps:
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For **Authentication Type**, select [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) > **Sign In**.
+1. For **Authentication Type**, select the authentication that's required and enabled on your Azure SQL Database or Managed Instance:
+
+   | Authentication | Description |
+   |----------------|-------------|
+   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your Azure SQL database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
+   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your Azure SQL database. <p>For more information, see <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage#authentication-and-authorization) |
+   |||
+
+   This example continues with **Azure AD Integrated**:
 
    ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select and authenticate your user credentials.
+1. After you select **Azure AD Integrated**, select **Sign In**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 
 1. Select these values for your Azure SQL database:
 
@@ -110,7 +118,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in SQL Server. <p>For more information, see [SQL Server Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   This example continues with **Windows Authentication**.
+   This example continues with **Windows Authentication**:
 
    ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
