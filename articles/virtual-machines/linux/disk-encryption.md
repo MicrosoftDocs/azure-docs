@@ -21,17 +21,21 @@ Encryption does not impact the performance of managed disks and there is no addi
 > [!NOTE]
 > Temporary disks are not managed disks and are not encrypted by SSE; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
 
+## End to end encryption
+
+
+
 ## About encryption key management
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
 The following sections describe each of the options for key management in greater detail.
 
-## Platform-managed keys
+### Platform-managed keys
 
 By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
-## Customer-managed keys
+### Customer-managed keys
 
 You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
 
@@ -61,11 +65,11 @@ The following list explains the diagram in even more detail:
 
 To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-### Supported regions
+#### Supported regions
 
 [!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
-### Restrictions
+#### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
