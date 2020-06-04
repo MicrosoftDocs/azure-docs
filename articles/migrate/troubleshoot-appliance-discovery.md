@@ -199,7 +199,7 @@ Typical app discovery errors are summarized in the table.
 9031: Unable to gather discovered metadata as the ESXi host is not responding.	 | 	 Remote host is in Invalid state.	 | 	 Ensure the ESXi host running the VM is running and connected.
 9032: Unable to discover due to an internal error.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
 9033: Unable to discover as the VM username contains invalid characters.	 | 	 Invalid characters were detected in the username.	 | 	 Provide the VM credential again ensuring there are no invalid characters.
-9034: Username provided is not in UPN format.	 | 	 Username is not in UPN format.	 | 	 Ensure that the username is in User Pincipal Name (UPN) format.
+9034: Username provided is not in UPN format.	 | 	 Username is not in UPN format.	 | 	 Ensure that the username is in User Principal Name (UPN) format.
 9035: Unable to discover as Powershell language mode is not set to 'Full Language'.	 | 	 Language mode for Powershell in guest VM is not set to full language.	 | 	 Ensure that PowerShell language mode is set to 'Full Language'.
 10000: Operating system type is not supported.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
 10001: Script for server discovery is not found on the appliance.	 | 	 Discovery is not working as expected.	 | 	 Contact Microsoft Support for a resolution.
