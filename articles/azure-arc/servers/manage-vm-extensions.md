@@ -55,8 +55,6 @@ VM extension functionality is available only in the following regions:
 
 Ensure you onboard your machine in one of these regions.
 
-VM extensions can be run with the Azure PowerShell, Azure Resource Manager templates, and the Azure portal.
-
 ### Connected Machine agent
 
 Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
