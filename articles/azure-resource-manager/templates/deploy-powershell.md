@@ -95,7 +95,7 @@ Before deploying your template, you can preview the changes the template will ma
 
 You can use the [Azure Cloud Shell](https://shell.azure.com) to deploy your template. To deploy an external template, provide the URI of the template. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. To upload files to the shell, select the **Upload/Download files** menu icon from the shell window.
 
-To open the Cloud shell, browse to [https://shell.azure.com](https://shell.azure.com), or select **Try-It** from the following code section:
+To open the Cloud Shell, browse to [https://shell.azure.com](https://shell.azure.com), or select **Try-It** from the following code section:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
