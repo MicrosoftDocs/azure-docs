@@ -105,6 +105,33 @@ Here you'll define the offer details that are displayed in the marketplace. This
 > [!NOTE]
 > Offer details aren't required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the Offer listing details.
 
+Here's an example of how offer information appears in Azure Marketplace:
+
+:::image type="content" source="media/example-consulting-service.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Price
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Solution areas
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Industries
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Screenshots/videos
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
+
+<br>Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-consulting-service-appsource.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Price
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Products
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Industries
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Screenshots/videos
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Documents
+
 ### Name
 
 The name you enter here displays as the title of your offering. This field is pre-filled with the text you entered in the **Offer alias** box when you created the offer. You can change this name later.

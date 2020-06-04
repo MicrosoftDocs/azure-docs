@@ -119,7 +119,32 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 #### Example marketplace offer listing
 
-![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
+<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
+
+Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Industries
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Support address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Terms of use
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Privacy policy
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Screenshots/videos
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Documents
+
+<br>Here's an example of how offer information appears in Azure Portal:
+
+:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots
 
 ## Enable a test drive
 
@@ -410,7 +435,10 @@ Select **Save draft** before continuing.
 
 ## Example list of plans within a marketplace offer
 
-![Example marketplace plan listing with notes](./media/marketplace-plan.svg)
+:::image type="content" source="media/marketplace-plan.png" alt-text="Example marketplace plan listing with notes.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan description
 
 ## Cloud Solution Provider (CSP) Reseller Audience
 

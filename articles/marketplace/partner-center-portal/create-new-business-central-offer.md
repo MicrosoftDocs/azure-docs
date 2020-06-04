@@ -126,6 +126,21 @@ This is where you define details for your offer such as name, description, and i
 > [!NOTE]
 > You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Products
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Support address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Terms of use
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Privacy policy
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Screenshots/videos
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Description
+
 ### Name
 
 The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.

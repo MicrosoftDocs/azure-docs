@@ -156,16 +156,39 @@ Select at least one and up to three categories to place your offer in the approp
 
 ## Offer listing
 
-This page is where you manage the copy and images for your commercial marketplace offer. 
+This page is where you manage the copy and images for your commercial marketplace offer.
 
 ### Marketplace details
 
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in Azure Marketplace:
+
+:::image type="content" source="media/example-azure-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Support address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Terms of use
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Privacy policy address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Screenshots/videos
+
+<br>Here's an example of how offer information appears in Azure Portal:
+
+:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots
+
 #### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 #### Search results summary
 

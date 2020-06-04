@@ -140,6 +140,22 @@ Define marketplace details (such as offer name, description, and images) for eac
 > [!NOTE]
 > Offer details are not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the offer listing.
 
+Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Products
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Industries
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Support address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Terms of use
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Privacy policy
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Screenshots/videos
+
 ### Name
 
 The name you enter here displays as the title of your offer. This field is pre-filled with the text you entered in the **Offer alias** box when you created the offer. You can change this name later.
