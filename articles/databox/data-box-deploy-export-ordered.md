@@ -179,6 +179,9 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
 
+<!-- I missed steps in the Export process for **Use XML file**, as it completely changes the steps above. I'm going to have to fork the steps above.-->
+<!-- For adding container public access level, I need to link [](../storage/blobs/storage-manage-access-to-resources).md##grant-anonymous-users-permissions-to-containers-and-blobs-->
+
 ## Track the order
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
@@ -238,13 +241,15 @@ The following table shows examples of valid blob paths:
    | --- | --- | --- |
    | Starts with |/ |Exports all blobs in the storage account |
    | Starts with |/$root/ |Exports all blobs in the root container |
-   | Starts with |/book |Exports all blobs in any container that begins with prefix **book** |
-   | Starts with |/music/ |Exports all blobs in container **music** |
-   | Starts with |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
+   | Starts with |/containers |Exports all blobs in any container that begins with prefix **containers** |
+   | Starts with |/container-name/ |Exports all blobs in container **container-name** |
+   | Starts with |/container-name/prefix |Exports all blobs in container **container-name** that begin with prefix **prefix** |
    | Equal to |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
-   | Equal to |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
+   | Equal to |8tbpageblob/mydata.txt |Exports blob **mydata.txt** in container **8tbpageblob** |
 
 ## Sample log files
+
+This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
 
 ### Verbose log
 
