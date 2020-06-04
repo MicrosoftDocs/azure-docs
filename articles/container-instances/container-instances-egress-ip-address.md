@@ -9,19 +9,18 @@ ms.author: danlep
 
 # Configure a single public IP address for outbound and inbound  traffic to a container group    
 
-When you set up a [container group](container-instances-container-group.md) with an external-facing IP address, external clients can use the IP address to access a container in the group. For example, you might use a browser to access a web app running in a container. However, currently a container group uses a different IP address for outbound traffic. This egress IP address isn't exposed programmatically, which makes container group monitoring and configuration of client firewall rules more complex.
+Setting up a [container group](container-instances-container-groups.md) with an external-facing IP address allows external clients to use the IP address to access a container in the group. For example, a browser can access a web app running in a container. However, currently a container group uses a different IP address for outbound traffic. This egress IP address isn't exposed programmatically, which makes container group monitoring and configuration of client firewall rules more complex.
 
 This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with [Azure Firewall](../firewall/overview.md). By setting up a user-defined route to the container group and firewall rules, you can route and identify traffic to and from the container group. Container group ingress and egress use the public IP address of the firewall.
 
 In this article you use the Azure CLI to create the resources for this scenario:
 
-* An Azure virtual network
-* Example container groups deployed on a delegated subnet [in the virtual network](container-instances-vnet.md) 
+* Container groups deployed on a delegated subnet [in the virtual network](container-instances-vnet.md) 
 * An Azure firewall deployed in the network with a static public IP address
 * A user-defined route on the container groups' subnet
 * A NAT rule for firewall ingress and an application rule for egress
 
-You then validate ingress and egress from Azure Container Instances through the firewall.
+You then validate ingress and egress from example container groups through the firewall.
 
 ## Deploy ACI in a virtual network
 
@@ -277,7 +276,7 @@ Output is similar to:
 
 In this article, you set up container groups in a virtual network behind an Azure firewall. You configured a user-defined route and NAT and application rules on the firewall. By using this configuration, you set up a single, static IP address for ingress and egress from Azure Container Instances.
 
-For more information about managing traffic and protecting Azure resources, see the [Azure Firewall](../firewall/) documentation.
+For more information about managing traffic and protecting Azure resources, see the [Azure Firewall](../firewall/index.yml) documentation.
 
 
 
