@@ -209,7 +209,7 @@ Typical app discovery errors are summarized in the table.
 10005: Credentials provided are not valid.	 | 	 Credentials provided for appliance to access the server are incorrect.	 | 	 Update the credentials provided in the appliance and ensure that the server is accessible using the credentials.
 10006: Guest OS type not supported by credential store.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
 10007: Unable to process the metadata discovered.	 | 	 Error occurred while trying to deserialize the JSON.	 | 	 Contact Microsoft Support for a resolution.
-10008: Unable to create a file on the server.	 | 	 The issue may occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
+10008: Unable to create a file on the server.	 |  The issue may occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
 10009: Unable to write discovered metadata to a file on the server.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
 
 
