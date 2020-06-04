@@ -125,7 +125,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+az sql server firewall-rule create --name AllowLocalClient --server <server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
 ### Create a database in Azure SQL Database
@@ -141,7 +141,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) command.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.

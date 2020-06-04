@@ -140,8 +140,8 @@ Example: Using the audit effect.
 
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on resources that match the **if** condition, but doesn't have
-the components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing of resources _related_ to the resource that matches the **if**
+condition, but don't have the properties specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists evaluation
 
@@ -391,7 +391,7 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode, which is set on the policy assignment.
+An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
 When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).

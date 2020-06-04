@@ -52,7 +52,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Import a database from a BACPAC file](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Imports a database to SQL Database from a BACPAC file. |
 |||
 
-Learn more about the [single-database Azure CLI API](single-database-manage.md#azure-cli).
+Learn more about the [single-database Azure CLI API](single-database-manage.md#the-azure-cli).
 
 # [Azure SQL Managed Instance](#tab/managed-instance)
 

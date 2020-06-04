@@ -169,8 +169,8 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> Enabled by default
+<sup>1</sup> Registered by default
 
 ## Next steps
 
-For more information about resource providers, see [Azure resource providers and types](resource-providers-and-types.md)
+For more information about resource providers, including how to register a resource provider, see [Azure resource providers and types](resource-providers-and-types.md)
