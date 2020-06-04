@@ -11,7 +11,7 @@
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS uses Transport Layer Security (TLS) to secure connections from IoT devices. Three versions of the TLS protocol are currently supported, namely versions 1.0, 1.1, and 1.2.
+DPS uses Transport Layer Security (TLS) to secure connections from IoT devices. TLS protocol versions supported by DPS include TLS 1.2.
 
 TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). It is strongly recommended that you use TLS 1.2 as the preferred TLS version when connecting to DPS.
 
@@ -87,7 +87,10 @@ Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT cl
 | Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
 | NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
+## Use TLS 1.2 with IoT Hub
+
+IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
 
 ## Use TLS 1.2 with IoT Edge
 
-IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hub and DPS. For this purpose, use the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hub and DPS. For more information, see the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
