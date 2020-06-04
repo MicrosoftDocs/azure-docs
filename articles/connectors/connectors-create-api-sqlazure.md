@@ -127,7 +127,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    |||
 
    > [!TIP]
-   > You can find this information in your database's connection string.
+   > You can find this information in your database's connection string:
    > 
    > * `Server={your-server-address}`
    > * `Database={your-database-name}`
@@ -230,7 +230,7 @@ Sometimes, when you make a call to a stored procedure in the SQL Server connecto
 
 ## Connector-specific details
 
-For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/).
+For technical information about this connector's triggers, actions, and limits, see the [connector's reference page](https://docs.microsoft.com/connectors/sql/), which is generated from the Swagger description.
 
 ## Next steps
 
