@@ -152,10 +152,10 @@ Use the following command to create the system-managed identity. Take note of th
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
+Use the *principalId* value in the following command to assign the function app's identity to the *owner* role for your Azure Digital Twins instance:
 
 ```azurecli
-az dt rbac assign-role --assignee <principal-ID> --dt-name <your-Azure-Digital-Twins-instance> --role owner
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access your Azure Digital Twins instance.
