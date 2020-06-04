@@ -1187,7 +1187,7 @@
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Suppported resource log types and categories
+    - name: Supported resource log types and categories
       href: platform/resource-logs-categories.md
     - name: Resource log schemas
       href: platform/resource-logs-schema.md
