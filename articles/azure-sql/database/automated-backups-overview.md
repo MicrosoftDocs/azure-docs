@@ -93,7 +93,7 @@ SQL Database and SQL Managed Instance compute your total used backup storage as 
 
 ## Backup retention
 
-For all new databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days. With the exception of Hyperscale databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period.
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days by default. With the exception of Hyperscale databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period.
 
 If you delete a database, the system keeps backups in the same way it would for an online database with its specific retention period. You cannot change backup retention period for a deleted database.
 
