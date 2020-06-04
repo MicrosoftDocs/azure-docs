@@ -8,7 +8,7 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.custom: seodec18
 ---
