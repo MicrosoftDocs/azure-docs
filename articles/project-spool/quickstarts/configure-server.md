@@ -1,5 +1,5 @@
 ---
-title: Fetch A User Access Token
+title: Configure Your Server
 description: TODO
 author: mikben    
 manager: jken
@@ -16,14 +16,14 @@ ms.service: azure-project-spool
 > This document is under construction.
 
 
-## Fetch A User Access Token
+## Configure Your Server
 
-In this quickstart, you'll learn how to fetch a user access token for your client applications.
+In this quickstart, you'll learn how to configure your server so that you can fetch user access tokens for your client applications.
 
 ### Prerequisites
 - An active Azure Communication Services resource. [This quickstart](./get-started.md) shows you how to create and manage your first resource.
 
-### Fetch Your Token
+### Configure Your Server
 
 1. TODO
 
