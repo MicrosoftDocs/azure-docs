@@ -40,7 +40,7 @@ The capabilities of the parser include:
 
 ## Use the DTDL validator sample
 
-There is sample code available that can validate model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure/azure-digital-twins/tree/private-preview/DTDL/DTDLValidator-Sample).
+There is sample code available that can validate model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator).
 
 The validator sample can be used as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode. The source code shows examples for how to use the parser library.
 
