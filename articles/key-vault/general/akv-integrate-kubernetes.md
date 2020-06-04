@@ -4,7 +4,7 @@ description: In this tutorial, you will access and retrieve secrets from Azure K
 author: taytran0 #Required; your GitHub user alias, with correct capitalization.
 ms.author: t-trtr #Required; microsoft alias of author; optional team alias.
 ms.service: key-vault #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: general #Required
+ms.topic: tutorial #Required
 ms.date: 06/04/2020 #Required; mm/dd/yyyy format.
 ---
 
@@ -23,9 +23,7 @@ In this tutorial, you learn how to:
 > * Deploy your Kubernetes Resources with mounted secrets from Key Vault
 
 ## Prerequisites
-Before you start this tutorial, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Before you start this tutorial, install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## Create a service principal
 
@@ -42,7 +40,7 @@ Copy down the appID and password. You will need these credentials later.
 
 ## Deploy an Azure Kubernetes Service cluster using Azure CLI
 
-You do not need to use Azure Cloud Shell, your Command Prompt (Terminal) with Azure CLI installed will do. Please follow this [guide](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) and complete the following sections: Create a resource group, Create AKS cluster, and Connect to the cluster.
+You do not need to use Azure Cloud Shell, your Command Prompt (Terminal) with Azure CLI installed will do. Please follow this [guide](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) and complete the following sections: Create a resource group, Create AKS cluster, and Connect to the cluster.
 
 1. Set your PATH environment variable to the “kubectl.exe” file that was downloaded.
 1. Check your Kubernetes version:
@@ -75,7 +73,7 @@ The [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provid
 
 ## Create an Azure Key Vault and set secrets
 
-Please follow this [guide](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli) to create your own Key Vault and set your secrets.
+Please follow this [guide](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli) to create your own Key Vault and set your secrets.
 
 Note: You do not need to use the Azure Cloud Shell or create a new resource group. Using the resource group created earlier for the Kubernetes cluster is fine.
 
