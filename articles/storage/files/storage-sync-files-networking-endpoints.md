@@ -126,7 +126,7 @@ Address: 192.168.0.5
 # [Portal](#tab/azure-portal)
 Navigate to the **Private Link Center** by typing *Private Link* into the search bar at the top of the Azure portal. In the table of contents for the Private Link Center, select **Private endpoints**, and then **+ Add** to create a new private endpoint.
 
-[![A screenshot of the private link center](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storagesync-private-endpoint-0.png#lightbox)
+[![A screenshot of the private link center](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png#lightbox)
 
 The resulting wizard has multiple pages to complete.
 
