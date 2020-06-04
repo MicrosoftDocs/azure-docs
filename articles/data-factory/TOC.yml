@@ -254,6 +254,8 @@
       href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
+    - name: Common Data Model format
+      href: format-common-data-model.md
     - name: Common Data Service for Apps
       href: connector-dynamics-crm-office-365.md
     - name: Concur
@@ -276,6 +278,8 @@
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
+    - name: GitHub
+      href: connector-github.md
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
