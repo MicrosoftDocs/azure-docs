@@ -52,7 +52,7 @@ With a *consumer* account, users can sign in to the applications that you've sec
 
 A consumer account can be associated with these identity types:
 
-* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as as "local accounts."
+* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 * **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
 A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
