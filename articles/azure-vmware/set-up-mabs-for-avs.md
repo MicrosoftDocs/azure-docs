@@ -230,13 +230,13 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     1.  From the **Where is your workload running** menu, select **On-premises**.
 
-       ![Where is your workload running?](./media/avs-backup/deploy-mabs-on-premises-workload.png)
+       :::image type="content" source="media/avs-backup/deploy-mabs-on-premises-workload.png" alt-text="Where is your workload running?":::
 
     1.  From the **What do you want to back up** menu, select the workloads you want to protect using Azure Backup Server.
 
     1.  Click on **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-       ![Prepare Infrastructure](./media/avs-backup/deploy-mabs-prepare-infrastructure.png)
+       :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Prepare Infrastructure":::
 
 1.  In the **Prepare infrastructure** window that opens, do the following:
 
@@ -244,7 +244,7 @@ geo-redundant and locally redundant storage options in the [Azure Storage redund
 
     2.  Download the vault credentials by selecting the **Already Downloaded or using the latest Azure Backup Server installation** checkbox and then click **Download**. You use the vault credentials during the registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where you download the software package.
 
-    ![Prepare Infrastructure - Azure Backup Server](./media/avs-backup/deploy-mabs-prepare-infrastructure2.png)
+    :::image type="content" source="media/avs-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
 
 1.  On the download page, select all the files and click **Next**.
 
