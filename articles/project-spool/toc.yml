@@ -28,8 +28,8 @@
     href: quickstarts/init-client.md
   #- name: Get Started With Voice
   #  href: quickstarts/get-started-with-voice.md
-  #- name: Get Started With SMS
-  #  href: quickstarts/get-started-with-sms.md
+  - name: Get Started With SMS
+    href: quickstarts/get-started-with-sms.md
   #- name: Get Started With Video
   #  href: quickstarts/get-started-with-video.md
   #- name: Get Started With Chat
