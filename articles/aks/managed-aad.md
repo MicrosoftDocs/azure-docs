@@ -26,6 +26,8 @@ Azure AD integration with AKS-managed AAD is designed to simplify the Azure AD i
 
 ## Before you begin
 
+* Locate your Azure Account tenant ID by navigating to the Azure portal and select Azure Active Directory > Properties > Directory ID
+
 > [!Important]
 > You must use Kubectl with a minimum version of 1.18
 
@@ -80,9 +82,6 @@ Cluster administrators can configure Kubernetes role-based access control (RBAC)
 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster. For more information on Webhook token authentication, see the [webhook authentication documentation][kubernetes-webhook].
 
-> [!NOTE]
-> When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator.
-
 ## Webhook and API server - TODO
 
 The API server calls the AKS webhook server and peforms various steps:
@@ -98,28 +97,24 @@ The API server calls the AKS webhook server and peforms various steps:
 
 You can now create an AKS cluster by using the following CLI commands.
 
-First, create an Azure resource group:
+Create an Azure resource group:
 
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location centralus
 ```
 
-Then, create an AKS cluster:
+Create an Azure Active Directory (AAD) group for your cluster administrators:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
+# Create an AAD group
+az ad group create --display-name MyDisplay --mail-nickname MyDisplay
 ```
-The above command creates a three node AKS cluster, but the user, who created the cluster, by default, is not a member of a group that has access to this cluster. This user needs to create an Azure AD group, add themselves as a member of the group, and then update the cluster as shown below. Follow instructions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-Once you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure AD group using the following command
-
-```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
-```
-Alternatively, if you first create a group and add members, you can enable the Azure AD group at create time using the following command,
+Create an AKS cluster, and enable administration access for your AAD group
 
 ```azurecli-interactive
+# Create an AKS-managed AAD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
