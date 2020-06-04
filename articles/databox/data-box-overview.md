@@ -10,7 +10,7 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 06/02/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
+#Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
 # What is Azure Data Box?
 
