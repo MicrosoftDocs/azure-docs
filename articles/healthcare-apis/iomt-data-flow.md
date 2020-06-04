@@ -10,14 +10,13 @@ ms.date: 05/13/2020
 ms.author: punagpal
 ---
 
-# IoMT connector Data Flow
+# IoMT connector (preview) data flow
 
 This article provides an overview of data flow in IoMT connector. You'll learn about different data processing stages within IoMT connector that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-> [!div class="mx-imgBorder"]
-> ![IoMT connector data flow](media/concepts-iomt-data-flow/iomt-connector-data-flow.png)
+![IoMT connector data flow](media/concepts-iomt-data-flow/iomt-connector-data-flow.png)
 
-Diagram above shows different data-flow stages within IoMT connector. 
+Diagram above shows different data flow stages within IoMT connector. 
 
 ## Ingest ##
 Ingest is the first stage where device data is received into IoMT connector. The ingestion endpoint for device data is hosted on an [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables IoMT connector to consume messages asynchronously, removing the need for devices to wait while device data gets processed.

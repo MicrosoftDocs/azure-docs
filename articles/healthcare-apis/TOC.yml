@@ -83,6 +83,11 @@
     href: azure-ad-hcapi-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
+  - name: IoMT connector workings
+    expanded: false
+    items:
+    - name: IoMT connector data flow
+      href: iomt-data-flow.md
 - name: Resources
   items:
   - name: FAQ
