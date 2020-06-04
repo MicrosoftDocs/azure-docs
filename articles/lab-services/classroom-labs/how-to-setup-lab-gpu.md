@@ -132,7 +132,7 @@ See the following articles:
 
 - [Create and manage classroom labs](how-to-manage-classroom-labs.md)
 - [SolidWorks computer-aided design (CAD) class type](class-type-solidworks.md)
-- [MATLAB class type](class-types-matlab.md)
+- [MATLAB class type](class-type-matlab.md)
 
 
 
