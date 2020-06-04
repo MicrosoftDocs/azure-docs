@@ -51,7 +51,9 @@ You can also exercise date plane APIs by interacting with Azure DIgital Twins th
 
 ## .NET (C#) SDK (data plane)
 
-The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET.
+
+The SDK is open source, and located on GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 > [!NOTE]
 > For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
@@ -131,6 +133,8 @@ await foreach (string twin in result)
 ```
 
 See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
+
+You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
 #### Serialization Helpers
 
