@@ -64,9 +64,9 @@ Geth restarts automatically within less than a minute. Depending on the node, th
 
 To identify geth crashes, you can check logs for any error message in Blockchain messages in application logs. You can also check if processed blocks decrease while pending transactions increase.
 
-To mitigate the issue, send signed transactions instead of sending unsigned transaction with a command to unlock account. For transactions that are already signed externally, there is no need to unlock the account. Azure Blockchain Service supports signed public transactions. Support for signed private transaction is currently worked on by the Azure Blockchain Service team.
+To mitigate the issue, send signed transactions instead of sending unsigned transactions with a command to unlock the account. For transactions that are already signed externally, there is no need to unlock the account.
 
-If you still want to send unsigned transactions, then unlock the account for infinite time by sending 0 as the time parameter in the unlock command. You can lock the account back after all the transactions are submitted.  
+If you want to send unsigned transactions, unlock the account for infinite time by sending 0 as the time parameter in the unlock command. You can lock the account back after all the transactions are submitted.  
 
 The following are the geth parameters that Azure Blockchain Service uses. You cannot adjust these parameters.
 
