@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ---
 
-# Configuring TLS settings in Azure Database for PostgreSQL - Single server using Azure portal
+# Configuring TLS settings in Azure Database for PostgreSQL Single - server using Azure portal
 
-This article describes how you can configure an Azure Database for PostgreSQL single server to enforce minimum TLS version allowed for connections and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
+This article describes how you can configure an Azure Database for PostgreSQL to enforce minimum TLS version allowed for connections and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
 
-You can enforce TLS version for connecting to their Azure Database for PostgreSQL - Single server. Customers now have a choice to set the minimum TLS version for their database server. For example, setting the minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2+ means that you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
+You can enforce TLS version for connecting to their Azure Database for PostgreSQL. Customers now have a choice to set the minimum TLS version for their database server. For example, setting the minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Instead, setting minimum tls version to 1.2+ means you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ To complete this how-to guide, you need:
 
 ## Set TLS configurations for Azure Database for PostgreSQL - Single server
 
-Follow these steps to set PostgreSQL Single server minimum TLS version:
+Follow these steps to set PostgreSQL minimum TLS version:
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL - Single server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL.
 
 1.  On the Azure Database for PostgreSQL - Single server page, under **Settings**, click **Connection security** to open the connection security configuration page.
 
