@@ -326,10 +326,8 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Security overview
+    - name: Overview
       href: search-security-overview.md
-    - name: Security baseline
-      href: DELETE-THIS
     - name: Data encryption
       items:
       - name: Customer-managed keys
