@@ -13,27 +13,27 @@ ms.date: 06/03/2020
 
 # Security in Azure Cognitive Search - overview
 
-This article describes key security features in Azure Cognitive Search that protect content and operations. 
+This article describes the key security features in Azure Cognitive Search that can protect content and operations. 
 
-+ At the storage layer, encryption-at-rest is implemented at the platform level, with a double encryption option for customers who want to encrypt data and objects before content is saved to disk.
++ At the storage layer, encryption-at-rest is implemented at the platform level, with an added double encryption option for customers who want to encrypt data and objects before content is saved to disk.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
 + Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for a user identity or password on the connection. For more information, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
-Watch this fast-paced video for an overview of the architecture and each security feature category.
+Watch this fast-paced video for an overview of the security architecture and each feature category.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## Encrypted transmissions and storage
 
-Encryption is pervasive in Azure Cognitive Search, starting with connections and transmission, extending to content stored in Azure Cognitive Search.
+Encryption is pervasive in Azure Cognitive Search, starting with connections and transmissions, extending to content stored on disk.
 
-Azure Cognitive Search listens on HTTPS port 443. All client-to-service Azure Cognitive Search connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
+For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
 ### Data encryption-at-rest
 
-Across the storage layer, data is encrypted on disk using keys managed by Microsoft. You cannot turn encryption on or off or view encryption settings in the portal or programmatically. Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).
+Across the storage layer, data is encrypted on disk using keys managed by Microsoft. You cannot turn encryption on or off, or view encryption settings in the portal or programmatically. Encryption is fully internalized, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).
 
 Internally, encryption is based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
@@ -116,13 +116,12 @@ If you require granular, per-user control over search results, you can build sec
 
 ## Administrative rights
 
-[Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, RBAC role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](../rest/api/searchmanagement/search-howto-management-rest-api).
+[Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, RBAC role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](../rest/api/searchmanagement/search-howto-management-rest-api.md).
 
 In contrast, admin rights over content hosted on the service, such as the ability to create or delete an index, is conferred through API keys as described in the [previous section](#index-access).
 
-### Lock against delete
-
-Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+> [!TIP]
+> Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
 ## Certifications and compliance
 

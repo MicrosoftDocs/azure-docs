@@ -31,7 +31,7 @@ For Azure Cognitive Search, roles are associated with permission levels that sup
 
 Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see [Manage api-keys](search-security-api-keys.md).
 
-## Table: Permissioned operations
+## Permissions table
 
 The following table summarizes the operations allowed in Azure Cognitive Search and which key unlocks access a particular operation.
 
