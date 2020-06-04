@@ -9,7 +9,7 @@
   items:
   - name: Set up a DPS
     items:
-    - name: Azure Portal
+    - name: Azure portal
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
