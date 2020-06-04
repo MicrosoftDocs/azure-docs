@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to work with the Azure Digital Twins APIs, including via SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/08/2020
+ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,40 +17,43 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins APIs and SDKs
 
-The Azure Digital Twins REST APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
+Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
 
+## Overview: control plane APIs
+
+The control plane APIs are used to manage your Azure Digital Twins instance as a whole, so operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
+
+The most current control plane API version for public preview is *2020-03-01-preview*.
+
+To use the control plane APIs...
+* you can call them directly by referencing the Swagger.
+* you can access SDKs for control APIs in .NET, Python and Go.
+
+You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
+
+## Overview: data plane APIs
+
+The data plane APIs are used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins. They can be broadly divided into the following categories:
 * **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-You can either use the REST APIs directly, or through an SDK. Currently, the only published SDK for interacting with these APIs is in C#. If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
+The most current data plane API version for public preview is *2020-05-31-preview*.
 
-## General usage
+To use the data plane APIs...
+* you can call them directly by referencing the Swagger [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins). You can also view the API reference documentation.
+* you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
+  - For .NET users, you can find the SDK source [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core); the SDK NuGet; and its reference docs. You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+  - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
-This section contains general information about and guidelines for using the APIs and SDKs.
+You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
 
-* To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
-* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure functions set up with MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
-* All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
-* All service functions exist in synchronous and asynchronous versions.
-* All service functions throw an exception for any return status of 400 or above. Make sure you wrap calls into a `try` section, and catch at least `RequestFailedExceptions`. For more about this type of exception, see [here](https://docs.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet).
-* Most service methods return `Response<T>` or (`Task<Response<T>>` for the asynchronous calls), where `T` is the class of return object for the service call. The [`Response`](https://docs.microsoft.com/dotnet/api/azure.response-1?view=azure-dotnet) class encapsulates the service return and presents return values in its `Value` field.  
-* Service methods with paged results return `Pageable<T>` or `AsyncPageable<T>` as results. For more about the `Pageable<T>` class, see [here](https://docs.microsoft.com/dotnet/api/azure.pageable-1?view=azure-dotnet-preview); for more about `AsyncPageable<T>`, see [here](https://docs.microsoft.com/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview).
-* You can iterate over paged results using an `await foreach` loop. For more about this process, see [here](https://docs.microsoft.com/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview) for reference on the SDK infrastructure and types.
+## .NET (C#) SDK (data plane)
 
-Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
+The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET.
 
-## REST API usage examples
-
-Use the [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json) as a resource for calling the APIs directly.
-
-You can also view example call bodies in the Swagger's accompanying [examples folder](https://github.com/Azure/azure-digital-twins/tree/private-preview/OpenApiSpec/examples).
-
-## Azure Digital Twins .NET (C#) SDK
-
-The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+The SDK is open source, and located on GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 > [!NOTE]
 > For in-depth information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
@@ -130,6 +133,8 @@ await foreach (string twin in result)
 ```
 
 See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
+
+You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
 #### Serialization Helpers
 
@@ -245,6 +250,22 @@ uou.AppendAddOp("/myComponent/Property", "Hello");
 uou.AppendRemoveOp("/Humidity");
 client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ```
+
+## General API/SDK usage notes
+
+This section contains general information about and guidelines for using the APIs and SDKs.
+
+* To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
+* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure functions set up with MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+* All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
+* All service functions exist in synchronous and asynchronous versions.
+* All service functions throw an exception for any return status of 400 or above. Make sure you wrap calls into a `try` section, and catch at least `RequestFailedExceptions`. For more about this type of exception, see [here](https://docs.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet).
+* Most service methods return `Response<T>` or (`Task<Response<T>>` for the asynchronous calls), where `T` is the class of return object for the service call. The [`Response`](https://docs.microsoft.com/dotnet/api/azure.response-1?view=azure-dotnet) class encapsulates the service return and presents return values in its `Value` field.  
+* Service methods with paged results return `Pageable<T>` or `AsyncPageable<T>` as results. For more about the `Pageable<T>` class, see [here](https://docs.microsoft.com/dotnet/api/azure.pageable-1?view=azure-dotnet-preview); for more about `AsyncPageable<T>`, see [here](https://docs.microsoft.com/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview).
+* You can iterate over paged results using an `await foreach` loop. For more about this process, see [here](https://docs.microsoft.com/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview) for reference on the SDK infrastructure and types.
+
+Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
 ## Monitor API metrics
 
