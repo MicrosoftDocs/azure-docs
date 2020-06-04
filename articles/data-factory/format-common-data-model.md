@@ -35,8 +35,8 @@ The below table lists the properties supported by a CDM source.
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Schema linked service | The linked service where the corpus is located | yes, if using manifest | `'adlsgen2'` or `'github'` | corpusStore | 
 | Entity reference container | Container corpus is in | yes, if using manifest and corpus in ADLS Gen2 | String | adlsgen2_fileSystem |
-| Entity reference Repository | Github repository name | yes, if using manifest and corpus in Github | String | github_repository |
-| Entity reference Branch | Github repository branch | yes, if using manifest and corpus in Github | String |  github_branch |
+| Entity reference Repository | GitHub repository name | yes, if using manifest and corpus in GitHub | String | github_repository |
+| Entity reference Branch | GitHub repository branch | yes, if using manifest and corpus in GitHub | String |  github_branch |
 | Corpus folder | the root location of the corpus | yes, if using manifest | String | corpusPath |
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
@@ -56,8 +56,8 @@ The below table lists the properties supported by a CDM sink.
 | Manifest file: Manifest name | Name of the manifest file  | yes | String | manifestName |
 | Schema linked service | The linked service where the corpus is located | yes | `'adlsgen2'` or `'github'` | corpusStore | 
 | Entity reference container | Container corpus is in | yes, if corpus in ADLS Gen2 | String | adlsgen2_fileSystem |
-| Entity reference Repository | Github repository name | yes, if corpus in Github | String | github_repository |
-| Entity reference Branch | Github repository branch | yes, if corpus in Github | String |  github_branch |
+| Entity reference Repository | GitHub repository name | yes, if corpus in GitHub | String | github_repository |
+| Entity reference Branch | GitHub repository branch | yes, if corpus in GitHub | String |  github_branch |
 | Corpus folder | the root location of the corpus | yes | String | corpusPath |
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Partition path | Location where the partition will be written | no | String | partitionPath |
