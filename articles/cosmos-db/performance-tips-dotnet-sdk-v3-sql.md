@@ -156,7 +156,7 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. The
 **Tune parallel queries for partitioned collections**
 
 SQL .NET SDK supports parallel queries, which enable you to query a partitioned container in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. Parallel queries provide two parameters that you can tune to fit your requirements: 
-- `MaxDegreeOfParallelism` controls the maximum number of partitions that can be queried in parallel. 
+- `MaxConcurrency` controls the maximum number of partitions that can be queried in parallel. 
 - `MaxBufferedItemCount` controls the number of pre-fetched results.
 
 ***Tuning degree of parallelism***
