@@ -64,11 +64,13 @@ Now, continue with these steps:
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For **Authentication Type**, select [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md), which applies to either Azure SQL Database or Azure SQL Managed Instance.
+1. For **Authentication Type**, select [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) > **Sign In**.
 
    ![Select authentication type to use](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Select the following values for your Azure SQL database:
+1. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select and authenticate your user credentials.
+
+1. Select these values for your Azure SQL database:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -96,15 +98,15 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For connections to an on-premises SQL server, make sure that you've already [met these requirements](#multi-tenant-or-ise).
+1. For connections to your on-premises SQL server that require the on-premises data gateway, make sure that you've [completed these prerequisites](#multi-tenant-or-ise).
 
-   Otherwise, for logic apps that must use the on-premises data gateway, your data gateway resource won't appear in the **Connection Gateway** list when you create your connection.
+   Otherwise, your data gateway resource won't appear in the **Connection Gateway** list when you create your connection.
 
 1. For **Authentication Type**, select the authentication that's required and enabled on your SQL Server:
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**Windows Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Whether you use multi-tenant Azure or an ISE, supports only the non-ISE SQL Server connector, which requires that you use a data gateway resource that you previously created in Azure for your connection. <p><p>- Requires a valid Windows user name and password to confirm your identity through your Windows account. <p>For more information, see [*Windows Authentication*](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
+   | [**Windows Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supports only the non-ISE SQL Server connector, which requires a data gateway resource that's previously created in Azure for your connection, regardless whether you use multi-tenant Azure or an ISE. <p><p>- Requires a valid Windows user name and password to confirm your identity through your Windows account. <p>For more information, see [Windows Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in SQL Server. <p>For more information, see [SQL Server Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
@@ -120,7 +122,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    | **SQL database name** | Yes | The name for your SQL Server database, for example, `Fabrikam-Azure-SQL-DB` |
    | **Username** | Yes | Your user name for the SQL server and database |
    | **Password** | Yes | Your password for the SQL server and database |
-   | **Subscription** |  Yes, for Windows authentication | The Azure subscription that's associated with your previously created on-premises data gateway in the Azure portal |
+   | **Subscription** |  Yes, for Windows authentication | The Azure subscription for the data gateway resource that you previously created in Azure |
    | **Connection Gateway** | Yes, for Windows authentication | The name for the data gateway resource that you previously created in Azure <p><p>**Tip**: If your gateway doesn't appear in the list, check that you correctly [set up your gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). |
    |||
 
