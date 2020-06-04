@@ -34,7 +34,7 @@ This document guides you through all the basic steps needed to set up and use Az
 1. From the left navigation, select **Containers**, and then create a container. You can give it any name. Accept the default **Public access level**. In this document, we'll call the container **users**.
 1. Select **Create**.
 
-In the next section, learn how to configure your Synapse workspace to use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs in this account under a folder called **/synapse/workspacename**.
+In the next step, learn how to configure your Synapse workspace to use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs in this account under a folder called **/synapse/workspacename**.
 
 ## Create a Synapse workspace
 
@@ -48,8 +48,6 @@ In the next section, learn how to configure your Synapse workspace to use this s
     |Basics|**Region**|Match the region of the storage account|
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
-    > [!NOTE]
-    > We refer to the storage account chosen here as the "primary" storage account of the Azure Synapse workspace. This account stores data in Apache Spark tables. It also stores logs created when Spark pools are created or Spark applications run.
 1. Select **Review + create** > **Create**.
 1. Wait a few minutes while Azure Synapse Analytics creates your workspace.
 
@@ -60,10 +58,6 @@ Azure Synapse workspace MSI might already have access to the storage account. Co
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account for your workspace.
 1. Select **Access control (IAM)** from the left navigation.
 1. Confirm or assign the following roles:
-
-    >[!NOTE]
-    > The workspace name and the workspace identity have the same name. In this document, we'll use **myworkspace** for these roles.
-
     1. For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity. 
     1. Assign **myworkspaced** as the workspace name.
 
@@ -284,12 +278,11 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 ### Analyzing data in a storage account
 
-1. In Synapse Studio, go to the **Data** hub.
-1. Select **Linked**.
+1. In Synapse Studio, go to the **Data** hub, and then select **Linked**.
 1. Go to **Storage accounts** > **myworkspace (Primary - contosolake)**.
 1. Select **users (Primary)"**.
 1. Locate the folder called **NYCTaxi**. Inside are two folders called **PassengerCountStats.csv** and **PassengerCountStats.parquet**.
-1. In the **PassengerCountStats.parquet** folder, right-click the parquet file inside, and then select **new notebook**. This action creates a notebook that has a cell like this:
+1. Open the **PassengerCountStats.parquet** folder, right-click the parquet file inside, and then select **new notebook**. It creates a notebook that has a cell like this:
 
     ```py
     %%pyspark
