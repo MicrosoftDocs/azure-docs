@@ -5,7 +5,7 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
 ---
 

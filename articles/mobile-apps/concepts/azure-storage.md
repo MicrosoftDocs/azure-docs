@@ -5,7 +5,7 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
 ---
 
@@ -48,21 +48,6 @@ You can use Table storage to store and query huge sets of structured, nonrelatio
 - [Azure Table storage documentation](/azure/storage/tables/table-storage-overview)
 - [Samples](/azure/cosmos-db/tutorial-develop-table-dotnet?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Quickstarts](/azure/storage/tables/table-storage-quickstart-portal)
-
-## Azure Files
-With [Azure Files](https://azure.microsoft.com/services/storage/files/), you can set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. Multiple VMs can share the same files with both read and write access. You can also read the files by using the REST interface or the storage client libraries. You can access the files from anywhere in the world by using a URL that points to the file and includes a Shared Access Signature (SAS) token. You can generate SAS tokens. They allow specific access to a private asset for a specific amount of time.
-
-Azure file shares can be used to:
-- **Replace or supplement on-premises file servers:** Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.
-- **Lift and shift applications:** Migrate applications to the cloud that expect a file share to store file application or user data.
-- **Simplify cloud development:** Azure Files can also be used in numerous ways to simplify new cloud development projects. For example:
-    - **Shared application settings:** A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many application instances. Application instances can load their configuration through the File REST API. Users can access them as needed by mounting the SMB share locally.
-    - **Diagnostic share:** An Azure file share is a convenient place for cloud applications to write their logs, metrics, and crash dumps. Logs can be written by the application instances via the File REST API. Developers can access them by mounting the file share on their local machine. This capability enables great flexibility. Developers can embrace cloud development without having to abandon the existing tooling they know.
-
-**References**
-- [Azure portal](https://portal.azure.com)
-- [Azure Files documentation](/azure/storage/files/storage-files-introduction)
-- [Quickstarts](/azure/storage/files/storage-files-quick-create-use-windows)
 
 ## Azure Queue storage
 [Azure Queue storage](https://azure.microsoft.com/services/storage/queues/) is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls by using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue might contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously.
