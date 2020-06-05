@@ -49,21 +49,19 @@ We currently have tested the following clients:
 
 These are the steps that a user/application will need to do authenticate with Azure AD described below:
 
+### Prerequisites
+
+You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine. Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 ### Step 1: Authenticate with Azure AD
 
-Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
+Start by authenticating with Azure AD using the Azure CLI tool. This step is not required in Azure Cloud Shell.
 
-Invoke the Azure CLI tool to authenticate with Azure AD. It requires you to give your Azure AD user ID and the password.
-
-```azurecli-interactive
+```
 az login
 ```
 
-This command will launch a browser window to the Azure AD authentication page.
-
-> [!NOTE]
-> You can also use Azure Cloud Shell to perform these steps.
-> Please be aware that when retrieving Azure AD access token in the Azure Cloud Shell you will need to explicitly call `az login` and sign in again (in the separate window with a code). After that sign in the `get-access-token` command will work as expected.
+The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and the password.
 
 ### Step 2: Retrieve Azure AD access token
 

@@ -152,8 +152,4 @@ Here's an example of how this works:
 
 ## Next steps
 
-To learn more about other areas of Azure Backup, see some of these other Backup FAQs:
-
-- [Recovery Services vault FAQ](backup-azure-backup-faq.md)
-- [Azure VM backup FAQ](backup-azure-vm-backup-faq.md)
-- [Azure Backup agent FAQ](backup-azure-file-folder-backup-faq.md)
+- [Troubleshoot problems while backing up Azure file shares](troubleshoot-azure-files.md)

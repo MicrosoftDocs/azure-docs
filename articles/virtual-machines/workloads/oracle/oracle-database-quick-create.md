@@ -82,7 +82,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 1.  Switch to the *oracle* superuser, then initialize the listener for logging:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 

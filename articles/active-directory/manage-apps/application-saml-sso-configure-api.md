@@ -330,11 +330,11 @@ In addition to the basic claims, configure the following claims for Azure AD to 
 
 | Claim name | Source  |
 |---------|---------|
-| https://aws.amazon.com/SAML/Attributes/Role | assignedroles| 
-| https://aws.amazon.com/SAML/Attributes/RoleSessionName | userprincipalname |
-| https://aws.amazon.com/SAML/Attributes/SessionDuration | "900" |
+| `https://aws.amazon.com/SAML/Attributes/Role` | assignedroles| 
+| `https://aws.amazon.com/SAML/Attributes/RoleSessionName` | userprincipalname |
+| `https://aws.amazon.com/SAML/Attributes/SessionDuration` | "900" |
 | roles | assignedroles |
-| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | userprincipalname |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | userprincipalname |
 
 #### Request
 

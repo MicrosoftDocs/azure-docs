@@ -123,12 +123,12 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. If you're building an app for [Azure AD national clouds](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 > 1. Other endpoints are documented [here](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
