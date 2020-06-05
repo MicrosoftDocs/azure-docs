@@ -253,7 +253,7 @@ RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop adm
 
 ## Rimo3
 
-![Rimo3 logo]()
+![Rimo3 logo](./media/partners/rimo3.png)
 
 Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment and improving ongoing change management. Rimo3 equips IT teams with the knowledge they need to support your application portfolio for Azure migration readiness of application workloads. Users can onboard applications and test them in their target Windows Virtual Desktop workspace quickly and painlessly. Users can also proactively understand the impact of any changes as their organization rolls out new applications and updates. Finally, IT admins can leverage Rimo3's Intelligent Smoke Testing capability and automate functionality testing without interrupting user sessions.
 
