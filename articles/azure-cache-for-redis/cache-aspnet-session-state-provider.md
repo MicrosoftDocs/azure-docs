@@ -9,7 +9,7 @@ ms.date: 05/01/2017
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
 
-Azure Cache for Redis provides a session state provider that you can use to store your session state in-memory with Azure Cache for Redis instead of a SQL Server database. To use the caching session state provider, first configure your cache, and then configure your ASP.NET application for cache using the Azure Cache for Redis Session State NuGet package.
+Azure Cache for Redis provides a session state provider that you can use to store your session state in-memory with Azure Cache for Redis instead of a SQL Server database. To use the caching session state provider, first configure your cache, and then configure your ASP.NET application for cache using the Azure Cache for Redis Session State NuGet package. For ASP.NET Core applications, read [Session and state management in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
 
 It's often not practical in a real-world cloud app to avoid storing some form of state for a user session, but some approaches impact performance and scalability more than others. If you have to store state, the best solution is to keep the amount of state small and store it in cookies. If that isn't feasible, the next best solution is to use ASP.NET session state with a provider for distributed, in-memory cache. The worst solution from a performance and scalability standpoint is to use a database backed session state provider. This topic provides guidance on using the ASP.NET Session State Provider for Azure Cache for Redis. For information on other session state options, see [ASP.NET Session State options](#aspnet-session-state-options).
 

@@ -86,12 +86,9 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
    ![Select web hook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. On the **Create Event Subscription** page, do the following steps: 
     1. Enter a **name** for the event subscription.
-    2. Enter a **name** for the **system topic**. Earlier, when you created a subscription for an event raised by Azure sources such as Azure Blob Storage or Azure Event Hubs, the Event Grid service automatically created a system topic with a **randomly generated name**. Now, you can specify a name for the system topic while creating the topic in the Azure portal as shown in the following image. You can use this system topic resource to discover metrics and diagnostic logs.
+    2. Enter a **name** for the **system topic**. To learn about system topics, see [Overview of system topics](system-topics.md).
 
        ![Enter names for event subscription and system topic](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Earlier, when you created a subscription for an event raised by Azure sources, the Event Grid service automatically created a system topic with a randomly generated name. Now, you can specify a name for the system topic using this text box. You can use this system topic resource to discover metrics and diagnostic logs.
     2. Select **Web Hook** for **Endpoint type**. 
 
        ![Select web hook endpoint type](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
