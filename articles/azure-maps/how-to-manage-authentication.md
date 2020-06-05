@@ -22,19 +22,19 @@ You can view your authentication details in the Azure portal. There, in your acc
 
 ![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
 
-## Discover application category and scenario
+## Discover category and scenario
 
 Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) to understand which category the application fits.
 
 > [!NOTE]
-> Even when preferring Shared Key authentication with Azure Maps, understanding categories and scenarios will help secure the application.
+> Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
 
-## Determine Authentication and Authorization
+## Determine authentication and authorization
 
-The following table is intended to provide a guide to common scenarios to configure authentication and authorization to Azure Maps. The table is a relative comparison of protection each scenario generally provides.
+The following table outlines common authentication and authorization scenarios in Azure Maps. The table provides a comparison of the types of protection each scenario offers.
 
 > [!IMPORTANT]
-> Microsoft recommends implementing Azure AD Role based access control for production applications.
+> Microsoft recommends implementing Azure Active Directory (Azure AD) with Role based access control (RBAC) for production applications.
 
 ### Scenarios
 
@@ -47,15 +47,15 @@ The following table is intended to provide a guide to common scenarios to config
 | [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
 | [IoT device / input constrained device](./how-to-secure-device-code.md)                     | Azure AD       | High          | Medium             | Medium             |
 
-Click on specific scenarios in the table to discover how to configure applications.
+The links in the table take you to detailed configuration information for each scenario.
 
-## View available Azure Maps RBAC roles
+## View role definitions
 
 To view RBAC roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-## View Azure Maps RBAC
+## View role assignments
 
 To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 

@@ -20,7 +20,7 @@ An application or a device which is running in the public without the ability to
 
 > [!NOTE]
 > * **Prerequisite Reading:** [Scenario: Desktop app that calls web APIs](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
-> * The following scenario we are interested in is the Device Code Flow which does not involve a web browser to acquire a token.
+> * The following scenario we are interested in is the Device Code Flow.
 
 You must create the device based application in Azure AD to enable Azure AD sign in. This application will be granted access to Azure Maps REST APIs.
 
@@ -28,7 +28,7 @@ You must create the device based application in Azure AD to enable Azure AD sign
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
-2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Support account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration).   
+2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Support account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Then **Register** the application.
 
     ![Add app registration details for name and redirect uri](./media/azure-maps-authentication/devicecode-app-registration.png)
 
@@ -49,7 +49,8 @@ You must create the device based application in Azure AD to enable Azure AD sign
 7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
 > [!Tip]
-> Use Microsoft Authentication Library (MSAL) to acquire access tokens. See recommendations on [Desktop app that calls web APIs: Code configuration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
+> Use Microsoft Authentication Library (MSAL) to acquire access tokens. 
+> See recommendations on [Desktop app that calls web APIs: Code configuration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
 
 8. Compose the HTTP request with the acquired token from Azure AD, and sent request with a valid HTTP client.
 
