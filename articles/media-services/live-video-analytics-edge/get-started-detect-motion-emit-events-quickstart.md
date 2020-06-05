@@ -45,9 +45,9 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-If the script finishes successfully, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type `Microsoft.Devices/IotHubs`, and note down the name. You'll need this in the next step. 
+If the script finishes successfully, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type `Microsoft.Devices/IotHubs`, and note down the name. You'll need this name in the next step. 
 
-The script also generates a few configuration files in the *~/clouddrive/lva-sample/* directory. You'll need these later in the quickstart.
+The script also generates a few configuration files in the *~/clouddrive/lva-sample/* directory. You'll need these files later in the quickstart.
 
 ## Deploy modules on your edge device
 
@@ -70,7 +70,7 @@ Now the modules are deployed, but no media graphs are active.
 
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
-1. In Visual Studio Code, select **View** > **Explorer**. Or simply select Ctrl+Shift+E.
+1. In Visual Studio Code, select **View** > **Explorer**. Or select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
 1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.
@@ -115,7 +115,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
 ### Invoke GraphTopologySet
 
-By using the same steps as those for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
+By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopologySet` to set a [graph topology](media-graph-concept.md#media-graph-topologies-and-instances). Use the following JSON as the payload.
 
 ```
 {
