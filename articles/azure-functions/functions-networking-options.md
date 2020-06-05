@@ -136,14 +136,10 @@ Outbound IP restrictions are available in a Premium plan, App Service plan, or A
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
 
 ## Automation
+The following APIs let you programmatically manage regional virtual network integrations:
 
-### Azure CLI
-
-CLI support is available for regional VNet Integration by using the `az functionapp vnet-integration` commands.  To learn more, please refer to the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/functionapp/vnet-integration?view=azure-cli-latest).
-
-### Resource manager template
-
-Regional VNet Integration can be enabled via an Azure Resource Manager template. For a full example, please refer to the [Azure Quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integrations.  
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## Troubleshooting
 
