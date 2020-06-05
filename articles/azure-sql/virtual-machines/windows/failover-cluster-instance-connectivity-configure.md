@@ -19,6 +19,16 @@ ms.reviewer: jroth
 # Configure connectivity for an FCI (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+
+--------------------------------------
+
+i originally wrote this as one article but now that i look at it, i think two might be better so maybe don't look at this one as closely if you agree
+
+--------------------------------------------------
+
+
+
+
 This article teaches you to configure an Azure load balancer or dynamic network name to use with your failover cluster instance (FCI) for SQL Server on Azure Virtual Machines (VMs).
 
 Choose and configure connectivity appropriate to your environment, which is either the load balancer, or the dynamic network name. For an overview, see [Connectivity and FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md#connectivity). Currently DNN is supported only with SQL Server 2019 on Windows Server 2019. 

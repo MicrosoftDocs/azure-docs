@@ -351,6 +351,19 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
+## Configure connectivity 
+
+link to azure and dnn articles
+
+
+## Register with the SQL VM resource provider
+
+provide link and mention 
+
+-  At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL virtual machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
+
+
+
 ## Limitations
 
 Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
@@ -363,6 +376,10 @@ On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earli
    Attach raw disks, not NTFS-formatted disks.
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
+
+
+      
+-  At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL virtual machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
 ## See also
 

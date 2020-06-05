@@ -24,23 +24,15 @@ This article explains how to create a failover cluster instance (FCI) using shar
 
 For an overview, see [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md).
 
-### Prerequisites 
+## Prerequisites 
 
 Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
-- A Windows domain on Azure virtual machines.
-- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- An Azure virtual network and subnet with enough IP address space for these components:
-   - Both virtual machines.
-   - The failover cluster IP address.
-   - An IP address for each FCI.
-- DNS configured on the Azure network, pointing to the domain controllers.
-
-With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
+- [Two prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md).
 
 
-### Add Windows Failover Clustering
+## Add Windows Failover Clustering
 
 1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
@@ -61,7 +53,7 @@ With these prerequisites in place, you can start building your failover cluster.
 
 For further reference about the next steps, see the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
-### Validate the cluster
+## Validate the cluster
 
 Validate the cluster in the UI or by using PowerShell.
 
@@ -115,49 +107,17 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ### Create a cloud witness
 
-Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share.
+configure your quorum  here are links
 
-1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
-1. Create a blob container.
 
-1. Save the access keys and the container URL.
 
-1. Configure the failover cluster quorum witness. See [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
-
-### Add storage
-
-The disks for Storage Spaces Direct need to be empty. They can't contain partitions or other data. To clean the disks, follow [the steps in this guide](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
-
-1. [Enable Store Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
-
-   The following PowerShell script enables Storage Spaces Direct:  
-
-   ```powershell
-   Enable-ClusterS2D
-   ```
-
-   In **Failover Cluster Manager**, you can now see the storage pool.
-
-1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
-
-   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a Cluster Shared Volume (CSV). This example creates an 800-gigabyte (GB) CSV:
-
-   ```powershell
-   New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
-   ```   
-
-   After this command completes, an 800-GB volume is mounted as a cluster resource. The volume is at `C:\ClusterStorage\Volume1\`.
-
-   This screenshot shows a Cluster Shared Volume with Storage Spaces Direct:
-
-   ![Cluster Shared Volume](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
-
-## Step 3: Test failover cluster failover
+###  Test failover 
 
 In **Failover Cluster Manager**, verify that you can move the storage resource to the other cluster node. If you can connect to the failover cluster by using **Failover Cluster Manager** and move the storage from one node to the other, you're ready to configure the FCI.
 
-## Step 4: Create the SQL Server FCI
+
+##  Create the SQL Server FCI
 
 After you've configured the failover cluster and all cluster components, including storage, you can create the SQL Server FCI.
 
@@ -186,142 +146,15 @@ After you've configured the failover cluster and all cluster components, includi
    >[!NOTE]
    >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 5: Create the Azure load balancer
+## Configure connectivity 
 
-On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
-For more information, see [Create and configure an Azure load balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
+## Register with the SQL VM resource provider
 
-### Create the load balancer in the Azure portal
+provide link and mention 
 
-To create the load balancer:
+-  At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL virtual machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
-1. In the Azure portal, go to the resource group that contains the virtual machines.
-
-1. Select **Add**. Search the Azure Marketplace for **Load Balancer**. Select **Load Balancer**.
-
-1. Select **Create**.
-
-1. Configure the load balancer with:
-
-   - **Subscription**: Your Azure subscription.
-   - **Resource group**: The resource group that contains your virtual machines.
-   - **Name**: A name that identifies the load balancer.
-   - **Region**: The Azure location that contains your virtual machines.
-   - **Type**: Either public or private. A private load balancer can be accessed from within the virtual network. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the internet, use a public load balancer.
-   - **SKU**: Standard.
-   - **Virtual network**: The same network as the virtual machines.
-   - **IP address assignment**: Static. 
-   - **Private IP address**: The IP address that you assigned to the SQL Server FCI cluster network resource.
-
- The following screenshot shows the **Create load balancer** UI:
-
-   ![Set up the load balancer](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/30-load-balancer-create.png)
-
-### Configure the load balancer backend pool
-
-1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
-
-1. Select **Backend pools**, and then select **Add**.
-
-1. Associate the backend pool with the availability set that contains the VMs.
-
-1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
-
-1. Select **OK** to create the backend pool.
-
-### Configure a load balancer health probe
-
-1. On the load balancer blade, select **Health probes**.
-
-1. Select **Add**.
-
-1. On the **Add health probe** blade, <a name="probe"></a>set the health probe parameters.
-
-   - **Name**: A name for the health probe.
-   - **Protocol**: TCP.
-   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
-   - **Interval**: 5 Seconds.
-   - **Unhealthy threshold**: 2 consecutive failures.
-
-1. Select **OK**.
-
-### Set load balancing rules
-
-1. On the load balancer blade, select **Load balancing rules**.
-
-1. Select **Add**.
-
-1. Set the load balancing rule parameters:
-
-   - **Name**: A name for the load balancing rules.
-   - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
-   - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
-   - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
-   - **Backend pool**: The backend pool name that you configured earlier.
-   - **Health probe**: The health probe that you configured earlier.
-   - **Session persistence**: None.
-   - **Idle timeout (minutes)**: 4.
-   - **Floating IP (direct server return)**: Enabled.
-
-1. Select **OK**.
-
-## Step 6: Configure the cluster for the probe
-
-Set the cluster probe port parameter in PowerShell.
-
-To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
-
-   ```powershell
-   $ClusterNetworkName = "<Cluster Network Name>"
-   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
-   $ILBIP = "<n.n.n.n>" 
-   [int]$ProbePort = <nnnnn>
-
-   Import-Module FailoverClusters
-
-   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   ```
-
-The following list describes the values that you need to update:
-
-   - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
-
-   - `<SQL Server FCI IP Address Resource Name>`: The SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab. 
-
-   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
-
-   - `<nnnnn>`: The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
-
->[!IMPORTANT]
->The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
-
-After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
-
-   ```powershell
-   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
-  ```
-
-## Step 7: Test FCI failover
-
-Test failover of the FCI to validate cluster functionality. Take the following steps:
-
-1. Connect to one of the SQL Server FCI cluster nodes by using RDP.
-
-1. Open **Failover Cluster Manager**. Select **Roles**. Notice which node owns the SQL Server FCI role.
-
-1. Right-click the SQL Server FCI role.
-
-1. Select **Move**, and then select **Best Possible Node**.
-
-**Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come online on the other node.
-
-### Test connectivity
-
-To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
-
->[!NOTE]
->If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
 
@@ -331,6 +164,9 @@ On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
+
+
+-  At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL virtual machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
 ## See also
 

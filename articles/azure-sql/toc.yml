@@ -220,14 +220,15 @@
     items:
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
       href: database/elastic-pool-overview.md
     - name: Logical SQL servers
       href: database/logical-servers.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+
     - name: Service Tiers
       items: 
       - name: Serverless
@@ -690,13 +691,14 @@
     items:
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
@@ -924,7 +926,7 @@
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: Doc changes
+      - name: What's new?
         href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
@@ -1035,14 +1037,14 @@
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
         - name: Failover cluster instance (FCI)
           items:
-          - name: Configure
+          - name: Configure environment
             items: 
-            - name: SQL Server VM 
+            - name: SQL Server VM for FCI 
               href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-            - name: Dynamic Network Name (DNN) 
+            - name: Dynamic Network Name (DNN)  
               href: virtual-machines/windows/failover-cluster-instance-dynamic-network-name-configure.md
             - name: Azure Load Balancer 
-              href: virtual-machines/windows/failover-cluster-instance-azure-load-balance-configure.md
+              href: virtual-machines/windows/failover-cluster-instance-azure-load-balancer-configure.md
             - name: Connectivity 
               href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
           - name: Create FCI with
