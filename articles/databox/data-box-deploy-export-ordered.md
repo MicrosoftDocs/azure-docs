@@ -65,11 +65,11 @@ Before you begin, make sure that:
 
 * Maximum of 500 containers are supported for export.
 * Maximum of 500 million files are supported for export.
-* Azure Data Box usage capacity may be less than 80 TB because of Refs metadata space consumption.
+* Azure Data Box usage capacity may be less than 80 TB because of ReFS metadata space consumption.
 * There is a 1:1 mapping from prefix to container.
 * Maximum filename size is 1024 characters files, filenames that exceed this length will not export.
 * Duplicate prefixes in the xml file are exported (duplicates are not ignored).
-* Page Blobs and container names are case sensitive, so if casing is miss-matched, the blob and/or container will not be found.
+* Page Blobs and container names are case sensitive, so if casing is mismatched, the blob and/or container will not be found.
 
 ## Order Data Box for export
 
