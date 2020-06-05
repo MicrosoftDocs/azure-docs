@@ -25,9 +25,9 @@ The control plane APIs are used to manage your Azure Digital Twins instance as a
 
 The most current control plane API version for public preview is _**2020-03-01-preview**_.
 
-To use the control plane APIs...
-* you can call them directly by referencing the latest Swagger folder at [this location](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples showing the usage.
-* you can access SDKs for control APIs in Go [here](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
+To use the control plane APIs:
+* You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.
+* You can access [SDKs for control APIs in Go](https://github.com/Azure/azure-sdk-for-go/releases).
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
@@ -41,12 +41,12 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 
 The most current data plane API version for public preview is _**2020-05-31-preview**_.
 
-To use the data plane APIs...
-* you can call them directly by referencing the latest Swagger folder at [this location](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo also includes a folder of examples showing the usage. 
-  - You can also view the API reference documentation [here](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
-* you can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
-  - For .NET users, you can find the SDK source [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core); the SDK NuGet; and its reference docs. You can also continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
-  - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
+To use the data plane APIs:
+* You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage. 
+   - You can also view the [API reference documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+* You can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
+   - For .NET users, you can find the SDK source at https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core. The SDK NuGet and its reference docs are also at that location. You can continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+   - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
 
@@ -274,7 +274,7 @@ API metrics such as requests, latency, and failure rate can be viewed in the [Az
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
-:::image type="content" source="media/how-to-use-apis/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
 
 From here, you can view the metrics for your instance and create custom views.
 
