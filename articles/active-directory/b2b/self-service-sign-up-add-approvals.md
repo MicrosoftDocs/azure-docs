@@ -369,5 +369,5 @@ Content-type: application/json
 
 ## Next steps
 
-- See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-systems). <!--TODO: link to sample-->
+- See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system). <!--TODO: link to sample-->
 

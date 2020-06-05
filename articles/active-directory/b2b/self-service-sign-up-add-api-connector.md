@@ -100,7 +100,7 @@ Custom attributes can be created for the user using the **extension_\<guid>_\<Ca
 When the Web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
 
 - [Continuation response](#continuation-response)
-- [Blocking response](#exit-response)
+- [Blocking response](#blocking-response)
 - [Validation-error response](#validation-error-response)
 
 ### Continuation response
