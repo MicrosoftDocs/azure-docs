@@ -22,6 +22,8 @@ In this article, you will learn how to set up an automatic backup of key values 
 
 In this tutorial, you will use an Azure Storage Queue to receive events from Event Grid and use a timer-trigger of Azure Functions to process events in the Storage Queue in batches. When triggered, based on the events, the function will fetch the latest values of the keys that have changed from the primary App Configuration store and update the secondary store accordingly. This setup helps to combine multiple changes occurring in a short period in one backup operation and avoid excessive requests made to your App Configuration stores.
 
+![App Configuration store backup architecture](./media/config-store-backup-architecture.png)
+
 ## Resource Provisioning
 
 The motivation behind backing up App Configuration stores is to use multiple configuration stores across different Azure regions to increase the geo-resiliency of your application. To achieve this, your primary and secondary stores should be in different Azure regions. All other resources created in this tutorial can be provisioned in any region of your choice. This is because if primary region is down, there will be nothing new to backup until primary region is accessible again.
@@ -145,7 +147,7 @@ If you are using the Azure Functions we have provided, you need the following ap
 - `SecondaryStoreEndpoint`: Endpoint for the secondary App Configuration store. For example, `https://{secondary_appconfig_name}.azconfig.io`
 - `StorageQueueUri`: Storage Queue URI. For example, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
-The following command creates the required app settings in your Azure Function App. Replace `<function_app_name>` with the name you chose while publishing the Azure Function App.
+The following command creates the required app settings in your Azure Function App. Replace `<function_app_name>` with the name of your Azure Function App.
 
 ```azurecli-interactive
 functionAppName="<function_app_name>"
