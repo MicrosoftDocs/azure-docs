@@ -100,6 +100,9 @@ You can find the information that you need to populate the `register_azure_*()` 
 * If you plan to use a service principle for authentication, go to your **App registrations** and select which app you want to use. 
     * Its corresponding **Overview** page will contain required information like tenant ID and client iD .
 
+> [!IMPORTANT]
+> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to sync your updated credentials with [these steps](how-to-change-storage-access-key.md). 
+
 The following examples show how to register an Azure blob container, an Azure file share, and Azure Data Lake Storage Generation 2 as a datastore. The parameters provided in these examples are the **required parameters** to create and register a datastore. 
 
 To create datastores for other storage services and see optional parameters for these methods, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
