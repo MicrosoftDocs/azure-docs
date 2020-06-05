@@ -16,6 +16,17 @@ ms.author: trbye
 
 When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them.
 
+## Speech diversity
+
+Custom models rely on the audio data used to train them. Speech audio data used for training a custom model needs to include samples from a diversity of speakers and scenarios you need your model to recognize. Carefully consider these factors when gathering audio data for custom model training:
+
+* Your speech audio data needs to include all kinds of speech (emotional, technical, hurried, conversational) your model will need to recognize.
+* You must include different dialects found among your speakers.
+* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
+* If your model needs to identify speech recorded on recording devices of diverse quality, the audio data you provide to train your model must also represent these diverse scenarios.
+
+A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose audio data that represents the full scope of scenarios you need your custom model to recognize.
+
 ## Data types
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
