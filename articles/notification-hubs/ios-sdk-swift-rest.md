@@ -13,7 +13,7 @@ ms.lastreviewed: 06/03/2020
 
 # Tutorial: Send push notifications to Swift iOS apps using Notification Hubs REST APIs
 
-This tutorial describes how to use Azure Notification Hubs to send push notifications to an iOS application.
+This tutorial describes how to use Azure Notification Hubs to send push notifications to an iOS application using REST APIs.
 
 This tutorial covers the following steps:
 
