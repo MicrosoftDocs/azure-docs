@@ -68,7 +68,7 @@ An inbound NAT rule forwards incoming traffic sent to a selected Frontend IP add
 
 For example, if you would like Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to separate VM instances in a backend pool. Multiple internal endpoints can be mapped to ports on the same Frontend IP address. The Frontend IP addresses can be used to remotely administer your VMs without an additional jump box.
 
-Inbound NAT rules in the context of Virtual Machine Scale Sets (VMSS) are inbound NAT pools. Learn more about [Load Balancer components and VMSS](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+Inbound NAT rules in the context of Virtual Machine Scale Sets (VMSS) are inbound NAT pools. Learn more about [Load Balancer components and VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## Outbound rules
 
