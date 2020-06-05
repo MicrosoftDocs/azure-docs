@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
