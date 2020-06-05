@@ -11,13 +11,7 @@ ms.author: spelluru
 ---
 
 # Create, view, and manage system topics in Azure Event Grid
-This article shows you how to do the following tasks:
-
-- Create a system topic
-- View all existing system topics 
-- Delete a system topic
-- Create an event subscription for a system topic
-
+This article shows you how to create and manage system topics using Azure portal, PowerShell, and CLI. For an overview of system topics, see [System topics](system-topics.md).
 
 ## Create a system topic
 You can create a system topic for an Azure resource in two ways:
@@ -53,11 +47,9 @@ See [this quickstart](blob-event-quickstart-portal.md) for an example of creatin
 
         ![System topic page](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## View all system topics
 Follow these steps to view all existing Event Grid system topics. 
-
-> [!NOTE]
-> Earlier, when you created a subscription for an event raised by Azure sources, the Event Grid service automatically created a system topic with a randomly generated name. Now, you can specify a name for the system topic while creating the topic. You can use this system topic resource to discover metrics and diagnostic logs.
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
@@ -97,6 +89,11 @@ Follow these steps to view all existing Event Grid system topics.
 
     ![System topic - create event subscription](./media/create-view-manage-system-topics/create-event-subscription.png)
 
+
+## PowerShell
+
+### Create a system topic
+Use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription?view=azps-4.2.0) to create a system topic for an Azure source. 
 
 ## Next steps
 See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 
