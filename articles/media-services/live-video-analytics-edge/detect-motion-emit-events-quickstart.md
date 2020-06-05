@@ -33,10 +33,10 @@ This tutorial requires the following Azure resources:
 * Azure Media Services account
 * Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
 
-For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required Azure resources in your Azure subscription. To do so, follow these steps:
+For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
 1. Open [Azure Cloud Shell](https://shell.azure.com).
-1. If you're using Cloud Shell for the first time, then you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account the script will create to use with your Azure Media Services account.
+1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
     ![Environment selector](./media/quickstarts/env-selector.png)
@@ -47,7 +47,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
-    If the script finishes successfully, then you should see all of the required resources in your subscription.
+    If the script finishes successfully, you should see all of the required resources in your subscription.
 
 1. After the script finishes, select the curly brackets to expose the folder structure. You'll see a few files in the *~/clouddrive/lva-sample* directory. Of interest in this quickstart are:
 
@@ -131,8 +131,8 @@ Follow these steps to generate the manifest from the template file and then depl
 1. When you're prompted to select an IoT Hub device, choose **lva-sample-device** from the drop-down menu.
 1. After about 30 seconds, refresh the IoT hub in the lower-left section, and you should see that the edge device has the following modules deployed:
 
-    * Live Video Analytics on IoT Edge (module name **lvaEdge**)
-    * Real-Time Streaming Protocol (RTSP) simulator (module name **rtspsim**)
+    * Live Video Analytics on IoT Edge (module name `lvaEdge`)
+    * Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)
 
 The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
@@ -252,8 +252,8 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 
 In the preceding output: 
 * The message is a diagnostics event, `MediaSessionEstablished`. It indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and has begun to receive a (simulated) live feed.
-* The `subject` in `applicationProperties` references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
-* The `eventType` in `applicationProperties` indicates that this event is a diagnostics event.
+* In `applicationProperties`, `subject`, references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
+* In `applicationProperties`, `eventType` indicates that this event is a diagnostics event.
 * The `eventTime` indicates the time when the event occurred.
 * The `body` contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
