@@ -14,13 +14,15 @@ ms.subservice: common
 
 # Create and manage encryption scopes (preview)
 
-Encryption scopes enable you to optionally manage encryption at the level of the container or an individual blob. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage (preview)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Encryption scopes (preview) enable you to optionally manage encryption at the level of the container or an individual blob. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage (preview)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
-This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container. To create an encryption scope, you must first create an Azure key vault and add the key you intend to use for the scope. The key vault must have both the **Soft Delete** and **Purge Protection** properties enabled and must be in the same region as the storage account. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
+This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
 
 ## Create an encryption scope
 
-An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify that encryption scope on a request to create a container or a blob.
+To create an encryption scope, you must first create an Azure key vault and add the key you intend to use for the scope. The key vault must have both the **Soft Delete** and **Purge Protection** properties enabled and must be in the same region as the storage account. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
+
+An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify that encryption scope when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 
 # [Portal](#tab/portal)
 
