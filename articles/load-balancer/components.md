@@ -34,7 +34,7 @@ The nature of the IP address determines the **type** of load balancer created. P
 
 ![Tiered load balancer example](./media/load-balancer-overview/load-balancer.png)
 
-Load Balancer can have multiple frontend IPs. Learn more about [multiple frontends](load-balancer-multivip-overview).
+Load Balancer can have multiple frontend IPs. Learn more about [multiple frontends](load-balancer-multivip-overview.md).
 
 ## Backend pool
 
