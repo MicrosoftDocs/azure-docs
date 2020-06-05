@@ -232,7 +232,7 @@ The following xml shows an example of blob names, blob prefixes, and Azure files
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-   <-- BlobList/prefix/Container list for Blob storage for export  -->
+   <!-- BlobList/prefix/Container list for Blob storage for export  -->
    <BlobList>
       <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
       <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
@@ -307,8 +307,8 @@ The following xml shows an example of the error log when the export is successfu
 ```xml
 <CopyLog Summary="Summary">
   <Status>Succeeded</Status>
-  <TotalFiles_Blobs>27</TotalFiles_Blobs>
-  <FilesErrored>0</FilesErrored>
+    <TotalFiles_Blobs>27</TotalFiles_Blobs>
+    <FilesErrored>0</FilesErrored>
 </CopyLog>
 ```
 
@@ -352,3 +352,4 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
+> [Use self-managed shipping](data-box-portal-customer-managed-shipping.md)
