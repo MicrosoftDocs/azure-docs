@@ -11,12 +11,12 @@ ms.author: anfeldma
 
 
 ---
-# Azure Cosmos DB .NET Core SDK for SQL API: Release notes and resources
+# Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Standard SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
