@@ -79,7 +79,11 @@ In this example client certificate is identified by its thumbprint.
 In this example client certificate is identified by resource name.
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+In this example client certificate is set in the policy rather than retrieved from the built-in certificate store.
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### Elements  
   
@@ -91,8 +95,10 @@ In this example client certificate is identified by resource name.
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
-|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
+|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|
+|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|
+|body|Client certificate as a byte array.|No|N/A|
+|password|Password for the client certificate.|Used if certificate specified in `body` is password protected.|N/A|
   
 ### Usage  
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
