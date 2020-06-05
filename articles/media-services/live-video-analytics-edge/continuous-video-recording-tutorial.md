@@ -128,7 +128,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Start Visual Studio Code.
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
-    ![Set IOT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
+    ![Set IoT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
 
    ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -136,7 +136,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 
    ![Create Deployment for Single Device](./media/quickstarts/create-deployment-single-device.png)
 1. You're then asked to **Select an IoT Hub device**. Select lva-sample-device from the drop-down list.
-1. In about 30 seconds, refresh the Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
     * Live Video Analytics on IoT Edge (module name **lvaEdge**)
     * RTSP simulator (module name **rtspsim**)
  
@@ -182,9 +182,10 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
     Executing operation WaitForInput
     Press Enter to continue
     ```
+
 1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
-     * A call to GraphTopologySet by using the previous topologyUrl
-     * A call to GraphInstanceSet by using the following body
+   * A call to GraphTopologySet by using the previous topologyUrl
+   * A call to GraphInstanceSet by using the following body
      
      ```
      {
@@ -210,18 +211,18 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
        }
      }
      ```
-     * A call to GraphInstanceActivate to start the graph instance and to start the flow of video
-     * A second call to GraphInstanceList to show that the graph instance is in the running state 
+   * A call to GraphInstanceActivate to start the graph instance and to start the flow of video
+   * A second call to GraphInstanceList to show that the graph instance is in the running state 
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
-     * These messages are discussed in the following section.
+   * These messages are discussed in the following section.
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
-     * A call to GraphInstanceDeactivate to deactivate the graph instance.
-     * A call to GraphInstanceDelete to delete the instance.
-     * A call to GraphTopologyDelete to delete the topology.
-     * A final call to GraphTopologyList to show that the list is now empty.
+   * A call to GraphInstanceDeactivate to deactivate the graph instance.
+   * A call to GraphInstanceDelete to delete the instance.
+   * A call to GraphTopologyDelete to delete the topology.
+   * A final call to GraphTopologyList to show that the list is now empty.
 
 ## Interpret the results 
 

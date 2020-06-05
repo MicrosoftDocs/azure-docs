@@ -69,7 +69,9 @@ The diagram is a pictorial representation of a [media graph](media-graph-concept
 As the diagram shows, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video of traffic on a highway and send that video to two paths:
 
 * The first path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node. The node then relays the frames, as images, to the AI module YOLO v3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
-* The Object Counter module is set up to receive messages from IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages looking for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. 
+
+    When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
 
 ## Set up your development environment
 
@@ -135,7 +137,7 @@ For the objectCounter module, see the string (${MODULES.objectCounter}) used for
 Read [this section](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) on how to declare routes in the IoT Edge deployment manifest. Then examine the routes in the template JSON file. Note how:
 
 * LVAToObjectCounter is used to send specific events to a specific endpoint in the objectCounter module.
-* ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub Source node) in the lvaEdge module.
+* ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub source node) in the lvaEdge module.
 * objectCounterToIoTHub is used as a debug tool to help you see the output from objectCounter when you run this tutorial.
 
 > [!NOTE]
@@ -174,7 +176,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
 1. Expand the **Devices** node.
 1. Right-click the lva-sample-device file, and select **Start Monitoring Built-in Event Endpoint**.
 
-![Start Monitoring Built-In Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
+   ![Start Monitoring Built-In Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## Run the program
 
@@ -206,9 +208,10 @@ To see the events from the objectCounter module and from the Live Video Analytic
     Executing operation WaitForInput
     Press Enter to continue
     ```
-    1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
-     * A call to GraphTopologySet by using the previous topologyUrl
-     * A call to GraphInstanceSet by using the following body
+
+1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
+   * A call to GraphTopologySet by using the previous topologyUrl
+   * A call to GraphInstanceSet by using the following body
      
         ```
         {
@@ -235,21 +238,21 @@ To see the events from the objectCounter module and from the Live Video Analytic
         }
         ```
     
-     * A call to GraphInstanceActivate to start the graph instance and start the flow of video
-     * A second call to GraphInstanceList to show that the graph instance is in the running state
+   * A call to GraphInstanceActivate to start the graph instance and start the flow of video
+   * A second call to GraphInstanceList to show that the graph instance is in the running state
      
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
 
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
-     * These messages are discussed in the following section.
+   * These messages are discussed in the following section.
      
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. Review the messages as discussed in the following section. Then to stop the instance, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
-     * A call to GraphInstanceDeactivate to deactivate the graph instance.
-     * A call to GraphInstanceDelete to delete the instance.
-     * A call to GraphTopologyDelete to delete the topology.
-     * A final call to GraphTopologyList to show that the list is now empty.
+   * A call to GraphInstanceDeactivate to deactivate the graph instance.
+   * A call to GraphInstanceDelete to delete the instance.
+   * A call to GraphTopologyDelete to delete the topology.
+   * A final call to GraphTopologyList to show that the list is now empty.
 
 ## Interpret the results 
 
