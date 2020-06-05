@@ -144,6 +144,6 @@ conceptualContent:
         - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
           itemType: how-to-guide
           text: Azure Billing Tech Community
-        - url: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureCostManagement&filter=alltypes&sort=relevancedesc&searchTerm=Azure%20Cost%20Management
+        - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
           itemType: how-to-guide
           text: Ask a Cost Management and Billing forum question

@@ -1,7 +1,7 @@
 ---
-title: "SPX basics - Speech service"
+title: "Speech CLI basics"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the SPX command line tool to work with the Speech SDK with no code and minimal setup. 
+description: Learn how to use the Speech CLI command tool to work with the Speech Service with no code and minimal setup. 
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,33 +12,11 @@ ms.date: 04/04/2020
 ms.author: trbye
 ---
 
-# Learn the basics of SPX
+# Learn the basics of the Speech CLI
 
-In this article, you learn the basic usage patterns of SPX, a command line tool to use the Speech service without writing code. You can quickly test out the main features of the Speech service, without creating development environments or writing any code, to see if your use-cases can be adequately met. Additionally, SPX is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
+In this article, you learn the basic usage patterns of the Speech CLI, a command line tool to use the Speech service without writing code. You can quickly test out the main features of the Speech service, without creating development environments or writing any code, to see if your use-cases can be adequately met. Additionally, the Speech CLI is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
 
-## Prerequisites
-
-The only prerequisite is an Azure Speech subscription. See the [guide](get-started.md#new-resource) on creating a new subscription if you don't already have one.
-
-## Download and install
-
-SPX is available on Windows and Linux. Start by downloading the [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it. SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
-
-* Windows: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-* Linux: [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-
-After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then run `spx` to start the application.
-
-## Create subscription config
-
-To start using SPX, you first need to enter your Speech subscription key and region information. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
-
-```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
-```
-
-Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
+[!INCLUDE [](includes/spx-setup.md)]
 
 ## Basic usage
 
@@ -48,15 +26,15 @@ This section shows a few basic SPX commands that are often useful for first-time
 spx recognize --microphone
 ```
 
-After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using SPX. 
+After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using the Speech CLI. 
 
 Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
 
 ```shell
-spx synthesize --text "Testing synthesis using SPX" --speakers
+spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
-In addition to speech recognition and synthesis, you can also do speech translation with SPX. Similar to the speech recognition command above, run the following command to capture audio from your default microphone, and perform translation to text in the target language.
+In addition to speech recognition and synthesis, you can also do speech translation with the Speech CLI. Similar to the speech recognition command above, run the following command to capture audio from your default microphone, and perform translation to text in the target language.
 
 ```shell
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
@@ -76,7 +54,7 @@ The commands in the previous section are great for quickly seeing how the Speech
 
 ## Batch speech recognition
 
-If you have a directory of audio files, it's easy with SPX to quickly run batch-speech recognition. Simply run the following command, pointing to your directory with the `--files` command. In this example, you append `\*.wav` to the directory to recognize all `.wav` files present in the dir. Additionally, specify the `--threads` argument to run the recognition on 10 parallel threads.
+If you have a directory of audio files, it's easy with the Speech CLI to quickly run batch-speech recognition. Simply run the following command, pointing to your directory with the `--files` command. In this example, you append `\*.wav` to the directory to recognize all `.wav` files present in the dir. Additionally, specify the `--threads` argument to run the recognition on 10 parallel threads.
 
 > [!NOTE]
 > The `--threads` argument can be also used in the next section for `spx synthesize` commands, and the available threads will depend on the CPU and it's current load percentage.
@@ -93,11 +71,11 @@ The recognized speech output is written to `speech_output.tsv` using the `--outp
 
 ## Batch text-to-speech synthesis
 
-The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in SPX. Consider the following file `text_synthesis.tsv`:
+The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in the Speech CLI. Consider the following file `text_synthesis.tsv`:
 
     audio.output    text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
  Next, you run a command to point to `text_synthesis.tsv`, perform synthesis on each `text` field, and write the result to the corresponding `audio.output` path as a `.wav` file. 
@@ -116,7 +94,7 @@ However, if you have a `.tsv` file like the following example, with column heade
 
     wav_path    str_text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
 You can override these field names to the correct arguments using the following syntax in the `--foreach` call. This is the same call as above.

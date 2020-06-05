@@ -17,6 +17,9 @@
       href: container-registry-get-started-portal.md
     - name: Create container registry - PowerShell
       href: container-registry-get-started-powershell.md
+    - name: Create container registry - ARM template
+      displayName: Resource Manager
+      href: container-registry-get-started-geo-replication-template.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
     - name: Build and push Java images - CLI
@@ -91,7 +94,7 @@
       items:
       - name: Restrict access using private endpoint
         href: container-registry-private-link.md
-      - name: Configure service firewall rules
+      - name: Configure public registry access
         href: container-registry-access-selected-networks.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
@@ -107,6 +110,8 @@
           href: container-registry-auth-service-principal.md
         - name: Authenticate with managed identity
           href: container-registry-authentication-managed-identity.md
+        - name: Authenticate with token (preview)
+          href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
         - name: Authenticate from Kubernetes with pull secret

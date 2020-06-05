@@ -10,6 +10,7 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
+ms.custom: designer
 ---
 
 # Import your data into Azure Machine Learning designer (preview)

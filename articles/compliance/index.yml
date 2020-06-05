@@ -217,9 +217,6 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
           itemType: concept
           text: NEN 7510 (Netherlands)
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nhs-ig-toolkit-uk
-          itemType: concept
-          text: NHS IG Toolkit (UK)
 
     # Card
     - title: Media and manufacturing
@@ -396,7 +393,7 @@ additionalContent:
               url: ../governance/blueprints/samples/ukofficial/index.md
 
         # Card
-        - title: Country privacy and compliance guides
+        - title: Country/Region privacy and compliance guides
           links:
             - text: Australian security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495

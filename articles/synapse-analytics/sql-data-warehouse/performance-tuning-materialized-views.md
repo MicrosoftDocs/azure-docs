@@ -14,9 +14,7 @@ ms.reviewer: nibruno; jrasnick
 
 # Performance tuning with materialized views
 
-The materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
-
-The materialized views in SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
+Materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
 ## Materialized views vs. standard views
 
@@ -156,7 +154,7 @@ Materialized views allow data changes in the base tables.  Data in materialized 
 
 ## Example
 
-This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, identify the preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY.
+This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, identify the preferred customers and their country/region of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY.
 
 ```sql
 WITH year_total AS (

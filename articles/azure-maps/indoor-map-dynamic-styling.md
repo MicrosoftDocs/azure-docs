@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll show you how to dynamically render indoor map features with the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll show you how to dynamically render indoor map features with the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following script implements the mouse click event. The code retrieves the fe
 /* Upon a mouse click, log the feature properties to the browser's console. */
 map.events.add("click", function(e){
 
-    var features = map.layers.getRenderedShapes(e.position, "indoor")
+    var features = map.layers.getRenderedShapes(e.position, "indoor");
 
     var result = features.reduce(function (ids, feature) {
         if (feature.layer.id == "indoor_unit_office") {

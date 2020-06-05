@@ -39,7 +39,6 @@ The allowable number of polygons for all loaded models depends on the size of th
 
 **Windows 10 desktop**
 
-* "PC Standalone" deployment from Unity is not supported. Use UWP instead.
 * UWP/x86 is the only supported UWP platform. UWP/x64 is not supported.
 
 **Hololens 2**

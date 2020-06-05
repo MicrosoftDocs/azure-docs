@@ -1,9 +1,8 @@
 ---
 title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
-ms.topic: article
-ms.date: 09/12/2019
-ms.author: labrenne
+ms.topic: conceptual
+ms.date: 06/02/2020
 ms.custom: seodec18
 
 ---
@@ -32,9 +31,11 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | DC | None |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4, Dasv4 | None - not yet available |
+| Dav4<sup>1</sup> | None - not yet available |
+| Dasv4<sup>1</sup> | All sizes, except for Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
 | Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
-| Eav4, Easv4 | None - not yet available |
+| Eav4<sup>1</sup> | All sizes, except for Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
+| Easv4<sup>1</sup> | All sizes, except for Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
 | G, Gs | All sizes |
@@ -43,8 +44,8 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | HBv2<sup>1</sup> | All sizes |
 | HC<sup>1</sup> | All sizes |
 | Ls | All sizes |
-| Lsv2 | None - not yet available |
-| M<sup>1</sup> | All sizes, except for M64, M64m, M128, M128m |
+| Lsv2<sup>1</sup> | All sizes |
+| M<sup>1</sup> | All sizes |
 | Mv2 | None - not yet available |
 | NC | All sizes |
 | NCv2<sup>1</sup> | All sizes |
@@ -83,5 +84,5 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * For information about using compute-intensive VM sizes, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).

@@ -51,8 +51,7 @@ If your data is already in Azure Blob storage, you should make it available as a
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
-![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation wizard":::
 
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.

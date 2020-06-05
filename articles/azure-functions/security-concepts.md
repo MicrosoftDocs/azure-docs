@@ -80,7 +80,7 @@ As with any application or service, the goal is run your function app with the l
 
 #### User management permissions
 
-Functions supports build-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
+Functions supports built-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
 Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
 
@@ -178,7 +178,7 @@ By having a separate scm endpoint, you can control deployments and other advance
 
 ### Continuous security validation
 
-Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/devops/migrate/security-validation-cicd-pipeline).  
+Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## Network security
 

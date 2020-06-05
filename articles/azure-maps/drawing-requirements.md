@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ The Drawing package includes drawings saved in DWG format, which is the native f
 
 You may choose any CAD software to produce the drawings in the Drawing package.  
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts the Drawing package into map data.  The Conversion service has been developed and tested using the AutoCAD DWG file format. `AC1032` is the internal format version for the DWG files. You're encouraged to select `AC1032` for the internal DWG file format version.  
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) converts the Drawing package into map data.  The Conversion service has been developed and tested using the AutoCAD DWG file format. `AC1032` is the internal format version for the DWG files. You're encouraged to select `AC1032` for the internal DWG file format version.  
 
 Glossary of terms used within this document.
 
@@ -49,7 +49,7 @@ A single DWG file is required for each level of the facility. The level's data m
 * Must not contain features from multiple levels.
 * Must not contain features from multiple facilities.
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) can extract the following feature classes from a DWG file:
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) can extract the following feature classes from a DWG file:
 
 * Levels
 * Units
@@ -66,11 +66,11 @@ DWG layers must also follow the following criteria:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels.
-* Self-intersecting polygons will be automatically repaired, and the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
+* Self-intersecting polygons will be automatically repaired, and the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
-The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will ignore these entities.  
+The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) will ignore these entities.  
 
 | Layer | Entity types | Features |
 | :----- | :-------------------| :-------
@@ -162,11 +162,11 @@ An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sa
 
 ## Manifest file requirements
 
-The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
+The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
 
 The file paths, in the **buildingLevels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
 
-Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
+Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Object | Required | Description |
 | :----- | :------- | :------- |
@@ -397,7 +397,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
 
 ## Next steps
 
-Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
+Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
 >[Creator for indoor maps](creator-indoor-maps.md)

@@ -127,8 +127,6 @@ For now, customer-managed keys have the following restrictions:
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
     
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
         ```
 
 #### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys

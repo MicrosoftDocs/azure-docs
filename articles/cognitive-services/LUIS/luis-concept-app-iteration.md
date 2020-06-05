@@ -110,7 +110,7 @@ A version can be exported at the app or version level as well. The only differen
 
 The exported file **doesn't** contain:
 
-* Machine-learned information, because the app is retrained after it's imported
+* machine-learning information, because the app is retrained after it's imported
 * Contributor information
 
 In order to back up your LUIS app schema, export a version from the [LUIS portal](https://www.luis.ai/applications).

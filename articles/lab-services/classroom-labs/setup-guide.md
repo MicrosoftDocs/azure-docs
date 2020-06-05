@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
 
 ---
@@ -124,12 +124,17 @@ After you understand the requirements for your class's lab, you're ready to set 
    - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Schedules, quotas, and automatic shutdown don't apply to the template VM. As a result, you must ensure that you shut down the template VM when it's not being used. Otherwise, it continues to incur costs. Also, by default, when you create a lab, the template VM is automatically started. Make sure that you immediately finish setting up the lab, and shut down the template VM.
+        > Schedules and quotas don't apply to the template VM, but the auto shutdown settings apply. 
+        > 
+        > When you create a lab, the template VM is created but it’s not started. You can start it, connect to it, and install any pre-requisite software for the lab, and then publish it. When you publish the template VM, it’s is automatically shut down for you if you haven’t done so. 
+        > 
+        > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running. 
+
 
 1. **Use the dashboard.** For instructions, see [using the lab's dashboard](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > The estimated cost shown in the dashboard is the maximum cost that you can expect for students usage of the lab. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM or the shared image gallery.
+    > The estimated cost shown in the dashboard is the maximum cost that you can expect for students usage of the lab. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the shared image gallery, or when the lab creator starts a user machine.
 
 ## Next steps
 

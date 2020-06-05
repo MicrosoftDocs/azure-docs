@@ -362,9 +362,9 @@ To do tasks on network security groups, security rules, and application security
 
 | Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/networkSecurityGroups/rules/read            |   Get rule                                                            |
-| Microsoft.Network/networkSecurityGroups/rules/write           |   Create or update rule                                               |
-| Microsoft.Network/networkSecurityGroups/rules/delete          |   Delete rule                                                         |
+| Microsoft.Network/networkSecurityGroups/securityRules/read            |   Get rule                                                            |
+| Microsoft.Network/networkSecurityGroups/securityRules/write           |   Create or update rule                                               |
+| Microsoft.Network/networkSecurityGroups/securityRules/delete          |   Delete rule                                                         |
 
 ### Application security group
 

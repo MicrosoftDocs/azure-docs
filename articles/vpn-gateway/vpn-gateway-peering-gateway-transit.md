@@ -27,6 +27,11 @@ There are two scenarios described in this document:
 1. Both virtual networks are using the Resource Manager deployment model
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
 
+
+>[!NOTE]
+> If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+>
+
 ## Requirements
 
 

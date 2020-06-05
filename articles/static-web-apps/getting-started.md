@@ -26,25 +26,25 @@ This article uses GitHub template repositories to make it easy for you to create
 
 # [Angular](#tab/angular)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/angular-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [React](#tab/react)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/react-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [Vue](#tab/vue)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [No Framework](#tab/vanilla-javascript)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Name your repository **my-first-static-web-app**
 
@@ -76,7 +76,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select your _Azure subscription_
 - Select or create a new _Resource Group_
 - Name the app **my-first-static-web-app**.
-  - Valid characters are `a-z` (case insensitive), `0-9`, and `_`.
+  - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
 - Select a _Region_ closest to you
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
@@ -125,6 +125,8 @@ Next, add configuration details specific to your preferred front-end framework.
 Click the **Review + create** button.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
+
+To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
 
 ### Review + create
 

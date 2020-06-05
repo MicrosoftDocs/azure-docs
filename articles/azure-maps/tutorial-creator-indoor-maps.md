@@ -52,7 +52,7 @@ The Data Upload API is a long running transaction that implements the pattern de
 
 4. In the **Headers** tab, specify a value for the `Content-Type` key. The Drawing package is a zipped folder, so use the `application/octet-stream` value. In the **Body** tab, select **binary**. Click on **Select File** and choose a Drawing package.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
 
@@ -210,7 +210,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
+3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
 
     ```json
     {
@@ -280,7 +280,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
+2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
