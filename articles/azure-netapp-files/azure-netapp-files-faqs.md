@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/03/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -119,6 +119,10 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 Root squashing is currently not supported.
 
 ## SMB FAQs
+
+### Which SMB versions are supported by Azure NetApp Files?
+
+Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0).    
 
 ### Is an Active Directory connection required for SMB access? 
 

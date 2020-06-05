@@ -93,7 +93,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     ![Stage view](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Create a new task. Search for **Azure Resource Group Deployment**, and then select **Add**.
+    b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
     c.  In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
 

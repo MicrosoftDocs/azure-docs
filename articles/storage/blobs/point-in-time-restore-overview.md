@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: references_regions
 ---
 
 # Point-in-time restore for block blobs (preview)
@@ -117,7 +118,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### Check registration status
 
-To check the status of your registration, run the following commands:
+Registration for Point in time restore is automatic and should take less than 10 minutes. To check the status of your registration, run the following commands:
 
 # [PowerShell](#tab/powershell)
 ```powershell

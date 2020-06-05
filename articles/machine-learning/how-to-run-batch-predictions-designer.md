@@ -5,7 +5,7 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
