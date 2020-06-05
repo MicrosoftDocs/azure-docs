@@ -8,7 +8,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 06/03/2020
 ---
 
 # Sink transformation in mapping data flow
@@ -18,6 +18,22 @@ ms.date: 12/12/2019
 After you transform your data, you can sink the data into a destination dataset. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
 Each sink transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to.
+
+## Inline datasets
+
+When creating a sink transformation, choose whether your sink information is defined inside a dataset object or within the sink transformation. Most formats are only available in one or the other. Please reference the appropriate connector document to learn how to use a specific connector.
+
+When a format is supported for both inline and in a dataset object, there are benefits to both. Dataset objects are reusable entities that can be leveraged in other data flows and activities such as Copy. These are especially useful when using a hardened schema. Datasets are not based in Spark and occasionally you may need to override certain settings or schema projection in the sink transformation.
+
+Inline datasets are recommended when using flexible schemas, one-off sink instances, or parameterized sinks. If your sink is heavily parameterized, in-line datasets allow you to not create a "dummy" object. Inline datasets are based in spark and their properties are native to data flow.
+
+To use an inline dataset, select the desired format in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you wish to connect to.
+
+![Inline dataset](media/data-flow/inline-selector.png "Inline dataset")
+
+### Supported inline dataset formats
+
+Currently the only available inline dataset format is the [Common Data Model](format-common-data-model.md#sink-properties) read from [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
 
 ## Supported sink connectors in mapping data flow
 
@@ -32,7 +48,7 @@ Currently the following datasets can be used in a sink transformation:
 
 Settings specific to these connectors are located in the **Settings** tab. Information on these settings are located in the connector documentation. 
 
-Azure Data Factory has access to over [90 native connectors](connector-overview.md). To write data to those other sources from your data flow, use the Copy Activity to load that data from one of the supported staging areas after completion of your data flow.
+Azure Data Factory has access to over [90 native connectors](connector-overview.md). To write data to those other connectors from your data flow, use the Copy Activity to load that data from one of the supported staging areas after completion of your data flow.
 
 ## Sink settings
 
