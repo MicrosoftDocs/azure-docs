@@ -177,7 +177,7 @@ Once the Windows Server VM has restarted, any policies applied in the managed do
 
 In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
 
-### Un-join the VM from managed domain
+### Un-join the VM from the managed domain
 
 To remove the VM from the managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-managed-domain). Instead of joining the managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the managed domain.
 

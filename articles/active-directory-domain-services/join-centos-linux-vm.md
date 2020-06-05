@@ -118,7 +118,7 @@ If your VM can't successfully complete the domain-join process, make sure that t
 
 ## Allow password authentication for SSH
 
-By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to an managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
+By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to a managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
 
 1. Open the *sshd_conf* file with an editor:
 

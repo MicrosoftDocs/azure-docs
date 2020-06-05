@@ -80,13 +80,13 @@ With this example scenario, you have the minimum amount of downtime in one sessi
 High-level steps involved in this example migration scenario include the following parts:
 
 1. Remove existing VPN gateways or virtual network peering configured on the Classic virtual network.
-1. Migrate th managed domain using the steps outlined in this article.
+1. Migrate the managed domain using the steps outlined in this article.
 1. Set up virtual network peering between the Classic virtual network and the new Resource Manager virtual network.
 1. Later, [migrate the additional resources][migrate-iaas] from the Classic virtual network as needed.
 
 ## Before you begin
 
-As you prepare and then migrate an managed domain, there are some considerations around the availability of authentication and management services. The managed domain is unavailable for a period of time during migration. Applications and services that rely on Azure AD DS experience downtime during migration.
+As you prepare and then migrate a managed domain, there are some considerations around the availability of authentication and management services. The managed domain is unavailable for a period of time during migration. Applications and services that rely on Azure AD DS experience downtime during migration.
 
 > [!IMPORTANT]
 > Read all of this migration article and guidance before you start the migration process. The migration process affects the availability of the Azure AD DS domain controllers for periods of time. Users, services, and applications can't authenticate against the managed domain during the migration process.

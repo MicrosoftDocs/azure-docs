@@ -84,7 +84,7 @@ A conditional forwarder is a configuration option in a DNS server that lets you 
 
 To create a conditional forwarder in your managed domain, complete the following steps:
 
-1. Select your DNS zone, such as *aaddscontoso.com*.vb
+1. Select your DNS zone, such as *aaddscontoso.com*.
 1. Select **Conditional Forwarders**, then right-select and choose **New Conditional Forwarder...**
 1. Enter your other **DNS Domain**, such as *contoso.com*, then enter the IP addresses of the DNS servers for that namespace, as shown in the following example:
 

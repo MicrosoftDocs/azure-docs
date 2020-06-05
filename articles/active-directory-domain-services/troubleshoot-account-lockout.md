@@ -33,7 +33,7 @@ The default account lockout thresholds are configured using fine-grained passwor
 
 Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. FGPP only affects users within a managed domain. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD are only affected by the password policies within Azure AD DS. Their accounts in Azure AD or an on-premises directory aren't impacted.
 
-Policies are distributed through group association in themanaged domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
+Policies are distributed through group association in the managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
 For more information on fine-grained password policies, and the differences between users created directly in Azure AD DS versus synchronized in from Azure AD, see [Configure password and account lockout policies][configure-fgpp].
 
