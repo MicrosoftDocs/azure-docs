@@ -61,14 +61,63 @@ If you're also using Private Link, it's required one additional configuration to
 ### Link your Storage Account with your Application Insights resource
 To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two options:
 
+* Using Azure PowerShell Cmdlets
 * Using Azure Command Line Interface (CLI)
 * Using Azure Resource Manager template
+
+#### Configure using Azure PowerShell Cmdlets
+
+1. Make sure you have installed Az PowerShell 4.2.0 or greater.
+
+    To install Azure PowerShell, refer to the [Official Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+1. Install the Application Insights PowerShell extension.
+    ```powershell
+    Install-Module -Name Az.ApplicationInsights -Force
+    ```
+
+1. Sign in with your Azure Account
+    ```powershell
+    Connect-AzAccount -Subscription "{subscription_id}"
+    ```
+
+    For more info of how to sign in, refer to the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+
+1. Remove previous Storage Account linked to your Application Insights resource.
+
+    Pattern:
+    ```powershell
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
+    ```
+
+    Example:
+    ```powershell
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
+    Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
+    ```
+
+1. Connect your Storage Account with your Application Insights resource.
+    
+    Pattern:
+    ```powershell
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
+    New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
+    ```
+
+    Example:
+    ```powershell
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName "byos-test" -Name "byosteststoragewestus2"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
+    New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
+    ```
 
 #### Configure using Azure CLI
 
 1. Make sure you have installed Azure CLI.
 
-  To install Azure CLI, refer to the [Official Azure CLI documentation](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    To install Azure CLI, refer to the [Official Azure CLI documentation](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Install the Application Insights CLI extension.
     ```powershell
