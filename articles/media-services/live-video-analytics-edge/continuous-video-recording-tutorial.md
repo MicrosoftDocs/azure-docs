@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
-# Tutorial: Continuous video recording to the cloud and playback from the cloud  
+# Tutorial: Continuous video recording to the cloud and playback from the cloud
 
 In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video by using Azure Media Services. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. You will:
 
@@ -34,7 +34,7 @@ Prerequisites for this tutorial are:
 
     > [!TIP]
     > You might be prompted to install Docker. Ignore this prompt.
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer)  on your development machine.
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
 * Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
 At the end of these steps, you'll have these Azure resources deployed in your Azure subscription:
@@ -56,7 +56,7 @@ As explained in the [media graph concept](media-graph-concept.md) article, a med
 
 ![Media graph](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
 
-In this tutorial, you'll use one IoT Edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset.
+In this tutorial, you'll use one edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset.
 
 ## Set up your development environment
 
@@ -66,7 +66,7 @@ Before you begin, check that you've completed the third bullet in [Prerequisites
 
 Of interest in this tutorial are:
 
-* **~/clouddrive/lva-sample/edge-deployment/.env**: Contains properties that Visual Studio Code uses to deploy modules to an IoT Edge device.
+* **~/clouddrive/lva-sample/edge-deployment/.env**: Contains properties that Visual Studio Code uses to deploy modules to an edge device.
 * **~/clouddrive/lva-sample/appsettings.json**: Used by Visual Studio Code for running the sample code.
 
 You'll need the files for these steps:
@@ -82,7 +82,7 @@ You'll need the files for these steps:
         "moduleId" : "lvaEdge"  
     }
     ```
-    The IoT Hub connection string lets you use Visual Studio Code to send commands to the IoT Edge modules via Azure IoT Hub.
+    The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
     
 1. Next, browse to the src/edge folder and create a file named **.env**.
 1. Copy the contents from the ~/clouddrive/lva-sample/.env file. The text should look like:
@@ -104,7 +104,7 @@ You'll need the files for these steps:
 
 ## Examine the sample files
 
-In Visual Studio Code, open src/edge/deployment.template.json. This template defines which IoT Edge modules you'll deploy to the IoT Edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
+In Visual Studio Code, open src/edge/deployment.template.json. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). There are two entries under the **modules** section with the following names:
 
 * **lvaEdge**: This is the Live Video Analytics on IoT Edge module.
 * **rtspsim**: This is the RTSP simulator.
@@ -112,8 +112,8 @@ In Visual Studio Code, open src/edge/deployment.template.json. This template def
 Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
 
 * **c2d-console-app.csproj**: The project file for Visual Studio Code.
-* **operations.json**: This file lists the different operations that you would run
-* **Program.cs**: The sample program code, which does the following:
+* **operations.json**: This file lists the different operations that you would run.
+* **Program.cs**: The sample program code, which:
     * Loads the app settings.
     * Invokes direct methods exposed by the Live Video Analytics on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
     * Pauses for you to examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
@@ -121,7 +121,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 
 ## Generate and deploy the IoT Edge deployment manifest 
 
-The deployment manifest defines what modules are deployed to an IoT Edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the IoT Edge device.
+The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
 
 1. Start Visual Studio Code.
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
@@ -132,13 +132,13 @@ The deployment manifest defines what modules are deployed to an IoT Edge device 
    ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 1. Right-click the src/edge/config/deployment.amd64.json file, and select **Create Deployment for Single Device**.
 
-   ![Create deployment for single device](./media/quickstarts/create-deployment-single-device.png)
+   ![Create Deployment for Single Device](./media/quickstarts/create-deployment-single-device.png)
 1. You're then asked to **Select an IoT Hub device**. Select lva-sample-device from the drop-down list.
-1. In about 30 seconds, refresh the Azure IoT Hub in the lower-left section and you should see the IoT Edge device has the following modules deployed:
+1. In about 30 seconds, refresh the Azure IoT Hub in the lower-left section. You should see the edge device has the following modules deployed:
     * Live Video Analytics on IoT Edge (module name **lvaEdge**)
     * RTSP simulator (module name **rtspsim**)
  
-    ![IoT hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## Prepare to monitor the modules 
 
@@ -180,7 +180,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls are made:
+1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
      * A call to GraphTopologySet by using the previous topologyUrl
      * A call to GraphInstanceSet by using the following body
      
@@ -209,9 +209,9 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
      }
      ```
      * A call to GraphInstanceActivate to start the graph instance and to start the flow of video
-     * A second call to GraphInstanceList to show that the graph instance is in the running state  
+     * A second call to GraphInstanceList to show that the graph instance is in the running state 
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked
-1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to  IoT Hub by the Live Video Analytics on IoT Edge module.
+1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
      * These messages are discussed in the following section.
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
@@ -223,11 +223,11 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to IoT Edge Hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a "body" section and an "applicationProperties: section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to IoT Edge Hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the application properties and the content of the body are defined by the Live Video Analytics module.
 
-## Diagnostic events 
+## Diagnostics events 
 
 ### MediaSession Established event
 
@@ -249,11 +249,11 @@ When the graph instance is activated, the RTSP source node attempts to connect t
 }
 ```
 
-* The message is a Diagnostics event. MediaSessionEstablished indicates that the RTSP source node (the subject) was able to establish a connection with the RTSP simulator and begin to receive a (simulated) live feed.
-* The line "subject" in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
-* The line "eventType" in applicationProperties indicates that this is a Diagnostics event.
-* The line "eventTime" indicates the time when the event occurred.
-* The line "body" contains data about the diagnostic event, which in this case are the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+* The message is a Diagnostics event (MediaSessionEstablished). It indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and began to receive a (simulated) live feed.
+* The subject section in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
+* The eventType section in applicationProperties indicates that this is a Diagnostics event.
+* The eventTime section indicates the time when the event occurred.
+* The body section contains data about the Diagnostics event, which in this case is the [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ## Operational events 
 
@@ -278,9 +278,9 @@ When the asset sink node starts to record video, it emits this event of type Mic
 }
 ```
 
-The "subject" line in applicationProperties references the asset sink node in the graph, which generated this message.
+The subject section in applicationProperties references the asset sink node in the graph, which generated this message.
 
-The "body" line contains information about the output location, which in this case is the name of the Azure Media Service asset into which video is recorded. Make note of this value.
+The body section contains information about the output location. In this case, it's the name of the Azure Media Services asset into which video is recorded. Make a note of this value.
 
 ### RecordingAvailable event
 
@@ -303,11 +303,11 @@ As the name suggests, the RecordingStarted event is sent when recording has star
 }
 ```
 
-This event indicates that enough data has been written to the Asset in order for players or clients to initiate playback of the video.
+This event indicates that enough data was written to the asset for players or clients to start playback of the video.
 
-The subject in applicationProperties references the AssetSink node in the graph, which generated this message.
+The subject section in applicationProperties references the AssetSink node in the graph, which generated this message.
 
-The body contains information about the output location, which in this case is the name of the Azure Media Service asset into which video is recorded.
+The body section contains information about the output location. In this case, it's the name of the Azure Media Services asset into which video is recorded.
 
 ### RecordingStopped event
 
@@ -332,17 +332,17 @@ When you deactivate the Graph Instance, the asset sink node stops recording vide
 
 This event indicates that recording has stopped.
 
-The subject in applicationProperties references the AssetSink node in the graph, which generated this message.
+The subject section in applicationProperties references the AssetSink node in the graph, which generated this message.
 
-The body contains information about the output location, which in this case is the name of the Azure Media Service asset into which video is recorded.
+The body section contains information about the output location, which in this case is the name of the Azure Media Services asset into which video is recorded.
 
 ## Media Services asset  
 
 You can examine the Media Services asset that was created by the media graph by logging in to the Azure portal and viewing the video.
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-1. Locate your Media Services account among the resources you have in your subscription, and open the account blade.
-1. Select **Assets** in the Media Services listing.
+1. Locate your Media Services account among the resources you have in your subscription, and open the account pane.
+1. Select **Assets** in the **Media Services** list.
 
     ![Assets](./media/continuous-video-recording-tutorial/assets.png)
 1. You'll find an asset listed with the name sampleAsset-CVRToAMSAsset-Sample-Graph-1. This is the naming pattern chosen in your graph topology file.
@@ -358,7 +358,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. The player should load the video. Select **Play** to view it.
 
 > [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the timestamps in the video are related to when you activated the graph instance and when you deactivated it. To see how to browse a multi-day recording and view portions of that archive, see the [Playback of multi-day recordings](playback-multi-day-recordings-tutorial.md) tutorial. In that tutorial, you also can see the timestamps in the video displayed onscreen.
+> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the graph instance and when you deactivated it. To see how to browse a multiday recording and view portions of that archive, see the [Playback of multi-day recordings](playback-multi-day-recordings-tutorial.md) tutorial. In that tutorial, you also can see the time stamps in the video displayed onscreen.
 
 ## Clean up resources
 
