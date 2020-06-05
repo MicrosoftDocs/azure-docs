@@ -32,7 +32,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-The Azure resource defined in the template is [Microsoft.Databricks/workspaces:](/azure/templates/microsoft.databricks/workspaces): create an Azure Databricks workspace.
+The Azure resource defined in the template is [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces): create an Azure Databricks workspace.
 
 ### Deploy the template
 
