@@ -603,7 +603,7 @@ Microsoft manages the underlying infrastructure for Azure Application Gateway an
 
 **Guidance**: Currently not available; vulnerability assessment in Azure Security Center is not yet available for Azure Application Gateway.
 
-Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Applicatio Gateway to reduce service configuration related vulnerabilities.
+Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Application Gateway to reduce service configuration related vulnerabilities.
 
 * [Feature coverage (including vulnerability assessment) for Azure PaaS Services](https://docs.microsoft.com/azure/security-center/features-paas)
 
