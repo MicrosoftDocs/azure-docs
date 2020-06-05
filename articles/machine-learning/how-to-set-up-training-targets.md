@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.custom: seodec18
 ---

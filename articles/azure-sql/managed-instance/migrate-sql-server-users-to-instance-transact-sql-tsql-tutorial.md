@@ -309,7 +309,7 @@ Execute the ALTER USER command to complete the migration process on SQL Managed 
 
 Test authenticating to SQL Managed Instance using the user previously mapped to the Azure AD login using the ALTER USER syntax.
 
-1. Log into the federated VM using your MI subscription as  `aadsqlmi\testUser1`
+1. Log into the federated VM using your Azure SQL Managed Instance subscription as `aadsqlmi\testUser1`
 1. Using SQL Server Management Studio (SSMS), sign into your SQL Managed Instance using **Active Directory Integrated** authentication, connecting
 to the database `migration`.
     1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log in to your SQL Managed Instance.
@@ -321,8 +321,8 @@ to the database `migration`.
 
 Test authenticating to a SQL Managed Instance using a member of a Windows group `migration`. The user `aadsqlmi\testGroupUser` should have been added to the group `migration` before the migration.
 
-1. Log into the federated VM using your MI subscription as  `aadsqlmi\testGroupUser`
-1. Using SSMS with **Active Directory Integrated** authentication, connect to the MI server and the database `migration`
+1. Log into the federated VM using your Azure SQL Managed Instance subscription as `aadsqlmi\testGroupUser`
+1. Using SSMS with **Active Directory Integrated** authentication, connect to the Azure SQL Managed Instance server and the database `migration`
     1. You can also sign in using the testGroupUser@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log into your SQL Managed Instance.
 1. As part of the `db_owner` role, you can create a new table.
 
