@@ -79,4 +79,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST APIs
-            url: https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master
+            url: https://docs.microsoft.com/rest/api/azure-digitaltwins/
