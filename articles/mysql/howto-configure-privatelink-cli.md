@@ -76,6 +76,10 @@ az mysql server create \
 Note the MySQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` 
 You will use the MySQL Server ID in the next step. 
 
+> [!NOTE]
+> In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Create the Private Endpoint 
 Create a private endpoint for the MySQL server in your Virtual Network: 
 ```azurecli-interactive
@@ -186,3 +190,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 - Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
