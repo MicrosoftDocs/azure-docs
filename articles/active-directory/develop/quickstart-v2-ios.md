@@ -109,8 +109,8 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
-> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
+> 1. Right-click **Info.plist** and select **Open As** > **Source Code**.
+> 1. Under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
