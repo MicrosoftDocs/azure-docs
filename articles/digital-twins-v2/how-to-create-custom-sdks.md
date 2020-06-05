@@ -17,14 +17,14 @@ ms.service: digital-twins
 
 # Create custom SDKs for Azure Digital Twins with AutoRest
 
-Right now, the only published SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
+Right now, the only published  data plane SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
 
 ## Set up the SDK
 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json)
+* The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
 ```cmd/sh

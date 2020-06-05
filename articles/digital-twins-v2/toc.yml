@@ -61,7 +61,7 @@
 - name: Reference
   items:
   - name: Digital Twins REST APIs
-    href: https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master
+    href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
   - name: Digital Twins .NET (C#) SDK
     href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
   - name: Digital Twins service limits
