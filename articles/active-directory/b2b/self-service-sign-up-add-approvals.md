@@ -62,7 +62,7 @@ Next you'll [create the API connectors](self-service-sign-up-add-api-connector.m
 
    ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. The following is an example of a "Request approval" API connector.
+- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. The following is an example of a "Request approval" API connector. Select any **Claims to send** that the approval system needs to make an approval decision.
 
    ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -253,7 +253,7 @@ After obtaining manual approval, the custom approval system creates a [user](htt
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. Receive the HTTP request from the user flow.
+1. The approval system uses receives the HTTP request from the user flow.
 
 ```http
 POST <Approvals-API-endpoint>
@@ -275,7 +275,7 @@ Content-type: application/json
 }
 ```
 
-2. Use Microsoft Graph to create a user account.
+2. The approval system uses Microsoft Graph to create a user account.
 
 ```http
 POST https://graph.microsoft.com/v1.0/users

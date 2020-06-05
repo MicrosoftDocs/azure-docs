@@ -1,6 +1,6 @@
 ---
 title: Add an API connector to a user flow 
-description: Configure a web API to be used in a user flow.
+description: Configure a Web API to be used in a user flow.
 
 services: active-directory
 ms.service: active-directory
@@ -42,37 +42,6 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
     ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
 
 10. Select **Save**.
-
-**Example generated request**
-
-```http
-POST <Approvals-API-endpoint>
-Content-type: application/json
-
-{
- "email_address": "johnsmith@outlook.com",
- "identities": [
-     {
-     "signInType":"federated",
-     "issuer":"facebook.com",
-     "issuerAssignedId":"0123456789"
-     }
- ],
- "displayName": "John Smith",
- "city": "Redmond",
- "extension_<guid>_CustomAttribute": "custom attribute value",
- "ui_locales":"en-US"
-}
-```
-
-The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
-
-If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
-
-Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
-
-> [!TIP]
-> [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
  
 ## Enable the API connector in a user flow
 
@@ -89,6 +58,141 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
    ![Add APIs to the user flow](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
+
+
+## Request sent to the API
+An API connector materializes as an HTTP POST request, sending selected claims as key-value pairs in a JSON body. The response should also have the HTTP header `Content-Type: application/json`. Attributes are serialized similarly to Microsoft Graph user attributes. <!--# TODO: Add link to MS Graph or create separate reference.-->
+
+### Example request
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "postalCode": "33971",
+ "extension_<guid>_CustomAttribute1": "custom attribute value",
+ "extension_<guid>_CustomAttribute2": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+The **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) and can be used by the API to return internationalized responses. It doesn't appear in the API configuration pane.
+
+If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
+
+Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
+
+> [!TIP]
+> [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
+
+
+## Expected response types from the Web API
+
+When the Web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+
+- [Continuation response](#continuation-response)
+- [Blocking response](#exit-response)
+- [Validation-error response](#validation-error-response)
+
+### Continuation response
+
+A continuation response indicates that the user flow should continue to the next step. In a continuation response, the API can return claims.
+
+If a claim is returned by the API and selected in the expected response configuration, the claim does the following:
+
+- Pre-fills input fields in the attribute collection page if the API connector is invoked before the page is presented. The claim must be selected in the **User attributes** for the user flow.
+- Overrides any value that has already been assigned to the claim.
+- Assigns a value to the claim if it was previously null.
+
+#### Example of a continuation response
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0", 
+    "action": "Continue",  
+    "postalCode": "12349", // return claim 
+    "external_CustomAttribute": "value" // return claim 
+}
+```
+
+| Parameter  | Type  | Required | Description |
+|---|---|---|---|
+| version | String | Yes | The version of the API. |
+| action  | String | Yes | Value must be `Continue`. |
+| \<builtInUserAttribute> | \<attribute-type> | No  | Values can be returned in the application token or stored in the directory. Must also be selected as a 'claim to receive' in the API connector configuration. |
+| \<external_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have the `_<guid>_`. Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow.  At this time, custom attributes cannot sent back in the token. |
+
+### Blocking Response
+
+A blocking response exits the user flow. It can be purposely issued by the API to stop the continuation of the user flow by displaying a block page to the user. The block page displays the `userMessage` provided by the API. The `code` value can be used for troubleshooting but is optional and not displayed to the user.
+
+The following is an example of the blocking response:
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "ShowBlockPage", 
+    "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
+    "code": "CONTOSO-BLOCK-00"
+}
+
+```
+
+| Parameter  | Type  | Required | Description |
+|---|---|---|---|
+| version         | String           | Yes      | The version of the API.    |
+| action          | String           | Yes      | Value must be `ShowBlockPage`  |
+| userMessage     | String           | Yes      | Message to display to the user.    |
+| code            | String           | No       | Error code. Can be used for debugging purposes.    |
+
+#### End user experience with a blocking response
+
+![Example  block page](./media/api-connectors-overview/blocking-page-response.png)
+
+### Validation-error response
+
+An API call invoked after an attribute collection page may return a validation-error response. When doing so, the user flow stays on the attribute collection page and the `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+
+#### Example of a validation-error response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-type: application/json
+
+{
+    "version": "1.0.0", 
+    "status": 400,
+    "action": "ValidationError",  
+    "userMessage": "Please enter a valid Postal Code.",
+    "code": "CONTOSO-VALIDATION-00"
+}
+```
+
+| Parameter  | Type  | Required | Description |
+|---|---|---|---|
+| version         | String           | Yes      | The version of the API.   |
+| action          | String           | Yes      | Value must be `ValidationError`.   |
+| status          | Integer          | Yes      | Must be value `400` for a ValidationError response.  |
+| userMessage     | String           | Yes      | Message to display to the user.   |
+| code            | String           | No       | Error code. Can be used for debugging purposes.    |
+
+#### End user experience with a validation-error response
+
+![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
 
 ## Next steps
