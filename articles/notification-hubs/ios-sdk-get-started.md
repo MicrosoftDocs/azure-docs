@@ -165,7 +165,8 @@ The second option has a number of benefits compared to using certificates, as do
 
 5. Click **Download** and then move the **.p8** file (prefixed with `AuthKey_`) to a secure local directory, then click **Done**.
 
-   Be sure to keep your .p8 file in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded; the server copy is removed.
+   > [!IMPORTANT]
+   > Be sure to keep your .p8 file in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded; the server copy is removed.
 
 6. On **Keys**, click on the key that you just created (or an existing key if you have chosen to use that instead).
 
@@ -263,7 +264,8 @@ In this section, you create a notification hub and configure authentication with
 
 Under **Notification Services**, select **Apple (APNS)**, then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs) section.
 
-Use **Production** for **Application Mode** only if you want to send push notifications to users who purchased your app from the store.
+> [!NOTE]
+> Use **Production** for **Application Mode** only if you want to send push notifications to users who purchased your app from the store.
 
 ### Option 1: Use a .p12 push certificate
 
