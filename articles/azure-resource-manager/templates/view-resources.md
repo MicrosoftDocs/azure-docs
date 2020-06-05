@@ -7,13 +7,7 @@ ms.date: 06/05/2020
 
 # View resource properties
 
-Before creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. This article shows some ways you can find the properties to include in your template:
-
-- [Export templates](#export-templates)
-- [Azure Resource Manager tools extension for Visual Studio Code](#use-resource-manager-tools-extension)
-- [Template reference](#use-template-reference)
-- [Resource Explorer](#use-resource-explorer)
-- [Resource.azure.com](#use-resourcesazurecom)
+Before creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. This article shows some ways you can find the properties to include in your template.
 
 ## Find resource provider namespaces
 
