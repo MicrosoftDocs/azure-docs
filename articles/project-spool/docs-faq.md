@@ -14,8 +14,6 @@ An example of tabs:
 ---
 
 
-
-
 This was generated with the following markdown:
 
 ``` 

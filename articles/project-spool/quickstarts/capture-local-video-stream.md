@@ -29,28 +29,18 @@ In this quickstart, you'll learn how to capture a local video stream from a came
 
 A media stream can be captured after creating an instance of the ACS calling client:
 
-# [JavaScript](#tab/javascript)
 
 ```javascript
     
     const tokenCredential = new UserAccessTokenCredential(token);
     const callClient = await CallingFactory.create(tokenCredential);
     const cameraDevice = (await callClient.deviceManager.getCameraList())[0];
-    const target = $('#video-test-canvas')[0];
+    const target = $('#video-canvas')[0];
     
     callClient.deviceManager.renderPreviewVideo(cameraDevice, target, 'Fit').then(
             previewRenderer => {
-                // after rendering, invoke some code here
+                // todo: discuss previewRenderer
             }
         );
-
-    ```
-
-# [C#](#tab/c-sharp)
-
-<!--- TODO  -->
-
-
-
----
+```
 
