@@ -44,7 +44,7 @@ The below table lists the properties supported by a CDM source.
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
-#### CDM Source Example
+#### CDM source example
 
 The below image is an example of a CDM source configuration in mapping data flows.
 
@@ -98,7 +98,7 @@ The below table lists the properties supported by a CDM sink.
 | Column delimiter | If writing to DelimitedText, how to delimit columns | yes, if writing to DelimitedText | String | columnDelimiter |
 | First row as header | If using DelimitedText, whether the column names are added as a header | no | `true` or `false` | columnNamesAsHeader |
 
-#### CDM Sink Example
+#### CDM sink example
 
 The below image is an example of a CDM sink configuration in mapping data flows.
 
