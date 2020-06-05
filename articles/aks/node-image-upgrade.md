@@ -3,7 +3,7 @@ title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/05/2020
 ---
 
 # Preview - Azure Kubernetes Service (AKS) node image upgrades
@@ -40,83 +40,87 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Upgrading a node image
+## Upgrade all nodes in all node pools
 
-Upgrading the node image is done with `az aks upgrade`. To upgrade the node image, use the following command:
+Upgrading the node image is done with `az aks upgrade`.
+
+First, verify which image is on your nodes. To verify the current node image, use the following `kubectl` command to get the labels and filter out the node image information:
+
+```azurecli
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
+```
+
+To upgrade the node image, use the following command:
 
 ```azurecli
 az aks upgrade \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.15.11 \
     --node-image-only
-``` 
+```
 
-To verify which image is on your nodes, you can check the `nodeImageVersion` status. To see the `nodeImageVersion` for your cluster, use:
+When the upgrade is complete, use `az aks show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster
 ```
 
-```output
-  "agentPoolProfiles": [
-    {
-      "availabilityZones": null,
-      "count": 1,
-      "enableAutoScaling": null,
-      "enableNodePublicIp": false,
-      "maxCount": null,
-      "maxPods": 110,
-      "minCount": null,
-      "mode": "System",
-      "name": "nodepool1",
-      "nodeImageVersion": "AKSUbuntu:1604:2020.05.13",
-      "nodeLabels": {},
-      "nodeTaints": null,
-      "orchestratorVersion": "1.15.11",
-      "osDiskSizeGb": 100,
-      "osType": "Linux",
-      "provisioningState": "Succeeded",
-      "scaleSetEvictionPolicy": null,
-      "scaleSetPriority": null,
-      "spotMaxPrice": null,
-      "tags": null,
-      "type": "VirtualMachineScaleSets",
-      "upgradeSettings": null,
-      "vmSize": "Standard_D2s_v3"
-    }
+## Upgrade a specific node pool
+
+Upgrading the image on a node pool is similar to upgrading the image on a cluster.
+
+First, verify which image is on your nodes. To verify the current node image, use the following `kubectl` command to get the labels and filter out the node image information:
+
+```azurecli
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
-### Upgrading the node pool image
-
-Upgrading the image on a node pool is similar to upgrading the image on a cluster. To update the OS image of the node pool without performing a Kubernetes cluster upgrade, use the `--node-image-only` option shown in the example:
+To update the OS image of the node pool without performing a Kubernetes cluster upgrade, use the `--node-image-only` option in the following example:
 
 ```azurecli
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.11 \
-    --node-image-only \
-    --no-wait
+    --node-image-only
 ```
 
-When updating the node pool OS image, you must use the `--kubernetes-version` that the cluster is currently on.
-
-To verify which image is on your nodes, check the `nodeImageVersion` label. Use the following command to see the `nodeImageVersion` for your node pool:
+When the upgrade is complete, use `az aks nodepool show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
 ```azurecli
 az aks nodepool show \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --name mynodepool \
-    --query nodeImageVersion
+    --name mynodepool
 ```
 
-This command outputs the version of the node image on the cluster, similar to the following:
+## Upgrade node images with node surge
 
-```output
-"AKSUbuntu:1604:2020.05.13"
+To speed up the node image upgrade process, you can upgrade your node images using a customizable node surge value. By default, AKS uses one additional node to configure upgrades.
+
+If you'd like to increase the speed of upgrades, use the `--max-surge` value to configure the number of nodes to be used for upgrades so they complete faster. To learn more about the trade-offs of various `--max-surge` settings, see [Customize node surge upgrade][max-surge].
+
+The following command sets the max surge value for performing a node image upgrade:
+
+```azurecli
+az aks nodepool upgrade \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --max-surge 33% \
+    --node-image-only \
+    --no-wait
+```
+
+Use `az aks nodepool show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
+
+```azurecli
+az aks nodepool show \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool
 ```
 
 ## Next steps
@@ -125,8 +129,8 @@ This command outputs the version of the node image on the cluster, similar to th
 - [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)][security-update]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
-
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
