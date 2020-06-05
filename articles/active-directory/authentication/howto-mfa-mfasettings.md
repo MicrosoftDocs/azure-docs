@@ -214,7 +214,8 @@ Settings for app passwords, trusted IPs, verification options, and remember mult
 
 ![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-The trusted IP address ranges can be private or public.
+> [!NOTE]
+> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure Multi-Factor Authentication, you can only use public IP address ranges.
 
 ## App passwords
 
@@ -319,7 +320,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
-6. Enter the IP Range in CIDR notation like **192.168.1.1/24**.
+6. Enter the IP Range in CIDR notation like **40.77.182.32/27**.
 7. Select **Create**.
 
 ### Enable the Trusted IPs feature by using Conditional Access
