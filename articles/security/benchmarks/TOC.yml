@@ -35,6 +35,8 @@
     href: security-baselines-overview.md
   - name: API Management security baseline
     href: ../../api-management/security-baseline.md
+  - name: Application Gateway security baseline
+    href: ../../application-gateway/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
   - name: Backup security baseline
@@ -47,6 +49,8 @@
     href: ../../container-registry/security-baseline.md
   - name: Cosmos DB security baseline
     href: ../../cosmos-db/security-baseline.md  
+  - name: Customer Lockbox security baseline
+    href: ../fundamentals/customer-lockbox-security-baseline.md  
   - name: Data Explorer security baseline
     href: /azure/data-explorer/security-baseline
   - name: Data Factory security baseline
