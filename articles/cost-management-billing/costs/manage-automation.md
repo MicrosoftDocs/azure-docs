@@ -64,7 +64,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 
 ```
 
-### Get Amortized Cost Details
+### Get amortized cost details
 
 If you need actual costs to show purchases as they're accrued, change the *metric* to `ActualCost` in the following request. To use amortized and actual costs, you must use the `2019-04-01-preview` version. The current API version works the same as the `2019-10-01` version, except for the new type/metric attribute and changed property names. If you have a Microsoft Customer Agreement, your filters are `startDate` and `endDate` in the following example.
 
