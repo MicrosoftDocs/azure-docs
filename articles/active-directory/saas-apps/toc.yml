@@ -247,8 +247,6 @@
         href: bynder-tutorial.md
     - name: C
       items:
-      - name: CA PPM
-        href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -311,6 +309,8 @@
         href: sharefile-tutorial.md
       - name: Civic Platform
         href: civic-platform-tutorial.md
+      - name: Clarity
+        href: cappm-tutorial.md
       - name: Clarizen
         href: clarizen-tutorial.md
       - name: Claromentis
