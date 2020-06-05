@@ -76,7 +76,6 @@ public class AnalyzeImage {
 
             // Request parameters. All of them are optional.
             builder.setParameter("visualFeatures", "Categories,Description,Color");
-            builder.setParameter("language", "en");
 
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
