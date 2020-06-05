@@ -130,7 +130,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
         1. Select the **Update credentials** button on the top left. 
         1. Use your new access key from step 1 to populate the form and click **Save**.
         
-            If you are updating credentials for your default datastore, complete this step and repeat step 2b to resync your new key with the default datastore of the workspace. 
+            If you are updating credentials for your **default datastore**, complete this step and repeat step 2b to resync your new key with the default datastore of the workspace. 
 
 ## Next steps
 
