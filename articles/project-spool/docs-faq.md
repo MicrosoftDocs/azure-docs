@@ -1,17 +1,20 @@
 
-       : How do support code snippets across multiple languages within my docs?
+How do we support code snippets across multiple languages within docs?
               
-                     An example of tabs:
-              
-              ## [C#](#tab/c-sharp)
-                     
-              --- Content here  -->
-       
-       ### [Javascript](#tab/javascript)
+An example of tabs:
+
+# [C#](#tab/c-sharp)
+
+<!--- Content here  -->
+
+# [Javascript](#tab/javascript)
 
 <!--- Content here  -->
 
 --- 
+
+
+
 
 This was generated with the following markdown:
 
