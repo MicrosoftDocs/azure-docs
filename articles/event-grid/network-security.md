@@ -13,9 +13,9 @@ ms.author: vkukke
 # Network security for Azure Event Grid resources
 This article describes how to use the following security features with Azure Event Grid: 
 
-- Service tags for egress (preview)
-- IP Firewall rules for ingress (preview)
-- Private endpoints for ingress (preview)
+- Service tags for egress
+- IP Firewall rules for ingress
+- Private endpoints for ingress
 
 
 ## Service tags
@@ -25,7 +25,7 @@ You can use service tags to define network access controls on [network security
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+| AzureEventGrid | Azure Event Grid. | Both | No | No |
 
 
 ## IP firewall 
