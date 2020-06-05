@@ -137,6 +137,8 @@
   #  href: concepts/logging-diagnostics.md
   - name: ACS As An Event Grid Source
     href: concepts/acs-event-grid.md
+  - name: Push notifications
+    href: concepts/push-notifications.md
   - name: User Access Tokens
     href: concepts/user-access-tokens.md
   - name: Identity Model
