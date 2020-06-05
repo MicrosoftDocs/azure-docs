@@ -35,7 +35,7 @@ You need to register your approval system as an application in your Azure AD ten
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Select **Register**.
+5. Select **Register**. You can leave other fields at their defaults.
 
    ![Register an application page](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
@@ -48,12 +48,11 @@ You need to register your approval system as an application in your Azure AD ten
 9. On the **API permissions** page, select **Grant admin consent for (your tenant name)**, and then select **Yes**.
 10. Under **Manage** in the left menu, select **Certificates & secrets**, and then select **New client secret**.
 11. Enter a **Description** for the secret, for example *Approvals client secret*, and select the duration for when the client secret **Expires**. Then select **Add**.
-
-    ![Certificates & secrets page for the Approvals app](media/self-service-sign-up-add-approvals/certificates-and-secrets.png)
-
-12. Copy the value of the client secret. You'll configure your approval system to use the **Application ID** as the client ID and the **client secret** you generated to authenticate with Azure AD.
+12. Copy the value of the client secret.
 
     ![Copy the client secret for use in the approval system](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
+
+13. Configure your approval system to use the **Application ID** as the client ID and the **client secret** you generated to authenticate with Azure AD.
 
 ## Create the API connectors
 
@@ -63,9 +62,9 @@ Next you'll [create the API connectors](self-service-sign-up-add-api-connector.m
 
    ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. The following is an example of a "Create Approval Request" API connector.
+- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. The following is an example of a "Request approval" API connector.
 
-   ![Create approval request API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+   ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 To create these connectors, follow the steps in [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector).
 
@@ -79,7 +78,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 4. Select **User flows (Preview)**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
    - **After signing in with an identity provider**: Select your approval status API connector, for example *Check approval status*.
-   - **Before creating the user**: Select your approval request API connector, for example *Create Approval Request*.
+   - **Before creating the user**: Select your approval request API connector, for example *Request approval*.
 
    ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -112,7 +111,7 @@ Content-type: application/json
 
 #### Continuation response for "Check approval status"
 
-The **Check approval status** API endpoint should return a **continuation response** if:
+The **Check approval status** API endpoint should return a continuation response if:
 
 - The user has not previously requested an approval.
 
@@ -130,7 +129,7 @@ Content-type: application/json
 
 #### Blocking response for "Check approval status"
 
-The **Check approval status** API endpoint should return a **blocking response** if:
+The **Check approval status** API endpoint should return a blocking response if:
 
 - User approval is pending
 - The user was denied and shouldn't be allowed to request approval again
@@ -187,7 +186,7 @@ Content-type: application/json
 
 #### Continuation response for "Request approval"
 
-The **Request approval** API endpoint should return a **continuation response** if:
+The **Request approval** API endpoint should return a continuation response if:
 
 - The user can be ***automatically approved***.
 
@@ -208,7 +207,7 @@ Content-type: application/json
 
 #### Blocking Response for "Request approval"
 
-The **Request approval** API endpoint should return a **blocking response** if:
+The **Request approval** API endpoint should return a blocking response if:
 
 - A user approval request was created and is now pending.
 - A user approval request was automatically denied.
@@ -314,7 +313,7 @@ Content-type: application/json
 
 If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
-1. Receive the HTTP request from the user flow.
+1. The approval system receives the HTTP request from the user flow.
 
 ```http
 POST <Approvals-API-endpoint>
@@ -329,7 +328,7 @@ Content-type: application/json
 }
 ```
 
-2. Create the invitation using the **email_address** provided by the API connector.
+2. The approval system creates the invitation using the `email_address` provided by the API connector.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations 
@@ -341,7 +340,7 @@ Content-type: application/json
 }
 ```
 
-The following is an example of the **response**:
+The following is an example of the response:
 
 ```http
 HTTP/1.1 201 OK
@@ -355,7 +354,7 @@ Content-type: application/json
 }
 ```
 
-3. Use the invited user's ID to update the user's account with collected user attributes (optional).
+3. The approval system uses the invited user's ID to update the user's account with collected user attributes (optional).
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
