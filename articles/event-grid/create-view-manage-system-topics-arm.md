@@ -13,8 +13,7 @@ ms.author: spelluru
 # Create system topics in Azure Event Grid using Resource Manager templates
 This article shows you how to create and manage system topics using Resource Manager templates. For an overview of system topics, see [System topics](system-topics.md).
 
-
-## To create a system topic first and then create an event subscription
+## Create system topic first and then create event subscription
 To create a system topic on an Azure source first and then create an event subscription for that topic, you can use a template like: 
 
 ```json
@@ -113,7 +112,7 @@ To create a system topic on an Azure source first and then create an event subsc
 
 See [Route Blob storage events to web endpoint by using Azure Resource Manager template](blob-event-quickstart-template.md) for instructions on creating system topics and subscription for them using Resource Manager templates. 
 
-## To create a system topic implicitly while creating an event subscription 
+## Create system topic while creating an event subscription 
 To create a system topic implicitly, while creating an event subscription on an Azure source, you could use the following template:
 
 ``` json

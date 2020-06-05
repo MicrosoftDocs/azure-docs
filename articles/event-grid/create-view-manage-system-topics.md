@@ -1,5 +1,5 @@
 ---
-title: Create, view, and manage system topics in Azure Event Grid
+title: Create, view, and manage system topics in Azure Event Grid (portal)
 description: This article shows how view existing system topic, create Azure Event Grid system topics using the Azure portal. 
 services: event-grid
 author: spelluru
@@ -10,11 +10,11 @@ ms.date: 06/02/2020
 ms.author: spelluru
 ---
 
-# Create, view, and manage system topics in Azure Event Grid
-This article shows you how to create and manage system topics using Azure portal, PowerShell, and CLI. For an overview of system topics, see [System topics](system-topics.md).
+# Create, view, and manage Event Grid system topics in the Azure portal
+This article shows you how to create and manage system topics using the Azure portal. For an overview of system topics, see [System topics](system-topics.md).
 
 ## Create a system topic
-You can create a system topic for an Azure resource in two ways:
+You can create a system topic for an Azure resource (Storage account, Event Hubs namespace, etc.) in two ways:
 
 - Using the resource page, for example, Storage Account page or Event Hubs Namespace page. 
 - Using the **Event Grid System Topics** page. 
@@ -88,12 +88,6 @@ Follow these steps to view all existing Event Grid system topics.
 3. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. Enter a name, select an **Endpoint Type**, and specify the **endpoint**. Then, select **Create** to create the event subscription. 
 
     ![System topic - create event subscription](./media/create-view-manage-system-topics/create-event-subscription.png)
-
-
-## PowerShell
-
-### Create a system topic
-Use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription?view=azps-4.2.0) to create a system topic for an Azure source. 
 
 ## Next steps
 See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 

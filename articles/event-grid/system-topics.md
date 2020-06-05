@@ -16,7 +16,6 @@ System topics are the topics created for Azure services such as Azure Storage an
 > [!NOTE]
 > This feature is currently not enabled for Azure Government cloud. 
 
-
 ## When you use Azure portal 
 When you use the Azure portal to create an event subscription for an event raised by an Azure source (for example: Azure Storage account), the portal creates a system topic for the Azure resource and then creates a subscription for the system topic. You specify the name of the system topic if you are creating an event subscription on the Azure resource for the first time. From the second time onwards, the system topic name is displayed for you in the read-only mode. 
 
@@ -37,14 +36,23 @@ For step-by-step instruction on creating, viewing, and managing system topics us
 > You can use the system topic name to discover metrics and diagnostic logs.
 
 ## PowerShell, CLI, and Resource Manager template
-When you use PowerShell, CLI, and Resource Manager templates, you can create a system topic for an Azure source (for example: Azure Storage) in two ways:
+When you use Azure CLI and Azure Resource Manager templates, you can create a system topic for an Azure source (for example: Azure Storage) in two ways:
 
 - Create a system topic separately, and then create an event subscription for that system topic
 - Create an event subscription on the Azure resource, which internally creates a system topic for you 
 
-When you use the first approach, the system topic isn't deleted when the last event subscription for that system topic is deleted. You will need to delete the system topic separately using commands or scripts. 
+When you use the first approach, the system topic isn't automatically deleted when the last event subscription for that system topic is deleted. You will need to delete the system topic separately using commands or scripts. 
 
 When you use the second approach, the system topic is automatically deleted when the last event subscription is deleted. 
+
+For more information about how to use CLI and Resource Manager templates, see the following articles:
+
+- [Create, view, and manage Event Grid system topics using Azure CLI](create-view-manage-system-topics-cli.md)
+- [Create Event Grid system topics using Azure Resource Manager templates](create-view-manage-system-topics-arm.md)
+
+Use the following PowerShell command for the second approach. 
+
+- [New-AzEventGridSubscription](/powershell/module/az.eventgrid/New-AzEventGridSubscription?view=azps-4.2.0)
 
 ## Location and resource group
 For Azure event sources that are in a specific region/location, system topic is created in the same location as the Azure event source. For example, if you create an event subscription for an Azure blob storage in East US, the system topic is created in East US. For global Azure event sources such as Azure subscriptions, resource groups, or Azure Maps, Event Grid creates the system topic in **global** location. 
