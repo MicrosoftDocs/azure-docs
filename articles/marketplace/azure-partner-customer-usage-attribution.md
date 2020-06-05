@@ -54,6 +54,9 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
+> [!NOTE]
+> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to the Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
 1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
