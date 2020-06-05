@@ -130,7 +130,7 @@ Perform the following steps in the Azure portal to order a device.
     >
     > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
 
-    To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.mdstorage-import-export-requirements.md#export-order-using-xml-file).
+    To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
 
