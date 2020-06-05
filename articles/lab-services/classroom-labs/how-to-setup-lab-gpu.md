@@ -35,14 +35,14 @@ As described in the following table, the compute GPU size is intended for comput
 
 | Size | Cores | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| Small GPU (compute) | - 6&nbsp;cores<br>- 56&nbsp;GB&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications such as AI and Deep Learning. |
+| Small GPU (compute) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications such as AI and Deep Learning. |
 
 The *visualization* sizes are intended for graphics-intensive applications.  For example, the [SolidWorks engineering class type](./class-type-solidworks.md) shows using the *small GPU (visualization)* size.  The *visualization* GPU is suitable for this type of class since students interact with SolidWorks' 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
 | Size | Cores | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| Small GPU (visualization) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
-| Medium GPU (visualization) | <ul><li>12&nbsp;cores</li><li>112&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Small GPU (visualization) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Medium GPU (visualization) | -&nbsp;12&nbsp;cores<br>-&nbsp;112&nbsp;GB&nbsp;RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 ## Ensure that the appropriate GPU drivers are installed
 To take advantage of the GPU capabilities of your lab VMs, ensure that the appropriate GPU drivers are installed.  In the lab creation wizard, when you select a GPU VM size, you can select the **Install GPU drivers** option.  
