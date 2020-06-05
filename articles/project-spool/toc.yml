@@ -20,6 +20,8 @@
   items:
   - name: Get Started
     href: quickstarts/get-started.md
+  - name: Create a communication resource
+    href: quickstarts/create-a-communication-resource.md
   - name: Configure Your Server
     href: quickstarts/configure-server.md
   - name: Capture A Local Video Stream
@@ -108,8 +110,12 @@
     href: concepts/sms.md
   - name: SDK Options
     href: concepts/sdk-options.md
-  - name: ACS Metrics
-    href: concepts/azure-communication-metric-definitions.md
+  - name: Diagnostics and metrics
+    items:
+      - name: Metrics definitions 
+        href: concepts/azure-communication-metric-definitions.md
+      - name: Leveraging metrics and logs
+        href: concepts/most-out-of-metrics-logs.md
   - name: Pricing Model
     href: concepts/pricing.md
   #- name: Security Model
