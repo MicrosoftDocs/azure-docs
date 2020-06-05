@@ -3,7 +3,7 @@ title: Host your mobile application source code in the cloud with GitHub and Azu
 description: Learn about the services to host your mobile application code in the cloud with Microsoft services.
 author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

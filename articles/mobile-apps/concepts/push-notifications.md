@@ -3,7 +3,7 @@ title: The importance of push notifications in your mobile apps with Visual Stud
 description: Learn about services such as Visual Studio App Center that you can use to engage with your mobile application users.
 author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

@@ -3,7 +3,7 @@ title: Monitor your application for real-time failures and errors with Visual St
 description: Learn about App Center as a service to monitor your mobile application for failures and errors.
 author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

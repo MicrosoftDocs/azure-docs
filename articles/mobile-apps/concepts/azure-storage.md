@@ -3,7 +3,7 @@ title: Cloud storage to build highly secure, durable, scalable apps with Azure S
 description: Learn about the services to store large structured and non-structured mobile application data in the cloud.
 author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou

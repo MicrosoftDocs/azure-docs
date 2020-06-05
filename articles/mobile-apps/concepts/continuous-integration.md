@@ -3,7 +3,7 @@ title: Automate the lifecycle of your apps with Visual Studio App Center and Azu
 description: Learn about the services such as App Center that help set up continuous build and integration for your mobile applications.
 author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
-ms.service: vs-appcenter
+ms.service: mobile-services
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
