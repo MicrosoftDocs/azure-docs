@@ -96,7 +96,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 7. Add the following code to the Constants.h file:
 
-   ```objectivec
+   ```objc
    #ifndef Constants_h
    #define Constants_h
    extern NSString* const NHInfoConnectionString;
@@ -111,7 +111,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 9. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you previously obtained from the portal:
 
-   ```objectivec
+   ```objc
    #import <Foundation/Foundation.h>
    #import "Constants.h"
 
@@ -121,7 +121,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 10. Open your project **AppDelegate.h** file and replace its contents with the following code:
 
-    ```objectivec
+    ```objc
     #import <UIKit/UIKit.h>
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     #import <UserNotifications/UserNotifications.h> 
@@ -138,20 +138,20 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 11. In the project **AppDelegate.m** file, add the following `import` statements:
 
-    ```objectivec
+    ```objc
     #import "Constants.h"
     #import "NotificationDetailViewController.h"
     ```
 
 12. Also in your **AppDelegate.m** file, add the following line of code in the `didFinishLaunchingWithOptions` method, based on your version of iOS. This code registers your device handle with APNs:
 
-    ```objectivec
+    ```objc
     [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     ```
 
 13. In the same **AppDelegate.m** file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
 
-    ```objectivec
+    ```objc
     // Tells the app that a remote notification arrived that indicates there is data to be fetched.
 
     - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
@@ -299,7 +299,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 1. Similar to the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the new header file with the following code:
 
-   ```objectivec
+   ```objc
    #import <UIKit/UIKit.h>
 
    NS_ASSUME_NONNULL_BEGIN
@@ -321,7 +321,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 2. Add the implementation file **NotificationDetailViewController.m**. Replace the contents of the file with the following code, which implements the UIViewController methods:
 
-   ```objectivec
+   ```objc
    #import "NotificationDetailViewController.h"
 
    @interface NotificationDetailViewController ()
@@ -386,14 +386,14 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 1. In the project **ViewController.h** file, add the following `import` statements:
 
-   ```objectivec
+   ```objc
    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
    #import <UserNotifications/UserNotifications.h>
    ```
 
 2. Also in **ViewController.h**, add the following property declarations after the `@interface` declaration:
 
-   ```objectivec
+   ```objc
    @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
    @property (strong, nonatomic) IBOutlet UIButton *registerButton;
    @property (strong, nonatomic) IBOutlet UIButton *unregisterButton;
@@ -401,7 +401,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 3. In the project's **ViewController.m** implementation file, replace the contents of the file with the following code:
 
-   ```objectivec
+   ```objc
    #import "ViewController.h"
    #import "Constants.h"
    #import "AppDelegate.h"
