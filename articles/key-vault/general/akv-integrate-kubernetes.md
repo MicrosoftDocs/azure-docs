@@ -1,6 +1,6 @@
 ---
 title: Integrate Key Vault with Kubernetes #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: In this tutorial, you will access and retrieve secrets from Azure Key Vault using the Secrets Store CSI Driver to then mount into Kubernetes pods. #Required; article description that is displayed in search results. Include the word "tutorial".
+description: In this tutorial, you'll access and retrieve secrets from Azure Key Vault using the Secrets Store CSI Driver to then mount into Kubernetes pods. #Required; article description that is displayed in search results. Include the word "tutorial".
 author: taytran0 #Required; your GitHub user alias, with correct capitalization.
 ms.author: t-trtr #Required; microsoft alias of author; optional team alias.
 ms.service: key-vault #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -10,7 +10,7 @@ ms.date: 06/04/2020 #Required; mm/dd/yyyy format.
 
 # Tutorial: Configure and run the Azure Key Vault provider for Secret Store CSI driver on Kubernetes
 
-In this tutorial, you will access and retrieve secrets from Azure Key Vault using the Secrets Store CSI driver to then mount into Kubernetes pods.
+In this tutorial, you'll access and retrieve secrets from Azure Key Vault using the Secrets Store CSI (Container Storage Interface) driver to then mount into Kubernetes pods.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ Before you start this tutorial, install the [Azure CLI](https://docs.microsoft.c
 
 ## Create a service principal
 
-We are going to create an service principal to control what resources can be accessed from your Azure Key Vault and Kubernetes cluster. This service principal's access is restricted by the roles assigned to it, giving you control over how it can manage your secrets.
+Create a service principal to control what resources can be accessed from your Azure Key Vault. This service principal's access is restricted by the roles assigned to it, giving you control over how it can manage your secrets.
 
 ```azurecli
 az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
@@ -36,11 +36,11 @@ This operation returns a series of key/values pairs:
 
 ![Image](../media/kubernetes-akv-csi-1.png)
 
-Copy down the **appID** and **password**. You will need these credentials later.
+Copy down the **appID** and **password**. You'll need these credentials later.
 
 ## Deploy an Azure Kubernetes Service cluster using Azure CLI
 
-You do not need to use Azure Cloud Shell, your Command Prompt (Terminal) with Azure CLI installed will do. Follow this [guide](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) and complete the following sections: Create a resource group, Create AKS cluster, and Connect to the cluster.
+You don't need to use Azure Cloud Shell, your Command Prompt (Terminal) with Azure CLI installed will do. Follow this [guide](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) and complete the following sections: Create a resource group, Create AKS cluster, and Connect to the cluster.
 
 1. [Set your PATH environment variable](https://www.java.com/en/download/help/path.xml) to the “kubectl.exe” file that was downloaded.
 1. Check your Kubernetes version using the command below. This command will output the client and server version. The client version is the "kubectl.exe" you installed while the server version is the Azure Kubernetes Services that your cluster is running on.
@@ -55,11 +55,11 @@ You do not need to use Azure Cloud Shell, your Command Prompt (Terminal) with Az
 
 ## Install Helm and Secrets Store CSI Driver
 
-You will need to install [Helm](https://helm.sh/docs/intro/install/) in order to install the Secrets Store CSI (Container Storage Interface) driver.
+You'll need to install [Helm](https://helm.sh/docs/intro/install/) to install the Secrets Store CSI driver.
 
 The [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) driver interface allows you to get secret content(s) stored in an Azure Key Vault instance and use the driver interface to mount those secret content(s) into Kubernetes pods.
 
-1. Check the Helm version and ensure that it is v3 or greater:
+1. Check the Helm version and ensure that it's v3 or greater:
     ```azurecli
     helm version
     ```
@@ -74,13 +74,13 @@ The [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provid
 
 Follow this [guide](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli) to create your own Key Vault and set your secrets.
 
-Note: You do not need to use the Azure Cloud Shell or create a new resource group. Using the resource group created earlier for the Kubernetes cluster is fine.
+Note: You don't need to use the Azure Cloud Shell or create a new resource group. Using the resource group created earlier for the Kubernetes cluster is fine.
 
 ## Create your own SecretProviderClass Object
 
 Use this [template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass.yaml) provided to create your own custom SecretProviderClass Object to provide provider-specific parameters for the Secrets Store CSI driver. This object will provide identity access to your Key Vault.
 
-Using the sample SecretProviderClass YAML file provided. You are going to fill in the missing parameters. The following parameters are required:
+Using the sample SecretProviderClass YAML file provided. You're going to fill in the missing parameters. The following parameters are required:
 
 1.	**userAssignedIdentityID:** Client ID of Service Principal
 1.	**keyvaultName:** Name of Key Vault
@@ -169,7 +169,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
     ```azurecli
     kubectl apply -f updateDeployment.yaml
     ```
-1. To display the pods that you have deployed:
+1. To display the pods that you've deployed:
     ```azurecli
     kubectl get pods
     ```
@@ -180,7 +180,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
     ![Image](../media/kubernetes-akv-csi-5.png)
 
 The deployed pod should be in the “Running” state. In the “Events” section at the bottom, all the types of events to the left are classified as “Normal.”
-Once you have verified that the pod deployment is running, you can validate that your pod has the secrets from your Key Vault.
+Once you've verified the pod is running, you can verify your pod has the secrets from your Key Vault.
 
 To display all the secrets that the pod has:
 ```azurecli
