@@ -252,7 +252,7 @@ You can orchestrate a wide variety of tasks in Azure Synapse. In this section, y
 1. In **Choose trigger** select **New**, and then in recurrence set the trigger to run every 1 hour.
 1. Select **OK**.
 1. Select **Publish All** and the pipeline will run every hour.
-1. If you want to make the pipeline run now without waiting for the next hour, select **Add trigger > New/edit**.
+1. If you want to make the pipeline run now without waiting for the next hour, select **Add trigger > Trigger now**.
 
 ## Working with data in a storage account
 
