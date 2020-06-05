@@ -51,7 +51,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
     A workaround for this query is to use the `.map()` step to induce a subquery that is optimized to use the index. This is exemplified below:
 
     ```java
-    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b')
+    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
     ```
 
 ## Next steps
