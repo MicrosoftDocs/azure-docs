@@ -293,23 +293,18 @@ landingContent:
     linklists:
     - linkListType: reference
       links:
-      - url: https://feedback.azure.com/forums/906772-cost-management
-        itemType: how-to-guide
-        text: Cost Management feedback
-      - url: https://twitter.com/azurecostmgmt
-        itemType: how-to-guide
-        text: Cost Management on Twitter
-      - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
-        itemType: how-to-guide
-        text: Azure Cost Management Tech Community
-      - url: https://feedback.azure.com/forums/170030-signup-and-billing
-        itemType: how-to-guide
-        text: Request a Billing service feature
-      - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
-        itemType: how-to-guide
-        text: Azure Billing Tech Community
-      - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-        itemType: how-to-guide
-        text: Ask a Cost Management and Billing question
+      - text: Cost Management feedback
+        url: https://feedback.azure.com/forums/906772-cost-management
+      - text: Cost Management on Twitter
+        url: https://twitter.com/azurecostmgmt
+      - text: Azure Cost Management Tech Community
+        url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
+      - text: Request a Billing service feature
+        url: https://feedback.azure.com/forums/170030-signup-and-billing
+      - text: Azure Billing Tech Community
+        url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
+      - text: Ask a Cost Management and Billing question
+        url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
+
 
 
