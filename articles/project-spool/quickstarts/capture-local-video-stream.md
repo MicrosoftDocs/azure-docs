@@ -23,7 +23,8 @@ In this quickstart, you'll learn how to capture a local video stream from a came
 ### Prerequisites
 - An active Azure Communication Services resource. [This quickstart](./get-started.md) shows you how to create and manage your first resource.
 - A camera-equipped device with the latest version of Chrome or Edge installed.
-- An instance of the ACS calling client.
+- The ACS client-side JS SDK.
+
 
 ### Capture The Stream
 
