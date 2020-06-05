@@ -14,6 +14,7 @@
     - name: Azure portal
       href: stream-analytics-quick-create-portal.md
     - name: ARM template
+      displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
@@ -114,6 +115,8 @@
   items:
   - name: Manage
     items:
+    - name: Autoscale jobs
+      href: stream-analytics-autoscale.md
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure event ordering policies
@@ -611,6 +614,8 @@
     href: /rest/api/streamanalytics
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
+  - name: Azure CLI
+    href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Resources
   items:
   - name: Stream Analytics previews
