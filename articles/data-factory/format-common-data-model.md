@@ -26,12 +26,12 @@ The below table lists the properties supported by a CDM source.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | The is always `cdm` | yes | `cdm` | format |
+| Format | Format must be `cdm` | yes | `cdm` | format |
 | Metadata format | Where the entity reference to the data is located. If using CDM version 1.0, choose manifest. If using a CDM version before 1.0, choose model.json. | Yes | `'manifest'` or `'model'` | manifestType |
 | Root location: container | Container name of the CDM folder | yes | String | fileSystem |
 | Root location: folder path | Root folder location of CDM folder | yes | String | folderPath |
 | Manifest file: Entity path | Folder path of the entity within the root folder | no | String | entityPath |
-| Manifest file: Manifest name | Name of the manifest file  | yes, if using manifest | String | manifestName |
+| Manifest file: Manifest name | Name of the manifest file  | No | String | manifestName |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Schema linked service | The linked service where the corpus is located | yes, if using manifest | `'adlsgen2'` or `'github'` | corpusStore | 
 | Entity reference container | Container corpus is in | yes, if using manifest and corpus in ADLS Gen2 | String | adlsgen2_fileSystem |
@@ -49,11 +49,11 @@ The below table lists the properties supported by a CDM sink.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | The is always `cdm` | yes | `cdm` | format |
+| Format | Format must be `cdm` | yes | `cdm` | format |
 | Root location: container | Container name of the CDM folder | yes | String | fileSystem |
 | Root location: folder path | Root folder location of CDM folder | yes | String | folderPath |
 | Manifest file: Entity path | Folder path of the entity within the root folder | no | String | entityPath |
-| Manifest file: Manifest name | Name of the manifest file  | yes | String | manifestName |
+| Manifest file: Manifest name | Name of the manifest file  | No | String | manifestName |
 | Schema linked service | The linked service where the corpus is located | yes | `'adlsgen2'` or `'github'` | corpusStore | 
 | Entity reference container | Container corpus is in | yes, if corpus in ADLS Gen2 | String | adlsgen2_fileSystem |
 | Entity reference Repository | GitHub repository name | yes, if corpus in GitHub | String | github_repository |
