@@ -98,7 +98,7 @@ You can find the information that you need to populate the `register_azure_*()` 
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
 * If you plan to use a service principle for authentication, go to your **App registrations** and select which app you want to use. 
-    * Its corresponding **Overview** page will contain required information like tenant ID and client iD .
+    * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
 > For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to sync your updated credentials with [these steps](how-to-change-storage-access-key.md). 
