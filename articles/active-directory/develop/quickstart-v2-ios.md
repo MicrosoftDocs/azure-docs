@@ -69,10 +69,10 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 > 
 > #### Step 2: Download the sample project
-> > [!div id="autoupdate" class="nextstepaction"]
+> > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Download the code sample for iOS]()
 > 
-> > [!div id="autoupdate" class="nextstepaction"]
+> > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Download the code sample for macOS]()
 > [!div renderon="docs"]
 > #### Step 2: Download the sample project
