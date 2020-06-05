@@ -343,6 +343,8 @@ There are a few options you can define to end your experiment.
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
 
+For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
+
 ## Understand automated ML models
 
 Any model produced using automated ML includes the following steps:
