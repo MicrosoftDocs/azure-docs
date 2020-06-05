@@ -7,7 +7,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 06/03/2020
 ---
 
 # Source transformation in mapping data flow 
@@ -20,7 +20,23 @@ Every data flow requires at least one source transformation, but you can add as 
 
 Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
 
-## Supported source connectors in mapping data flow
+## Inline datasets
+
+The first decision you make when creating a source transformation is whether your source information is defined inside a dataset object or within the source transformation. Most formats are only available in one or the other. Please reference the appropriate connector document to learn how to use a specific connector.
+
+When a format is supported for both inline and in a dataset object, there are benefits to both. Dataset objects are reusable entities that can be leveraged in other data flows and activities such as Copy. These are especially useful when using a hardened schema. Datasets are not based in Spark and occasionally you may need to override certain settings or schema projection in the source transformation.
+
+Inline datasets are recommended when using flexible schemas, one-off source instances, or parameterized sources. If your source is heavily parameterized, in-line datasets allow you to not create a "dummy" object. Inline datasets are based in spark and their properties are native to data flow.
+
+To use an inline dataset, select the desired format in the **Source type** selector. Instead of selecting a source dataset, you select the linked service you wish to connect to.
+
+![Inline dataset](media/data-flow/inline-selector.png "Inline dataset")
+
+### Supported inline dataset formats
+
+Currently the only available inline dataset format is the [Common Data Model](format-common-data-model.md#source-properties) read from [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
+
+## Supported source datasets in mapping data flow
 
 Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
     

@@ -6,12 +6,25 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
 ---
 # Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
+
+## Version 2.52
+
+**Release Date: June 4, 2020**
+
+**Fixes:**
+
+- Added support for vCenter 7.0
+- Added support for following operating systems:
+
+    - SUSE Linux Enterprise 15 (with all minor versions)
+    - Red Hat Enterprise Linux 8 (with all minor versions)
+
 
 ## Version 2.51
 

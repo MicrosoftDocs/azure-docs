@@ -5,7 +5,7 @@ description: Learn how to work around, solve, and troubleshoot the common Docker
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens

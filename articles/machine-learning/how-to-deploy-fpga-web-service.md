@@ -5,7 +5,7 @@ description: Learn how to deploy a web service with a model running on an FPGA w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
