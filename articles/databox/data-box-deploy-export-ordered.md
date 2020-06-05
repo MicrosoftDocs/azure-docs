@@ -17,8 +17,8 @@ Azure Data Box is a hybrid solution that allows you to move data out of Azure in
 
 You may need to export data for:
 
-* disaster recovery
-* government and security
+* disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored
+* offline data copy for government and security
 * content distribution
 * data backup or replication
 
@@ -41,7 +41,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 [!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
-* Make sure that you have an existing resource group that you can use with your Azure Data Box. You can also create a new resource group inline when creating the order.
+* Make sure that you have an existing resource group that you can use with your Azure Data Box.
 
 ### For device
 
@@ -58,8 +58,8 @@ Before you begin, make sure that:
 >
 > * Azure Data Lake Storage (ADLS) Gen2 storage accounts are not supported for Export.
 > * Append blob storage is also not supported for export.
-> * A maximum of 80 TBs can be exported.
-> * File history is not exported.
+> * A maximum of 80 TB can be exported.
+> * File history and incremental snapshots are not exported.
 
 ### Export order limits
 
@@ -82,10 +82,10 @@ Perform the following steps in the Azure portal to order a device.
    ![Create resource](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
 3. Select **Create**.
-
+<!-- Anusha 06/04/20: Can we use a different screenshot for create? Maybe the one with the +Add button, similar to import? This is because the gallery package with the updated description for Data Box has not yet been pushed to the marketplace so the info in this screenshot will be inaccurate-->
     ![Create Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
-4. Check if Azure Data Box service is available in your region. In this preview release, export feature is available in US and EU. Enter or select the following information and select **Apply**.
+4. Check if Azure Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -122,9 +122,9 @@ Perform the following steps in the Azure portal to order a device.
     |Setting  |Value  |
     |---------|---------|
     |Storage account     | The Azure Storage account from where you want to export data. |
-    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<ul><li> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.</li><li> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is not supported for the preview release. The file needs to be a non-empty .xml file.</li></ul>        |
+    |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<ul><li> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.</li><li> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is currently not supported. The file needs to be a non-empty .xml file.</li></ul>        |
     |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
-    |Include verbose log     | Indicates whether you want a verbose log file that contains all operations and files that were transferred.        |
+    |Include verbose log     | Indicates whether you want a verbose log file that contains a list of all files that were exported successfully.        |
 
     > [!NOTE]
     >
@@ -148,7 +148,7 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Validate shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-07.png)
 
-    After the order is placed successfully, if self-managed shipping was selected, you will receive an email notification. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
+    If you are ordering in a region where self-managed shipping is available, you can select this option. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
 12. Select **Add shipping address** once the shipping details have been validated successfully.
 
@@ -158,7 +158,7 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Order details](media/data-box-deploy-export-ordered/azure-data-box-export-09.png)
 
-14. Select **Next: Review + Order>**.
+14. Select **Next: Review + Order>**. You must accept the terms and conditions to proceed with order creation.
 
 15. Select **Order**. The order takes a few minutes to be created.
 
@@ -208,21 +208,27 @@ If the device is not available, you will receive a notification. If the device i
 * For each share, access credentials such as username and password are generated.
 * The device is locked and can be accessed only using the device unlock password. To retrieve the password, you need to log in to your Azure portal account and select **Device details**.
 
-When the device preparation is complete, the portal shows the order in **Processed** state.
+When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
+
+<!-- Anusha 06/04/20: This screenshot needs to be updated. As soon as processing is done, data copy will begin so the user will never see the processed state -->
 
 ![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15.png)
 
-Data Box copies data from the source storage account. Once the data copy is complete, Data Box is locked.
+Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked.
 
 Microsoft then prepares and dispatches your device through a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
 ![Data Box export order dispatched](media/data-box-deploy-export-ordered/azure-data-box-export-16.png)
 
+If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter.
+
+<!-- Anusha 06/04/20: Insert screenshot for export order in ready for pick up state -->
+
 ## Cancel the order
 
 To cancel this order, in the Azure portal, go to **Overview** and select **Cancel** from the command bar.
 
-After placing an order, you can cancel it at any point before the order status is marked processed.
+After placing an order, you can cancel it at any point before the order starts processing.
 
 To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
 
