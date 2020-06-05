@@ -6,9 +6,9 @@
  ms.topic: include
 ---
 
-### Send a test notification ([Postman](https://www.postman.com/downloads/))
+### Send a test notification
 
-1. Open a new tab in **Postman**.
+1. Open a new tab in [Postman](https://www.postman.com/downloads/).
 
 1. Set the request to **POST**, and enter the following address:
 
@@ -34,7 +34,7 @@
     }
     ```
 
-1. Select the **Code** button, which is under the **Save** button on the upper-right of the window. The request should look similar to the following example when displayed for **HTML** (depending on whether you included an **apikey** header):
+1. Select the **Code** button, which is under the **Save** button on the upper right of the window. The request should look similar to the following example when displayed for **HTML** (depending on whether you included an **apikey** header):
 
     ```html
     POST /api/notifications/requests HTTP/1.1
@@ -48,20 +48,20 @@
     }
     ```
 
-1. Run the **PushDemo** application on **Android** and/or **iOS**.
+1. Run the **PushDemo** application on one or both of the target platforms (**Android** and **iOS**).
 
     > [!NOTE]
     > If you are testing on **Android** ensure that you are not running in **Debug**, or if the app has been deployed by running the application then force close the app and start it again from the launcher.
 
 1. In the **PushDemo** app, tap on the **Register** button.
 
-1. Back in **Postman**, close the **Generate Code Snippets** window (if you have not done so already) then click the **Send** button.
+1. Back in **Postman**, close the **Generate Code Snippets** window (if you haven't done so already) then click the **Send** button.
 
 1. Validate that you get a **200 OK** response in **Postman** and the alert appears in the app showing **ActionA action received**.  
 
 1. Close the **PushDemo** app, then click the **Send** button again in **Postman**.
 
-1. Validate that you get a **200 OK** response in **Postman** again and that a notification appears in the notification area for the **PushDemo** app with the correct message (*Message from backend service*) displayed. 
+1. Validate that you get a **200 OK** response in **Postman** again. Validate that a notification appears in the notification area for the **PushDemo** app with the correct message.
 
 1. Tap on the notification to confirm that it opens the app and displayed the **ActionA action received** alert.
 

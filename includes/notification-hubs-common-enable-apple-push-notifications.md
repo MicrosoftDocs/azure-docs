@@ -22,7 +22,7 @@ To send push notifications to an iOS app, register your application with Apple, 
 
    * **Description**: Type a descriptive name for your app.
 
-   * **Bundle ID**: Enter a Bundle ID of the form **com.<organization_identifier>.<product_name>** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). In the following screenshot, the **mobcat** value is used as an organization identifier and the **PushDemo** value is used as the product name.
+   * **Bundle ID**: Enter a Bundle ID of the form **com.<organization_identifier>.<product_name>** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). In the following screenshot, the `mobcat` value is used as an organization identifier and the **PushDemo** value is used as the product name.
 
       ![iOS Provisioning Portal register app ID page](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-new-appid-bundle.png)
 
@@ -36,19 +36,19 @@ To send push notifications to an iOS app, register your application with Apple, 
 
       After you select **Register**, you see the new App ID as a line item in the **Certificates, Identifiers & Profiles** page.
 
-1. In the **Certificates, Identifiers & Profiles** page, under **Identifiers**, locate the App ID line item that you just created, and select its row to display the **Edit your App ID Configuration** screen.
+1. In the **Certificates, Identifiers & Profiles** page, under **Identifiers**, locate the App ID line item that you created. Then, select its row to display the **Edit your App ID Configuration** screen.
 
 #### Creating a Certificate for Notification Hubs
 
-A certificate is required to enable the notification hub to work with **APNS**. This can be done in one of two ways:
+A certificate is required to enable the notification hub to work with **APNS** and can be provided in one of two ways:
 
-1. [Creating a .p12 push certificate that can be uploaded directly to Notification Hub](#option-1:-creating-a-.p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub) (*the original approach*)
+1. [Creating a p12 push certificate that can be uploaded directly to Notification Hub](#option-1:-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub) (*the original approach*)
 
-1. [Creating a .p8 certificate that can be used for token-based authentication](#option-2:-creating-a-.p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
+1. [Creating a p8 certificate that can be used for token-based authentication](#option-2:-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
 
-The newer approach has a number of benefits (compared to using certificates) as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification), involves fewer steps, and is required for specific scenarios. However, steps have been provided for both approaches either will work for the purposes of this tutorial.
+The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches either will work for the purposes of this tutorial.
 
-##### OPTION 1: Creating a .p12 push certificate that can be uploaded directly to Notification Hub
+##### OPTION 1: Creating a p12 push certificate that can be uploaded directly to Notification Hub
 
 1. On your Mac, run the Keychain Access tool. It can be opened from the **Utilities** folder or the **Other** folder on the Launchpad.
 
@@ -61,7 +61,7 @@ The newer approach has a number of benefits (compared to using certificates) as 
 
 1. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
 
-    ![Required certificate information](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-csr-info.png)
+    ![Expected certificate information](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
 1. Enter a name for the **Certificate Signing Request (CSR) file** in **Save As**, select the location in **Where**, and then select **Save**.
 
@@ -73,7 +73,7 @@ The newer approach has a number of benefits (compared to using certificates) as 
 
     ![Edit App ID page](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-1. The **Apple Push Notification service SSL Certificates** window appears. Select the **Create Certificate** button under the **Development SSL Certificate** section.
+1. The **Apple Push Notification service TLS/SSL Certificates** window appears. Select the **Create Certificate** button under the **Development TLS/SSL Certificate** section.
 
     ![Create certificate for App ID button](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
@@ -102,37 +102,37 @@ The newer approach has a number of benefits (compared to using certificates) as 
     > [!NOTE]
     > Although the name in your certificate might be different, the name will be prefixed with **Apple Development iOS Push Services** and have the appropriate bundle identifier associated with it.
 
-1. In Keychain Access, **Control** + **Click** on the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
+1. In Keychain Access, **Control** + **Click** on the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **p12** format, and then select **Save**.
 
     ![Export certificate as p12 format](./media/notification-hubs-common-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNs.
+    You can choose to protect the certificate with a password, but a password is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported p12 certificate. They're used to enable authentication with APNs.
 
     > [!NOTE]
-    > Your .p12 file name and location might be different than what is pictured in this tutorial.
+    > Your p12 file name and location might be different than what is pictured in this tutorial.
 
-##### OPTION 2: Creating a .p8 certificate that can be used for token-based authentication
+##### OPTION 2: Creating a p8 certificate that can be used for token-based authentication
 
 1. Make note of the following details:
 
-    * **App ID Prefix** (this is a **Team ID**)
+    * **App ID Prefix** (**Team ID**)
     * **Bundle ID**
 
 1. Back in **Certificates, Identifiers & Profiles**, click **Keys**.
 
    > [!NOTE]
-   > If you already have a key configured for **APNs**, you can re-use the .p8 certificate that you downloaded right after it was created. If so, you can ignore steps **3** through **5**.
+   > If you already have a key configured for **APNs**, you can re-use the p8 certificate that you downloaded right after it was created. If so, you can ignore steps **3** through **5**.
 
 1. Click the **+** button (or the **Create a key** button) to create a new key.
 1. Provide a suitable **Key Name** value, then check the **Apple Push Notifications service (APNs)** option, and then click **Continue**, followed by **Register** on the next screen.
-1. Click **Download** and then move the **.p8** file (prefixed with *AuthKey_*) to a secure local directory, then click **Done**.
+1. Click **Download** and then move the **p8** file (prefixed with *AuthKey_*) to a secure local directory, then click **Done**.
 
    > [!NOTE]
-   > Be sure to keep your .p8 file in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded as the server copy is removed.
+   > Be sure to keep your p8 file in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded as the server copy is removed.
   
-1. On **Keys**, click on the key that you just created (or an existing key if you have chosen to use that instead).
+1. On **Keys**, click on the key that you created (or an existing key if you have chosen to use that instead).
 1. Make note of the **Key ID** value.
-1. Open your .p8 certificate in a suitable application of your choice such as [**Visual Studio Code**](https://code.visualstudio.com) then make note of the key value. This is the value between **-----BEGIN PRIVATE KEY-----** and **-----END PRIVATE KEY-----**.
+1. Open your p8 certificate in a suitable application of your choice such as [**Visual Studio Code**](https://code.visualstudio.com). Make note of the key value (between **-----BEGIN PRIVATE KEY-----** and **-----END PRIVATE KEY-----**).
 
     -----BEGIN PRIVATE KEY-----  
     <key_value>  
@@ -146,7 +146,7 @@ At the end of these steps you should have the following information for use late
 * **Team ID** (see step 1)
 * **Bundle ID** (see step 1)
 * **Key ID** (see step 7)
-* **Token value** i.e. the .p8 key value (see step 8)
+* **Token value** (p8 key value obtained in step 8)
 
 ### Create a provisioning profile for the app
 
@@ -167,7 +167,7 @@ At the end of these steps you should have the following information for use late
 
 1. Return to the **Certificates, Identifiers & Profiles** page, select **Profiles** from the left menu, and then select **+** to create a new profile. The **Register a New Provisioning Profile** screen appears.
 
-1. In the **Select certificates** window, select the development certificate that you just created. Then select **Continue**.
+1. In the **Select certificates** window, select the development certificate that you created. Then select **Continue**.
 
 1. Next, select the devices to use for testing, and select **Continue**.
 

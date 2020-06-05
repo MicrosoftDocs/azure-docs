@@ -26,7 +26,10 @@
 
         ![Download google-services.json](./media/notification-hubs-common-enable-firebase-cloud-messaging/download-google-service-button.png)
     1. Select **Next**.
-    1. Select **Continue to console** or select **Skip this step** if the **Continue to console** button is not enabled due to the *verify installation* check.
+    1. Select **Continue to console**
+
+        > [!NOTE]
+        > If the **Continue to console** button is not enabled, due to the *verify installation* check, then choose **Skip this step**.
 
 1. In the Firebase console, select the cog for your project. Then select **Project Settings**.
 

@@ -8,9 +8,9 @@
 
 ### Create a notification hub 
 
-In this section, you create a notification hub and configure authentication with APNs by using either the .p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
+In this section, you create a notification hub and configure authentication with **APNS**. You can use a p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure](https://portal.azure.com).
 
 1. Click **Create a resource**, then search for and choose **Notification Hub**, the click **Create**.
 
@@ -38,6 +38,6 @@ In this section, you create a notification hub and configure authentication with
     > Unless you have reached the maximum number of hubs on the free tier).
 
 1. Once the **Notification Hub** has been provisioned, navigate to that resource.
-1. Navigate to your new **Notification Hub** in the **Azure Portal**.
+1. Navigate to your new **Notification Hub**.
 1. Select **Access Policies** from the list (under **MANAGE**).
 1. Make note of the **Policy Name** values along with their corresponding **Connection String** values.

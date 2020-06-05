@@ -33,7 +33,7 @@
 
 1. **Control** + **Click** on the **PushDemoApi** project, then choose **New File...** from the **Add** menu.
 
-1. Set up local configuration values using the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=linux#secret-manager). This ensures that the files will not end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
+1. Set up local configuration values using the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=linux#secret-manager). Decoupling the secrets from the solution ensures that they don't end up in source control. Open **Terminal** then go to the directory of the project file and run the following commands:
 
     ```bash
     dotnet user-secrets init
@@ -41,7 +41,7 @@
     dotnet user-secrets set "NotificationHub:ConnectionString" <value>
     ```
 
-    Replace the placeholder values with your own notification hub name and connection string values. You made a note of these in the [create a notification hub](#create-a-notification-hub) section. Otherwise, you can find these by navigating to your notification hub in the [Azure Portal](https://portal.azure.com) then:
+    Replace the placeholder values with your own notification hub name and connection string values. You made a note of them in the [create a notification hub](#create-a-notification-hub) section. Otherwise, you can look them up in [Azure](https://portal.azure.com).
 
     **NotificationsHub:Name**:  
     See *Name* in the **Essentials** summary at the top of **Overview**.  
@@ -54,7 +54,7 @@
 
 ### [OPTIONAL] Authenticate clients using an API Key
 
-API keys aren't as secure as tokens, but they will suffice for the purposes of this tutorial. This can be set up easily via the [ASP.NET Middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
+API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
 
 1. Add the **API key** to the local configuration values.
 
@@ -188,7 +188,7 @@ API keys aren't as secure as tokens, but they will suffice for the purposes of t
     }
     ```
 
-1. Still in **Startup.cs**, update the **Configure** method to call the **UseAuthentication** and **UseAuthorization** extension methods on the app's **IApplicationBuilder** after the call to **UseRouting** and before **app.UseEndpoints**.
+1. Still in **Startup.cs**, update the **Configure** method to call the **UseAuthentication** and **UseAuthorization** extension methods on the app's **IApplicationBuilder**. Ensure those methods are called after **UseRouting** and before **app.UseEndpoints**.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -220,11 +220,11 @@ API keys aren't as secure as tokens, but they will suffice for the purposes of t
 
 ASP.NET Core supports the [dependency injection (DI)](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.  
 
-You will implement a service, along with the requisite model objects, to enable the use of **Azure Notification Hubs** via the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) and register this via an abstraction.
+Use of the notification hub and the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) is encapsulated within a service. The service is registered and made available through a suitable abstraction.
 
 1. **Control** + **Click** on the **Dependencies** folder, then choose **Manage NuGet Packages...**.
 
-1. Search for **Microsoft.Azure.NotificationHubs** and ensure it is checked.
+1. Search for **Microsoft.Azure.NotificationHubs** and ensure it's checked.
 
 1. Click **Add Packages**, then click **Accept** when prompted to accept the license terms.
 
@@ -548,7 +548,7 @@ You will implement a service, along with the requisite model objects, to enable 
     }
     ```
 
-1. In **launchSettings.json** (within the **Properties** folder), change the **launchUrl** from *weatherforecast* to *api/notifications* to match the URL specified in the **RegistrationsController** **Route** attribute.
+1. In **launchSettings.json** (within the **Properties** folder), change the **launchUrl** from `weatherforecast` to *api/notifications* to match the URL specified in the **RegistrationsController** **Route** attribute.
 
 1. Start debugging (**COMMAND** + **ENTER**) to validate the app is working with the new **NotificationsController** and returns a **401 Unauthorized** status.
 
@@ -574,7 +574,7 @@ You will implement a service, along with the requisite model objects, to enable 
     >
     > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **Postman** setting off in the **Settings**.
 
-1. Replace the templated class methods with the following:
+1. Replace the templated class methods with the following code.
 
     ```csharp
     [HttpPut]
@@ -637,7 +637,7 @@ You will implement a service, along with the requisite model objects, to enable 
 
 ### Create the API App
 
-You will now create an [API App](https://azure.microsoft.com/services/app-service/api/) in [Azure App Service](https://docs.microsoft.com/azure/app-service/) for hosting the backend service.  
+You now create an [API App](https://azure.microsoft.com/services/app-service/api/) in [Azure App Service](https://docs.microsoft.com/azure/app-service/) for hosting the backend service.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -672,13 +672,13 @@ You will now create an [API App](https://azure.microsoft.com/services/app-servic
 
 1. Select **Configuration** from the list (under **Settings**).  
 
-1. For each of the settings below, click **New application setting** to enter the a **Name** and a **Value**, then click **OK**.
+1. For each of the settings below, click **New application setting** to enter the **Name** and a **Value**, then click **OK**.
 
-   | Name                             | Value                          |
-   | -------------------------------- | ------------------------------ |
-   | Authentication:ApiKey            | <api_key_value>                |
-   | NotificationHub:Name             | <hub_name_value>               |
-   | NotificationHub:ConnectionString | <hub_connection_string_value>  |
+   | Name                               | Value                          |
+   | ---------------------------------- | ------------------------------ |
+   | `Authentication:ApiKey`            | <api_key_value>                |
+   | `NotificationHub:Name`             | <hub_name_value>               |
+   | `NotificationHub:ConnectionString` | <hub_connection_string_value>  |
 
    > [!NOTE]
    > These are the same settings you defined previously in the user settings. You should be able to copy these over. The **Authentication:ApiKey** setting is required only if you chose to to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section. For production scenarios, you can look at options such as [Azure KeyVault](https://azure.microsoft.com/services/key-vault). These have been added as application settings for simplicity in this case.
@@ -689,19 +689,19 @@ You will now create an [API App](https://azure.microsoft.com/services/app-servic
 
 Next, you deploy the app to the API App to make it accessible from all devices.  
 
-1. Change your configuration from **Debug** to **Release** if you have not already done so.
+1. Change your configuration from **Debug** to **Release** if you haven't already done so.
 
 1. **Control** + **Click** the **PushDemoApi** project, and then choose **Publish to Azure...** from the **Publish** menu.
 
-1. Follow the **Sign In** flow if you are prompted to do so using the account that you used in the previous [create the API App](#create-the-api-app) section.
+1. Follow the auth flow if prompted to do so. Use the account that you used in the previous [create the API App](#create-the-api-app) section.
 
 1. Select the **Azure App Service API App** you created previously from the list as your publish target, and then click **Publish**.
 
-After you've completed the wizard, it publishes the app to Azure and then opens the app in the default browser. Make a note of the **URL** if you have not done so already. This URL is your *backend endpoint* that will be used later in this tutorial.
+After you've completed the wizard, it publishes the app to Azure and then opens the app. Make a note of the **URL** if you haven't done so already. This URL is your *backend endpoint* that is used later in this tutorial.
 
 ### Validating the published API
 
-1. In **Postman** open a new tab, set the request to **POST** and enter the address below replacing the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
+1. In **Postman** open a new tab, set the request to **POST** and enter the address below. Replace the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
 
     ```csharp
     https://<app_name>.azurewebsites.net/api/notifications/installations
@@ -727,7 +727,7 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
     > [!NOTE]
     > You should receive a **400 Bad Request** status from the service.
 
-1. Perform steps 1-4 again but this time specify the requests endpoint to validate you receive the same **400 Bad Request** response.
+1. Do steps 1-4 again but this time specifying the requests endpoint to validate you receive the same **400 Bad Request** response.
 
     ```bash
     https://<app_name>.azurewebsites.net/api/notifications/requests

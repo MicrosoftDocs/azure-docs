@@ -8,9 +8,9 @@
 
 ### Configure Info.plist and Entitlements.plist
 
-1. Ensure you have signed in to your **Apple Developer Account** in **Visual Studio** > **Preferences...** > **Publishing** > **Apple Developer Accounts** and the appropriate *Certificate* and *Provisioning Profile* has been downloaded. You should have created these as part of the previous steps.
+1. Ensure you've signed in to your **Apple Developer Account** in **Visual Studio** > **Preferences...** > **Publishing** > **Apple Developer Accounts** and the appropriate *Certificate* and *Provisioning Profile* has been downloaded. You should have created these assets as part of the previous steps.
 
-1. In **PushDemo.iOS**, open **Info.plist**  and ensure that the **BundleIdentifier** matches the value you used in when  when creating your provisioning profile in the [Apple Developer Portal](https://developer.apple.com). This was in the format ``com.<organization>.PushDemo``.
+1. In **PushDemo.iOS**, open **Info.plist**  and ensure that the **BundleIdentifier** matches the value that was used for the respective provisioning profile in the [Apple Developer Portal](https://developer.apple.com). The **BundleIdentifier** was in the format ``com.<organization>.PushDemo``.
 
 1. In the same file, set **Minimum system version** to **13.0**.
 
@@ -19,12 +19,12 @@
 
 1. Open the **Project Options** for **PushDemo.iOS** (double-click on the project).
 
-1. In **Project Options**, under **Build > iOS Bundle Signing**, ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
+1. In **Project Options**, under **Build > iOS Bundle Signing**, ensure that your Developer account is selected under **Team**. Then, ensure "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
 
     > [!NOTE]
     > If your *Signing Certificate* and *Provisioning Profile* have not been automatically selected, choose **Manual Provisioning**, then click on **Bundle Signing Options**. Ensure that your *Team* is selected for **Signing Identity** and your *PushDemo* specific provisioning profile is selected for **Provisioning Profile** for both **Debug** and **Release** configurations ensuring that **iPhone** is selected for the **Platform** in both cases.
 
-1. In **PushDemo.iOS**, open **Entitlements.plist** and ensure that **Enable Push Notifications** is checked when viewed in the **Entitlements** tab and the **APS Environment** setting is set to **development** when viewed in the **Source** tab.
+1. In **PushDemo.iOS**, open **Entitlements.plist** and ensure that **Enable Push Notifications** is checked when viewed in the **Entitlements** tab. Then, ensure the **APS Environment** setting is set to **development** when viewed in the **Source** tab.
 
 ### Handle Push Notifications for iOS
 
@@ -126,7 +126,7 @@
     > [!NOTE]
     > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](https://docs.microsoft.com/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
 
-1. In **AppDelegate.cs**, add constants for the device token cache key and the major and minor versions of iOS being supported for the purposes of this tutorial.
+1. In **AppDelegate.cs**, add constants for the device token cache key and the major and minor versions being supported.
 
     ```csharp
     const string CachedDeviceToken = "CachedDeviceToken";
@@ -152,14 +152,14 @@
             ServiceContainer.Resolve<INotificationRegistrationService>());
     ```
 
-1. Add another private property to indicate whether push notifications are being supported on the current device based on a system version check.
+1. Add another private property to indicate whether push notifications are being supported on the current device.
 
     ```csharp
     bool NotificationsSupported
         => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
     ```
 
-1. Add the **RequestRemoteNotifications** and **RegisterForRemoteNotifications** methods to support requesting authorization for remote notifications and subsequently registering with APNs.
+1. Add the **RequestRemoteNotifications** and **RegisterForRemoteNotifications** methods to request authorization for remote notifications and register with **APNS**.
 
     ```csharp
     void RequestRemoteNotifications()
@@ -235,7 +235,7 @@
     }
     ```
 
-1. Add the **GetNotificationsSupportError** method to prepare the appropriate exception message in the event that notifications are not supported.
+1. Add the **GetNotificationsSupportError** method to prepare the appropriate exception message when notifications aren't supported.
 
     ```csharp
     string GetNotificationsSupportError()
@@ -250,7 +250,7 @@
     }
     ```
 
-1. Override the **RegisteredForRemoteNotifications** method storing the **deviceToken** value in the corresponding **_deviceToken** backing field and conditionally refreshing the registration and caching the device token if it has been updated.
+1. Override the **RegisteredForRemoteNotifications** method storing the **deviceToken** value in the corresponding **_deviceToken** backing field. Conditionally refresh the registration and cache the device token if it has been updated.
 
     ```csharp
     public override void RegisteredForRemoteNotifications(
@@ -307,7 +307,7 @@
     > [!NOTE]
     > This is very much a placeholder. You will want to implement proper logging and error handling for production scenarios.
 
-1. Update the **FinishedLaunching** method to call conditionally call **RequestRemoteNotifications** then **Bootstrap.Begin** before the call to **LoadApplication** passing in the requisite **Func** dependencies to the **DeviceInstallationService**.
+1. Update the **FinishedLaunching** method to conditionally call **RequestRemoteNotifications** then `Bootstrap.Begin` before the call to **LoadApplication**. Pass in the requisite **Func** dependencies to the **DeviceInstallationService**.
 
     ```csharp
     if (NotificationsSupported)

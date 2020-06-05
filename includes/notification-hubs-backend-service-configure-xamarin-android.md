@@ -10,7 +10,7 @@
 
 1. In **PushDemo.Android**, open the **Project Options** then **Android Application** from the **Build** section.
 
-1. Check that the **Package name** matches the value you used in the [Firebase Console](https://console.firebase.google.com) **PushDemo** project. This was in the format ``com.<organization>.pushdemo``.
+1. Check that the **Package name** matches the value you used in the [Firebase Console](https://console.firebase.google.com) **PushDemo** project. The **Package name** was in the format ``com.<organization>.pushdemo``.
 
 1. Set the **Minimum Android Version** to **Android 8.0 (API level 26)** and the **Target Android Version** to the latest **API level**.
 
@@ -25,25 +25,25 @@
 
 1. In **PushDemo.Android**, **Control** + **Click** on the **Packages** folder, then choose **Manage NuGet Packages...**.
 
-1. Search for **Xamarin.GooglePlayServices.Base** (not **Basement**) and ensure it is checked.
+1. Search for **Xamarin.GooglePlayServices.Base** (not **Basement**) and ensure it's checked.
 
-1. Search for **Xamarin.Firebase.Messaging** and ensure it is checked.
+1. Search for **Xamarin.Firebase.Messaging** and ensure it's checked.
 
 1. Click **Add Packages**, then click **Accept** when prompted to accept the **license terms**.
 
 ### Add the Google Services JSON file
 
-1. **Control** + **Click** on the **PushDemo.Android** project, then choose **Existing File...** from the **Add** menu.
+1. **Control** + **Click** on the `PushDemo.Android` project, then choose **Existing File...** from the **Add** menu.
 
 1. Choose the *google-services.json* file you downloaded earlier when you set up the **PushDemo** project in the [Firebase Console](https://console.firebase.google.com) then click **Open**.
 
 1. When prompted, choose to **Copy the file to the directory**.
 
-1. **Control** + **Click** on the *google-services.json* file from within the **PushDemo.Android** project, then ensure **GoogleServicesJson** is set as the **Build Action**.
+1. **Control** + **Click** on the *google-services.json* file from within the `PushDemo.Android` project, then ensure **GoogleServicesJson** is set as the **Build Action**.
 
 ### Handle Push Notifications for Android
 
-1. **Control** + **Click** on the **PushDemo.Android** project, choose **New Folder** from the **Add** menu, then click **Add** using *Services* as the **Folder Name**.
+1. **Control** + **Click** on the `PushDemo.Android` project, choose **New Folder** from the **Add** menu, then click **Add** using *Services* as the **Folder Name**.
 
 1. **Control** + **Click** on the **Services** folder, then choose **New File...** from the **Add** menu.
 
@@ -249,14 +249,14 @@
     >
     > A background service or application can override this behavior by adding the **FLAG_INCLUDE_STOPPED_PACKAGES** flag to broadcast intents that should be allowed to activate stopped applications.
 
-1. In **MainActivity.cs**, add the **Firebase.Iid** and **using Android.Gms.Common** namespaces to the top of the file.
+1. In **MainActivity.cs**, add the `Firebase.Iid` and **using Android.Gms.Common** namespaces to the top of the file.
 
     ```csharp
     using Firebase.Iid;
     using Android.Gms.Common;
     ```
 
-1. In **MainActivity.cs**, set the **LaunchMode** to **SingleTop** so **MainActivity** will not get created again when opened.
+1. In **MainActivity.cs**, set the **LaunchMode** to **SingleTop** so **MainActivity** won't get created again when opened.
 
     ```csharp
     [Activity(
@@ -292,7 +292,7 @@
             ServiceContainer.Resolve<IPushDemoNotificationActionService>());
     ```
 
-1. Add a private property indicating whether **Google Play Services** are available or not.
+1. Add a private property indicating whether **Google Play Services** is available or not.
 
     ```csharp
     bool PlayServicesAvailable
@@ -300,7 +300,7 @@
             .IsGooglePlayServicesAvailable(this) == ConnectionResult.Success;
     ```
 
-1. Add a new method called **ProcessNotificationActions** that will check whether a given **Intent** has an extra value named *action* and conditionally trigger that action using the **IPushDemoNotificationActionService** implementation.
+1. Add a new method called **ProcessNotificationActions** that will check whether a given **Intent** has an extra value named *action*. Conditionally trigger that action using the **IPushDemoNotificationActionService** implementation.
 
     ```csharp
     void ProcessNotificationActions(Intent intent)
@@ -322,7 +322,7 @@
     }
     ```
 
-1. Add a new method called **GetPlayServicesError** to prepare the appropriate exception message in the event that **Google Play Services** are not available.
+1. Add a new method called **GetPlayServicesError** to prepare the appropriate exception message in the event that **Google Play Services** isn't available.
 
     ```csharp
     string GetPlayServicesError()
@@ -351,7 +351,7 @@
     > [!NOTE]
     > Since the **LaunchMode** for the **Activity** is set to **SingleTop**, an **Intent** will be sent to the existing **Activity** instance via the **OnNewIntent** method rather than the **OnCreate** method and so you must handle an incoming intent in both **OnCreate** and **OnNewIntent** methods.
 
-1. Override the **OnResume**, **OnPause**, **OnStop**, and **OnDestroy** activity lifecycle methods setting the **PushNotificationFirebaseMessagingService.AppInForeground** state accordingly.
+1. Override the **OnResume**, **OnPause**, **OnStop**, and **OnDestroy** activity lifecycle methods. Set the **PushNotificationFirebaseMessagingService.AppInForeground** state to the appropriate value.
 
     ```csharp
      protected override void OnResume()
@@ -393,7 +393,7 @@
     }
     ```
 
-1. Update the **OnCreate** method to call **Bootstrap.Begin** before the call to **LoadApplication**, passing in the requisite **Func** dependencies, and then call **ProcessNotificationActions** immediately after the call to **LoadApplication**.
+1. Update the **OnCreate** method to call `Bootstrap.Begin` before the call to **LoadApplication**, passing in the requisite **Func** dependencies, and then call **ProcessNotificationActions** immediately after the call to **LoadApplication**.
 
     ```cs
     Bootstrap.Begin(() => new DeviceInstallationService(

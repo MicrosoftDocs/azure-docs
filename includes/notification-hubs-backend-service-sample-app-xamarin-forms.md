@@ -15,7 +15,7 @@
 
 1. **Control** + **Click** on the *PushDemo* solution, then choose **Update NuGet Packages**.
 1. **Control** + **Click** on the *PushDemo* solution, then choose **Manage NuGet Packages..**.
-1. Search for Newtonsoft.Json and ensure it is checked.
+1. Search for **Newtonsoft.Json** and ensure it's checked.
 1. Click **Add Packages**, then click **Accept** when prompted to accept the license terms.
 1. Build and run the app on each target platform (**Command** + **Enter**) to test the templated app runs on your device(s).
 
@@ -431,7 +431,7 @@
     readonly INotificationRegistrationService _notificationRegistrationService;
     ```
 
-1. In the **MainPage** constructor, resolve the **INotificationRegistrationService** implementation using the **ServiceContainer.Resolve** method assigning it to the *_notificationRegistrationService_* backing field.
+1. In the **MainPage** constructor, resolve the **INotificationRegistrationService** implementation using the **ServiceContainer** and assign it to the *_notificationRegistrationService_* backing field.
 
     ```csharp
     public MainPage()
@@ -501,7 +501,7 @@
                 .ContinueWith((task) => { if (task.IsFaulted) throw task.Exception; }));
     ```
 
-1. In the **App** constructor, resolve the **IPushNotificationActionService** implementation using the **ServiceContainer.Resolve** method and subscribe to the **IPushDemoNotificationActionService** **ActionTriggered** event.
+1. In the **App** constructor, resolve the **IPushNotificationActionService** implementation using the **ServiceContainer** and subscribe to the **IPushDemoNotificationActionService** **ActionTriggered** event.
 
     ```csharp
     public App()
