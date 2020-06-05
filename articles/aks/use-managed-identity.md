@@ -31,7 +31,7 @@ You must have the following resource installed:
 
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
 * Existing AKS clusters cannot be updated or upgraded to enable managed identities.
-* During cluster **upgrade**, the managed identity is temporarily unavailable for retrieval.
+* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 
 ## Create an AKS cluster with managed identities
 

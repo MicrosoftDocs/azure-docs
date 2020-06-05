@@ -20,6 +20,14 @@ The steps detailed in this document assume that you have created an AKS cluster 
 
 You also need the Azure CLI version 2.6.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+## Disable the Kubernetes dashboard
+
+The kube-dashboard addon is enabled by default on clusters older than K8s 1.18. This can be removed by running the following command.
+
+``` azure-cli
+az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
+```
+
 ## Start the Kubernetes dashboard
 
 > [!WARNING]
@@ -35,6 +43,11 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard. If a web browser doesn't open to the Kubernetes dashboard, copy and paste the URL address noted in the Azure CLI, typically `http://127.0.0.1:8001`.
+
+> [!NOTE]
+> If running on WSL and you do not see the dashboard at`http://127.0.0.1:8001` you can manually route to the following addresses.
+> * K8s 1.15 or greater: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1.15 and below: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -87,6 +100,8 @@ The initial screen presented requires a kubeconfig or token. Both options requir
 
 ![login screen](./media/kubernetes-dashboard/login.png)
 
+### Non-Azure AD enabled clusters
+
 **Use a kubeconfig**
 1. Set the admin kubeconfig with `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Select `Kubeconfig` and click `Choose kubeconfig file` to open file selector
@@ -98,6 +113,17 @@ The initial screen presented requires a kubeconfig or token. Both options requir
 1. Copy the desired token associated with the account of your cluster
 1. Paste into the token option at login
 1. Click `Sign In`
+
+### Azure AD enabled clusters
+For Azure AD enabled clusters, an AAD token can be retrieved and passed into the token login form.
+
+```
+## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
+
+kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
+```
+
+AAD enabled clusters also support non-interactive login for the dashboard by using [Kubelogin](https://github.com/Azure/kubelogin).
 
 Once successful, a page similar to the below will be displayed.
 
