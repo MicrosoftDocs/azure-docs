@@ -123,12 +123,6 @@ In order to send data from Application Insights to the Azure Government region, 
 > [!IMPORTANT]
 > Direct SDK endpoint modification is no longer the recommended way to configure your SDKs for Azure Government. **We now recommend using [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)**.
 
-|Region | Service  | Endpoint suffix |
-|-----------------|:------------|:-------------|
-| Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
-| Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
-
 ### .NET with applicationinsights.config
 
 > [!NOTE]
