@@ -65,7 +65,7 @@ a role assignment on the resource group.
    - JSON file - blueprintparms.json
 
      ```json
-    {
+     {
         "storageAccountType": {
             "type": "string",
             "defaultValue": "Standard_LRS",
@@ -108,7 +108,7 @@ a role assignment on the resource group.
                 "strongType": "PrincipalId"
             }
         }
-    }
+     }
      ```
 
    - Azure CLI command
