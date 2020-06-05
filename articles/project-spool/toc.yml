@@ -20,14 +20,14 @@
   items:
   - name: Get Started
     href: quickstarts/get-started.md
-  - name: Create a communication resource
+  - name: Create a Communication Services Resource
     href: quickstarts/create-a-communication-resource.md
   - name: Configure Your Server
     href: quickstarts/configure-server.md
-  - name: Capture A Local Video Stream
-    href: quickstarts/capture-local-video-stream.md
   - name: Initialize Your Calling Client
     href: quickstarts/init-client.md
+  - name: Capture A Local Video Stream
+    href: quickstarts/capture-local-video-stream.md
   #- name: Get Started With Voice
   #  href: quickstarts/get-started-with-voice.md
   - name: Get Started With SMS
