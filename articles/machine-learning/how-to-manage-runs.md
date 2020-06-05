@@ -5,7 +5,7 @@ description: Learn how to start, set the status of, tag, and organize your machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: roastala
 author: rastala
 manager: cgronlun
