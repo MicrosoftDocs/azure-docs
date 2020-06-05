@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/04/2020
 ms.author: lbosq
 ---
 

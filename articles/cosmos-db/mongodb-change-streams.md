@@ -5,7 +5,7 @@ author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 06/04/2020
 ms.author: srchi
 ---
 
