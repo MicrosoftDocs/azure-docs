@@ -95,16 +95,6 @@ new CosmosClientOptions
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
 
-**Warmup the caches to avoid startup latency on first request**
-
-By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V3](sql-api-sdk-dotnet.md), do a random item read operation once during initialization to avoid this startup latency on the first request:
-
-```csharp
-var container = this.cosmosClient.GetContainer("MyDatabase", "MyContainer");
-// ReadItemStreamAsync will not throw on a 404 NotFound
-using (var response = await container.ReadItemStreamAsync("DoesNotExist", new PartitionKey("DoesNotExist"))) { }
-```
-
    <a id="same-region"></a>
 **For performance, collocate clients in same Azure region**
 
@@ -136,7 +126,9 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
-   <a id="max-connection"></a>
+For Azure Functions use a [static client](https://docs.microsoft.com/azure/azure-functions/manage-connections#static-clients)
+
+<a id="max-connection"></a>
 
 **Disable content response on write operations**
 
@@ -148,6 +140,9 @@ ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(boo
 // Resource will be null
 itemResponse.Resource
 ```
+
+**Enable Bulk to optimize for throughput instead of latency**
+Enable Bulk for scenarios where the workload requires a large amount of throughput, and latency is not as important. Please see the [Introduction to Bulk](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk) for more information on how to enable the feature and which scenarios it should be used for.
 
 **Increase System.Net MaxConnections per host when using gateway mode**
 
