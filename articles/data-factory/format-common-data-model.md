@@ -16,6 +16,9 @@ The Common Data Model (CDM) metadata system makes it possible for data and its m
 
 In Azure Data Factory, users can transform to and from CDM entities stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows.
 
+> [!NOTE]
+> Common Data Model (CDM) format connector for ADF data flows is currently available as a public preview.
+
 ## Mapping data flow properties
 
 The Common Data Model is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
