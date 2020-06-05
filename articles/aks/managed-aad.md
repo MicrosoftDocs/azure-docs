@@ -104,7 +104,14 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location centralus
 ```
 
-Create an Azure Active Directory (AAD) group for your cluster administrators:
+You can use an existing Azure Active Directory (AAD) group, or create a new one. You need the object ID for your AD group.
+
+```azurecli-interactive
+# List existing groups in the directory
+az ad group list
+```
+
+To create a new AAD group for your cluster administrators, use the following command:
 
 ```azurecli-interactive
 # Create an AAD group
