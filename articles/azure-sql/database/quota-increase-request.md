@@ -44,11 +44,11 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![Select a quota type](./media/quota-increase-request/select-quota-type.png)
 
-1. In the **Details** window, select **Provide details** to enter additional information.
+1. In the **Details** window, select **Enter details** to enter additional information.
 
-   ![The "Provide details" link](./media/quota-increase-request/provide-details-link.png)
+   ![Enter details link](./media/quota-increase-request/provide-details-link.png)
 
-Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
+Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
 
 ## <a id="sqldbquota"></a> SQL Database quota types
 
@@ -91,7 +91,7 @@ For more information, see [SQL Database resource limits and resource governance]
 
 Some offer types are not available in every region. You may see an error such as the following:
 
-`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to [https://aka.ms/sqlcapacity](https://aka.ms/sqlcapacity). Please try another region or create a support ticket to request access.`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
 If your subscription needs access in a particular region, select the **Region access** option. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
