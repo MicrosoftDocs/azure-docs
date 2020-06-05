@@ -111,11 +111,15 @@ In this section, you will create an Azure Database for MariaDB server in Azure.
     |Version  | Select the database version of the MariaDB server that is required.|
     | Compute + Storage| Select the pricing tier that is needed for the server based on the workload. |
     |||
- 
+
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 9. When you see the Validation passed message, select **Create**. 
 10. When you see the Validation passed message, select Create. 
+
+> [!NOTE]
+> In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMariaDB** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Create a private endpoint
 

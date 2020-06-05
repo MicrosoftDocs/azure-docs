@@ -117,6 +117,10 @@ In this section, you will create an Azure Database for MySQL server in Azure.
 9. When you see the Validation passed message, select **Create**. 
 10. When you see the Validation passed message, select Create. 
 
+> [!NOTE]
+> In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Create a private endpoint
 
 In this section, you will create a MySQL server and add a private endpoint to it. 

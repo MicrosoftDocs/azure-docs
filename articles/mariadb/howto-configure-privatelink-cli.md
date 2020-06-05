@@ -80,6 +80,10 @@ az mariadb server create \
 Note the MariaDB Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` 
 You will use the MariaDB Server ID in the next step. 
 
+> [!NOTE]
+> In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMariaDB** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Create the Private Endpoint 
 Create a private endpoint for the MariaDB server in your Virtual Network: 
 ```azurecli-interactive

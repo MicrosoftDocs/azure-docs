@@ -90,6 +90,10 @@ In this section, you will create a Virtual Network and the subnet to host the VM
 
 1. When you see the **Validation passed** message, select **Create**.
 
+> [!NOTE]
+> In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Create an Azure Database for PostgreSQL Single server
 
 In this section, you will create an Azure Database for PostgreSQL server in Azure. 
