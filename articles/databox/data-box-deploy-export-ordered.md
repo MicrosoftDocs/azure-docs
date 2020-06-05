@@ -75,6 +75,8 @@ Before you begin, make sure that:
 
 Perform the following steps in the Azure portal to order a device.
 
+<!-- Anusha 06/04/20: Can we use a different screenshot for create (Step 3)? Maybe the one with the +Add button, similar to import? This is because the gallery package with the updated description for Data Box has not yet been pushed to the marketplace so the info in this screenshot will be inaccurate-->
+
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
@@ -82,8 +84,8 @@ Perform the following steps in the Azure portal to order a device.
    ![Create resource](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
 3. Select **Create**.
-<!-- Anusha 06/04/20: Can we use a different screenshot for create? Maybe the one with the +Add button, similar to import? This is because the gallery package with the updated description for Data Box has not yet been pushed to the marketplace so the info in this screenshot will be inaccurate-->
-    ![Create Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
+
+   ![Create Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
 4. Check if Azure Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -358,4 +360,4 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
-> [Use self-managed shipping](data-box-portal-customer-managed-shipping.md)
+
