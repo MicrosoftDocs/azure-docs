@@ -273,8 +273,8 @@ The Azure Bot Channels Registration page has a **Test in Web Chat** option under
   "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
 }
 ```
-9. and re-publish the app (right-click on **EchoBot** project in the solution explorer, select **Publish...** and click on the **Publish** button)
-10. Now you are ready to test the bot it in web chat!
+9. Re-publish the app (right-click on **EchoBot** project in Visual Studio solution explorer, select **Publish...** and click on the **Publish** button)
+10. Now you are ready to test the bot in web chat!
 
 ## Register the Direct Line Speech channel
 
