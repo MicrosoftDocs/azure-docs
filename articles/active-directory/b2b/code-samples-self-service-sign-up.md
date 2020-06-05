@@ -28,7 +28,7 @@ The following tables provide links to code samples for leveraging Web APIs in yo
 
 <!-- \| [Java](../../azure-docs-pr/articles/active-directory/b2b/invite-internal-users.md#use-the-invitation-api-to-send-a-b2b-invitation) |  The sample below illustrates how to call the invitation API to invite an internal user as a B2B user. | -->
 
-## custom approval system
+## Custom approval system
 
 | Sample | Description |
 |--------| ----------- |
