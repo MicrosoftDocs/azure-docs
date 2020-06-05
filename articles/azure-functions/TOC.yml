@@ -341,6 +341,12 @@
   items:
   - name: API references
     items:
+    - name: ARM template
+      href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+    - name: Azure CLI
+      href: /cli/azure/functionapp
+    - name: Azure PowerShell
+      href: /powershell/module/az.functions
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
     - name: Python
