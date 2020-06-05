@@ -2,7 +2,7 @@
 title: Anomaly detection service for metered billing - Microsoft commercial Marketplace 
 description: Describes how anomaly detection works, when notifications are sent and what to do with them, and support options.
 author: anbene
-ms.author: dsindona 
+ms.author: pumplu 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
