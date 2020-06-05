@@ -12,13 +12,13 @@ manager: timlt
 
 # Secure a single page application with user sign-in
 
-An application which can be hosted on content server and has minimal web server component dependencies. The application provides protected resources secured only to Azure AD users and does not expose unprotected web pages. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+The following guide pertains to an application which is hosted on a content server or has minimal web server dependencies. The application provides protected resources secured only to Azure AD users. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
 ## Create an application registration in Azure AD
 
-You must create the web application in Azure AD for users to sign in. This web application will then delegate user access to Azure Maps REST APIs.
+Create the web application in Azure AD for users to sign in. The web application delegates user access to Azure Maps REST APIs.
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 
@@ -38,32 +38,32 @@ You must create the web application in Azure AD for users to sign in. This web a
 
 6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK. Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
-```javascript
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js" />
-<script>
-    var map = new atlas.Map("map", {
-        center: [-122.33, 47.64],
-        zoom: 12,
-        language: "en-US",
-        authOptions: {
-            authType: "aad",
-            clientId: "<insert>",  // azure map account client id
-            aadAppId: "<insert>",  // azure ad app registration id
-            aadTenant: "<insert>", // azure ad tenant id
-            aadInstance: "https://login.microsoftonline.com/"
-        }
-    });
-</script>
-```
+    ```javascript
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js" />
+        <script>
+            var map = new atlas.Map("map", {
+                center: [-122.33, 47.64],
+                zoom: 12,
+                language: "en-US",
+                authOptions: {
+                    authType: "aad",
+                    clientId: "<insert>",  // azure map account client id
+                    aadAppId: "<insert>",  // azure ad app registration id
+                    aadTenant: "<insert>", // azure ad tenant id
+                    aadInstance: "https://login.microsoftonline.com/"
+                }
+            });
+        </script>   
+    ```
 
-8. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
+7. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
 
-Further understanding of Single Page Application Scenario:
+Further understanding of single page application scenario:
 > [!div class="nextstepaction"]
 > [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
 

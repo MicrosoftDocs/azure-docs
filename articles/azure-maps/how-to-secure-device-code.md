@@ -12,7 +12,7 @@ manager: timlt
 
 # Secure an input constrained device with Azure AD and Azure Maps REST APIs
 
-An application or a device which is running in the public without the ability to securely store secrets and does not have the capability to accept browser input. These types of applications fall under the category of IoT or internet of things. Some examples of these applications may include: Smart TV devices or sensor data emitting applications. 
+This guide discusses how to secure public applications or devices that cannot securely store secrets or accept browser input. These types of applications fall under the category of IoT or internet of things. Some examples of these applications may include: Smart TV devices or sensor data emitting applications. 
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
@@ -20,19 +20,19 @@ An application or a device which is running in the public without the ability to
 
 > [!NOTE]
 > * **Prerequisite Reading:** [Scenario: Desktop app that calls web APIs](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
-> * The following scenario we are interested in is the Device Code Flow.
+> * The following scenario uses the device code flow, which does not involve a web browser to acquire a token.
 
-You must create the device based application in Azure AD to enable Azure AD sign in. This application will be granted access to Azure Maps REST APIs.
+Create the device based application in Azure AD to enable Azure AD sign in. This application will be granted access to Azure Maps REST APIs.
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
-2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Support account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Then **Register** the application.
+2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Supported account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more details please see Azure AD [Desktop app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Then **Register** the application.
 
     ![Add app registration details for name and redirect uri](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Navigate to **Authentication** and enable **Treat application as public client**. This will enable device code authentication with Azure AD.
+3. Navigate to **Authentication** and enable **Treat application as a public client**. This will enable device code authentication with Azure AD.
     
     ![Enable app registration as public client](./media/azure-maps-authentication/devicecode-public-client.png)
 
@@ -44,7 +44,7 @@ You must create the device based application in Azure AD to enable Azure AD sign
 
     ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure Azure role based access control for users or groups. See [Grant role based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
@@ -54,7 +54,7 @@ You must create the device based application in Azure AD to enable Azure AD sign
 
 8. Compose the HTTP request with the acquired token from Azure AD, and sent request with a valid HTTP client.
 
-#### sample request
+### Sample request
 Here's a sample request body for uploading a simple Geofence represented as a circle geometry using a center point and a radius.
 
 ```http
@@ -82,7 +82,7 @@ Authorization: Bearer eyJ0e….HNIVN
 }
 ```
 
-#### sample response:
+### Sample response:
 
 Headers:
 ```http

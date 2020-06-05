@@ -12,7 +12,7 @@ manager: timlt
 
 # How to secure a single page application with non-interactive sign-in
 
-The application requires a service to service authentication flow to Azure AD to acquire an access token which represents the application instead of users. This flow requires hosting of a web service which must be secured to only be accessed by the single page web application. There are multiple implementations which can accomplish authentication to Azure AD. This example leverages Azure Functions to acquire access tokens.
+The following guide pertains to an application using Azure Active Directory (Azure AD) to provide an access token to Azure Maps applications when the user can't sign in to Azure AD. This flow requires hosting of a web service which must be secured to only be accessed by the single page web application. There are multiple implementations which can accomplish authentication to Azure AD. This guide leverages Azure Functions to acquire access tokens.
 
 [!INCLUDE [authentication details](./includes/view-auth-details.md)]
 
@@ -21,9 +21,9 @@ The application requires a service to service authentication flow to Azure AD to
 
 ## Create an Azure Function
 
-You must create a secured web service application which is responsible for authentication to Azure AD. 
+Create a secured web service application which is responsible for authentication to Azure AD. 
 
-1. In the Azure portal, see [Create an Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Create a function in the Azure portal. For more information, see [Create an Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
 
 2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
 
@@ -33,65 +33,65 @@ You must create a secured web service application which is responsible for authe
 
 5. Write Azure Function code to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
-A sample REST protocol example:
+    A sample REST protocol example:
 
-```http
-GET /MSI/token?resource=https://atlas.microsoft.com/&api-version=2019-08-01 HTTP/1.1
-Host: localhost:4141
-```
+    ```http
+    GET /MSI/token?resource=https://atlas.microsoft.com/&api-version=2019-08-01 HTTP/1.1
+    Host: localhost:4141
+    ```
 
-Sample response:
+    Sample response:
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
+    ```http
+    HTTP/1.1 200 OK
+    Content-Type: application/json
 
-{
-    "access_token": "eyJ0eXAi…",
-    "expires_on": "1586984735",
-    "resource": "https://atlas.microsoft.com/",
-    "token_type": "Bearer",
-    "client_id": "..."
-}
-```
+    {
+        "access_token": "eyJ0eXAi…",
+        "expires_on": "1586984735",
+        "resource": "https://atlas.microsoft.com/",
+        "token_type": "Bearer",
+        "client_id": "..."
+    }
+    ```
 
-6. Configure Security for Azure Function HttpTrigger
+6. Configure security for Azure Function HttpTrigger
 
    * [Create a function access key](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
    * [Secure HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure Function in production.
    
-7. Configure Web application Azure Maps Web SDK. 
+7. Configure web application Azure Maps Web SDK. 
 
-```javascript
-//URL to custom endpoint to fetch Access token
-var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    ```javascript
+    //URL to custom endpoint to fetch Access token
+    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
 
-var map = new atlas.Map('myMap', {
-    		center: [-122.33, 47.6],
-    		zoom: 12,
-    		language: 'en-US',
-    		view: "Auto",
-        authOptions: {
-              authType: "anonymous",
-              clientId: "<insert>", // azure map account client id
-              getToken: function(resolve, reject, map) {
-                  fetch(url).then(function(response) {
-                      return response.text();
-                  }).then(function(token) {
-                      resolve(token);
-                  });
-              }
-        }
-    });
+    var map = new atlas.Map('myMap', {
+                center: [-122.33, 47.6],
+                zoom: 12,
+                language: 'en-US',
+                view: "Auto",
+            authOptions: {
+                authType: "anonymous",
+                clientId: "<insert>", // azure map account client id
+                getToken: function(resolve, reject, map) {
+                    fetch(url).then(function(response) {
+                        return response.text();
+                    }).then(function(token) {
+                        resolve(token);
+                    });
+                }
+            }
+        });
 
-    // use the following events to debug, you can remove them at any time.
-    map.events.add("tokenacquired", function () {
-        console.log("token acquired");
-    });
-    map.events.add("error", function (err) {
-        console.log(JSON.stringify(err.error));
-    });
-```
+        // use the following events to debug, you can remove them at any time.
+        map.events.add("tokenacquired", function () {
+            console.log("token acquired");
+        });
+        map.events.add("error", function (err) {
+            console.log(JSON.stringify(err.error));
+        });
+    ```
 
 ## Grant role based access
 
