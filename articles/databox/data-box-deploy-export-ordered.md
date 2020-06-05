@@ -141,7 +141,8 @@ Perform the following steps in the Azure portal to order a device.
    ![Contact Details](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
 
 10. In the **Contact details**, select **+ Add Shipping Address** to enter your shipping information.
-   ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
+
+    ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
 
 11. In **Add Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
