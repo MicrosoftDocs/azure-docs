@@ -27,10 +27,9 @@ TODO
    - I want to know what WebRTC is and the bare minimum amount of WebRTC information I need to know in order to work with ACS.
 
 - Discussion:
-   - How does programmable video relate to WebRTC? 
-   - How does programmable voice relate to WebRTC? 
-   - How does programmable messaging relate to WebRTC? 
-    - How and when do I need to think about WebRTC as I work with programmable video?    
+   - How does ACS video relate to WebRTC? 
+   - How does ACS voice relate to WebRTC? 
+   - How does ACS messaging relate to WebRTC?   
 
 
 
