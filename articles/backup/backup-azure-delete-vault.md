@@ -25,6 +25,9 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 ## Proper way to delete a vault
 
+>[!WARNING]
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+
 To properly delete a vault, you must follow the steps in this order:
 
 - **Step 1**: Disable the soft delete feature. [See here](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) for the steps to disable soft delete.
