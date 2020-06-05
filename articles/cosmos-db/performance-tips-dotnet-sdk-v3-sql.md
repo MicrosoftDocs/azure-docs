@@ -105,7 +105,7 @@ When possible, place any applications that call Azure Cosmos DB in the same regi
 
 **Increase the number of threads/tasks**
 
-Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of parallelism of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.
+Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of concurrency of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.
 
 **Enable accelerated networking**
  
@@ -126,13 +126,13 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
-For Azure Functions use a [static client](https://docs.microsoft.com/azure/azure-functions/manage-connections#static-clients)
+Azure Functions should use a [static client](https://docs.microsoft.com/azure/azure-functions/manage-connections#static-clients)
 
 <a id="max-connection"></a>
 
 **Disable content response on write operations**
 
-For workloads that have heave create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. In most cases the application already has the object being created meaning the object being sent back from the service is not needed. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
+For workloads that have heave create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. Normally the application has the object being created so it does not need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
@@ -142,7 +142,7 @@ itemResponse.Resource
 ```
 
 **Enable Bulk to optimize for throughput instead of latency**
-Enable Bulk for scenarios where the workload requires a large amount of throughput, and latency is not as important. Please see the [Introduction to Bulk](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk) for more information on how to enable the feature and which scenarios it should be used for.
+Enable Bulk for scenarios where the workload requires a large amount of throughput, and latency is not as important. See the [Introduction to Bulk](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk) for more information on how to enable the feature and which scenarios it should be used for.
 
 **Increase System.Net MaxConnections per host when using gateway mode**
 
@@ -154,11 +154,11 @@ SQL .NET SDK supports parallel queries, which enable you to query a partitioned 
 - `MaxConcurrency` controls the maximum number of partitions that can be queried in parallel. 
 - `MaxBufferedItemCount` controls the number of pre-fetched results.
 
-***Tuning degree of parallelism***
+***Tuning degree of concurrency***
 
 Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxConcurrency` in [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
-Note that parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
+Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
 
 ***Tuning MaxBufferedItemCount***
     
