@@ -57,10 +57,9 @@ a role assignment on the resource group.
 > When using Azure CLI, the _blueprint_ object is created first. For each _artifact_ to be added
 > that has parameters, the parameters need to be defined in advance on the initial _blueprint_.
 
-1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file that
-   includes properties about the blueprint, any resource groups to create, and all of the blueprint
-   level parameters. The parameters are set during assignment and used by the artifacts added in
-   later steps.
+1. Create the initial _blueprint_ object. The **parameters** parameter takes a JSON file that
+   includes all of the blueprint level parameters. The parameters are set during assignment and used
+   by the artifacts added in later steps.
 
    - JSON file - blueprintparms.json
 
@@ -214,12 +213,12 @@ a role assignment on the resource group.
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **TemplateFile** for a Resource Manager template includes
-   the normal JSON component of the template. The template also reuses the **storageAccountType**,
-   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
-   parameters are available to the template by using parameter **TemplateParameterFile** and inside
-   the template JSON that key-value pair is used to inject the value. The blueprint and template
-   parameter names could be the same.
+1. Add template under resource group. The **template** parameter for a Resource Manager template
+   includes the normal JSON components of the template. The template also reuses the
+   **storageAccountType**, **tagName**, and **tagValue** blueprint parameters by passing each to the
+   template. The blueprint parameters are available to the template by using parameter
+   **parameters** and inside the template JSON that key-value pair is used to inject the value. The
+   blueprint and template parameter names could be the same.
 
    - JSON Azure Resource Manager template file - artifacts\templateStorage.json
 
@@ -414,7 +413,7 @@ lock, and blueprint parameters, use the matching Azure CLI parameters on the
 
 You can remove a blueprint from a subscription. Removal is often done when the artifact resources
 are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint
-are left behind. To remove a blueprint assignment, use the `az blueprint assignment delete `
+are left behind. To remove a blueprint assignment, use the `az blueprint assignment delete`
 command:
 
 ```azurecli-interactive
