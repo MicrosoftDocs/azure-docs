@@ -27,7 +27,7 @@ The most current control plane API version for public preview is _**2020-03-01-p
 
 To use the control plane APIs...
 * you can call them directly by referencing the latest Swagger folder at [this location](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples showing the usage.
-* you can access SDKs for control APIs in Go [here](https://github.com/Azure/azure-sdk-for-go/releases).
+* you can access SDKs for control APIs in Go [here](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
