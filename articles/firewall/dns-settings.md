@@ -15,7 +15,7 @@ You can configure a custom DNS server and enable DNS proxy for Azure Firewall. Y
 
 ## DNS servers
 
-A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for FQDN (fully qualified domain name) name resolution. The **DNS server** setting lets you specify your own DNS servers for Azure Firewall name resolution. You can specify a single server or multiple servers.
+A DNS server maintains and resolves domain names to IP addresses. By default, Azure Firewall uses Azure DNS for name resolution. The **DNS server** setting lets you configure your own DNS servers for Azure Firewall name resolution. You can configure a single or multiple servers.
 
 ### Configure custom DNS servers
 
@@ -30,7 +30,7 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 
 You can configure Azure Firewall to act as a DNS proxy. A DNS proxy acts as an intermediary for DNS requests from client virtual machines to a DNS server. If you configure a custom DNS server, it is highly recommended that you enable DNS proxy to avoid DNS resolution mismatch, utilize the Threat Intelligence feature in DNS resolution, and enable FQDN filtering in network rules.
 
-If DNS proxy is not enabled, DNS requests from the client may travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS Proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
+If DNS proxy is not enabled, DNS requests from the client may travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
 ### Enable DNS proxy
 
