@@ -172,7 +172,7 @@
     - name: Mobile App Web Service
       href: howto-mfaserver-deploy-mobileapp.md
     - name: Configure settings
-      href: howto-mfaserver-settings.md
+      href: howto-mfa-server-settings.md
     - name: Configure high availability
       href: howto-mfaserver-deploy-ha.md
     - name: Upgrade MFA Server
