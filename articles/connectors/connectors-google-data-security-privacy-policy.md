@@ -4,8 +4,8 @@ description: Learn about the impact that Google security and privacy policies ha
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
+ms.topic: conceptual
+ms.date: 06/05/2020
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
@@ -36,6 +36,18 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 * Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
+
+For example, this logic app *is not compliant*:
+
+![Non-compliant logic app](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app.png)
+
+As a sample workaround, you could split this logic app into these two logic apps that *are compliant*. Here is Part 1:
+
+![Compliant logic app - part 1](./media/connectors-google-data-security-privacy-policy/compliant-logic-app-part-1.png)
+
+Here is Part 2:
+
+![Compliant logic app - part 1](./media/connectors-google-data-security-privacy-policy/compliant-logic-app-part-2.png)
 
 For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
