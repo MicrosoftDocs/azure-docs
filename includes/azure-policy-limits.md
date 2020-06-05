@@ -15,7 +15,7 @@ the subscription or the [management group](../articles/governance/management-gro
 |---|---|---|
 | Scope | Policy definitions | 500 |
 | Scope | Initiative definitions | 100 |
-| Tenant | Initiative definitions | 1,000 |
+| Tenant | Initiative definitions | 2,500 |
 | Scope | Policy or initiative assignments | 100 |
 | Policy definition | Parameters | 20 |
 | Initiative definition | Policies | 100 |
