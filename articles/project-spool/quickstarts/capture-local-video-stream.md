@@ -27,7 +27,7 @@ In this quickstart, you'll learn how to capture a local video stream from a came
 
 ### Capture The Stream
 
-A media stream can be captured after creating an instance of the ACS calling client:
+A media stream can be captured and displayed after you create an instance of the ACS calling client:
 
 
 ```javascript
