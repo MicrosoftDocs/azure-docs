@@ -468,6 +468,9 @@
       - name: Overview
         href: functions-bindings-signalr-service.md
         displayName: SignalR Service
+      - name: Trigger
+        href: functions-bindings-signalr-service-trigger.md
+        displayName: SignalR Service
       - name: Input
         href: functions-bindings-signalr-service-input.md
         displayName: SignalR Service
