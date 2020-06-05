@@ -72,3 +72,7 @@ To submit a ticket:
 3. Under **Next step**, select the **Review solutions** button to be directed to sign in to Partner Center to submit a support ticket.
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+
+## Next Step
+
+- Learn about the [Marketplace metering service API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis).
