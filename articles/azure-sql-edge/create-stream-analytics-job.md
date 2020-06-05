@@ -19,7 +19,7 @@ This article explains how to create a T-SQL Streaming job in Azure SQL Edge (Pre
 2. Define the streaming job query as part of the streaming job creation.
 
 > [!NOTE]
-> To enable the T-SQL Streaming feature in Azure SQL Edge, enable TF 11515 as a startup option, or use the [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) command. For more information on how to enable trace flags using mssql.conf file, see [Configure using mssql.conf file](configure.md#configure-using-mssqlconf-file). This requirement will be removed in future updates of Azure SQL Edge (Preview).
+> To enable the T-SQL Streaming feature in Azure SQL Edge, enable TF 11515 as a startup option, or use the [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) command. For more information on how to enable trace flags using mssql.conf file, see [Configure using an mssql.conf file](configure.md#configure-using-an-mssqlconf-file). This requirement will be removed in future updates of Azure SQL Edge (Preview).
 
 ## Configure an External Stream Input and Output object
 
