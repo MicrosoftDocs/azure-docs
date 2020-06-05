@@ -58,7 +58,7 @@
     items:
     - name: Import data
       href: import-data.md
-    - name: Use data from on-premises SQL
+    - name: Use data from SQL Server
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Train models

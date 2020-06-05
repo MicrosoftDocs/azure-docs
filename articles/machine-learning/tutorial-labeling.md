@@ -81,7 +81,7 @@ Now that you have access to the data you want to have labeled, create your label
 
 1. Select **+ Add project**.
 
-    ![Create a project](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Create a project":::
 
 ### Project details
 

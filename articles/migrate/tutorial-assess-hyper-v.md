@@ -2,7 +2,7 @@
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
 ---
 
@@ -91,12 +91,20 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  For appliance version 2.19.07.30, the generated hash should match these settings.
+3.  Verify the latest appliance versions and has values:
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - For the Azure public cloud:
+
+        **Scenario** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8.93 MB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - For Azure Government:
+
+        **Scenario*** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### Create the appliance VM
 

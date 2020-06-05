@@ -34,7 +34,7 @@ Spark pools in Azure Synapse offer a fully managed Spark service. The benefits o
 | Ease of use |Synapse Analytics includes a custom notebook derived from [Nteract](https://nteract.io/). You can use these notebooks for interactive data processing and visualization.|
 | REST APIs |Spark in Synapse Analytics includes [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST API-based Spark job server to remotely submit and monitor jobs. |
 | Support for Azure Data Lake Storage Generation 2| Spark pools in Azure Synapse can use Azure Data Lake Storage Generation 2 as well as BLOB storage. For more information on Data Lake Storage, see [Overview of Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
-| Integration with third-party IDEs | Azure Synapse provides an IDE plugin for [Jetbrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) that is useful to create and submit applications to a Spark pool. |
+| Integration with third-party IDEs | Azure Synapse provides an IDE plugin for [JetBrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) that is useful to create and submit applications to a Spark pool. |
 | Pre-loaded Anaconda libraries |Spark pools in Azure Synapse come with Anaconda libraries pre-installed. [Anaconda](https://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
 | Scalability | Apache Spark in Azure Synapse pools can have Auto-Scale enabled, so that pools scale by adding or removing nodes as needed. Also, Spark pools can be shut down with no loss of data since all the data is stored in Azure Storage or Data Lake Storage. |
 

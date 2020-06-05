@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -242,12 +242,15 @@ To remove a replication policy in the Azure portal, follow these steps:
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
 ```powershell
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $destAccountName |
-    Remove-AzStorageObjectReplicationPolicy
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $srcAccountName |
-    Remove-AzStorageObjectReplicationPolicy
+# Remove the policy from the destination account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -PolicyId $destPolicy.PolicyId
+
+# Remove the policy from the source account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $destPolicy.PolicyId
 ```
 
 # [Azure CLI](#tab/azure-cli)
