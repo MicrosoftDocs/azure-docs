@@ -1197,20 +1197,22 @@
         href: bulk-executor-java.md
   - name: Reference
     items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
+    - name: .NET Standard SDK v3
       href: sql-api-sdk-dotnet-standard.md
-    - name: .NET change feed library
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: .NET bulk executor library
-      href: sql-api-sdk-bulk-executor-dot-net.md
     - name: Java bulk executor library
       href: sql-api-sdk-bulk-executor-java.md
     - name: Java SDK v4 for Core
       href: sql-api-sdk-java-v4.md
+    - name: Older .NET SDKs
+      items:
+      - name: .NET SDK v2
+        href: sql-api-sdk-dotnet.md
+      - name: .NET Core SDK v2
+        href: sql-api-sdk-dotnet-core.md
+      - name: .NET change feed library
+        href: sql-api-sdk-dotnet-changefeed.md
+      - name: .NET bulk executor library
+        href: sql-api-sdk-bulk-executor-dot-net.md
     - name: Older Java SDKs for Core
       items:
       - name: Async Java SDK v2
