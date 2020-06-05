@@ -60,7 +60,7 @@ Configure and test Azure AD SSO with Clarity using a test user called **B.Simon*
 To configure and test Azure AD SSO with Clarity, complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Clarity Single Sign-On](#configure-clarity-single-sign-on)** - to configure the Single Sign-On settings on application side.
     1. **[Create Clarity test user](#create-clarity-test-user)** - to have a counterpart of B.Simon in Clarity that is linked to the Azure AD representation of user.
@@ -77,8 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
-
-    ![Clarity Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://ca.ondemand.saml.20.post.<companyname>`
@@ -135,7 +133,7 @@ To configure single sign-on on **Clarity** side, you need to send the downloaded
 
 ### Create Clarity test user
 
-In this section, you create a user called Britta Simon in Clarity. Work with [Clarity support team](mailto:catechnicalsupport@ca.com) to add the users in the Clarity platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Clarity. Work with [Clarity support team](mailto:catechnicalsupport@ca.com) to add the users in the Clarity platform. Users must be created and activated before you use single sign-on.
 
 ## Test single sign-on
 
