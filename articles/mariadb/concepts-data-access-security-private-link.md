@@ -129,3 +129,6 @@ To learn more about Azure Database for MariaDB security features, see the follow
 * To learn how to configure a virtual network service endpoint for your Azure Database for MariaDB, see [Configure access from virtual networks](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
