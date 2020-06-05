@@ -55,4 +55,4 @@ To enable DNS proxy, you must configure your virtual network DNS servers setting
 
 ## Next steps
 
-FQDN filtering in network rules
+[FQDN filtering in network rules](fqdn-filtering-network-rules.md)
