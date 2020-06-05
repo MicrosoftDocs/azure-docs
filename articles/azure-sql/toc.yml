@@ -1051,8 +1051,6 @@
         href: virtual-machines/windows/frequently-asked-questions-faq.md
       - name: Pricing
         href: virtual-machines/windows/pricing-guidance.md
-      - name: "Deprecated: Azure portal template"
-        href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
       - name: SQL Server Data Tools (SSDT)
         href: /https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
