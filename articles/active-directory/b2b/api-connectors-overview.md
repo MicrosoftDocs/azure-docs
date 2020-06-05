@@ -30,7 +30,7 @@ As a developer or IT administrator, you can use API connectors to integrate your
 An API connector represents a contract between Azure AD and an API endpoint by defining the HTTP endpoint, authentication, request, and expected response. Once you configure an API connector, you can enable it for a specific step in a user flow. 
 
 ## Request sent to the API
-An API connector materializes as an **HTTP POST** request, sending selected claims as key-value pairs in a JSON body. The response should also have the HTTP header **Content-Type: application/json**. Attributes are serialized similarly to Microsoft Graph user attributes. <!--# TODO: Add link to MS Graph or create separate reference.-->
+An API connector materializes as an HTTP POST request, sending selected claims as key-value pairs in a JSON body. The response should also have the HTTP header `Content-Type: application/json` Attributes are serialized similarly to Microsoft Graph user attributes. <!--# TODO: Add link to MS Graph or create separate reference.-->
 
 ### Example request
 ```http
@@ -65,7 +65,7 @@ In both of these cases, the API connectors are invoked during sign-up, not sign-
 
 ### After signing in with an identity provider
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (Google, Facebook, Azure AD). This step precedes the **attribute collection page**, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (Google, Facebook, Azure AD). This step precedes the ***attribute collection page***, which is a form you can present to the user to collect user information. The following are examples of API connector scenarios you might enable at this step:
 
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
 - Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow.
@@ -115,7 +115,7 @@ Content-type: application/json
 | Parameter  | Type  | Required | Description |
 |---|---|---|---|
 | version | String | Yes | The version of the API. |
-| action  | String | Yes | Value must be "**Continue**". |
+| action  | String | Yes | Value must be `Continue`. |
 | \<userAttribute> | \<attribute-type> | No  | Values can be returned in the application token or stored in the directory. Must also be selected as a 'claim to receive' in the API connector configuration. |
 
 ### Blocking Response
@@ -140,7 +140,7 @@ Content-type: application/json
 | Parameter  | Type  | Required | Description |
 |---|---|---|---|
 | version         | String           | Yes      | The version of the API.    |
-| action          | String           | Yes      | Value must be "**ShowBlockPage**"  |
+| action          | String           | Yes      | Value must be `ShowBlockPage`  |
 | userMessage     | String           | Yes      | Message to display to the user.    |
 | code            | String           | No       | Error code. Can be used for debugging purposes.    |
 
@@ -170,8 +170,8 @@ Content-type: application/json
 | Parameter  | Type  | Required | Description |
 |---|---|---|---|
 | version         | String           | Yes      | The version of the API.   |
-| action          | String           | Yes      | Value must be "**ValidationError**".   |
-| status          | Integer          | Yes      | Must be value **400** for a ValidationError response.  |
+| action          | String           | Yes      | Value must be `ValidationError`.   |
+| status          | Integer          | Yes      | Must be value `400` for a ValidationError response.  |
 | userMessage     | String           | Yes      | Message to display to the user.   |
 | code            | String           | No       | Error code. Can be used for debugging purposes.    |
 
