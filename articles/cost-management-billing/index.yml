@@ -290,7 +290,7 @@ landingContent:
  # Card (optional)
  # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   - title: Get involved
-    linklists:
+    linkLists:
     - linkListType: reference
       links:
       - text: Cost Management feedback
@@ -305,6 +305,3 @@ landingContent:
         url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
       - text: Ask a Cost Management and Billing question
         url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-
-
-
