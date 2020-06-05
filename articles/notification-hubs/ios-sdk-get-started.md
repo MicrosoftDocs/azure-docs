@@ -13,9 +13,9 @@ ms.lastreviewed: 05/28/2020
 
 # Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
 
-This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
 
-This tutorial covers the following steps:
+Running this tutorial is a prerequisite to the subsequent Objective C and Swift iOS tutorials, and covers the following steps:
 
 - Generate the certificate signing request file.
 - Request your app for push notifications.

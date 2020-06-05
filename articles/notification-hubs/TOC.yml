@@ -48,12 +48,12 @@
       href: push-notification-updates-ios-13.md
     - name: Send push notifications to iOS apps
       items:
-      - name: Prerequisites for all platforms
+      - name: Prerequisites for iOS tutorials
         href: ios-sdk-get-started.md
-      - name: Objective-C (version 2.0.4)
-        href: ios-sdk-obc-204.md
       - name: Objective-C (version 3.0.0-preview1)
         href: ios-sdk-obc-300.md
+      - name: Objective-C (version 2.0.4)
+        href: ios-sdk-obc-204.md
       - name: Swift
         href: ios-sdk-swift-rest.md
     - name: Send push notifications to specific devices
