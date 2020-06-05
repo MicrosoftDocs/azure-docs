@@ -263,7 +263,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 ### Visualizations
 
-Multiple New article.s for view designer to workbooks conversion guide.
+Multiple New articles for view designer to workbooks conversion guide.
 
 - [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) - New article.
 - [Azure Monitor view designer to workbooks conversion options](platform/view-designer-conversion-options.md) - New article.
