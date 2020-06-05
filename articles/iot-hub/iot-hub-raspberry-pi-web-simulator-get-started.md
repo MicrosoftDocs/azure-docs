@@ -25,7 +25,7 @@ In this tutorial, you begin by learning the basics of working with Raspberry Pi 
 </p>
 <p>
 <div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
 <img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
 </a>
 </div>
