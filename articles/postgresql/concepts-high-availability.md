@@ -21,7 +21,7 @@ Azure Database for PostgreSQL is built on Azure architecture, and is suitable fo
 | <b>Gateway | The Gateway acts as a database proxy, routes all client connections to the database server. |
 
 
-##  Protection from Unplanned Downtime
+##  Unplanned Downtime Mitigation
 
 Unplanned downtime can happen as a result of many factors, including underlying hardware failure, networking issues, and software bugs. If any such event causes the database server to go down, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. As the PostgreSQL engine starts up, it performs the recovery process using WAL files and database files before allowing clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
 
@@ -44,7 +44,7 @@ High availability in Azure Database for PostgreSQL protects from outages caused 
 | <b> Region failure | Failure of a region is a rare event. However, if you need protection for disaster recovery (DR) purposes, you can configure read replicas in other regions. (See [this article](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) about creating and managing read replicas for details.) In the event of a region-level failure, you can manually promote the read replica configured on the other region to be your production database server. You can optionally create additional read replicas on other regions from the new promoted production database server. |
 | <b> Logical errors | These are typically user errors, such as accidental drop of tables or incorrectly updated data. Recovery from such errors involves performing a [point-in-time recovery](https://docs.microsoft.com/azure/postgresql/concepts-backup) (PITR) from the backup to the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. |
 
-## Mitifation for Planned Downtime
+## Planned Downtime Mitigation
 Planned downtime activity such as scale up/down of the database server requires a restart of the server. During such events, client connections are drained and any uncommitted transactions are canceled. The database server is shut down to be in a consistent state. A new database server is deployed, and the storage is reattached. When the client application retries the connection, or tries to make a new connection, the Gateway directs the connection request to the new database server. Typically, no recovery is required after a planned downtime.
 
 ![view of Elastic Scaling in Azure PostgreSQL](./media/concepts-high-availability/elastic-scaling.png)
