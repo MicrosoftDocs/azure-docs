@@ -49,11 +49,11 @@ Steps:
 1. Search & select "Diagnostic Services Trusted Storage Access" app 
 1. Save changes
 
-_![Figure 1.0](media/profiler-bring-your-own-storage/figure10.png)_
+_![Figure 1.0](media/profiler-bring-your-own-storage/figure-10.png)_
 _Figure 1.0_ 
 
 After you added the role, it will appear under the "Role assignments" section, like the below Figure 1.1. 
-_![Figure 1.1](media/profiler-bring-your-own-storage/figure11.png)_
+_![Figure 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 _Figure 1.1_ 
 
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
@@ -174,7 +174,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
     ```
 
 1. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure portal. (App Service > Application Insights) 
-_![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
+_![Figure 2.0](media/profiler-bring-your-own-storage/figure-20.png)_
 _Figure 2.0_
 
 ## Troubleshooting
