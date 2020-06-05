@@ -39,7 +39,7 @@
       - name: Understand and work with scopes
         href: costs/understand-work-scopes.md
       - name: Manage costs with automation
-        href: manage-automation.md
+        href: costs/manage-automation.md
       - name: Cost Management for partners
         href: costs/get-started-partners.md
       - name: Choose between Cost Management and Cloudyn
