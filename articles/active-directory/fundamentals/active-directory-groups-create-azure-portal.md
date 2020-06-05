@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: krbain
@@ -23,7 +23,7 @@ You can create a basic group using the Azure Active Directory (Azure AD) portal.
 There are several group and membership types. The following information explains each group and membership type and why they are used, to help you decide which options to use when you create a group.
 
 ### Group types:
-- **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
+- **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groupsManage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
 - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### Membership types:
