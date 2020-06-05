@@ -61,32 +61,17 @@ Before you begin, make sure that:
 > * A maximum of 80 TBs can be exported.
 > * File history is not exported.
 
-### Limits
+### Export order limits
 
-* Maximum of 500 containers are supported for export
-* Maximum of 500 million files are supported for export
-* Azure Data Box usage capacity may be less than 80 TB because of Refs metadata space consumption
-* There's a 1:1 mapping from prefix to container
-* Maximum filename size is 1024 characters files, filenames that exceed this length will not export
-* Duplicate prefixes in the xml file are exported (duplicates are not ignored)
+* Maximum of 500 containers are supported for export.
+* Maximum of 500 million files are supported for export.
+* Azure Data Box usage capacity may be less than 80 TB because of Refs metadata space consumption.
+* There is a 1:1 mapping from prefix to container.
+* Maximum filename size is 1024 characters files, filenames that exceed this length will not export.
+* Duplicate prefixes in the xml file are exported (duplicates are not ignored).
+* Page Blobs and container names are case sensitive, so if casing is miss-matched, the blob and/or container will not be found.
 
-<!--### Verbose logs -->
-
-<!-- All files successfully exported will be logged in the verbose log (file size, cloud format, file path, and CRC)
-Premium storage account has verbose log only.
-Verbose log is equivalent to a bill of materials (BOM).
-The log is sent to customer and downloaded. The customer can also delete the log from the cloud
-Error log is also created.
-Customers can 
-Check-sum of file (CRC).
-
-ERROR LOG:
-Similar format to the one in import. Was it in the cloud or in the read. Be used to create an export job. You can use the old error log to construct an new export job! You can use the error log as a template. -->
-
-<!-- Start at 44:00 in video -->
-<!-- ### Local account -->
-
-## Order Data Box
+## Order Data Box for export
 
 Perform the following steps in the Azure portal to order a device.
 
@@ -145,12 +130,11 @@ Perform the following steps in the Azure portal to order a device.
     >
     > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
 
+    To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.mdstorage-import-export-requirements.md#export-order-using-xml-file).
+
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
 
    To see an example of the xml output, see [Sample XML output](data-box-deploy-export-ordered.md#sample-xml-file)
-  
-   <!-- 21:00 of video, caveats of the xml file -->
-   <!-- CUSTOMER NEEDS TO SPECIFY THE FILE. If <blobPathPrefix> has a '/' at the end, it exports all containers. if it doesn't only the specific container is exported. LINK OUT TO AZURE PREFIX DOCUMENTATION. Also a transport file doc file? Whitespace is allowed in blobs, so if there is an extra space or misspelled blob, the blob will not be found and not exported. Azure containers are all case sensitive. Azure containers we handle internally. Page Blob part is case sensitive, so if the customer messes up the casing, his/her blob will not be found. Names must match containers in terms of case -->
 
 9. In **Data selection**, review your settings and select **Next: Contact details>**.
 
@@ -179,8 +163,39 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
 
-<!-- I missed steps in the Export process for **Use XML file**, as it completely changes the steps above. I'm going to have to fork the steps above.-->
-<!-- For adding container public access level, I need to link [](../storage/blobs/storage-manage-access-to-resources).md##grant-anonymous-users-permissions-to-containers-and-blobs-->
+## Export order using XML file
+
+If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
+
+1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure files you want to export. To add the XML file, select **Click here to select an XML file**.
+     ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+
+2. Select **+ Container** to create a container.
+    ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+
+3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+
+4. Select **Create**.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+
+   If your container is created successfully, you will receive the following message:
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+
+5. Select the container you created and double-click on it.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+
+6. Double-clicking on the container will bring up the container properties view. You now want to attach (or browse to) your XML file that contains your list of blobs and/or Azure files you want to export. Select **Upload**.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+
+7. You have successfully added the XML file to the container. Only blobs and Azure files you specified in this XML will be exported.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## Track the order
 
