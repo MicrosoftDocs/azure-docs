@@ -22,7 +22,7 @@ When you use the Azure portal to create an event subscription for an event raise
 
 You can create a system topic in two ways using the Azure portal:
 
-- Using the **Events** page of the Azure resource page. See [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal#subscribe-to-the-blob-storage.md) for detailed steps. 
+- Using the **Events** page of the Azure resource page. See [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage.md) for detailed steps. 
 - Using the **Event Grid System Topics** page. See [Create, view, and manage system topics](create-view-manage-system-topics.md). This article also shows you how to view all the system topics, view details about a system topic, and delete a system topic. 
 
 Event Grid didn't create system topics for Azure sources (Azure Storage, Azure Event Hubs, etc.) that were created before Mar, 15, 2020. If you created a subscription for an event raised by Azure sources between 3/15/2020 and 6/2/2020, the Event Grid service automatically created a system topic with a **randomly generated name**. After 6/2/2020, you can specify a name for the system topic while creating an event subscription for an Azure source. 
