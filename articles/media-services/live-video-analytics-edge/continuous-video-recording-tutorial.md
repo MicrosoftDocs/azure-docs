@@ -7,7 +7,9 @@ ms.date: 05/27/2020
 ---
 # Tutorial: Continuous video recording to the cloud and playback from the cloud
 
-In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video by using Azure Media Services. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. You will:
+In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video by using Azure Media Services. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. 
+
+In this tutorial you will:
 
 > [!div class="checklist"]
 > * Set up the relevant resources.
@@ -64,7 +66,7 @@ Before you begin, check that you've completed the third bullet in [Prerequisites
 
 ![App settings](./media/quickstarts/clouddrive.png)
 
-Of interest in this tutorial are:
+Of interest in this tutorial are the files:
 
 * **~/clouddrive/lva-sample/edge-deployment/.env**: Contains properties that Visual Studio Code uses to deploy modules to an edge device.
 * **~/clouddrive/lva-sample/appsettings.json**: Used by Visual Studio Code for running the sample code.
@@ -126,7 +128,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 1. Start Visual Studio Code.
 1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. Copy the string from the src/cloud-to-device-console-app/appsettings.json file. 
 
-    ![Set IOT connection string](./media/quickstarts/set-iotconnection-string.png)
+    ![Set IOT Hub connection string](./media/quickstarts/set-iotconnection-string.png)
 1. Right-click the src/edge/deployment.template.json file, and select **Generate IoT Edge Deployment Manifest**. Visual Studio Code uses the values from the .env file to replace the variables found in the deployment template file. This action creates a manifest file in the src/edge/config folder named **deployment.amd64.json**.
 
    ![Generate IoT Edge deployment manifest](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -142,7 +144,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 
 ## Prepare to monitor the modules 
 
-When you use the Live Video Analytics on IoT Edge module to record the live video stream, it sends events to the IoT Hub. To see these events, follow these steps:
+When you use the Live Video Analytics on IoT Edge module to record the live video stream, it sends events to IoT Hub. To see these events, follow these steps:
 
 1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
 1. Expand the **Devices** node.
@@ -223,7 +225,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to IoT Edge Hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the application properties and the content of the body are defined by the Live Video Analytics module.
 
