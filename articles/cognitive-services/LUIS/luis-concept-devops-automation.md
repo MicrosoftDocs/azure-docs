@@ -1,27 +1,25 @@
 ---
 title: Testing for DevOps - LUIS
-description: How to test your Language Understanding Intelligent Services (LUIS) app in a DevOps environment.
+description: How to implement CI/CD workflows for DevOps for Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
-ms.date: 06/3/2020
+ms.date: 06/5/2020
 ---
 
 # Continuous Integration and Continuous Delivery workflows for LUIS DevOps
 
 Software engineers want to follow best practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md) and [release management](#release-management) when developing a Language Understanding Intelligent Services (LUIS) app.
 
-Continuous Integration is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us to also test the build such that we can verify that not only does the code asset still build correctly (which in the case of a LUIS app means that it can be imported from the LUDown source and trained and published), but also is still functionally correct. This is also a best practice for building robust and flexible software systems.
+[Continuous Integration](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us to also test the build such that we can verify that not only does the code asset still build correctly (which in the case of a LUIS app means that it can be imported from the LUDown source and trained and published), but also is still functionally correct. This is also a best practice for building robust and flexible software systems.
 
-Continuous Delivery takes the Continuous Integration concept further to also test deployments of the integrated code base on a replica of the environment it will be ultimately deployed on. This enables us to learn early about any unforeseen operational issues that arise from our changes as quickly as possible and also learn about gaps in our test coverage.
+[Continuous Delivery](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) takes the Continuous Integration concept further to also test deployments of the integrated code base on a replica of the environment it will be ultimately deployed on. This enables us to learn early about any unforeseen operational issues that arise from our changes as quickly as possible and also learn about gaps in our test coverage.
 
 The goal of all of this is to ensure that "master is always shippable," meaning that we could, if we needed to, take a build from the master branch of our code base and ship it on production.
-
-If these concepts are unfamiliar to you, see [Continuous Integration](https://www.martinfowler.com/articles/continuousIntegration.html) and [Continuous Delivery](https://martinfowler.com/bliki/ContinuousDelivery.html) for more information.
 
 ## Build automation workflows for LUIS
 
 ![Continuous integration workflows](./media/luis-concept-devops-automation/luis-automation.png)
 
-In your source code management (SCM) system, you should configure automated build pipelines to run at the following events:
+In your source code management (SCM) system, configure automated build pipelines to run at the following events:
 
 1. **PR workflow** triggered when a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) is raised. This validate the contents of the PR *before* the updates get merged into the master branch.
 1. **CI/CD workflow** triggered when updates are pushed to the master branch, for example upon merging the changes from a PR. This ensures the quality of all updates to the master branch.
@@ -53,7 +51,7 @@ This workflow should:
 * Pass the workflow if all the tests pass, otherwise fail it.
 * Deletes the temporary app again.
 
-Ideally, configure branch protection features in your SCM that require that this workflow completes successfully before the PR can be completed.
+If supported by your SCM, configure branch protection rules so that this workflow must complete successfully before the PR can be completed.
 
 ### The master branch CI/CD workflow
 
@@ -76,14 +74,21 @@ This workflow should:
 
 ### Continuous delivery (CD)
 
-The CD job in a CI/CD workflow runs conditionally on success of the build and automated unit tests. Its job is to automatically deploy the LUIS application to an environment where you can do more testing. In a straightforward DevOps setup
+The CD job in a CI/CD workflow runs conditionally on success of the build and automated unit tests. Its job is to automatically deploy the LUIS application to an environment where you can do more testing.
+
+There is no one recommended solution to this, and you must implement the process that is appropriate for your project. The [LUIS DevOps template](https://github.com/Azure-Samples/LUIS-DevOps-Template) template repo implements a simple solution for this which is to publish the new LUIS app version to the *production* slot in the LUIS app for the master branch. This is fine for a simple setup, but if you need to support a number of different production environments at the same time, for example, *development*, *staging* and *UAT*, then the limit of two named publishing slots per app will prove insufficient.
+
+Other options for deploying an app version include:
+
+* Leave the app version published to the direct version endpoint and implement a process to configure downstream production environments with the direct version endpoint as required.
+* Maintain different LUIS apps for each production environments and write automation steps to import the `.lu` into a new version in the LUIS app for the target production environment, to train and publish it.
+* Export the tested LUIS app version into a [LUIS docker container](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) and deploy the LUIS container to Azure [Container instances](https://docs.microsoft.com/azure/container-instances/).
 
 ## Release Management
 
-Generally we recommend that you do continuous delivery to your development and staging environments. Most teams, even at Microsoft, require a manual review and approval process for production deployment. For a production deployment you might want to make sure it happens when key people on the development team are available for support, or during low-traffic periods. But there's nothing to prevent you from completely automating your development and test environments so that all a developer has to do is check in a change and an environment is set up for acceptance testing.
+Generally we recommend that you do continuous delivery only to your non-production environments, such as to development and staging. Most teams require a manual review and approval process for deployment to a production environment. For a production deployment you might want to make sure it happens when key people on the development team are available for support, or during low-traffic periods.
 
 ## Next steps
 
-* Learn about [source control for LUIS](luis-concept-devops-sourcecontrol.md)
-* Learn about [testing for LUIS DevOps](luis-concept-devops-testing.md)
-* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-implement-devops-using-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)
+* Learn how to write a [GitHub Actions workflow with NLU.DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template/blob/master/docs/4-pipeline.md)

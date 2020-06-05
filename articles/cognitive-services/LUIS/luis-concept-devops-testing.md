@@ -117,4 +117,4 @@ The ideal solution for this is to review your training utterances and perhaps ad
 ## Next steps
 
 * Learn about [implementing CI/CD workflows](luis-concept-devops-automation.md)
-* Learn how to [implement testing in DevOps for LUIS](luis-how-to-implement-devops-using-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)

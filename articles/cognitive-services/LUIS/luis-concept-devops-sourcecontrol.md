@@ -200,4 +200,4 @@ A LUIS app in LUDown format is human readable which supports the communication o
 ## Next steps
 
 * Learn about [testing for LUIS DevOps](luis-concept-devops-testing.md)
-* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-implement-devops-using-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)

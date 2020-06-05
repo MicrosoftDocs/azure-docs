@@ -13,25 +13,23 @@ ms.date: 06/5/2020
 ms.author: andycw
 ---
 
-# Apply DevOps using GitHub Actions
+# Apply DevOps to LUIS app development using GitHub Actions
 
-Go to the [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template]) for a complete solution template for the application of professional software engineering fundamentals and DevOps practices with LUIS. You can use this template repo to implement DevOps practices with LUIS with your own project.
+Go to the [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template]) for a complete solution template for the application of professional software engineering best practices and DevOps practices with LUIS. You can use this template repo to implement DevOps practices with LUIS with your own project.
 
 The [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template]) walks through how to:
 
 * **Clone the template repo** - Copy the template to your own GitHub repository.
-* **Configure LUIS authoring and prediction resources** - Create the [LUIS authoring and prediction resources in Azure](\<link-to-relevant-conceptual-topic\>) that will be used by the continuous integration workflows .
-* **Get an authorization token for the CI/CD workflows to sign into Azure** - Configure a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)** and get the [token that is used by the continuous integration (CI) and continuous delivery (CD) workflows](\<link-to-relevant-conceptual-topic\>) to sign into Azure .
-* **Configure the CI/CD workflows** - Configure [parameters for the CI/CD workflows](\<link-to-relevant-conceptual-topic\>) and store them in [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* **Walks through the ["dev inner loop"](https://mitchdenny.com/the-inner-loop/)** - The developer makes [updates to a LUIS app while working in a development branch](\<link-to-relevant-conceptual-topic\>), [tests the updates](\<link-to-relevant-conceptual-topic\>) and then [raises a pull request to propose changes](\<link-to-relevant-conceptual-topic\>) and to seek review approval.
-* **Execute CI/CD workflows** - Execute GitHub Actions [workflows to build and test a LUIS app](\<link-to-relevant-conceptual-topic\>).
-* **Perform batch testing** - Execute [automated batch testing for a LUIS app](\<link-to-relevant-conceptual-topic\>) to evaluate the quality of the app.
-* **Deploy the LUIS app** - Execute a [continuous delivery (CD) job](\<link-to-relevant-conceptual-topic\>) in a GitHub Action workflow to [publish the LUIS app](\<link-to-relevant-conceptual-topic\>).
+* **Configure LUIS resources** - Create the [LUIS authoring and prediction resources in Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) that will be used by the continuous integration workflows.
+* **Configure the CI/CD workflows** - Configure parameters for the CI/CD workflows and store them in [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
+* **Walks through the ["dev inner loop"](https://mitchdenny.com/the-inner-loop/)** - The developer makes updates to a LUIS app while working in a development branch, tests the updates and then raises a pull request to propose changes and to seek review approval.
+* **Execute CI/CD workflows** - Execute [continuous integration workflows to build and test a LUIS app](luis-concept-devops-automation.md) using GitHub Actions.
+* **Perform automated testing** - Perform [automated batch testing for a LUIS app](luis-concept-devops-testing.md) to evaluate the quality of the app.
+* **Deploy the LUIS app** - Execute a [continuous delivery (CD) job](luis-concept-devops-automation.md#continuous-delivery-cd) to publish the LUIS app.
 
 ## Next steps
 
 * Use the [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template]) to apply DevOps with your own project.
-* [Source control and branch strategies for LUIS](#source-control-and-branch-strategies-for-luis)
+* [Source control and branch strategies for LUIS](luis-concept-devops-sourcecontrol.md)
 * [Testing for LUIS DevOps](luis-concept-devops-testing.md)
 * [Automation workflows for LUIS DevOps](luis-concept-devops-automation.md)
-* [Release management](luis-concept-devops-release-management.md)
