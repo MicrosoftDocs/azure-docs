@@ -1,6 +1,6 @@
 ---
-title: Set up high availability for Azure Resource Manager virtual machines | Microsoft Docs
-description: This tutorial shows you how to create an Always On availability group with Azure Virtual Machines in Azure Resource Manager mode.
+title: "Azure Marketplace template: Always On availability group"
+description: "Deprecated: The Always On availability group Azure Marketplace template has been deprecated and is no longer available."
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,48 +16,36 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
+ROBOTS: NOINDEX
 
 ---
-# Configure Always On availability groups in Azure Virtual Machines automatically: Resource Manager
+# Azure Marketplace template: Always On availability group for SQL Server on Azure VMs (deprecated)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This tutorial shows you how to create a SQL Server availability group that uses Azure Resource Manager virtual machines (VM). The tutorial uses Azure blades to configure a template. You can review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
+  >[!WARNING]
+  > The Always On availability group Azure Marketplace template has been deprecated and may fail when deployed from the Azure portal. Use [quickstart templates](availability-group-quickstart-template-configure.md) or the [Azure CLI] to deploy the availability group to your SQL Server on Azure VM instead. 
 
-The complete tutorial creates a SQL Server availability group on Azure Virtual Machines that include the following elements:
+## Template has been deprecated
 
-* A virtual network that has multiple subnets, including a frontend and a backend subnet
-* Two domain controllers that have an Active Directory domain
-* Two virtual machines that run SQL Server and are deployed to the backend subnet and joined to the Active Directory domain
-* A three-node failover cluster with the Node Majority quorum model
-* An availability group that has two synchronous-commit replicas of an availability database
+Use [quickstart templates](availability-group-quickstart-template-configure.md) or the [Azure CLI] to deploy the availability group to your SQL Server on Azure VM instead. 
 
-The following illustration represents the complete solution.
+This article is being retired but provided as an informational for customers who might still be looking for the information about the Azure Marketplace template. 
 
-![Test lab architecture for availability groups in Azure](./media/availability-group-azure-marketplace-template-configure/0-EndstateSample.png)
 
-All resources in this solution belong to a single resource group.
-
-Before you start this tutorial, confirm the following:
-
-* You already have an Azure account. If you don't have one, [sign up for a trial account](https://azure.microsoft.com/pricing/free-trial/).
-* You already know how to use the GUI to provision a SQL Server virtual machine from the virtual machine gallery. For more information, see [Provisioning a SQL Server virtual machine on Azure](create-sql-vm-portal.md).
-* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
-
-> [!NOTE]
-> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
->
-
-In this tutorial, use the Azure portal to:
+Before the portal was deprecated, in this tutorial, you would use the Azure portal to:
 
 * Choose the Always On template from the portal.
 * Review the template settings and update a few configuration settings for your environment.
 * Monitor Azure as it creates the entire environment.
 * Connect to a domain controller and then to a server that runs SQL Server.
 
+
+![Test lab architecture for availability groups in Azure](./media/availability-group-azure-marketplace-template-configure/0-EndstateSample.png)
+
 [!INCLUDE [availability-group-template](../../../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
-## Provision the cluster from the gallery
+### Provision the cluster from the gallery
 
 Azure provides a gallery image for the entire solution. To locate the template:
 
@@ -69,7 +57,7 @@ Azure provides a gallery image for the entire solution. To locate the template:
 
 The following sections explain the input for the solution. 
 
-### Basics
+#### Basics
 
 Select **Basics** and configure the following settings:
 
@@ -85,7 +73,7 @@ The following screenshot is a completed **Basics** blade:
 
 Select **OK**.
 
-### Domain and network settings
+#### Domain and network settings
 
 This Azure gallery template creates a domain and domain controllers. It also creates a network and two subnets. The template can't create servers in an existing domain or virtual network. The next step configures the domain and network settings.
 
@@ -106,7 +94,7 @@ If necessary, you can change these values. For this tutorial, use the preset val
 
 Review the settings, and then select **OK**.
 
-### Availability group settings
+#### Availability group settings
 
 On **Availability group settings**, review the preset values for the availability group and the listener.
 
@@ -120,7 +108,7 @@ If necessary, you can change these values. For this tutorial, use the preset val
 
 Select **OK**.
 
-### Virtual machine size, storage settings
+#### Virtual machine size, storage settings
 
 On **VM size, storage settings**, choose a SQL Server virtual machine size, and review the other settings.
 
@@ -151,7 +139,7 @@ For this tutorial, use **General workload**.
 
 Review the settings, and then select **OK**.
 
-#### A note about storage
+##### A note about storage
 
 Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage. When a server requires 2 TB or more, the template creates a storage pool on each SQL Server virtual machine. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents a single data disk to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server by using the following settings:
 
@@ -172,7 +160,7 @@ For additional information about storage space and storage pools, see:
 For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure virtual machines](performance-guidelines-best-practices.md).
 
-### SQL Server settings
+#### SQL Server settings
 
 On **SQL Server settings**, review and modify the SQL Server virtual machine name prefix, SQL Server version, SQL Server service account and password, and the SQL auto-patching maintenance schedule.
 
@@ -191,23 +179,23 @@ On **SQL Server settings**, review and modify the SQL Server virtual machine nam
 
 Review the settings, and then select **OK**.
 
-### Summary
+#### Summary
 
 On the summary page, Azure validates the settings. You can also download the template. Review the summary. Select **OK**.
 
-### Buy
+#### Buy
 
 This final blade contains **terms of use**, and **privacy policy**. Review this information. When you are ready for Azure to start to create the virtual machines and all the other required resources for the availability group, select **Create**.
 
 The Azure portal creates the resource group and all the resources.
 
-## Monitor deployment
+### Monitor deployment
 
 Monitor the deployment progress from the Azure portal. An icon that represents the deployment is automatically pinned to the Azure portal dashboard.
 
 ![Azure Dashboard](./media/availability-group-azure-marketplace-template-configure/11-deploydashboard.png)
 
-## Connect to SQL Server
+### Connect to SQL Server
 
 The new instances of SQL Server are running on virtual machines that have internet-connected IP addresses. You can connect directly to each SQL Server virtual machine with remote desktop (RDP).
 
