@@ -47,8 +47,8 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 Before you begin, make sure that:
 
-* You should have a host computer connected to the datacenter network. Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+* You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ### Supported storage accounts
 
@@ -61,7 +61,17 @@ Before you begin, make sure that:
 > * A maximum of 80 TBs can be exported.
 > * File history is not exported.
 
-## Order Data Box
+### Export order limits
+
+* Maximum of 500 containers are supported for export.
+* Maximum of 500 million files are supported for export.
+* Azure Data Box usage capacity may be less than 80 TB because of ReFS metadata space consumption.
+* There is a 1:1 mapping from prefix to container.
+* Maximum filename size is 1024 characters files, filenames that exceed this length will not export.
+* Duplicate prefixes in the xml file are exported (duplicates are not ignored).
+* Page Blobs and container names are case sensitive, so if casing is mismatched, the blob and/or container will not be found.
+
+## Order Data Box for export
 
 Perform the following steps in the Azure portal to order a device.
 
@@ -82,7 +92,7 @@ Perform the following steps in the Azure portal to order a device.
     |Transfer type     | Select **Export to Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
-    |Source Azure region    |    Select the Azure region where your data currently. resides.         |
+    |Source Azure region    |    Select the Azure region where your data currently is.         |
     |Destination country     |     Select the country where you want to ship the device.        |
 
    ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-01.png)
@@ -120,30 +130,19 @@ Perform the following steps in the Azure portal to order a device.
     >
     > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
 
+    To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
+
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
 
-   The following xml shows an example of the xml format that the export order use when you use the **use XML file** option:
-
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <BlobList>
-      <BlobPathPrefix>/export-container</BlobPathPrefix>
-      <BlobPath>/export-container-blobsonly/TELL.C</BlobPath>
-   </BlobList>
-   <AzureFileList>
-      <FilePathPrefix>/export-fileshare-prefix</FilePathPrefix>
-      <FilePath>/export-filelist1/windows/NgcPopKeySrv.log</FilePath>
-   </AzureFileList>
-   ```
-   <!-- 21:00 of video, caveats of the xml file -->
-   <!-- CUSTOMER NEEDS TO SPECIFY THE FILE. If <blobPathPrefix> has a '/' at the end, it exports all containers. if it doesn't only the specific container is exported. LINK OUT TO AZURE PREFIX DOCUMENTATION. Also a transport file doc file? Whitespace is allowed in blobs, so if there is an extra space or misspelled blob, the blob will not be found and not exported. Azure containers are all case sensitive. Azure containers we handle internally. Page Blob part is case sensitive, so if the customer messes up the casing, his/her blob will not be found. Names must match containers in terms of case -->
+   To see an example of the xml output, see [Sample XML output](data-box-deploy-export-ordered.md#sample-xml-file)
 
 9. In **Data selection**, review your settings and select **Next: Contact details>**.
 
    ![Contact Details](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
 
 10. In the **Contact details**, select **+ Add Shipping Address** to enter your shipping information.
-   ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
+
+    ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
 
 11. In **Add Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
@@ -164,6 +163,40 @@ Perform the following steps in the Azure portal to order a device.
 15. Select **Order**. The order takes a few minutes to be created.
 
     ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
+
+## Export order using XML file
+
+If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
+
+1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure files you want to export. To add the XML file, select **Click here to select an XML file**.
+     ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+
+2. Select **+ Container** to create a container.
+    ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+
+3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+
+4. Select **Create**.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+
+   If your container is created successfully, you will receive the following message:
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+
+5. Select the container you created and double-click on it.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+
+6. Double-clicking on the container will bring up the container properties view. You now want to attach (or browse to) your XML file that contains your list of blobs and/or Azure files you want to export. Select **Upload**.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+
+7. You have successfully added the XML file to the container. Only blobs and Azure files you specified in this XML will be exported.
+
+   ![XML file](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## Track the order
 
@@ -195,19 +228,25 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ## Sample XML file
 
-The export blob list file may contain blob names and blob prefixes, as shown here:  
+The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order use when you use the **use XML file** option:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>  
-<BlobList>  
-   <BlobPath>pictures/animals/koala.jpg</BlobPath>  
-   <BlobPathPrefix>/vhds/</BlobPathPrefix>  
-   <BlobPathPrefix>/movies/</BlobPathPrefix>  
-</BlobList>
-<AzureFileList>
-   <FilePathPrefix>/export-fileshare-prefix</FilePathPrefix>
-   <FilePath>/export-filelist1/windows/NgcPopKeySrv.log</FilePath>
-</AzureFileList>  
+<?xml version="1.0" encoding="utf-8"?>
+   <-- BlobList/prefix/Container list for Blob storage for export  -->
+   <BlobList>
+      <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
+      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
+      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix>
+      <BlobPathPrefix>/1tbfile/</BlobPathPrefix>
+      <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
+      <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
+   </BlobList>
+   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <AzureFileList>
+      <FilePathPrefix>/64mbfiles/</FilePathPrefix>
+      <FilePathPrefix>//4mbfiles/prefix2/subprefix</FilePathPrefix>
+      <FilePathPrefix>/1tbfile/prefix</FilePathPrefix>
+   </AzureFileList>
 ```
 
 ### Examples of valid blob paths
@@ -218,11 +257,85 @@ The following table shows examples of valid blob paths:
    | --- | --- | --- |
    | Starts with |/ |Exports all blobs in the storage account |
    | Starts with |/$root/ |Exports all blobs in the root container |
-   | Starts with |/book |Exports all blobs in any container that begins with prefix **book** |
-   | Starts with |/music/ |Exports all blobs in container **music** |
-   | Starts with |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
+   | Starts with |/containers |Exports all blobs in any container that begins with prefix **containers** |
+   | Starts with |/container-name/ |Exports all blobs in container **container-name** |
+   | Starts with |/container-name/prefix |Exports all blobs in container **container-name** that begin with prefix **prefix** |
    | Equal to |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
-   | Equal to |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
+   | Equal to |8tbpageblob/mydata.txt |Exports blob **mydata.txt** in container **8tbpageblob** |
+
+## Sample log files
+
+This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
+
+### Verbose log
+
+The following log files show examples of verbose logging when you select **Include verbose log**:
+
+```xml
+<File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/helloEndWithDot..txt" Size="11" crc64="7320094093915972193"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/test..txt" Size="12" crc64="17906086011702236012"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/test1" Size="1024" crc64="7573843669953104266"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3" Size="1024" crc64="7573843669953104266"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/.......txt" Size="11" crc64="7320094093915972193"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/copylogb08fa3095564421bb550d775fff143ed====..txt" Size="53638" crc64="1147139997367113454"></File>
+<File CloudFormat="BlockBlob" Path="validblobdata/testmaxChars-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-123456790-12345679" Size="1024" crc64="7573843669953104266"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file0" Size="0" crc64="0"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file1" Size="0" crc64="0"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file4096_000001" Size="4096" crc64="16969371397892565512"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file4096_000000" Size="4096" crc64="16969371397892565512"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/64KB-Seed10.dat" Size="65536" crc64="10746682179555216785"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/LiveSiteReport_Oct.xlsx" Size="7028" crc64="6103506546789189963"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/NE_Oct_GeoReport.xlsx" Size="103197" crc64="13305485882546035852"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/64KB-Seed1.dat" Size="65536" crc64="3140622834011462581"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/1mbfiles-0-0" Size="1048576" crc64="16086591317856295272"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file524288_000001" Size="524288" crc64="8908547729214703832"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/4mbfiles-0-0" Size="4194304" crc64="1339017920798612765"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/file524288_000000" Size="524288" crc64="8908547729214703832"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/8mbfiles-0-1" Size="8388608" crc64="3963298606737216548"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/1mbfiles-0-1" Size="1048576" crc64="11061759121415905887"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/XLS-10MB.xls" Size="1199104" crc64="2218419493992437463"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/8mbfiles-0-0" Size="8388608" crc64="1072783424245035917"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/4mbfiles-0-1" Size="4194304" crc64="9991307204216370812"></File>
+<File CloudFormat="BlockBlob" Path="export-ut-container/VL_Piracy_Negtive10_TPNameAndGCS.xlsx" Size="12398699" crc64="13526033021067702820"></File>
+```
+
+### Error logs
+
+The following xml shows an example of the error log when the export is successful:
+
+```xml
+<CopyLog Summary="Summary">
+  <Status>Succeeded</Status>
+  <TotalFiles_Blobs>27</TotalFiles_Blobs>
+  <FilesErrored>0</FilesErrored>
+</CopyLog>
+```
+
+The following xml shows an example of the error log when the export has errors:
+
+```xml
+<ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/wastorage.v140.3.0.2.nupkg">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>400</ErrorCode>
+  <ErrorMessage>UnsupportBlobType</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/xunit.console.Primary_2020-05-07_03-54-42-PM_27444.hcsml">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>400</ErrorCode>
+  <ErrorMessage>UnsupportBlobType</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/xunit.console.Primary_2020-05-07_03-54-42-PM_27444 (1).hcsml">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>400</ErrorCode>
+  <ErrorMessage>UnsupportBlobType</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>4</TotalFiles_Blobs>
+  <FilesErrored>3</FilesErrored>
+</CopyLog>
+```
 
 ## Next steps
 
