@@ -102,7 +102,8 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 
-1. To re-register datastore(s) that use the storage account, use the values from the [What needs to be updated](#whattoupdate) section and the key from step 1 with the following code:
+1. You can re-register datastore(s) that use the storage account via the SDK or [the Azure Machine Learning studio](https://ml.azure.com).
+    1. **To re-register datastores via the Python SDK**, use the values from the [What needs to be updated](#whattoupdate) section and the key from step 1 with the following code:
 
     ```python
     # Re-register the blob container
@@ -123,7 +124,13 @@ To update Azure Machine Learning to use the new key, use the following steps:
     ```
 
     Since `overwrite=True` is specified, this code overwrites the existing registration and updates it to use the new key.
-
+    1. **To re-register datastores via the studio**, select **Datastores** from the left pane of the studio. 
+        1. Select which datastore you want to update.
+        1. Select the **Update credentials** button on the top left. 
+        1. Use your new access key from step 1 to populate the form and click **Save**.
+        
+            If you are updating credentials for your default datastore, complete this step and repeat step 2b to resync your new key with the default datastore of the workspace. 
+            
 ## Next steps
 
 For more information on registering datastores, see the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class reference.

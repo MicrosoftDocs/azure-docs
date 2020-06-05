@@ -190,6 +190,9 @@ You can find the information that you need to populate the form on the  [Azure p
 
 * For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items. 
 
+> [!IMPORTANT]
+> For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to sync your updated credentials with [these steps](how-to-change-storage-access-key.md). 
+
 The following example demonstrates what the form looks like when you create an Azure blob datastore: 
     
 ![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
