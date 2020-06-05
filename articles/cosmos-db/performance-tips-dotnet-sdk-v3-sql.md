@@ -126,7 +126,7 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
-Azure Functions should use a [static client](https://docs.microsoft.com/azure/azure-functions/manage-connections#static-clients)
+When working on Azure Functions, instances should also follow the existing [guidelines](../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
 
 <a id="max-connection"></a>
 
