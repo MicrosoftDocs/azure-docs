@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
 
 ---
@@ -34,6 +34,8 @@ The nature of the IP address determines the **type** of load balancer created. P
 
 ![Tiered load balancer example](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer can have multiple frontend IPs. Learn more about [multiple frontends](load-balancer-multivip-overview.md).
+
 ## Backend pool
 
 The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool.
@@ -52,7 +54,7 @@ You can define the unhealthy threshold for your health probes. When a probe fail
 - Idle timeout occurs
 - The VM shuts down
 
-Load Balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS.
+Load Balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS. [Learn more about Load Balancer Health probes](load-balancer-custom-probe-overview.md).
 
 Basic Load Balancer doesn't support HTTPS probes. Basic Load Balancer closes all TCP connections (including established connections).
 
@@ -61,6 +63,19 @@ Basic Load Balancer doesn't support HTTPS probes. Basic Load Balancer closes all
 A Load Balancer rule is used to define how incoming traffic is distributed to the **all** the instances within the Backend Pool. A load balancing rule maps a given Frontend IP configuration and port to multiple backend IP addresses and ports.
 
 For example, if you would like traffic on port 80 (or another port) of your frontend IP to be routed to port 80 of all your backend instances, you would use a Load Balancing rule to achieve this.
+
+### High Availability Ports
+
+A Load Balancer rule configured with 'protocol - all and port - 0'. This enables providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
+1. source IP address
+2. source port
+3. destination IP address
+4. destination port
+5. protocol
+
+The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced.
+
+You can learn more about [HA ports](load-balancer-ha-ports-overview.md).
 
 ## Inbound NAT rules
 
@@ -74,6 +89,8 @@ Inbound NAT rules in the context of Virtual Machine Scale Sets (VMSS) are inboun
 
 An outbound rule configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool. This enables instances in the backend to communicate (outbound) to the internet or other endpoints.
 
+Learn more about [outbound connections and rules](load-balancer-outbound-connections.md).
+
 Basic load balancer doesn't support Outbound rules.
 
 ## Next steps
@@ -86,9 +103,6 @@ Basic load balancer doesn't support Outbound rules.
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
-- Learn about using [Load Balancer with Multiple Frontend IP configurations](load-balancer-multivip-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/security-overview.md).
-- Learn about [Probe types](load-balancer-custom-probe-overview.md#types).
 - Learn more about [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
 - Learn about using [Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
-- Learn more about [Load balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
