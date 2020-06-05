@@ -7,11 +7,11 @@ An example of tabs:
 
 <!--- Content here  -->
 
-# [Javascript](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 <!--- Content here  -->
 
---- 
+---
 
 
 

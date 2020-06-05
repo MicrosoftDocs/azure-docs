@@ -18,14 +18,39 @@ ms.service: azure-project-spool
 
 ## Capture A Local Video Stream
 
-In this quickstart, you'll learn how to capture a local video stream from a camera-equipped device.
+In this quickstart, you'll learn how to capture a local video stream from a camera-equipped device using the Azure Communication Services SDK.
 
 ### Prerequisites
 - An active Azure Communication Services resource. [This quickstart](./get-started.md) shows you how to create and manage your first resource.
 - A camera-equipped device with the latest version of Chrome or Edge installed.
-- An instance of the ACS Calling Client.
+- An instance of the ACS calling client.
 
 ### Capture The Stream
 
-1. TODO
+A media stream can be captured after creating an instance of the ACS calling client:
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+    
+    const tokenCredential = new UserAccessTokenCredential(token);
+    const callClient = await CallingFactory.create(tokenCredential);
+    const cameraDevice = (await callClient.deviceManager.getCameraList())[0];
+    const target = $('#video-test-canvas')[0];
+    
+    callClient.deviceManager.renderPreviewVideo(cameraDevice, target, 'Fit').then(
+            previewRenderer => {
+                // after rendering, invoke some code here
+            }
+        );
+
+    ```
+
+# [C#](#tab/c-sharp)
+
+<!--- TODO  -->
+
+
+
+---
 
