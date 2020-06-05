@@ -136,4 +136,4 @@ The serialized format might change in the future versions of `Orchestrator.Graph
 
 ## Next steps
 
-[Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
+For more information, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).

@@ -49,7 +49,7 @@ New-AzFirewall `
   -ResourceGroupName $rgName `
   -Location centralus `
   -VirtualNetwork $vnet `
-  -PublicIpAddress @($pip1)
+  -PublicIpAddress @($pip1) `
   -Zone 1,2,3
 ```
 

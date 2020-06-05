@@ -94,6 +94,9 @@ Ensure that the AWS PowerShell module has been imported into Azure Automation.
 
 ## Next steps
  
-* [Azure Automation runbook types](automation-runbook-types.md)
-* [Manage Runbooks in Azure Automation](manage-runbooks.md)
-* [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* To find out what runbooks are supported, see[Azure Automation runbook types](automation-runbook-types.md).
+* To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
+* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* For script support, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

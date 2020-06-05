@@ -114,6 +114,9 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 **4. Which operating systems are supported?**
 Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
+**5. Can the source and target resource groups be the same?**
+No, you must failover to a different resource group.
+
 ## Next steps
 
 The steps that need to be followed to run a Disaster Recovery drill, fail over, re-protect, and failback are the same as the steps in Azure to Azure Disaster Recovery scenario.

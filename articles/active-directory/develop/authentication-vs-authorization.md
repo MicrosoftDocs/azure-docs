@@ -1,5 +1,5 @@
 ---
-title: Authentication vs. authorization | Azure
+title: Authentication vs authorization | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the basics of authentication and authorization in Microsoft identity platform (v2.0).
 services: active-directory
@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication and authorization in Microsoft identity platform
 ---
 
-# Authentication vs. authorization
+# Authentication vs authorization
 
 This article defines authentication and authorization and briefly covers how you can use the Microsoft identity platform to authenticate and authorize users in your web apps, web APIs, or apps calling protected web APIs. If you see a term you aren't familiar with, try our [glossary](developer-glossary.md) or our [Microsoft identity platform videos](identity-videos.md) which cover basic concepts.
 
@@ -39,9 +39,9 @@ Microsoft identity platform simplifies authorization and authentication for appl
 
 Following is a brief comparison of the various protocols used by Microsoft identity platform:
 
-* **OAuth vs. OpenID Connect**: OAuth is used for authorization and OpenID Connect (OIDC) is used for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (using OpenID Connect) and get authorization to access a protected resource that the user owns (using OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
-* **OAuth vs. SAML**: OAuth is used for authorization and SAML is used for authentication. See [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](v2-saml-bearer-assertion.md) for more information on how the two protocols can be used together to both authenticate a user (using SAML) and get authorization to access a protected resource (using OAuth 2.0).
-* **OpenID Connect vs. SAML**: Both OpenID Connect and SAML are used to authenticate a user and are used to enable Single Sign On. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (ADFS) federated to Azure AD and is therefore frequently used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, web sites, and web APIs.
+* **OAuth vs OpenID Connect**: OAuth is used for authorization and OpenID Connect (OIDC) is used for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (using OpenID Connect) and get authorization to access a protected resource that the user owns (using OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
+* **OAuth vs SAML**: OAuth is used for authorization and SAML is used for authentication. See [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](v2-saml-bearer-assertion.md) for more information on how the two protocols can be used together to both authenticate a user (using SAML) and get authorization to access a protected resource (using OAuth 2.0).
+* **OpenID Connect vs SAML**: Both OpenID Connect and SAML are used to authenticate a user and are used to enable Single Sign On. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (ADFS) federated to Azure AD and is therefore frequently used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, web sites, and web APIs.
 
 ## Next steps
 

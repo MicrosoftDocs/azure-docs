@@ -16,7 +16,7 @@ ms.custom: seodec18
 # Release notes
 ## Speech SDK 1.12.0: 2020-May release
 
-**SPX Azure Speech Services Command Console**
+**The Azure Speech CLI**
 - **SPX** is a new command line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command line. Use it to test the Azure Speech service, or to script the Speech service tasks you need to perform. Download the tool and read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **New features**

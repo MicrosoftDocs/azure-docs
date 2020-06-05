@@ -201,7 +201,9 @@
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
         "articles/service-fabric-mesh/*.md": "athinanthny",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/**/*.md": "Juliako",
+        "articles/media-services/**/**/*.md": "Juliako"        
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -405,6 +407,27 @@
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
 		"articles/remote-rendering/**/*.md": "jlyons"
    },
+      "ms.collection": {
+        "articles/application-gateway/*.md": "networking",
+        "articles/cdn/*.md": "networking",
+        "articles/bastion/*.md": "networking",
+        "articles/dns/*.md": "networking",
+        "articles/expressroute/*.md": "networking",
+        "articles/firewall/*.md": "networking",
+        "articles/firewall-manager/*.md": "networking",
+        "articles/frontdoor/*.md": "networking",
+        "articles/internet-peering/*.md": "networking",        
+        "articles/internet-analyzer/*.md": "networking",
+        "articles/networking/*.md": "networking",
+        "articles/network-watcher/*.md": "networking",
+        "articles/peering-service/*.md": "networking",        
+        "articles/private-link/*.md": "networking",
+        "articles/traffic-manager/*.md": "networking",
+        "articles/virtual-network/*.md": "networking",                       
+        "articles/virtual-wan/*.md": "networking",
+        "articles/vpn-gateway/*.md": "networking", 
+        "articles/web-application-firewall/*.md": "networking"       
+      },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
@@ -633,10 +656,18 @@
         "articles/synapse-anlytics/**/*.yml": "Azure Synapse Analytics",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
-        "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
-        "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
+        "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",
+        "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
         "articles/sql-database/**/*.md": "Azure SQL Database",
         "articles/sql-database/**/*.yml": "Azure SQL Database",
+        "articles/azure-sql/**/*.md": "Azure SQL",
+        "articles/azure-sql/**/*.yml": "Azure SQL",
+        "articles/azure-sql/database/**/*.md": "Azure SQL Database",
+        "articles/azure-sql/database/**/*.yml": "Azure SQL Database",
+        "articles/azure-sql/managed-instance/**/*.md": "Azure SQL Managed Instance",
+        "articles/azure-sql/managed-instance/**/*.yml": "Azure SQL Managed Instance",
+        "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VM",
+        "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VM",
         "articles/ansible/**/*.yml": "Ansible",
         "articles/chef/**/*.yml": "Chef",
         "articles/jenkins/**/*.yml": "Jenkins",
@@ -676,8 +707,10 @@
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/media-services/*.yml": "Azure Media Services",
         "articles/media-services/*.md": "Azure Media Services",
-        "articles/media-services/video-indexer/*.yml": "Azure Media Services Video Indexer",
-        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer"
+        "articles/media-services/latest/*.md": "Azure Media Services v3",
+        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
+        "articles/media-services/azure-media-player/*.md": "Azure Media Player",
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge"
       },
       "featureFlags": {
         "articles/**/*.md": [

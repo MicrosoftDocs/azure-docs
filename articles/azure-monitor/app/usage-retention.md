@@ -59,7 +59,7 @@ Or in ASP.NET server code:
     - [Users, Sessions, Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)
 
 

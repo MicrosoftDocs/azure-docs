@@ -235,7 +235,7 @@ In the request, include a JSON object that specifies the properties for the lock
     } 
 
 ## Next steps
-* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md)
+* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md).
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

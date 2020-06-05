@@ -332,6 +332,8 @@ foreach($item in $output)
 
 ## Next steps
 
-* [Runbook execution in Azure Automation](automation-runbook-execution.md)
-* [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md)
-* [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
+* To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
+* For help writing a PowerShell Workflow runbook, see [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
+* For details of writing graphical runbooks, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).
+* To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

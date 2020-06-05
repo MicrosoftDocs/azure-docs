@@ -7,7 +7,7 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/23/2020
 ms.author: diberry
 ---
@@ -42,7 +42,7 @@ The following preview features were released at the Build 2019 Conference:
 
 ### 2019 Build videos
 
-* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Deliver the Right Experiences & Content like Xbox with Cognitive Services Personalizer](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## Service updates
 

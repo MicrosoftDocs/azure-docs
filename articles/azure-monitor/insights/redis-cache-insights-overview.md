@@ -31,8 +31,6 @@ It delivers:
 
 - **Customization** of this experience, which is built atop Azure Monitor workbook templates. The experience lets you change what metrics are displayed and modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
 
-- **Customization** of this experience is built atop Azure Monitor workbook templates. The experience allows you to change what metrics are displayed and to modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
-
 This feature doesn't require you to enable or configure anything. Azure Cache for Redis information is collected by default.
 
 >[!NOTE]
@@ -182,4 +180,4 @@ After you save a custom workbook, go to the workbook gallery to open it.
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerts that aid in detecting problems.
 
-* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md).
+* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

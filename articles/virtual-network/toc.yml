@@ -80,8 +80,10 @@
       href: virtual-network-for-azure-services.md 
   - name: IP services
     items:
-    - name: IP addressing
-      href: virtual-network-ip-addresses-overview-arm.md
+    - name: Public IPs
+      href: public-ip-addresses.md
+    - name: Private IPs
+      href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
@@ -433,8 +435,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Networking forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page for Networking
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing

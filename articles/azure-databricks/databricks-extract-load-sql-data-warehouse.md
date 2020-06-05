@@ -364,7 +364,7 @@ As mentioned earlier, the Azure Synapse connector uses Azure Blob storage as tem
    > [!NOTE]
    > This sample uses the `forward_spark_azure_storage_credentials` flag, which causes Azure Synapse to access data from blob storage using an Access Key. This is the only supported method of authentication.
    >
-   > If your Azure Blob Storage is restricted to select virtual networks, Azure Synapse requires [Managed Service Identity instead of Access Keys](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). This will cause the error "This request is not authorized to perform this operation."
+   > If your Azure Blob Storage is restricted to select virtual networks, Azure Synapse requires [Managed Service Identity instead of Access Keys](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). This will cause the error "This request is not authorized to perform this operation."
 
 6. Connect to the SQL database and verify that you see a database named **SampleTable**.
 

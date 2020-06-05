@@ -14,7 +14,7 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
-1. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+1. [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
@@ -548,13 +548,13 @@ If the Azure file share was deleted, you need to create a new file share and the
 
 This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../cost-management-billing/manage/subscription-disabled.md) for more information.
 
-<a id="-2134364052"></a>**The storage account has a firewall or virtual networks configured.**  
+<a id="-2134375618"></a>**The storage account has a firewall or virtual networks configured.**  
 
 | | |
 |-|-|
-| **HRESULT** | 0x80c8306c |
-| **HRESULT (decimal)** | -2134364052 |
-| **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
+| **HRESULT** | 0x80c8033e |
+| **HRESULT (decimal)** | -2134375618 |
+| **Error string** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Remediation required** | Yes |
 
 This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 

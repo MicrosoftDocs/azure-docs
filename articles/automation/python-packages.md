@@ -83,4 +83,4 @@ To develop and test your Python 2 runbooks offline, you can use the [Azure Autom
 
 ## Next steps
 
-[Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md)
+To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

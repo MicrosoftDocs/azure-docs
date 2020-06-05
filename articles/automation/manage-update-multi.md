@@ -176,4 +176,4 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-[Query Update Management logs](automation-update-management-query-logs.md)
+* If you need to search update logs, see [Query Update Management logs](automation-update-management-query-logs.md).

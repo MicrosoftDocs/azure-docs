@@ -8,19 +8,19 @@ ms.author: v-demjoh
 ---
 
 
-## Run the SPX tool
+## Run the Speech CLI
 
-Now you're ready to run the SPX tool to translate speech into text in two different languages.
+Now you're ready to run the Speech CLI to translate speech into text in two different languages.
 
-From the command line, change to the directory that contains the SPX tool binary file, and type:
+From the command line, change to the directory that contains the Speech CLI binary file, and type:
 
 ```bash
 spx translate --microphone --target de-DE --target es-MX
 ```
 
-The SPX tool will translate natural language spoken English into text printed in German and (Mexican) Spanish.
+The Speech CLI will translate natural language spoken English into text printed in German and (Mexican) Spanish.
 Press ENTER to stop the tool.
 
 > [!NOTE]
-> The SPX tool defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
+> The Speech CLI defaults to English. You can choose a different language [from the Speech-to-text table](../../../../language-support.md).
 > For example, add `--source ja-JP` to recognize Japanese speech.

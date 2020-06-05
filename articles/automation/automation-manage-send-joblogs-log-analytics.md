@@ -3,7 +3,7 @@ title: Forward Azure Automation job data to Azure Monitor logs
 description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/05/2019
+ms.date: 05/22/2020
 ms.topic: conceptual
 ---
 
@@ -41,11 +41,11 @@ To find the resource ID for your Log Analytics workspace, run the following Powe
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-If you have more than one Automation account or workspace in the output of the preceding commands, find the name that you need to configure and copy the value for the resource ID.
+If you have more than one Automation account or workspace in the output of the preceding commands, you can find the name and other related properties that are part of the full resource ID of your Automation account by performing the following:
 
-1. In the Azure portal, select your Automation account from the **Automation account** blade and select **All settings**. 
-2. From the **All settings** blade, under **Account Settings**, select **Properties**.  
-3. In the **Properties** blade, note the properties shown below.
+1. In the Azure portal, select your Automation account from the **Automation Accounts** page. 
+2. On the page of the selected Automation account, under **Account Settings**, select **Properties**.  
+3. In the **Properties** page, note the details shown below.
 
     ![Automation account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
@@ -100,11 +100,11 @@ Azure Automation diagnostics create two types of records in Azure Monitor logs, 
 ## Set up integration with Azure Monitor logs
 
 1. On your computer, start Windows PowerShell from the **Start** screen.
-2. Run the following PowerShell commands, and edit the values for `[your resource ID]` and `[resource ID of the log analytics workspace]` with the values from the preceding section.
+2. Run the following PowerShell commands, and edit the values for `$automationAccountId` and `$workspaceId` with the values from the preceding section.
 
    ```powershell-interactive
-   $workspaceId = "[resource ID of the log analytics workspace]"
-   $automationAccountId = "[resource ID of your Automation account]"
+   $workspaceId = "resource ID of the log analytics workspace"
+   $automationAccountId = "resource ID of your Automation account"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
@@ -136,14 +136,16 @@ To see the logs, run the following query:
 
 ### Send an email when a runbook job fails or suspends
 
-One of the top customer asks is for the ability to send an email or a text when something goes wrong with a runbook job.
+The following steps show how to set up alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
 
 To create an alert rule, start by creating a log search for the runbook job records that should invoke the alert. Click the **Alert** button to create and configure the alert rule.
 
 1. From the Log Analytics workspace Overview page, click **View logs**.
+
 2. Create a log search query for your alert by typing the following search into the query field: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>You can also group by the runbook name by using: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    If you set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Automation account name can be found in the `Resource` field in the search of `JobLogs`.
+
 3. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### Find all jobs that have completed with errors
@@ -151,7 +153,9 @@ To create an alert rule, start by creating a log search for the runbook job reco
 In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases, PowerShell produces an error stream, but the non-terminating errors don't cause your job to suspend or fail.
 
 1. In your Log Analytics workspace, click **Logs**.
+
 2. In the query field, type `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`.
+
 3. Click the **Search** button.
 
 ### View job streams for a job
@@ -179,8 +183,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## Next steps
 
-* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
-* To learn more about how to construct different search queries and review the Automation job logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
-* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
+* To learn how to construct search queries and review the Automation job logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* To understand creation and retrieval of output and error messages from runbooks, see [Monitor runbook output](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

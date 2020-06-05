@@ -25,25 +25,19 @@ Azure Monitor use of encryption is identical to the way [Azure Storag
 
 CMK lets you control the access to your data and revoke it at any time. Azure Monitor storage always respects changes in key permissions within an hour. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
 
-Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
-
 The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted before you start configuring CMK.
 
 The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
 
 ## How CMK works in Azure Monitor
 
-Azure Monitor leverages system-assigned managed identity to grant access
-to your Azure Key Vault. System-assigned managed identity can only be
-associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level. This
-dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics
-*Cluster* resource performs as an intermediate identity connection
-between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the
-managed identity that\'s associated with the *Cluster* resource to
-authenticate to your Azure Key Vault via Azure Active Directory. 
-After CMK configuration, any data ingested to workspaces associated to your *Cluster* resource gets encrypted with your key in Key Vault. You can disassociate workspaces from the *Cluster* resource at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
+Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault. 
+System-assigned managed identity can only be associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level -- This dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
 
-![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
+After CMK configuration, any data ingested to workspaces associated to your *Cluster* resource gets encrypted with your key in Key Vault. You can disassociate workspaces from the *Cluster* resource at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
+
+
+![CMK Overview](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Log Analytics *Cluster* resource having managed identity with permissions to Key Vault -- The identity is propagated to the underlay dedicated Log Analytics cluster storage
@@ -130,6 +124,29 @@ Operation is in progress
 }
 ```
 
+Key identifier update operation is in progress
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+*Cluster* resource delete is in progress -- When you delete a *Cluster* resource that has workspaces associated workspaces, a disassociation operation is performed for each of the workspaces in asynchronous operations that can take a while.
+This isn’t relevant when you delete a *Cluster* with no associated workspace -- In this case the *Cluster* resource is deleted immediately.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
 Operation is completed
 ```json
 {
@@ -180,8 +197,8 @@ This resource is used as an intermediate identity connection between your Key Va
 You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 The *billingType* property determines the billing attribution for the *Cluster* resource and its data:
-- *cluster* (default) -- The billing is attributed to the subscription hosting your *Cluster* resource
-- *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
+- *Cluster* (default) -- The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
+- *Workspaces* -- The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
 
 > [!NOTE]
 > After you create your *Cluster* resource, you can update it with *sku*, *keyVaultProperties* or *billingType* using PATCH REST request.

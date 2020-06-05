@@ -26,7 +26,10 @@ For this tutorial you need:
 
 * Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+  * **Desktop development with C++**
+  * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Install these modules in Unity:
@@ -72,7 +75,7 @@ After you modified and saved the manifest, Unity will automatically refresh. Con
 ## Ensure you have the latest version of the package
 
 The following steps ensure that your project is using the latest version of the remote-rendering package.
-1. Select the package in the Project window and click on the package icon:
+1. Select the package in the Project window and click on the :::no-loc text="package"::: icon:
 ![Selecting the package icon](media/package-icons.png)
 1. In the Inspector, click "View in Package Manager":
 ![package inspector](media/package-properties.png)
@@ -88,11 +91,11 @@ Select the **Main Camera** node.
 
     ![reset camera transform](media/camera-reset-transform.png)
 
-1. Set **Clear flags** to *Solid Color*
+1. Set **:::no-loc text="Clear flags":::** to *:::no-loc text="Solid Color":::*
 
-1. Set **Background** to *Black*
+1. Set **:::no-loc text="Background":::** to *:::no-loc text="Black":::*
 
-1. Set the **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
+1. Set the **:::no-loc text="Clipping Planes":::** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
     ![Unity camera properties](media/camera-properties.png)
 

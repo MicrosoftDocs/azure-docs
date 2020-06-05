@@ -267,8 +267,8 @@
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog
     href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: MSDN forums
-    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-service-bus.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator

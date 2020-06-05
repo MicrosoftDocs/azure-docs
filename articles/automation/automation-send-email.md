@@ -13,7 +13,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 
 ## Prerequisites
 
-* Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/ember-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [A SendGrid account](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
 * [Automation account](automation-offering-get-started.md) with **Az** modules.
 * [Run As account](automation-create-runas-account.md) to store and execute the runbook.
@@ -134,7 +134,7 @@ To verify that the runbook executes successfully, you can follow the steps under
 
 If you don't initially see your test email, check your **Junk** and **Spam** folders.
 
-## Clean up after the email operation
+## Clean up resources after the email operation
 
 1. When the runbook is no longer needed, select it in the runbook list and click **Delete**.
 
@@ -148,7 +148,6 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## Next steps
 
-* [Update Azure PowerShell modules](automation-update-azure-modules.md)
-* [Forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md)
-* [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
-* [Troubleshoot runbook issues](./troubleshoot/runbooks.md)
+* To send runbook job data to your Log Analytics workspace, see [Forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
+* To monitor base-level metrics and logs, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
+* To correct issues arising during runbook operations, see [Troubleshoot runbook issues](./troubleshoot/runbooks.md).

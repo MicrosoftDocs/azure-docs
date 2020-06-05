@@ -50,7 +50,7 @@ follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
 
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
@@ -95,7 +95,7 @@ To create a new Shared query, follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**.
 

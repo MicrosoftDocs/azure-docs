@@ -116,5 +116,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Microsoft Q&A for Azure Lighthouse
+            url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
           - text: Request product features
             url: https://feedback.azure.com/forums/922753
