@@ -8,7 +8,7 @@ ms.date: 06/05/2020
 
 # Preview - Azure Kubernetes Service (AKS) node image upgrades
 
-AKS supports upgrading the images on a node so you're up to date with the newest features. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
+AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
 
 If you're interested in learning about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases) for more details.
 
