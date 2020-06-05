@@ -29,6 +29,9 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 
 ![Diagram of a RESTful service claims exchange](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
 
+> [!NOTE]
+> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is 2 times (meaning there are 3 tries in total). The timeout and retry count settings are not currently configurable.
+
 ## Calling a RESTful service
 
 The interaction includes a claims exchange of information between the REST API claims and Azure AD B2C. You can design the integration with the RESTful services in the following ways:

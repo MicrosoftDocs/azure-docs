@@ -134,7 +134,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Use the dashboard.** For instructions, see [using the lab's dashboard](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > The estimated cost shown in the dashboard is the maximum cost that you can expect for students usage of the lab. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM or the shared image gallery.
+    > The estimated cost shown in the dashboard is the maximum cost that you can expect for students usage of the lab. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the shared image gallery, or when the lab creator starts a user machine.
 
 ## Next steps
 
