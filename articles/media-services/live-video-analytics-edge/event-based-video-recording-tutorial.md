@@ -176,7 +176,7 @@ In order to see the events from the object counter module and from Live Video An
 
 1. Under the node GraphTopologySet, edit the following:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
 1. Next, under the nodes GraphInstanceSet and GraphTopologyDelete, edit,
 
