@@ -84,7 +84,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 7. Add the following code to the Constants.h file:
 
-   ```Objective-C
+   ```objc
    #ifndef Constants_h
    #define Constants_h
    extern NSString* const NHInfoConnectionString;
