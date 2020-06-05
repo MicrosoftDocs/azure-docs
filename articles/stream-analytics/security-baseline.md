@@ -52,7 +52,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Use Azure Security Center threat protection to detect and alert on communications with known malicious or unused Internet IP addresses.
 
-* [Threat protectionfor the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+* [Threat protection for the Azure service layer in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Yes
 
@@ -985,7 +985,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+**Guidance**: 
+
+* [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
