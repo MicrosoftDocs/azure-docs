@@ -323,7 +323,7 @@ A virtual machine scale set is slightly different, but it follows the same workf
 3. Set the applied updates to automatic so that the changes are immediately picked up:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `
