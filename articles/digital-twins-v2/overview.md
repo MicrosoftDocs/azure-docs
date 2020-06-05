@@ -87,6 +87,11 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits in public preview
 
+> [!IMPORTANT]
+> Azure Digital Twins is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 For a list of Azure Digital Twins limits during public preview, see [Reference: Public preview service limits](reference-service-limits.md).
 
 ## Next steps
