@@ -1,4 +1,4 @@
-- name: Get started with Azure cost management and billing billing documentation
+- name: Azure cost management and billing billing documentation
   href: index.yml
   items:
   - name: Overview
@@ -38,6 +38,8 @@
         href: costs/understand-cost-mgt-data.md
       - name: Understand and work with scopes
         href: costs/understand-work-scopes.md
+      - name: Manage costs with automation
+        href: manage-automation.md
       - name: Cost Management for partners
         href: costs/get-started-partners.md
       - name: Choose between Cost Management and Cloudyn
@@ -314,24 +316,24 @@
         items:
         - name: Renew a reservation
           href: reservations/reservation-renew.md
-  - name: Troubleshoot
-    items:
-    - name: No subscriptions found
-      href: manage/no-subscriptions-found.md
-    - name: Payment issues
-      href: manage/billing-troubleshoot-azure-payment-issues.md
-    - name: Declined card
-      href: manage/troubleshoot-declined-card.md
-    - name: Azure account sign-up issues
-      href: manage/troubleshoot-azure-sign-up.md
-    - name: Subscription sign-in issues
-      href: manage/troubleshoot-sign-in-issue.md
-    - name: Enterprise cost view disabled
-      href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
-    - name: Troubleshoot Azure EA portal access
-      href: manage/ea-portal-troubleshoot.md
-    - name: Contact support
-      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Troubleshoot
+      items:
+      - name: No subscriptions found
+        href: manage/no-subscriptions-found.md
+      - name: Payment issues
+        href: manage/billing-troubleshoot-azure-payment-issues.md
+      - name: Declined card
+        href: manage/troubleshoot-declined-card.md
+      - name: Azure account sign-up issues
+        href: manage/troubleshoot-azure-sign-up.md
+      - name: Subscription sign-in issues
+        href: manage/troubleshoot-sign-in-issue.md
+      - name: Enterprise cost view disabled
+        href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
+      - name: Troubleshoot Azure EA portal access
+        href: manage/ea-portal-troubleshoot.md
+      - name: Contact support
+        href: ../azure-portal/supportability/how-to-create-azure-support-request.md
   - name: Reference
     items:
     - name: Azure Cost Management REST API

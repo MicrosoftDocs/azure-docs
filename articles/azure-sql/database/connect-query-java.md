@@ -1,21 +1,22 @@
 ---
 title: Use Java to query a database
-description: Shows you how to use Java to create a program that connects to a database in Azure SQL Database and query it using T-SQL statements.
+description: Shows you how to use Java to create a program that connects to a database in Azure SQL Database or Azure SQL Managed Instance and query it using T-SQL statements.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: java
 ms.topic: quickstart
-author: ajlam
-ms.author: andrela
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
 ---
-# Quickstart: Use Java to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Java to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you use Java to connect to a database in Azure SQL Database and use T-SQL statements to query data.
+In this quickstart, you use Java to connect to a database in Azure SQL Database or Azure SQL Managed Instance, and use T-SQL statements to query data.
 
 ## Prerequisites
 

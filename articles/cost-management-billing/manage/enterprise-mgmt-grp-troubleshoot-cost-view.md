@@ -4,8 +4,8 @@ description: Learn how to resolve any issues you might have with organizational 
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2019
+ms.topic: troubleshooting
+ms.date: 06/05/2019
 ms.author: banders
 ms.custom: seodec18
 ---

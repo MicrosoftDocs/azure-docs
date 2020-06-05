@@ -7,7 +7,7 @@ author: Blackmist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/26/2020
 ---
 

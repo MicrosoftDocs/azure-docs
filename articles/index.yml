@@ -249,6 +249,13 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
     # Card
+    - title: Project Bonsai (Preview)
+      summary: A machine teaching service for creating intelligent industrial control systems using simulations
+      imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+      azureCategories:
+        - ai-machine-learning
+      url: https://docs.microsoft.com/bonsai/
+    # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -554,7 +561,7 @@ productDirectory:
         - containers
       url: service-fabric/index.yml
     # Card
-    - title: SQL Server on Virtual Machines
+    - title: SQL Server on Azure Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
       azureCategories:
@@ -681,7 +688,7 @@ productDirectory:
     # Card
     - title: Azure SQL 
       summary: Modern SQL family for migration and app modernization
-      imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+      imageSrc:  https://static.docs.com/ui/media/product/azure/sql.svg
       azureCategories:
         - featured
         - hybrid
@@ -833,6 +840,7 @@ productDirectory:
       imageSrc: ./media/index/github-actions-icon.svg
       azureCategories:
         - devops
+        - developer-tools
       url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
     # Card
     - title: Azure Active Directory (AD)

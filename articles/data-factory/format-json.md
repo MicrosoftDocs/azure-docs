@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/29/2020
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ For a full list of sections and properties available for defining datasets, see 
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
 | encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
-| type | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress ZipDeflate file(s) and write to file-based sink data store, files will be extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
+| type | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, by default files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`, use `preserveZipFileNameAsFolder` on [copy activity source](#json-as-source) to control whether to preserve zip file name as folder structure. | No.  |
 | level | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
 
 Below is an example of JSON dataset on Azure Blob Storage:
@@ -70,7 +70,16 @@ The following properties are supported in the copy activity ***\*source\**** sec
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type property of the copy activity source must be set to **JSONSource**. | Yes      |
+| formatSettings | A group of properties. Refer to **JSON read settings** table below. | No       |
 | storeSettings | A group of properties on how to read data from a data store. Each file-based connector has its own supported read settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
+
+Supported **JSON read settings** under `formatSettings`:
+
+| Property      | Description                                                  | Required |
+| ------------- | ------------------------------------------------------------ | -------- |
+| type          | The type of formatSettings must be set to **JsonReadSettings**. | Yes      |
+| compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy. When set to true (default), Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`; when set to false, Data Factory writes unzipped files directly to `<path specified in dataset>`.  | No |
 
 ### JSON as sink
 

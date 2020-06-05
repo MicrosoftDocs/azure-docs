@@ -5,7 +5,7 @@ description: Learn how to build a data ingestion pipeline with Azure Data Factor
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
