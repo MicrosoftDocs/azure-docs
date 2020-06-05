@@ -67,9 +67,6 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 
-
-
-
  
 ## DNS configuration scenarios
 
