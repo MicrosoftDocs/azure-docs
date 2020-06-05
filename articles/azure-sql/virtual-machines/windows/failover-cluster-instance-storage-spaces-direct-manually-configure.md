@@ -22,11 +22,7 @@ ms.author: mathoma
 This article explains how to create a failover cluster instance (FCI) using [Strorage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) with SQL Server on Azure Virtual Machines (VMs). Storage Spaces Direct act as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. 
 
 
-## Considerations
-
-   Attach raw disks, not NTFS-formatted disks.
-      >[!NOTE]
-      >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
+See [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md) to learn more. 
 
 
 ## Overview 
@@ -61,16 +57,7 @@ Storage Spaces Direct supports two types of architectures: converged and hyper-c
 Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
-- Two or more [FCI prepared]() SQL Server on Azure VMs joined to the domain and registered with the SQL VM resource provider in light-weight mode and in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or availability zone. 
-- A Windows domain on Azure virtual machines.
-- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- An Azure virtual network and subnet with enough IP address space for these components:
-   - Both virtual machines.
-   - The failover cluster IP address.
-   - An IP address for each FCI.
-- DNS configured on the Azure network, pointing to the domain controllers.
-
-With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
+- [Two prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md).
 
 
 ## Add Windows Server Failover Clustering
@@ -219,7 +206,15 @@ After you've configured the failover cluster and all cluster components, includi
    >[!NOTE]
    >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 5: Create the Azure load balancer
+
+-----------------------
+the rest is gana bne deleted but i need to verify i it's the same so pretend it's not ther elol
+
+------------------------
+
+
+
+### Step 5: Create the Azure load balancer
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
@@ -364,6 +359,10 @@ On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
+
+   Attach raw disks, not NTFS-formatted disks.
+      >[!NOTE]
+      >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
 
 ## See also
 

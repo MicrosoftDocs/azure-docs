@@ -1039,8 +1039,10 @@
             items: 
             - name: SQL Server VM 
               href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-            - name: Quorum 
-              href: virtual-machines/windows/failover-cluster-instance-quorum-configure.md
+            - name: Dynamic Network Name (DNN) 
+              href: virtual-machines/windows/failover-cluster-instance-dynamic-network-name-configure.md
+            - name: Azure Load Balancer 
+              href: virtual-machines/windows/failover-cluster-instance-azure-load-balance-configure.md
             - name: Connectivity 
               href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
           - name: Create FCI with

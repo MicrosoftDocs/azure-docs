@@ -20,14 +20,22 @@ ms.date: 01/06/2020
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
 
-## May 2020
+## June 2020
 
 
 | Changes | Details |
 | --- | --- |
-| **FCI with managed disks** | It is now possible to deploy your [failover cluster instance using a managed disk](failover-cluster-instance-shared-managed-disks-manually-configure.md) with your Windows Server 2019 virtual machine. |
-| **Dynamic network name** | Windows Server 2019 now supports routing traffic to your failover cluster instance using a [dynamic network name](failover-cluster-instance-connectivity-configure.md#dynamic-network-name) rather than an Azure load balancer. | 
+| **Dynamic network name** | SQL Server 2019 on Windows Server 2019 now supports routing traffic to your failover cluster instance using a [dynamic network name](failover-cluster-instance-connectivity-configure.md#dynamic-network-name) rather than an Azure load balancer, simplifying and streamlining the connecting to your failover cluster instance in Azure. | 
+| **FCI with managed disks** | It is now possible to deploy your [failover cluster instance](failover-cluster-instance-overview.md) using [a Shared Managed Disk](failover-cluster-instance-shared-managed-disks-manually-configure.md) with  SQL Server 2019 on a Windows Server 2019 virtual machine. |
+| **Reorganized FCI docs** | The documentation around the [failover cluster instance](failover-cluster-instance-overview.md) has been rewritten for written for clarity. We've separated some of the configure content, like how to prepare the [virtual machine for a SQL Server FCI]()
 | &nbsp; | &nbsp; |
+
+
+## May 2020 
+
+| Changes | Details |
+| --- | --- |
+| **Azure SQL family** | SQL Server on Azure Virtual Machines has joined the [Azure SQL family of products](../../.azure-sql-iaas-vs-paas-what-is-overview.md). Check out our [new look!](../index.yml). Nothing has changed in the product but now tje documentation aims to make the Azure SQL product decision easier. | 
 
 
 ## January 2020

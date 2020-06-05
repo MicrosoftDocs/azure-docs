@@ -22,13 +22,11 @@ This article introduces failover cluster instances for SQL Server on Azure Virtu
 
 ## Overview
 
-SQL Server on Azure VMs leverages Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level-a failover cluster instance (FCI). An FCI is a single instance of SQL Server that is installed across Windows Server Failover Clustering (WSFC) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be an instance of SQL Server running on a single computer, but the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
+SQL Server on Azure VMs leverages Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level - a failover cluster instance (FCI). An FCI is a single instance of SQL Server that is installed across Windows Server Failover Cluster (WSFC) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be an instance of SQL Server running on a single computer, but the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
 
 For more information about the feature, see the SQL Server [failover cluster instance](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) documentation. 
 
-The rest of the article focuses on the differences for the feature when used with SQL Server on Azure VMs. 
-
-For more information about failover clustering, see
+The rest of the article focuses on the differences for the feature when used with SQL Server on Azure VMs, but to learn more about failover clustering see: 
 
 - [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
@@ -66,6 +64,9 @@ Limitations:
  
 To get started, see [SQL Server failover cluster instance with shared managed disks](failover-cluster-instance-shared-managed-disks-manually-configure.md). 
 
+**Supported OS**: 
+**Supported SQL version**: 
+
 ### Storage spaces direct
 
 [Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) are a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN. 
@@ -78,6 +79,9 @@ Limitations:
  
 
 To get started, see [SQL Server failover cluster instance storage spaces direct](failover-cluster-instance-shared-managed-disks-manually-configure.md). 
+
+**Supported OS**: 
+**Supported SQL version**: 
 
 ###  Premium file share
 
@@ -99,6 +103,9 @@ There are a number of third-party clustering solutions with supported storage.
 
 One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
 
+**Supported OS**: 
+**Supported SQL version**: 
+
 ### iSCSI and ExpressRoute
 
 You can also expose an iSCSI target shared block storage via ExpressRoute. 
@@ -106,6 +113,59 @@ You can also expose an iSCSI target shared block storage via ExpressRoute.
 For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.
 
 For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.
+
+**Supported OS**: 
+**Supported SQL version**: 
+
+## Quorum
+
+Although a two node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support and, cluster validation will not pass any cluster without a quorum resource. 
+
+Technically, a three node cluster can survive a single node loss (down to two nodes) without a quorum resource – but once the cluster is down to two nodes, there is risk of running into: 
+
+1. **Partition in space** (split brain): The cluster nodes become separated on the network due to the server, NIC, or switch issue. 
+1. **Partition in time** (amnesia): A node joins or rejoins the cluster and tries to claim ownership of the cluster group or a cluster role inappropriately. 
+
+The quorum resource protects the cluster against either of these issues. 
+
+To configure the quorum resource with SQL Server on Azure VMs, you can use a Disk Witness, a Cloud Witness, or a File Share Witness. 
+
+## Disk Witness
+
+A small clustered disk which is in the Cluster Available Storage group. This disk is highly-available and can failover between nodes. It contains a copy of the cluster database, with a default size of less than 1 GB usually. Disk Witness is a unique capability of Azure Shared Disks and preferred because it is a familiar part of the on-premises infrastructure. 
+
+Since the disk witness is common in on-premises clusters, the familiar functionality makes it easier to adapt to the Azure environment, and technically provides the most protection for teh cluster. 
+
+To get started, see [Configure Disk Witness?? need link? or do we write this content ourselves? ]()
+
+
+**Supported OS**: 
+**Supported SQL version**: 
+**Supported FCI storage**: Azure Shared Storage
+
+## Cloud Witness
+
+A [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) is a type of Failover Cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. The default size is about 1 MB and contains just the time stamp. Cloud Witness is ideal for multi-site, multi-zone, and multi-region deployments.
+
+To get started, see [Configure Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
+
+
+**Supported OS**: Windows Server 2019 and later
+**Supported SQL version**: 
+**Supported FCI storage**: 
+
+## File Share Witness
+
+A SMB file share that is typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure File Share](../../../storage/files/storage-how-to-create-file-share.md) to use as the File Share Witness, or you can use a file share on a separate virtual machine.
+
+If you're going to use another Azure file share, you can mount it with the same process used to [mount the premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-the-premium-file-share). 
+
+To get started, see [Configure File Share Witness need link? or should we create our own :| ]
+
+
+**Supported OS**: Windows Server 2012 and later
+**Supported SQL version**: 
+**Supported FCI storage**: 
 
 ## Networking
 
@@ -125,6 +185,10 @@ There is a slight failover delay when using the load balancer as the health prob
 
 To get started, learn how to [configure an Azure load balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
 
+**Supported OS**: Windows Server 2012 and greater
+**Supported SQL version**: SQL Server 2012 and greater
+**Supported FCI storage**: All storage options 
+
 ### Dynamic network name (preview)
 
 Dynamic network name (DNN) is a new feature for Windows Server 2019, and is currently in public preview for SQL Server 2019 and Windows Server 2019 with SQL Server on Azure VMs. The dynamic network name provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance without using a load balancer. 
@@ -134,9 +198,25 @@ When a dynamic network name resource is created, the cluster binds the DNS name 
 Using a dynamic network name rather than a load balancer has the following benefits: 
 - End-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
 - Minimized failover duration by eliminating the load balancer probes. 
-- Simplified provisioning and management of the failover cluster instance with a SQL Server on Azure VM. 
+- Simplified provisioning and management of the failover cluster instance with SQL Server on Azure VM. 
+
+Most SQL Server features work transparently with FCI and you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN name value with the existing VNN DNS name. However, some server side components require a network alias that maps the VNN Name to the DNN name. Additionally, there may be specific cases that require the explicit use of the DNN DNS name, such as when defining certain URLs in a server-side configuration. 
 
 To get started, learn how to [configure a dynamic network name (DNN) resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
+
+**Supported OS**: Windows Server 2019
+**Supported SQL version**: SQL Server 2019
+**Supported FCI storage**:  Shared Managed Disks
+
+## Limitations
+
+### MS DTC 
+Azure Virtual Machines supports Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
+On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
+
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
+- The basic load balancer doesn't handle RPC ports.
 
 ## Next steps
 
