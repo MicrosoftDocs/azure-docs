@@ -42,28 +42,34 @@ az group create --name myResourceGroup --location canadacentral
 
 You will now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on on.  
 
-In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) in the resource group we just created, *myResourceGroup*.  If the first command `az extension add -n aks-preview` returns `Extension 'aks-preview' is already installed`, then run `az extension`**`update`**`-n aks-preview` instead.  
+In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) in the resource group we just created, *myResourceGroup*.    
 
 ```azurecli-interactive
-
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
 To configure additional parameters for the `az aks create` command, visit references [here](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
-> [!NOTE]
-> The AKS cluster that you've created will appear in the resource group you created, *myResourceGroup*. However, the automatically created Application Gateway will live in a separate resource group, which should be called *MC_myResourceGroup_myCluster_canadacentral*. 
-
 ## Deploy a new Application Gateway 
 
-The name of the Application Gateway will be *myApplicationGateway* and the subnet address space we're using is 10.2.0.0/16.
+You will now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the Application Gateway will be *myApplicationGateway*, but you will need to first create a public IP resource, named *myPublicIp*, and use that to create your Application Gateway. 
+
+```azurecli-interactive
+az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
+az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp
+```
 
 > [!NOTE]
-> Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs. When deploying a new Application Gateway via Azure CLI, you can only deploy an Application Gateway Standard_v2 SKU; if you want to enable the AGIC add-on for an Application Gateway WAF_v2 SKU, please create the WAF_v2 Application Gateway first and then follow instructions on how to set enable AGIC add-on with an existing AKS cluster and existing Application Gateway. 
+> Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs. 
 
 ## Enable the AGIC add-on for the AKS cluster
 
+Now, you'll enable the AGIC add-on in the AKS cluster you created, *myCluster*, and specify the AGIC add-on to use the existing Application Gateway you created, *myApplicationGateway*. If the first command `az extension add -n aks-preview` returns `Extension 'aks-preview' is already installed`, then run `az extension`**`update`**`-n aks-preview` instead. Make sure that the subnet prefix you provide matches the subnet prefix that the Application Gateway is deployed in. 
+
+```azurecli-interactive
 az extension add -n aks-preview
+az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.0.0.0/24"
+```
 
 ## Deploy a sample application using AGIC for Ingress on the AKS cluster
 
