@@ -4,7 +4,7 @@ description: This document describes the steps required to set up a virtual netw
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/04/2020
 ms.author: mjbrown
 
 ---
@@ -253,6 +253,10 @@ az network vnet subnet update \
    --vnet-name $vnetName \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
+
+## Port range when using direct mode
+
+When you're using service endpoints with an Azure Cosmos account through a direct mode connection, you need to ensure that the TCP port range from 10000 to 20000 is open.
 
 ## <a id="migrate-from-firewall-to-vnet"></a>Migrating from an IP firewall rule to a virtual network ACL
 
