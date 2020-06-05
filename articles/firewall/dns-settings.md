@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall DNS settings
 
-You can configure a custom DNS server and enable DNS proxy for Azure Firewall. You can configure these settings when you deploy the firewall or later from the **DNS settings** tab.
+You can configure a custom DNS server and enable DNS proxy for Azure Firewall. You can configure these settings when you deploy the firewall or later from the **DNS settings** page.
 
 ## DNS servers
 
