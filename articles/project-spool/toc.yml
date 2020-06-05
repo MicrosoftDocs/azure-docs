@@ -26,18 +26,23 @@
     href: quickstarts/configure-server.md
   - name: Initialize Your Calling Client
     href: quickstarts/init-client.md
-  - name: Capture A Local Video Stream
+  - name: Capture a Local Video Stream
     href: quickstarts/capture-local-video-stream.md
-  #- name: Get Started With Voice
-  #  href: quickstarts/get-started-with-voice.md
-  - name: Get Started With SMS
-    href: quickstarts/get-started-with-sms.md
-  #- name: Get Started With Video
-  #  href: quickstarts/get-started-with-video.md
-  #- name: Get Started With Chat
-  #  href: quickstarts/get-started-with-chat.md
-  - name: Get Started With Phone Numbers
+  - name: Place a VoIP Call
+    href: quickstarts/get-started-with-voice.md
+  - name: Place a Video Call
+    href: quickstarts/get-started-with-video.md
+  - name: Place a Telephone Call
     href: quickstarts/get-started-with-phone.md
+  - name: Send an SMS
+    href: quickstarts/get-started-with-sms.md
+  - name: Share Your Screen
+    href: quickstarts/todo.md
+  - name: Implement Two-Factor Authentication
+    href: quickstarts/todo.md
+  - name: Get Started With Chat
+    href: quickstarts/get-started-with-chat.md
+
 - name: Tutorials
   expanded: true
   items:
