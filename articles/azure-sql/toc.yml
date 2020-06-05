@@ -942,8 +942,8 @@
           href: virtual-machines/windows/performance-guidelines-best-practices.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: High availability & disaster recovery (HADR)
-          href: high-availability-disaster-recovery-hadr-best-practices.md
+        - name: Business continuity
+          href: virtual-machines/windows/high-availability-disaster-recovery-hadr-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Business Continuity

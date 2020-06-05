@@ -45,9 +45,9 @@ Since the disk witness is common in on-premises clusters, the familiar functiona
 To get started, see [Configure Disk Witness?? need link? or do we write this content ourselves? ]()
 
 
-**Supported OS**: 
-**Supported SQL version**: 
-**Supported FCI storage**: Azure Shared Storage
+**Supported OS**:    
+**Supported SQL version**:    
+**Supported FCI storage**: Azure Shared Storage   
 
 ### Cloud Witness
 
@@ -56,9 +56,9 @@ A [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) is a
 To get started, see [Configure Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Supported OS**: Windows Server 2019 and later
-**Supported SQL version**: 
-**Supported FCI storage**: 
+**Supported OS**: Windows Server 2019 and later   
+**Supported SQL version**:    
+**Supported FCI storage**:    
 
 ### File Share Witness
 
@@ -69,9 +69,9 @@ If you're going to use another Azure file share, you can mount it with the same 
 To get started, see [Configure File Share Witness need link? or should we create our own :| ]
 
 
-**Supported OS**: Windows Server 2012 and later
-**Supported SQL version**: 
-**Supported FCI storage**: 
+**Supported OS**: Windows Server 2012 and later   
+**Supported SQL version**:    
+**Supported FCI storage**:    
 
 ## Networking
 
@@ -91,9 +91,9 @@ There is a slight failover delay when using the load balancer as the health prob
 
 To get started, learn how to [configure an Azure load balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
 
-**Supported OS**: Windows Server 2012 and greater
-**Supported SQL version**: SQL Server 2012 and greater
-**Supported FCI storage**: All storage options 
+**Supported OS**: Windows Server 2012 and greater   
+**Supported SQL version**: SQL Server 2012 and greater   
+**Supported FCI storage**: All storage options    
 
 ### Distributed network name (preview)
 
@@ -110,9 +110,9 @@ Most SQL Server features work transparently with FCI and you can simply replace 
 
 To get started, learn how to [configure a distributed network name (DNN) resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
 
-**Supported OS**: Windows Server 2019
-**Supported SQL version**: SQL Server 2019
-**Supported FCI storage**:  Shared Managed Disks
+**Supported OS**: Windows Server 2019   
+**Supported SQL version**: SQL Server 2019   
+**Supported FCI storage**:  Shared Managed Disks   
 
 ## Limitations
 

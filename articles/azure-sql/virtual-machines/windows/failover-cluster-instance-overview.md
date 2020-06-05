@@ -46,8 +46,8 @@ Limitations:
  
 To get started, see [SQL Server failover cluster instance with shared managed disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
-**Supported OS**: 
-**Supported SQL version**: 
+**Supported OS**:    
+**Supported SQL version**:    
 
 ## Storage Spaces Direct
 
@@ -62,8 +62,8 @@ Limitations:
 
 To get started, see [SQL Server failover cluster instance storage spaces direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
-**Supported OS**: 
-**Supported SQL version**: 
+**Supported OS**:    
+**Supported SQL version**:    
 
 ## Premium file share
 
@@ -85,8 +85,8 @@ There are a number of third-party clustering solutions with supported storage.
 
 One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
 
-**Supported OS**: 
-**Supported SQL version**: 
+**Supported OS**:    
+**Supported SQL version**:    
 
 ## iSCSI and ExpressRoute
 
@@ -96,8 +96,8 @@ For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRou
 
 For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.
 
-**Supported OS**: 
-**Supported SQL version**: 
+**Supported OS**:    
+**Supported SQL version**:    
 
 
 ## Limitations

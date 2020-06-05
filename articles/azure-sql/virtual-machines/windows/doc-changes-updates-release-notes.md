@@ -27,7 +27,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | --- | --- |
 | **Distributed network name** | SQL Server 2019 on Windows Server 2019 now supports routing traffic to your failover cluster instance using a [distributed network name](failover-cluster-instance-connectivity-configure.md#dynamic-network-name) rather than an Azure load balancer, simplifying and streamlining the connecting to your failover cluster instance in Azure. | 
 | **FCI with Azure Shared Disks** | It is now possible to deploy your [failover cluster instance](failover-cluster-instance-overview.md) using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) with  SQL Server 2019 on a Windows Server 2019 virtual machine. |
-| **Reorganized FCI docs** | The documentation around the [failover cluster instance](failover-cluster-instance-overview.md) has been rewritten for clarity. We've separated some of the configure content, like how to prepare the [virtual machine for a SQL Server FCI](failover-cluster-instance-prepare-vm.md), and how to configure the [Azure Load Balancer](failover-cluster-instance-azure-load-balancer-configure.md)
+| **Reorganized FCI docs** | The documentation around the [failover cluster instance](failover-cluster-instance-overview.md) has been rewritten for clarity. We've separated some of the configuration content, like how to prepare the [virtual machine for a SQL Server FCI](failover-cluster-instance-prepare-vm.md), and how to configure the [Azure Load Balancer](failover-cluster-instance-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
 
@@ -35,7 +35,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Azure SQL family** | SQL Server on Azure Virtual Machines has joined the [Azure SQL family of products](../../azure-sql-iaas-vs-paas-what-is-overview.md). Check out our [new look](../index.yml)! Nothing has changed in the product but now the documentation aims to make the Azure SQL product decision easier. | 
+| **Azure SQL family** | SQL Server on Azure Virtual Machines is now a part of the [Azure SQL family of products](../../azure-sql-iaas-vs-paas-what-is-overview.md). Check out our [new look](../index.yml)! Nothing has changed in the product but now the documentation aims to make the Azure SQL product decision easier. | 
 
 
 ## January 2020
