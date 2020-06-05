@@ -149,41 +149,42 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EasySSO for Confluence SSO
 
-Login into your Atlassian Confluence instance with Administrator privileges and navigate to the **Manage Apps** section. 
+1. Sign into your Atlassian Confluence instance with Administrator privileges and navigate to the **Manage Apps** section. 
 
-![Manage Apps](./media/easysso-for-confluence-tutorial/confl-admin-1.png)
+    ![Manage Apps](./media/easysso-for-confluence-tutorial/confl-admin-1.png)
 
-On the left side locate **EasySSO** and click it. Then click **Configure** button.
+2. On the left side locate **EasySSO** and click it. Then click **Configure** button.
 
-![Easy SSO](./media/easysso-for-confluence-tutorial/confl-admin-2.png)
+    ![Easy SSO](./media/easysso-for-confluence-tutorial/confl-admin-2.png)
 
-Select **SAML** option. This will take you to SAML configuration section.
+3. Select **SAML** option. This will take you to SAML configuration section.
 
-![SAML](./media/easysso-for-confluence-tutorial/confl-admin-3.png)
+    ![SAML](./media/easysso-for-confluence-tutorial/confl-admin-3.png)
 
-Select **Certificates** tab on the top and you will be presented with the following screen: 
+4. Select **Certificates** tab on the top and you will be presented with the following screen: 
 
-![Metadata URL](./media/easysso-for-confluence-tutorial/confl-admin-4.png)
+    ![Metadata URL](./media/easysso-for-confluence-tutorial/confl-admin-4.png)
 
-Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
+5. Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
 
- * Use the App Federation **Metadata File** you downloaded to local file on your computer. Select **Upload** radio button and follow the upload file dialog specific to your operating system
+    a. Use the App Federation **Metadata File** you downloaded to local file on your computer. Select **Upload** radio button and follow the upload file dialog specific to your operating system
 
-**OR**
+    **OR**
 
- * Open the App Federation **Metadata File** to see the content (in any plain text editor) of the file and copy it into the clipboard. Select **Input** option and paste clipboard content into the text field.
+    b. Open the App Federation **Metadata File** to see the content (in any plain text editor) of the file and copy it into the clipboard. Select **Input** option and paste clipboard content into the text field.
  
-**OR**
+    **OR**
 
- * Fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content (in any plain text editor) of the file and copy it into the clipboard. Paste it into **IdP Token Signing Certificates** text field. Then navigate to **General** tab and fill **POST Binding URL** and **Entity ID** fields with respective values for **Login URL** and **Azure AD Identifier** you saved previously.
+    c. Fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content (in any plain text editor) of the file and copy it into the clipboard. Paste it into **IdP Token Signing Certificates** text field. Then navigate to **General** tab and fill **POST Binding URL** and **Entity ID** fields with respective values for **Login URL** and **Azure AD Identifier** you saved previously.
  
-Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for Confluence configuration is complete.
+6. Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for Confluence configuration is complete.
 
-For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Confluence login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
+7. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Confluence login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
 
-![Look & Feel](./media/easysso-for-confluence-tutorial/confl-admin-5.png)
+    ![Look & Feel](./media/easysso-for-confluence-tutorial/confl-admin-5.png)
 
-Should you have any issues, please contact [EasySSO support team](mailto:support@techtime.co.nz).
+    > [!NOTE]
+    > Should you have any issues, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 
 ### Create EasySSO for Confluence test user
 
