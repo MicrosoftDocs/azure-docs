@@ -120,6 +120,9 @@ Address: 192.168.0.5
 ---
 
 ### Create the storage sync private endpoint
+> [!Important]  
+> In order to use private endpoints on the Storage Sync Service resource, you must use Azure File Sync agent version 10.1 or greater. Agent versions prior to 10.1 do not support private endpoints on the Storage Sync Service. All prior agent versions support private endpoints on the storage account resource.
+
 # [Portal](#tab/azure-portal)
 Navigate to the **Private Link Center** by typing *Private Link* into the search bar at the top of the Azure portal. In the table of contents for the Private Link Center, select **Private endpoints**, and then **+ Add** to create a new private endpoint.
 
