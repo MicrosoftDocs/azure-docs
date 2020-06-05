@@ -5,7 +5,7 @@ description: Detect data drift (preview) on Azure Kubernetes Service deployed mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
