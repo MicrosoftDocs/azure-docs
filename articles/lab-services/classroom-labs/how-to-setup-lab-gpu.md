@@ -16,7 +16,7 @@ ms.date: 05/28/2020
 ms.author: nicolela
 
 ---
-# Set up a lab with GPU virtual machine size
+# Set up a lab with GPU virtual machines
 
 This article shows you how to do the following tasks:
 
@@ -35,7 +35,7 @@ As described in the following table, the compute GPU size is intended for comput
 
 | Size | Cores | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| Small GPU (compute) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications such as AI and Deep Learning. |
+| Small GPU (compute) | - 6&nbsp;cores<br>- 56&nbsp;GB&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications such as AI and Deep Learning. |
 
 The *visualization* sizes are intended for graphics-intensive applications.  For example, the [SolidWorks engineering class type](./class-type-solidworks.md) shows using the *small GPU (visualization)* size.  The *visualization* GPU is suitable for this type of class since students interact with SolidWorks' 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
@@ -77,7 +77,7 @@ To manually install drivers for the compute GPU size, do the following:
    f. Select **Search** to look for your drivers.  
    g. Select **Download** to download the installer.  
    h. Run the installer so that the drivers are installed on the template VM.  
-1. Validate that the drivers are installed correctly by following the instructions in the [Validate installed drivers](how-to-setup-lab-gpu.md#validate-installed-drivers) section. 
+1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section. 
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
 > [!NOTE]
@@ -94,7 +94,7 @@ To manually install drivers for the visualization GPU size, do the following:
    -  [Linux NVIDIA GRID drivers](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
-1. Validate that the drivers are installed correctly by following the instructions in the [Validate installed drivers](how-to-setup-lab-gpu.md#validate-installed-drivers) section.
+1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section.
 1. Configure RDP settings to enable GPU by following the instructions in the [Enable GPU over RDP connection to Windows VMs](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) section.
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
@@ -113,10 +113,10 @@ This section describes how to validate that your GPU drivers are properly instal
        ![Screenshot showing the Task Manager GPU Performance tab](../media/how-to-setup-gpu/task-manager-gpu.png) 
 
       > [!IMPORTANT]
-      > The NVIDIA Control Panel settings can be accessed only for visualization GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: ""NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
+      > The NVIDIA Control Panel settings can be accessed only for visualization GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
 #### Linux images
-Follow the steps in the article that shows how to [verify driver installation on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Follow the in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
 ## Enable GPU over RDP connection to Windows VMs
 When you're using RDP to connect to a Windows VM that's powered by a visualization GPU, you need to do some extra configuration so that the GPU is used for rendering graphics. Otherwise, the CPU will be used to render graphics.
