@@ -14,6 +14,13 @@ Kubernetes includes a web dashboard that can be used for basic management operat
 
 For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard][kubernetes-dashboard]. AKS uses version 2.0 and greater of the open source dashboard.
 
+> [!WARNING]
+> **The AKS dashboard add-on is set for deprecation.** 
+> * The Kubernetes dashboard is enabled by default for clusters running a Kubernetes version less than 1.18.
+> * The dashboard add-on will be disabled by default for all new clusters created on Kubernetes 1.18 or greater. 
+ > * Starting with Kubernetes 1.19 in preview, AKS will no longer support installation of the managed kube-dashboard addon. 
+ > * Existing clusters with the add-on enabled will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
+
 ## Before you begin
 
 The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need to create an AKS cluster, see the [AKS quickstart][aks-quickstart].
@@ -22,17 +29,13 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 
 ## Disable the Kubernetes dashboard
 
-The kube-dashboard addon is enabled by default on clusters older than K8s 1.18. This can be removed by running the following command.
+The kube-dashboard addon is **enabled by default on clusters older than K8s 1.18**. The addon can be disabled by running the following command.
 
 ``` azure-cli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
 ## Start the Kubernetes dashboard
-
-> [!WARNING]
-> **The builtin dashboard add-on is set for deprecation.** Currently, the Kubernetes dashboard is enabled by default for all clusters running a Kubernetes version less than 1.18.
-> The dashboard add-on will be disabled by default for all new clusters created on Kubernetes 1.18 or greater. Starting with Kubernetes 1.19 availability in preview, AKS will no longer support installation of the managed kube-dashboard addon. Existing clusters with the add-on already installed will not be impacted. Users will continue to be able to manually install the open-source dashboard as user-installed software.
 
 To start the Kubernetes dashboard on a cluster, use the [az aks browse][az-aks-browse] command. This command requires the installation of the kube-dashboard addon on the cluster, which is included by default on clusters running any version older than Kubernetes 1.18.
 
@@ -45,8 +48,8 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 This command creates a proxy between your development system and the Kubernetes API, and opens a web browser to the Kubernetes dashboard. If a web browser doesn't open to the Kubernetes dashboard, copy and paste the URL address noted in the Azure CLI, typically `http://127.0.0.1:8001`.
 
 > [!NOTE]
-> If running on WSL and you do not see the dashboard at`http://127.0.0.1:8001` you can manually route to the following addresses.
-> * K8s 1.15 or greater: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> If you do not see the dashboard at `http://127.0.0.1:8001` you can manually route to the following addresses. Clusters on 1.16 or greater use https and require a separate endpoint.
+> * K8s 1.16 or greater: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 > * K8s 1.15 and below: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
@@ -98,32 +101,32 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 
 The initial screen presented requires a kubeconfig or token. Both options require resource permissions to display those resources in the dashboard.
 
+For clusters running K8s 1.16 or greater, 
+
 ![login screen](./media/kubernetes-dashboard/login.png)
 
-### Non-Azure AD enabled clusters
-
 **Use a kubeconfig**
+
+For both Azure AD enabled and non-Azure AD enabled clusters, a kubeconfig can be passed in. Ensure access tokens are valid, if your tokens are expired you can refresh tokens via kubectl.
+
 1. Set the admin kubeconfig with `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Select `Kubeconfig` and click `Choose kubeconfig file` to open file selector
 1. Select your kubeconfig file (defaults to $HOME/.kube/config)
 1. Click `Sign In`
 
 **Use a token**
-1. Run `kubectl config view`
-1. Copy the desired token associated with the account of your cluster
+
+1. For **non-Azure AD enabled cluster**, run `kubectl config view` and copy the desired token associated with the account of your cluster
 1. Paste into the token option at login
 1. Click `Sign In`
 
-### Azure AD enabled clusters
-For Azure AD enabled clusters, an AAD token can be retrieved and passed into the token login form.
+For Azure AD enabled clusters, retrieve your AAD token with the following command. Validate you have replaced the resource group and cluster name in the command. Azure AD enabled clusters also support non-interactive login for the dashboard by using [Kubelogin](https://github.com/Azure/kubelogin).
 
 ```
 ## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
 
 kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
 ```
-
-AAD enabled clusters also support non-interactive login for the dashboard by using [Kubelogin](https://github.com/Azure/kubelogin).
 
 Once successful, a page similar to the below will be displayed.
 
