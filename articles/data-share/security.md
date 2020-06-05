@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 6/5/2020
 ---
 # Security Overview for Azure Data Share
 
