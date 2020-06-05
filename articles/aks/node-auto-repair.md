@@ -34,15 +34,9 @@ kubectl get nodes
 > [!Note]
 > AKS takes repair action on nodes with the user account **aks-remediator**.
 
-This behavior is supported for clusters with a VM set type of **Virtual Machine Scale Sets**. Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
-
-1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime services are restarted on the node.
-1. If the node is not ready for an additional 6 hours, the node is soft rebooted. 
-
-Afterwards if the not ready state remains after the above actions, escalating remediations may occur in constant backoff increments.
+This behavior is supported for clusters with a VM set type of **Virtual Machine Scale Sets**. If a node is determined to be unhealthy, AKS reboots the node after 10 unreponsive minutes.
   
-> [!Note]
-> If multiple nodes are unhealthy, they are repaired one by one
+If multiple nodes are unhealthy during a health check, each node is repaired individually before another repair begins.
 
 ## Next steps
 
