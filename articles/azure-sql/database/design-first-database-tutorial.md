@@ -44,9 +44,9 @@ To complete this tutorial, make sure you've installed:
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL Database
+## Create a blank database in Azure SQL Database
 
-An Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../../active-directory-b2c/overview.md) and is managed using an [logical SQL server](logical-servers.md).
+A database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../../active-directory-b2c/overview.md) and is managed using an [logical SQL server](logical-servers.md).
 
 Follow these steps to create a blank database.
 
@@ -90,10 +90,10 @@ Follow these steps to create a blank database.
 
 ## Create a server-level IP firewall rule
 
-The SQL Database service creates an IP firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule allows their IP through the firewall. To enable external connectivity to your database, you must first add an IP firewall rule for your IP address (or IP address range). Follow these steps to create a [server-level IP firewall rule](firewall-configure.md).
+Azure SQL Database creates an IP firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule allows their IP through the firewall. To enable external connectivity to your database, you must first add an IP firewall rule for your IP address (or IP address range). Follow these steps to create a [server-level IP firewall rule](firewall-configure.md).
 
 > [!IMPORTANT]
-> The SQL Database service communicates over port 1433. If you are trying to connect to this service from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your database unless your administrator opens port 1433.
+> Azure SQL Database communicates over port 1433. If you are trying to connect to this service from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your database unless your administrator opens port 1433.
 
 1. After the deployment completes, select **SQL databases** from the Azure portal menu or search for and select *SQL databases* from any page.  
 

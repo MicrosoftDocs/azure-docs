@@ -72,7 +72,7 @@ To resolve the issue:
     - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
     - Navigate to this replica managed disk
     - You may see a banner on the Overview blade saying that a SAS URL has been generated. Click on this banner and cancel the export. Ignore this step if you do not see the banner.
-    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that ASR supports the observed churn rate on source disk
+    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that Azure Site Recovery supports the observed churn rate on source disk
 - If the observed churn is temporary, wait for a few hours for the pending data upload to catch up and to create recovery points.
 - If the disk contains non-critical data like temporary logs, test data etc., consider moving this data elsewhere or completely exclude this disk from replication
 - If the problem continues to persist, use the Site Recovery [deployment planner](site-recovery-deployment-planner.md#overview) to help plan replication.
@@ -141,6 +141,8 @@ Some of the most common issues are listed below
 #### Cause 3: Known issue in SQL Server 2016 and 2017
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
+#### Cause 4: App-Consistency not enabled on Linux servers
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
 
 ### More causes due to VSS related issues:
 
@@ -157,12 +159,12 @@ In the above example **2147754994** is the error code that tells you about the f
 
 #### VSS writer is not installed - Error 2147221164
 
-*How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
+*How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error ID 0x80040154  "Class not registered". </br>
 Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### VSS writer is disabled - Error 2147943458
 
-**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error ID "The specified service is disabled and cannot be started(0x80070422)". </br>
 
 - If VSS is disabled,
     - Verify that the startup type of the VSS Provider service is set to **Automatic**.

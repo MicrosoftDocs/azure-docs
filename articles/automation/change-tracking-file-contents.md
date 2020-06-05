@@ -18,6 +18,10 @@ Before using the procedures in this article, ensure that you've enabled Change T
 * [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
 * [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md)
 
+## <a name="scope-configuration"></a>Limit the scope for the deployment
+
+Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. For more information, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
+
 ## Track files
 
 You can use Change Tracking and Inventory to track changes to files and folders/directories. This section tells how to configure file tracking on Windows and on Linux.
@@ -160,5 +164,8 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 ## Next steps
 
+* For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
 * If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* If finished with deployments, see [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md).
+* To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

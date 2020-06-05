@@ -194,7 +194,7 @@ ingress:
 
 To learn more about networking and how requests are routed in Azure Dev Spaces see [How routing works with Azure Dev Spaces][how-it-works-routing].
 
-To learn more about using Azure Dev Spaces for rapidly iterating and developing, see [How connecting your development computer to your dev space works][how-it-works-connect] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
+To learn more about using Azure Dev Spaces for rapidly iterating and developing, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
 To get started using Azure Dev Spaces to run your project, see the following quickstarts:
 
@@ -207,7 +207,7 @@ To get started using Azure Dev Spaces to run your project, see the following qui
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

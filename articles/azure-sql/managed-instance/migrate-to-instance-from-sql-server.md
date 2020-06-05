@@ -36,7 +36,7 @@ At a high level, the database migration process looks like:
 
 ## Assess SQL Managed Instance compatibility
 
-First, determine whether SQL Managed Instance is compatible with the database requirements of your application. SQL Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
+First, determine whether SQL Managed Instance is compatible with the database requirements of your application. SQL Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
 Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. If there are some reported blocking issues, you might need to consider an alternative option, such as [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
@@ -115,7 +115,7 @@ To learn more about this scenario and configuration steps for DMS, see [Migrate 
 
 ### Native RESTORE from URL
 
-RESTORE of native backups (.bak files) taken from SQL Server on-premises or [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
+RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
 
 The following diagram provides a high-level overview of the process:
 
