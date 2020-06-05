@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/05/2020
 ms.author: rolyon
 
 ---
@@ -77,7 +77,7 @@ Follow these steps to temporarily elevate access for a Global Administrator usin
 
     For information about assigning roles, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-1. Perform the steps in the follow section to remove your elevated access.
+1. Perform the steps in the following section to remove your elevated access.
 
 ### Remove elevated access
 
@@ -190,24 +190,11 @@ Use the following basic steps to elevate access for a Global Administrator using
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the {roleDefinitionID} role at root scope (`/`):
+1. Make the changes you need to make at elevated access.
 
-   ```json
-   { 
-     "properties": {
-       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-       "principalId": "{objectID}",
-       "scope": "/"
-     },
-     "id": "providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "name": "11111111-1111-1111-1111-111111111111"
-   }
-   ```
+    For information about assigning roles, see [Add or remove Azure role assignments using the REST API](role-assignments-rest.md).
 
-1. While a User Access Administrator, you can also remove role assignments at root scope (`/`).
-
-1. Remove your User Access Administrator privileges until they're needed again.
+1. Perform the steps in a later section to remove your elevated access.
 
 ### List role assignments at root scope (/)
 
