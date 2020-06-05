@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/04/2020
 ---
 
-# Integrate AKS-managed AAD (Preview)
+# Integrate AKS-managed Azure AD (Preview)
 
 > [!Note]
-> Existing AKS (Azure Kubernetes Service) clusters with AAD (Azure Active Directory) integration are not affected by the new AKS-managed AAD experience.
+> Existing AKS (Azure Kubernetes Service) clusters with Azure Active Directory (Azure AD) integration are not affected by the new AKS-managed Azure AD experience.
 
-Azure AD integration with AKS-managed AAD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+Azure AD integration with AKS-managed Azure AD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing AKS AAD-Integrated cluster to the new AKS-managed AAD experience.
+* You can't currently upgrade an existing AKS Azure AD-Integrated cluster to the new AKS-managed Azure AD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -86,7 +86,7 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 The API server calls the AKS webhook server and performs the following steps:
 
-* An Azure Active Directory (AAD) client application is used by kubectl to login user into AAD to access "Server application". It corresponds to step 1 and 2 in the chart.
+* An Azure AD client application is used by kubectl to login user into Azure AD to access "Server application". It corresponds to step 1 and 2 in the chart.
 * kubectl sends the access token to APIServer, which is configured with the Authentication Webhook Server. The job of the Authentication Webhook Server is to validate the Access token and tell APIServer who the user is behind the token
 * Authentication webhook server performs step 5 and 6 in above chart TODO. In addition, it uses "Server Application" to query Microsoft Graph api to get group membership of logged in user.
 * Then it responds to the APIServer with user information such as who he/she is (upn claim of access token), what groups he/she is in
@@ -104,28 +104,28 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location centralus
 ```
 
-You can use an existing AAD group, or create a new one. You need the object ID for your AAD group.
+You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
 
 ```azurecli-interactive
 # List existing groups in the directory
 az ad group list
 ```
 
-To create a new AAD group for your cluster administrators, use the following command:
+To create a new Azure AD group for your cluster administrators, use the following command:
 
 ```azurecli-interactive
-# Create an AAD group
+# Create an Azure AD group
 az ad group create --display-name MyDisplay --mail-nickname MyDisplay
 ```
 
-Create an AKS cluster, and enable administration access for your AAD group
+Create an AKS cluster, and enable administration access for your Azure AD group
 
 ```azurecli-interactive
-# Create an AKS-managed AAD cluster
+# Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-A successful creation of an AKS-managed AAD cluster has the following section in the response body
+A successful creation of an AKS-managed Azure AD cluster has the following section in the response body
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
