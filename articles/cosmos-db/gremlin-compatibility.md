@@ -10,7 +10,7 @@ ms.author: sngun
 ---
 
 # Azure Cosmos DB Gremlin compatibility
-Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences.
+Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. To see our list of supported Gremlin steps, please read the following article: [Gremlin API Wire Protocol Support](gremlin-support.md).
 
 ## Behavior differences
 
@@ -22,7 +22,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***`atch()`*** allows querying graphs using declarative pattern matching. This capability isn't available.
+* ***`match()`*** allows querying graphs using declarative pattern matching. This capability isn't available.
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
@@ -35,6 +35,24 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 * **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}`, and the `.filter{<expression>}` functions. To learn more, and to learn how to rewrite them using Gremlin steps, see [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
 * ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
+
+## Known limitations
+
+* **Index utilization for Gremlin calls involving multiple `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
+
+    For example, consider the following query:
+
+    ```java
+    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+    ```
+
+    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+
+    A workaround for this query is to use the `.map()` step to induce a subquery that is optimized to use the index. This is exemplified below:
+
+    ```java
+    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b')
+    ```
 
 ## Next steps
 * Visit [Cosmos DB user voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) page to share feedback and help team focus on features that are important to you.
