@@ -224,52 +224,54 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
+Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. This is more of a legacy portal, and isn't part of the regular Azure AD portal.
 
-![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
-
-> [!NOTE]
-> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure Multi-Factor Authentication, you can only use public IP address ranges.
+Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A new window or tab opens with additional *service settings* options.
 
 ## Trusted IPs
 
-The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+The _Trusted IPs_ feature of Azure Multi-Factor Authentication bypasses multi-factor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments to when users are in one of those locations, there's no Azure Multi-Factor Authentication prompt.
 
-> [!TIP]
+> [!NOTE]
+> The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure Multi-Factor Authentication, you can only use public IP address ranges.
+>
 > IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md#preview-features) interface.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
-| Azure AD tenant type | Trusted IPs feature options |
+| Azure AD tenant type | Trusted IP feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. A maximum of 50 Trusted IP ranges can be configured.|
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
 | Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
 
-The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
+Trusted IP bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim.
 
 ### End-user experience inside of corpnet
 
-When the Trusted IPs feature is disabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
+When the trusted IPs feature is disabled, multi-factor authentication is required for browser flows. App passwords are required for older rich client applications.
 
-When the Trusted IPs feature is enabled, two-step verification is *not* required for browser flows. App passwords are *not* required for older rich client applications, provided that the user hasn't created an app password. After an app password is in use, the password remains required. 
+When trusted IPs are used, multi-factor authentication isn't required for browser flows. App passwords aren't required for older rich client applications, provided that the user hasn't created an app password. After an app password is in use, the password remains required.
 
 ### End-user experience outside corpnet
 
-Regardless of whether the Trusted IPs feature is enabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
+Regardless of whether trusted IP are defined, multi-factor authentication is required for browser flows. App passwords are required for older rich client applications.
 
 ### Enable named locations by using Conditional Access
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
-3. Select **New location**.
-4. Enter a name for the location.
-5. Select **Mark as trusted location**.
-6. Enter the IP Range in CIDR notation like **40.77.182.32/27**.
-7. Select **Create**.
+You can use Conditional Access rules to define named locations using the following steps:
+
+1. In the Azure portal, search for and select **Azure Active Directory**, then browse to **Security** > **Conditional Access** > **Named locations**.
+1. Select **New location**.
+1. Enter a name for the location.
+1. Select **Mark as trusted location**.
+1. Enter the IP Range in CIDR notation for your environment, such as *40.77.182.32/27*.
+1. Select **Create**.
 
 ### Enable the Trusted IPs feature by using Conditional Access
 
-1. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
+To enable trusted IPs using Conditional Access policies, complete the following steps:
+
+1. In the Azure portal, search for and select **Azure Active Directory**, then browse to **Security** >  **Conditional Access** > **Named locations**.
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -286,7 +288,9 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 ### Enable the Trusted IPs feature by using service settings
 
-1. On the left, select **Azure Active Directory** > **Users**.
+If you don't want to use Conditional Access policies to enable trusted IPs, you can configure the *service settings* for Azure Multi-Factor Authentication using the following steps:
+
+1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
 1. Select **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication, select **service settings**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
@@ -304,9 +308,9 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 ## Verification methods
 
-You can choose the verification methods that are available for your users. The following table provides a brief overview of the methods.
+You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md).
+The following verification methods are available:
 
 | Method | Description |
 |:--- |:--- |
@@ -315,24 +319,26 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 | Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
+For more information, see [What authentication and verification methods are available in Azure AD?](concept-authentication-methods.md)
+
 ### Enable and disable verification methods
 
-1. On the left, select **Azure Active Directory** > **Users**.
+To enable or disable verification methods, complete the following steps:
+
+1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
 1. Select **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication, select **service settings**.
 1. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
 1. Click **Save**.
 
-Additional details about the use of authentication methods can be found in the article [What are authentication methods](concept-authentication-methods.md).
-
 ## Remember Multi-Factor Authentication
 
-The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
+The _remember Multi-Factor Authentication_ feature lets users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform MFA on the same device.
 
->[!IMPORTANT]
->If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
+> [!IMPORTANT]
+> If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
->The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices as noted in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### How the feature works
 
@@ -342,17 +348,19 @@ The **Don't ask again for X days** option isn't shown on non-browser application
 
 The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with Conditional Access policies.
 
->[!IMPORTANT]
->The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
+> [!IMPORTANT]
+> The **remember Multi-Factor Authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
 >
->If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
+> If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
 >
->The **remember Multi-Factor Authentication** feature is not compatible with B2B users and will not be visible for B2B users when signing into the invited tenants.
+> The **remember Multi-Factor Authentication** feature is not compatible with B2B users and will not be visible for B2B users when signing into the invited tenants.
 >
 
 ### Enable remember Multi-Factor Authentication
 
-1. On the left, select **Azure Active Directory** > **Users**.
+To enable and configure the option for users to remember their MFA status and bypass prompts, complete the following steps:
+
+1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
 1. Select **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication, select **service settings**.
 1. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
@@ -361,6 +369,8 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 ### Mark a device as trusted
 
-After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
+After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting the option for **Don't ask again**.
 
 ## Next steps
+
+To learn more about the available methods for use in Azure Multi-Factor Authentication, see [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
