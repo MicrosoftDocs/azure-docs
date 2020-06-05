@@ -35,7 +35,7 @@ Using these tools you can:
 - Clouds: 
     - ✔ Commercial clouds
     - ✔ US Gov
-    - ✘ Chinese Gov, Other Gov
+    - ✘ China Gov, Other Gov
 
 
 ## Setting up a continuous export
