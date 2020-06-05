@@ -1,6 +1,6 @@
 ---
 title: Configure load balancer or DNN for connectivity to an FCI 
-description: Learn how to configure either an Azure load balancer or dynamic network name (DNN) to route traffic to your SQL Server on Azure VM failover cluster instance (FCI). 
+description: Learn how to configure either an Azure load balancer or distributed network name (DNN) to route traffic to your SQL Server on Azure VM failover cluster instance (FCI). 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -29,16 +29,16 @@ i originally wrote this as one article but now that i look at it, i think two mi
 
 
 
-This article teaches you to configure an Azure load balancer or dynamic network name to use with your failover cluster instance (FCI) for SQL Server on Azure Virtual Machines (VMs).
+This article teaches you to configure an Azure load balancer or distributed network name to use with your failover cluster instance (FCI) for SQL Server on Azure Virtual Machines (VMs).
 
-Choose and configure connectivity appropriate to your environment, which is either the load balancer, or the dynamic network name. For an overview, see [Connectivity and FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md#connectivity). Currently DNN is supported only with SQL Server 2019 on Windows Server 2019. 
+Choose and configure connectivity appropriate to your environment, which is either the load balancer, or the distributed network name. For an overview, see [Connectivity and FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md#connectivity). Currently DNN is supported only with SQL Server 2019 on Windows Server 2019. 
 
 ## Prerequisites
 
 Before you complete the steps in this article, you should already have:
 
 - Decided the appropriate [connectivity option for your FCI](failover-cluster-instance-overview.md#connectivity).
-- Configured your FCI using either [a Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md), [a Shared Managed Disk](failover-cluster-instance-shared-managed-disks-manually-configure.md), or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
+- Configured your FCI using either [a Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md), [a Shared Managed Disk](failover-cluster-instance-azure-shared-disks-manually-configure.md), or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 ## Load balancer
@@ -156,9 +156,9 @@ After you set the cluster probe, you can see all the cluster parameters in Power
    Get-ClusterResource $IPResourceName | Get-ClusterParameter
   ```
 
-## Dynamic network name 
+## Distributed network name 
 
-On Azure Virtual Machines, the dynamic network name (DNN) replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate cluster node without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 and Windows Server 2019. 
+On Azure Virtual Machines, the distributed network name (DNN) replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate cluster node without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 and Windows Server 2019. 
 
 
 
@@ -210,7 +210,7 @@ i'm basically guessing here about what's gana happen with the whole swap so this
 #### Set DNN name in DNS
 
 
-Use PowerShell to set the name of your dynamic network name (DNN) in DNS. If you want clients to continue using the current virtual network name (VNN) to connect to the failover cluster instance, before proceeding, make sure you have [replaced your DNN name with your VNN name](replace-dnn-name-with-vnn-name) prior to setting the name in DNS or you will need to repeat this step again. The DNN name in DNS is the name clients use to connect to your failover cluster instance.  
+Use PowerShell to set the name of your distributed network name (DNN) in DNS. If you want clients to continue using the current virtual network name (VNN) to connect to the failover cluster instance, before proceeding, make sure you have [replaced your DNN name with your VNN name](replace-dnn-name-with-vnn-name) prior to setting the name in DNS or you will need to repeat this step again. The DNN name in DNS is the name clients use to connect to your failover cluster instance.  
 
 To set the DNN name in DNS, run the following PowerShell command: 
 
@@ -269,7 +269,7 @@ By default, the DNN name is bound to all the nodes in the cluster. Configure the
 ### Feature specific considerations
 
 
-The following table details feature interoperability when using a dynamic network name with FCI and SQL Server on Azure VMs. 
+The following table details feature interoperability when using a distributed network name with FCI and SQL Server on Azure VMs. 
 
 
 ### faq 

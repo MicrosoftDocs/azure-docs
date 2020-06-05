@@ -1,6 +1,6 @@
 ---
-title: FCI with shared managed disks 
-description: "Learn to create a failover cluster instance (FCI) using shared managed disks with SQL Server on Azure Virtual Machines."
+title: FCI with Azure Shared Disks 
+description: "Learn to create a failover cluster instance (FCI) using Azure Shared Disks with SQL Server on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -17,10 +17,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ---
 
-# Configure an FCI with shared managed disks (SQL Server on Azure VMs)
+# Configure an FCI with Azure Shared Disks (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a failover cluster instance (FCI) using shared managed disks with SQL Server on Azure Virtual Machines. 
+This article explains how to create a failover cluster instance (FCI) using Azure Shared Disks with SQL Server on Azure Virtual Machines. 
 
 For an overview, see [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md).
 

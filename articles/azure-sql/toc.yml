@@ -938,10 +938,12 @@
       items:
       - name: Best practices
         items:
-        - name: Performance best practices
+        - name: Performance
           href: virtual-machines/windows/performance-guidelines-best-practices.md
-        - name: Security considerations
+        - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
+        - name: High availability & disaster recovery (HADR)
+          href: high-availability-disaster-recovery-hadr-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Business Continuity
@@ -1041,16 +1043,16 @@
             items: 
             - name: SQL Server VM for FCI 
               href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-            - name: Dynamic Network Name (DNN)  
-              href: virtual-machines/windows/failover-cluster-instance-dynamic-network-name-configure.md
+            - name: Distributed Network Name (DNN)  
+              href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-configure.md
             - name: Azure Load Balancer 
               href: virtual-machines/windows/failover-cluster-instance-azure-load-balancer-configure.md
             - name: Connectivity 
               href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
           - name: Create FCI with
             items: 
-            - name: Shared Managed Disks (SQL2019+)
-              href: virtual-machines/windows/failover-cluster-instance-shared-managed-disks-manually-configure.md
+            - name: Azure Shared Disks (SQL2019+)
+              href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
             - name: Storage Spaces Direct (Win2016+)
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium File Share (Win2012+)

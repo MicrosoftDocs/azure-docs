@@ -129,7 +129,7 @@ Both virtual machines need at least two premium SSD raw (not NTFS-formatted) dis
 Now that you've prepared your virtual machine environment, you are ready to configure your failover cluster instance. 
 
 Choose one of the following guides to configure the FCI environment appropriate for your business: 
-- [Configure FCI with Shared Managed Disks](failover-cluster-instance-shared-managed-disks-manually-configure.md)
+- [Configure FCI with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - [Configure FCI with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
