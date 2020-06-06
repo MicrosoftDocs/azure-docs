@@ -17,7 +17,7 @@ Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Databas
 
 ## Enable redirection
 
-On your Azure Database for MySQL server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](./howto-server-parameter.md) or [Azure CLI](howto-configure-server-parameters-cli.md).
+On your Azure Database for MySQL server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameter.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 ## PHP
 
