@@ -48,7 +48,7 @@ West Central US , Australia South East , Canada Central
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 4     |
+| Maximum  number of on-demand backups per day | 10     |
 | Maximum  number of scheduled backups per day | 1     |
 
 ## Restore limits
