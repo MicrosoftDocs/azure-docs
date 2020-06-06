@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 12/11/2019
+ms.date: 06/05/2020
 ms.author: gsacavdm
 
 ---
@@ -120,6 +120,9 @@ Snapshot Debugger is now available for Azure Government customers. To use Snapsh
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
+> [!IMPORTANT]
+> Direct SDK endpoint modification is no longer the recommended way to configure your SDKs for Azure Government. **We now recommend using [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)**.
+
 ### .NET with applicationinsights.config
 
 > [!NOTE]
@@ -178,54 +181,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel; //place at t
 
 ### Azure Functions
 
-Please install following packages into your Function project:
+For Azure Functions it is now recommended to use [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
 
-- Microsoft.ApplicationInsights version 2.10.0
-- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
-- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
-
-And also add (or modify) the startup code for your Function application:
-
-```csharp
-[assembly: FunctionsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IFunctionsHostBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
-      }
-  }
-}
-```
+Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+Value: `Connection String Value`
 
 ### Java
 
