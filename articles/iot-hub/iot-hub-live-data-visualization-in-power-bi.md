@@ -121,7 +121,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 3. Replace `[YourOutputAlias]` with the output alias of the job.
 
-   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-stream-analytics-job.png)
+   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png)
 
 4. Select **Save query**.
 
