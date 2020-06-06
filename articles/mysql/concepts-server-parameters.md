@@ -84,7 +84,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |General Purpose|16|2500|10|5000|
 |General Purpose|32|5000|10|10000|
 |General Purpose|64|10000|10|20000|
-|Memory Optimized|2|600|10|800|
+|Memory Optimized|2|625|10|1250|
 |Memory Optimized|4|1250|10|2500|
 |Memory Optimized|8|2500|10|5000|
 |Memory Optimized|16|5000|10|10000|
