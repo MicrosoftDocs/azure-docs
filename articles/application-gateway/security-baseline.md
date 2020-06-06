@@ -4,9 +4,11 @@ description: Azure security baseline for Azure Application Gateway
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
+
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
@@ -22,7 +24,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 *For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
+### 1.1: Protect Azure resources within virtual networks
 
 **Guidance**: Ensure that all Virtual Network Azure Application Gateway subnet deployments have a network security group (NSG) applied with network access controls specific to your application's trusted ports and sources. While network security groups are supported on Azure Application Gateway, there are some restrictions and requirements that must be adhered to in order for your NSG and Azure Application Gateway to function as expected.
 
@@ -34,7 +36,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 **Guidance**: For the network security groups (NSGs) associated with your Azure Application Gateway subnets, enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -61,7 +63,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 * [Understand Azure Application Gateway features](https://docs.microsoft.com/azure/application-gateway/features)
 
-* [Understand Azure WAF](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+* [Understand Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
 
 * [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
 
@@ -81,7 +83,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 **Responsibility**: Customer
 
-### 1.5: Record network packets and flow logs
+### 1.5: Record network packets
 
 **Guidance**: For the network security groups (NSGs) associated with your Azure Application Gateway subnets, enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -110,7 +112,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 * [Understand Azure Application Gateway features](https://docs.microsoft.com/azure/application-gateway/features)
 
-* [Understand Azure WAF](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+* [Understand Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
 
 * [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
 
@@ -152,7 +154,7 @@ For the network security groups (NSGs) associated with your Azure Application Ga
 
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure Application Gateway deployments. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Application Gateways, Azure Virtual Networks, and network security groups. You may also make use of built-in policy definition.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -258,7 +260,6 @@ Azure Application Gateway also offers built-in integration with Azure Applicatio
 
 * [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
-
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
@@ -281,7 +282,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 **Responsibility**: Customer
 
-### 2.7: Enable alerts for anomalous activity
+### 2.7: Enable alerts for anomalous activities
 
 **Guidance**: Deploy Azure Web Application Firewall (WAF) v2 SKU in front of critical web applications for additional inspection of incoming traffic. Web Application Firewall (WAF) is a service (feature of Azure Application Gateway) that provides centralized protection of your web applications from common exploits and vulnerabilities. Azure WAF can help secure your Azure App Service web apps by inspecting inbound web traffic to block attacks such as SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks. WAF is based on rules from the OWASP (Open Web Application Security Project) core rule sets 3.1 (WAF_v2 only), 3.0, and 2.2.9.
 
@@ -412,7 +413,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activity from administrative accounts
+### 3.7: Log and alert on suspicious activities from administrative accounts
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
@@ -456,7 +457,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-### 3.11: Monitor attempts to access deactivated accounts
+### 3.11: Monitor attempts to access deactivated credentials
 
 **Guidance**: You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool.
 
@@ -558,7 +559,7 @@ Microsoft manages the underlying infrastructure for Azure Application Gateway an
 
 **Responsibility**: Not applicable
 
-### 4.6: Use Azure RBAC to control access to resources
+### 4.6: Use Role-based access control to control access to resources
 
 **Guidance**: Use Azure Active Directory (AD) role-based access control (RBAC) to control access to the Azure Application Gateway control plane (the Azure portal).
 
@@ -602,7 +603,7 @@ Microsoft manages the underlying infrastructure for Azure Application Gateway an
 
 **Guidance**: Currently not available; vulnerability assessment in Azure Security Center is not yet available for Azure Application Gateway.
 
-Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Applicatio Gateway to reduce service configuration related vulnerabilities.
+Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Application Gateway to reduce service configuration related vulnerabilities.
 
 * [Feature coverage (including vulnerability assessment) for Azure PaaS Services](https://docs.microsoft.com/azure/security-center/features-paas)
 
@@ -618,7 +619,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 **Responsibility**: Not applicable
 
-### 5.3: Deploy automated third-party software patch management solution
+### 5.3: Deploy automated patch management solution for third-party software titles
 
 **Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
 
@@ -654,7 +655,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 *For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use Azure Asset Discovery
+### 6.1: Use automated Asset Discovery solution
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -698,7 +699,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 **Responsibility**: Customer
 
-### 6.4: Maintain an inventory of approved Azure resources and software titles
+### 6.4: Define and Maintain an inventory of approved Azure resources
 
 **Guidance**: Define approved Azure resources.
 
@@ -758,7 +759,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Customer
 
-### 6.10: Implement approved application list
+### 6.10: Maintain an inventory of approved software titles
 
 **Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
 
@@ -766,7 +767,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Not applicable
 
-### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
+### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -866,7 +867,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Not applicable
 
-### 7.7: Deploy system configuration management tools
+### 7.7: Deploy configuration management tools for Azure resources
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -876,7 +877,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Customer
 
-### 7.8: Deploy system configuration management tools for operating systems
+### 7.8: Deploy configuration management tools for operating systems
 
 **Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
 
@@ -884,7 +885,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Not applicable
 
-### 7.9: Implement automated configuration monitoring for Azure services
+### 7.9: Implement automated configuration monitoring for Azure resources
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
@@ -966,7 +967,7 @@ Configure diagnostic settings for your Azure Application Gateway deployments. di
 
 **Guidance**: When using Azure Web Application Firewall (WAF), you can configure WAF policies. A WAF policy consists of two types of security rules: custom rules that are authored by the customer, and managed rule sets that are a collection of Azure-managed pre-configured set of rules. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
-* [Understand Azure-managed WAF rule sets](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#waf-rules)
+* [Understand Azure-managed WAF rule sets](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1098,9 +1099,11 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+**Guidance**: 
+
+* [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

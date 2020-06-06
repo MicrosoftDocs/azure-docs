@@ -8,7 +8,7 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2019
 ms.custom: has-adal-ref
 ---
