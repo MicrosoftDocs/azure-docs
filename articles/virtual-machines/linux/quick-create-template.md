@@ -19,21 +19,6 @@ This quickstart shows you how to use a Resource Manager template to deploy an Ub
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites
-
-If you want to create to your VM using SSH, you will need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
-
-Open a bash shell and use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you don't have a bash shell on your local computer, you can use the [Azure Cloud Shell](https://shell.azure.com/bash).
-
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the menu at the top of the page, select the `>_` icon to open Cloud Shell.
-1. Make sure the CloudShell says **Bash** in the upper left. If it says PowerShell, use the drop-down to select **Bash** and select **Confirm** to change to the Bash shell.
-1. Type `ssh-keygen -t rsa -b 2048` to create the ssh key. 
-1. You will be prompted to enter a file in which to save the key pair. Just press **Enter** to save in the default location, listed in brackets. 
-1. You will be asked to enter a passphrase. You can type a passphrase for your SSH key or press **Enter** to continue without a passphrase.
-1. The `ssh-keygen` command generates public and private keys with the default name of `id_rsa` in the `~/.ssh directory`. The command returns the full path to the public key. Use the path to the public key to display its contents with `cat` by typing `cat ~/.ssh/id_rsa.pub`.
-1. Copy the output of this command and save it somewhere to use later in this article. This is your public key and you will need it when configuring your administrator account to log in to your VM.
 
 ## Review the template
 
@@ -66,10 +51,10 @@ Several resources are defined in the template:
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
     - **Location**: select a location.  For example, **Central US**.
     - **Admin username**: provide a username, such as *azureuser*.
-    - **Authentication type**: You can choose between using an SSH key or a password. SSH is recommended.
+    - **Authentication type**: You can choose between using an SSH key or a password.
 	- **Admin Password Or Key** depending on what you choose for authentication type:
-		   - If you choose **sshPublicKey**, paste the contents of your public key.
 		   - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+		   - If you choose **sshPublicKey**, paste in the contents of your public key.
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Ubuntu OS version**: select which version of Ubuntu you want to run on the VM.
     - **Location**: the default is the same location as the resource group, if it already exists.
