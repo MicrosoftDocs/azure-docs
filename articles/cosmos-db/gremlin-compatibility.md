@@ -38,7 +38,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 ## Known limitations
 
-* **Index utilization for Gremlin calls involving multiple `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
+* **Index utilization for Gremlin queries with mid-traversal `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in subsquent filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
