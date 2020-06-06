@@ -64,7 +64,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2019
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. The new project has the following files:
+After you create an Azure Functions project, the project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. The new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
@@ -77,21 +77,19 @@ For more information, see [Functions class library project](functions-dotnet-cla
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings).
-
-The values in a `ConnectionStrings` collection are never published.
+The settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings). The values in a `ConnectionStrings` collection are never published.
 
 The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that's required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
 
 To set the storage account connection string:
 
 1. In Visual Studio, select **View** > **Cloud Explorer**.
 
-2. In **Cloud Explorer**, expand **Storage Accounts** > *<Your Storage Account>*. In the **Properties** tab, copy the **Primary Connection String** value.
+2. In **Cloud Explorer**, expand **Storage Accounts**, and then select your storage account. In the **Properties** tab, copy the **Primary Connection String** value.
 
 2. In your project, open the local.settings.json file and set the value of the `AzureWebJobsStorage` key to the connection string you copied.
 
@@ -105,15 +103,15 @@ In C# class library functions, the bindings used by the function are defined by 
 
 2. Select **Azure Function**, enter a **Name** for the class, and then select **Add**.
 
-3. Choose your trigger, set the binding properties, and then select **OK**. The following example shows the settings when creating a Queue storage trigger function. 
+3. Choose your trigger, set the binding properties, and then select **OK**. The following example shows the settings for creating a Queue storage trigger function. 
 
-    ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+    ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named **QueueStorage**. Define this connection string setting in the [local.settings.json file](functions-run-local.md#local-settings-file).
+    This trigger example uses a connection string with a key named `QueueStorage`. Define this connection string setting in the [local.settings.json file](functions-run-local.md#local-settings-file).
 
 4. Examine the newly added class. You see a static `Run()` method that's attributed with the `FunctionName` attribute. This attribute indicates that the method is the entry point for the function.
 
-    For example, the following C# class represents a basic Queue storage triggered function:
+    For example, the following C# class represents a basic Queue storage trigger function:
 
     ```csharp
     using System;
@@ -135,7 +133,7 @@ In C# class library functions, the bindings used by the function are defined by 
     }
     ```
 
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a `QueueTrigger` attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the `QueueTrigger` attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue-trigger.md).
+A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a `QueueTrigger` attribute applied, indicating a Queue storage trigger function. The queue name and connection string setting name are passed as parameters to the `QueueTrigger` attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue-trigger.md).
 
 Use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
@@ -147,11 +145,11 @@ As with triggers, input and output bindings are added to your function as bindin
 
 2. Add the appropriate NuGet extension package for the specific binding. 
 
-   For more information, see [C# class library with Visual Studio](./functions-bindings-register.md#local-csharp). The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+   For more information, see [C# class library with Visual Studio](./functions-bindings-register.md#local-csharp). Find the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
 3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-run-local.md#local-settings-file). 
 
-   These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
+   The function uses these values when it runs locally. When the function runs in the function app in Azure, it uses the [function app settings](#function-app-settings).
 
 4. Add the appropriate binding attribute to the method signature. In the following example, a queue message triggers the function, and the output binding creates a new queue message with the same text in a different queue.
 
@@ -202,30 +200,28 @@ Use the following steps to publish your project to a function app in Azure.
 
 Because these settings aren't uploaded automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
 
-The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings** link that appears after you successfully publish your project.
+The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
-![Manage Application Settings button in Publish window](./media/functions-develop-vs/functions-vstools-app-settings.png)
+:::image type="content" source="./media/functions-develop-vs/functions-vstools-app-settings.png" alt-text="Settings in Publish window":::
 
-Selecting this link displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
+Selecting this link displays the **Application settings** dialog for the function app, where you can add new application settings or modify existing ones.
 
 ![Application settings](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add Setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+**Local** displays a setting value in the local.settings.json file, and **Remote** displays a current setting value in the function app in Azure. Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
 
 > [!NOTE]
-> By default, the local.settings.json file is not checked into source control. This means that when you clone a local Functions project from source control, the project doesn't have a local.settings.json file. In this case, you need to manually create the local.settings.json file in the project root so that the **Application Settings** dialog works as expected. 
+> By default, the local.settings.json file is not checked into source control. This means that if you clone a local Functions project from source control, the project doesn't have a local.settings.json file. In this case, you need to manually create the local.settings.json file in the project root so that the **Application settings** dialog works as expected. 
 
 You can also manage application settings in one of these other ways:
 
-* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
-* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Use the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Use the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## Monitoring functions
 
 The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
-
-To enable Application Insights for your function app:
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
