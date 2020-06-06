@@ -33,12 +33,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: ASP.NET Core
-            url: quickstart.md
-          - text: Node.js
-            url: quickstart-nodejs.md
-          - text: Swift (iOS)
-            url: ios-quickstart.md
+        - text: Use C# (ASP.NET Core)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Node.js
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Swift (iOS)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
           - text: Python
