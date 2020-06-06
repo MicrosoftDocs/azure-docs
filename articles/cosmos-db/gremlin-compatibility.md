@@ -22,7 +22,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***`match()`*** allows querying graphs using declarative pattern matching. This capability isn't available.
+* The ***`match()` step*** isn't currently available. This step provides declarative querying capabilities.
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
@@ -39,8 +39,14 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 ## Known limitations
 
 * **Index utilization for Gremlin calls involving multiple `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
+    
+    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in subsquent filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
-    For example, consider the following query:
+    ```java
+    g.V().has('category', 'A')
+    ```
+
+    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
 
     ```java
     g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
@@ -48,10 +54,14 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
     This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
 
-    A workaround for this query is to use the `.map()` step to induce a subquery that is optimized to use the index. This is exemplified below:
+    A workaround for this query is to use subtraversal steps, such as `.map()` and `union()` where the query optimizer can improve the performance. This is exemplified below:
 
     ```java
+    // Query workaround using .map()
     g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+
+    // Query workaround using .union()
+    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
 ## Next steps
