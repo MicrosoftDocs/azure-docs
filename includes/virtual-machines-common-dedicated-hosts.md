@@ -66,7 +66,7 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
-For more information, see [Control updates with Maintenance Control](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+For more information, see [Managing platform updates with Maintenance Control](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
 
 ## Capacity considerations
 
