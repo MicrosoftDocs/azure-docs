@@ -147,7 +147,7 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
 
-## Load the NYC Taxi sample data into the Spark database
+## Load the NYC Taxi data into the Spark nyctaxi database
 
 We have data available in a table in **SQLDB1**. Load it into a Spark database named **nyctaxi**.
 
@@ -259,7 +259,7 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 1. Select **Publish All**. The the pipeline runs every hour.
 1. To make the pipeline run now, without waiting for the next hour, select **Add trigger** > **New/edit**.
 
-## Working with data in a storage account
+## Work with data in a storage account
 
 So far, we've covered scenarios where data resides in databases in the workspace. Now we'll show you how to work with files in storage accounts. In this scenario, we'll use the primary storage account of the workspace and container that we specified when creating the workspace.
 
