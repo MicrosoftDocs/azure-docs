@@ -172,7 +172,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 10. Select **File** > **Publish to web**.
 
     > [!NOTE]
-    > If you get a notification to contact your administrator to enable embed code creation, follow the link in the notification. Embed code creation must be enabled before you can complete this step.
+    > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
     >
     > ![Contact your administrator notification](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
