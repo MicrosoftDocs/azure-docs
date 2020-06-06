@@ -124,5 +124,5 @@ Azure Cognitive Search has been certified compliant for multiple global, regiona
 ## See also
 
 + [Azure security fundamentals](../security/fundamentals/index.yml)
-+ [Azure Security](https://azure.microsoft.com/overview/security/index.yml)
++ [Azure Security](https://azure.microsoft.com/overview/security)
 + [Azure Security Center](../security-center/index.yml)
