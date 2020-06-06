@@ -13,7 +13,7 @@ ms.author: robinsh
 
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-![End-to-end diagram](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
+![End-to-end diagram](./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -57,7 +57,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Location**: Use the same location as your resource group.
 
-   ![Create a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job-azure.png)
+   ![Create a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
 
 3. Select **Create**.
 
@@ -87,7 +87,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    Leave all other fields at their defaults.
 
-   ![Add an input to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job-azure.png)
+   ![Add an input to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
 
 4. Select **Save**.
 
@@ -109,7 +109,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Table Name**: Enter a table name.
 
-   ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job-azure.png)
+   ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
 
 5. Select **Save**.
 
@@ -121,7 +121,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 3. Replace `[YourOutputAlias]` with the output alias of the job.
 
-   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-stream-analytics-job-azure.png)
+   ![Add a query to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-query-stream-analytics-job.png)
 
 4. Select **Save query**.
 
@@ -129,7 +129,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 In the Stream Analytics job, select **Overview**, then select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
-![Run a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job-azure.png)
+![Run a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
 
 ## Create and publish a Power BI report to visualize the data
 
