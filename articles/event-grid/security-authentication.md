@@ -24,12 +24,18 @@ You include the authentication value in the HTTP header. For SAS, use **aeg-sas-
 
 ### Key authentication
 
-Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>`
+Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>` in the message header.
 
 For example, you pass a key with:
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+You can also specify `aeg-sas-key` as a query parameter. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### SAS tokens

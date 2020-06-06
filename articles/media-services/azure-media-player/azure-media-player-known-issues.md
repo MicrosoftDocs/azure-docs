@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 05/11/2020
 ---
 
 # Known Issues #
@@ -36,6 +36,7 @@ The current release has the following known issues:
 
 - Ads may have issues being inserted (on demand or live) when an ad-blocker is installed in the browser
 - Mobile devices may have issues playing back ads.
+- MP4 Midroll ads aren't currently supported by Azure Media Player.
 
 ## AzureHtml5JS ##
 

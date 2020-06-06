@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 
 # Quickstart: Recognize speech from an audio file
@@ -43,6 +43,13 @@ zone_pivot_groups: programming-languages-set-two-with-js
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/javascript/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-file/javascript/javascript.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [SPX Header](../includes/quickstarts/from-file/spx/header.md)]
+[!INCLUDE [SPX Setup](../includes/spx-setup.md)]
+[!INCLUDE [spx](../includes/quickstarts/from-file/spx/spx.md)]
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

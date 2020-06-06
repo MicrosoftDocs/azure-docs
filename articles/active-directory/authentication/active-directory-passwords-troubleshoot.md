@@ -254,7 +254,7 @@ Azure AD Connect requires Active Directory **Reset password** permission to perf
 
 ## Azure AD forums
 
-If you have a general question about Azure AD and self-service password reset, you can ask the community for assistance on the [Azure AD forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have a general question about Azure AD and self-service password reset, you can ask the community for assistance on the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 ## Contact Microsoft support
 

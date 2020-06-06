@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -28,6 +28,9 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 - **Run custom business logic**. You can send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform any other workflows.
 
 ![Diagram of a RESTful service claims exchange](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is 2 times (meaning there are 3 tries in total). The timeout and retry count settings are not currently configurable.
 
 ## Calling a RESTful service
 
@@ -158,7 +161,7 @@ In a RESTful technical profile, you may want to send the current session's langu
 
 ## Handling error messages
 
-Your REST API may need to return an error message, such as "The user was not found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+Your REST API may need to return an error message, such as "The user was not found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](restful-technical-profile.md#returning-error-message).
 
 This can only be achieved by calling a REST API technical profile from a validation technical profile. This allows the user to correct the data on the page and run the validation again upon page submission.
 

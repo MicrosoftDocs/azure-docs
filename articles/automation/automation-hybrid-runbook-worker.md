@@ -1,6 +1,6 @@
 ---
-title: Overview of Hybrid Runbook Worker in Azure Automation
-description: This article provides an overview of the Hybrid Runbook Worker, which is a feature of Azure Automation that you can use to run runbooks on machines in your local datacenter or cloud provider.
+title: Azure Automation Hybrid Runbook Worker overview
+description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
@@ -106,9 +106,9 @@ On top of the standard addresses and ports that the Hybrid Runbook Worker requir
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 
-## State Configuration (DSC) on Hybrid Runbook Worker
+## Azure Automation State Configuration on a Hybrid Runbook Worker
 
-You can run the [State Configuration (DSC)](automation-dsc-overview.md) feature on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. For more information about onboarding, see [Onboard machines for management by State Configuration (DSC)](automation-dsc-onboarding.md).
+You can run [Azure Automation State Configuration](automation-dsc-overview.md) on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. See [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 ## Runbooks on a Hybrid Runbook Worker
 
@@ -127,4 +127,4 @@ Since they access non-Azure resources, runbooks running on a Hybrid Runbook Work
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general).
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/hybrid-runbook-worker.md#general).

@@ -63,7 +63,9 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 
 ### Configure maximum - new clusters
 
-You're able to configure the maximum number of pods per node *only at cluster deployment time*. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 250.
+You're able to configure the maximum number of pods per node at cluster deployment time or as you add new node pools. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 250.
+
+If you don't specify maxPods when creating new node pools, you receive a default value of 30 for Azure CNI.
 
 A minimum value for maximum pods per node is enforced to guarantee space for system pods critical to cluster health. The minimum value that can be set for maximum pods per node is 10 if and only if the configuration of each node pool has space for a minimum of 30 pods. For example, setting the maximum pods per node to the minimum of 10 requires each individual node pool to have a minimum of 3 nodes. This requirement applies for each new node pool created as well, so if 10 is defined as maximum pods per node each subsequent node pool added must have at least 3 nodes.
 
@@ -81,7 +83,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 
 ### Configure maximum - existing clusters
 
-You can't change the maximum pods per node on an existing AKS cluster. You can adjust the number only when you initially deploy the cluster.
+The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you are setting node pool modes as defined in the [system node pool document[system-node-pools].
 
 ## Deployment parameters
 
@@ -145,7 +147,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *Can I deploy VMs in my cluster subnet?*
 
-  No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same virtual network, but in a different subnet.
+  Yes.
 
 * *Can I configure per-pod network policies?*
 
@@ -208,3 +210,4 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[system-node-pools]: use-system-pools.md

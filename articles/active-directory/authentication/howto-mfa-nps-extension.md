@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
@@ -201,9 +202,12 @@ If your previous computer certificate has expired, and a new certificate has bee
 
 ### Microsoft Azure Government additional steps
 
-For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server:
+For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server.
 
-1. Open **Registry Editor** on the NPS server.
+> [!IMPORTANT]
+> Only configure these registry settings if you're an Azure Government customer.
+
+1. If you're an Azure Government customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
 
     | Registry key       | Value |

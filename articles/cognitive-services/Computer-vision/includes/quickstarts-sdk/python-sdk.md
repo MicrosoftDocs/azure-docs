@@ -157,13 +157,13 @@ Computer Vision can read visible text in an image and convert it to a character 
 
 ### Call the Read API
 
-First, use the following code to call the **batch_read_file** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+First, use the following code to call the **read** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 ### Get Read results
 
-Next, get the operation ID returned from the **batch_read_file** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+Next, get the operation ID returned from the **read** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 

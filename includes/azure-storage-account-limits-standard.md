@@ -5,20 +5,20 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 03/13/2020
+ ms.date: 05/20/2020
  ms.author: tamram
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure general-purpose v1, v2, Blob storage, and block blob storage. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, Blob storage, and block blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
 | Resource | Limit |
 | --- | --- |
-| Number of storage accounts per region per subscription, including standard, and premium storage accounts.<sup>3</sup> | 250 |
+| Number of storage accounts per region per subscription, including standard, and premium storage accounts.| 250 |
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
-| Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 25 Gbps |
+| Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 10 Gbps |
 | Maximum ingress<sup>1</sup> per storage account (regions other than US and Europe) | 5 Gbps if RA-GRS/GRS is enabled, 10 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum egress for general-purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |

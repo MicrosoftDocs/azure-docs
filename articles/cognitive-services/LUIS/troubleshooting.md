@@ -1,8 +1,8 @@
 ---
 title: Frequently asked questions (FAQ) - LUIS
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
-ms.topic: conceptual
-ms.date: 04/14/2020
+ms.topic: troubleshooting
+ms.date: 05/06/2020
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -60,7 +60,7 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 ### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this?
 
-In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text or add a descriptor (such as a feature).
+In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text or add a feature.
 
 ### I tried to import an app or version file but I got an error, what happened?
 
@@ -327,4 +327,4 @@ Videos:
 
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Microsoft Q&A question page for MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

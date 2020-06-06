@@ -10,6 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
+ms.custom: designer
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
@@ -215,11 +216,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
 
-1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
-
 1. In the module palette, expand the section **Module training**, and drag the **Train Model** module to the canvas.
 
-1. Select the **Train Model** module, and drag it to the pipeline canvas.
+1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
 
 1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
     

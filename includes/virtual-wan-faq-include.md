@@ -186,8 +186,8 @@ The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale uni
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel, or is it always a single VPN tunnel?
+On-premises device solutions can apply traffic policies to steer traffic across multiple tunnels into Azure.
 
-A connection coming into a virtual WAN VPN is always an active-active tunnel (for resiliency within the same hub/region) using a link available at the branch. This link may be an ISP link at the on-premises branch. Virtual WAN 'VPNSite' provides the ability to add link information to the site. If you have multiple ISPs at the branch and each of the ISPs provided a link, that information can be set up in the VPN site info in Azure. However, managing failover across ISPs at the branch is completely a branch-centric routing operation.
 
 ### What is global transit architecture?
 

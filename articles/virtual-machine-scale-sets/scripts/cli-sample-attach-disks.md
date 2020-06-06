@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Samples - Attach and use data disks
 description: This script creates an Azure virtual machine scale set and attaches and prepares data disks with Azure CLI.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -42,5 +42,3 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

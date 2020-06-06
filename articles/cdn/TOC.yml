@@ -183,8 +183,8 @@
     href: cdn-billing.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecdn
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cdn.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator

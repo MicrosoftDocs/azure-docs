@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# REST APIs for Azure SQL Data Warehouse
+# REST APIs for Azure Synapse Analytics data warehouse
 
 REST APIs for managing compute in Azure Synapse Analytics data warehouse.
 

@@ -57,7 +57,7 @@ The logs are pushed to the **AuditLogs** and **SigninLogs** tables in the worksp
 
 1. From the default query view in the previous section, select **Schema** and expand the workspace. 
 
-2. Expand the **Log Management** section and then expand either **AuditLogs** or **SignInLogs** to view the log schema.
+2. Expand the **Log Management** section and then expand either **AuditLogs** or **SigninLogs** to view the log schema.
     ![Audit logs](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)
     ![Signin logs](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
