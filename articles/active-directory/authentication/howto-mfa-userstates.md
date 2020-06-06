@@ -83,7 +83,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/overvi
 * *Enforced*
 * *Disabled*  
 
-Don't move users directly to the *Enforced* state. If you do so, non-browser-based apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-mfasettings.md#app-passwords).
+Don't move users directly to the *Enforced* state. If you do so, non-browser-based apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md).
 
 To get started, install the *MSOnline* module using [Install-Module](/powershell/module/powershellget/install-module) as follows:
 
