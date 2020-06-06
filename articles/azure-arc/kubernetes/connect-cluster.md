@@ -22,7 +22,7 @@ Verify you have the following requirements ready:
 * A Kubernetes cluster that is up and running. If you do not have an existing Kubernetes cluster, you can use one of the following guides to create a test cluster:
   * Create a Kubernetes cluster using [Kubernetes in Docker (kind)](https://kind.sigs.k8s.io/)
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
-* You'll need cluster-admin role on the cluster and a kubeconfig file to access the cluster.
+* You'll need a kubeconfig file to access the cluster and cluster-admin role on the cluster for deployment of Arc enabled Kubernetes agents.
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Azure Arc for Kubernetes Onboarding" role having these permissions can be used for role assignments on the user or service principal used with Azure CLI for onboarding.
 * Helm 3 is required for the onboarding the cluster using connectedk8s extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
 * Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI version 2.3+.
