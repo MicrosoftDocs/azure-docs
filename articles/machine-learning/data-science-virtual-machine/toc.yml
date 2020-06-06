@@ -19,6 +19,11 @@
     href: dsvm-ubuntu-intro.md
   - name: Create a Geo AI Data Science Virtual Machine
     href: provision-geo-ai-dsvm.md 
+- name: Tutorials
+  items:
+  - name: Create a DSVM with an ARM template
+    displayName: Resource Manager
+    href: dsvm-tutorial-resource-manager.md
 - name: Concepts
   items:
   - name: Deep Learning and AI frameworks
