@@ -72,9 +72,9 @@ The DNS for the Cloud Services is different:
 The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
 ### Variations
-The following Functions features are not currently available in Azure Government:
 
-- [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) is not available yet.
+-  Azure Functions feature [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) for Azure Government enviorment is only available for Azure Functions V2/V3 and not for Azure Functions V1.
+
 
 The URLs for Function are different:
 
