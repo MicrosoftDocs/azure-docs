@@ -171,6 +171,11 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 10. Select **File** > **Publish to web**.
 
+    > [!NOTE]
+    > If you get a notification to contact your administrator to enable embed code creation, follow the link in the notification. Embed code creation must be enabled before you can complete this step.
+    >
+    > ![Contact your administrator notification](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
+
 11. Select **Create embed code**, and then select **Publish**.
 
 You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website.
