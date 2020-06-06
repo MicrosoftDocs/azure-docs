@@ -17,7 +17,7 @@ The MySQL engine provides many different server variables/parameters that can be
 
 Azure Database for MySQL exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md), and [PowerShell](./howto-configure-server-parameters-using-powershell.md) to match your workload's needs.
 
-## List of configurable server parameters
+## Configurable server parameters
 
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal view the full list and configure server parameters values.
 
