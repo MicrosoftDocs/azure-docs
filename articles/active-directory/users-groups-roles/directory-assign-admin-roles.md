@@ -219,7 +219,7 @@ This administrator manages federation between Azure AD organizations and externa
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure AD organization becomes a global administrator. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Admins can [elevate their access](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) to manage all Azure subscriptions and management groups. This allows Global Admins to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a global administrator. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
@@ -384,7 +384,7 @@ Users with this role can view usage reporting data and the reports dashboard in 
 
 ### [Search Administrator](#search-administrator-permissions)
 
-Users in this role have full access to all Microsoft Search management features in the Microsoft 365 admin center. Search Administrators can delegate the Search Administrators and Search Editor roles to users, and create and manage content, like bookmarks, Q&As, and locations. Additionally, these users can view the message center, monitor service health, and create service requests.
+Users in this role have full access to all Microsoft Search management features in the Microsoft 365 admin center. Additionally, these users can view the message center, monitor service health, and create service requests.
 
 ### [Search Editor](#search-editor-permissions)
 
@@ -453,6 +453,9 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
+
+> [!NOTE]
+> This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to Sharepoint and Onedrive resources.
 
 ### [Skype for Business / Lync Administrator](#lync-service-administrator-permissions)
 
@@ -1935,4 +1938,4 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](directory-
 
 * To learn more about how to assign a user as an administrator of an Azure subscription, see [Manage access using Azure roles (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* For details on the relationship between subscriptions and an Azure AD tenant, or for instructions to associate or add a subscription, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

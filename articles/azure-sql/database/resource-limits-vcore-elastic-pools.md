@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 03/03/2020
+ms.date: 05/29/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -145,7 +145,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|32,000|
+|Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
 |Max log rate per pool (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|

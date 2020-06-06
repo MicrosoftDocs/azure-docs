@@ -80,7 +80,7 @@ Copy Activity also reads from and writes to files in specified formats: **Text, 
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in a SQL Server database and write to Azure Data Lake Store in ORC format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.

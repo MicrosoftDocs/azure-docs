@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ---
 
 # Autoscaling and Zone-redundant Application Gateway v2 

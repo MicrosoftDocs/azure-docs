@@ -199,8 +199,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Case Studies
     href: data-factory-customer-case-studies.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
   - name: Microsoft Q&A question page
     href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Pricing

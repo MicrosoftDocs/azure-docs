@@ -6,7 +6,7 @@ ms.service: azure
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: cynthn
-ms.custom: fasttrack-edit, mvc
+ms.custom: fasttrack-edit, mvc, references_regions
 ---
 
 # Regions that support Availability Zones in Azure
