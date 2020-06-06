@@ -42,21 +42,19 @@ az extension update --name aks-preview
 
 ## Upgrade all nodes in all node pools
 
-Upgrading the node image is done with `az aks upgrade`.
-
-First, verify which image is on your nodes. To verify the current node image, use the following `kubectl` command to get the labels and filter out the node image information:
-
-```azurecli
-kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
-```
-
-To upgrade the node image, use the following command:
+Upgrading the node image is done with `az aks upgrade`. To upgrade the node image, use the following command:
 
 ```azurecli
 az aks upgrade \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-image-only
+```
+
+During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
+
+```azurecli
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
 When the upgrade is complete, use `az aks show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
@@ -71,12 +69,6 @@ az aks show \
 
 Upgrading the image on a node pool is similar to upgrading the image on a cluster.
 
-First, verify which image is on your nodes. To verify the current node image, use the following `kubectl` command to get the labels and filter out the node image information:
-
-```azurecli
-kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
-```
-
 To update the OS image of the node pool without performing a Kubernetes cluster upgrade, use the `--node-image-only` option in the following example:
 
 ```azurecli
@@ -85,6 +77,12 @@ az aks nodepool upgrade \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-image-only
+```
+
+During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
+
+```azurecli
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
 When the upgrade is complete, use `az aks nodepool show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
@@ -114,6 +112,12 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
+During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
+
+```azurecli
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
+```
+
 Use `az aks nodepool show` to get the updated node pool details. The current node image is shown in the `nodeImageVersion` property.
 
 ```azurecli
@@ -125,6 +129,7 @@ az aks nodepool show \
 
 ## Next steps
 
+- See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)][security-update]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
