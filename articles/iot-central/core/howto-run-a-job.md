@@ -86,8 +86,45 @@ To view the status of the job and all the affected devices, open the job. To dow
 | Failed               | The job has failed to execute on this device. The error message shows more information.  |
 | Pending              | The job hasn't yet executed on this device.                                   |
 
+### Job Details Filtering 
+
+You can filter on device list in the job details page by clicking on the Filter icon. Filtering is allowed on **Device ID** or **Status** fields.
+
+![Results Filter](./media/howto-run-a-job/filter.png)
+
+### Job Details Column Picker 
+
+You can select additional columns to be displayed in the results grid. Selected columns will be persisted during a user session or across user sessions who have access to the application.
+
+![Column Options](./media/howto-run-a-job/columnoptions.png)
+
+You will be presented with a popup modal with the ability to select columns to be displayed in the results grid. Select the columns, click on the **right arrow** and click *OK**. You have the option to select all columns by clicking on the **Select All** checkbox. 
+
+![Column Picker Popup](./media/howto-run-a-job/columnpickerpopup.png)
+
+The selected columns will be displayed in the results grid. 
+
+![Selected Columns](./media/howto-run-a-job/columnpickercolumnselected.png)
+
+
+### Rerun Job on failed devices
+
+You can rerun a job if your previously submitted job has devices which failed during the previous run. Click on **Rerun**. 
+
+![Rerun](./media/howto-run-a-job/rerun.png)
+
+You can be presented with a popup modal with the ability to provide a job name, description for th job. Click on **Rerun job**. New job will be submitted to retry the action on failed devices.  
+
+![Rerun Failed](./media/howto-run-a-job/rerunfailed.png)
+
+
 > [!NOTE]
-> If a device has been deleted, you can't select the device. It displays as deleted with the device ID.
+> You are allowed to execute no more than 5 jobs at the same time from an IoT Central application. 
+
+> [!NOTE]
+> After a job has completed and a device which is part of the results grid is deleted, the device entry shows as deleted in the device name and device details link is not available for the deleted device.
+
+ 
 
 ## Next steps
 
