@@ -254,6 +254,34 @@ The following are the IDs for an [Restful service technical profile](restful-tec
 </LocalizedResources>
 ```
 
+## Azure MFA error messages
+
+The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+
+| ID | Default value |
+| -- | ------------- |
+|UserMessageIfCouldntSendSms | Cannot Send SMS to the phone, please try another phone number. |
+|UserMessageIfInvalidFormat | Your phone number is not in a valid format, please correct it and try again.|
+|UserMessageIfMaxAllowedCodeRetryReached | Wrong code entered too many times, please try again later.|
+|UserMessageIfServerError | Cannot use MFA service, please try again later.|
+|UserMessageIfThrottled | Your request has been throttled, please try again later.|
+|UserMessageIfWrongCodeEntered|Wrong code entered, please try again.|
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
 ## One time password error messages
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
@@ -279,7 +307,6 @@ The following are the IDs for a [one-time password technical profile](one-time-p
   </LocalizedStrings>
 </LocalizedResources>
 ```
-
 
 ## Claims transformations error messages
 
