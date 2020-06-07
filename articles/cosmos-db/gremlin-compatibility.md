@@ -54,7 +54,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
     This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
 
-    A workaround for this query is to use subtraversal steps, such as `.map()` and `union()` where the query optimizer can improve the performance. This is exemplified below:
+    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
 
     ```java
     // Query workaround using .map()
@@ -63,6 +63,8 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
     // Query workaround using .union()
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
+
+    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md.
 
 ## Next steps
 * Visit [Cosmos DB user voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) page to share feedback and help team focus on features that are important to you.
