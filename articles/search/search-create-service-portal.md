@@ -13,7 +13,7 @@ ms.date: 06/07/2020
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
 
-Azure Cognitive Search is a standalone resource used to plug a search experience into custom apps. Azure Cognitive Search integrates easily with other Azure services, with apps on network servers, or with software running on other cloud platforms.
+Azure Cognitive Search is a standalone resource used to plug a search experience into custom apps. Cognitive Search integrates easily with other Azure services, with apps on network servers, or with software running on other cloud platforms.
 
 In this article, learn how to create a resource in the [Azure portal](https://portal.azure.com/).
 

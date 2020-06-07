@@ -13,21 +13,23 @@ ms.date: 03/25/2020
 
 # Quickstart: Create a search app in the portal (Azure Cognitive Search)
 
-Use the portal's **Create search app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+Use the Azure portal's **Create search app** wizard to generate a downloadable, "localhost"-style web app that runs in a browser. Depending on its configuration, the generated app is operational on first use, with a live connection to a remote index. A default app can include a search bar, results area, sidebar filters, and typeahead support.
 
 ## Prerequisites
 
-Upgrade to the [latest version of Microsoft Edge](https://www.microsoft.com/edge) or use Google's Chrome browser for this quickstart.
+Before you begin, you must have the following:
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-[Create an index](search-create-index-portal.md) to use as the basis of your application. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
++ [Microsoft Edge (latest version)](https://www.microsoft.com/edge) or Google Chrome.
 
-![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
++ A [search index](search-create-index-portal.md) to use as the basis of your generated application. 
+
+  This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
+
+  ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
 
 When the index is ready to use, move on to the next step.
 
