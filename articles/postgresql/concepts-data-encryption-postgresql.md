@@ -130,7 +130,7 @@ To avoid issues while setting up customer-managed data encryption during restore
 For Azure Database for PostgreSQL, the support for encryption of data at rest using customers managed key (CMK) has some limitation 
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** servers.
-* This feature is only supported in regions and servers which support storage up to 16TB. Please refer to the note [here](concepts-pricing-tiers.md#storage)
+* This feature is only supported in regions and servers which support storage up to 16TB. Refer to the current list of regions [here](concepts-pricing-tiers.md#storage)
 * Encryption is only supported with RSA 2048 cryptographic key.
 
 ## Next steps
