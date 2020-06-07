@@ -35,9 +35,9 @@ When the index is ready to use, move on to the next step.
 
 ## Start the wizard
 
-1. Sign into the [Azure portal](https://portal.azure.com) and [find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. On the Overview page, from the links on the middle of the page, select **Indexes**. 
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, from the links on the middle of the page, select **Indexes**. 
 
 1. Choose *realestate-us-sample-index* from the list of existing indexes.
 
@@ -55,7 +55,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 1. In Description, choose a field that provides details that might help someone decide whether to click through to that particular document.
 
-![data source page for sample data](media/search-create-app-portal/configure-results.png)
+   ![data source page for sample data](media/search-create-app-portal/configure-results.png)
 
 ## Add a sidebar
 

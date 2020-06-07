@@ -25,7 +25,7 @@ Before you begin, you must have the following:
 
 + An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-+ **realestate-us-sample-index** is used for this quickstart. Use the [**Import data**](search-import-data-portal.md) wizard to create the index. In the first step, when asked for the data source, choose **Samples** and then select the **realestate-us-sample** data source. Accept all of the wizard defaults to create the index.
++ The *realestate-us-sample-index* is used for this quickstart. Use the [**Import data**](search-import-data-portal.md) wizard to create the index. In the first step, when asked for the data source, choose **Samples** and then select the **realestate-us-sample** data source. Accept all of the wizard defaults to create the index.
 
 ## Start Search explorer
 

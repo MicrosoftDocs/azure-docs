@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a search service in the portal'
+title: 'Create a search service in the portal'
 titleSuffix: Azure Cognitive Search
 description: In this portal quickstart, learn how to set up an Azure Cognitive Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
 
@@ -30,8 +30,10 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 ## Find Azure Cognitive Search
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click the plus sign ("+ Create Resource") in the top-left corner.
-3. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
+
+1. Click the plus sign ("+ Create Resource") in the top-left corner.
+
+1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 
 ![Create a resource in the portal](./media/search-create-service-portal/find-search3.png "Create a resource in the portal")
 

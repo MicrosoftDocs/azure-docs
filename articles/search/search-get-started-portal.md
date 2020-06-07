@@ -50,15 +50,17 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 1 - Start the Import data wizard and create a data source
 
-1. On the Azure Cognitive Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
    ![Import data command](media/search-get-started-portal/import-data-cmd.png)
 
-2. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
    ![Select sample dataset](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Continue to the next page.
+1. Continue to the next page.
 
 ### Step 2 - Skip the "Enrich content" page
 

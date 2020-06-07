@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a skillset in the Azure portal'
+title: 'Create a skillset in the Azure portal'
 titleSuffix: Azure Cognitive Search
 description: In this portal quickstart, learn how to use the Import data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
 
@@ -38,7 +38,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges. 
-   
+
    + Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
 
 1. Open the Blob services pages and create a container. You can use the default public access level. 
@@ -53,7 +53,7 @@ You are now ready to move on the Import data wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. Navigate to your search service Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
 
    ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 

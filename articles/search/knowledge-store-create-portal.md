@@ -63,16 +63,20 @@ You are now ready to move on the **Import data** wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. Navigate to your search service Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
 
    ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### Step 1: Create a data source
 
 1. In **Connect to your data**, choose **Azure Blob storage**, select the account and container you created. 
+
 1. For the **Name**, enter `hotel-reviews-ds`.
+
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
+
 1. In **Connection String**, paste in the connection string you copied from the **Access Keys** page in Azure Storage.
+
 1. In **Containers**, enter the name of the blob container holding the data.
 
     Your page should look similar to the following screenshot.
@@ -86,10 +90,15 @@ You are now ready to move on the **Import data** wizard.
 In this wizard step, you will create a skillset with cognitive skill enrichments. The source data consists of customer reviews in several languages. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
+
 1. Expand **Add enrichments**.
+
 1. For **Skillset name**, enter `hotel-reviews-ss`.
+
 1. For **Source data field**, select **reviews_text**.
+
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
+
 1. Select these cognitive skills:
     + **Extract key phrases**
     + **Translate text**
@@ -98,10 +107,12 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
       ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 
 1. Expand **Save enrichments to knowledge store**.
+
 1. Select these **Azure table projections**:
     + **Documents**
     + **Pages**
     + **Key phrases**
+
 1. Enter the **Storage account Connection String** that you saved in a previous step.
 
     ![Configure knowledge store](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configure knowledge store")
@@ -115,6 +126,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 In this wizard step, you will configure an index for optional full-text search queries. The wizard will sample your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute will allow the search service to return a field value while the **Searchable** will enable full text search on the field.
 
 1. For **Index name**, enter `hotel-reviews-idx`.
+
 1. For attributes, accept the default selections: **Retrievable** and **Searchable** for the new fields that the pipeline is creating.
 
     Your index should look similar to the following image. Because the list is long, not all fields are visible in the image.
@@ -128,7 +140,9 @@ In this wizard step, you will configure an index for optional full-text search q
 In this wizard step, you will configure an indexer that will pull together the data source, skillset, and the index you defined in the previous wizard steps.
 
 1. For **Name**, enter `hotel-reviews-idxr`.
+
 1. For **Schedule**, keep the default **Once**.
+
 1. Click **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
 ## Monitor status
