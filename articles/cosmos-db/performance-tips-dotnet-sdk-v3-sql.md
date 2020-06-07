@@ -127,7 +127,7 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
-Azure Functions should use a [static client](https://docs.microsoft.com/azure/azure-functions/manage-connections#static-clients)
+When working on Azure Functions, instances should also follow the existing [guidelines](../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
 
 <a id="max-connection"></a>
 
@@ -188,7 +188,7 @@ See [Increase the number of threads/tasks](#increase-threads) in the Networking 
  
 **Exclude unused paths from indexing for faster writes**
 
-The Azure Cosmos DB indexing policy also allows you to specify which document paths to include in or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing paths can improve write performance and reduce index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
+The Azure Cosmos DB indexing policy also allows you to specify which document paths to include or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing only the paths you need can improve write performance, reduce RU charge on write operations, and reduce index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
 
 ```csharp
 var containerProperties = new ContainerProperties(id: "excludedPathCollection", partitionKeyPath: "/pk" );
