@@ -165,8 +165,8 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
     |Private DNS Zone |Select *(New)privatelink.postgres.database.azure.com* |
     |||
 
-   > [!INFO] 
-   > Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
+    > [!Note] 
+    > Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
