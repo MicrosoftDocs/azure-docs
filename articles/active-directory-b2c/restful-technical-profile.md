@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -124,7 +124,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 
 ## Error handling
 
-The following metadata can be used to configure the error messages displayed upon REST API failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md).
+The following metadata can be used to configure the error messages displayed upon REST API failure. The error messages can be [localized](localization-string-ids.md#restful-service-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -216,7 +216,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 </TechnicalProfile>
 ```
 
-## Returning error message
+## Returning validation error message
 
 Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code. The response body contains error message formatted in JSON:
 
