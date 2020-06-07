@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 tags: connectors
 ---
 
@@ -172,11 +172,16 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 
 Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
 
-### Location headers missing from returned responses
+### Missing location headers in responses
 
-HTTP calls to some APIs or services, such as the Azure Analysis Service, might receive responses that are missing location headers, which usually include a GET URL that has a refresh ID. The caller can use this ID to track the status of an asynchronous refresh request.
+HTTP calls to some APIs, services, or systems might get responses that are missing the `location` header. Usually, this header specifies a `GET` callback URL and a "refresh" ID for an endpoint where the caller can check and track status for an asynchronous request refresh. The caller continues checking, or polling, this endpoint until a `200 OK` successful response is returned. Without this `location` header, your logic app might get stuck waiting for the request status.
 
-By default, logic apps follow location headers, but you can disable this behavior by enabling the **Asynchronous Pattern** setting on the HTTP trigger or action. This setting specifies that if the destination server or service accepts requests for processing by responding with a `202 ACCEPTED` response, the logic app doesn't wait for this response and continues polling the URL that in the response's location header until reaching a terminal state.
+HTTP actions have an **Asynchronous Pattern** setting, which specifies that if the destination server or service accepts requests for processing by immediately returning a `202 ACCEPTED` response, the logic app continues polling the URL that in the response's location header until reaching a terminal state.
+
+If the destination server or service accepts requests for processing by responding with the `202 ACCEPTED` status code, the logic app 
+
+, and wait for the `202 ACCEPTED` status code response 
+
 
 1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
 
