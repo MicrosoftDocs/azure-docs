@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 12/11/2019
+ms.date: 06/05/2020
 ms.author: gsacavdm
 
 ---
@@ -81,12 +81,6 @@ For more information, see [Site Recovery commercial documentation](../site-recov
 The following Site Recovery features are not currently available in Azure Government:
 * Email notification
 
-| Site Recovery | Classic | Resource Manager |
-| --- | --- | --- |
-| VMware/Physical  | GA | GA |
-| Hyper-V | GA | GA |
-| Site to Site | GA | GA |
-
 The following URLs for Site Recovery are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
@@ -100,95 +94,6 @@ The following URLs for Site Recovery are different in Azure Government:
 Azure Monitor is generally available in Azure Government.
 
 For more information, see [Monitor commercial documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview).
-
-### Variations
-The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
-
-#### Action Groups
-Action Groups are generally available in Azure Government with no differences from commercial Azure.   
-
-#### Activity Log Alerts
-Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
-
-#### Alerts Experience
-The unified alerts UI experience is available for metric and log alerts in Azure Government.
-
-#### Autoscale
-Autoscale is generally available in Azure Government.
-
-If you are using PowerShell/ARM/REST calls to specify settings, set the "Location" of the Autoscale to "USGov Virginia" or "USGov Iowa". The resource targeted by Autoscale can exist in any region. An example of the setting is below:
-
-```powershell
-$rule1 = New-AzAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
-$rule2 = New-AzAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "2"
-$profile1 = New-AzAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1, $rule2 -Name "MyProfile"
-$webhook_scale = New-AzAutoscaleWebhook -ServiceUri https://example.com?mytoken=mytokenvalue
-$notification1= New-AzAutoscaleNotification -CustomEmails myname@company.com -SendEmailToSubscriptionAdministrator -SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
-Add-AzAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting" -ResourceGroup sdubeys-usgv -TargetResourceId /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Web/serverFarms/ServerFarm1 -AutoscaleProfiles $profile1 -Notifications $notification1
-```
-
-If you are interested in implementing autoscale on your resources, use PowerShell/ARM/Rest calls to specify the settings.
-
-For more information on using PowerShell, see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
-
-#### Metrics
-Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
-
-#### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*. The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
-
-The resources currently supported in the second generation alerts experience are:
-- Microsoft.ApiManagement/service
-- Microsoft.Cache/redis
-- Microsoft.Compute/virtualMachines
-- Microsoft.DBforMySQL/servers
-- Microsoft.DBforPostgreSQL/servers
-- Microsoft.DBforMariaDB/servers
-- Microsoft.Devices/IotHubs
-- Microsoft.EventGrid/domains
-- Microsoft.EventGrid/topics
-- Microsoft.EventHub/clusters
-- Microsoft.EventHub/namespaces
-- Microsoft.Insights/components
-- Microsoft.Network/dnsZones
-- Microsoft.Network/loadBalancers
-- Microsoft.Network/natGateways
-- Microsoft.Network/privateEndpoints
-- Microsoft.Network/privateLinkServices
-- Microsoft.Network/trafficManagerProfiles
-- Microsoft.OperationalInsights/workspaces
-- Microsoft.PowerBIDedicated/capacities
-- Microsoft.Relay/namespaces
-- Microsoft.ServiceBus/namespaces
-- Microsoft.Sql/managedInstances
-- Microsoft.Sql/servers/databases
-- Microsoft.Sql/servers/elasticPools
-- Microsoft.Storage/storageAccounts
-- Microsoft.Storage/storageAccounts/blobServices
-- Microsoft.Storage/storageAccounts/fileServices
-- Microsoft.Storage/storageAccounts/queueServices
-- Microsoft.Storage/storageAccounts/tableServices
-- Microsoft.Web/hostingEnvironments/multiRolePools
-- Microsoft.Web/hostingEnvironments/workerPools
-- Microsoft.Web/serverfarms
-- Microsoft.Web/sites
-- Microsoft.Web/sites/slots
-
-> [!NOTE]
-> Creating multi-resource metric alert rules on Virtual Machines is **currently not supported**. This article will be updated as soon as this functionality becomes available.
-
-You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
-
-When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
-
-```powershell
-$actionEmail = New-AzAlertRuleEmail -CustomEmail myname@company.com
-$actionWebhook = New-AzAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
-```
-
-For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
-
 
 ## Application Insights
 
@@ -214,6 +119,9 @@ Snapshot Debugger is now available for Azure Government customers. To use Snapsh
 ### SDK endpoint modifications
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
+
+> [!IMPORTANT]
+> Direct SDK endpoint modification is no longer the recommended way to configure your SDKs for Azure Government. **We now recommend using [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)**.
 
 ### .NET with applicationinsights.config
 
@@ -273,54 +181,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel; //place at t
 
 ### Azure Functions
 
-Please install following packages into your Function project:
+For Azure Functions it is now recommended to use [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
 
-- Microsoft.ApplicationInsights version 2.10.0
-- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
-- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
-
-And also add (or modify) the startup code for your Function application:
-
-```csharp
-[assembly: FunctionsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IFunctionsHostBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
-      }
-  }
-}
-```
+Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+Value: `Connection String Value`
 
 ### Java
 

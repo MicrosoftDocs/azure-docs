@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/06/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/23/2020
 ---
 
 # Use Apache Ambari Hive View with Apache Hadoop in HDInsight
@@ -157,8 +157,4 @@ You can change various Hive settings, such as changing the execution engine for 
 For general information on Hive on HDInsight:
 
 * [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
-
-For information on other ways you can work with Hadoop on HDInsight:
-
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use the Apache Beeline client with Apache Hive](apache-hadoop-use-hive-beeline.md)

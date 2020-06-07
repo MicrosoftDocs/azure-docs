@@ -151,11 +151,11 @@ Examples of valid suppression rules:
 The following resources help you securely manage secrets and access sensitive information from within your applications:
 
  - [Azure Key Vault](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
- - [AppAuthentication library](../../key-vault/service-to-service-authentication.md)
+ - [AppAuthentication library](../../key-vault/general/service-to-service-authentication.md)
 
 
 For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

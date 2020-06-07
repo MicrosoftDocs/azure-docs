@@ -19,6 +19,8 @@ ms.date: 03/24/2020
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Current version](connector-salesforce.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
@@ -35,7 +37,8 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
+The Salesforce connector is built on top of the Salesforce REST/Bulk API (The
+connector automatically choose one for better performance). By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
 
 ## Prerequisites
 

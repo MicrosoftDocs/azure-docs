@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,8 +52,11 @@ To find out which Conditional Access policy or policies applied and why do the f
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that did not meet compliance requirements.
    1. To investigate further, drill down into the configuration of the policies by clicking on the **Policy Name**. Clicking the **Policy Name** will show the policy configuration user interface for the selected policy for review and editing.
    1. The **client user** and **device details** that were used for the Conditional Access policy assessment are also available in the **Basic Info**, **Location**, **Device Info**, **Authentication Details**, and **Additional Details** tabs of the sign-in event.
+   1. Selecting the ellipsis on the right side of the policy brings up policy details. This gives administrators additional information about why a policy was successfully applied or not.
 
    ![Sign in event Conditional Access tab](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Policy details (preview)](./media/troubleshoot-conditional-access/policy-details.png)
 
 If the information in the event isn't enough to understand the sign-in results or adjust the policy to get desired results, then a support incident may be opened. Navigate to that sign-in event's **Troubleshooting and support** tab and select **Create a new support request**.
 

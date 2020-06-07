@@ -2,7 +2,7 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 04/29/2020
 ---
 # Resource iteration in ARM templates
 
@@ -12,7 +12,7 @@ You can also use copy with [properties](copy-properties.md), [variables](copy-va
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
-## Resource iteration
+## Syntax
 
 The copy element has the following general format:
 
@@ -28,6 +28,23 @@ The copy element has the following general format:
 The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the resource type.
 
 Use the **mode** and **batchSize** properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
+
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
+
+* Azure PowerShell **2.6** or later
+* Azure CLI **2.0.74** or later
+* REST API version **2019-05-10** or later
+* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+
+Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
+
+## Resource iteration
 
 The following example creates the number of storage accounts specified in the **storageCount** parameter.
 
@@ -251,14 +268,6 @@ The following example shows the implementation:
   ...
 }]
 ```
-
-## Copy limits
-
-The count can't exceed 800.
-
-The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
-
-Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 ## Example templates
 

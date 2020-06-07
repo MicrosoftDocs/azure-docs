@@ -32,7 +32,7 @@ Seamless SSO is a free feature and you don't need any paid editions of Azure AD 
 
 **Q: Is Seamless SSO available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?**
 
-No. Seamless SSO is only available in the worldwide instance of Azure AD.
+Seamless SSO is available for the Azure Government cloud. For details, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 **Q: What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?**
 
@@ -69,9 +69,9 @@ You can use both Azure AD Join and Seamless SSO on your tenant. These two featur
 
 Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**Q: How can I roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account?**
+**Q: How can I roll over the Kerberos decryption key of the `AZUREADSSO` computer account?**
 
-It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account (which represents Azure AD) created in your on-premises AD forest.
+It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSO` computer account (which represents Azure AD) created in your on-premises AD forest.
 
 >[!IMPORTANT]
 >We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
@@ -96,7 +96,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >[!NOTE]
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
-   2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACC` computer account in this specific AD forest and updates it in Azure AD.
+   2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
    >[!IMPORTANT]
@@ -140,7 +140,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
-   **Step 3. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.**
+   **Step 3. Manually delete the `AZUREADSSO` computer account from each AD forest that you see listed.**
 
 ## Next steps
 

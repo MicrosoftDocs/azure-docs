@@ -1,17 +1,17 @@
 ---
-title: Marketplace metering service APIs - FAQ | Azure Marketplace
-description: Emit usage of a SaaS offer in the Azure Marketplace. 
+title: Metering service APIs FAQ - Microsoft commercial marketplace
+description: Frequently asked questions about the metering service APIs for SaaS offers in Microsoft AppSource and Azure Marketplace. 
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 04/13/2020
 ---
 
 # Marketplace metering service APIs - FAQ
 
-Once an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
+When an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
 
 ## Emit usage events
 
@@ -30,7 +30,7 @@ Ideally, you are expected to emit usage every hour for the past hour, only if th
 
 Ideally, usage event is emitted every hour for events that occurred in the past hour. However, delays are expected. The maximum delay allowed is 24 hours, after which usage events will not be accepted.
 
-For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. This means in the case of the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
+For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. When the system emitting usage has a down time, it will recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
 
 ### What happens when you send more than one usage event on the same hour?
 
@@ -44,6 +44,12 @@ Any usage event emitted to marketplace platform will not be accepted after a Saa
 
 Yes, when you call the `GET /saas/subscriptions` API it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed. The call to list Subscriptions returns a maximum of 100 subscriptions at the time.
 
+### What happens if the Marketplace metering service has an outage?
+
+If the ISV sends a custom meter and receives an error, then the ISV should wait and then retry.
+
+If the error persists, then resubmit that custom meter the next hour (accumulate the quantity). Continue this process until a non-error response is received.
+
 ## Next steps
 
-- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.
+- For more information, see [Marketplace metering service APIs](./marketplace-metering-service-apis.md).

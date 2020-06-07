@@ -105,6 +105,6 @@ Instantiate the initializer in the `Program.cs` `Main()` method below setting th
 ## Next steps
 * [Create a dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)
 

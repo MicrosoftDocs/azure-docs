@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and Go
 
-In this quickstart, you will use the Azure Face REST API with Go to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Go to detect human faces in an image.
 
 ## Prerequisites
 

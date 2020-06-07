@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Cosmos DB - Windows - Azure AD
+title: 'Tutorial: Use a managed identity to access Azure Cosmos DB - Windows - Azure AD'
 description: A tutorial that walks you through the process of using a system-assigned managed identity on a Windows VM, to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''

@@ -1,21 +1,22 @@
 ﻿---
-title: Azure Public IP address prefix | Microsoft Docs
+title: Azure Public IP address prefix
 description: Learn about what an Azure public IP address prefix is and how it can help you assign predictable public IP addresses to your resources.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
-ms.author: anavin
+ms.author: allensu
 
 ---
 

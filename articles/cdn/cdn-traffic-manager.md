@@ -3,7 +3,7 @@ title: Failover across multiple Azure CDN endpoints with Traffic Manager
 description: Learn about how to set up Azure Traffic Manager with Azure CDN endpoints.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: 
 
 ---

@@ -213,6 +213,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932120|Remote Command Execution = Windows PowerShell Command Found|
 |932130|Remote Command Execution = Unix Shell Expression Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
+|932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
 |932171|Remote Command Execution = Shellshock (CVE-2014-6271)|

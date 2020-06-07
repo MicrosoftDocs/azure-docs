@@ -15,6 +15,8 @@ ms.date: 4/7/2020
 ---
 # Migrate SQL Server Agent jobs to ADF with SSMS
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 When [migrating on-premises SQL Server Integration Services (SSIS) workloads to SSIS in ADF](scenario-ssis-migration-overview.md), after SSIS packages are migrated, you can do batch migration of SQL Server Agent jobs with job step type of SQL Server Integration Services Package to Azure Data Factory (ADF) pipelines/activities/schedule triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
 
 In general, for selected SQL agent jobs with applicable job step types, **SSIS Job Migration Wizard** can:
@@ -30,7 +32,7 @@ In general, for selected SQL agent jobs with applicable job step types, **SSIS J
 |SSIS job step|Execute SSIS package activity|<li> Name of the activity will be \<step name>. <li> Proxy account used in job step will be migrated as Windows authentication of this activity. <li> *Execution options* except *Use 32-bit runtime* defined in job step will be ignored in migration. <li> *Verification* defined in job step will be ignored in migration.|
 |schedule      |schedule trigger        |Name of the schedule trigger will be *Generated for \<schedule name>*. <br> <br> Below options in SQL Agent job schedule will be ignored in migration: <li> Second-level interval. <li> *Start automatically when SQL Server Agent starts* <li> *Start whenever the CPUs become idle* <li> *weekday* and *weekend day* <time zone> <br> Below are the differences after SQL Agent job schedule is migrated to ADF schedule trigger: <li> ADF Schedule Trigger subsequent run is independent of the execution state of the antecedent triggered run. <li> ADF Schedule Trigger recurrence configuration differs from Daily frequency in SQL agent job.|
 
-- generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. For more information about ADF Resource Manager templates, see [Microsoft.DataFactory resource types](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+- generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. For more information about ADF Resource Manager templates, see [Microsoft.DataFactory resource types](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## Prerequisites
 

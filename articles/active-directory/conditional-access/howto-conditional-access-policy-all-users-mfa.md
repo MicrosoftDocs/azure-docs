@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy to require all users to p
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ Organizations may have many cloud applications in use. Not all of those applicat
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
+The following steps will help create a Conditional Access policy to require All users to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -50,7 +50,7 @@ The following steps will help create a Conditional Access policy to require thos
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. Under **Exclude**, select any applications that do not require multi-factor authentication.
-1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
+1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**. Under **Select the client apps this policy will apply to** leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.

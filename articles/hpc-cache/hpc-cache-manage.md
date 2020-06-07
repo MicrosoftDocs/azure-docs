@@ -4,8 +4,8 @@ description: How to manage and update Azure HPC Cache using the Azure portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
+ms.date: 06/01/2020
+ms.author: v-erkel
 ---
 
 # Manage your cache from the Azure portal
@@ -25,6 +25,10 @@ The buttons at the top of the page can help you manage the cache:
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
+
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## Stop the cache
 
@@ -83,13 +87,6 @@ The back-end storage volumes used as storage targets are unaffected when you del
 > Azure HPC Cache does not automatically write changed data from the cache to the back-end storage systems before deleting the cache.
 >
 > To make sure that all data in the cache has been written to long-term storage, [stop the cache](#stop-the-cache) before you delete it. Make sure that it shows the status **Stopped** before clicking the delete button.
-<!--... written to long-term storage, follow this procedure:
->
-> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
-> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
-> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
->
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## Cache metrics and monitoring
 
@@ -101,6 +98,5 @@ These charts are part of Azure's built-in monitoring and analytics tools. Additi
 
 ## Next steps
 
-<!-- * Learn more about metrics and statistics for hpc cache -->
 * Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)
 * Get [help with your Azure HPC Cache](hpc-cache-support-ticket.md)

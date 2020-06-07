@@ -66,7 +66,7 @@ In Azure Cognitive Search, besides the term and distance (maximum of 2), there a
 > [!NOTE]
 > During query processing, fuzzy queries do not undergo [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). The query input is added directly to the query tree and expanded to create a graph of terms. The only transformation performed is lower casing.
 
-## How to test fuzzy search
+## Testing fuzzy search
 
 For simple testing, we recommend [Search explorer](search-explorer.md) or [Postman](search-get-started-postman.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
 

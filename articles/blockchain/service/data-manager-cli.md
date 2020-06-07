@@ -43,7 +43,7 @@ az group create --name myRG --location eastus
 
 ## Create instance
 
-A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node.
+A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node. Blockchain Data Manager publishes a **RawBlockAndTransactionMsg** message which is a superset of information returned from web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) and [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) queries.
 
 ``` azurecli
 az resource create \

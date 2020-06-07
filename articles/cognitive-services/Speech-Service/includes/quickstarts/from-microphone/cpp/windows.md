@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -39,4 +39,4 @@ Create a C++ source file named *helloworld.cpp*, and paste the following code in
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

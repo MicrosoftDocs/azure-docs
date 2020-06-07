@@ -27,7 +27,7 @@ Clusters running on Azure and standalone clusters running on Windows both can us
 
 Service Fabric uses X.509 server certificates that you specify as part of the node-type configuration when you create a cluster. At the end of this article, you can see a brief overview of what these certificates are and how you can acquire or create them.
 
-Set up certificate security when you create the cluster, either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring certificate; the classic behavior allowed the defining of primary and secondary certificates, to allow manually initiated rollovers, and is not recommended for use over the new functionality. The primary certificates that will be use has the furthest into the future expiring date, should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security).
+Set up certificate security when you create the cluster, either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring date; the classic behavior allowed the defining of primary and secondary certificates, to allow manually initiated rollovers, and is not recommended for use over the new functionality. The primary certificates that will be use has the furthest into the future expiring date, should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security).
 
 To learn how to set up certificate security in a cluster for Azure, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
@@ -84,7 +84,7 @@ Set the Administrator and User client roles when you create the cluster. Assign 
 
 ## X.509 certificates and Service Fabric
 
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/key-vault-overview.md) to manage certificates for Service Fabric clusters in Azure.
+X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/general/overview.md) to manage certificates for Service Fabric clusters in Azure.
 
 Some important things to consider:
 

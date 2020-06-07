@@ -15,6 +15,8 @@ ms.date: 03/13/2020
 
 # Create and configure a self-hosted integration runtime
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
 
 A self-hosted integration runtime can run copy activities between a cloud data store and a data store in a private network. It also can dispatch transform activities against compute resources in an on-premises network or an Azure virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.  
@@ -60,7 +62,7 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Enter a name for your IR, and select **Create**.
 
@@ -90,7 +92,7 @@ You can automate self-hosted IR setup on an Azure virtual machine by using the [
 
 You can use a command line to set up or manage an existing self-hosted IR. This usage can especially help to automate the installation and registration of self-hosted IR nodes.
 
-Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
+Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\4.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
 
 Use the application as follows:
 
@@ -368,9 +370,9 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 
 If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in diahost.exe.config and diawp.exe.config. When these files specify no proxy, the self-hosted integration runtime connects to the cloud service directly without going through a proxy. The following procedure provides instructions for updating the diahost.exe.config file:
 
-1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config as a backup of the original file.
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config as a backup of the original file.
 1. Open Notepad running as administrator.
-1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Find the default **system.net** tag as shown in the following code:
 
     ```xml

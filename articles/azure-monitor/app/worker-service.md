@@ -2,7 +2,7 @@
 title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 05/11/2020
 
 ---
 
@@ -204,9 +204,9 @@ Following is the code for `TimedHostedService` where the background task logic r
             {
                 _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                 _logger.LogInformation("Calling bing.com");
-                var res = await httpClient.GetAsync("https://bing.com");
+                var res = httpClient.GetAsync("https://bing.com").GetAwaiter().GetResult();
                 _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                telemetryClient.TrackEvent("Bing call event completed");
+                _telemetryClient.TrackEvent("Bing call event completed");
             }
         }
     }
@@ -422,7 +422,8 @@ The following automatic-collection modules are enabled by default. These modules
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
+* `AppServicesHeartbeatTelemetryModule` - (There is currently an issue involving this telemetry module. For a temporary workaround see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
+).)
 * `AzureInstanceMetadataTelemetryModule`
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.

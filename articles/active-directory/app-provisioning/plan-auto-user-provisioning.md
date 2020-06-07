@@ -10,8 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
+ms.reviewer: arvindha, celested
 #customer intent: As an admin, I want to automate user provisioning to SaaS apps
 ---
 

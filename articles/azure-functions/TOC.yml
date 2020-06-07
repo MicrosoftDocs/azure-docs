@@ -49,7 +49,7 @@
   - name: Machine learning with TensorFlow
     href: functions-machine-learning-tensorflow.md
   - name: Image classification with PyTorch
-    href: machine-learning-pytorch.md 
+    href: machine-learning-pytorch.md
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
@@ -125,6 +125,13 @@
       href: functions-reference-python.md
     - name: TypeScript
       href: functions-reference-node.md#typescript
+  - name: Security
+    items:
+    - name: Security overview
+      href: security-concepts.md
+      displayName: secure, ssl
+    - name: Security baseline
+      href: security-baseline.md
   - name: Diagnostics
     href: functions-diagnostics.md
   - name: Consumption plan costs
@@ -328,10 +335,18 @@
     items:
     - name: Troubleshoot storage
       href: functions-recover-storage-account.md
+    - name: Troubleshoot Python dependencies
+      href: recover-module-not-found.md
 - name: Reference
   items:
   - name: API references
     items:
+    - name: ARM template
+      href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+    - name: Azure CLI
+      href: /cli/azure/functionapp
+    - name: Azure PowerShell
+      href: /powershell/module/az.functions
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
     - name: Python
@@ -343,12 +358,16 @@
     - name: Blob storage
       items:
         - name: Overview
+          displayName: Blob storage
           href: functions-bindings-storage-blob.md
         - name: Trigger
+          displayName: Blob storage
           href: functions-bindings-storage-blob-trigger.md
         - name: Input
+          displayName: Blob storage
           href: functions-bindings-storage-blob-input.md
         - name: Output
+          displayName: Blob storage
           href: functions-bindings-storage-blob-output.md
     - name: Azure Cosmos DB
       items:
@@ -374,10 +393,13 @@
       items:
         - name: Overview
           href: functions-bindings-event-grid.md
+          displayName: Event Grid
         - name: Trigger
           href: functions-bindings-event-grid-trigger.md
+          displayName: Event Grid
         - name: Output
           href: functions-bindings-event-grid-output.md
+          displayName: Event Grid
     - name: Event Hubs
       items:
       - name: Overview
@@ -404,10 +426,13 @@
       items:
         - name: Overview
           href: functions-bindings-http-webhook.md
+          displayName: HTTP
         - name: Trigger
           href: functions-bindings-http-webhook-trigger.md
+          displayName: HTTP
         - name: Output
           href: functions-bindings-http-webhook-output.md
+          displayName: HTTP
     - name: Microsoft Graph
       href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
@@ -418,24 +443,33 @@
       items:
         - name: Overview
           href: functions-bindings-storage-queue.md
+          displayName: Queue storage
         - name: Trigger
           href: functions-bindings-storage-queue-trigger.md
+          displayName: Queue storage
         - name: Output
           href: functions-bindings-storage-queue-output.md
+          displayName: Queue storage
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
       items:
       - name: Overview
         href: functions-bindings-service-bus.md
+        displayName: Service Bus
       - name: Trigger
         href: functions-bindings-service-bus-trigger.md
+        displayName: Service Bus
       - name: Output
         href: functions-bindings-service-bus-output.md
+        displayName: Service Bus
     - name: SignalR Service
       items:
       - name: Overview
         href: functions-bindings-signalr-service.md
+        displayName: SignalR Service
+      - name: Trigger
+        href: functions-bindings-signalr-service-trigger.md
         displayName: SignalR Service
       - name: Input
         href: functions-bindings-signalr-service-input.md
@@ -475,8 +509,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://www.youtube.com/c/AzureFunctions
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter

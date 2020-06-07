@@ -28,6 +28,9 @@ The following software must be installed:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+  * **Desktop development with C++**
+  * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Install these modules in Unity:
@@ -61,7 +64,7 @@ The default model we render is a [built-in sample model](../samples/sample-model
 
 1. In the Unity asset browser, navigate to the *Scenes* folder and open the **Quickstart** scene.
 1. From the *Hierarchy*, select the **RemoteRendering** game object.
-1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md).
+1. In the *Inspector*, enter your [account credentials](../how-tos/create-an-account.md). If you don't have an account yet, [create one](../how-tos/create-an-account.md).
 
 ![ARR Account Info](./media/arr-sample-account-info.png)
 

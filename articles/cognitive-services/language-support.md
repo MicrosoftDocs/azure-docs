@@ -16,45 +16,49 @@ ms.custom: seodec18
 
 Azure Cognitive Services enable you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways. Use the links below to view language availability by service.
 
-These Cognitive Services are language agnostic and don't have limitations based on language.
+These Cognitive Services are language agnostic and don't have limitations based on human language.
 
-* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
-* [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
+* [Anomaly Detector (Preview)](./anomaly-detector/index.yml)
+* [Custom Vision](./Custom-Vision-Service/index.yml)
+* [Face](./face/index.yml)
+* [Personalizer](./personalizer/index.yml)
 
 ## Vision
 
-* [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
-* [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-* [Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
-## Speech
-
-* [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
-* [Speech Service: Speech-to-Text](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text)
-* [Speech Service:Text-to-Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech)
-* [Speech Service: Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation)
+* [Computer Vision](./computer-vision/language-support.md)
+* [Form Recognizer (Preview)](./form-recognizer/language-support.md)
+* [Ink Recognizer (Preview)](./ink-recognizer/language-support.md)
+* [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## Language
 
-* [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
-* [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
-* [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
+* [Immersive Reader (Preview)](./immersive-reader/language-support.md)
+* [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
+* [QnA Maker](./qnamaker/overview/languages-supported.md)
+* [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
+* [Translator](./translator/languages.md)
+
+## Speech
+
+* [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
+* [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
+* [Speech Service: Speech Translation](./speech-service/supported-languages.md#speech-translation)
 
 ## Search
 
-* [Bing Web Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
-* [Bing News Search](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
-* [Bing Autosuggest](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
-* [Bing Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
-* [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)
+* [Bing Custom Search](./bing-custom-search/supported-countries-markets.md)
+* [Bing Image Search](./bing-image-search/supported-countries-markets.md)
+* [Bing News Search](./bing-news-search/supported-countries-markets.md)
+* [Bing Autosuggest](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
+* [Bing Spell Check](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Bing Visual Search](./bing-visual-search/supported-countries-markets.md)
+* [Bing Web Search](./bing-web-search/supported-countries-markets.md)
 
 ## Decision
 
-* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
 ## See also
 
-* [What is Cognitive Services?](welcome.md)
+* [What are the Cognitive Services?](welcome.md)
 * [Create an account](cognitive-services-apis-create-account.md)

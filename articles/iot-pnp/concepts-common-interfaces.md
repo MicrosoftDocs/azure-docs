@@ -1,8 +1,8 @@
 ---
 title: Common interfaces - IoT Plug and Play Preview | Microsoft Docs
 description: Description of common interfaces for IoT Plug and Play developers
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp

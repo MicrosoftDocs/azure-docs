@@ -175,7 +175,7 @@
     - name: PHP
       href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
     - name: Python
-      href: http://azure-sdk-for-python.readthedocs.io/en/latest/
+      href: https://github.com/Azure/azure-sdk-for-python/blob/master/README.md
     - name: Ruby
       href: https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md
   - name: Command line interfaces

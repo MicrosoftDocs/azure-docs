@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 06/04/2020
 ms.author: memildin
 
 ---
@@ -27,25 +27,24 @@ Security Center assesses the configuration of your resources to identify securit
 In addition to these roles, there are two specific Security Center roles:
 
 * **Security Reader**: A user that belongs to this role has viewing rights to Security Center. The user can view recommendations, alerts, a security policy, and security states, but cannot make changes.
-* **Security Administrator**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
+* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
 
 > [!NOTE]
-> The security roles, Security Reader and Security Administrator, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
->
+> The security roles, Security Reader and Security Admin, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
 >
 
 ## Roles and allowed actions
 
 The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts and recommendations | View alerts and recommendations |
+| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts | View alerts and recommendations |
 |:--- |:---:|:---:|:---:|:---:|
 | Subscription Owner | ✔ | ✔ | ✔ | ✔ |
 | Subscription Contributor | -- | ✔ | ✔ | ✔ |
 | Resource Group Owner | -- | ✔ | -- | ✔ |
 | Resource Group Contributor | -- | ✔ | -- | ✔ |
 | Reader | -- | -- | -- | ✔ |
-| Security Administrator | ✔ | -- | ✔ | ✔ |
+| Security Admin | ✔ | -- | ✔ | ✔ |
 | Security Reader | -- | -- | -- | ✔ |
 
 > [!NOTE]

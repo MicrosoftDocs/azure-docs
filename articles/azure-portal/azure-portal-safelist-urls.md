@@ -5,12 +5,13 @@ services: azure-portal
 keywords:
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/29/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
 manager:  mtillman
 ---
+
 # Safelist the Azure portal URLs on your firewall or proxy server
 
 You can configure on-premises security devices to bypass security restrictions for the Azure portal URLs. This configuration can improve performance and connectivity between your local- or wide-area network and the Azure cloud.
@@ -75,13 +76,3 @@ The URL endpoints to safelist for the Azure portal are specific to the Azure clo
 > Traffic to these endpoints uses standard TCP ports for HTTP (80) and HTTPS (443).
 >
 >
-## Next steps
-
-Need to safelist IP addresses? Download the list of Microsoft Azure datacenter IP ranges for your cloud:
-
-* [Worldwide](https://www.microsoft.com/download/details.aspx?id=56519)
-* [U.S. Government](https://www.microsoft.com/download/details.aspx?id=57063)
-* [Germany](https://www.microsoft.com/download/details.aspx?id=57064)
-* [China](https://www.microsoft.com/download/details.aspx?id=57062)
-
-Other Microsoft services use additional URLs and IP addresses for connectivity. To optimize network connectivity for Microsoft 365 services, see [Set up your network for Office 365](/office365/enterprise/set-up-network-for-office-365).

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 06/03/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -41,6 +41,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 > [!NOTE] 
 > Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
 
+### Can I set or select my own IP address for an Azure NetApp Files volume?  
+
+No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+ 
 ## Security FAQs
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
@@ -115,6 +119,10 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 Root squashing is currently not supported.
 
 ## SMB FAQs
+
+### Which SMB versions are supported by Azure NetApp Files?
+
+Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0).    
 
 ### Is an Active Directory connection required for SMB access? 
 

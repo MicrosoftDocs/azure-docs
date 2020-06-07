@@ -102,7 +102,7 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
     * Find the key **"USE_WEB_SERVICE_SDK"** and change **value="false"** to **value="true"**
     * Find the key **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** and change **value=""** to **value="DOMAIN\User"** where DOMAIN\User is a Service Account that is a part of "PhoneFactor Admins" Group.
     * Find the key **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** and change **value=""** to **value="Password"** where Password is the password for the Service Account entered in the previous line.
-    * Find the value **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** and change this placeholder URL to the Web Service SDK URL we installed in step 2.
+    * Find the value `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` and change this placeholder URL to the Web Service SDK URL we installed in step 2.
     * Save the Web.Config file and close Notepad.
 
 6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.

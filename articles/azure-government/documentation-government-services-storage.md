@@ -26,32 +26,7 @@ Azure Storage is generally available in Azure Government. For a Quickstart that 
 ### Storage pairing in Azure Government
 The following map shows the primary and secondary region pairings used for geo-redundant storage and read-access geo-redundant storage accounts in Azure Government.
 
-![Map of primary and secondary region pairings](./media/documentation-government-services-storage.PNG)
-> [!NOTE]
-> The USGov Virginia secondary region is USGov Texas. Previously, USGov Virginia used USGov Iowa as a secondary region. Storage accounts with USGov Iowa as a secondary region are being migrated to USGov Texas as a secondary region.
->
->
-
-### Checking the secondary region for a storage account
-To view the current secondary region of your geo-redundant storage or read-access geo-redundant storage account through the Azure portal, select the storage account on the left. Select the name of the storage account to bring up the storage account overview that lists the primary and secondary regions.
-
-![Storage account overview](./media/documentation-government-services-storage-accountoverview.png)
-
-### Storage service and feature availability by Azure Government region
-
-| Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
-| --- | --- | --- | --- | --- | --- | --- |
-| [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
-| [Azure Files](../storage/common/storage-introduction.md#azure-files) |GA |GA |GA |GA |GA |GA |
-| [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
-| [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
-| [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
-| [Locally redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
-| [Read-access geo-redundant storage](../storage/common/storage-redundancy.md) |GA |GA |GA |GA |GA |GA |
-| [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
-| [Premium Storage](../virtual-machines/windows/disks-types.md) |GA |- |GA |GA |GA |GA | 
-| [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
+:::image type="content" source="./media/documentation-government-services-storage.PNG" alt-text="Map of primary and secondary region pairings":::
 
 ### Variations
 These are the URLs for storage accounts in Azure Government:

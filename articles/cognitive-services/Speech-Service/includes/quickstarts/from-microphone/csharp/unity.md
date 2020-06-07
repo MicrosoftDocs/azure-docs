@@ -130,4 +130,5 @@ For more information, see our [sample repository](https://aka.ms/csspeech/sample
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

@@ -19,7 +19,13 @@ ms.author: mimckitt
 
 # Azure compute unit (ACU)
 
-The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark.
+The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
+
+*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
+
+**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
+
+***Hyper-threaded and capable of running nested virtualization
 
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.
@@ -52,10 +58,6 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
-
-*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
-**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
-***Hyper-threaded and capable of running nested virtualization
 
 Here are links to more information about the different sizes:
 

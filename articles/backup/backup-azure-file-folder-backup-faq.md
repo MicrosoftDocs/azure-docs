@@ -18,7 +18,7 @@ The latest MARS agent used when backing up Windows Server machines, System Cente
 
 ### How long are vault credentials valid?
 
-Vault credentials expire after 48 hours. If the credentials file expires, download the file again from the Azure portal.
+Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
 
 ### From what drives can I back up files and folders?
 
@@ -181,7 +181,6 @@ If you have the same passphrase (that you provided during registration) of the o
 | --- | --- | --- |
 | Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Not possible to recover the data or data is not available |
-
 
 ### What happens if I cancel an ongoing restore job?
 

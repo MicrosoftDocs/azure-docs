@@ -74,7 +74,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | --- | --- | 
 | [Live Events](live-events-outputs-concept.md) <sup>(4)</sup> per Media Services account |5|
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
-| Max Live Output duration | 25 hours |
+| Max Live Output duration | [Size of the DVR window](live-event-cloud-dvr.md) |
 
 <sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison.md).
 
