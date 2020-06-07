@@ -231,7 +231,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 ## Restful service error messages
 
-The following are the IDs for an [Restful service technical profile](restful-technical-profile.md) error messages:
+The following are the IDs for a [Restful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |
