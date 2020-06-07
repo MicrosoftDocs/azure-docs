@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB performance tips for .NET v3
-description: Learn client configuration options to improve Azure Cosmos DB .NET v2=3 SDK performance.
+title: Azure Cosmos DB performance tips for .NET SDK v3
+description: Learn client configuration options to improve Azure Cosmos DB .NET v3 SDK performance.
 author: j82w
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -95,7 +95,8 @@ new CosmosClientOptions
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
 
-   <a id="same-region"></a>
+<a id="same-region"></a>
+
 **For performance, collocate clients in same Azure region**
 
 When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
