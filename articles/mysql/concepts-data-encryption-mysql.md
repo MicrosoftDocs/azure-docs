@@ -125,6 +125,14 @@ To avoid issues while setting up customer-managed data encryption during restore
 * Keep the newly created server (restored/replica) in an inaccessible state, because its unique identity hasn't yet been given permissions to Key Vault.
 * On the restored/replica server, revalidate the customer-managed key in the data encryption settings to ensures that the newly created server is given wrap and unwrap permissions to the key stored in Key Vault.
 
+## Limitations
+
+For Azure Database for MySQL, the support for encryption of data at rest using customers managed key (CMK) has some limitation 
+
+* Support for this functionality is limited only for **General Purpose** and **Memory Optimized** servers.
+* This feature is only supported in regions and servers which support storage up to 16TB. Please refer to the note [here](concepts-pricing-tiers.md#storage)
+* Encryption is only supported with RSA 2048 cryptographic key.
+
 ## Next steps
 
 Learn how to [set up data encryption with a customer-managed key for your Azure database for MySQL by using the Azure portal](howto-data-encryption-portal.md).
