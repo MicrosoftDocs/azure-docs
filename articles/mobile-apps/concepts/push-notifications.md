@@ -5,7 +5,7 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
 ---
 
@@ -31,24 +31,6 @@ For application users, push notifications:
 - Remind users to use the application.
 
 Use the following services to enable push notifications in your mobile apps.
-
-## Visual Studio App Center
-With [App Center Push](/appcenter/push/), you can send targeted messages to iOS, Android, and Windows users without having to manage the process of sending notifications to devices by using push notification services (PNS). Built on top of Azure Notification Hubs, this service eliminates complexities associated with pushing notifications manually by providing a powerful dashboard.
-
-**Key features**
-- Send push notifications to mobile devices across a variety of platforms.
-- Use notifications to send data to an application, display a message to the user, or trigger an action by the application.
-- Use notification targets to: 
-    - Broadcast messages to all registered devices.
-    - Send notifications to audiences based on device information and custom properties.
-    - Send notifications to specific users.
-    - Send notifications to specific devices.
-- Make use of the rich telemetry on pushes, devices, and errors that's available in the App Center portal.
-- Gain platform support for iOS, Android, macOS, Xamarin, React Native, Unity, and Cordova.
-
-**References**
-- [Sign up with Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Get started with App Center Push](/appcenter/push/)
 
 ## Azure Notification Hubs
 [Notification Hubs](/azure/notification-hubs/notification-hubs-push-notification-overview) provides an easy-to-use and scaled-out push engine. You can use it to send notifications to any platform and from any back end in the cloud or on-premises.
