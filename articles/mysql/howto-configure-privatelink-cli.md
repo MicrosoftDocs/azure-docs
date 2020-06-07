@@ -73,9 +73,6 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the MySQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` 
-You will use the MySQL Server ID in the next step. 
-
 > [!NOTE]
 > In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
@@ -88,7 +85,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MySQL Server ID>" \  
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMySQL/servers/$Servername" \    
     --group-ids mysqlServer \  
     --connection-name myConnection  
  ```

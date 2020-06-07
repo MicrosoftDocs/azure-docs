@@ -77,9 +77,6 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the PostgreSQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` 
-You will use the PostgreSQL Server ID in the next step. 
-
 ## Create the Private Endpoint 
 Create a private endpoint for the PostgreSQL server in your Virtual Network: 
 ```azurecli-interactive
@@ -88,7 +85,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<PostgreSQL Server ID>" \  
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforPostgreSQL/servers/$Servername" \  
     --group-ids postgresqlServer \  
     --connection-name myConnection  
  ```
