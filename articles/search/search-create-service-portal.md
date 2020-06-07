@@ -80,7 +80,7 @@ Azure Cognitive Search is available in most regions. The list of supported regio
 
  If you are using AI enrichment, create your search service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
- Customers with business continuity and disaster recovery (BCDR) requirements should create two services deployed in [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US.
+ Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
 
 ### Recommendations
 
