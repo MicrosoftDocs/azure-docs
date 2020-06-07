@@ -15,7 +15,7 @@ ms.date: 06/03/2020
 ms.author: memildin
 
 ---
-# Provide security contact details in Azure Security Center
+# Set up email notifications for security alerts 
 
 To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
 
@@ -23,11 +23,11 @@ When setting up your notifications, you can configure the emails to be sent to s
 
 By default, if no security contacts are defined, Azure Security Center sends notifications about high-severity alerts to the resource owner.  
 
-To avoid alert fatigue, Security Center restricts the volume of outgoing mails. For each subscription, Security Center sends:
+To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
-- **For high-severity alerts**, a maximum of **four** emails per day are sent
-- **For medium-severity alerts**, a maximum of **two** emails per day are sent
-- **For low-severity alerts**, a maximum of **one** email per day is sent
+- a maximum of **four** emails per day for **high-severity** alerts
+- a maximum of **two** emails per day for **medium-severity** alerts
+- a maximum of **one** email per day for **low-severity** alerts
 
 
 ## Availability
@@ -35,8 +35,9 @@ To avoid alert fatigue, Security Center restricts the volume of outgoing mails. 
 - Release state: **Generally Available**
 - Required roles: **Security Admin** or **Subscription Owner** 
 - Clouds: 
-    - ✔ Commercial clouds
-    - ✘ National/Sovereign (US Gov, China Gov, Other Gov)
+  ✔ Commercial clouds
+  ✔ US Gov (partial)
+  ✘ National/Sovereign (China Gov, Other Gov)
 
 
 
