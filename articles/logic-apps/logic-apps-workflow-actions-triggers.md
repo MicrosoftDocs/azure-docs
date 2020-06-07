@@ -68,7 +68,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
+| [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a `202` asynchronous pattern or by returning an array. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
 | [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running your workflow. | 
 | [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
@@ -264,7 +264,7 @@ This trigger definition subscribes to the Office 365 Outlook API, provides a cal
 
 ### HTTP trigger
 
-This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs.
+This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs. For more information, see [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -321,23 +321,21 @@ This trigger sends a request to the specified HTTP or HTTPS endpoint based on th
 *Outputs*
 
 | Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the response | 
-| body | JSON Object | The body from the response | 
-| status code | Integer | The status code from the response | 
-|||| 
+|---------|------|-------------|
+| `headers` | JSON Object | The headers from the response |
+| `body` | JSON Object | The body from the response |
+| `status code` | Integer | The status code from the response |
+||||
 
 *Requirements for incoming requests*
 
-To work well with your logic app, the endpoint must 
-conform to a specific trigger pattern or contract, 
-and recognize these properties:  
-  
-| Response | Required | Description | 
-|----------|----------|-------------| 
-| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
-| Retry-after header | No | The number of seconds until your logic app polls the endpoint again | 
-| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
+To work well with your logic app, the endpoint must conform to a specific trigger pattern or contract, and recognize these response properties:
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. |
+| Retry-after header | No | The number of seconds until your logic app polls the endpoint again |
+| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. |
 |||| 
 
 *Example behaviors for different requests*
@@ -1208,7 +1206,7 @@ This action definition calls the previously created "GetProductID" function:
 
 ### HTTP action
 
-This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs.
+This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs. For more information, see [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -2674,8 +2672,7 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 By default, all HTTP-based actions follow the standard asynchronous operation pattern. This pattern specifies that when an HTTP-based action sends a request to the specified endpoint, the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted the request for processing. The Logic Apps engine keeps checking the URL specified by the response's location header until processing stops, which is any non-202 response.
 
-However, requests have a timeout limit, so for long-running actions, you can disable the asynchronous behavior by adding and setting 
-the `operationOptions` property to `DisableAsyncPattern` under the action's inputs.
+However, requests have a timeout limit, so for long-running actions, you can disable the asynchronous behavior by adding and setting the `operationOptions` property to `DisableAsyncPattern` under the action's inputs.
 
 ```json
 "<some-long-running-action>": {

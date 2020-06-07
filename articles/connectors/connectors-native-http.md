@@ -29,41 +29,6 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
-<a name="tls-support"></a>
-
-## Transport Layer Security (TLS)
-
-Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS), which was previously Secure Sockets Layer (SSL), versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
-
-For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
-
-<a name="self-signed"></a>
-
-## Self-signed certificates
-
-* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
-
-* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
-
-## Known issues
-
-### Omitted HTTP headers
-
-If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
-
-* `Accept-*`
-* `Allow`
-* `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
-* `Cookie`
-* `Expires`
-* `Host`
-* `Last-Modified`
-* `Origin`
-* `Set-Cookie`
-* `Transfer-Encoding`
-
-Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
-
 <a name="http-trigger"></a>
 
 ## Add an HTTP trigger
@@ -126,6 +91,22 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
 
+<a name="tls-support"></a>
+
+## Transport Layer Security (TLS)
+
+Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS), which was previously Secure Sockets Layer (SSL), versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
+
+For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
+
+<a name="self-signed"></a>
+
+## Self-signed certificates
+
+* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+
+* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
+
 ## Content with multipart/form-data type
 
 To handle content that has `multipart/form-data` type in HTTP requests, you can add a JSON object that includes the `$content-type` and `$multipart` attributes to the HTTP request's body by using this format.
@@ -171,6 +152,40 @@ Here is the same example that shows the HTTP action's JSON definition in the und
    "type": "Http"
 }
 ```
+
+## Known issues
+
+### Omitted HTTP headers
+
+If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
+
+* `Accept-*`
+* `Allow`
+* `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+* `Cookie`
+* `Expires`
+* `Host`
+* `Last-Modified`
+* `Origin`
+* `Set-Cookie`
+* `Transfer-Encoding`
+
+Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
+
+### Location headers missing from returned responses
+
+HTTP calls to some APIs or services, such as the Azure Analysis Service, might receive responses that are missing location headers, which usually include a GET URL that has a refresh ID. The caller can use this ID to track the status of an asynchronous refresh request.
+
+By default, logic apps follow location headers, but you can disable this behavior by enabling the **Asynchronous Pattern** setting on the HTTP trigger or action. This setting specifies that if the destination server or service accepts requests for processing by responding with a `202 ACCEPTED` response, the logic app doesn't wait for this response and continues polling the URL that in the response's location header until reaching a terminal state.
+
+1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
+
+1. Find the **Asynchronous Pattern** setting, and turn on that setting, if not already enabled.
+
+For more information about the asynchronous polling pattern, see these topics:
+
+* [Perform long-running tasks with the polling action pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern)
+* [Check for new data or events regularly with the polling trigger pattern](../logic-apps/logic-apps-create-api-app.md#polling-triggers)
 
 ## Connector reference
 
