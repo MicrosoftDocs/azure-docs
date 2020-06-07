@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
+ms.date: 06/07/2020
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal
 
-**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm the results of an index refresh by verifying newer content exists.
+**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists.
 
 This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), with responses returned as JSON documents.
 

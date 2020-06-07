@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
+ms.date: 06/07/2020
 ---
 
 # Quickstart: Create a search app in the portal (Azure Cognitive Search)
