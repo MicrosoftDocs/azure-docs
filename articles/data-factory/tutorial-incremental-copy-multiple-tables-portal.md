@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 05/29/2020
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL database
+# Incrementally load data from multiple tables in SQL Server to an Azure SQL database using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

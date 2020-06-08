@@ -33,6 +33,9 @@ An AKS cluster can be customized with a unique `outboundType` of type load balan
 > [!IMPORTANT]
 > Outbound type impacts only the egress traffic of your cluster. See [setting up ingress controllers](ingress-basic.md) for more information.
 
+> [!NOTE]
+> You can use your own [route table][byo-route-table] with UDR and kubenet networking.
+
 ### Outbound type of loadBalancer
 
 If `loadBalancer` is set, AKS completes the following configuration automatically. The load balancer is used for egress through an AKS assigned public IP. An outbound type of `loadBalancer` supports Kubernetes services of type `loadBalancer`, which expect egress out of the load balancer created by the AKS resource provider.
@@ -197,7 +200,13 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
+> [!Note]
+> If you use secure access to the AKS API server with [authorized IP address ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), you need to add the firewall public IP into the authorized IP range.
+
 ### Create a UDR with a hop to Azure Firewall
+
+> [!IMPORTANT]
+> Outbound type of UDR requires there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
 
@@ -216,11 +225,11 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 ## Adding network firewall rules
 
 > [!WARNING]
-> Below shows one example of adding a firewall rule. All egress endpoints defined in the [required egress endpoints](egress.md) must be enabled by application firewall rules for AKS clusters to function. Without these endpoints enabled, your cluster cannot operate.
+> Below shows one example of adding a firewall rule. All egress endpoints defined in the [required egress endpoints](limit-egress-traffic.md) must be enabled by application firewall rules for AKS clusters to function. Without these endpoints enabled, your cluster cannot operate.
 
 Below is an example of a network and application rule. We add a network rule which allows any protocol, source-address, destination-address, and destination-ports. We also add an application rule for **some** of the endpoints required by AKS.
 
-In a production scenario, you should only enable access to required endpoints for your application and those defined in [AKS required egress](egress.md).
+In a production scenario, you should only enable access to required endpoints for your application and those defined in [AKS required egress](limit-egress-traffic.md).
 
 ```
 # Add Network FW Rules
@@ -522,3 +531,4 @@ See [how to create, change, or delete a route table](https://docs.microsoft.com/
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
