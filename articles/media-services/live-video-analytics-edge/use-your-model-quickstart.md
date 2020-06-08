@@ -7,9 +7,9 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Analyze live video by using your own model
 
-This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed are sent to an inference service. The results are sent to IoT Edge Hub. This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. 
+This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed are sent to an inference service. The results are sent to IoT Edge Hub. 
 
-This quickstart is based on sample code written in C#. It builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart. 
+This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart. 
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ This quickstart is based on sample code written in C#. It builds on the [Detect 
 ## Review the sample video
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N, and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 In this quickstart, you'll use Live Video Analytics on IoT Edge to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
 
@@ -34,7 +34,7 @@ In this quickstart, you'll use Live Video Analytics on IoT Edge to detect object
 
 ![Overview](./media/quickstarts/overview-qs5.png)
 
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream that reaches the [HTTP extension processor](media-graph-concept.md#http-extension-processor) node. 
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream that reaches the [HTTP extension processor](media-graph-concept.md#http-extension-processor) node. 
 
 The HTTP extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
@@ -52,7 +52,7 @@ In this quickstart, you will:
 
 As part of the prerequisites, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample files.
 
-1. In Visual Studio Code, go to to *src/edge*. You see your *.env* file and with a few deployment template files.
+1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
 
   The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
 
@@ -63,8 +63,8 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * ***Program.cs*** - The sample program code. This code:
 
         * Loads the app settings.
-        * Invokes direct methods that the Live Video Analytics on IoT Edge module exposes. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md) 
-        * Pauses so you can examine the program's output in the **TERMINAL** window and examine the events generated by the module in the **OUTPUT** window.
+        * Invokes direct methods that the Live Video Analytics on IoT Edge module exposes. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
+        * Pauses so that you can examine the program's output in the **TERMINAL** window and examine the events that were generated by the module in the **OUTPUT** window.
         * Invokes direct methods to clean up resources.
 
 
@@ -89,11 +89,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
     The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 
-1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. Otherwise, next to the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. 
+1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. 
 
-    You can copy the string from the *appsettings.json* file. (Or, to ensure you have configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+    You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
-    ![IoTHub connection string](./media/quickstarts/set-iotconnection-string.png)
+    ![Set IoT Hub Connection String](./media/quickstarts/set-iotconnection-string.png)
 
 1. Right-click *src/edge/config/ deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**. 
 
@@ -102,11 +102,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. When you're prompted to select an IoT Hub device, select **lva-sample-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    * The Live Video Analytics module, named **lvaEdge**.
-    * A **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
-    * A **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to the images and returns multiple classes of object types.
+    * The Live Video Analytics module, named **lvaEdge**
+    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed
+    * The **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to the images and returns multiple classes of object types
  
-      ![YOLOv3 object detection model](./media/quickstarts/yolov3.png)
+      ![Modules that are deployed in the edge device](./media/quickstarts/yolov3.png)
 
 ### Prepare to monitor events
 
@@ -174,7 +174,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     The next series of calls cleans up resources:
       * A call to `GraphInstanceDeactivate` deactivates the graph instance.
       * A call to `GraphInstanceDelete` deletes the instance.
-      * A call to `GraphTopologyDelete` delete the topology.
+      * A call to `GraphTopologyDelete` deletes the topology.
       * A final call to `GraphTopologyList` shows that the list is empty.
 
 ## Interpret results
@@ -213,7 +213,11 @@ In this message, notice these details:
 
 ### Inference event
 
-The HTTP extension processor node receives inference results from the yolov3 module, and emits them via the IoT Hub sink node as Inference events. In these events, the type is set to “entity” to indicate it’s an entity such as a car or truck, and the eventTime tells you at what time (UTC) the object was detected. Below is an example where two cars were detected with varying levels of confidence in the same video frame.
+The HTTP extension processor node receives inference results from the yolov3 module. It then emits the results through the IoT Hub sink node as inference events. 
+
+In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected. 
+
+In the following example, two cars were detected in the same video frame, with varying levels of confidence.
 
 ```
 [IoTHubMonitor] [11:37:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -261,22 +265,22 @@ The HTTP extension processor node receives inference results from the yolov3 mod
 }
 ```
 
-Note the following in the above messages:
+In the messages, notice the following details:
 
-* "subject" in applicationProperties references the node in the graph topology from which the message was generated. 
-* "eventType" in applicationProperties indicates that this is an Analytics event.
-* "eventTime" indicates the time when the event occurred.
-* "body" contains data about the analytics event. In this case, the event is an Inference event and hence the body contains "inferences" data.
-* "inferences" section indicates that the "type" is "entity" and has additional data about the "entity”.
+* In `applicationProperties`, `subject` references the node in the graph topology from which the message was generated. 
+* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
+* The `eventTime` value is the time when the event occurred.
+* The `body` section contains data about the analytics event. In this case, the event is an inference event, so the body contains `inferences` data.
+* The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
 ## Clean up resources
 
-If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
+If you intend to try other quickstarts, keep the resources you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and delete all the resources.
 
 ## Next steps
 
 Review additional challenges for advanced users:
 
-* Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. You can follow instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) and then follow instructions in this [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+* Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
+* Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
 

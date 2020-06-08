@@ -187,14 +187,14 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 In the preceding output: 
 
 * The message is a diagnostics event, `MediaSessionEstablished`. It indicates that the RTSP source node (the subject) established a connection with the RTSP simulator and has begun to receive a (simulated) live feed.
-* The `subject` in `applicationProperties` references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
-* The `eventType` in `applicationProperties` indicates that this event is a diagnostics event.
-* The `eventTime` indicates the time when the event occurred.
-* The `body` contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+* In `applicationProperties`, `subject` references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
+* In `applicationProperties`, `eventType` indicates that this event is a diagnostics event.
+* The `eventTime` value is the time when the event occurred.
+* The `body` section contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ### RecordingStarted event
 
-When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` tells you when (in UTC) the motion occurred. For more information about this process, see the [Overview](#overview) section in this quickstart.
+When motion is detected, the signal gate processor node is activated, and the file sink node in the media graph starts to the write an MP4 file. The file sink node sends an operational event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` value is the UTC time at which the motion occurred. For more information about this process, see the [Overview](#overview) section in this quickstart.
 
 Here's an example of this message:
 
@@ -217,12 +217,12 @@ Here's an example of this message:
 
 In the preceding message: 
 
-* The `subject` in `applicationProperties` references the node in the media graph from which the message was generated. In this case, the message originates from the file sink node.
-* The `eventType` in `applicationProperties` indicates that this event is operational.
-* The `eventTime` indicates the time when the event occurred. This time is 5 to 6 seconds after `MediaSessionEstablished` and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move](#review-the-sample-video) into the parking lot.
-* The `body` contains data about the operational event. In this case, the data comprises `outputType` and `outputLocation`.
-* The `outputType` indicates that this information is about the file path.
-* The `outputLocation` provides the location of the MP4 file in the edge module.
+* In `applicationProperties`, `subject` references the node in the media graph from which the message was generated. In this case, the message originates from the file sink node.
+* In `applicationProperties`, `eventType` indicates that this event is operational.
+* The `eventTime` value is the time when the event occurred. This time is 5 to 6 seconds after `MediaSessionEstablished` and after video starts to flow. This time corresponds to the 5-to-6-second mark when the [car started to move](#review-the-sample-video) into the parking lot.
+* The `body` section contains data about the operational event. In this case, the data comprises `outputType` and `outputLocation`.
+* The `outputType` variable indicates that this information is about the file path.
+* The `outputLocation` value is the location of the MP4 file in the edge module.
 
 ### RecordingStopped and RecordingAvailable events
 
@@ -263,4 +263,4 @@ If you intend to try the other quickstarts, then keep the resources you created.
 * Review additional challenges for advanced users:
 
     * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://en.wikipedia.org/wiki/IP_camera) Wikipedia page. Look for devices that conform with profiles G, S, or T.
-    * Use an AMD64 or X64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+    * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) to register the device with Azure IoT Hub.

@@ -251,13 +251,13 @@ In the preceding output:
 * The message is a diagnostics event, `MediaSessionEstablished`. It indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
 * In `applicationProperties`, `subject`, references the node in the graph topology from which the message was generated. In this case, the message originates from the RTSP source node.
 * In `applicationProperties`, `eventType` indicates that this event is a diagnostics event.
-* The `eventTime` indicates the time when the event occurred.
-* The `body` contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+* The `eventTime` value indicates the time when the event occurred.
+* The `body` section contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 
 ### MotionDetection event
 
-When motion is detected, the Live Video Analytics on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` tells you when (in UTC) the motion occurred. 
+When motion is detected, the Live Video Analytics on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor. The `eventTime` value tells you when (in UTC) the motion occurred. 
 
 Here's an example of this message:
 
@@ -291,10 +291,10 @@ Here's an example of this message:
 
 In this example: 
 
-* The `subject` in `applicationProperties` references the node in the media graph from which the message was generated. In this case, the message originates from the motion detection processor node.
-* The `eventType` in `applicationProperties` indicates that this event is an analytics event.
-* The `eventTime` indicates the time when the event occurred.
-* The `body` contains data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
+* In `applicationProperties`, `subject` references the node in the media graph from which the message was generated. In this case, the message originates from the motion detection processor node.
+* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
+* The `eventTime` value is the time when the event occurred.
+* The `body` value is data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
 * The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.
 * The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, the width is 1920 and the height is 1080.
 

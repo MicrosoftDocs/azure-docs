@@ -560,8 +560,8 @@ Notice these details:
 * The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 * In `applicationProperties`, `subject` references the node in the `MediaGraph` from which the message was generated. In this case, the message originates from the motion detection processor.
 * In `applicationProperties`, `eventType` indicates that this event is an analytics event.
-* The `eventTime` indicates the time when the event occurred.
-* The `body` contains data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
+* The `eventTime` value is the time when the event occurred.
+* The `body` section contains data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
 * The `inferences` section indicates that the `type` is `motion`. It provides additional data about the `motion` event.
 
 If you let the media graph run for a while, you see the following message in the **OUTPUT** window.
