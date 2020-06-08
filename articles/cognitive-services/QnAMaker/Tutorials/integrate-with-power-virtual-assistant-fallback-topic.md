@@ -213,10 +213,9 @@ Here's what the final agent canvas.
     |3|Yes|In reply to `Did that answer your question?`|
     |4|Excellent|In reply to `Please rate your experience.`|
     |5|Yes|In reply to `Can I help with anything else?`|
-    |6|What is a knowledge base?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. |
+    |6|How can I improve the throughput performance for query predictions?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. the green check marks for the individual actions indicate success for each action.|
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png)
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Screenshot of chat bot with canvas indicating green checkmarks for successful actions.":::
 
 ## Publish your bot
 
@@ -226,7 +225,7 @@ To make the agent available to all members of your school or organization, you n
 
 1. Try your bot on the demo website (look for the link under **Publish**).
 
-    A new web page opens with your bot. Ask the bot the same test question: `What is a knowledge base?`
+    A new web page opens with your bot. Ask the bot the same test question: `How can I improve the throughput performance for query predictions?`
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)
