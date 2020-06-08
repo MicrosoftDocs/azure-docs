@@ -286,7 +286,7 @@ Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSr
 
 # [Azure CLI](#tab/cli)
 
-To upload a blob with an encryption scope specified by using PowerShell, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command and provide the encryption scope for the blob.
+To upload a blob with an encryption scope specified by using Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command and provide the encryption scope for the blob.
 
 If you are using Azure Cloud Shell, follow the steps described in [Upload a blob](storage-quickstart-blobs-cli.md#upload-a-blob) to create a file in the root directory. You can then upload this file to a blob using the following sample.
 
@@ -305,13 +305,58 @@ az storage blob upload \
 
 # [Portal](#tab/portal)
 
+To change the key that protects a scope in the Azure portal, follow these steps:
+
+1. Navigate to the **Encryption Scopes** tab to view the list of encryption scopes for the storage account.
+1. Select the **More** button next to the scope you wish to modify.
+1. In the **Edit encryption scope** pane, you can change the encryption type from Microsoft-managed key to customer-managed key or vice versa.
+1. To select a new customer-managed key, select **Use a new key** and specify the key vault, key, and key version.
 
 # [PowerShell](#tab/powershell)
 
+To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with PowerShell, call the **Update-AzStorageEncryptionScope** command and pass in the `-StorageEncryption` parameter:
+
+```powershell
+Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -EncryptionScopeName $scopeName2 `
+    -StorageEncryption
+```
+
+To change the key that protects an encryption scope from a Microsoft-managed key to a customer-managed key, first make sure that you have enabled customer-managed keys with Azure Key Vault for the storage account. For more information, see [Configure customer-managed keys with Azure Key Vault by using PowerShell](../common/storage-encryption-keys-powershell.md). Next, call the **Update-AzStorageEncryptionScope** command and pass in the `-KeyUri` and `-KeyvaultEncryption` parameters:
+
+```powershell
+Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -EncryptionScopeName $scopeName1 `
+    -KeyUri $keyVaultUri `
+    -KeyvaultEncryption
+```
 
 # [Azure CLI](#tab/cli)
 
+To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) command and pass in the `--key-source` parameter with the value `Microsoft.Storage`:
 
+```azurecli-interactive
+az storage account encryption-scope update \
+    --account-name <storage-account> \
+    --resource-group <resource-group>
+    --name <scope> \
+    --key-source Microsoft.Storage
+```
+
+To change the key that protects an encryption scope from a Microsoft-managed key to a customer-managed key, first make sure that you have enabled customer-managed keys with Azure Key Vault for the storage account. For more information, see [Configure customer-managed keys with Azure Key Vault by using Azure CLI](../common/storage-encryption-keys-cli.md). Next, call the **az storage account encryption-scope update** command, pass in the `--key-uri` parameter, and pass in the `--key-source` parameter with the value `Microsoft.KeyVault`:
+
+```powershell
+az storage account encryption-scope update \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --name <scope> \
+    --key-source Microsoft.KeyVault \
+    --key-uri <key-uri>
+```
+
+---
 
 ## Disable an encryption scope
 
