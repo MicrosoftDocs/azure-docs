@@ -12,13 +12,22 @@ manager: lizross
 ---
 # What's new in Windows Virtual Desktop?
 
-Here's where you'll learn what's new in Windows Virtual Desktop with each update. This article is updated monthly, so make sure to check back here often to keep up with new releases.
+Windows Virtual Desktop updates on a regular basis. This article is where you'll find out about:
 
-## June 2020 (2006 Service Release)
+- The latest releases
+- New features
+- Improvements to existing features
+- Bug fixes
 
-### Windows Virtual Desktop is now an Azure Resource Management service
+This article is updated monthly. Make sure to check back here often to keep up with new releases.
 
-Windows Virtual Desktop is now an Azure Resource Manager service. With the 2006 Service release, all Windows Virtual Desktop objects now are Azure Resource Manager resources. Now that Windows Virtual Desktop has integrated into the Azure portal, users can use Azure Resource Manager to interact with the fabric of the Azure service. To learn more, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
+## June 2020 (2006 service release)
+
+Here's what's new for the June 2020 release.
+
+### Windows Virtual Desktop is now an Azure Resource Manager service
+
+Windows Virtual Desktop is now an Azure Resource Manager service. With the 2006 Service release, all Windows Virtual Desktop objects now are Azure Resource Manager resources. Now that Windows Virtual Desktop has integrated into the Azure portal, users can use Azure Resource Manager to interact the Azure service fabric. To learn more, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
 
 Here's what this change does for you:
 
