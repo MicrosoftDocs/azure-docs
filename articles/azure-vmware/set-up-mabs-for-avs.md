@@ -302,6 +302,16 @@ If you downloaded the software package to a different server, copy the files ont
 
     When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
+    To check the SSRS configuration status, run the following command:
+
+    ```powershell
+    $configset =Get-WmiObject –namespace 
+    "root\Microsoft\SqlServer\ReportServer\RS_SSRS\v14\Admin" -class 
+    MSReportServer_ConfigurationSetting -ComputerName localhost
+
+    $configset.IsInitialized
+    ```
+
     Use the following values for SSRS configuration:
     * Service Account: ‘Use built-in account’ should be Network Service
     * Web Service URL: ‘Virtual Directory’ should be ReportServer_\<SQLInstanceName>

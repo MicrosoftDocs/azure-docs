@@ -134,7 +134,6 @@ During preview, AVS does not resolve the ESX host from the virtual machine deplo
 
 ## Add the account on Azure Backup Server
 
-The user added must have the proper privileges to perform backups and restores from Backup Server. Ensure the user you are adding has the privileges required by reviewing the [Add a new user account in VMware server](https://docs.microsoft.com/system-center/dpm/back-up-vmware?view=sc-dpm-2019&branch=master#add-a-new-user-account-in-vmware-server).
 
 1.  Open Azure Backup Server, and in the Azure Backup Server console, select **Management** > **Production Servers** > **Manage VMware**.
 
