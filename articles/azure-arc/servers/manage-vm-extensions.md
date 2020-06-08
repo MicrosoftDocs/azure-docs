@@ -11,7 +11,7 @@ ms.author: magoedte
 
 # Virtual machine extension management with Azure Arc for servers (preview)
 
-Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
+Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
 
 Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle.
 
@@ -52,7 +52,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
-Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the `/var/azure/<extensionName>`. 
+Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the `/var/azure/<extensionName>`.
 
 ## Prerequisite
 
@@ -63,7 +63,7 @@ This feature depends on the following Azure resource providers in your subscript
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
 
-The Log Analytics VM extension 
+The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
 ### Connected Machine agent
 
@@ -733,10 +733,10 @@ Extension output is logged to a file found under the following folder on the tar
 Extension output is logged to a file found under the following folder on the target Linux machine.
 
 ```bash
- /var/log/GuestConfig/extension_logs/<extensionName>
+ /var/log/GuestConfig/extension_logs/<extensionName> **NEED TO VERIFY WHAT THE PATH IS**
 ```
 
-
+The meaning of error codes logged are provided in the troubleshooting and support section of the respective extension article that are linked in the [extensions table](#extensions) found earlier in this article. 
 
 ## Next steps
 
