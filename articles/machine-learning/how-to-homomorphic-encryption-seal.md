@@ -9,6 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
+ms.custom: tracking-python
 #intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data
 ---
 
