@@ -37,6 +37,10 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
 
+> [!NOTE]
+> Bias-free Communication
+Microsoft supports a diverse and inclusionary environment.  Within this document, there are references to the word 'slave.' Microsoft's [Style Guide for Bias-Free Communications](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word.  This wording is used as it is currently the wording used within the software. For consistency, this document contains this word. When this word is removed from the software, we will correct this document to be in alignment.
+
 ## Configure the master server
 
 The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. The MariaDB server is the master in Data-in Replication.
