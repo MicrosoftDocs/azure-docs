@@ -692,6 +692,8 @@ To enable this feature, add a new application setting named `SCALE_CONTROLLER_LO
 * `{Destination}` specifies the destination for the logs to be sent to, and must be either `AppInsights` or `Blob`.
 * `{Verbosity}` specifies the level of logging you want, and must be one of `None`, `Warning`, or `Verbose`.
 
+For example, to log verbose information from the scale controller to Application Insights, use the value `AppInsights:Verbose`.
+
 > [!NOTE]
 > If you enable the `AppInsights` destination type, you must ensure you configure [Application Insights for your function app](#enable-application-insights-integration).
 
