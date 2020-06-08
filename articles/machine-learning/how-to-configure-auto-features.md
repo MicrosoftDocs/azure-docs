@@ -22,7 +22,7 @@ In this guide, you'll learn:
 - What featurization settings Azure Machine Learning offers.
 - How to customize those features for your [automated machine-learning experiments](concept-automated-ml.md).
 
-*Feature engineering* is the process of using domain knowledge of the data to create features that help machine-learning algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and this feature engineering are called *featurization* in automated machine-learning, or *AutoML*, experiments.
+*Feature engineering* is the process of using domain knowledge of the data to create features that help machine-learning algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine-learning, or *AutoML*, experiments.
 
 This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
 
@@ -45,9 +45,9 @@ The following table shows the accepted settings for featurization in the [AutoML
 
 |Featurization configuration | Description|
 ------------- | ------------- |
-|**`"featurization": 'auto'`**| Specifies that, as part of preprocessing, [data guardrails and featurization steps](#featurization) are to be done automatically. This is the default setting.|
-|**`"featurization": 'off'`**| Specifies that featurization steps are not to be done automatically.|
-|**`"featurization":`&nbsp;`'FeaturizationConfig'`**| Specifies that customized featurization steps are to be used. [Learn how to customize featurization](#customize-featurization).|
+|`"featurization": 'auto'`| Specifies that, as part of preprocessing, [data guardrails and featurization steps](#featurization) are to be done automatically. This setting is the default.|
+|`"featurization": 'off'`| Specifies that featurization steps are not to be done automatically.|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Specifies that customized featurization steps are to be used. [Learn how to customize featurization](#customize-featurization).|
 
 <a name="featurization"></a>
 
@@ -63,9 +63,9 @@ The following table summarizes techniques that are automatically applied to your
 |**Drop high cardinality or no variance features*** |Drop these features from training and validation sets. Applies to features with all values missing, with the same value across all rows, or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
 |**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and tri-character-grams.|
-|**Transform and encode***|Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical. One-hot-hash encoding is used for high-cardinality categorical.|
+|**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
 |**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pretrained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
-|**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
+|**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
 |**Text target encoding**|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |**Weight of Evidence (WoE)**|Calculates WoE as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs. out-of-class probabilities. This step produces one numeric feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
 |**Cluster Distance**|Trains a k-means clustering model on all numeric columns. Produces *k* new features (one new numeric feature per cluster) that contain the distance of each sample to the centroid of each cluster.|
@@ -87,20 +87,31 @@ You can review the data guardrails for your experiment:
 
 ### Data-guardrail states
 
-Data guardrails display one of three states: **Passed**, **Done**, or **Alerted**.
+Data guardrails display one of three states:
 
 |State| Description |
 |----|---- |
-|**Passed**| No data problems were detected and no user action is required. |
-|**Done**| Changes were applied to your data. We encourage users to review the corrective actions that AutoML took, to ensure that the changes align with the expected results. |
-|**Alerted**| A data issue was detected but could not be remedied. We encourage users to revise and fix the issue.|
+|**Passed**| No data problems were detected and no action is required by you. |
+|**Done**| Changes were applied to your data. We encourage you to review the corrective actions that AutoML took, to ensure that the changes align with the expected results. |
+|**Alerted**| A data issue was detected but couldn't be remedied. We encourage you to revise and fix the issue.|
 
-The following table describes the data guardrails that are currently supported and the associated statuses that you may see when you submit your experiment.
+### Supported data guardrails
+
+The following table describes the data guardrails that are currently supported and the associated statuses that you might see when you submit your experiment:
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
-**Missing feature values imputation** |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and imputed.
+**Missing feature values imputation** |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
 **High cardinality feature handling** |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high-cardinality feature detection.](#automatic-featurization) <br><br> High-cardinality features were detected in your inputs and were handled.
+**Validation split handling** |*Done*| The validation configuration was set to 'auto' and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> The validation configuration was set to 'auto', and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
+**Class balancing detection** |*Passed* <br><br><br><br><br> *Alerted* | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
+**Memory issues detection** |*Passed* <br><br><br><br> *Done* |<br> The selected {horizon, lag, rolling window} values were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
+**Frequency detection** |*Passed* <br><br><br><br> *Done* |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+
+**Missing feature values imputation**
+ |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
+**High cardinality feature handling**
+ |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high-cardinality feature detection.](#automatic-featurization) <br><br> High-cardinality features were detected in your inputs and were handled.
 **Validation split handling** |*Done*| The validation configuration was set to 'auto' and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> The validation configuration was set to 'auto', and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
 **Class balancing detection** |*Passed* <br><br><br><br><br> *Alerted* | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
 **Memory issues detection** |*Passed* <br><br><br><br> *Done* |<br> The selected {horizon, lag, rolling window} values were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
@@ -110,7 +121,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your machine-learning model result in relevant predictions.
 
-To customize featurizations specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using Machine Learning Studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using Machine Learning Studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customizations include:
 
