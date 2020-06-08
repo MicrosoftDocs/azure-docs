@@ -5,7 +5,7 @@ services: synapse analytics
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice:
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu 
 ms.reviewer: 

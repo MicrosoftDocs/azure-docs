@@ -5,7 +5,7 @@ author: mamccrea
 services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: conceptual
-
+ms.subservice: spark
 ms.date: 05/01/2020 
 ms.author: mamccrea 
 ms.reviewer: jrasnick
