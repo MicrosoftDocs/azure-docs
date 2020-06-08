@@ -178,13 +178,13 @@ Although Logic Apps won't stop you from saving logic apps that use an HTTP trigg
 
 ### Missing location headers in responses
 
-HTTP requests or calls to some APIs, services, or systems might get responses that are missing the `location` header. This header usually contains a `GET` callback URL and a "refresh" ID for an endpoint that the caller can check and track the status for an asynchronous request refresh. The caller waits for the destination to accept the request for processing, which is indicated by returning a `202 ACCEPTED` response. The caller then continually polls the status endpoint until the destination returns a `200 OK` successful response.
+When an HTTP action calls or sends a request to an API, service, or system, that destination returns a `202 ACCEPTED` response to the caller after accepting the request. However, sometimes the destination returns a response that doesn't include the `location` header. This header usually specifies a callback URL and a "refresh" ID for an endpoint that the caller can use to regularly check the status of an asynchronous request refresh. The caller checks the status until the destination returns a `200 OK` successful response or other status.
 
-HTTP actions, but not triggers, have an **Asynchronous Pattern** setting that specifies if the destination accepts requests for processing by returning a `202 ACCEPTED` response, the destination immediately returns that response. That way, the logic app doesn't have to wait and can continue polling the status endpoint until processing is complete. By default, the **Asynchronous Pattern** setting is enabled. However, to confirm that the setting is enabled, follow these steps:
+HTTP actions, but not triggers, have an **Asynchronous Pattern** setting, which specifies that the destination immediately return a `202 ACCEPTED` response after receiving a request for processing. That way, the logic app doesn't have to wait and can start checking on the request status until processing is complete. Although the **Asynchronous Pattern** setting is enabled by default, you can disable the setting so that the HTTP action doesn't check the `location`header when the header is missing.
 
 1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
 
-1. Find the **Asynchronous Pattern** setting, turn the setting to **On** if not already enabled, and select **Done**.
+1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if not already disabled, and select **Done**.
 
    ![Check "Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
