@@ -15,11 +15,11 @@ This topic explains how to connect an application your Azure Database for MariaD
 ## Before you begin
 Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MariaDB server with engine version 10.2 or 10.3. 
 
-For details, refer to how to create an Azure Database for MariaDB server using the [Azure portal](quickstart-create-mariadb-server-database-using-azure-portal) or [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli).
+For details, refer to how to create an Azure Database for MariaDB server using the [Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## Enable redirection
 
-On your Azure Database for MariaDB server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+On your Azure Database for MariaDB server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-cli.md).
 
 ## PHP
 
