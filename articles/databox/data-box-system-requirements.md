@@ -42,11 +42,6 @@ The software requirements include the information on the supported operating sys
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
-> [!NOTE]
->
-> * Azure Data Lake Storage (ADLS) Gen2 storage accounts are not supported for export.
-> * Append Blob storage is not supported for export.
-
 
 ### Supported storage types
 

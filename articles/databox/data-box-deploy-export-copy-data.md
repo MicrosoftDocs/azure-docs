@@ -7,17 +7,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/05/2020
+ms.date: 06/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
-# Customer intent: As an IT admin, I need to be able to copy data from Data Box to download to my on-premises server. 
+# Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
 ---
 
 
 # Tutorial: Copy data from Azure Data Box via SMB (Preview)
 
-This tutorial describes how to connect to and copy data from your Data Box to an on-premises server using the local web UI.
+This tutorial describes how to connect to and copy data from your Data Box to an on-premises server using the local web UI. The Data Box device contains the data exported from your Azure Storage account.
 
 In this tutorial, you learn how to:
 
@@ -90,53 +90,25 @@ Once you're connected to the Data Box shares, the next step is to copy data.
 
 Before you begin the data copy:
 
-1. Download the copy log and the verbose log. 
-2. Review the verbose log. The verbose log contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
+1. Download the *copy log* and the *verbose log*. 
+2. Review the *verbose log*. The *verbose log* contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
 
-3. Review the copy log for any errors. This log indicates the files that could not be copied due to errors. You have the following options to export those files: 
+3. Review the *copy log* for any errors. This log indicates the files that could not be copied due to errors. You have the following options to export those files: 
 
     - You can transfer the files that could not be copied over the network. 
     - If your data size was larger than the usable device capacity, then a partial copy occurs and all the files that were not copied are listed in this log. You can use this log as an input XML to create a new Data Box order and then copy over these files.
 
  After you connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. 
 
-<!--Use the following command:
-    
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
-  
- The attributes are described in the following table.
-    
-|Attribute  |Description  |
-|---------|---------|
-|/e     |Copies subdirectories including empty directories.         |
-|/r:     |Specifies the number of retries on failed copies.         |
-|/w:     |Specifies the wait time between retries, in seconds.         |
-|/is     |Includes the same files.         |
-|/nfl     |Specifies that file names aren't logged.         |
-|/ndl    |Specifies that directory names aren't logged.        |
-|/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
-|/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
-|/fft     | Use to reduce the time stamp granularity for any file system.        |
-|/b     | Copies files in Backup mode.        |
-|/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
-| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
-|/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
-|log+:\<LogFile>| Appends the output to the existing log file.|    
- 
-To optimize the performance, use the following robocopy parameters when copying the data.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |-->
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-
-
-
-To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+Once the copy is complete, verify the used space and the free space on your device.
 
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+
+
+You can now proceed to ship your Data Box to Microsoft.
 
 
 ## Next steps
@@ -154,4 +126,3 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-export-picked-up.md)
 
-::: zone-end
