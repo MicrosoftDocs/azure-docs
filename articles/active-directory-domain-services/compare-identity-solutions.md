@@ -29,7 +29,7 @@ Although the three Active Directory-based identity solutions share a common name
     * For more information about Azure AD, see [What is Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
     * Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
-    * To learn more about synchronization with Azure AD and on-prem, see [How objects and credentials are synchronized in a managed domain][synchronization].
+    * To learn more about synchronization with Azure AD and on-premises, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 This overview article compares and contrasts how these identity solutions can work together, or would be used independently, depending on the needs of your organization.
 
@@ -45,7 +45,7 @@ If you have applications and services that need access to traditional authentica
 
 With Azure AD DS, the core service components are deployed and maintained for you by Microsoft as a *managed* domain experience. You don't deploy, manage, patch, and secure the AD DS infrastructure for components like the VMs, Windows Server OS, or domain controllers (DCs).
 
-Azure AD DS provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there's no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Azure AD DS and on-premises environments (currently in preview)][create-forest-trust].
+Azure AD DS provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there are no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Azure AD DS and on-premises environments (currently in preview)][create-forest-trust].
 
 For applications and services that run in the cloud and need access to traditional authentication mechanisms such as Kerberos or NTLM, Azure AD DS provides a managed domain experience with the minimal amount of administrative overhead. For more information, see [Management concepts for user accounts, passwords, and administration in Azure AD DS][administration-concepts].
 
