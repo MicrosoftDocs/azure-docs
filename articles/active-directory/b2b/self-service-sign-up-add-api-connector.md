@@ -32,7 +32,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
-    - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, enter a dummy **Username** and **Password**, so that your API will ignore it. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+    - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -59,6 +59,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 
 6. Select **Save**.
 
+Learn about [where you can enable an API connector in a user flow](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow).
 
 ## Request sent to the API
 An API connector materializes as an HTTP POST request, sending selected claims as key-value pairs in a JSON body. The response should also have the HTTP header `Content-Type: application/json`. Attributes are serialized similarly to Microsoft Graph user attributes. <!--# TODO: Add link to MS Graph or create separate reference.-->
@@ -89,7 +90,7 @@ The **UI Locales ('ui_locales')** claim is sent by default in all requests. It p
 
 If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
 
-Custom attributes can be created for the user using the **extension_\<guid>_\<CamelCaseAttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
+Custom attributes can be created for the user using the **extension_\<guid>_\<AttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
 
 > [!TIP]
 > [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
@@ -130,12 +131,12 @@ Content-type: application/json
 |---|---|---|---|
 | version | String | Yes | The version of the API. |
 | action  | String | Yes | Value must be `Continue`. |
-| \<builtInUserAttribute> | \<attribute-type> | No  | Values can be returned in the application token or stored in the directory. Must also be selected as a 'claim to receive' in the API connector configuration. |
-| \<external_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have the `_<guid>_`. Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow.  At this time, custom attributes cannot sent back in the token. |
+| \<builtInUserAttribute> | \<attribute-type> | No  | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**. |
+| \<external_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have the `_<guid>_`. Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow.  Custom attributes cannot sent back in the token. |
 
 ### Blocking Response
 
-A blocking response exits the user flow. It can be purposely issued by the API to stop the continuation of the user flow by displaying a block page to the user. The block page displays the `userMessage` provided by the API. The `code` value can be used for troubleshooting but is optional and not displayed to the user.
+A blocking response exits the user flow. It can be purposely issued by the API to stop the continuation of the user flow by displaying a block page to the user. The block page displays the `userMessage` provided by the API. 
 
 The following is an example of the blocking response:
 
@@ -157,7 +158,7 @@ Content-type: application/json
 | version         | String           | Yes      | The version of the API.    |
 | action          | String           | Yes      | Value must be `ShowBlockPage`  |
 | userMessage     | String           | Yes      | Message to display to the user.    |
-| code            | String           | No       | Error code. Can be used for debugging purposes.    |
+| code            | String           | No       | Error code. Can be used for debugging purposes. Not displayed to the user.    |
 
 #### End user experience with a blocking response
 
@@ -188,7 +189,7 @@ Content-type: application/json
 | action          | String           | Yes      | Value must be `ValidationError`.   |
 | status          | Integer          | Yes      | Must be value `400` for a ValidationError response.  |
 | userMessage     | String           | Yes      | Message to display to the user.   |
-| code            | String           | No       | Error code. Can be used for debugging purposes.    |
+| code            | String           | No       | Error code. Can be used for debugging purposes. Not displayed to the user.    |
 
 #### End user experience with a validation-error response
 
@@ -197,6 +198,6 @@ Content-type: application/json
 
 ## Next steps
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
-- Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-API-connector-for-a-user-flow)
+- Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-for-a-user-flow)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
 - Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing)
