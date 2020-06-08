@@ -120,9 +120,9 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
    > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to Azure SQL Database, see the tutorial [Migrate SQL Server to Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    >
 
-## Prerequisites for migrating SQL Server to an Azure SQL Database managed instance
+## Prerequisites for migrating SQL Server to Azure SQL Managed Instance
 
-* Create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database Managed Instance in the Azure portal](https://aka.ms/sqldbmi).
+* Create a SQL Managed Instance by following the detail in the article [Create a Azure SQL Managed Instance in the Azure portal](https://aka.ms/sqldbmi).
 * Open your firewalls to allow SMB traffic on port 445 for the Azure Database Migration Service IP address or subnet range.
 * Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you are running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -133,7 +133,7 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
 * Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI.
 
    > [!NOTE]
-   > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to Azure SQL Database Managed Instance, see the tutorial [Migrate SQL Server to Azure SQL Database Managed Instance](https://aka.ms/migratetomiusingdms).
+   > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to SQL Managed Instance, see the tutorial [Migrate SQL Server to SQL Managed Instance](https://aka.ms/migratetomiusingdms).
 
 ## Next steps
 

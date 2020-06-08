@@ -8,14 +8,6 @@ ms.author: mimart
 # Used by the web app/web API tutorials for granting a web application access to
 # a registered web API application
 ---
-#### [Applications](#tab/applications/)
-
-1. Select **Applications**, and then select the web application that should have access to the API. For example, *webapp1*.
-1. Select **API access**, and then select **Add**.
-1. In the **Select API** dropdown, select the API to which web application should be granted access. For example, *webapi1*.
-1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-1. Select **OK**.
-
 #### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Select **App registrations (Preview)**, and then select the web application that should have access to the API. For example, *webapp1*.
@@ -29,3 +21,11 @@ ms.author: mimart
 1. If you're prompted to select an account, select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes.
+
+#### [Applications](#tab/applications/)
+
+1. Select **Applications**, and then select the web application that should have access to the API. For example, *webapp1*.
+1. Select **API access**, and then select **Add**.
+1. In the **Select API** dropdown, select the API to which web application should be granted access. For example, *webapi1*.
+1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
+1. Select **OK**.

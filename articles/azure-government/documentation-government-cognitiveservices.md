@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 9/28/2018
 ms.author: femila
-
+ms.custom: references_regions
 ---
 
 # Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs

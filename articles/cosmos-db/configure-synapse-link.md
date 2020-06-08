@@ -191,7 +191,7 @@ Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 
-You can find samples to get started with Azure Synapse Link on [Github](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and Retail scenarios.
+You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and Retail scenarios.
 
 ## Next steps
 

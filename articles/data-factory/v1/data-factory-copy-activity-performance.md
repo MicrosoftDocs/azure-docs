@@ -385,7 +385,7 @@ One or more of the following factors might cause the performance bottleneck:
 
 * **Source**: SQL Server itself has low throughput because of heavy loads.
 * **Data Management Gateway**:
-  * **LAN**: Gateway is located far from the SQL Server machine and has a low-bandwidth connection.
+  * **LAN**: Gateway is located far from the SQL Server computer and has a low-bandwidth connection.
   * **Gateway**: Gateway has reached its load limitations to perform the following operations:
     * **Serialization**: Serializing the data stream to CSV format has slow throughput.
     * **Compression**: You chose a slow compression codec (for example, bzip2, which is 2.8 MBps with Core i7).

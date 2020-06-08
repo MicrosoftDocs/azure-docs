@@ -82,6 +82,10 @@ Ensure that the **Force Overwrite** option is selected while restoring.
 
 Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
 
+### Can I use a backup of a database running on SLES to restore to a RHEL HANA system or vice versa?
+
+Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to a RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you will have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
+
 ## Next steps
 
 Learn how to [back up SAP HANA databases](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) running on Azure VMs.
