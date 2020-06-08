@@ -660,7 +660,7 @@
         href: data-lake-storage-supported-open-source-platforms.md
     - name: Migration
       items:
-      - name: WANdisco LiveData Migrator for Azure
+      - name: Migrate with WANdisco LiveData Migrator
         href: migrate-gen2-wandisco-live-data-migrator.md
     - name: Monitoring
       items:
