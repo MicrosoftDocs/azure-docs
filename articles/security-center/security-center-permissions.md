@@ -37,15 +37,16 @@ In addition to these roles, there are two specific Security Center roles:
 
 The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts | View alerts and recommendations |
-|:--- |:---:|:---:|:---:|:---:|
-| Subscription Owner | ✔ | ✔ | ✔ | ✔ |
-| Subscription Contributor | -- | ✔ | ✔ | ✔ |
-| Resource Group Owner | -- | ✔ | -- | ✔ |
-| Resource Group Contributor | -- | ✔ | -- | ✔ |
-| Reader | -- | -- | -- | ✔ |
-| Security Admin | ✔ | -- | ✔ | ✔ |
-| Security Reader | -- | -- | -- | ✔ |
+|Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Edit security policy|-|✔|-|-|✔|
+|Apply security recommendations for a resource</br> (& use 'Quick Fix!')|-|-|✔|✔|✔|
+|Dismiss alerts|-|✔|-|✔|✔|
+|View alerts and recommendations|✔|✔|✔|✔|✔|
+|Change subscription pricing tier|-|✔|-|-|-|
+|Enable / disable auto-provisioning|-|✔|-|-|-|
+
+
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
