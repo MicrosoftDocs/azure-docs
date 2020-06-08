@@ -419,9 +419,11 @@
                  HorizontalOptions="FillAndExpand"
                  Padding="20,40">
         <Button x:Name="RegisterButton"
-                Text="Register" />
+                Text="Register"
+                Clicked="RegisterButtonClicked" />
         <Button x:Name="DeregisterButton"
-                Text="Deregister" />
+                Text="Deregister"
+                Clicked="DeregisterButtonClicked" />
     </StackLayout>
     ```
 
@@ -462,22 +464,6 @@
         => MainThread.BeginInvokeOnMainThread(()
             => DisplayAlert("PushDemo", message, "OK").ContinueWith((task)
                 => { if (task.IsFaulted) throw task.Exception; }));
-    ```
-
-1. Override the **OnAppearing** and **OnDisappearing** to subscribe/unsubscribe from the **RegisterButton** and **DeregisterButton** buttons **Clicked** events.
-
-    ```csharp
-    protected override void OnAppearing()
-    {
-        RegisterButton.Clicked += RegisterButtonClicked;
-        DeregisterButton.Clicked += DeregisterButtonClicked;
-    }
-
-    protected override void OnDisappearing()
-    {
-        RegisterButton.Clicked -= RegisterButtonClicked;
-        DeregisterButton.Clicked -= DeregisterButtonClicked;
-    }
     ```
 
 1. Now in **App.xaml.cs**, ensure the following namespaces are referenced.
