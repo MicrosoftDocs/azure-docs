@@ -20,62 +20,62 @@ A provisioning agent baked inside the image will interface with the platform, co
 
 The provisioning agents can be the [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux), or [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). These are [prerequisites](<LINK>) of creating generalized images.
 
-The provisioning agents, provide support for all endorsed [Azure Linux distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), and you will find the endorsed distro images in many cases will ship with cloud-init and the Linux Agent, this allows for cloud-init to handle the provisioning, then the Linux Agent will provide support to handle [Azure Extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Providing support for extensions means the VM will then be eligible to support a plethora of addtional Azure services, such as VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk encryption etc.
+The provisioning agents, provide support for all endorsed [Azure Linux distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), and you will find the endorsed distro images in many cases will ship with cloud-init and the Linux Agent, this allows for cloud-init to handle the provisioning, then the Linux Agent will provide support to handle [Azure Extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Providing support for extensions means the VM will then be eligible to support additional Azure services, such as VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk encryption etc.
 
-Once provisioning has occured, the VM is setup, but cloud-init will run each boot monitoring for VM changes, such as networking, or mounting and formatting the ephemeral disk, and starting the Linux Agent. The Linux Agent continually runs on the server, seeking a 'goal state' (new configuration) from the Azure platform, so whenever you install extensions, the agent will be able to process them.
+After provisioning completes, cloud-init will run on each boot. Cloud-init will monitor for changes to the VM, like networking changes, mounting and formatting the ephemeral disk, and starting the Linux Agent. The Linux Agent continually runs on the server, seeking a 'goal state' (new configuration) from the Azure platform, so whenever you install extensions, the agent will be able to process them.
 
 Whilst there are currently two provisioning agents, cloud-init should be the provisioning agent you choose, and the Linux Agent should be installed for extension support. This allows you to take advantage of platform optimizations, and allows you to disable/remove the Linux Agent, for more details on how to create images without the agent, and how to remove it, please review this [documentation](./2a_ProvisioningWithoutTheLinuxAgent.md).
 
-If you have a Linux flavor or kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images wihout an agent](./2b_ProvisioningWithNoProvAgent.md), and meet platform requirements.
+If you have a Linux flavor or kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](./2b_ProvisioningWithNoProvAgent.md), and meet platform requirements.
 
 
 
 ## Provisioning Agent Responsibilities
 
-* **Image Provisioning**
+**Image Provisioning**
   
-  * Creation of a user account
-  * Configuring SSH authentication types
-  * Deployment of SSH public keys and key pairs
-  * Setting the host name
-  * Publishing the host name to the platform DNS
-  * Reporting SSH host key fingerprint to the platform
-  * Resource Disk Management
-  * Formatting and mounting the resource disk
-  * Consuming and processing customData
+- Creation of a user account
+- Configuring SSH authentication types
+- Deployment of SSH public keys and key pairs
+- Setting the host name
+- Publishing the host name to the platform DNS
+- Reporting SSH host key fingerprint to the platform
+- Resource Disk Management
+- Formatting and mounting the resource disk
+- Consuming and processing customData
  
-* **Networking**
+**Networking**
   
-  * Manages routes to improve compatibility with platform DHCP servers
-  * Ensures the stability of the network interface name
+- Manages routes to improve compatibility with platform DHCP servers
+- Ensures the stability of the network interface name
 
-* **Kernel**
+**Kernel**
   
-  * Configures virtual NUMA (disable for kernel <`2.6.37`)
-  * Consumes Hyper-V entropy for /dev/random
-  * Configures SCSI timeouts for the root device (which could be remote)
+- Configures virtual NUMA (disable for kernel <`2.6.37`)
+- Consumes Hyper-V entropy for /dev/random
+- Configures SCSI timeouts for the root device (which could be remote)
 
-* **Diagnostics**
+**Diagnostics**
   
-  * Console redirection to the serial port
+- Console redirection to the serial port
 
 ## Communication
 The information flow from the platform to the agent occurs via two channels:
 
-* A boot-time attached DVD for IaaS deployments. This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.
-* A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
-* IMDS >>> Do we want to mention this?
+- A boot-time attached DVD for IaaS deployments. This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.
+- A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
+- IMDS >>> Do we want to mention this?
 
 ## Azure Provisioning Agent Requirements
 The Linux Agent and cloud-init depends on some system packages in order to function properly:
-* Python 2.6+
-* OpenSSL 1.0+
-* OpenSSH 5.3+
-* Filesystem utilities: sfdisk, fdisk, mkfs, parted
-* Password tools: chpasswd, sudo
-* Text processing tools: sed, grep
-* Network tools: ip-route
-* Kernel support for mounting UDF filesystems.
+- Python 2.6+
+- OpenSSL 1.0+
+- OpenSSH 5.3+
+- Filesystem utilities: `sfdisk`, `fdisk`, `mkfs`, `parted`
+- Password tools: chpasswd, sudo
+- Text processing tools: sed, grep
+- Network tools: ip-route
+- Kernel support for mounting UDF filesystems.
 
 ## Next steps
 

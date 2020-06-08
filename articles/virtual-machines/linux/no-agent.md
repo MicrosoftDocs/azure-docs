@@ -14,11 +14,11 @@ ms.reviewer: cynthn
 
 # Create generalized images without a provisioning agent
 
-You should not be considering this for the majority of VM deployments in Azure, as we have Provisioning Agents, such as cloud-init that are maintained, tested and updated to support the VM provisioning with Azure.
+You should not be considering this for the majority of VM deployments in Azure, as we have Provisioning Agents, such as cloud-init that are maintained, tested, and updated to support the VM provisioning with Azure.
 
 You should only consider this if:
-1. You Linux OS will not support cloud-init prerequistes.
-2. You require some of the VM create properties to be set, such as hostname, userName, CustomData to be set during VM deployment.
+1. You Linux OS will not meet the cloud-init prerequisites.
+2. You require some of properties to be set, like hostname, userName, CustomData to be set during VM deployment.
 >> ANH - Are these properties reasonable?
     * If you do not require any VM Create properties to be set, then you should create a [specialized VM Linux Image](<tbd>).
 
@@ -30,7 +30,7 @@ Irrespective of which properties you set, you need to configure instance network
 ## Enabling networking and self-reporting a successful provisioning
 NOTICE: failure to self-report ready state will result in the instance being power cycled.
  
-To do this, and assuming you have a reasonably standard kernel that can detect the networking interface(s), you will require a DHCP client to get an IP from your virtual network, a DNS resolver and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include dhclient, network-manager, systemd-networkd and others.
+To do this, and assuming you have a reasonably standard kernel that can detect the networking interface(s), you will require a DHCP client to get an IP from your virtual network, a DNS resolver and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
  
 When you're done setting up networking, it's time to self-report the provisioning event. To do this, you need to send an HTTP request to the wire server, and you should have suitable retry logic, at least 5 attempts.
 
@@ -45,7 +45,7 @@ When you create the VM from the image with no Linux Agent, you need to ensure th
 
 >Note! If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
-To deploy the VM with extensions disabled, uou can use AZ CLI with [--enable-agent](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+To deploy the VM with extensions disabled, you can use `az vm create` with [--enable-agent](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-create):
 ```bash
 az vm create \
     --resource-group $resourceGroup \
