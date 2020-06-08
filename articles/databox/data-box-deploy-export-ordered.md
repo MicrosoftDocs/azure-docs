@@ -212,9 +212,7 @@ If the device is not available, you will receive a notification. If the device i
 
 When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
 
-<!-- Anusha 06/04/20: This screenshot needs to be updated. As soon as processing is done, data copy will begin so the user will never see the processed state -->
-
-![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15.png)
+![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
 
 Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked.
 
