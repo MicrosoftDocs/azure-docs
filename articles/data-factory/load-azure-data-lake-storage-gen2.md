@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2019
+ms.date: 06/08/2020
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
@@ -108,29 +108,21 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![Summary page](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 
-12. In the **Deployment page**, select **Edit pipeline** to edit the pipeline.
-
-    ![Deployment page](./media/load-azure-data-lake-storage-gen2/deployment-page.png)
-
-13. On the pipeline canvas, select **Debug** on the toolbar to debug the pipeline. You see the status of the pipeline run in the Output tab at the bottom of the window.
-
-14. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
-
-15. To run the pipeline, select **Add trigger** on the toolbar, and then select **Trigger Now**. On the Pipeline Run page, select **OK**.
-
-16. When the pipeline run completes, go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
+12. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
+ 
+13. When the pipeline run completes successfully, you see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
     ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-17. To see activity runs associated with the pipeline run, select the **CopyFromAmazonS3ToADLS** link under the PIPELINE NAME column. For details about the copy operation, select the **Details** link (eyeglasses icon) under the ACTIVITY NAME column. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configuration.
+14. To see activity runs associated with the pipeline run, select the **CopyFromAmazonS3ToADLS** link under the PIPELINE NAME column. For details about the copy operation, select the **Details** link (eyeglasses icon) under the ACTIVITY NAME column. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configuration.
  
     ![Monitor activity runs](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
     
     ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
-18. To refresh the view, select Refresh. Select **All pipeline runs** at the top to go back to the Pipeline Runs view.
+15. To refresh the view, select Refresh. Select **All pipeline runs** at the top to go back to the Pipeline Runs view.
 
-19. Verify that the data is copied into your Data Lake Storage Gen2 account.
+16. Verify that the data is copied into your Data Lake Storage Gen2 account.
 
 ## Next steps
 
