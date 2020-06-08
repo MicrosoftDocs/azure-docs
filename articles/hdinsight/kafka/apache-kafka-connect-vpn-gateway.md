@@ -6,9 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, tracking-python
 ms.date: 03/04/2020
-ms.custom: tracking-python
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
