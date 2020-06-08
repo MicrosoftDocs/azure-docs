@@ -19,7 +19,7 @@
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
-      href: akv-integrate-kubernetes.md
+      href: key-vault-integrate-kubernetes.md
   - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
 
