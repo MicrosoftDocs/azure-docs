@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
  
 # Add a custom approval system to self-service sign-up
 
-With [API connectors](api-connectors-overview.md), you can integrate your own custom approval system with self-service sign-up so you can manage which user accounts are created in your tenant.
+With [API connectors](api-connectors-overview.md), you can integrate with your own custom approval system with self-service sign-up so you can manage which guest user accounts are created in your tenant.
 
 This article gives an example of how to integrate with an approval system. In this example, the self-service sign-up user flow collects user data during the sign-up process and passes it to your approval system. Then, the approval system can:
 
