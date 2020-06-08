@@ -5,6 +5,7 @@ services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: sql od
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
