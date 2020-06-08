@@ -47,7 +47,7 @@ To get started, see [Configure Disk Witness?? need link? or do we write this con
 
 **Supported OS**:    
 **Supported SQL version**:    
-**Supported FCI storage**: Azure Shared Storage   
+**Supported FCI storage**: Azure Shared Disks
 
 ### Cloud Witness
 
@@ -112,7 +112,7 @@ To get started, learn how to [configure a distributed network name (DNN) resourc
 
 **Supported OS**: Windows Server 2019   
 **Supported SQL version**: SQL Server 2019   
-**Supported FCI storage**:  Shared Managed Disks   
+**Supported FCI storage**:  Azure Shared Disks Managed Disks   
 
 ## Limitations
 

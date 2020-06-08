@@ -18,9 +18,9 @@ ms.author: mathoma
 # Prepare a virtual machine for FCI (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to prepare two SQL Server on Azure Virtual Machines (VMs) to use the two-node failover cluster instance (FCI) feature. Configuration settings vary depending on the storage solution so validate you're choosing the correct configuration to suit your environment and business. 
+This article describes how to prepare two Azure Virtual Machines (VMs) to use with a SQL Server failover cluster instance (FCI). Configuration settings vary depending on the FCI storage solution so validate you're choosing the correct configuration to suit your environment and business. 
 
-For an overview, see [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md).
+See [an overview of FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
 
 ## Prerequisites 
 
@@ -35,7 +35,7 @@ For an overview, see [Failover cluster instances with SQL Server on Azure VMs](f
 
 ## Choose FCI storage option
 
-The configuration settings for your virtual machine vary depending on the storage option you're planning to use for your SQL Server failover cluster instance. Before preparing the virtual machine, review the [available FCI storage options](failover-cluster-instance-overview.md#storage) and select the option that best suits your environment and business need. Then carefully choose the appropriate VM configuration options throughout this article based on your intended storage selection. 
+The configuration settings for your virtual machine vary depending on the storage option you're planning to use for your SQL Server failover cluster instance. Before preparing the virtual machine, review the [available FCI storage options](failover-cluster-instance-overview.md) and select the option that best suits your environment and business need. Then carefully choose the appropriate VM configuration options throughout this article based on your intended storage selection. 
 
 ## Configure VM availability 
 

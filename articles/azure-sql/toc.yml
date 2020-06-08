@@ -936,6 +936,18 @@
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
     - name: Concepts
       items:
+      - name: Business Continuity
+        items:
+        - name: Overview
+          href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+        - name: Backup and restore
+          href: virtual-machines/windows/backup-restore.md
+        - name: Azure Storage for backup
+          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+        - name: Always On availability group
+          href: virtual-machines/windows/availability-group-overview.md
+        - name: Failover cluster instance
+          href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Best practices
         items:
         - name: Performance
@@ -943,64 +955,53 @@
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
         - name: Business continuity
-          href: virtual-machines/windows/high-availability-disaster-recovery-hadr-best-practices.md
+          href: virtual-machines/windows/hadr-high-availability-disaster-recovery-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-      - name: Business Continuity
-        items:
-        - name: Overview
-          href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-        - name: Backup and restore
-          href: virtual-machines/windows/backup-restore.md
-        - name: Always On availability group
-          href: virtual-machines/windows/availability-group-overview.md
-        - name: Failover cluster instance
-          href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Management
         items:
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
-        - name: With the Azure portal
-          href: virtual-machines/windows/manage-sql-vm-portal.md
         - name: Extend support for SQL 2008 & R2
           href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
-        - name: Connect to a VM
-          href: virtual-machines/windows/ways-to-connect-to-sql.md
-        - name: Configure storage
-          href: virtual-machines/windows/storage-configuration.md
-        - name: Automate management tasks
-          items:
-          - name: Use the SQL Server IaaS Agent Extension
-            href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-          - name: Automated Patching
-            href: virtual-machines/windows/automated-patching.md
-          - name: Configure Azure Key Vault Integration
-            href: virtual-machines/windows/azure-key-vault-integration-configure.md
     - name: How-to guides
       items:
+      - name: Connect to SQL VM
+        href: virtual-machines/windows/ways-to-connect-to-sql.md
       - name: Create SQL VM
         items:
         - name: Use the portal
           href: virtual-machines/windows/create-sql-vm-portal.md
         - name: Use Azure PowerShell
           href: virtual-machines/windows/create-sql-vm-powershell.md
-      - name: Register with SQL VM RP
-        displayName: resource provider, registration
-        items:
-        - name: Single VM
-          href: virtual-machines/windows/sql-vm-resource-provider-register.md
-        - name: Bulk register multiple VMs
-          href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+
       - name: Manage
         items: 
-        - name: Licensing model
+        - name: With the Azure portal
+          href: virtual-machines/windows/manage-sql-vm-portal.md
+        - name: License model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
         - name: Edition 
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
-        - name: Azure Storage for backup & restore
-          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+        - name: Storage
+          href: virtual-machines/windows/storage-configuration.md
+        - name: Azure Key Vault Integration
+          href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Register with SQL VM RP
+          displayName: resource provider, registration
+          items:
+          - name: Single VM
+            href: virtual-machines/windows/sql-vm-resource-provider-register.md
+          - name: Bulk register multiple VMs
+            href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+        - name: Automate management tasks
+          items:
+          - name: Use the SQL Server IaaS Agent Extension
+            href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
+          - name: Automated Patching
+            href: virtual-machines/windows/automated-patching.md
       - name: Migrate
         items:
         - name: SQL Server database to VM
@@ -1019,8 +1020,6 @@
           items:
           - name: Azure SQL VM CLI
             href: virtual-machines/windows/availability-group-az-cli-configure.md
-          - name: Azure portal template
-            href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
           - name: Azure Quickstart templates
             href: virtual-machines/windows/availability-group-quickstart-template-configure.md
           - name: Multiple regions
@@ -1039,25 +1038,24 @@
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
         - name: Failover cluster instance (FCI)
           items:
-          - name: Configure environment
-            items: 
-            - name: SQL Server VM for FCI 
-              href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-            - name: Distributed Network Name (DNN)  
-              href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-configure.md
-            - name: Azure Load Balancer 
-              href: virtual-machines/windows/failover-cluster-instance-azure-load-balancer-configure.md
-            - name: Connectivity 
-              href: virtual-machines/windows/failover-cluster-instance-connectivity-configure.md
+          - name: Prepare VM for FCI 
+            href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
           - name: Create FCI with
-            items: 
+              items: 
             - name: Azure Shared Disks (SQL2019+)
               href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
             - name: Storage Spaces Direct (Win2016+)
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium File Share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-
+        - name: Configure connectivity
+          items:
+          - name: Connectivity 
+            href: virtual-machines/windows/hadr-connectivity-configure.md
+          - name: Distributed Network Name (DNN)
+            href: virtual-machines/windows/hadr-distributed-network-name-configure.md
+          - name: Azure Load Balancer 
+            href: virtual-machines/windows/hadr-azure-load-balancer-configure.md
 
     - name: Reference
       items:

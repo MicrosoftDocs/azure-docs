@@ -109,5 +109,5 @@ At this time, SQL Server failover cluster instances on Azure virtual machines ar
 
 ## Next steps
 
-Be sure to review the [high availability and disaster recover best practices](high-availability-disaster-recovery-hadr-best-practices.md) to ensure your cluster has been configured appropriately, and then [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review the [high availability and disaster recover best practices](hadr-high-availability-disaster-recovery-best-practices.md) to ensure your cluster has been configured appropriately, and then [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
