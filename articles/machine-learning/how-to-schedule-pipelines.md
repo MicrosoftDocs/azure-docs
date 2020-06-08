@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
+ms.custom: tracking-python
 
 # Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
 ---
