@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/digital-twins/about-digital-twins.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/about-digital-twins",
+      "redirect_url": "articles/digital-twins/overview",
       "redirect_document_id": false
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-events-routing.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/concepts-events-routing",
+      "redirect_url": "articles/digital-twins/concepts-route-events",
       "redirect_document_id": false
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-service-limits.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/concepts-service-limits",
+      "redirect_url": "articles/digital-twins/reference-service-limits",
       "redirect_document_id": false
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-egress-endpoints",
+      "redirect_url": "articles/digital-twins/how-to-manage-routes",
       "redirect_document_id": false
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-navigate-apis.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-navigate-apis",
+      "redirect_url": "articles/digital-twins/how-to-use-apis-sdks",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-query-common-apis.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-query-common-apis",
+      "redirect_url": "articles/digital-twins/how-to-query-graph",
       "redirect_document_id": false
     },
     {
@@ -97,17 +97,17 @@
     },
     {
       "source_path": "articles/digital-twins/security-best-practices.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-best-practices",
+      "redirect_url": "articles/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-create-manage-role-assignments",
+      "redirect_url": "articles/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-role-based-access-control.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-role-based-access-control",
+      "redirect_url": "articles/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
@@ -367,7 +367,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
-      "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
       "redirect_document_id": false
     },
     {
