@@ -2402,7 +2402,7 @@ You can change the default behavior for triggers and actions with the `operation
 
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#asynchronous-patterns). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
+| `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
 | `OptimizedForHighThroughput` | String | Change the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) on the number of action executions per 5 minutes to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>To set this option, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
@@ -2666,13 +2666,13 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 1. Drag the **Degree of Parallelism** slider to the number `1`.
 
-<a name="asynchronous-patterns"></a>
+<a name="disable-asynchronous-pattern"></a>
 
 ### Run actions synchronously
 
-By default, all HTTP-based actions follow the standard asynchronous operation pattern. This pattern specifies that when an HTTP-based action sends a request to the specified endpoint, the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted the request for processing. The Logic Apps engine keeps checking the URL specified by the response's location header until processing stops, which is any non-202 response.
+By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](../architecture/patterns/async-request-reply.md). This pattern specifies that after an HTTP-based action calls or sends a request to the specified endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](../architecture/microservices/design/interservice-communication.md#synchronous-versus-asynchronous-messaging).
 
-However, requests have a timeout limit, so for long-running actions, you can disable the asynchronous behavior by adding and setting the `operationOptions` property to `DisableAsyncPattern` under the action's inputs.
+However, HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits). So, for long-running actions, you can disable the asynchronous behavior so that the HTTP action follows the synchronous operation pattern instead by adding and setting the [`operationOptions` property](#operation-options) to `DisableAsyncPattern` under the action's `inputs` section:
 
 ```json
 "<some-long-running-action>": {
@@ -2683,7 +2683,12 @@ However, requests have a timeout limit, so for long-running actions, you can dis
 }
 ```
 
-For more information, see [Operation options](#operation-options).
+
+In the Logic App Designer, follow these steps to disable an HTTP action's **Asynchronous Pattern** setting, which is enabled by default and specifies that the action doesn't wait and can start checking the request status until processing stops.
+
+!["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+If you disable this setting, the action follows the synchronous operation pattern instead. The HTTP action's underlying JavaScript Object Notation (JSON) definition also has the [`"DisableAsyncPattern"`](..//logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) operation option, , which specifies that HTTP action follow the synchronous operation pattern instead. For more information, see [Run actions synchronously](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
 
 <a name="run-high-throughput-mode"></a>
 

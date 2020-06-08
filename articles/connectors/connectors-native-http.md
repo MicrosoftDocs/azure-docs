@@ -153,6 +153,34 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 }
 ```
 
+<a name="asynchronous-pattern"></a>
+
+## Asynchronous request-response behavior
+
+By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](../architecture/patterns/async-request-reply.md). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](../architecture/microservices/design/interservice-communication.md#synchronous-versus-asynchronous-messaging).
+
+In the Logic App Designer, HTTP actions, but not triggers, have an **Asynchronous Pattern** setting, which is enabled by default and specifies that the action doesn't wait and can start checking the request status until processing stops.
+
+!["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
+
+## Avoid HTTP timeouts for long-running tasks
+
+HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits). HTTP actions, but not triggers, have an [**Asynchronous Pattern**](#asynchronous-pattern) setting, which is enabled by default. For long-running HTTP actions, you can disable the [**Asynchronous Pattern**](#asynchronous-pattern) setting so that the action follows the synchronous operation pattern instead. The HTTP action's underlying JavaScript Object Notation (JSON) definition also has the [`"DisableAsyncPattern"`](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) operation option, which specifies that the HTTP action follow the synchronous operation pattern instead. For more information, see [Run actions synchronously](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+
+<a name="disable-location-header-check"></a>
+
+## Disable location header check
+
+Some receivers return the "202 ACCEPTED" response without a `location` header. HTTP actions, but not triggers, have an [**Asynchronous Pattern**](#asynchronous-pattern) setting, which is enabled by default. To disable having the HTTP action continually check the request status by using the `location` header when the header doesn't exist, you can turn off the action's **Asynchronous Pattern** setting in the Logic App Designer. However, disabling this setting also has the action follow the synchronous pattern instead.
+
+1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+
+1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if enabled, and select **Done**.
+
+   ![Disable the "Asynchronous Pattern" setting](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+
+To disable this `location` header check in the HTTP action's underlying JavaScript Object Notation (JSON) definition and have the action follow the synchronous operation pattern, you can use the [`"DisableAsyncPattern"`](..//logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) operation option.
+
 ## Known issues
 
 <a name="omitted-headers"></a>
@@ -173,25 +201,6 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 * `Transfer-Encoding`
 
 Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
-
-<a name="missing-location-header"></a>
-
-### Missing location headers in responses
-
-When an HTTP action calls or sends a request to an API, service, or system, that destination returns a `202 ACCEPTED` response to the caller after accepting the request. However, sometimes the destination returns a response that doesn't include the `location` header. This header usually specifies a callback URL and a "refresh" ID for an endpoint that the caller can use to regularly check the status of an asynchronous request refresh. The caller checks the status until the destination returns a `200 OK` successful response or other status.
-
-HTTP actions, but not triggers, have an **Asynchronous Pattern** setting, which specifies that the destination immediately return a `202 ACCEPTED` response after receiving a request for processing. That way, the logic app doesn't have to wait and can start checking on the request status until processing is complete. Although the **Asynchronous Pattern** setting is enabled by default, you can disable the setting so that the HTTP action doesn't check the `location`header when the header is missing.
-
-1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
-
-1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if not already disabled, and select **Done**.
-
-   ![Check "Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
-
-For more information about the asynchronous polling pattern, see these topics:
-
-* [Perform long-running tasks with the polling action pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern)
-* [Check for new data or events regularly with the polling trigger pattern](../logic-apps/logic-apps-create-api-app.md#polling-triggers)
 
 ## Connector reference
 
