@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Create and manage encryption scopes (preview)
 
-Encryption scopes (preview) enable you to optionally manage encryption at the level of the container or an individual blob. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage (preview)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Encryption scopes (preview) enable you to manage encryption at the level of an individual blob or container. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage (preview)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
 
@@ -22,7 +22,7 @@ This article shows how to create an encryption scope. It also shows how to speci
 
 To create an encryption scope, you must first create an Azure key vault and add the key you intend to use for the scope. The key vault must have both the **Soft Delete** and **Purge Protection** properties enabled and must be in the same region as the storage account. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
 
-An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify that encryption scope when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
+An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 
 # [Portal](#tab/portal)
 
@@ -43,7 +43,9 @@ For more information on configuring customer-managed keys with Azure Key Vault f
 
 # [PowerShell](#tab/powershell)
 
-To create an encryption scope with PowerShell, first install the Az.Storage preview module version. Using the latest preview version is recommended, but encryption scopes are supported in version [1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview) and later. Remove any other versions of the Az.Storage module. Run the following command to install the preview module:
+To create an encryption scope with PowerShell, first install the Az.Storage preview module version. Using the latest preview version is recommended, but encryption scopes are supported in version 1.13.4-preview and later. Remove any other versions of the Az.Storage module.
+
+The following command installs Az.Storage [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) module:
 
 ```powershell
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
@@ -169,7 +171,7 @@ az storage account encryption-scope create \
 
 # [Portal](#tab/portal)
 
-To view the encryption scopes for a storage account in the Azure portal, navigate to the **Encryption Scopes** setting for the storage account. The list of encryption scopes appears as shown in the following image:
+To view the encryption scopes for a storage account in the Azure portal, navigate to the **Encryption Scopes** setting for the storage account. From this pane, you can enable or disable an encryption scope or change the key for an encryption scope.
 
 :::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot showing list of encryption scopes in Azure portal":::
 
@@ -209,7 +211,7 @@ To create a container with a default encryption scope in the Azure portal, first
 1. Navigate to the list of containers in your storage account, and select the **Add** button to create a new container.
 1. Expand the **Advanced** settings in the **New Container** pane.
 1. In the **Encryption scope** drop-down, select the default encryption scope for the container.
-1. To require that all blobs in the container use the default encryption scope, select the checkbox to **Use this encryption scope for all blobs in the container**.
+1. To require that all blobs in the container use the default encryption scope, select the checkbox to **Use this encryption scope for all blobs in the container**. If this checkbox is selected, then an individual blob in the container cannot override the default encryption scope.
 
     :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot showing container with default encryption scope":::
 
@@ -221,6 +223,7 @@ An individual blob can be created with its own encryption scope, unless the cont
 
 ```powershell
 $containerName1 = "container1"
+$containerName2 = "container2"
 
 # Create a container with a default encryption scope that cannot be overridden.
 New-AzRmStorageContainer -ResourceGroupName $rgName `
@@ -228,21 +231,6 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
     -Name $containerName1 `
     -DefaultEncryptionScope $scopeName1 `
     -PreventEncryptionScopeOverride $true
-```
-
-If a client attempts to specify a scope when uploading a blob to a container that has a default encryption scope and the container is configured to prevent blobs from overriding the default scope, then the operation fails with a message indicating that the request is forbidden by the container encryption policy.
-
-To permit blobs in a container to use a scope that is different from the default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
-
-```powershell
-$containerName2 = "container2"
-
-# Create a container with a default encryption scope that can be overridden.
-New-AzRmStorageContainer -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -Name $containerName2 `
-    -DefaultEncryptionScope $scopeName2 `
-    -PreventEncryptionScopeOverride $false
 ```
 
 # [Azure CLI](#tab/cli)
@@ -261,11 +249,9 @@ az storage container create \
     --auth-mode login
 ```
 
-If a client attempts to specify a scope when uploading a blob to a container that has a default encryption scope and the container is configured to prevent blobs from overriding the default scope, then the operation fails with a message indicating that the request is forbidden by the container encryption policy.
-
-To permit blobs in a container to use a scope that is different from the default scope, set the `--prevent-encryption-scope-override` parameter to `true`.
-
 ---
+
+If a client attempts to specify a scope when uploading a blob to a container that has a default encryption scope and the container is configured to prevent blobs from overriding the default scope, then the operation fails with a message indicating that the request is forbidden by the container encryption policy.
 
 ## Upload a blob with an encryption scope
 
@@ -288,14 +274,14 @@ To upload a blob with an encryption scope specified in the Azure portal, first c
 To upload a blob with an encryption scope specified by using PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command and provide the encryption scope for the blob.
 
 ```powershell
-$containerName3 = "container3"
+$containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
 $ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $accountName).Context
 
 # Create a new container with no default scope defined.
-New-AzStorageContainer -Name $containerName3 -Context $ctx
+New-AzStorageContainer -Name $containerName2 -Context $ctx
 # Upload a block upload with an encryption scope specified.
-Set-AzStorageBlobContent -Context $ctx -Container $container3 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
+Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
 ```
 
 # [Azure CLI](#tab/cli)
@@ -315,6 +301,18 @@ az storage blob upload \
 
 ---
 
+## Change the encryption key for a scope
+
+# [Portal](#tab/portal)
+
+
+# [PowerShell](#tab/powershell)
+
+
+# [Azure CLI](#tab/cli)
+
+
+
 ## Disable an encryption scope
 
 # [Portal](#tab/portal)
@@ -326,9 +324,9 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 To disable an encryption scope with PowerShell, call the Update-AzStorageEncryptionScope command and include the `-State` parameter with a value of `disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `-State` parameter set to `enabled`. Remember to replace the placeholder values in the example with your own values:
 
 ```powershell
-Update-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
-    -StorageAccountName <storage-account> `
-    -EncryptionScopeName <encryption-scope> `
+Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -EncryptionScopeName $scopeName1 `
     -State disabled
 ```
 
