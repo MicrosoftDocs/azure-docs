@@ -28,7 +28,7 @@ You can create custom attributes in the Azure portal and use them in your self-s
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-You can find the `<aad-extensions-app-id>` on the **App registrations** page next to **Application (client) ID** for that starts with `aad-extensions-app`. This ID is specific to your tenant.
+You can find the `<aad-extensions-app-id>` on the **App registrations** page next to **Application (client) ID** for the app that starts with `aad-extensions-app`. This ID is specific to your tenant.
 
 ## Create a custom attribute
 
