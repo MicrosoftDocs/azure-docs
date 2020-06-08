@@ -22,6 +22,8 @@
       href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Batch
       href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Blockchain
+      href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
@@ -36,6 +38,8 @@
       href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for PostgreSQL
       href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Databricks
+      href: ../../azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Hub
@@ -84,6 +88,8 @@
       href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
       href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Stream Analytics
+      href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
       href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
@@ -243,6 +249,12 @@
       href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
+  - name: View template properties
+    items:
+    - name: Export template
+      href: export-template-portal.md
+    - name: View resources
+      href: view-resources.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
@@ -289,8 +301,6 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: Export template
-    href: export-template-portal.md
   - name: View deployment history
     href: deployment-history.md
   - name: Troubleshoot deployments

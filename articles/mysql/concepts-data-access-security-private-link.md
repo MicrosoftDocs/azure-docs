@@ -42,6 +42,10 @@ When you connect to the public endpoint from on-premises machines, your IP addre
 
 With Private Link, you can enable cross-premises access to the private endpoint using [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), private peering or [VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/). They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
+> [!NOTE]
+> In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Configure Private Link for Azure Database for MySQL
 
 ### Creation Process
@@ -124,3 +128,6 @@ To learn more about Azure Database for MySQL security features, see the followin
 * To learn how to configure a virtual network service endpoint for your Azure Database for MySQL, see [Configure access from virtual networks](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
 
 * For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
