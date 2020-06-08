@@ -29,13 +29,15 @@ Customers sets a new property Type for an instance of DiskEncryptionSet with val
 
 Customers can enable the second layer of encryption for data-in-transit for OS and Data Disks by setting a new VM property EncryptionAtHost to True. The data-in-transit is encrypted with either CMK or PMK depending on the encryption type set on OS and Data Disks. For example, if a disk is encrypted with EncryptionAtRestWithCustomerKey then data-in-transit for the disk is encrypted with the Customer Key and if a disk is encrypted with EncryptionAtRestWithPlatformKey then data-in-transit for the disk is encrypted with the Platform Key. 
 
-## End to end encryption
-
-
 
 ## About encryption key management
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
+
+### End to end encryption
+
+When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the ABC cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
+
 
 The following sections describe each of the options for key management in greater detail.
 
