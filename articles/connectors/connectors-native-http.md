@@ -155,6 +155,8 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 
 ## Known issues
 
+<a name="omitted-headers"></a>
+
 ### Omitted HTTP headers
 
 If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
@@ -172,16 +174,13 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 
 Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Logic Apps ignores these headers.
 
+<a name="missing-location-header"></a>
+
 ### Missing location headers in responses
 
-HTTP calls to some APIs, services, or systems might get responses that are missing the `location` header. Usually, this header specifies a `GET` callback URL and a "refresh" ID for an endpoint where the caller can check and track status for an asynchronous request refresh. The caller continues checking, or polling, this endpoint until a `200 OK` successful response is returned. Without this `location` header, your logic app might get stuck waiting for the request status.
+HTTP requests or calls to some APIs, services, or systems might get responses that are missing the `location` header. This header usually contains a `GET` callback URL and a "refresh" ID for an endpoint that the caller can check and track the status for an asynchronous request refresh. The caller waits for the destination to accept the request for processing, which is indicated by returning a `202 ACCEPTED` response. The caller then continually checks the status endpoint until the destination returns a `200 OK` successful response.
 
-HTTP actions have an **Asynchronous Pattern** setting, which specifies that if the destination server or service accepts requests for processing by immediately returning a `202 ACCEPTED` response, the logic app continues polling the URL that in the response's location header until reaching a terminal state.
-
-If the destination server or service accepts requests for processing by responding with the `202 ACCEPTED` status code, the logic app 
-
-, and wait for the `202 ACCEPTED` status code response 
-
+To disable waiting for the `202 ACCEPTED` response, HTTP actions have an **Asynchronous Pattern** setting. This pattern specifies that if the destination accepts requests for processing by returning a `202 ACCEPTED` response, the destination immediately returns the `202` response so that the logic app doesn't have to wait and keeps polling the status endpoint until processing is complete.
 
 1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
 
