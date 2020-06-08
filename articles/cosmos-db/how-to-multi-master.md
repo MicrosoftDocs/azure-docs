@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
+ms.custom: tracking-python
 ---
 
 # Configure multi-master in your applications that use Azure Cosmos DB
