@@ -53,7 +53,7 @@ An on-premises to Azure virtual network ExpressRoute circuit is required to conn
 Once linked with Global Reach, the two ExpressRoute circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the preceding diagram. The interconnectivity represented in the diagram enables the following use cases:
 
 - Hot/Cold Cross-vCenter vMotion
-- On-Premise to AVS private cloud management access
+- On-Premises to AVS private cloud management access
 
 To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. The [tutorial for creating a private cloud](tutorial-create-private-cloud.md) provides you with the procedures for requesting and using the key and ID.
 
