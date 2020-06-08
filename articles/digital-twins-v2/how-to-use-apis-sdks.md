@@ -27,7 +27,7 @@ The most current control plane API version for public preview is _**2020-03-01-p
 
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.
-* You can access [SDKs for control APIs in Go](https://github.com/Azure/azure-sdk-for-go/releases).
+* You can currently access SDKs for control APIs in [Go](https://github.com/Azure/azure-sdk-for-go/releases).
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
@@ -45,10 +45,10 @@ To use the data plane APIs:
 * You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage. 
    - You can also view the [API reference documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
 * You can use the SDKs. Currently, the only published SDK for interacting with these APIs is for .NET (C#).
-   - For .NET users, you can find the SDK source at https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core. The SDK NuGet and its reference docs are also at that location. You can continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
+   - For .NET users, you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). You can continue to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section for detailed information and usage examples.
    - If you are working in another language, you can [generate your own SDK using AutoRest](how-to-create-custom-sdks.md).
 
-You can also exercise date plane APIs by interacting with Azure DIgital Twins through the [CLI](how-to-use-cli.md).
+You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
 
 ## .NET (C#) SDK (data plane)
 
@@ -65,7 +65,7 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 * Using the .NET command-line tool, you can run:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.1
     dotnet add package Azure.identity
     ```
 

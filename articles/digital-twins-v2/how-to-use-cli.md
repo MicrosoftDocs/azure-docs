@@ -26,7 +26,7 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via role-based access control (RBAC)
 
-The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the reference documentation for these commands as part of the [az iot command set](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
+The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Deploy and validate
 
