@@ -63,22 +63,6 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Memory Optimized|16|130996502528|134217728|130996502528|
 |Memory Optimized|32|264140488704|134217728|264140488704|
 
-|**Pricing Tier**|**vCore(s)**|**Max value (MB)<br>(servers supporting up to 4 TB storage)**|**Max value (MB)<br>(servers supporting up to 16 TB storage)**|
-|---|---|---|---|
-|Basic| 1| 832| |
-|Basic| 2| 2560| |
-|General Purpose| 2| 3584| 7168|
-|General Purpose| 4| 7680| 15360|
-|General Purpose| 8| 15360| 30720|
-|General Purpose| 16| 31232| 62464|
-|General Purpose| 32| 62976| 125952|
-|General Purpose| 64| 125952| 251904|
-|Memory Optimized| 2| 7168| 14336|
-|Memory Optimized| 4| 15360| 30720|
-|Memory Optimized| 8| 30720| 61440|
-|Memory Optimized| 16| 62464| 124928|
-|Memory Optimized| 32| 125952| 251904|
-
 ### innodb_file_per_table
 
 > [!NOTE]
