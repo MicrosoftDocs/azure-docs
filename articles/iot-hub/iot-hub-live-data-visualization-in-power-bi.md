@@ -145,7 +145,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 5. For the dataset you created, select **Add Report** (the first icon to the right of the dataset name).
 
-   ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/start-power-bi.png)
+   ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png)
 
 6. Create a line chart to show real-time temperature over time.
 
@@ -159,9 +159,9 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
       A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
-      ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temp.png)
+      ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png)
 
-7. Create another line chart to show real-time humidity over time. To do this, follow the same steps above and place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
+7. Create another line chart to show real-time humidity over time. To do this, click on a blank part of the canvas and follow the same steps above to place **EventEnqueuedUtcTime** on the x-axis and **humidity** on the y-axis.
 
    ![Add a line chart for humidity to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-humidity.png)
 
@@ -170,6 +170,8 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 9. Select **Reports** on the left pane, and then select the report that you just created.
 
 10. Select **File** > **Publish to web**.
+
+    ![Select publish to web for the Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-publish-to-web.png)
 
     > [!NOTE]
     > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
@@ -180,7 +182,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website.
 
-![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-publish.png)
+![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png)
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
