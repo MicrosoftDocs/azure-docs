@@ -9,7 +9,7 @@ ms.topic: reference
 
 # VM sizes
 
-The rendering service can operate on two different types of machines in the Azure data center, called `Standard` and `Premium`.
+The rendering service can operate on two different types of machines in Azure, called `Standard` and `Premium`.
 
 ## Allocating the VM
 
