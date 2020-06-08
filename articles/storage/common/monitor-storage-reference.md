@@ -27,11 +27,15 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Account Level
 
+This table shows [account-level metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### Blob storage
+
+This table shows [Blob storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -42,6 +46,8 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Table storage
 
+This table shows [Table storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | TableCapacity | The amount of Table storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
@@ -50,6 +56,8 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Queue storage
 
+This table shows [Queue storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | The amount of Queue storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
@@ -57,6 +65,8 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### File storage
+
+This table shows [File storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
