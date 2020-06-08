@@ -2,7 +2,8 @@
 title: Set up Microsoft Azure Backup Server for Azure VMware Solution (AVS)
 description: Set up your Azure VMware Solution (AVS) environment to backup virtual machines using Microsoft Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 06/09/2020
+ms.author: v-patsho
 ---
 
 # Set up Microsoft Azure Backup Server for AVS
