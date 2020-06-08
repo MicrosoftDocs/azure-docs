@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.workload: data-services
 
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/08/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
@@ -24,7 +24,7 @@ This document introduces how you can create and configure Azure Integration Runt
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Default Azure IR
-By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is auto-resolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
+By default, each data factory has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is autoresolve. If **connectVia** property is not specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 
 
 ## Create Azure IR
 
@@ -47,9 +47,10 @@ Use the following steps to create an Azure IR using Azure Data Factory UI.
 
    ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
 
-1. Select **Connections** at the bottom of the left pane, and select **Integration runtimes** in the **Connections** window. Select **+New**.
+1. Select **Connections** at the bottom of the left pane, and then choose **Open management hub**.
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Create an integration runtime](media/doc-common-process/new-integration-runtime.png)
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
