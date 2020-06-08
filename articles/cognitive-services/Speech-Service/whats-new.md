@@ -32,7 +32,7 @@ These documents were updated in May 2020.
 * [Configure RHEL/CentOS 7 for Speech SDK](how-to-configure-rhel-centos-7.md) - Improved setup instructions.
 * [Phrase Lists for speech-to-text](how-to-phrase-lists.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) - Updated with support for public neural voices, and associated parameters.
-* [Quickstart: Recognize speech from an audio file](speech-to-text-from-file.md) - Added JavaScript instructions to documentation.
+* [Quickstart: Recognize speech from an audio file](quickstarts/speech-to-text-from-file.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Recognize speech from a microphone](quickstarts/speech-to-text-from-microphone.md ) - Added Go and JavaScript instructions to documentation.
 * [Quickstart: Recognize speech stored in blob storage](quickstarts/from-blob.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)](quickstarts/intent-recognition.md)
