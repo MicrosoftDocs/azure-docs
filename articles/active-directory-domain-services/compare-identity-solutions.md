@@ -96,7 +96,7 @@ Devices can be joined to Azure AD with or without a hybrid deployment that inclu
 
 | **Type of device**                                        | **Device platforms**             | **Mechanism**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| Personal devices                                          | Windows 10, iOS, Android, Mac OS | Azure AD registered    |
+| Personal devices                                          | Windows 10, iOS, Android, macOS | Azure AD registered    |
 | Organization-owned device not joined to on-premises AD DS | Windows 10                       | Azure AD joined        |
 | Organization-owned device joined to an on-premises AD DS  | Windows 10                       | Hybrid Azure AD joined |
 
