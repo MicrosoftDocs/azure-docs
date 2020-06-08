@@ -113,7 +113,7 @@ The module has two outputs:
 
 This module also outputs the *LDA transformation* that applies LDA to the dataset.
 
-You can save this transformation and reuse it for other datasets. This technique might be useful if you have trained on a large corpus and want to reuse the coefficients or categories.
+You can save this transformation and reuse it for other datasets. This technique might be useful if you've trained on a large corpus and want to reuse the coefficients or categories.
 
 To reuse this transformation, select the **Register dataset** icon in the right panel of the Latent Dirichlet Allocation module to keep the module under the **Datasets** category in the module list. Then you can connect this module to the [Apply Transformation](apply-transformation.md) module to reuse this transformation.
 
@@ -123,7 +123,7 @@ Typically, you can't create a single LDA model that will meet all needs. Even a 
 
 + Changing the model parameters
 + Using visualization to understand the results
-+ Getting the feedback of subject matter experts to ascertain whether the generated topics are useful
++ Getting the feedback of subject matter experts to determine whether the generated topics are useful
 
 Qualitative measures can also be useful for assessing the results. To evaluate topic modeling results, consider:
 
@@ -166,7 +166,7 @@ By default, the distributions of outputs for a transformed dataset and feature-t
 
 Latent Dirichlet Allocation is often used for *content-based topic modeling*, which basically means learning categories from unclassified text. In content-based topic modeling, a topic is a distribution over words.
 
-For example, assume that you have provided a corpus of customer reviews that includes many products. The text of reviews that have been submitted by customers over time contains many terms, some of which are used in multiple topics.
+For example, assume that you've provided a corpus of customer reviews that includes many products. The text of reviews that have been submitted by customers over time contains many terms, some of which are used in multiple topics.
 
 A *topic* that the LDA process identifies might represent reviews for an individual product, or it might represent a group of product reviews. To LDA, the topic itself is just a probability distribution over time for a set of words.
 

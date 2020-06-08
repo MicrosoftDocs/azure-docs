@@ -30,9 +30,9 @@ For anomaly detection, each new input is analyzed. The anomaly detection algorit
 
 For more information about how PCA works, and about the implementation for anomaly detection, see these papers:
 
-- [A randomized algorithm for principal component analysis](https://arxiv.org/abs/0809.2274), by Rokhlin, Szlan, and Tygert.
+- [A randomized algorithm for principal component analysis](https://arxiv.org/abs/0809.2274), by Rokhlin, Szlan, and Tygert
 
-- [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF download), by Halko, Martinsson, and Tropp.
+- [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF download), by Halko, Martinsson, and Tropp
 
 ## How to configure the module
 

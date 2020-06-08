@@ -65,7 +65,7 @@ Because there are so many ways to group data, all customizable, we recommend tha
 
 5. For **Columns to bin**, use the column selector to choose the columns that have the values you want to bin. Columns must be a numeric data type.
 
-    The same binning rule is applied to all applicable columns that you choose. Therefore, if you need to bin some columns by using a different method, use a separate instance of the Group Data into Bins module for each set of columns.
+    The same binning rule is applied to all applicable columns that you choose. If you need to bin some columns by using a different method, use a separate instance of the Group Data into Bins module for each set of columns.
 
     > [!WARNING]
     > If you choose a column that's not an allowed type, a runtime error is generated. The module returns an error as soon as it finds any column of a disallowed type. If you get an error, review all selected columns. The error does not list all invalid columns.

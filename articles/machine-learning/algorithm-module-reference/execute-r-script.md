@@ -184,7 +184,7 @@ Execute R Script modules can return multiple outputs, but they must be provided 
 
 Standard messages and errors from R are returned to the module's log.
 
-If you need to print results in the R script, You can find the printed results in **70_driver_log** under the **Outputs+logs** tab in the right panel of the module.
+If you need to print results in the R script, you can find the printed results in **70_driver_log** under the **Outputs+logs** tab in the right panel of the module.
 
 ## Sample scripts
 
