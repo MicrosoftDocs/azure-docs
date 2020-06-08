@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/05/2020
 ms.author: dsindona
 ---
 
@@ -17,16 +17,7 @@ Consulting service offers are customer-specific engagements. Publishers have the
 
 ## Compare consulting services
 
-The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Audience      |IT pros and cloud developers|Business users and line-of-business decision makers|
-|Solution relevance      |Technical apps built for or built on Azure|Business apps that utilize or extend Dynamics 365, Power BI, Office 365, Azure (add-in or add-on finished apps)|
-|Publishing options      |Contact me, Trial, Transact, or Services for Azure|Contact me, Trial, or Services for Dynamics 365 and Power BI|
-|In-product experience      |Azure portal|Dynamics 365, Office 365, Office client apps| 
-|Other      |On-premises publishing via Azure Stack, consulting services for Azure, managed services for Azure|Consulting services for Dynamics 365 and Power BI|
-||
+The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two storefronts, see [Comparing Microsoft AppSource and Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
