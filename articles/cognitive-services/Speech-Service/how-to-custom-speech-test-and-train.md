@@ -26,9 +26,9 @@ Consider these factors when gathering data for custom model testing and training
 * You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
 * Audio must be gathered using hardware devices the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data you provide to train your model must also represent these diverse scenarios.
 * You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
-* Including audio data that is *not* within your custom model recognition needs can harm recognition quality overall, so do not include audio data that your model does not need to transcribe.
+* Including data that is *not* within your custom model recognition needs can harm recognition quality overall, so do not include data that your model does not need to transcribe.
 
-A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose audio data that represents the full scope of scenarios you need your custom model to recognize.
+A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose data that represents the full scope of scenarios you need your custom model to recognize.
 
 > [!TIP]
 > Start with small sets of sample data that match the language and acoustics your model will encounter.
