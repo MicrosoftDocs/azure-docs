@@ -28,13 +28,25 @@ The software requirements include the information on the supported operating sys
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
-### Supported file systems for Linux clients
+
+
+### Supported filesystems for Linux clients
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
+
+
+> [!IMPORTANT] 
+> Connection to Data Box shares is not supported via REST for export orders. 
 
 ### Supported storage accounts
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
+
+> [!NOTE]
+>
+> * Azure Data Lake Storage (ADLS) Gen2 storage accounts are not supported for export.
+> * Append Blob storage is not supported for export.
+
 
 ### Supported storage types
 
