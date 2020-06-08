@@ -101,7 +101,7 @@ See [Create and assign an initiative definition](../../governance/policy/tutoria
 ![Initiative definition](media/deploy-scale/initiative-definition.png)
 
 ### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
+Assign the initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
 ![Initiative assignment](media/deploy-scale/initiative-assignment.png)
 
@@ -110,7 +110,7 @@ By using initiative parameters, you can specify the workspace or any other detai
 ![Initiative parameters](media/deploy-scale/initiative-parameters.png)
 
 ### Remediation
-The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) will apply the initiative to existing resources, so this allows you to create diagnostic settings for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resource.md) for details on the remediation.
+The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) will apply the initiative to existing resources, so this allows you to create diagnostic settings for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
 
 ![Initiative remediation](media/deploy-scale/initiative-remediation.png)
 
