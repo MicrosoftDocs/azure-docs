@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/04/2020
+ms.date: 06/08/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory
@@ -103,9 +103,11 @@ In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (for
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your Azure SQL database to the data factory. 
 
-1. Select **Connections** button (located
-at the bottom of the left column under **Factory Resources**), and then choose **Open management hub**.
-1. Select the **+New** button on the toolbar. 
+1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
+
+1. On the Linked services page, select **+New** to create a new linked service.
+
+   ![New linked service](./media/doc-common-process/new-linked-service.png)
 1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**. 
 1. In the **New Linked Service (Azure SQL Database)** window, do the following steps: 
 

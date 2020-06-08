@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/04/2020
+ms.date: 06/08/2020
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -154,16 +154,10 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **Summary** page, review the settings, and then select **Next**.
 
-1. On the **Deployment page**, select **Edit pipeline** to edit the pipeline.
+1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
-1. On the pipeline canvas, select **Debug** on the toolbar to debug the pipeline. You see the status of the pipeline run in the Output tab at the bottom of the window.
-
-1. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
-
-1. To run the pipeline, select **Add trigger** on the toolbar, and then select **Trigger Now**. On the Pipeline Run page, select **OK**.
-
-1. When the pipeline run completes, go to the **Monitor** tab on the left. 
-
+    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
     ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
 
