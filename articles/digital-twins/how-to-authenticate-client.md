@@ -91,7 +91,7 @@ The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located 
 If you don't have a starter client app project already set up, create a basic .NET project to use with this tutorial.
 
 In order to use the .NET SDK, you'll need to include the following packages in your project:
-* `Azure.DigitalTwins.Core` (version `1.0.0-preview.1`)
+* `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
 * `Azure.Identity`
 
 Depending on your tools of choice, you can do so with the Visual Studio package manager or the `dotnet` command line tool. 
