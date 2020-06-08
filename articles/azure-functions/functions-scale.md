@@ -66,7 +66,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 Information on how you can configure these options can be found in the [Azure Functions Premium plan document](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there is a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
 Consider the Azure Functions Premium plan in the following situations:
 
@@ -94,7 +94,7 @@ With an App Service plan, you can manually scale out by adding more VM instances
 When running JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of very high scale.
+Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of high scale.
 
 ### <a name="always-on"></a> Always On
 
@@ -122,11 +122,11 @@ When the output from this command is `dynamic`, your function app is in the Cons
 
 ## Storage account requirements
 
-On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts do not support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
+On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts don't support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
 
 The same storage account used by your function app can also be used by your triggers and bindings to store your application data. However, for storage-intensive operations, you should use a separate storage account.  
 
-It's certainly possible for multiple function apps to share the same storage account without any issues. (A good example of this is when you develop multiple apps in your local environment using the Azure Storage Emulator, which acts like one storage account.) 
+It's possible for multiple function apps to share the same storage account without any issues. (A good example of this is when you develop multiple apps in your local environment using the Azure Storage Emulator, which acts like one storage account.) 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -160,7 +160,7 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 
 There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
-For additional information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
+For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
 ### Billing model
 
@@ -180,13 +180,13 @@ The following comparison table shows all important aspects to help the decision 
 ### Plan summary
 | | |
 | --- | --- |  
-|**[Consumption plan](#consumption-plan)**| Scale automatically and only pay for compute resources when your functions are running. On the Consumption plan, instances of the Functions host are dynamically added and removed based on the number of incoming events.<br/> ✔ Default hosting plan.<br/>✔ Pay only when your functions are running.<br/>✔ Scale out automatically, even during periods of high load.|  
+|**[Consumption plan](#consumption-plan)**| Scale automatically and only pay for compute resources when your functions are running. On the Consumption plan, instances of the Functions host are dynamically added and removed based on the number of incoming events.<br/> ✔ Default hosting plan.<br/>✔ Pay only when your functions are running.<br/>✔ scale-out automatically, even during periods of high load.|  
 |**[Premium plan](#premium-plan)**|While automatically scaling based on demand, use pre-warmed workers to run applications with no delay after being idle, run on more powerful instances, and connect to VNETs. Consider the Azure Functions Premium plan in the following situations,  in addition to all features of the App Service plan: <br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.<br/>✔ You need more CPU or memory options than what is provided by the Consumption plan.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require features that are only avail [able on a Premium plan, such as virtual network connectivity.|  
 |**[Dedicated plan](#app-service-plan)**<sup>1</sup>|Run your functions within an App Service plan at regular App Service plan rates. Good fit for long running operations, as well as when more predictive scaling and costs are required. Consider an App Service plan in the following situations:<br/>✔ You have existing, underutilized VMs that are already running other App Service instances.<br/>✔ You want to provide a custom image on which to run your functions.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. ASEs are appropriate for application workloads that require: <br/>✔ Very high scale.<br/>✔ Isolation and secure network access.<br/>✔ High memory utilization.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes provides a fully isolated and dedicated environment running on top of the Kubernetes platform.  Kubernetes is appropriate for application workloads that require: <br/>✔ Custom hardware requirements.<br/>✔ Isolation and secure network access.<br/>✔ Ability to run in hybrid or multi-cloud environment.<br/>✔ Run alongside existing Kubernetes applications and services.|  
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### Operating System/Runtime
 
@@ -212,7 +212,7 @@ The following comparison table shows all important aspects to help the decision 
 | **[ASE](#app-service-plan)**<sup>1</sup> | Manual/autoscale |100 |
 | **[Kubernetes](functions-kubernetes-keda.md)**  | Event-driven autoscale for Kubernetes clusters using [KEDA](https://keda.sh). | Varies&nbsp;by&nbsp;cluster.&nbsp;&nbsp;|
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### Cold Start
 
@@ -222,9 +222,9 @@ The following comparison table shows all important aspects to help the decision 
 | **[Premium plan](#premium-plan)** | Perpetually warm instances to avoid any cold start. |
 | **[Dedicated plan](#app-service-plan)**<sup>1</sup> | When running in a Dedicated plan, the Functions host can run continuously, which means that cold start isn’t really an issue. |
 | **[ASE](#app-service-plan)**<sup>1</sup> | When running in a Dedicated plan, the Functions host can run continuously, which means that cold start isn’t really an issue. |
-| **[Kubernetes](functions-kubernetes-keda.md)**  | Depends on KEDA configuration. Apps can be configured to always run and never have cold start, or configured to scale to zero which results in cold start on new events. 
+| **[Kubernetes](functions-kubernetes-keda.md)**  | Depends on KEDA configuration. Apps can be configured to always run and never have cold start, or configured to scale to zero, which results in cold start on new events. 
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### Service limits
 
@@ -241,10 +241,10 @@ The following comparison table shows all important aspects to help the decision 
 | **[Consumption plan](#consumption-plan)** | Pay only for the time your functions run. Billing is based on number of executions, execution time, and memory used. |
 | **[Premium plan](#premium-plan)** | Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance per plan must be kept warm at all times. This plan provides more predictable pricing. |
 | **[Dedicated plan](#app-service-plan)**<sup>1</sup> | You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps.|
-| **[ASE](#app-service-plan)**<sup>1</sup> | There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. |
+| **[ASE](#app-service-plan)**<sup>1</sup> | there's a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there's a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| You pay only the costs of your Kubernetes cluster; no additional billing for Functions. Your function app runs as an application workload on top of your cluster, just like a regular app. |
 
-<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ## Next steps
 
