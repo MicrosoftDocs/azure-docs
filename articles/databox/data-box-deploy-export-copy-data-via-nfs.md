@@ -139,4 +139,4 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
-> [Ship your Azure Data Box to Microsoft](./data-box-export-deploy-picked-up.md)
+> [Ship your Azure Data Box to Microsoft](./data-box-deploy-export-picked-up.md)
