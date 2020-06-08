@@ -209,7 +209,7 @@ To create an Azure Event Grid subscription, follow these steps:
     2. Select **Web Hook** for **Endpoint Type**. 
 
         ![Service Bus - Event Grid subscription](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
-    3. Chose **Select an endpoint**, paste the function URL, and then select **Confirm selection**. 
+    3. Choose **Select an endpoint**, paste the function URL, and then select **Confirm selection**. 
 
         ![Function - select the endpoint](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
     4. Switch to the **Filters** tab, and do the following tasks:
