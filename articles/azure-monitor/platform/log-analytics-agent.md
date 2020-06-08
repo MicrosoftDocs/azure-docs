@@ -126,7 +126,7 @@ alternatives --set python /usr/sbin/python2
 
 ### Supported distros
 
-The following versions of the Windows operating system are officially supported for the Windows agent:
+The following versions of the Linux operating system are officially supported for the Linux agent:
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x64) and 7 (x64)  
