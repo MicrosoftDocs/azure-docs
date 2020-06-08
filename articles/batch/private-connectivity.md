@@ -85,7 +85,7 @@ When [creating a Batch account by using Azure Resource Manager template](quick-c
 
 ## Configure DNS zones
 
-Use a [private DNS zone](../dns/private-dns-privatednszone.md)within the subnet where you've created the private endpoint. Configure the endpoints so that each private IP address is mapped to a DNS entry.
+Use a [private DNS zone](../dns/private-dns-privatednszone.md) within the subnet where you've created the private endpoint. Configure the endpoints so that each private IP address is mapped to a DNS entry.
 
 When you're creating the private endpoint, you can integrate it with a [private DNS zone](../dns/private-dns-privatednszone.md) in Azure. If you choose to instead use a [custom domain](../dns/dns-custom-domain.md), you must configure it to add DNS records for all private IP addresses reserved for the private endpoint.
 
