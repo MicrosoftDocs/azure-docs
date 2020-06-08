@@ -6,7 +6,7 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: synapse link
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
