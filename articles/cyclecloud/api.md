@@ -5,14 +5,26 @@ author: adriankjohnson
 ms.topic: reference
 ms.date: 02/08/2018
 ms.author: adjohnso
+monikerRange: '>= cyclecloud-7'
 ---
 
 <a name="operations"></a>
 # Operations
 
-[!INCLUDE [operations](~/includes/api_operations.md)]
+::: moniker range="cyclecloud-7"
+[!INCLUDE [operations](~/includes/version-7/api_operations.md)]
+::: moniker-end
+::: moniker range=">= cyclecloud-8"
+[!INCLUDE [operations](~/includes/version-8/api_operations.md)]
+::: moniker-end
+
 
 <a name="resources"></a>
 # Resources
 
-[!INCLUDE [resources](./includes/api_resources.md)]
+::: moniker range="cyclecloud-7"
+[!INCLUDE [resources](./includes/version-7/api_resources.md)]
+::: moniker-end
+::: moniker range=">= cyclecloud-8"
+[!INCLUDE [resources](./includes/version-8/api_resources.md)]
+::: moniker-end

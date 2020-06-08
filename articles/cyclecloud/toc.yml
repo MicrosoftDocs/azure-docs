@@ -108,8 +108,14 @@
       href: ./how-to/environments.md
     - name: Use Projects
       href: ./how-to/projects.md
+    - name: Use Cloud-Init
+      href: ./how-to/cloud-init.md
+    - name: Use Spot Instances
+      href: ./how-to/use-spot-instances.md
     - name: Use Storage Blobs
       href: ./how-to/storage-blobs.md
+    - name: Configure SELinux
+      href: ./how-to/selinux.md
   - name: Node Preparation
     items:
     - name: Install Jetpack
@@ -167,6 +173,8 @@
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
+  - name: CycleServer Configuration
+    href: cycleserver-configuration-reference.md
   - name: Schedulers
     items:
     - name: PBS Professional OSS
@@ -197,6 +205,8 @@
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes
     items:
+    - name: Public Preview Release - v8.0
+      href: release-notes-preview.md
     - name: Current Release - v7.9
       href: release-notes.md
     - name: Previous Release - v7.8

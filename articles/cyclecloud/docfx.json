@@ -6,13 +6,15 @@
              "files": ["breadcrumb/toc.yml"]
          },
          {
-           "files": ["**/**.md",
+          "group": "cyclecloud-7-group",
+          "files": ["**/**.md", 
                      "**/**.yml"],
            "exclude": ["**/obj/**"]
          }
        ],
     "resource": [
       {
+        "group": "cyclecloud-7-group",
         "files": [
           "**/*.png",
           "**/*.jpg",
@@ -52,6 +54,12 @@
         "tutorials/**/*.md": "tutorial",
         "how-to/**/*.md": "how-to",
         "**overview.md": "overview"
+      }
+    },
+    "groups": {
+      "cyclecloud-7-group": {
+        "moniker_range": ">= cyclecloud-7",
+        "dest": "tempdest_cyclecloud_7"
       }
     },
     "template": [],

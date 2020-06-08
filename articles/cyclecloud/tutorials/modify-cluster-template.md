@@ -102,17 +102,18 @@ code templates/extended_nfs.template.txt
 
 **After** line 44, add the following blocks:
 
+::: moniker range="=cyclecloud-7"
 ```
 # Add 2 premium disks in a RAID 0 configuration to the NFS export
 [[[volume nfs-1]]]
 Size = 512
-SSD = True
+SSD = true
 Mount = nfs
 Persistent = true
 
 [[[volume nfs-2]]]
 Size = 512
-SSD = True
+SSD = true
 Mount = nfs
 Persistent = true
 
@@ -121,7 +122,29 @@ mountpoint = /mnt/exports
 fs_type = ext4
 raid_level = 0
 ```
+::: moniker-end
 
+::: moniker range=">=cyclecloud-8"
+```
+# Add 2 premium disks in a RAID 0 configuration to the NFS export
+[[[volume nfs-1]]]
+Size = 512
+StorageAccountType = Premium_LRS
+Mount = nfs
+Persistent = true
+
+[[[volume nfs-2]]]
+Size = 512
+StorageAccountType = Premium_LRS
+Mount = nfs
+Persistent = true
+
+[[[configuration cyclecloud.mounts.nfs]]]
+mountpoint = /mnt/exports
+fs_type = ext4
+raid_level = 0
+```
+::: moniker-end
 Save your changes.
 
 ![Edit Cluster Template window](../images/edit-cluster-template.png)

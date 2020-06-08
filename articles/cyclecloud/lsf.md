@@ -182,3 +182,6 @@ Other user data variables that can be useful in managing resources in the CycleC
 
 * nodearray_name
 * placement_group_id
+
+> [!NOTE]
+> Even though Windows is an officially supported LSF platform, CycleCloud does not support running LSF on Windows at this time.

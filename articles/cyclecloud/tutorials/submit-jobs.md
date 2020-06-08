@@ -2,23 +2,23 @@
 title: Tutorial - Submit jobs to CycleCloud cluster
 description: Learn how to submit jobs to a CycleCloud cluster
 author: adriankjohnson
-ms.date: 04/01/2020
+ms.date: 06/02/2020
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud Tutorial 3: Submit and Auto Scale Jobs
+# Azure CycleCloud Tutorial 2: Submit and Auto Scale Jobs
 
 If you've completed Tutorial 1, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This tutorial will walk you through logging into the Master node, submitting a job, and observing the autoscaling behavior.
 
 ## Master Node
 
-To run jobs on the LAMMPS cluster, you must log onto the cluster's **Master** node, where the LAMMPS job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
+To run jobs on the PBS Pro cluster, you must log onto the cluster's **Master** node, where the PBS Pro job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
-![CycleCloud Master Node Connect Button](~/images/cluster-connect-button.png)
+:::image type="content" source="~/images/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-![CycleCloud Master Node Connection Screen](~/images/connect-to-master-node.png)
+:::image type="content" source="~/images/connect-to-master-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate string and use your SSH client or Cloud Shell to connect to the master node. After the connection is complete, you will be logged into the master node.
 
@@ -35,17 +35,17 @@ workq                0     0 yes yes     0     0     0     0     0     0 Exec
 pbsnodes: Server has no node list
 ```
 
-You can submit a demo LAMMPS job by running `qsub run_lammps.sh` which submits a single job that runs a dipole example. 
+You can submit a demo job by running `qsub runpi.sh` which submits a job that calculates the value of pi. 
 
 ``` output
-[name@ip-00000000 ~]$ qsub run_lammps.sh
+[name@ip-00000000 ~]$ qsub runpi.sh
 1.ip-00000000
 ```
 
 Verify that the job is now in the queue with `qstat -Q` and that execute nodes are provisioned with `pbsnodes -Sa`:
 
 ``` output
-[name@ip-00000000 ~]$ qsub run_lammps.sh
+[name@ip-00000000 ~]$ qsub runpi.sh
 1.ip-00000000
 [name@ip-00000000 ~]$ qstat -Q
 Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type

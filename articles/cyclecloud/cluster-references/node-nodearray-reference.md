@@ -64,6 +64,27 @@ MachineType | String | The Azure VM Size
 SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
 Credentials | String | Name of the Cloud Provider account.
 
+## Additional Attributes
+
+::: moniker range="=cyclecloud-7"
+Attribute | Type | Definition
+------ | ----- | ----------
+ComputerName | String | Computer name for VM. If specified, overrides the system-generated name.
+ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
+Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
+KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+Attribute | Type | Definition
+------ | ----- | ----------
+ComputerName | String | Computer name for VM. If specified, overrides the system-generated name.
+ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
+EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
+Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
+KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+::: moniker-end
+
 ### Image Attributes
 
 The VM image is a required setting to launch a virtual machine. There are three valid forms of image definition: default CycleCloud image names, Marketplace image definitions and Image IDs.
@@ -101,8 +122,8 @@ Marketplace image and images defined by ImageIds need a few additional settings 
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension.
-AwaitInstallation | Boolean | Once a VM is started, wait for jetpack to report installation details.
+InstallJetpack | Boolean | CycleCloud will install Jetpack with OS extension.
+AwaitInstallation | Boolean | Once a VM is started, wait for Jetpack to report installation details.
 JetpackPlatform | String | Jetpack installer platform to use: `centos-7`, `centos-6`, `ubuntu-14.04`, `ubuntu-16.04`, `windows`. Deprecated in 7.7.0.
 
 > [!NOTE]
@@ -144,9 +165,7 @@ Here is a sample template using the three alternate image constructs for the nod
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 IsReturnProxy | Boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
-KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
 ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
@@ -159,9 +178,9 @@ Attribute | String | Definition
 ------ | ----- | ----------
 Tags | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in addition to the tags assigned by CycleCloud by default.
 
-### Regular/Spot/Low-priority Attributes
+### Regular/Spot Attributes
 
-CycleCloud supports the use of Spot VMs via the following attributes. See [Spot/Low-priority Virtual Machines](~/how-to/cluster-templates.md#spotlow-priority-virtual-machines) for more detail.
+CycleCloud supports the use of Spot VMs via the following attributes. See [Spot Virtual Machines](~/how-to/cluster-templates.md#spot-virtual-machines) for more detail.
 
 Attribute | String | Definition
 ------ | ----- | ----------

@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Configure NFS Mounts
 
-Azure CycleCloud provides built-in support for mounting a simple Network File System (NFS). 
+Azure CycleCloud provides built-in support for mounting a simple Network File System (NFS).
 The NFS can be another resource managed by CycleCloud or an external resource.
 
 ## Mount an NFS Filesystem
@@ -82,6 +82,9 @@ enable a fileserver and mount it on each cluster node with:
 | address       | The explicit hostname or IP address of the filesystem.  If not set, search will attempt to find the filesystem in a CycleCloud cluster. |
 | options       | Any non-default options to use when mounting the filesystem.    |
 | disabled      | If set to `true`, the node will not mount the filesystem.  |
+
+> [!NOTE]
+> Changing the hostname scheme is not supported for most schedulers.
 
 ## Further Reading
 
