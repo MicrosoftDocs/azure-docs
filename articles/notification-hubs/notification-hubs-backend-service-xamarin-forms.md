@@ -26,7 +26,7 @@ This tutorial takes you through the following steps:
 > [!div class="checklist"]
 >
 > * [Set up Push Notification Services and Azure Notification Hubs.](#set-up-push-notification-services-and-azure-notification-hub)
-> * [Create an ASP.NET Web API backend application.](#create-an-asp.net-core-web-api-backend-application)
+> * [Create an ASP.NET Core Web API backend application.](#create-an-aspnet-core-web-api-backend-application)
 > * [Create a cross-platform Xamarin.Forms application.](#create-a-cross-platform-xamarinforms-application)
 > * [Configure the native Android project for push notifications.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure the native iOS project for push notifications.](#configure-the-native-ios-project-for-push-notifications)
