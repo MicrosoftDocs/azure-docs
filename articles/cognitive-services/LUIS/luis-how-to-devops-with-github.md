@@ -3,14 +3,14 @@ title: How to apply DevOps with GitHub - LUIS
 titleSuffix: Azure Cognitive Services
 description: Apply DevOps with Language Understanding (LUIS) and GitHub.
 services: cognitive-services
-author: anwigley
+author: andycw
 manager: cmayo
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.author: andycw
+ms.author: anwigley
 ---
 
 # Apply DevOps to LUIS app development using GitHub Actions

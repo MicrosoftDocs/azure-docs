@@ -64,7 +64,7 @@ This workflow should:
 * Build a new version in your primary LUIS app (the app you maintain for the master branch) using the updated source code.
 
 * Train and publish the LUIS app version.
-  > **Note:** As explained in [Running tests in an automated build workflow](luis-concept-devops-testing.md#Running-tests-in-an-automated-build-workflow) you must publish the LUIS app version under test so that tools such as NLU.DevOps can access it. LUIS only supports two named publication slots, *staging* and *production* for a LUIS app, but you can also [publish a version directly](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) and [query by version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Use direct version publishing in your automation workflows to avoid being limited to using the named publishing slots.
+  > **Note:** As explained in [Running tests in an automated build workflow](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) you must publish the LUIS app version under test so that tools such as NLU.DevOps can access it. LUIS only supports two named publication slots, *staging* and *production* for a LUIS app, but you can also [publish a version directly](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) and [query by version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Use direct version publishing in your automation workflows to avoid being limited to using the named publishing slots.
 
 * Run all the [unit tests](luis-concept-devops-testing.md).
 

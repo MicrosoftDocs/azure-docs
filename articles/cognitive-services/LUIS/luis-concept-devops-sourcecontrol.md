@@ -63,7 +63,7 @@ The following types of files for your LUIS application should be maintained unde
 
 - `.lu` file for the LUIS application
 
-- [Unit Test definition files](luis-concept=-devops-testing.md#writing-tests) (utterances and expected results)
+- [Unit Test definition files](luis-concept-devops-testing.md#writing-tests) (utterances and expected results)
 
 - [Batch test files](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (utterances and expected results) used for performance testing
 
