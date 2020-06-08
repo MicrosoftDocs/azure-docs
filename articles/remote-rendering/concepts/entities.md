@@ -23,7 +23,7 @@ Entities are created when the server loads content or when the user wants to add
 
 ## Create an entity
 
-To add a new entity to the scene, for example to pass it as a new root object for loading models or to attach components to it, use the following code:
+To add a new entity to the scene, for example to pass it as a root object for loading models or to attach components to it, use the following code:
 
 ```cs
 Entity CreateNewEntity(AzureSession session)
@@ -46,7 +46,6 @@ ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
     }
     return entity;
 }
-
 ```
 
 ## Query functions
