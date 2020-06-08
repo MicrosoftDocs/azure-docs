@@ -8,6 +8,13 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ---
 
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
+
 # How to configure Azure Database for MySQL Data-in Replication
 
 This article describes how to set up Data-in Replication in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
