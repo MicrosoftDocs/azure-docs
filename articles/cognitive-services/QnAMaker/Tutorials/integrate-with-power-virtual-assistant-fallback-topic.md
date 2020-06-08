@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: diberry
 ---
 
@@ -52,7 +52,8 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
     * Build an agent topic.
     * Call an action (to Power Automate flow).
 * In the [Power Automate](https://us.flow.microsoft.com/) portal:
-    * Build a flow with a connector to [QnA
+    * Search for _Generate answer using QnA Maker_ template
+    * Use template to configure flow to use [QnA
     Maker's GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
         * QnA Maker published knowledge base information:
             * Knowledge base ID
@@ -60,7 +61,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
             * QnA Maker resource endpoint key
         * Input - user query
         * Output - knowledge base answer
-    * Create a solution and add the flow.
+    * Create a solution and add the flow, or add flow to existing solution.
 * Return to Power Virtual Agents:
     * Select the solution's output as a message for a topic.
 
@@ -138,6 +139,8 @@ This section creates the fallback topic conversation flow.
 The following procedure creates a Power Automate flow that:
 * Takes the incoming user text, and sends it to QnA Maker.
 * Assigns the QnA Maker top answer to a variable, and sends the variable (top answer) as the response back to your agent.
+
+1. In **Power Automate**, select **Templates** from the left navigation, then search for the template **Generate answer using QnA Maker** then select the template. 
 
 1. In **Power Automate**, the **Flow Template** is started for you. On the **Power Virtual Agents** flow item, select **Edit** to configure the input variable coming from the agent to your knowledge base. The text-based input variable is the user-submitted text question from your agent.
 
