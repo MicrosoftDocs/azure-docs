@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 05/28/2020
 ---
 
-# Copy multiple tables in bulk by using Azure Data Factory
+# Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

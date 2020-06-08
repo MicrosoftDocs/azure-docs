@@ -474,7 +474,7 @@
       - name: Use Resource Health for connectivity issues
         href: database/resource-health-to-troubleshoot-connectivity.md
       - name: Migrate DTU to vCore
-        href: database/resource-health-to-troubleshoot-connectivity.md        
+        href: database/migrate-dtu-to-vcore.md        
       - name: Scale database resources
         href: database/single-database-scale.md
       - name: Scale pool resources
