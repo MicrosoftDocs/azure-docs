@@ -18,9 +18,8 @@ When testing the accuracy of Microsoft speech recognition or training your custo
 
 ## Data diversity
 
-Custom models rely on the text and audio data used to train them.
-Text and audio used to train a custom model need to include samples from a diverse set of speakers and scenarios you need your model to recognize.
-Consider these factors when gathering data for custom model training:
+Text and audio used to test and train a custom model need to include samples from a diverse set of speakers and scenarios you need your model to recognize.
+Consider these factors when gathering data for custom model testing and training:
 
 * Your text and speech audio data need to cover the kinds of verbal statements your users will make when interacting with your model. For example, a model that raises and lowers the temperature needs training on statements people might make to request such changes.
 * Your data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
