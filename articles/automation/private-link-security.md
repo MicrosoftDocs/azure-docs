@@ -13,7 +13,6 @@ ms.subservice:
 > [!IMPORTANT]
 > At this time, you must **request access** to use this capability. You may apply for access using the [signup form](https://aka.ms/AzMonPrivateLinkSignup).
 
-
 [Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This article covers when to use and how to set up a private endpoint with your Automation account.
 
 ## Advantages
@@ -37,8 +36,6 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. These endpoints are machines using webhooks to start a runbook, machines hosting the Hybrid Runbook Worker role, and DSC nodes.
 
-![Diagram of resource topology](./media/private-link-security/private-link-topology-1.png)
-
 ## Planning based on your network
 
 Before setting up your Automation account resource, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions to your Automation account (including setting up a Private Link Group Scope to Azure Monitor if integrated with your Automation account).
@@ -49,26 +46,13 @@ Start by evaluating which of your virtual networks (VNets) have restricted acces
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints).
+Create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect. 
 
 ## Restrictions and limitations
 
 ### Agents
 
-The latest versions of the Log Analytics Windows and Linux agents must be used on private networks to enable secure telemetry ingestion to Log Analytics workspaces. Older versions cannot upload monitoring data in a private network.
-
-**Log Analytics Windows agent**
-
-Use the Log Analytics agent version 10.20.18038.0 or later.
-
-**Log Analytics Linux agent**
-
-Use agent version 1.12.25 or later. If you cannot, run the following commands on your VM.
-
-```cmd
-$ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
-$ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
-```
+The latest versions of the Log Analytics Windows and Linux agents must be used on private networks to enable secure telemetry ingestion to Log Analytics workspaces. Older versions cannot upload monitoring data in a private network. For further information, see [Log Analytics agent restrictions](../azure-monitor/platform/private-link-security.md#agents). 
 
 ### Azure portal
 
