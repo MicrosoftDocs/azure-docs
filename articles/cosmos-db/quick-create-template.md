@@ -6,7 +6,7 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
 
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
@@ -33,9 +33,9 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 Three Azure resources are defined in the template:
 
@@ -51,7 +51,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -66,6 +66,9 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
     * **Location**: enter a location where you want to create your Azure Cosmos account. The Azure Cosmos account can be in the same location as the resource group.
     * **Primary Region**: The primary replica region for the Azure Cosmos account.
     * **Secondary region**: The secondary replica region for the Azure Cosmos account.
+    * **Default Consistency Level**: The default consistency level for the Azure Cosmos account.
+    * **Max Staleness Prefix**: Max stale requests. Required for BoundedStaleness.
+    * **Max Interval in Seconds**: Max lag time. Required for BoundedStaleness.
     * **Database Name**: The name of the Azure Cosmos database.
     * **Container Name**: The name of the Azure Cosmos container.
     * **Throughput**:  The throughput for the container, minimum throughput value is 400 RU/s.
@@ -104,7 +107,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 ## Clean up resources
 
 If you plan to continue on to work with subsequent and tutorials, you may wish to leave these resources in place.
-When no longer needed, delete the resource group, which deletes the Azure Cosmos account and the related resources. To delete the resource group by using Azure CLI or Azure Powershell:
+When no longer needed, delete the resource group, which deletes the Azure Cosmos account and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 

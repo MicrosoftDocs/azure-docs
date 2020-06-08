@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
 ---
 # Copy data from Azure Blob storage to a SQL database by using Azure Data Factory
@@ -109,7 +109,8 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. On the **Let's get started** page, select **Create pipeline**.
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
-1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
+
+1. 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 

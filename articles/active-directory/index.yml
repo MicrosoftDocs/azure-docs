@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
+  ms.date: 05/29/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -45,9 +45,9 @@ conceptualContent:
         - url: ./manage-apps/what-is-single-sign-on.md
           itemType: concept
           text: What is single sign-on (SSO)?
-        - url: ./manage-apps/user-provisioning.md
-          itemType: tutorial
-          text: Automatic user provisioning
+        - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
+          itemType: concept
+          text: Configure SAML-based SSO
         - url: ./manage-apps/application-proxy.md
           itemType: concept
           text: Application Proxy for on-premises apps
@@ -113,21 +113,6 @@ conceptualContent:
           text:  Conditions based on location
       footerLink:
         url: ./conditional-access/index.yml
-        text: See more
-
-    - title: Developers
-      links:
-        - url: ./develop/v2-overview.md
-          itemType: overview
-          text:  About Microsoft identity platform
-        - url: ./develop/v2-oauth2-auth-code-flow.md
-          itemType: concept
-          text:  OAuth 2.0 code flow grant
-        - url: ./develop/quickstart-register-app.md
-          itemType: quickstart
-          text:  Register an app with the Microsoft identity platform
-      footerLink:
-        url: ./develop/index.yml
         text: See more
 
     - title: Device management
@@ -248,6 +233,21 @@ conceptualContent:
           text:  Services that support managed identity
       footerLink:
         url: ./managed-identities-azure-resources/index.yml
+        text: See more
+
+    - title: Microsoft identity platform
+      links:
+        - url: ./develop/v2-overview.md
+          itemType: overview
+          text:  About Microsoft identity platform
+        - url: ./develop/v2-oauth2-auth-code-flow.md
+          itemType: concept
+          text:  OAuth 2.0 code flow grant
+        - url: ./develop/quickstart-register-app.md
+          itemType: quickstart
+          text:  Register an app with the Microsoft identity platform
+      footerLink:
+        url: ./develop/index.yml
         text: See more
 
     - title: Privileged identity management (PIM)

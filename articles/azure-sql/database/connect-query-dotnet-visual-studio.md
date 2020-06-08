@@ -1,6 +1,7 @@
 ---
 title: Use Visual Studio with .NET and C# to query
-description: Use Visual Studio to create a C# app that connects to a database in Azure SQL Database and queries it with Transact-SQL statements.
+description: Use Visual Studio to create a C# app that connects to a database in Azure SQL Database or Azure SQL Managed Instance and runs queries.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,10 +11,10 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 12/31/2019
+ms.date: 05/29/2020
 ---
-# Quickstart: Use .NET and C# in Visual Studio to connect to and query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use .NET and C# in Visual Studio to connect to and query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL Database with Transact-SQL statements.
 

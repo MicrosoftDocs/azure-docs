@@ -400,7 +400,7 @@ Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. You can also implement SCIM APIs and Azure Databricks diagnostic logs to review user access. You can also use SCIM APIs and Azure Databricks diagnostic logs to review user access.
+**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. You can also implement SCIM APIs and Azure Databricks diagnostic logs to review user access.
 
 In addition, regularly review and manage user access within the Azure Databricks admin console.
 

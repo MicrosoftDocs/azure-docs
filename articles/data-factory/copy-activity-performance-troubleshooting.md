@@ -35,6 +35,7 @@ As a reference, currently the performance tuning tips provide suggestions for th
 | Data store specific   | Loading data into **Azure Synpase Analytics (formerly SQL DW)**: suggest using PolyBase or COPY statement if it's not used. |
 | &nbsp;                | Copying data from/to **Azure SQL Database**: when DTU is under high utilization, suggest upgrading to higher tier. |
 | &nbsp;                | Copying data from/to **Azure Cosmos DB**: when RU is under high utilization, suggest upgrading to larger RU. |
+|                       | Copying data from **SAP Table**: when copying large amount of data, suggest to leverage SAP connector's partition option to enable parallel load and increase the max partition number. |
 | &nbsp;                | Ingesting data from **Amazon Redshift**: suggest using UNLOAD if it's not used. |
 | Data store throttling | If a number of read/write operations are throttled by the data store during copy, suggest checking and increase the allowed request rate for the data store, or reduce the concurrent workload. |
 | Integration  runtime  | If you use a **Self-hosted Integration Runtime (IR)** and copy activity waits long in the queue until the IR has available resource to execute, suggest scaling out/up your IR. |
