@@ -29,7 +29,6 @@ Use the following steps to create a private Batch account using the Azure portal
 1. From the **Create a resource** pane, choose **Batch Service** and then select **Create**.
 2. Enter the subscription, resource group, region and Batch account name in the **Basics** tab, then select **Next: Advanced**.
 3. In the **Advanced** tab, set **Public network access** to **Disabled**.
-   :::image type="content" source="media/private-connectivity/disable-public-access.png" alt-text="Set Public network access to Disabled":::
 4. In **Settings**, select **Private endpoint connections** and then select **+ Private endpoint**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Private endpoint connections":::
 5. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
