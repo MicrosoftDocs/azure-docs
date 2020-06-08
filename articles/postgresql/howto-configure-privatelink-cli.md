@@ -44,7 +44,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -77,9 +77,6 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the PostgreSQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` 
-You will use the PostgreSQL Server ID in the next step. 
-
 ## Create the Private Endpoint 
 Create a private endpoint for the PostgreSQL server in your Virtual Network: 
 ```azurecli-interactive
@@ -88,7 +85,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<PostgreSQL Server ID>" \  
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforPostgreSQL/servers/$Servername" \  
     --group-ids postgresqlServer \  
     --connection-name myConnection  
  ```
