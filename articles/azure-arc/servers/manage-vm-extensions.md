@@ -52,7 +52,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
-Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the . 
+Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the `/var/azure/<extensionName>`. 
 
 ## Prerequisite
 
@@ -62,6 +62,8 @@ This feature depends on the following Azure resource providers in your subscript
 * **Microsoft.GuestConfiguration**
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+
+The Log Analytics VM extension 
 
 ### Connected Machine agent
 
@@ -73,6 +75,24 @@ The minimum version of the Connected Machine agent that is supported with this f
 * Linux - 0.8.x
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
+
+## How do agents and extensions get updated?
+
+When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the **WHAT SPECIFICALLY** downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with `autoUpgradeMinorVersion": true,'`:
+
+```json
+"publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+        ]
+    },
+```
+
+To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
 
 ## Enable extensions from the portal
 
@@ -704,13 +724,18 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 
 Data about the state of extension deployments can be retrieved from the Azure portal.
 
-Extension output is logged to a file found under the following folder on the target machine.
+Extension output is logged to a file found under the following folder on the target Windows machine.
 
 ```cmd
 %SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>
 ```
 
-The 
+Extension output is logged to a file found under the following folder on the target Linux machine.
+
+```bash
+ /var/log/GuestConfig/extension_logs/<extensionName>
+```
+
 
 
 ## Next steps
