@@ -127,14 +127,14 @@ To avoid issues while setting up customer-managed data encryption during restore
 
 ## Limitations
 
-For Azure Database for PostgreSQL, the support for encryption of data at rest using customers managed key (CMK) has some limitation 
+For Azure Database for PostgreSQL, the support for encryption of data at rest using customers managed key (CMK) has few limitations -
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
 * This feature is only supported in regions and servers which support storage up to 16TB. For the list of Azure regions supporting storage up to 16TB, refer to the storage section in documentation [here](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - All new PostgreSQL servers created in the regions listed above, support for encryption with customer manager keys is **available**.
-    > - To validate if your provisioned server supports up to 16TB, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server may not support encryption with customer manager keys. However, the data is encrypted using service manager keys at all times. Please reach out to AskAzureDBforPostgreSQL@service.microsoft.com if you have any questions.
+    > - All new PostgreSQL servers created in the regions listed above, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
+    > - To validate if your provisioned server supports up to 16TB, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server may not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforPostgreSQL@service.microsoft.com if you have any questions.
 
 * Encryption is only supported with RSA 2048 cryptographic key.
 
