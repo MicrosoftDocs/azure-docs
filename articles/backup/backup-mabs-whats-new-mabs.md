@@ -51,7 +51,7 @@ With MABS V3 UR1, an additional a layer of authentication is added for critical 
 
 ### Offline backup improvements
 
-MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 >[!NOTE]
 >The update also brings the preview for Offline Backup using Azure Data Box in MABS. Contact [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) to learn more.
