@@ -21,15 +21,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning SDK for Python v1.7.0
 
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
-
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
