@@ -22,17 +22,17 @@ Windows Virtual Desktop is now an Azure Resource Manager service. With the 2006 
 
 Here's what this change does for you:
 
-- Windows Virtual Desktop is now integrated with the Azure portal. Before the Spring 2020 update, your options for managing a Windows Virtual Desktop deployment were limited to PowerShell, a simple management app service web app, or a third-party tool.
+- Windows Virtual Desktop is now integrated with the Azure portal. Before the Spring 2020 update, your options for managing a Windows Virtual Desktop deployment were limited to PowerShell, a simple management service web app, or a third-party tool.
 
 - Before the Spring 2020 update, users could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
-- In the Fall 2019 release, there were four Remote Desktop Service (RDS) admin roles that could be assigned to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets yo uhave a full, rich delgation model.
+- In the Fall 2019 release, there were four Remote Desktop Service (RDS) admin roles that could be assigned to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
 
 - In the Spring 2020 update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is select an option in the Azure portal.
 
-- The Host Pool deployment now is fully integrated with the Azure [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning, and global replication of your images to other Azure regions for local deployment.
+- The Host Pool deployment now is fully integrated with the Azure [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
-- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You can run independent reports for multiple Azure Resource Manager objects at once. You can also create visual reports by either integrating with PowerBI or running a Kusto query and creating your report in Workbooks.
+- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You can run independent reports for multiple Azure Resource Manager objects at once. You can also integrate with Power BI or run a Kusto query and create your visual report in Workbooks.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 release, your Azure subscription authenticates the Azure AD tenant for your users and provides RBAC controls for your admins.
 
@@ -44,7 +44,7 @@ Learn more about data locations at [Data locations](data-locations.md).
 
 ### PowerShell support
 
-The Spring 2020 release features a new AzWvd Powershell module. This new module is supported in PowerShell Core, which runs on .NET Core.
+The Spring 2020 release features a new AzWvd PowerShell module. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, run the following cmdlet:
 
@@ -62,7 +62,7 @@ For more information about the new features, check out [our blog post](https://t
 
 ### Microsoft Teams on Windows Virtual Desktop
 
-We've improved remote meeting and collaboration experiences with Microsoft Teams on Windows Virtual Desktop by using audio/visual redirection for audio and visual calls. This creates a direct path between users when they use aduio and video, reducing the nuber of hops. Redirection improves latency and users' overall audio and video experience.
+We've improved remote meeting and collaboration experiences with Microsoft Teams on Windows Virtual Desktop by using audio andvisual redirection for calls. This process creates a direct path between users when they use audio and video, reducing the nuber of hops. Redirection improves latency and users' overall audio and video experience.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
