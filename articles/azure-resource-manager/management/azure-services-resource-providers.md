@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ---
 
 # Resource providers for Azure services
@@ -20,7 +20,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [API Management](../../api-management/index.yml) |
-| Microsoft.AppConfiguration | core |
+| Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Azure Attestation Service |
 | Microsoft.Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
@@ -57,7 +57,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
-| Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
+| Microsoft.CustomerLockbox | [Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |

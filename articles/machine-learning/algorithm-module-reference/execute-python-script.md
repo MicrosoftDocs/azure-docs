@@ -208,7 +208,7 @@ The Execute Python Script module contains sample Python code that you can use as
 
     ![Execute Python input map](media/module/python-module.png)
 
-4. To include new Python packages or code, add the zipped file that contains these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a file type dataset. You can upload the dataset on the **Datasets** asset page. You can drag the dataset module from the **My datasets** list in the left module tree in the designer authoring page. 
+4. To include new Python packages or code, add the zipped file that contains these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a file type dataset. You can upload the dataset on the **Datasets** asset page. You can drag the dataset module from the **My datasets** list in the left module tree on the designer authoring page. 
 
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
 
@@ -227,11 +227,11 @@ The Execute Python Script module contains sample Python code that you can use as
     + The entry point function must have two input arguments, `Param<dataframe1>` and `Param<dataframe2>`, even when these arguments aren't used in your script.
     + Zipped files connected to the third input port are unzipped and stored in the directory `.\Script Bundle`, which is also added to the Python `sys.path`. 
 
-    If your zip file contains `mymodule.py`, import it by using `import mymodule`.
+    If your .zip file contains `mymodule.py`, import it by using `import mymodule`.
 
     Two datasets can be returned to the designer, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
-6. Submit the pipeline, or select the module and click **Run selected** to run just the Python script.
+6. Submit the pipeline, or select the module and select **Run selected** to run just the Python script.
 
     All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
 
