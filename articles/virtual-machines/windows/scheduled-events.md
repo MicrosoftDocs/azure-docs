@@ -139,7 +139,7 @@ Scheduled events are delivered to:
  - Standalone Virtual Machines.
  - All Virtual Machines in a Cloud Service.		
  - All Virtual Machines in an Availability Set.	
- - All Virtual Machines in an availability zone.
+ - All Virtual Machines in an Availability Zone.
  - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
 
 > [!NOTE]
