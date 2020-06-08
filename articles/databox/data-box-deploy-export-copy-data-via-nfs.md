@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 > * Connect to Data Box
 > * Copy data from Data Box
 
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
+
 ## Prerequisites
 
 Before you begin, make sure that:
