@@ -45,7 +45,7 @@ read -p "Enter the name of the resource group to create:" resourceGroupName &&
 read -p "Enter the Azure location (e.g., centralus):" location &&
 read -p "Enter the authentication type (must be 'password' or 'sshPublicKey') :" authenticationType &&
 read -p "Enter the login name for the administrator account (may not be 'admin'):" adminUsername &&
-&& read -p "Enter administrator account secure string (value of password or ssh public key):" adminPasswordOrKey &&
+read -p "Enter administrator account secure string (value of password or ssh public key):" adminPasswordOrKey &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey && 
