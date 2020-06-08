@@ -59,7 +59,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    git commit -m "initial commit"
    ```
 
-## Push you application to GitHub
+## Push your application to GitHub
 
 Azure Static Web Apps uses GitHub to publish your website. The following steps show you how to create a GitHub repository.
 
@@ -83,15 +83,15 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Create the application
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. Click **Create a Resource**
+1. Click **Create a Resource**.
 
-1. Search for **Static Web Apps**
+1. Search for **Static Web Apps**.
 
-1. Click **Static Web Apps (Preview)**
+1. Click **Static Web Apps (Preview)**.
 
-1. Click **Create**
+1. Click **Create**.
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -119,7 +119,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
-1. Click the **Next: Build >** button to edit the build configuration
+1. Click the **Next: Build >** button to edit the build configuration.
 
 1. Set _App location_ to **/_site**.
 
