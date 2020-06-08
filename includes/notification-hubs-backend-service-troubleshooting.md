@@ -12,7 +12,7 @@ When testing locally, ensure that the backend service is running and is using th
 
 If testing against the **Azure API App**, check the service is running and has been deployed and has started without error.
 
-Be sure to check you've specified the base address correctly in **Postman** or in the mobile app configuration when testing via the client. The base address should indicatively be `https://<api_name>.azurewebsites.net/` or `https://localhost:5001/` when testing locally.
+Be sure to check you've specified the base address correctly in **[Postman](https://www.postman.com/downloads)** or in the mobile app configuration when testing via the client. The base address should indicatively be `https://<api_name>.azurewebsites.net/` or `https://localhost:5001/` when testing locally.
 
 #### Not receiving notifications on Android after starting or stopping a debug session
 
@@ -55,7 +55,7 @@ Review the previous troubleshooting suggestions where applicable based on the st
 
 Set a breakpoint on the lines that return these specific status codes for the respective API. Then try calling the backend service when debugging locally.
 
-Validate the backend service is working as expected via **Postman** using the appropriate payload. Use the actual payload created by the client code for the platform in question. Validate that the *templates* are in the correct format. Check the templates don't contain typos such as unexpected escape characters, and are accepted by the backend service.
+Validate the backend service is working as expected via **[Postman](https://www.postman.com/downloads)** using the appropriate payload. Use the actual payload created by the client code for the platform in question. Validate that the *templates* are in the correct format. Check the templates don't contain typos such as unexpected escape characters, and are accepted by the backend service.
 
 Review the platform-specific configuration sections to ensure that no steps have been missed. Check that suitable values are being resolved for `installation id` and `token` variables for the appropriate platform.
 

@@ -55,17 +55,17 @@
 
 1. In the **PushDemo** app, tap on the **Register** button.
 
-1. Back in **Postman**, close the **Generate Code Snippets** window (if you haven't done so already) then click the **Send** button.
+1. Back in **[Postman](https://www.postman.com/downloads)**, close the **Generate Code Snippets** window (if you haven't done so already) then click the **Send** button.
 
-1. Validate that you get a **200 OK** response in **Postman** and the alert appears in the app showing **ActionA action received**.  
+1. Validate that you get a **200 OK** response in **[Postman](https://www.postman.com/downloads)** and the alert appears in the app showing **ActionA action received**.  
 
-1. Close the **PushDemo** app, then click the **Send** button again in **Postman**.
+1. Close the **PushDemo** app, then click the **Send** button again in **[Postman](https://www.postman.com/downloads)**.
 
-1. Validate that you get a **200 OK** response in **Postman** again. Validate that a notification appears in the notification area for the **PushDemo** app with the correct message.
+1. Validate that you get a **200 OK** response in **[Postman](https://www.postman.com/downloads)** again. Validate that a notification appears in the notification area for the **PushDemo** app with the correct message.
 
 1. Tap on the notification to confirm that it opens the app and displayed the **ActionA action received** alert.
 
-1. Back in **Postman**, modify the previous request body to send a silent notification specifying *action_b* instead of *action_a* for the **action** value.
+1. Back in **[Postman](https://www.postman.com/downloads)**, modify the previous request body to send a silent notification specifying *action_b* instead of *action_a* for the **action** value.
 
     ```json
     {
@@ -74,6 +74,6 @@
     }
     ```
 
-1. With the app still open, click the **Send** button in **Postman**.
+1. With the app still open, click the **Send** button in **[Postman](https://www.postman.com/downloads)**.
 
-1. Validate that you get a **200 OK** response in **Postman** and that the alert appears in the app showing **ActionB action received** instead of **ActionA action received**.
+1. Validate that you get a **200 OK** response in **[Postman](https://www.postman.com/downloads)** and that the alert appears in the app showing **ActionB action received** instead of **ActionA action received**.

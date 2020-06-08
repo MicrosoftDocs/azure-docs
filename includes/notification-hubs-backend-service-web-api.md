@@ -553,9 +553,9 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 1. Start debugging (**COMMAND** + **ENTER**) to validate the app is working with the new **NotificationsController** and returns a **401 Unauthorized** status.
 
     > [!NOTE]
-    > Visual Studio may not automatically launch the app in the browser. You will use [Postman](https://www.postman.com/downloads/) to test the API from this point on.
+    > Visual Studio may not automatically launch the app in the browser. You will use [Postman](https://www.postman.com/downloads) to test the API from this point on.
 
-1. On a new **Postman** tab, set the request to **GET** and enter the address below.
+1. On a new **[Postman](https://www.postman.com/downloads)** tab, set the request to **GET** and enter the address below.
 
     ```bash
     https://localhost:5001/api/notifications
@@ -572,7 +572,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     > [!NOTE]
     > You should receive a **200 OK** status with some **JSON** content.
     >
-    > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **Postman** setting off in the **Settings**.
+    > If you receive an **SSL certificate verification** warning, you can switch the request SSL certificate verification **[Postman](https://www.postman.com/downloads)** setting off in the **Settings**.
 
 1. Replace the templated class methods with the following code.
 
@@ -701,7 +701,7 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
 
 ### Validating the published API
 
-1. In **Postman** open a new tab, set the request to **POST** and enter the address below. Replace the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
+1. In **[Postman](https://www.postman.com/downloads)** open a new tab, set the request to **POST** and enter the address below. Replace the placeholder with the base address you made note of in the previous [publish the backend service](#publish-the-backend-service) section.
 
     ```csharp
     https://<app_name>.azurewebsites.net/api/notifications/installations
