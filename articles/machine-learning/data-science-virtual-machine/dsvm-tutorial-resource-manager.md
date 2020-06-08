@@ -73,7 +73,7 @@ You'll see the Resource Group's information:
 
 :::image type="content" source="media/dsvm-tutorial-resource-manager/resource-group-home.png" alt-text="Screenshot of a basic Resource Group containing a DSVM":::
 
-Click on the Virtual Machine resource to go to it's information page. Here you can find information on the VM, including connection details. 
+Click on the Virtual Machine resource to go to its information page. Here you can find information on the VM, including connection details. 
 
 ## Clean up resources
 
