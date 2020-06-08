@@ -59,7 +59,7 @@ Install the latest WebJobs NuGet package. This package includes Microsoft.Azure.
 
 3. Select **Package Manager Console**. You'll see a list of NuGet cmdlets, a link to documentation, and a PM> entry point.
 
-4. In the following command, replace <3.X.VERSION> with the current version number you found in step 1. 
+4. In the following command, replace <3_X_VERSION> with the current version number you found in step 1. 
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
@@ -164,7 +164,7 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
-3. In the **Package Manager Console**, with the current version number, execute the command at the PM> entry point.
+3. In the **Package Manager Console**, execute the command with the current version number at the PM> entry point.
 
 4. Continuing in **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorage` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
 
@@ -206,8 +206,6 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
 ## Create a storage account
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
-
-Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. 
 
 To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
 
