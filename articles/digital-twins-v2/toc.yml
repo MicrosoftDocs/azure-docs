@@ -84,6 +84,8 @@
     href: /role-based-access-control/overview
 - name: Resources
   items:
+  - name: DTDL extension for VS Code
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
   - name: Support and help options
     href: /azure/iot-fundamentals/iot-support-help
   - name: Customer stories
