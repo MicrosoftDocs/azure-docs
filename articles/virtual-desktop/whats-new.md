@@ -12,7 +12,7 @@ manager: lizross
 ---
 # What's new in Windows Virtual Desktop?
 
-This article lists what's new in Windows Virtual Desktop with each service. This article is updated monthly, so make sure to check back on a regular basis to keep up with new releases.
+Here's where you'll learn what's new in Windows Virtual Desktop with each update. This article is updated monthly, so make sure to check back here often to keep up with new releases.
 
 ## June 2020 (2006 Service Release)
 
@@ -44,7 +44,7 @@ Learn more about data locations at [Data locations](data-locations.md).
 
 ### PowerShell support
 
-The Spring 2020 release features a new AzWvd PowerShell module. This new module is supported in PowerShell Core, which runs on .NET Core.
+The Spring 2020 release features the new AzWvd PowerShell module. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, run the following cmdlet:
 
@@ -62,7 +62,7 @@ For more information about the new features, check out [our blog post](https://t
 
 ### Microsoft Teams on Windows Virtual Desktop
 
-We've improved remote meeting and collaboration experiences with Microsoft Teams on Windows Virtual Desktop by using audio andvisual redirection for calls. This process creates a direct path between users when they use audio and video, reducing the nuber of hops. Redirection improves latency and users' overall audio and video experience.
+We've made some improvements to Microsoft Teams on Windows Virtual Desktop by using audio and visual redirection for calls. Redirection improves latency by creating a direct path between users when they use audio and video, reducing the number of hops.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
