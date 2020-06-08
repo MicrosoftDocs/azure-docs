@@ -148,7 +148,7 @@ Example:
     "appRoles": [
         {
            "allowedMemberTypes": [
-                "User"
+               "User"
            ],
            "description": "Read-only access to device information",
            "displayName": "Read Only",
