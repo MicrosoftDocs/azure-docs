@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/0sett8/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -42,6 +42,19 @@ However, in some organizations the on-premises UPN isn't used as a sign-in name.
 The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premise AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
 A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
+
+## Preview limitations
+
+In the current preview state, the following limitations apply when a user signs in with a non-UPN email as an alternate login ID:
+
+* Users may see their UPN, even when the signed in with their non-UPN email. The following example behavior may be seen:
+    * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
+    * When user signs in with a non-UPN email and enters an incorrect password, the enter your password page changes to displays the UPN.
+    * On some Microsoft sites and apps such as [https://portal.azure.com](https://portal.azure.com) and Microsoft Office, the **Account Manager** control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
+
+* Some flows are currently not compatible with the non-UPN email, such as the following:
+    * The Self-service Password Reset (SSPR) page returns error, *"The user ID you entered does not exist"* when a user enters the non-UPN email.
+    * A mobile device registered with Intune MAM (Mobile Device Management) using the UPN may show a, *"misconfiguration error"* when the user signs in with their non-UPN email.
 
 ## Synchronize sign-in email addresses to Azure AD
 
