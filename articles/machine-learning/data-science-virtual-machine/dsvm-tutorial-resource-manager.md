@@ -1,5 +1,6 @@
 ---
 title: Tutorial - Create a Data Science VM - Resource Manager template
+titleSuffix: Azure Data Science Virtual Machine 
 description: In this tutorial, you use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
 services: machine-learning
 author: lobrien
