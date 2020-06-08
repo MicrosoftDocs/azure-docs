@@ -95,9 +95,12 @@ The following versions of the Windows operating system are officially supported 
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
 
 ## Supported Linux operating systems
-Starting with versions released after August 2018, the following changes have been made to the support model:  
 
-* Only server versions are supported, not client.  
+This section provides details about the supported Linux distributions.
+
+Starting with versions released after August 2018, we are making the following changes to our support model:  
+
+* Only the server versions are supported, not client.  
 * Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date are not supported.  
@@ -107,23 +110,6 @@ Starting with versions released after August 2018, the following changes have be
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
-### Python 2 requirement
- The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
-
- - Red Hat, CentOS, Oracle: `yum install -y python2`
- - Ubuntu, Debian: `apt-get install -y python2`
- - SUSE: `zypper install -y python2`
-
-The python2 executable must be aliased to "python" using the following command:
-
-```
-alternatives --set python /usr/sbin/python2
-```
-
-### Supported distros
-
-The following versions of the Windows operating system are officially supported for the Windows agent:
-
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x64) and 7 (x64)  
 * Oracle Linux 6 and 7 (x64) 
@@ -131,7 +117,6 @@ The following versions of the Windows operating system are officially supported 
 * Debian GNU/Linux 8 and 9 (x64)
 * Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
-
 
 >[!NOTE]
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
@@ -222,4 +207,3 @@ For example:
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
-
