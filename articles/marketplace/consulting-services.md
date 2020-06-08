@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/08/2020
 ms.author: dsindona
 ---
 
@@ -65,7 +65,7 @@ Additional resources and support:
 
 For more information about competencies, go to the [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies) page.
 
-System-integrator partners can submit consulting-service offers for the following 21 countries/regions:
+System-integrator partners can submit consulting-service offers for the following 20 countries/regions:
 
 |   |   |   |   |
 |---------|----------|----------|----------|
@@ -73,8 +73,7 @@ System-integrator partners can submit consulting-service offers for the followin
 | Finland  | France | Germany  | India   |
 | Italy    | Japan  |  Mexico  |  Netherlands  |
 |  New Zealand  |  Norway  |  Poland  | South Africa |
-|  Spain  | Sweden  | Switzerland  |  United States  |
-| United Kingdom  |
+|  Sweden  | Switzerland  |  United States  | United Kingdom  |
 ||
 
 ## Register for consulting services in the commercial marketplace

@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 03/12/2020
+ms.custom: tracking-python
 ---
 
 # Monitor and collect data from ML web service endpoints
