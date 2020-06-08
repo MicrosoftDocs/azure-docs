@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/26/2020
+ms.date: 06/08/2020
 ms.author: cshoe
 ---
 
@@ -60,6 +60,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    git add -A
    git commit -m "initial commit"
    ```
+
 ## Push you application to GitHub
 
 You need a repository on GitHub to connect to Azure Static Web Apps. The following steps show you how to create a repository for your site.
@@ -77,6 +78,7 @@ You need a repository on GitHub to connect to Azure Static Web Apps. The followi
    ```bash
    git push --set-upstream origin master
    ```
+
 ## Deploy your web app
 
 The following steps show you how to create a new static site app and deploy it to a production environment.
@@ -131,7 +133,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
 
-1. The deployment will first, fail because the workflow file needs some Jekyll-specific settings. To add those settings, avigate to your terminal and pull the commit with the GitHub Action to your machine.
+1. The deployment will first, fail because the workflow file needs some Jekyll-specific settings. To add those settings, navigate to your terminal and pull the commit with the GitHub Action to your machine.
 
    ```bash
    git pull
@@ -142,21 +144,17 @@ Next, you add configuration settings that the build process uses to build your a
 1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Jekyll application.
 
     ```yml
-    
     - uses: actions/checkout@v2
-    with:
-    submodules: true
-       
+      with:
+        submodules: true
     - name: Set up Ruby
-    uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-    with:
-    ruby-version: 2.6
-    
+      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+        with:
+        ruby-version: 2.6
     - name: Install dependencies
-    run: bundle install
-    
+        run: bundle install
     - name: Jekyll build
-    run: jekyll build
+        run: jekyll build
     ```
 
 1. Commit the updated workflow and push to GitHub.
