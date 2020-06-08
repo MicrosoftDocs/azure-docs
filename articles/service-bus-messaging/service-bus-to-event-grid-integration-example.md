@@ -205,7 +205,7 @@ To create an Azure Event Grid subscription, follow these steps:
 2. Select **+ Event Subscription** on the toolbar. 
 3. On the **Create Event Subscription** page, do the following steps:
     1. Enter a **name** for the subscription. 
-    2. Enter a **name** for the **system topic**. System topics are topics created for Azure resources such as Azure Storage account and Azure Service Bus. To learn more about system topics, see [System topics overview](system-topics.md).
+    2. Enter a **name** for the **system topic**. System topics are topics created for Azure resources such as Azure Storage account and Azure Service Bus. To learn more about system topics, see [System topics overview](../event-grid/system-topics.md).
     2. Select **Web Hook** for **Endpoint Type**. 
 
         ![Service Bus - Event Grid subscription](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
