@@ -1,9 +1,9 @@
 ---
-title: Integration with App Service Mobile Apps
+title: Notification Hubs integration with App Service Mobile Apps
 description: Learn how Azure Notification Hubs works with Azure App Service Mobile Apps.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: ''
 
@@ -15,13 +15,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Integration with App Service Mobile Apps
-
-> [!NOTE]
-> Microsoft is committed to fully supporting Azure App Service Mobile Apps, including support for the latest OS release, bug fixes, documentation improvements, and community PR reviews. Please note that the product team is not currently investing in any new feature work for Azure Mobile Apps. We highly appreciate community contributions to all areas of Azure Mobile Apps.
 
 To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 

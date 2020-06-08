@@ -1,38 +1,34 @@
 ---
-title: Configure endpoints | Microsoft Docs
-description: How to find the authentication endpoints for a custom application you are developing or registering with Azure AD.
+title: Get the endpoints for an Azure AD app registration
+titleSuffix: Microsoft identity platform
+description: How to find the authentication endpoints for a custom application you're developing or registering with Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 05/07/2020
 ms.author: ryanwi
-
-ms.collection: M365-identity-device-management
 ---
 
-# How to configure endpoints
+# How to discover endpoints
 
 You can find the authentication endpoints for your application in the [Azure portal](https://portal.azure.com).
 
--   Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**, and then select **Endpoints** in the top menu.
 
--   From the left navigation pane, click **Azure Active Directory**.
+    The **Endpoints** page is displayed, showing the authentication endpoints for your tenant.
+    
+    Use the endpoint that matches the authentication protocol you're using in conjunction with the **Application (client) ID** to craft the authentication request specific to your application.
 
--   Click **App Registrations** and choose **Endpoints**.
-
--   This open up the **Endpoints** page, which list all the authentication endpoints for your tenant.
-
--   Use the endpoint specific to the authentication protocol you are using, in conjunction with the application ID to craft the authentication request specific to your application.
+**National clouds** (for example Azure AD China, Germany, and US Government) have their own app registration portal and Azure AD authentication endpoints. Learn more in the [National clouds overview](authentication-national-cloud.md).
 
 ## Next steps
-[Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+
+For more information about endpoints in the different Azure environments, see the [National clouds overview](authentication-national-cloud.md).

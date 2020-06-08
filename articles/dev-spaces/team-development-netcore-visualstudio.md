@@ -1,19 +1,17 @@
 ---
-title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
+title: "Team development using .NET Core and Visual Studio"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to do team development on a .NET Core application in Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 
-# Team development with Azure Dev Spaces
+# Team development using .NET Core and Visual Studio with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
@@ -120,7 +118,7 @@ Here is a diagram that will help you understand how the different spaces work. T
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
 ### Test code running in the _dev/scott_ space
-To test your new version of *mywebapi* in conjunction with *webfrontend*, open your browser to the public access point URL for *webfrontend* (for example, http://dev.webfrontend.123456abcdef.eus.azds.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
+To test your new version of *mywebapi* in conjunction with *webfrontend*, open your browser to the public access point URL for *webfrontend* (for example, `http://dev.webfrontend.123456abcdef.eus.azds.io`) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
 Now, add the "scott.s." part to the URL so it reads something like http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io and refresh the browser. The breakpoint you set in your *mywebapi* project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in *mywebapi* is running in the _dev/scott_ space.
 
@@ -144,6 +142,9 @@ To completely delete an Azure Dev Spaces instance on a cluster, including all th
 The following example lists the Azure Dev Spaces controllers in your active subscription, and then deletes the Azure Dev Spaces controller that is associated with AKS cluster 'myaks' in resource group 'myaks-rg'.
 
 ```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+azds controller list
+```
+
+```azurecli
+az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```

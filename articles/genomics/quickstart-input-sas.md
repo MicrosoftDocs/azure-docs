@@ -1,7 +1,7 @@
 ---
-title: Submit a workflow using shared access signatures - Microsoft Genomics
-titleSuffix: Azure
-description: The article assumes you have the msgen client installed and have successfully run the sample data through the service.  
+title: Workflow using shared access signatures
+titleSuffix: Microsoft Genomics
+description: This article demonstrates how to submit a workflow to the Microsoft Genomics service using shared access signatures (SAS) instead of storage account keys.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -29,14 +29,14 @@ The URI for a service-level shared access signature (SAS) token consists of the 
 Two or more SAS tokens are required for each workflow that is submitted to the Microsoft Genomics service, one for each input file and one for the output container.
 
 The SAS for the input files should have the following properties:
-1.  Scope (account, container, blob): blob
-2.  Expiration: 48 hours from now
-3.  Permissions: read
+ - Scope (account, container, blob): blob
+ - Expiration: 48 hours from now
+ - Permissions: read
 
 The SAS for the output container should have the following properties:
-1.  Scope (account, container, blob): container
-2.  Expiration: 48 hours from now
-3.  Permissions: read, write, delete
+ - Scope (account, container, blob): container
+ - Expiration: 48 hours from now
+ - Permissions: read, write, delete
 
 
 ## Create a SAS for the input files and the output container

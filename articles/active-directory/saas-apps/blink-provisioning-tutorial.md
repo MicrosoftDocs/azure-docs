@@ -20,10 +20,10 @@ ms.author: Zhchia
 
 # Tutorial: Configure Blink for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Blink and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Blink.
+The objective of this tutorial is to demonstrate the steps to be performed in Blink and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to Blink.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -37,9 +37,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Assigning users to Blink
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or group members that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Blink. Once decided, you can assign these users and/or groups to Blink by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or group members in Azure AD need access to Blink. Once decided, you can assign these users and/or groups to Blink by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## Important tips for assigning users to Blink
@@ -50,7 +50,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Blink for provisioning
 
-1. Log a [Support Case](https://help.joinblink.com/hc/requests/new) or email **Blink support** at support@joinblink.com to request a SCIM token. .
+1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token. .
 
 2.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Blink application in the Azure portal.
 
@@ -78,7 +78,7 @@ Before configuring Blink for automatic user provisioning with Azure AD, you need
 
 ## Configuring automatic user provisioning to Blink 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Blink based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Blink based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Blink , following the instructions provided in the [Blink Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
@@ -117,9 +117,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Blink in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Blink for update operations. Select the **Save** button to commit any changes.
 
-	![Blink User Attributes](media/blink-provisioning-tutorial/User_attributes.png)
+	![Blink User Attributes](media/blink-provisioning-tutorial/user-attributes.png)
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for Blink, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -133,16 +133,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Blink.
+This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Blink.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 

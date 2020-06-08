@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
-description: Quickstart guide to create and manage Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
+title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - Single Server'
+description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -34,7 +34,7 @@ az account set --subscription <subscription id>
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -52,7 +52,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
 location | westus | The Azure location for the server.
-ssl-enforcement | Enabled | Whether ssl should be enabled or not for this server. Allowed values: Enabled, Disabled.
+ssl-enforcement | Enabled | Whether TLS/SSL should be enabled or not for this server. Allowed values: Enabled, Disabled.
 storage-size | 51200 | The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120MB and increases in 1024MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
 version | 9.6 | The PostgreSQL major version.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
@@ -180,7 +180,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
     Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
-    SSL mode | *Require* | You can set the SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [SSL Enforcing](./concepts-ssl-connection-security.md).
+    SSL mode | *Require* | You can set the TLS/SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with TLS enforcing turned on. To turn off TLS enforcing, see [Configure Enforcement of TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Select **Save**.
 
@@ -205,7 +205,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 ## Clean up resources
 
-Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/management/overview.md).
 
 > [!TIP]
 > Other quickstarts in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.

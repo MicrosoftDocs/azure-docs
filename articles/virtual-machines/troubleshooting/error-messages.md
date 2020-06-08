@@ -33,7 +33,7 @@ Azure VMs use the following JSON format for error response:
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]

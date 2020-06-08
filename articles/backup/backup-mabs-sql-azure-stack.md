@@ -1,15 +1,11 @@
 ---
 title: Back up SQL Server workloads on Azure Stack
-description: Use Azure Backup Server to protect SQL Server workload on Azure Stack.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
+description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
 ---
 # Back up SQL Server on Azure Stack
+
 Use this article to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
@@ -23,6 +19,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 [Install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
+
 1. On the Azure Backup Server UI, click the **Protection** workspace.
 
 2. On the tool ribbon, click **New** to create a new protection group.
@@ -62,7 +59,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Initial replication method](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server machine) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
+    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server computer) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
 
     Once the initial backup is complete, the rest of the backups are incremental backups on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
@@ -70,7 +67,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
+    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
 
 10. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 
@@ -106,6 +103,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## On-demand backup of a SQL Server database
+
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -122,6 +120,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
+
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that is specified as an **Online** point.
@@ -146,7 +145,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.

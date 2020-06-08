@@ -1,18 +1,12 @@
 ---
 title: Set up availability alerts with Azure Application Insights | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.reviewer: sdash
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 06/19/2019
+
+ms.reviewer: sdash
 ---
 
 # Availability alerts
@@ -35,6 +29,9 @@ Alerts are now automatically enabled by default, but in order to fully configure
 2. Set the desired severity level, rule description and most importantly - the action group that has the notification preferences you would like to use for this alert rule.
 
    ![Edit after save](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> Availability alerts created through this experience are state-based. This means that when the alert criteria is met a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated this won't generate a new alert. So if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
 
 ### Alert on X out of Y locations reporting failures
 
@@ -64,7 +61,7 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 

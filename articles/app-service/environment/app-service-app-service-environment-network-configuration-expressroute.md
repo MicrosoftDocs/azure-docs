@@ -1,16 +1,9 @@
 ---
-title: Network configuration details for Azure ExpressRoute - App Service
-description: Network configuration details for App Service Environment for PowerApps in virtual networks connected to an Azure ExpressRoute circuit.
-services: app-service
-documentationcenter: ''
+title: Configure Azure ExpressRoute v1
+description: Network configuration for App Service Environment for PowerApps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: nirma
-editor: ''
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
@@ -38,11 +31,11 @@ App Service Environment requires the following network connectivity settings to 
 
 * Outbound network connectivity to the Azure Files service on port 445.
 
-* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
 
 * Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.net and management.azure.com domains. 
 
-* Outbound network connectivity to the ocsp.msocsp.com, mscrl.microsoft.com, and crl.microsoft.com domains. Connectivity to these domains is needed to support SSL functionality.
+* Outbound network connectivity to the ocsp.msocsp.com, mscrl.microsoft.com, and crl.microsoft.com domains. Connectivity to these domains is needed to support TLS functionality.
 
 * The DNS configuration for the virtual network must be able to resolve all endpoints and domains mentioned in this article. If the endpoints can't be resolved, App Service Environment creation fails. Any existing App Service Environment is marked as unhealthy.
 

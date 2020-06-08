@@ -1,29 +1,21 @@
 ---
-title: Secure B2B messages with certificates - Azure Logic Apps | Microsoft Docs
-description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
+title: Secure B2B messages with certificates
+description: Add certificates to help secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ---
 
-# Secure B2B messages with certificates
+# Improve security for B2B messages by using certificates
 
-When you need to keep B2B communication confidential, 
-you can secure B2B communication for your enterprise integration apps, 
-specifically logic apps, by adding certificates to your integration account. 
-Certificates are digital documents that check the identities for 
-the participants in electronic communications and help you 
-secure communication in these ways:
+When you need to keep B2B communication confidential, you can increase security for B2B communication in your enterprise integration apps, specifically logic apps, by adding certificates to your integration account. Certificates are digital documents that check the identities for the participants in electronic communications and help you secure communication in these ways:
 
 * Encrypt message content.
-* Digitally sign messages. 
+* Digitally sign messages.
 
 You can use these certificates in your enterprise integration apps:
 
@@ -90,7 +82,7 @@ the certificate is available to help you secure your B2B messages.
 > [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
-1. [Add your private key to Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) 
+1. [Add your private key to Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 

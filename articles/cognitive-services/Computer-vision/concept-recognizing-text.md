@@ -22,10 +22,9 @@ Computer Vision provides a number of services that detect and extract printed or
 
 The Read API detects text content in an image using our latest recognition models and converts the identified text into a machine-readable character stream. It's optimized for text-heavy images (such as documents that have been digitally scanned) and for images with a lot of visual noise. It will determine which recognition model to use for each line of text, supporting images with both printed and handwritten text. The Read API executes asynchronously because larger documents can take several minutes to return a result.
 
-The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) to learn more.
+The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API v2.0 reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) or [Read API v3.0 reference docs](https://aka.ms/computer-vision-v3-ref) to learn more.
 
-> [!NOTE]
-> This feature is only available for English text.
+The Read operation can recognize text in English, Spanish, German, French, Italian, Portuguese, and Dutch.
 
 ### Image requirements
 
@@ -90,4 +89,4 @@ The accuracy of text recognition operations depends on the quality of the images
 
 ## Next steps
 
-Follow the [Extract printed text (OCR)](./quickstarts/csharp-print-text.md) quickstart to implement text recognition in a simple C# app.
+Follow the [Extract text (Read)](./QuickStarts/CSharp-hand-text.md) quickstart to implement text recognition in a simple C# app.

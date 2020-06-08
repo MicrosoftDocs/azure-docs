@@ -1,5 +1,5 @@
 ---
-title: Sync local partner accounts to cloud as B2B users - Azure Active Directory | Microsoft Docs
+title: Sync local partner accounts to cloud as B2B users - Azure AD
 description: Give locally-managed external partners access to both local and cloud resources using the same credentials with Azure AD B2B collaboration.
 
 services: active-directory

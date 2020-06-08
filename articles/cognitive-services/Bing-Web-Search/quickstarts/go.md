@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
@@ -17,9 +17,9 @@ ms.custom: seodec2018
 
 # Quickstart: Search the web using the Bing Web Search REST API and Go
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Go application sends a search request to the API, and shows the response. While this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API. This Go application sends a search request to the API, and shows the JSON response. Although this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+ The code examples in this quickstart require only core libraries; there are no external dependencies.  
 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
@@ -27,13 +27,11 @@ Here are a few things that you'll need before running this quickstart:
 * [Go binaries](https://golang.org/dl/)
 * A subscription key
 
-This quickstart only requires **core** libraries, there are no external dependencies.  
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## Create a project and import core libraries
 
-Create a new Go project in your favorite IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the JSON, and `fmt` to print the output.
+Create a new Go project in your favorite IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the JSON, and `fmt` to print the output.
 
 ```go
 package main
@@ -109,7 +107,13 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and sets required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code declares the main function and sets the required variables: 
+
+1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. 
+ 
+3. Optionally, customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -168,7 +172,7 @@ if err != nil {
 
 ## Handle the response
 
-Remember the struct we created earlier? We're going to use it to format the response and print the search results.
+Use the struct we created previously to format the response and print the search results.
 
 ```go
 // Create a new answer.  
@@ -185,7 +189,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
+The last step is to validate your code and run it. If you'd like to compare your code with ours, here's the complete program:
 
 ```go
 package main
@@ -303,9 +307,9 @@ func main() {
 }
 ```
 
-## Sample response  
+## Example JSON response
 
-Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `BingAnswer` struct and shows the `result.Name` and `result.URL`.
+Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted by using the `BingAnswer` struct and shows the `result.Name` and `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
@@ -322,6 +326,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

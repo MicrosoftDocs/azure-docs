@@ -1,12 +1,12 @@
 ---
 title: Create Marketplace Offers | Azure Marketplace 
 description: Create offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create Azure Marketplace and AppSource offers

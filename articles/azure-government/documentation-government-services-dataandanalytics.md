@@ -10,7 +10,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 07/30/2018
+ms.date: 06/02/2020
 ---
 # Azure Government Data + Analytics
 This article outlines the data and analytics services, variations, and considerations for the Azure Government environment.
@@ -39,6 +39,7 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 </br>13.72.49.126</br>13.72.55.55| 443 |
 | USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
 | USGov Virginia | 13.72.49.126</br>13.72.55.55</br> 13.72.184.124</br>13.72.190.110 | 443 |
+| US Gov Arizona | 52.127.3.176</br>52.127.3.178 | 443 | 
 
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
@@ -58,6 +59,9 @@ The URLs for Power BI are different in US Government:
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
+> [!NOTE]
+> The content pack that typically makes activity logs and such available is not intended for use on Government tenants. The intention is to use Log Analytics for the purpose of the logs that aren't available through the content pack. 
+
 ## Power BI Embedded 
 For details on this service and how to use it, see [Azure Power BI Embedded Documentation](../power-bi-embedded/index.md).
 
@@ -67,6 +71,12 @@ Power BI Embedded does not yet have Portal support in the Azure Government Porta
 ## Azure Analysis Services
 
 For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.yml).
+
+## Azure Databricks
+
+For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
+
+For information on this service and how to use it, see [Azure Databricks Documentation](../azure-databricks/index.yml).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

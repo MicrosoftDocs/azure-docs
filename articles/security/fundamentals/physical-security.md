@@ -25,7 +25,7 @@ This article describes what Microsoft does to secure the Azure infrastructure.
 ## Datacenter infrastructure
 Azure is composed of a [globally distributed datacenter infrastructure](https://azure.microsoft.com/global-infrastructure/), supporting thousands of online services and spanning more than 100 highly secure facilities worldwide.
 
-The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 52 regions worldwide, and is available in 140 countries/regions.
+The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 58 regions worldwide, and is available in 140 countries/regions.
 
 A region is a set of datacenters that is interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and encryption by default. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
 

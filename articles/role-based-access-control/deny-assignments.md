@@ -1,6 +1,6 @@
 ---
-title: Understand deny assignments for Azure resources | Microsoft Docs
-description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
+title: Understand Azure deny assignments - Azure RBAC
+description: Learn about Azure deny assignments in Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2019
+ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand deny assignments for Azure resources
+# Understand Azure deny assignments
 
 Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
 
@@ -25,7 +25,10 @@ This article describes how deny assignments are defined.
 
 ## How deny assignments are created
 
-Deny assignments are created and managed by Azure to protect resources. For example, Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments can be created. You can't directly create your own deny assignments. For more information about how Blueprints uses deny assignments to lock resources, see [Understand resource locking in Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
+
+> [!NOTE]
+> You can't directly create your own deny assignments.
 
 ## Compare role assignments and deny assignments
 
@@ -81,5 +84,5 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 
 ## Next steps
 
-* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
-* [Understand role definitions for Azure resources](role-definitions.md)
+* [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
+* [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)

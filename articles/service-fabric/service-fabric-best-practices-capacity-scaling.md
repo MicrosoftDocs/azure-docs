@@ -1,17 +1,9 @@
 ---
-title: Capacity planning and scaling for Azure Service Fabric | Microsoft Docs
+title: Capacity planning and scaling for Azure Service Fabric 
 description: Best practices for planning and scaling Service Fabric clusters and applications.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan  
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
+
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
 ---
@@ -72,13 +64,13 @@ With the node properties and placement constraints declared, do the following st
 1. From PowerShell, run `Disable-ServiceFabricNode` with intent `RemoveNode` to disable the node you’re going to remove. Remove the node type that has the highest number. For example, if you have a six-node cluster, remove the "MyNodeType_5" virtual machine instance.
 2. Run `Get-ServiceFabricNode` to make sure that the node has transitioned to disabled. If not, wait until the node is disabled. This might take a couple hours for each node. Don't proceed until the node has transitioned to disabled.
 3. Decrease the number of VMs by one in that node type. The highest VM instance will now be removed.
-4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
+4. Repeat steps 1 through 3 as needed, but never scale in the number of instances in the primary node types less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
 5. Once all VMs are gone (represented as "Down") the fabric:/System/InfrastructureService/[node name] will show an Error state. Then, you can update the cluster resource to remove the node type. You can either use the ARM template deployment, or edit the cluster resource through the [Azure resource manager](https://resources.azure.com). This will start a cluster upgrade which will remove the fabric:/System/InfrastructureService/[node type] service that is in error state.
  6. After that you can optionally delete the VMScaleSet, you will still see the nodes as “Down” from Service Fabric Explorer view though. The last step would be to clean them up with `Remove-ServiceFabricNodeState` command.
 
 ## Horizontal scaling
 
-You can do horizontal scaling either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+You can do horizontal scaling either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) or [programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > If you're scaling a node type that has Silver or Gold durability, scaling will be slow.
@@ -107,7 +99,7 @@ To scale out manually, update the capacity in the SKU property of the desired [v
 
 Scaling in requires more consideration than scaling out. For example:
 
-* Service Fabric system services run in the primary node type in your cluster. Never shut down or scale down the number of instances for that node type so that you have fewer instances than what the reliability tier warrants. 
+* Service Fabric system services run in the primary node type in your cluster. Never shut down or scale in the number of instances for that node type so that you have fewer instances than what the reliability tier warrants. 
 * For a stateful service, you need a certain number of nodes that are always up to maintain availability and preserve the state of your service. At a minimum, you need a number of nodes equal to the target replica set count of the partition or service.
 
 To scale in manually, follow these steps:
@@ -115,7 +107,7 @@ To scale in manually, follow these steps:
 1. From PowerShell, run `Disable-ServiceFabricNode` with intent `RemoveNode` to disable the node you’re going to remove. Remove the node type that has the highest number. For example, if you have a six-node cluster, remove the "MyNodeType_5" virtual machine instance.
 2. Run `Get-ServiceFabricNode` to make sure that the node has transitioned to disabled. If not, wait until the node is disabled. This might take a couple hours for each node. Don't proceed until the node has transitioned to disabled.
 3. Decrease the number of VMs by one in that node type. The highest VM instance will now be removed.
-4. Repeat steps 1 through 3 as needed until you provision the capacity you want. Don't scale down the number of instances in the primary node types to less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
+4. Repeat steps 1 through 3 as needed until you provision the capacity you want. Don't scale in the number of instances in the primary node types to less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
 
 To scale in manually, update the capacity in the SKU property of the desired [virtual machine scale set](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) resource.
 
@@ -170,7 +162,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> When you scale down a cluster, you'll see the removed node/VM instance displayed in an unhealthy state in Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). You can:
+> When you scale in a cluster, you'll see the removed node/VM instance displayed in an unhealthy state in Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). You can:
 > * Call the [Remove-ServiceFabricNodeState command](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
 > * Deploy the [Service Fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster. This application ensures that the scaled-down nodes are cleared from Service Fabric Explorer.
 

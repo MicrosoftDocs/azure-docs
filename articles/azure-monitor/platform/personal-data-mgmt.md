@@ -1,18 +1,12 @@
 ---
 title: Guidance for personal data stored in Azure Log Analytics| Microsoft Docs
 description: This article describes how to manage personal data stored in Azure Log Analytics and the methods to identify and remove it.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.author: magoedte
+
 ---
 
 # Guidance for personal data stored in Log Analytics and Application Insights
@@ -103,7 +97,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 #### Log data
 
-* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
+* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
     ```

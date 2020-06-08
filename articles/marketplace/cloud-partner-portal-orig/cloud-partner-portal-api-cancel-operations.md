@@ -1,15 +1,18 @@
 ---
 title: Cancel operation API | Azure Marketplace
 description: Cancel operations .
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
-ms.author: pabutler
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
-# Cancel operation 
+# Cancel operation
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 This API cancels an operation currently in progress on the offer. Use the [Retrieve operations
 API](./cloud-partner-portal-api-retrieve-operations.md) to get an
@@ -18,13 +21,10 @@ operation, however in some complex scenarios a new operation may be
 required to cancel an existing one. In this case, the HTTP response body
 contains the operation's location that should be used to query status.
 
-You can provide a comma-separated list of email addresses with the
-request, and the API will notify these addresses about the progress of
-the operation.
-
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-URI parameters
+## URI parameters
+
 --------------
 
 |  **Name**    |      **Description**                                  |    **Data type**  |
@@ -34,8 +34,7 @@ URI parameters
 | api-version  |  Current version of API                               |    Date           |
 |  |  |  |
 
-
-Header
+## Header
 ------
 
 |  **Name**              |  **Value**         |
@@ -44,8 +43,7 @@ Header
 |  Authorization         |  Bearer YOUR TOKEN |
 |  |  |
 
-
-Body example
+## Body example
 ------------
 
 ### Request
@@ -65,19 +63,22 @@ Body example
 |  notification-emails     | Comma separated list of email Ids to be notified of the progress of the  publishing operation. |
 |  |  |
 
-
 ### Response
 
-  `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### Migrated offers
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### Non-migrated offers
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### Response Header
 
 |  **Name**             |    **Value**                       |
 |  ---------            |    ----------                      |
-| Operation-Location    | URL, which can be queried to determine the current status of the operation. |
+| Location    | The relative path to retrieve this operation's status. |
 |  |  |
-
 
 ### Response status codes
 

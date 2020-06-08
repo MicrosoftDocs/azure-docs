@@ -1,10 +1,10 @@
 ---
-title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity | Microsoft Docs
+title: Invoke SSIS package using Azure Data Factory - Stored Procedure Activity 
 description: This article describes how to invoke a SQL Server Integration Services (SSIS) package from an Azure Data Factory pipeline using the Stored Procedure Activity.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -25,7 +25,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
+The walkthrough in this article uses Azure SQL Database. You can also use an Azure SQL Managed Instance.
 
 ### Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
@@ -40,7 +40,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 ### Create a data factory
 The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package.
 
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -186,7 +186,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. 
 
-    You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+    You can run the following query against the SSISDB database in your server to verify that the package executed. 
 
     ```sql
     select * from catalog.executions

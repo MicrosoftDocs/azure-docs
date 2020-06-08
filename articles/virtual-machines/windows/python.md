@@ -1,21 +1,13 @@
 ---
-title: Create and manage a Windows VM in Azure using Python | Microsoft Docs
+title: Create and manage a Windows VM in Azure using Python 
 description: Learn to use Python to create and manage a Windows VM in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
+ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
+ms.custom: tracking-python
 ---
 
 # Create and manage Windows VMs in Azure using Python
@@ -122,7 +114,7 @@ compute_client = ComputeManagementClient(
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 1. To create a resource group, add this function after the variables in the .py file:
 
@@ -168,7 +160,7 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
     input('Availability set created. Press enter to continue...')
     ```
 
-A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/public-ip-addresses.md) is needed to communicate with the virtual machine.
 
 1. To create a public IP address for the virtual machine, add this function after the variables in the .py file:
 

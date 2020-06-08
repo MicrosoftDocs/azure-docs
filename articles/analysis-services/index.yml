@@ -4,7 +4,7 @@ title: Azure Analysis Services documentation
 summary: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution by using tabular data models. 
 
 metadata: 
-  title: Azure Analysis Services Documentation - Concepts, how-to guides, tutorials, API reference
+  title: Azure Analysis Services documentation | Microsoft Docs
   description: Azure Analysis Services is a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud. 
   ms.service: analysis-services
   ms.topic: landing-page
@@ -12,7 +12,7 @@ metadata:
   author: minewiskan
   ms.author: owend
   manager: mtillman
-  ms.date: 08/28/2019
+  ms.date: 10/30/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -73,4 +73,4 @@ landingContent:
           - text: REST API
             url: /rest/api/analysisservices/
           - text: Tabular Model Scripting Language (TMSL)
-            url: /bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+            url: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference

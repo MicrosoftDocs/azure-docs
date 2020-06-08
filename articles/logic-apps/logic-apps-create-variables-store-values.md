@@ -1,13 +1,9 @@
 ---
-title: Create and manage variables for storing values - Azure Logic Apps
-description: How to store and manage values by using variables in Azure Logic Apps
+title: Create and manage variables for storing and passing values
+description: Learn how to store, manage, use, and pass values by using variables in your automated tasks and workflow that you create with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ---
@@ -96,6 +92,10 @@ If you switch from the designer to the code view editor, here is the way that th
    }
 },
 ```
+
+> [!NOTE]
+> Although the **Initialize variable** action has a `variables` section that's structured as an array, 
+> the action can create only one variable at a time. Each new variable requires an individual **Initialize variable** action.
 
 Here are examples for some other variable types:
 
@@ -197,7 +197,7 @@ To increase or *increment* a variable by a constant value, add the **Increment v
 
    To add an action between existing steps, move your mouse over the connecting arrow so that the plus sign (+) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "increment variable" as your filter. In the actions list, select **Variables - Increment variable**.
+1. In the search box, enter "increment variable" as your filter. In the actions list, select **Increment variable**.
 
    ![Select "Increment variable" action](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 

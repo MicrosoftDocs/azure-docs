@@ -1,17 +1,15 @@
 ---
-title: Dynamic group membership add remove users - tutorial - Azure Active Directory 
+title: Add users to a dynamic group - tutorial - Azure AD | Microsoft Docs
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -21,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Add or remove group members automatically
 
-In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Office 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your tenant to see if the change should add or remove members.
+In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Office 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -33,15 +31,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-This feature requires one Azure AD Premium license for you as the global administrator of the tenant. If you don't have one, in Azure AD, select **Licenses** > **Products** > **Try/Buy**.
+This feature requires one Azure AD Premium license for you as the global administrator of the organization. If you don't have one, in Azure AD, select **Licenses** > **Products** > **Try/Buy**.
 
-You're not required to assign licenses to the users for them to be members in dynamic groups. You only need the minimum number of available Azure AD Premium P1 licenses in the tenant to cover all such users. 
+You're not required to assign licenses to the users for them to be members in dynamic groups. You only need the minimum number of available Azure AD Premium P1 licenses in the organization to cover all such users. 
 
 ## Create a group of guest users
 
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your tenant.
+1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your organization.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
@@ -78,7 +76,7 @@ Now that you have your new group, you can apply the licenses that these partner 
 
 ## Remove guests from All users group
 
-Perhaps your ultimate administrative plan is to assign all of your guest users to their own groups by company. You can also now change the **All users** group so that it is reserved for only members users in your tenant. Then you can use it to assign apps and licenses that are specific to your home organization.
+Perhaps your ultimate administrative plan is to assign all of your guest users to their own groups by company. You can also now change the **All users** group so that it is reserved for only members users in your organization. Then you can use it to assign apps and licenses that are specific to your home organization.
 
    ![Change All users group to members only](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -86,7 +84,7 @@ Perhaps your ultimate administrative plan is to assign all of your guest users t
 
 **To remove the guest users group**
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
 2. Select **Azure Active Directory** > **Groups**. Select the **Guest users Contoso** group, select the ellipsis (...), and then select **Delete**. When you delete the group, any assigned licenses are removed.
 
 **To restore the All Users group**

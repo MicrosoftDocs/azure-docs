@@ -89,8 +89,8 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
         {
             can_play = true,
             can_persist = true,
-            //can_renew = true,                        		//if you set can_renew = false, you do not need renewal_server_url
-            //renewal_server_url = keyDeliveryUrl.ToString(),	//not mandatory, renewal_server_url is needed only if license_duration_seconds is set
+            //can_renew = true,                                //if you set can_renew = false, you do not need renewal_server_url
+            //renewal_server_url = keyDeliveryUrl.ToString(),    //not mandatory, renewal_server_url is needed only if license_duration_seconds is set
             can_renew = false,
             //rental_duration_seconds = 1209600,
             //playback_duration_seconds = 1209600,
@@ -105,7 +105,7 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
 
 ## Configuring the Android player for offline playback
 
-The easiest way to develop a native player app for Android devices is to use the [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), an open-source video player SDK. ExoPlayer supports features not currently supported by Android’s native MediaPlayer API, including MPEG-DASH and Microsoft Smooth Streaming delivery protocols.
+The easiest way to develop a native player app for Android devices is to use the [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), an open-source video player SDK. ExoPlayer supports features not currently supported by Android's native MediaPlayer API, including MPEG-DASH and Microsoft Smooth Streaming delivery protocols.
 
 ExoPlayer version 2.6 and higher includes many classes that support offline Widevine DRM playback. In particular, the OfflineLicenseHelper class provides utility functions to facilitate the use of the DefaultDrmSessionManager for downloading, renewing, and releasing offline licenses. The classes provided in the SDK folder "library/core/src/main/java/com/google/android/exoplayer2/offline/" support offline video content downloading.
 
@@ -154,7 +154,7 @@ If you upgrade your mobile Chrome browser to v62 (or higher) on an Android phone
 
 The above open-source PWA app is authored in Node.js. If you want to host your own version on an Ubuntu server, keep in mind the following common encountered issues that can prevent playback:
 
-1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: https://biograf-155113.appspot.com (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: `https://biograf-155113.appspot.com` (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Certificate issue: Starting from Chrome v 58, EME for Widevine requires HTTPS. Therefore, you need to host the sample app over HTTPS with an X509 certificate. A usual test certificate does not work due to the following requirements: You need to obtain a certificate meeting the following minimum requirements:
     - Chrome and Firefox require SAN-Subject Alternative Name setting to exist in the certificate
     - The certificate must have trusted CA and a self-signed development certificate does not work
@@ -167,25 +167,25 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
 How can I deliver persistent licenses (offline-enabled) for some clients/users and non-persistent licenses (offline-disabled) for others? Do I have to duplicate the content and use separate content key?
 
 ### Answer
-You do not need to duplicate the content. You can simply use a single copy of the content and a single ContentKeyAuthorizationPolicy, but two separate ContentKeyAuthorizationPolicyOption’s:
+You do not need to duplicate the content. You can simply use a single copy of the content and a single ContentKeyAuthorizationPolicy, but two separate ContentKeyAuthorizationPolicyOption's:
 
-1. IContentKeyAuthorizationPolicyOption 1: uses persistent license, and ContentKeyAuthorizationPolicyRestriction 1 which contains a claim such as license_type = “Persistent”
-2. IContentKeyAuthorizationPolicyOption 2: uses non-persistent license, and ContentKeyAuthorizationPolicyRestriction 2 which contains a claim such as license_type = “Nonpersistent”
+1. IContentKeyAuthorizationPolicyOption 1: uses persistent license, and ContentKeyAuthorizationPolicyRestriction 1 which contains a claim such as license_type = "Persistent"
+2. IContentKeyAuthorizationPolicyOption 2: uses non-persistent license, and ContentKeyAuthorizationPolicyRestriction 2 which contains a claim such as license_type = "Nonpersistent"
 
-This way, when a license request comes in from the client app, from license request there is no difference. However, for different end user/device, the STS should have the business logic to issue different JWT tokens containing different claims (one of the above two license_type’s). The claims value in the JWT token will be used to decide by license service to issue what type of
+This way, when a license request comes in from the client app, from license request there is no difference. However, for different end user/device, the STS should have the business logic to issue different JWT tokens containing different claims (one of the above two license_type's). The claims value in the JWT token will be used to decide by license service to issue what type of
 license: persistent or non-persistent.
 
 This means the Secure Token Service (STS) needs to have the business logic and client/device info to add corresponding claim value into a token.
 
 ### Question
 
-For Widevine security levels, in Google’s [Widevine DRM Architecture Overview doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentation,
+For Widevine security levels, in Google's [Widevine DRM Architecture Overview doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentation,
 it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview),
 five different security levels are outlined. What is the relationship or mapping between the two different sets of security levels?
 
 ### Answer
 
-In Google’s [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf),
+In Google's [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf),
 it defines the following three security levels:
 
 1.  Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
@@ -221,6 +221,10 @@ There are two ways to improve download speed:
 2.  Provide end users the option to selectively download video quality layers and audio tracks instead of all contents. For offline mode, there is no point to download all of the quality layers. There are two ways to achieve this:
     1.  Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
     2.  Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Summary
 

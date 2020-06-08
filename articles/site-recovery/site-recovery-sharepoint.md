@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery | Microsoft Docs
+title: Disaster recovery for a multi-tier SharePoint app using Azure Site Recovery 
 description: This article describes how to set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery capabilities.
 author: sujayt
 manager: rochakm
@@ -77,7 +77,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document.
 
-* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
+* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-sql.md) document.
 
 ## Networking configuration
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
 ---
 
@@ -25,7 +25,7 @@ The Bing Custom Search API enables you to create tailored ad-free search experie
 |[Custom image search experiences](get-images-from-instance.md)     | Enable your users to search for images from the domains and websites specified in your custom search instance.        |        
 |[Custom video search experiences](get-videos-from-instance.md)     | Enable your users to search for videos from the domains and sites specified in your custom search instance.        |    
 |[Share your custom search instance](share-your-custom-search.md)     | Collaboratively edit and test your search instance by sharing it with members of your team.        | 
-|[Configure a UI for your applications and websites](hosted-ui.md)     | Collaboratively edit and test your search instance by sharing it with members of your team.        | 
+|[Configure a UI for your applications and websites](hosted-ui.md)     | Provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet.        | 
 ## Workflow
 
 You can create a customized search instance by using the [Bing Custom Search portal](https://customsearch.ai). The portal enables you to create a custom search instance that specifies the domains, websites, and webpages that you want Bing to search, along with the ones that you don’t want it to search. You can also use the portal to: preview the search experience, adjust the search rankings that the API provides, and optionally configure a searchable user interface to be rendered in your websites and applications.
@@ -42,6 +42,8 @@ To get started quickly, see [Create your first Bing Custom Search instance](quic
 For details about customizing your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) for using search results in your services and applications.
+
+Visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.
 
 Familiarize yourself with the reference content for each of the custom search endpoints. The reference contains the endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
 

@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh deployment | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl mesh deployment commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl mesh deployment
+description: Learn about sfctl, the Azure Service Fabric command-line interface. Includes a list of commands for creating Service Fabric Mesh resources.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
 
 # sfctl mesh deployment
@@ -33,8 +24,8 @@ Creates a deployment of Service Fabric Mesh Resources.
 
 |Argument|Description|
 | --- | --- |
-| --input-yaml-files [Required] | Comma-separated relative/absolute file paths of all the yaml files or relative/absolute path of the directory (recursive) which contain yaml files. |
-| --parameters | A relative/absolute path to yaml file or a json object that contains the parameters that need to be overridden. |
+| --input-yaml-files [Required] | Comma-separated relative or absolute file paths of all the yaml files or relative or absolute path of the directory (recursive) that contain yaml files. |
+| --parameters | A relative or absolute path to a yaml file or a json object that contains the parameters that need to be overridden. |
 
 ### Global Arguments
 
@@ -48,29 +39,23 @@ Creates a deployment of Service Fabric Mesh Resources.
 
 ### Examples
 
-Consolidates and deploys all the resources to cluster by overriding the parameters mentioned in
-the yaml file
-
-```
-sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters
-./param.yaml
+Consolidates and deploys all the resources to cluster by overriding the parameters mentioned in the yaml file
+```	
+sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters	
+./param.yaml	
 ```
 
-Consolidates and deploys all the resources in a directory to cluster by overriding the
-parameters mentioned in the yaml file
+Consolidates and deploys all the resources in a directory to cluster by overriding the parameters mentioned in the yaml file
 
-```
+```	
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolidates and deploys all the resources in a directory to cluster by overriding the
-parameters, which are passed directly as json object
-
+Consolidates and deploys all the resources in a directory to cluster by overriding the parameters that are passed directly as json object
+```	
+sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :	
+{'value' : 'my_value'} }"	
 ```
-sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :
-{'value' : 'my_value'} }"
-```
-
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

@@ -1,14 +1,10 @@
 ---
-title: Optimize performance on Azure Lsv2-series virtual machines - Storage | Microsoft Docs
+title: Optimize performance on Azure Lsv2-series virtual machines - Storage 
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
-services: virtual-machines-windows
-author: laurenhughes
-manager: gwallace
-
+author: sasha-melamed
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: sizes
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
@@ -20,7 +16,7 @@ Lsv2-series virtual machines support a variety of workloads that need high I/O a
 
 The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7551 processor to provide the best performance between the processor, memory, NVMe devices, and the VMs. In addition to maximizing the hardware performance, Lsv2-series VMs are designed to work with the needs of Windows and Linux operating systems for better performance with the hardware and the software.
 
-Tuning the software and hardware resulted in the optimized version of [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), released in early December 2018 to the Azure Marketplace, which supports maximum performance on the NVMe devices in Lsv2-series VMs.
+Tuning the software and hardware resulted in the optimized version of [Windows Server 2019 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), released in early December 2018 to the Azure Marketplace, which supports maximum performance on the NVMe devices in Lsv2-series VMs.
 
 This article provides tips and suggestions to ensure your workloads and applications achieve the maximum performance designed into the VMs. The information on this page will be continuously updated as more Lsv2 optimized images are added to the Azure Marketplace.
 

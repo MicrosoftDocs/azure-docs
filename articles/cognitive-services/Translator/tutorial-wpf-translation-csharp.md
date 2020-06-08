@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Create a translation app with WPF, C#  - Translator Text API"
+title: "Tutorial: Create a translation app with WPF, C#  - Translator"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll create a Windows Presentation Foundation (WPF) app that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. This exercise will show you how to use features from the Translator Text API and Bing Spell Check API.
+description: In this tutorial, you'll create a WPF app to perform text translation, language detection, and spell checking with a single subscription key.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ---
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to:
 > * Create a WPF project in Visual Studio
 > * Add assemblies and NuGet packages to your project
 > * Create your app's UI with XAML
-> * Use the Translator Text API to get languages, translate text, and detect the source language
+> * Use the Translator to get languages, translate text, and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
 > * Run your WPF app
 
@@ -34,9 +34,9 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 
 | Service | Feature | Description |
 |---------|---------|-------------|
-| Translator Text | [Get Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Retrieve a complete list of supported languages for text translation. |
-| Translator Text | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 60 languages. |
-| Translator Text | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detect the language of the input text. Includes confidence score for detection. |
+| Translator | [Get Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Retrieve a complete list of supported languages for text translation. |
+| Translator | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 60 languages. |
+| Translator | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detect the language of the input text. Includes confidence score for detection. |
 | Bing Spell Check | [Spell Check](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
 
 ## Prerequisites
@@ -56,11 +56,11 @@ The first thing we need to do is set up our project in Visual Studio.
 
 1. Open Visual Studio. Select **Create a new project**.
 1. In **Create a new project**, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
-1. Select **Next**, and then name your project `MSTranslatorTextDemo`.
+1. Select **Next**, and then name your project `MSTranslatorDemo`.
 1. Set the framework version to **.NET Framework 4.7.2** or later, and select **Create**.
    ![Enter the name and framework version in Visual Studio](media/name-wpf-project-visual-studio.png)
 
-Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. We'll modify `MainWindow.xaml` for the app's user interface. We'll modify `MainWindow.xaml.cs` for our calls to Translator Text and Bing Spell Check.
+Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. We'll modify `MainWindow.xaml` for the app's user interface. We'll modify `MainWindow.xaml.cs` for our calls to Translator and Bing Spell Check.
    ![Review your environment](media/blank-wpf-project.png)
 
 In the next section, we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
@@ -126,12 +126,12 @@ Let's add the code to our project.
 1. In Visual Studio, select the tab for `MainWindow.xaml`.
 1. Copy this code into your project, and then select **File > Save MainWindow.xaml** to save your changes.
    ```xaml
-   <Window x:Class="MSTranslatorTextDemo.MainWindow"
+   <Window x:Class="MSTranslatorDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:local="clr-namespace:MSTranslatorTextDemo"
+           xmlns:local="clr-namespace:MSTranslatorDemo"
            mc:Ignorable="d"
            Title="Microsoft Translator" Height="400" Width="700" BorderThickness="0">
        <Grid>
@@ -168,15 +168,15 @@ That's it, your form is ready. Now let's write some code to use Text Translation
 
 ## Create your app
 
-`MainWindow.xaml.cs` contains the code that controls our app. In the next few sections, we're going to add code to populate our drop-down menus, and to call a handful of API exposed by Translator Text and Bing Spell Check.
+`MainWindow.xaml.cs` contains the code that controls our app. In the next few sections, we're going to add code to populate our drop-down menus, and to call a handful of API exposed by Translator and Bing Spell Check.
 
-* When the program starts and `MainWindow` is instantiated, the `Languages` method of the Translator Text API is called to retrieve and populate our language selection drop-downs. This happens once at the beginning of each session.
+* When the program starts and `MainWindow` is instantiated, the `Languages` method of the Translator is called to retrieve and populate our language selection drop-downs. This happens once at the beginning of each session.
 * When the **Translate** button is clicked, the user's language selection and text are retrieved, spell check is performed on the input, and the translation and detected language are displayed for the user.
-  * The `Translate` method of the Translator Text API is called to translate text from `TextToTranslate`. This call also includes the `to` and `from` languages selected using the drop-down menus.
-  * The `Detect` method of the Translator Text API is called to determine the text language of `TextToTranslate`.
+  * The `Translate` method of the Translator is called to translate text from `TextToTranslate`. This call also includes the `to` and `from` languages selected using the drop-down menus.
+  * The `Detect` method of the Translator is called to determine the text language of `TextToTranslate`.
   * Bing Spell Check is used to validate `TextToTranslate` and adjust misspellings.
 
-All of our project is encapsulated in the `MainWindow : Window` class. Let's start by adding code to set your subscription key, declare endpoints for Translator Text and Bing Spell Check, and initialize the app.
+All of our project is encapsulated in the `MainWindow : Window` class. Let's start by adding code to set your subscription key, declare endpoints for Translator and Bing Spell Check, and initialize the app.
 
 1. In Visual Studio, select the tab for `MainWindow.xaml.cs`.
 1. Replace the pre-populated `using` statements with the following.  
@@ -197,7 +197,7 @@ All of our project is encapsulated in the `MainWindow : Window` class. Let's sta
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
-       // Endpoints for Translator Text and Bing Spell Check
+       // Endpoints for Translator and Bing Spell Check
        public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
@@ -258,7 +258,7 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 ## Get supported languages
 
-The Translator Text API currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by Translator Text rather than hardcoding the language list in your app.
+The Translator currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
 
 In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 
@@ -357,7 +357,7 @@ Now that `MainWindow` has been initialized and the user interface created, this 
 
 ## Detect language of source text
 
-Now we're going to create method to detect the language of the source text (text entered into our text area) using the Translator Text API. The value returned by this request will be used in our translation request later.
+Now we're going to create method to detect the language of the source text (text entered into our text area) using the Translator. The value returned by this request will be used in our translation request later.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
 2. Add this code to your project below the `PopulateLanguageMenus()` method:
@@ -367,7 +367,7 @@ Now we're going to create method to detect the language of the source text (text
    {
        string detectUri = string.Format(TEXT_TRANSLATION_API_ENDPOINT ,"detect");
 
-       // Create request to Detect languages with Translator Text
+       // Create request to Detect languages with Translator
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
@@ -413,7 +413,7 @@ Additionally, this method evaluates the confidence score of the response. If the
 
 ## Spell check the source text
 
-Now we're going to create a method to spell check our source text using the Bing Spell Check API. Spell checking ensures that we'll get back accurate translations from Translator Text API. Any corrections to the source text are passed along in our translation request when the **Translate** button is clicked.
+Now we're going to create a method to spell check our source text using the Bing Spell Check API. Spell checking ensures that we'll get back accurate translations from the Translator. Any corrections to the source text are passed along in our translation request when the **Translate** button is clicked.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
 2. Add this code to your project below the `DetectLanguage()` method:
@@ -554,7 +554,7 @@ The last thing that we need to do is create a method that is invoked when the **
    }
    ```
 
-The first step is to get the "from" and "to" languages, and the text the user entered into our form. If the source language is set to **Detect**, `DetectLanguage()` is called to determine the language of the source text. The text might be in a language that the Translator API doesn't support. In that case, display a message to inform the user, and return without translating the text.
+The first step is to get the "from" and "to" languages, and the text the user entered into our form. If the source language is set to **Detect**, `DetectLanguage()` is called to determine the language of the source text. The text might be in a language that the Translator doesn't support. In that case, display a message to inform the user, and return without translating the text.
 
 If the source language is English (whether specified or detected), check the spelling of the text with `CorrectSpelling()` and apply any corrections. The corrected text is added back into the text area so that the user sees that a correction was made.
 
@@ -575,4 +575,4 @@ Source code for this project is available on GitHub.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Microsoft Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

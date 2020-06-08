@@ -1,13 +1,14 @@
 ---
-title: OData full-text search function reference - Azure Search
-description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Search queries.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "brjohnstmsft"
-ms.author: "brjohnst"
+title: OData full-text search function reference
+titleSuffix: Azure Cognitive Search
+description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Cognitive Search queries.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,9 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData full-text search functions in Azure Search - `search.ismatch` and `search.ismatchscoring`
+# OData full-text search functions in Azure Cognitive Search - `search.ismatch` and `search.ismatchscoring`
 
-Azure Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Azure Cognitive Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 > [!NOTE]
 > The `search.ismatch` and `search.ismatchscoring` functions are only supported in filters in the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). They are not supported in the [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) or [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) APIs.
@@ -48,10 +49,10 @@ search_mode ::= "'any'" | "'all'"
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 ### search.ismatch
 
@@ -75,7 +76,7 @@ All the above parameters are equivalent to the corresponding [search request par
 The `search.ismatch` function returns a value of type `Edm.Boolean`, which allows you to compose it with other filter sub-expressions using the Boolean [logical operators](search-query-odata-logical-operators.md).
 
 > [!NOTE]
-> Azure Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Troubleshooting collection filters in Azure Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why this limitation exists, see [Understanding collection filters in Azure Search](search-query-understand-collection-filters.md).
+> Azure Cognitive Search does not support using `search.ismatch` or `search.ismatchscoring` inside lambda expressions. This means it is not possible to write filters over collections of objects that can correlate full-text search matches with strict filter matches on the same object. For more details on this limitation as well as examples, see [Troubleshooting collection filters in Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why this limitation exists, see [Understanding collection filters in Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 
 ### search.ismatchscoring
@@ -114,7 +115,7 @@ Find documents where the terms "hotel" and "airport" are within 5 words from eac
 
 ## Next steps  
 
-- [Filters in Azure Search](search-filters.md)
-- [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filters in Azure Cognitive Search](search-filters.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

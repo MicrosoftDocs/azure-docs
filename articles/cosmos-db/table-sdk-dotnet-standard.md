@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB Table API .NET Standard SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -31,48 +31,51 @@ ms.date: 03/18/2019
 ## Release notes for 2.0.0 series
 2.0.0 series takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint.
 
-### <a name="2.0.0-preview"/>2.0.0-preview
+### <a name="2.0.0-preview"></a>2.0.0-preview
 * initial preview of 2.0.0 Table SDK that takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint. The public API remains the same.
 
 ## Release notes for 1.0.0 series
 1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
-### <a name="1.0.5"/>1.0.5
+### <a name="1.0.7"></a>1.0.7
+* Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config
+
+### <a name="1.0.5"></a>1.0.5
 * Introduce new config under TableClientConfiguration to use Rest Executor to communicate with Cosmos DB Table API
 
-### <a name="1.0.5-preview"/>1.0.5-preview
+### <a name="1.0.5-preview"></a>1.0.5-preview
 * Bug fixes
 
-### <a name="1.0.4"/>1.0.4
-* Bug fixes
-* Provide HttpClientTimeout option for RestExecutorConfiguration.
-
-### <a name="1.0.4-preview"/>1.0.4-preview
+### <a name="1.0.4"></a>1.0.4
 * Bug fixes
 * Provide HttpClientTimeout option for RestExecutorConfiguration.
 
-### <a name="1.0.1"/>1.0.1
+### <a name="1.0.4-preview"></a>1.0.4-preview
+* Bug fixes
+* Provide HttpClientTimeout option for RestExecutorConfiguration.
+
+### <a name="1.0.1"></a>1.0.1
 * Bug fixes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
-### <a name="0.11.0-preview"/>0.11.0-preview
+### <a name="0.11.0-preview"></a>0.11.0-preview
 * Changes were made to how CloudTableClient can be configured. It now takes an a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Cosmos DB Table API or Azure Storage Table API.
 * Added support to TableQuery to return results in sorted order on a custom column. This feature is only supported on Cosmos DB Table endpoints.
 * Added support to expose RequestCharges on various result types. This feature is only supported on Cosmos DB Table endpoints.
 
-### <a name="0.10.1-preview"/>0.10.1-preview
+### <a name="0.10.1-preview"></a>0.10.1-preview
 * Add support for SAS token, operations of TablePermissions, ServiceProperties, and ServiceStats against Azure Storage Table endpoints. 
    > [!NOTE]
    > Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
-### <a name="0.10.0-preview"/>0.10.0-preview
+### <a name="0.10.0-preview"></a>0.10.0-preview
 * Add support for core CRUD, batch, and query operations against Azure Storage Table endpoints. 
    > [!NOTE]
    > Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
-### <a name="0.9.1-preview"/>0.9.1-preview
+### <a name="0.9.1-preview"></a>0.9.1-preview
 * Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). 
    > [!NOTE]
    >  Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.

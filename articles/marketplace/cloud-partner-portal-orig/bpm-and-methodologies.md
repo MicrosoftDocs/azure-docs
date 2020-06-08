@@ -1,36 +1,16 @@
 ---
 title: Business Process Libraries | Azure Marketplace
-description: Explanation of business process libraries and methodologies.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
-manager: Ricardo.Villalobos  
+description: Deprecated this CPP article and linked to PC article; Was "Explanation of business process libraries and methodologies."
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
+ms.date: 09/30/2019
+ms.author: dsindona
 ---
 
 # Business Process Libraries
 
-Business process libraries are nothing but task guides of your end-end
-scenarios. The business process library should directly align with your marketing content. Each business process in the business process library should have a [task recording](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder) associated with it. If you have processes that are outside Dynamics 365 for Operations, please attach a Visio to your BPM library.
+The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-See [Business Process Modeler](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions) for more info.
-
-## Methodologies
-
-Lifecycle Services (LCS) for Microsoft Dynamics provides methodologies
-that you can use to ensure a more repeatable and predictable
-implementation project experience. You can use one of the provided
-methodologies or create your own. With a methodology, you can easily
-track and report on your progress.
-
-A methodology consists of phases, tasks, and milestones. Each phase can have any number of tasks, some of which are mandatory. When all of the tasks in a phase are completed, the phase can be marked as complete. You can also create a milestone for when you anticipate a phase to be completed. The following methodologies are included in an LCS project:
-
-- Implementation
-- Sure Step
-- Learn development
-- Migrate and create solutions
-- Consume solutions
-
-See [LCS Methodologies](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lifecycle-services/create-methodology) for more info.
+Before you create a new Dynamics 365 for Operations offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) to create your offer.

@@ -1,18 +1,11 @@
 ---
-title: Create a snapshot of a VHD in Azure | Microsoft Docs
+title: Create a snapshot of a virtual hard drive in Azure 
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
@@ -26,11 +19,12 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 
 ## Use the Azure portal 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the left menu, select **Create a resource**, and then search for and select **snapshot**.
+To create a snapshot, complete the following steps: 
+1.	On the [Azure portal](https://portal.azure.com), select **Create a resource**.
+2. Search for and select **Snapshot**.
 3. In the **Snapshot** window, select **Create**. The **Create snapshot** window appears.
 4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or enter the name of a new one. 
+5. Select an existing [Resource group](../../azure-resource-manager/management/overview.md#resource-groups) or enter the name of a new one. 
 6. Select an Azure datacenter **Location**.  
 7. For **Source disk**, select the managed disk to snapshot.
 8. Select the **Account type** to use to store the snapshot. Select **Standard_HDD**, unless you need the snapshot to be stored on a high-performing disk.
@@ -38,9 +32,9 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 
 ## Use PowerShell
 
-The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+The following steps show how to copy the VHD disk and create the snapshot configuration. You can then take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. Set some parameters: 
 

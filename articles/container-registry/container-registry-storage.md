@@ -1,14 +1,8 @@
 ---
-title: Image storage in Azure Container Registry
+title: Container image storage 
 description: Details on how your Docker container images are stored in Azure Container Registry, including security, redundancy, and capacity.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: danlep
 ---
 
 # Container image storage in Azure Container Registry
@@ -47,7 +41,7 @@ For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Next steps
 
-For more information about the different Azure Container Registry SKUs (Basic, Standard, Premium), see [Azure Container Registry SKUs](container-registry-skus.md).
+For more information about Basic, Standard, and Premium container registries, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 <!-- IMAGES -->
 

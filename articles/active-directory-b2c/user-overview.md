@@ -1,27 +1,30 @@
 ---
-title: Overview of user accounts in Azure Active Directory B2C | Microsoft Docs
-description: Learn about user accounts in Azure Active Directory B2C.
+title: Overview of user accounts in Azure Active Directory B2C
+description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: marsma
+ms.date: 11/05/2019
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Overview of user accounts in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), you can use different types of accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share in the types of user accounts that can be used.
+In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory, Active Directory B2B, and Active Directory B2C share in the types of user accounts that can be used.
 
 The following types of accounts are available:
 
 - **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
 - **Guest account** - A guest account can only be a Microsoft account or an Azure Active Directory user that can be used to access applications or manage tenants.
-- **Consumer account** - A consumer account is created by going through a sign-up user flow in an Azure AD B2C application or by using Azure AD Graph API, and is used by users of the applications that are registered with Azure AD B2C.
+- **Consumer account** - A consumer account is used by a user of the applications you've registered with Azure AD B2C. Consumer accounts can be created by:
+  - The user going through a sign-up user flow in an Azure AD B2C application
+  - Using Microsoft Graph API
+  - Using the Azure portal
 
 ## Work account
 
@@ -69,12 +72,12 @@ You can also use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/
 
 ## Consumer user
 
-The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal.  The consumer user can use a local account or federated accounts, such as Facebook or Twitter. A consumer account is created by using a [sign-up or sign-in user flow](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+The consumer user can sign in to applications secured by Azure AD B2C, but cannot access Azure resources such as the Azure portal. The consumer user can use a local account or federated accounts, such as Facebook or Twitter. A consumer account is created by using a [sign-up or sign-in user flow](user-flow-overview.md), using the Microsoft Graph API, or by using the Azure portal.
 
-You can specify the data that is collected when a consumer user account is created by using custom user attributes. For more information, see [Define custom attributes in Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
+You can specify the data that is collected when a consumer user account is created by using custom user attributes. For more information, see [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-You can use the information in the **Create consumer user accounts** section of [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to create an Azure AD B2C consumer account. You can also use the information in the **Update consumer user accounts** section in the same article to manage the properties of the account.
+For more information about managing consumer accounts, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ### Migrate consumer user accounts
 
-You might have a need to migrate existing consumer user accounts from any identity provider to Azure AD B2C. For more information, see [User Migration](active-directory-b2c-user-migration.md) or [Migrate users with social identities](active-directory-b2c-social-migration.md).
+You might have a need to migrate existing consumer user accounts from any identity provider to Azure AD B2C. For more information, see [Migrate users to Azure AD B2C](user-migration.md).

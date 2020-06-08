@@ -1,12 +1,12 @@
 ---
-title: How to create a project? - Custom Translator
+title: How to create a project - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create a project in Custom Translator?  
+description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
@@ -68,7 +68,7 @@ After selecting a project, you'll see the following on the project page:
 
 - CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text
-    Translator API to get custom translations.
+    Translator to get custom translations.
 
 - Train button: Use this button to start a [training a model](how-to-train-model.md).
 

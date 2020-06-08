@@ -1,18 +1,12 @@
 ---
-title: User, session, and event analysis in Azure Application Insights | Microsoft docs
+title: User, session, and event analysis in Azure Application Insights
 description: Demographic analysis of users of your web app.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/24/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Users, sessions, and events analysis in Application Insights
@@ -64,5 +58,5 @@ The **Meet your users** section shows information about five sample users matche
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)

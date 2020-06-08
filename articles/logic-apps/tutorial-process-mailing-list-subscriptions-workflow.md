@@ -1,13 +1,9 @@
 ---
-title: Build approval-based automated workflows - Azure Logic Apps
+title: Build approval-based automated workflows
 description: Tutorial - Create an approval-based automated workflow that processes mailing list subscriptions by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
@@ -30,13 +26,13 @@ In this tutorial, you learn how to:
 
 When you're done, your logic app looks like this workflow at a high level:
 
-![High-level finished logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![High-level finished logic app overview](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* A MailChimp account that contains and a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
+* A MailChimp account that contains a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
 
 * An email account in Office 365 Outlook or Outlook.com, which supports approval workflows. This article uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
@@ -48,24 +44,24 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Create logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![Create your new logic app resource](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. Under **Create logic app**, provide this information about your logic app as shown and described. When you're done, select **Create**.
 
-   ![Provide logic app information](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![Provide information about your logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "LA-MailingList". |
    | **Subscription** | <*your-Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which is used to organize related resources. This example uses "LA-MailingList-RG". |
+   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example uses "LA-MailingList-RG". |
    | **Location** | West US | TThe region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
 1. After Azure deploys your app, on the Azure toolbar, select **Notifications** > **Go to resource** for your deployed logic app.
 
-   ![Go to resource](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![Go to your new logic app resource](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    Or, you can find and select your logic app by typing the name in the search box.
 
@@ -103,13 +99,13 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    1. Now add another property to the trigger so that you can filter on email subject line. Open the **Add new parameter list**, and select the **Subject Filter** property.
 
-      ![Add new parameter](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![Add "Subject Filter" property to trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       For more information about this trigger's properties, see the [Office 365 Outlook connector reference](https://docs.microsoft.com/connectors/office365/) or the [Outlook.com connector reference](https://docs.microsoft.com/connectors/outlook/).
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
-      ![Enter subject filter textAdd new parameter](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Enter text for "Subject Filter" property](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. To hide the trigger's details for now, click the trigger's title bar.
 
@@ -156,13 +152,13 @@ Next, add a condition to check the approver's selected response.
 
 1. Under **Choose an action**, select **Built-in**. In the search box, enter `condition` as your filter. From the actions list, select the **Condition** action.
 
-   ![Select "Condition"](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   ![Find and select the "Condition" action](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. Rename the condition with a better description.
 
    1. On the condition's title bar, select the **ellipses** (**...**) button > **Rename**.
 
-      ![Rename condition](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![Rename condition's description](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. Rename your condition with this description: `If request approved`
 
@@ -172,7 +168,7 @@ Next, add a condition to check the approver's selected response.
 
    1. From the dynamic content list that appears, under **Send approval email**, select the **SelectedOption** property.
 
-      ![Under "Send approval email", select "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![From dynamic content list, select "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. In the middle comparison box, select the **is equal to** operator.
 
@@ -180,7 +176,7 @@ Next, add a condition to check the approver's selected response.
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Finished condition for Approved example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. Save your logic app.
 
@@ -237,7 +233,7 @@ Next, add a condition so that you can check whether the new member successfully 
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![Finished condition for Subscribed example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 Next, set up the emails to send when the approved member succeeds or fails in joining your mailing list.
 
@@ -245,7 +241,7 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 1. Under the **If add member succeeded** condition, in the **If true** branch, select **Add an action**.
 
-   ![In "If true" branch for condition, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![In "If true" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
 1. Under **Choose an action**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
 
@@ -270,7 +266,7 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 1. Under the **If add member succeeded** condition, in the **If false** branch, select **Add an action**.
 
-   ![In "If false" branch for condition, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![In "If false" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
 1. Under **Choose an action**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
 
@@ -293,7 +289,7 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 Next, test your logic app, which now looks similar to this example:
 
-![Finished logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![Example finished logic app workflow](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## Run your logic app
 
@@ -307,11 +303,11 @@ Next, test your logic app, which now looks similar to this example:
 
 1. If the subscriber's email address doesn't exist on your mailing list, your logic app adds that person's email address and sends you an email like this example:
 
-   ![Success email](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![Example email - successful subscription](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    If your logic app can't add the subscriber, you get an email like this example:
 
-   ![Failed email](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![Example email - failed subscription](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, 
    see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).

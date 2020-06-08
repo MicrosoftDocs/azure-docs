@@ -1,5 +1,5 @@
 ---
-title: Azure VM extensions and features for Windows | Microsoft Docs
+title: Azure VM extensions and features for Windows 
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -24,15 +24,15 @@ Azure virtual machine (VM) extensions are small applications that provide post-d
 
 This article provides an overview of VM extensions, prerequisites for using Azure VM extensions, and guidance on how to detect, manage, and remove VM extensions. This article provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Use cases and samples
 
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
-- Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../windows/chef-automation.md).
+- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../../chef/chef-automation.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -50,25 +50,25 @@ For information on supported operating systems and installation instructions, se
 
 #### Supported agent versions
 
-In order to provide the best possible experience, there are minimum versions of the agent. For more information, see [this article](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+In order to provide the best possible experience, there are minimum versions of the agent. For more information, see [this article](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### Supported OSes
 
-The Windows Guest agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+The Windows Guest agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Some extensions are not supported across all OSes and may emit *Error Code 51, 'Unsupported OS'*. Check the individual extension documentation for supportability.
 
 #### Network access
 
-Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications. If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
+Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications (HostGAPlugin feature through the privileged channel on private IP [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
 
 > [!IMPORTANT]
-> If you have blocked access to *168.63.129.16* using the guest firewall, then extensions fail irrespective of the above.
+> If you have blocked access to *168.63.129.16* using the guest firewall or with a proxy, extensions fail irrespective of the above. Ports 80, 443, and 32526 are required.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) to Storage or AzureActiveDirectory.
 
-The Windows Guest Agent does not have proxy server support for you to redirect agent traffic requests through.
+The Windows Guest Agent does not have proxy server support for you to redirect agent traffic requests through, which means that the Windows Guest Agent will rely on your custom proxy (if you have one) to access resources on the internet or on the Host through IP 168.63.129.16.
 
 ## Discover VM extensions
 
@@ -248,6 +248,10 @@ Moving the **command to execute** property to the **protected** configuration se
 }
 ```
 
+On an Azure IaaS VM that uses extensions, in the certificates console, you might see certificates that have the subject **_Windows Azure CRP Certificate Generator_**. On a Classic RDFE VM, these certificates have the subject name **_Windows Azure Service Management for Extensions_**.
+
+These certificates secure the communication between the VM and its host during the transfer of protected settings (password, other credentials) used by extensions. The certificates are built by the Azure fabric controller and passed to the VM Agent. If you stop and start the VM every day, a new certificate might be created by the fabric controller. The certificate is stored in the computer's Personal certificates store. These certificates can be deleted. The VM Agent re-creates certificates if needed.
+
 ### How do agents and extensions get updated?
 
 The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
@@ -345,7 +349,7 @@ Each VM extension may have troubleshooting steps specific to the extension. For 
 
 The following troubleshooting steps apply to all VM extensions.
 
-1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
 2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 

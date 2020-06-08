@@ -1,13 +1,13 @@
 ---
-title: Azure CLI script - Download server logs in Azure Database for MariaDB
-description: This sample Azure CLI script shows how to enable and download the server logs of an Azure Database for MariaDB server.
+title: CLI script - Download slow query logs - Azure Database for MariaDB
+description: This sample Azure CLI script shows how to enable and download the slow query logs of an Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/02/2019
 ---
 
 # Enable and download server slow query logs of an Azure Database for MariaDB server using Azure CLI

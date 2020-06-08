@@ -1,16 +1,12 @@
 ---
-title: Connect to RSS feeds from Azure Logic Apps | Microsoft Docs
+title: Connect to RSS feeds from Azure Logic Apps
 description: Automate tasks and workflows that monitor and manage RSS feeds by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-tags: connectors
 ms.date: 08/24/2018
+tags: connectors
 ---
 
 # Manage RSS feeds by using Azure Logic Apps
@@ -77,7 +73,7 @@ review the connector's [reference page](/connectors/rss/).
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps

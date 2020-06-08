@@ -1,25 +1,23 @@
 ---
-title: Copy data from SAP HANA using Azure Data Factory | Microsoft Docs
+title: Copy data from SAP HANA
 description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/02/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 04/22/2020
 ---
+
 # Copy data from SAP HANA using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Current version](connector-sap-hana.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -40,9 +38,10 @@ Specifically, this SAP HANA connector supports:
 - Copying data from any version of SAP HANA database.
 - Copying data from **HANA information models** (such as Analytic and Calculation views) and **Row/Column tables**.
 - Copying data using **Basic** or **Windows** authentication.
+- Parallel copying from a SAP HANA source. See the [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section for details.
 
 > [!TIP]
-> To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](connector-odbc.md#sap-hana-sink) with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
+> To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](#sap-hana-sink) section with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 
 ## Prerequisites
 
@@ -176,12 +175,18 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP HANA as source
 
+>[!TIP]
+>To ingest data from SAP HANA efficiently by using data partitioning, learn more from [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.
+
 To copy data from SAP HANA, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapHanaSource** | Yes |
 | query | Specifies the SQL query to read data from the SAP HANA instance. | Yes |
+| partitionOptions | Specifies the data partitioning options used to ingest data from SAP HANA. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.<br>Allow values are: **None** (default), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. `PhysicalPartitionsOfTable` can only be used when copying data from a table but not query. <br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SAP HANA is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | False |
+| partitionSettings | Specify the group of the settings for data partitioning.<br>Apply when partition option is `SapHanaDynamicRange`. | False |
+| partitionColumnName | Specify the name of the source column that will be used by partition for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `SapHanaDynamicRange`. If you use a query to retrieve the source data, hook `?AdfHanaDynamicRangePartitionCondition` in WHERE clause. See example in [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. | Yes when using `SapHanaDynamicRange` partition. |
 | packetSize | Specifies the network packet size (in Kilobytes) to split data to multiple blocks. If you have large amount of data to copy, increasing packet size can increase reading speed from SAP HANA in most cases. Performance testing is recommended when adjusting the packet size. | No.<br>Default value is 2048 (2MB). |
 
 **Example:**
@@ -218,6 +223,43 @@ To copy data from SAP HANA, the following properties are supported in the copy a
 
 If you were using `RelationalSource` typed copy source, it is still supported as-is, while you are suggested to use the new one going forward.
 
+## Parallel copy from SAP HANA
+
+The Data Factory SAP HANA connector provides built-in data partitioning to copy data from SAP HANA in parallel. You can find data partitioning options on the **Source** table of the copy activity.
+
+![Screenshot of partition options](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
+
+When you enable partitioned copy, Data Factory runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
+
+You are suggested to enable parallel copy with data partitioning especially when you ingest large amount of data from your SAP HANA. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+
+| Scenario                                           | Suggested settings                                           |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| Full load from large table.                        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partition type of the specified SAP HANA table, and choose the corresponding partition strategy:<br>- **Range Partitioning**: Get the partition column and partition ranges defined for the table, then copy the data by range. <br>- **Hash Partitioning**: Use hash partition key as partition column, then partition and copy the data based on ADF calculated ranges. <br>- **Round-Robin Partitioning** or **No Partition**: Use primary key as partition column, then partition and copy the data based on ADF calculated ranges. |
+| Load large amount of data by using a custom query. | **Partition option**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to apply dynamic range partition. <br><br>During execution, Data Factory firstly calculates the value ranges of the specified partition column, by evenly distributes the rows in a number of buckets according to the number of distinct partition column values and ADF parallel copy setting, then replaces `?AdfHanaDynamicRangePartitionCondition` with filtering the partition column value range for each partition, and sends to SAP HANA.<br><br>If you want to use multiple columns as partition column, you can concatenate the values of each column as one column in the query and specify it as partition column in ADF, like `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
+
+**Example: query with physical partitions of a table**
+
+```json
+"source": {
+    "type": "SapHanaSource",
+    "partitionOption": "PhysicalPartitionsOfTable"
+}
+```
+
+**Example: query with dynamic range partition**
+
+```json
+"source": {
+    "type": "SapHanaSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "partitionOption": "SapHanaDynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<Partition_column_name>"
+    }
+}
+```
+
 ## Data type mapping for SAP HANA
 
 When copying data from SAP HANA, the following mappings are used from SAP HANA data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
@@ -251,6 +293,34 @@ When copying data from SAP HANA, the following mappings are used from SAP HANA d
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
+
+## SAP HANA sink
+
+Currently, the SAP HANA connector is not supported as sink, while you can use generic ODBC connector with SAP HANA driver to write data into SAP HANA. 
+
+Follow the [Prerequisites](#prerequisites) to set up Self-hosted Integration Runtime and install SAP HANA ODBC driver first. Create an ODBC linked service to connect to your SAP HANA data store as shown in the following example, then create dataset and copy activity sink with ODBC type accordingly. Learn more from [ODBC connector](connector-odbc.md) article.
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## Lookup activity properties
 

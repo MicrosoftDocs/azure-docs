@@ -1,0 +1,85 @@
+### YamlMime:Landing
+
+title: Azure IoT solution accelerators documentation
+summary: Azure IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios such as remote monitoring.
+
+metadata:
+  title: Azure IoT Solution accelerators documentation
+  description: The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include remote monitoring, connected factory, predictive maintenance, and device simulation. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
+  services: iot-accelerators
+  ms.service: iot-accelerators
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  manager: philmea
+  ms.date: 09/16/2019
+
+landingContent:
+  - title: About IoT solution accelerators
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What are Azure IoT solution accelerators?
+            url: about-iot-accelerators.md
+          - text: The AzureIoTSolutions.com site
+            url: iot-accelerators-permissions.md
+  - title: Get started with remote monitoring
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Remote Monitoring solution accelerator overview
+            url: iot-accelerators-remote-monitoring-sample-walkthrough.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a cloud-based remote monitoring solution
+            url: quickstart-remote-monitoring-deploy.md
+      - linkListType: tutorial
+        links: 
+          - text: Monitor your devices
+            url: iot-accelerators-remote-monitoring-monitor.md
+          - text: Detect issues with devices
+            url: iot-accelerators-remote-monitoring-automate.md
+  - title: Get started with industrial IoT
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Industrial IoT overview
+            url: overview-iot-industrial.md
+          - text: OPC Twin overview
+            url: overview-opc-twin.md
+          - text: OPC Vault overview
+            url: overview-opc-vault.md
+          - text: OPC Publisher overview
+            url: overview-opc-publisher.md
+          - text: What is industrial IoT?
+            url: iot-accelerators-connected-factory-features.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a cloud-based connected factory solution
+            url: quickstart-connected-factory-deploy.md
+  - title: Get started with device simulation
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Device Simulation solution accelerator overview
+            url: iot-accelerators-device-simulation-overview.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a device simulation solution
+            url: quickstart-device-simulation-deploy.md
+      - linkListType: tutorial
+        links: 
+          - text: Create and run an IoT device simulation
+            url: iot-accelerators-device-simulation-create-simulation.md
+          - text: Create a custom simulated device
+            url: iot-accelerators-device-simulation-create-custom-device.md
+  - title: Get started with predictive maintenance
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Predictive Maintenance solution accelerator overview
+            url: iot-accelerators-predictive-walkthrough.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a predictive maintenance solution
+            url: quickstart-predictive-maintenance-deploy.md

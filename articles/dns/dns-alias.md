@@ -1,12 +1,12 @@
 ---
-title: Azure DNS alias records overview
-description: Overview of support for alias records in Microsoft Azure DNS.
+title: Alias records overview - Azure DNS
+description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS alias records overview
@@ -61,7 +61,7 @@ For example, contoso.com and www\.contoso.com can point to the same Traffic Mana
 
 Just like a Traffic Manager profile, you can also use alias records to point your DNS zone apex to Azure CDN endpoints. This is useful when you create static websites using Azure storage and Azure CDN. You can then access the website without prepending "www" to your DNS name.
 
-For example, if your static website is named www.contoso.com, your users can access your site using contoso.com without the need to prepend www to the DNS name.
+For example, if your static website is named `www.contoso.com`, your users can access your site using `contoso.com` without the need to prepend www to the DNS name.
 
 As described previously, CNAME records aren't supported at the zone apex. So, you can’t use a CNAME record to point contoso.com to your CDN endpoint. Instead, you can use an alias record to point the zone apex to a CDN endpoint directly.
 

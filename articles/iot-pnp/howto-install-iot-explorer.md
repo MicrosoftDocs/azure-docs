@@ -3,8 +3,8 @@ title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to my IoT hub.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
-ms.topic: conceptual
+ms.date: 12/27/2019
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
@@ -25,7 +25,7 @@ This article shows you how to:
 
 To use the Azure IoT explorer tool, you need:
 
-- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A device registered in your IoT hub. You can use the following Azure CLI command to register a device. Be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
 
     ```azurecli-interactive
@@ -62,37 +62,41 @@ Change the source priorities:
 
 You can drag and drop one of the model definition sources to a different ranking in the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
 
-### Overview page
+### View devices
 
-#### Device overview
+After the tool connects to your IoT hub, it displays the **Devices** list page that lists the device identities registered with your IoT hub. You can expand any entry in the list to see more information.
 
-After the tool connects to your IoT hub, it displays an overview page that lists of all the device identities registered with your Azure IoT hub. Select a device to view more details.
+On the **Devices** list page you can:
 
-#### Device management
-
-- To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
-- To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
+- Select **Add** to register a new device with your hub. Then enter a device ID. Use the default settings to automatically generate authentication keys and enable the connection to your hub.
+- Select a device and then select **Delete** to delete a device identity. Review the device details before you complete this action to be sure you're deleting the right device identity.
+- Query by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
 
 ## Interact with a device
 
-Double-click a device on the overview page to view the next level of detail. There are two sections: **Device** and **Digital Twin**.
+On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. For each device  there are two sections: **Device** and **Digital Twin**.
 
 ### Device
 
-This section includes the **Device Identity**, **Telemetry**, and **Device Twin** tabs.
+This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs.
 
-- You can view and update the device identity information on the **Device identity** tab.
-- If a device is connected and actively sending data, you can view the telemetry on the **Telemetry** tab.
-- You can access the device twin information on the **Device Twin** tab.
+- You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
+- You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
+- If a device is connected and actively sending data, you can view the [telemetry](../iot-hub/iot-hub-devguide-messages-read-builtin.md) on the **Telemetry** tab.
+- You can call a [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) on the device on the **Direct method** tab.
+- You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this article. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this section of the tool. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+
+### Interface
+
+On the **Interface** page, you can view the JSON definition of the interface.
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page.
+You can view the read-only properties defined in an interface on the **Non-writeable properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page:
 
 1. Go to the **Writable properties** page.
 1. Click the property you'd like to update.

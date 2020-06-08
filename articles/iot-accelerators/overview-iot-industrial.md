@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure industrial IoT | Microsoft Docs
-description: Overview of industrial IoT
+description: This article provides an overview of industrial IoT. It explains the connected factory, factory floor connectivity and security components in IIoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -18,13 +18,13 @@ IIoT is the Industrial Internet of Things. IIoT enhances industrial efficiencies
 
 Enhance your operational productivity and profitability with a connected factory solution accelerator. Connect and monitor your industrial equipment and devices in the cloud—including your machines already operating on the factory floor. Analyze your IoT data for insights that help you increase the performance of the entire factory floor.
 
-Reduce the time-consuming process of accessing factory floor machines with OPC Twin, and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with OPC Vault, and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/azure-iiot-opc-ua). The service API gives you control of edge module functionality. 
+Reduce the time-consuming process of accessing factory floor machines with OPC Twin, and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with OPC Vault, and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/Industrial-IoT). The service API gives you control of edge module functionality. 
 
 ![Industrial IoT overview](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
 > For more information about
-Azure Industrial IoT services, see the GitHub [repository](https://github.com/Azure/azure-iiot-services).
+Azure Industrial IoT services, see the GitHub [repository](https://github.com/Azure/Industrial-IoT) and [documentation](https://azure.github.io/Industrial-IoT/).
 > If you're unfamiliar with how Azure IoT Edge modules work, begin with the following articles:
 - [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge modules](../iot-edge/iot-edge-modules.md)

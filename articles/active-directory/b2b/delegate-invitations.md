@@ -1,12 +1,12 @@
 ---
-title: Enable B2B external collaboration settings - Azure Active Directory | Microsoft Docs
+title: Enable B2B external collaboration settings - Azure AD
 description: Learn how to enable Active Directory B2B external collaboration and manage who can invite guest users. Use the Guest Inviter role to delegate invitations.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -34,11 +34,9 @@ By default, all users, including guests, can invite guest users.
 ### To configure external collaboration settings:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a tenant administrator.
-2. Select **Azure Active Directory** > **Users** > **User settings**.
-3. Under **External users**, select **Manage external collaboration settings**.
-   > [!NOTE]
-   > The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
-4. On the **External collaboration settings** page, choose the policies you want to enable.
+2. Select **Azure Active Directory**.
+3. Select **External Identities** > **External collaboration settings**.
+6. On the **External collaboration settings** page, choose the policies you want to enable.
 
    ![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
 
@@ -48,6 +46,9 @@ By default, all users, including guests, can invite guest users.
    - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
    - **Enable Email One-Time Passcode for guests (Preview)**: For more information about the one-time passcode feature, see [Email one-time passcode authentication (preview)](one-time-passcode.md).
    - **Collaboration restrictions**: For more information about allowing or blocking invitations to specific domains, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+   
+   > [!NOTE]
+   > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 ## Assign the Guest Inviter role to a user
 
@@ -66,5 +67,4 @@ See the following articles on Azure AD B2B collaboration:
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
 - [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-
 

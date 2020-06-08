@@ -2,14 +2,11 @@
 title: Manage Azure Cloud Services using Azure Automation | Microsoft Docs
 description: Learn about how the Azure Automation service can be used to manage Azure cloud services at scale.
 services: cloud-services, automation
-documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
@@ -37,4 +34,3 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 * [Azure Automation Overview](../automation/automation-intro.md)
 * [My first runbook](../automation/automation-first-runbook-graphical.md)
-* [Azure Automation learning map](https://azure.microsoft.com/documentation/learning-paths/automation/)

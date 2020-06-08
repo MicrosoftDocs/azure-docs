@@ -68,11 +68,11 @@ For more information, see [Use SSH keys with Windows on Azure](https://docs.micr
 
 5. Set the permission role of your service principal as a Contributor.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
+    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
 
     Or you also can use
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
+    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
 
     ![Service principal role assignment](media/deploy/svc-princ.png )
 

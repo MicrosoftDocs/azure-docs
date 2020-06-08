@@ -2,23 +2,18 @@
 title: Modify Microsoft identify platform app accounts | Azure
 description: Configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to modify the accounts supported by my application.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Modify the accounts supported by an application
@@ -51,7 +46,7 @@ Before you can configure the app, follow these steps:
 If you are writing an application that you want to make available to your customers or partners outside of your organization, you need to update the application definition in the Azure portal.
 
 > [!IMPORTANT]
-> Azure AD requires the Application ID URI of multi-tenant applications to be globally unique. The App ID URI is one of the ways an application is identified in protocol messages. For a single-tenant application, it is sufficient for the App ID URI to be unique within that tenant. For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants. Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant. For example, if the name of your tenant is contoso.onmicrosoft.com, then a valid App ID URI would be https://contoso.onmicrosoft.com/myapp. If your tenant has a verified domain of contoso.com, then a valid App ID URI would also be https://contoso.com/myapp. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
+> Azure AD requires the Application ID URI of multi-tenant applications to be globally unique. The App ID URI is one of the ways an application is identified in protocol messages. For a single-tenant application, it is sufficient for the App ID URI to be unique within that tenant. For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants. Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant. For example, if the name of your tenant is contoso.onmicrosoft.com, then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If your tenant has a verified domain of contoso.com, then a valid App ID URI would also be `https://contoso.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
 ### To change who can access your application
 
@@ -65,12 +60,14 @@ If you are writing an application that you want to make available to your custom
 
 Single-page applications (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back-end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back-end web API.
 
-After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, learn about the OAuth 2.0 implicit grant flow in Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) and [v2.0](v2-oauth2-implicit-grant-flow.md).
+After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, learn about the OAuth 2.0 implicit grant flow in Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) and [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 By default, OAuth 2.0 implicit grant is disabled for applications. You can enable OAuth 2.0 implicit grant for your application by following the steps outlined below.
 
 ### To enable OAuth 2.0 implicit grant
 
+1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
+1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
 1. From the app's **Overview** page, select the **Authentication** section.
 1. Under **Advanced settings**, locate the **Implicit grant** section.
 1. Select **ID tokens**, **Access tokens**, or both.

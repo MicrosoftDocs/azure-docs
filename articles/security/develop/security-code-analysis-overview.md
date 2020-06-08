@@ -68,7 +68,7 @@ Passwords and other secrets stored in source code are a significant problem. Cre
 
 ### Microsoft Security Risk Detection
 
-Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate onboarding process. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
+Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate subscription and activation. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### Roslyn Analyzers
 
@@ -107,6 +107,6 @@ You can configure this task to break the build for issues found by specific tool
 
 For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md).
 
-For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md).
+For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
 If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).

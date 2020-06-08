@@ -1,21 +1,12 @@
 ---
-title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
+title: Scheduled Events for Windows VMs in Azure 
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
-author: ericrad
-manager: gwallace
-editor: ''
-tags: ''
-
-ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
+author: mimckitt
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
-ms.author: ericrad
+ms.date: 06/01/2020
+ms.author: mimckitt
 
 ---
 # Azure Metadata Service: Scheduled Events for Windows VMs
@@ -42,9 +33,9 @@ Using Scheduled Events your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 - [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
-- Degraded hardware
+- Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
-- [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
+- [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions
 
 ## The Basics  
 
@@ -53,19 +44,22 @@ Azure Metadata service exposes information about running Virtual Machines using 
 ### Endpoint Discovery
 For VNET enabled VMs, the metadata service is available from a static non-routable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### Version and Region Availability
-The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-11-01`.
+The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2019-01-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
-| 2017-11-01 | General Availability | All | <li> Added support for Low-priority VM eviction EventType 'Preempt'<br> | 
+| 2019-08-01 | General Availability | All | <li> Added support for EventSource |
+| 2019-04-01 | General Availability | All | <li> Added support for Event Description |
+| 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
+| 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | Preview | All |<li>Initial release
+| 2017-03-01 | Preview | All |<li>Initial release |
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -88,9 +82,9 @@ When you query the Metadata Service, you must provide the header `Metadata:true`
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
 
-#### Powershell
+#### PowerShell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01 -H @{"Metadata"="true"}
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -101,11 +95,13 @@ In the case where there are scheduled events, the response contains an array of 
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt" | "Terminate",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
             "NotBefore": {timeInUTC},
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -116,11 +112,13 @@ The DocumentIncarnation is an ETag and provides an easy way to inspect if the Ev
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).|
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). <li> `Terminate`: The Virtual Machine is scheduled to be deleted. |
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
+| Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
+| EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platfrom. <li>`User`: This event is initiated by user. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
@@ -131,15 +129,27 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
 | Preempt | 30 seconds |
+| Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
+
+> [!NOTE] 
+> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system initiated migration, it is recommended to self-redeploy your virtual machine as soon as possible.
 
 ### Event Scope		
 Scheduled events are delivered to:
- - Standalone Virtual Machines
- - All Virtual Machines in a Cloud Service		
- - All Virtual Machines in an Availability Set		
- - All Virtual Machines in a Scale Set Placement Group. 		
+ - Standalone Virtual Machines.
+ - All Virtual Machines in a Cloud Service.		
+ - All Virtual Machines in an Availability Set.	
+ - All Virtual Machines in an Availability Zone.
+ - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
 
-As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+> [!NOTE]
+> In an availability zone, scheduled events go only to single, affected VMs in the availability zone.
+> 
+> For example, in an availability set, if you have 100 VMs in the set and there is an update for one of the VMs, the scheduled event goes to all 100 VMs in the availability set.
+>
+> In an availability zone, if you have 100 VMs in the availability zone, the event goes only to the VM that is affected.
+>
+> As a result, you should check the `Resources` field in the event to identify which VMs will be affected. 
 
 ### Starting an event 
 
@@ -156,9 +166,9 @@ The following is the json expected in the `POST` request body. The request shoul
 }
 ```
 
-#### Powershell
+#### PowerShell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
 ```
 
 > [!NOTE] 
@@ -204,7 +214,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-11-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2019-01-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI

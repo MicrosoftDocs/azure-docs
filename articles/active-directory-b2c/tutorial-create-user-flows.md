@@ -2,20 +2,20 @@
 title: Tutorial - Create user flows - Azure Active Directory B2C
 description: Learn how to create user flows in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Create user flows in Azure Active Directory B2C
 
-In your applications you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
+In your applications you may have [user flows](user-flow-overview.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
 In this article, you learn how to:
 
@@ -37,12 +37,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 
-    ![Directory and Subscription filter with B2C tenant selected](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![B2C tenant, Directory and Subscription pane, Azure portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. In the left menu under **Policies**, select **User flows (policies)**, and then select **New user flow**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Policies**, select **User flows (policies)**, and then select **New user flow**.
 
     ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -59,7 +59,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 
 ### Test the user flow
 
@@ -78,8 +78,8 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 If you want to enable users to edit their profile in your application, you use a profile editing user flow.
 
-1. In the left menu of the Azure AD B2C tenant overview page, select **User flows (policies)**, and then select **New user flow**.
-1. Select the **Profile editing** user flow on the Recommended tab.
+1. In the menu of the Azure AD B2C tenant overview page, select **User flows (policies)**, and then select **New user flow**.
+1. Select the **Profile editing** user flow on the **Recommended** tab.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
 1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
@@ -96,8 +96,8 @@ If you want to enable users to edit their profile in your application, you use a
 
 To enable users of your application to reset their password, you use a password reset user flow.
 
-1. In the left menu, select **User flows (policies)**, and then select **New user flow**.
-1. Select the **Password reset** user flow on the Recommended tab.
+1. In the Azure AD B2C tenant overview menu, select **User flows (policies)**, and then select **New user flow**.
+1. Select the **Password reset** user flow on the **Recommended** tab.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.
 1. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.

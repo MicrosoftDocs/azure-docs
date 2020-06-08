@@ -1,20 +1,13 @@
 ---
 title: Azure Monitor log query examples | Microsoft Docs
 description: Examples of log queries in Azure Monitor using the Kusto query language.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 10/03/2018
 ms.author: bwren
----
+ms.date: 03/16/2020
 
+---
 
 # Azure Monitor log query examples
 This article includes various examples of [queries](log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
@@ -177,7 +170,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf
@@ -357,12 +349,12 @@ Using **join**, and **let** statements we can check if the same suspicious accou
 ```Kusto
 let timeframe = 1d;
 let suspicious_users = 
-	SecurityEvent
-	| where TimeGenerated > ago(timeframe)
-	| where AccountType == 'User' and EventID == 4625 // 4625 - failed login
-	| summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
-	| where failed_login_attempts > 5
-	| project-away Account1;
+    SecurityEvent
+    | where TimeGenerated > ago(timeframe)
+    | where AccountType == 'User' and EventID == 4625 // 4625 - failed login
+    | summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
+    | where failed_login_attempts > 5
+    | project-away Account1;
 let suspicious_users_that_later_logged_in = 
     suspicious_users 
     | join kind=innerunique (
@@ -379,40 +371,48 @@ suspicious_users_that_later_logged_in
 
 ## Usage
 
-### Calculate the average size of perf usage reports per computer
+The `Usage` data type can be used to track the ingested data volume by solution or data type. There are other techniques to study ingested data volumes by [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) or [Azure subscription, resource group or resource](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
-This example calculates the average size of perf usage reports per computer, over the last 3 hours.
-The results are shown in a bar chart.
-```Kusto
+#### Data volume by solution
+
+The query used to view the billable data volume by solution over the last month (excluding the last partial day) is:
+
+```kusto
 Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-### Timechart latency percentiles 50 and 95
+Note that the clause `where IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge.  Also the clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal will look back beyond the default 24 hours. When using the Usage data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
 
-This example calculates and charts the 50th and 95th percentiles of reported **avgLatency** by hour over the last 24 hours.
+#### Data volume by type
 
-```Kusto
-Usage
-| where TimeGenerated > ago(24h)
-| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
-| render timechart
+You can drill in further to see data trends for by data type:
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-### Usage of specific computers today
-This example retrieves **Usage** data from the last day for computer names that contains the string _ContosoFile_. The results are sorted by **TimeGenerated**.
+Or to see a table by solution and type for the last month,
 
-```Kusto
-Usage
-| where TimeGenerated > ago(1d)
-| where  Computer contains "ContosoFile" 
-| sort by TimeGenerated desc nulls last
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
+
+> [!NOTE]
+> Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
+> These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
 
 ## Updates
 
@@ -421,13 +421,12 @@ This example shows a list of computers that were missing one or more critical up
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```

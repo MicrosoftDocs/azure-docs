@@ -1,23 +1,23 @@
 ---
-title: Upgrade HDInsight cluster to a newer version -Azure 
-description: Learn guidelines to upgrade your Azure HDInsight cluster to a newer version.
-author: omidm1
-ms.author: omidm
+title: Migrate cluster to a newer version
+titleSuffix: Azure HDInsight
+description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.custom: hdinsightactive
+ms.date: 01/31/2020
 ---
+# Migrate HDInsight cluster to a newer version
 
-# Upgrade HDInsight cluster to a newer version
-
-To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. Follow the below guidelines to upgrade your HDInsight cluster versions.
+To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be regularly migrated to latest version. HDInsight does not support in-place upgrades where an existing cluster is upgraded to a newer component version. You must create a new cluster with the desired component and platform version and then migrate your applications to use the new cluster. Follow the below guidelines to migrate your HDInsight cluster versions.
 
 > [!NOTE]  
 > For information on supported versions of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-## Upgrade tasks
+## Migration tasks
 
 The workflow to upgrade HDInsight Cluster is as follows.
 ![HDInsight upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
@@ -27,18 +27,29 @@ The workflow to upgrade HDInsight Cluster is as follows.
 3. Copy existing jobs, data sources, and sinks to the new environment.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
-Once you have verified that everything works as expected, schedule
-downtime for the migration. During this downtime, do the following
-actions:
+Once you have verified that everything works as expected, schedule downtime for the migration. During this downtime, do the following actions:
 
-1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
-2.	Delete the existing cluster.
-3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
-4.	Import any transient data you backed up.
-5.	Start jobs/continue processing using the new cluster.
+1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
+1. [Delete the existing cluster](./hdinsight-delete-cluster.md).
+1. Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+1. Import any transient data you backed up.
+1. Start jobs/continue processing using the new cluster.
 
-## Next Steps
+## Workload specific guidance
+
+The following documents provide guidance on how to migrate specific workloads:
+
+* [Migrate HBase](./hbase/apache-hbase-migrate-new-version.md)
+* [Migrate Kafka](./kafka/migrate-versions.md)
+* [Migrate Hive/Interactive Query](./interactive-query/apache-hive-migrate-workloads.md)
+
+## Backup and restore
+
+For more information about database backup and restore, see [Recover an Azure SQL database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
+
+## Next steps
 
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight release notes](./hdinsight-version-release.md)

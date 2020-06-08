@@ -1,18 +1,8 @@
 ---
-title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsoft Docs
+title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
+ms.topic: how-to
 ms.date: 03/13/2019
-ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -186,9 +176,7 @@ The following environment variables are created by the Batch service for use by 
 For full details on these and the other Batch compute node environment variables, including their contents and visibility, see [Compute node environment variables][msdn_env_var].
 
 > [!TIP]
-> The Batch Linux MPI code sample contains an example of how several of these environment variables can be used. The [coordination-cmd][coord_cmd_example] Bash script downloads common application and input files from Azure Storage, enables a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as NFS clients.
->
->
+> The Batch Linux MPI code sample contains an example of how several of these environment variables can be used.
 
 ## Resource files
 There are two sets of resource files to consider for multi-instance tasks: **common resource files** that *all* tasks download (both primary and subtasks), and the **resource files** specified for the multi-instance task itself, which *only the primary* task downloads.
@@ -334,7 +322,7 @@ Sample complete, hit ENTER to exit...
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
+[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

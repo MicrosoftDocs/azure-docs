@@ -1,21 +1,11 @@
 ---
-title: Learn about Azure Service Fabric Support options | Microsoft Docs
+title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-services: service-fabric
-documentationcenter: .net
 author: pkcsf
-manager: jpconnock
-editor: 
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-
 ---
 # Azure Service Fabric support options
 
@@ -73,7 +63,7 @@ There is no paid support option for these preview releases. Use one of the optio
 [Supported Service Fabric versions](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

@@ -1472,7 +1472,7 @@ That completes the installation of the OpenFrame components.
 
 ## Next steps
 
-If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
+If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
 -   [Get started with Azure](https://docs.microsoft.com/azure/)
 -   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)

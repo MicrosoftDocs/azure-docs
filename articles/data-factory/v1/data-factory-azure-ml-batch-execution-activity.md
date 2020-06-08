@@ -1,5 +1,5 @@
 ---
-title: Create predictive data pipelines using Azure Data Factory | Microsoft Docs
+title: Create predictive data pipelines using Azure Data Factory 
 description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -306,7 +306,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 Another common scenario when creating Azure Machine Learning studio experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
 
-When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another Azure SQL Server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
+When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
 > Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure Machine Learning studio Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules.

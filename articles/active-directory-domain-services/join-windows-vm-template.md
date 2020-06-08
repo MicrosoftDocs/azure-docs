@@ -1,5 +1,5 @@
 ---
-title: Use a template to join a Windows Server VM to Azure AD DS | Microsoft Docs
+title: Use a template to join a Windows VM to Azure AD DS | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
@@ -9,8 +9,8 @@ ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/17/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 ---
 
@@ -25,18 +25,18 @@ This article shows you how to create and join a Windows Server VM to an Azure AD
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a part of the Azure AD DS managed domain.
 
 ## Azure Resource Manager template overview
 
 Resource Manager templates let you define Azure infrastructure in code. The required resources, network connections, or configuration of VMs can all be defined in a template. These templates create consistent, reproducible deployments each time, and can be versioned as you make changes. For more information, see [Azure Resource Manager templates overview][template-overview].
 
-Each resource is defined in a template using JSON. The following JSON example uses the *Microsoft.Compute/virtualMachines/extensions* resource type to install the Active Directory domain join extension. Parameters are used that you specify at deployment time. When the extension is deployed, the VM is joined to the specified Azure AD DS managed domain.
+Each resource is defined in a template using JavaScript Object Notation (JSON). The following JSON example uses the *Microsoft.Compute/virtualMachines/extensions* resource type to install the Active Directory domain join extension. Parameters are used that you specify at deployment time. When the extension is deployed, the VM is joined to the specified Azure AD DS managed domain.
 
 ```json
  {
@@ -89,8 +89,8 @@ To create a Windows Server VM then join it to an Azure AD DS managed domain, com
     | Existing Subnet Name      | The name of the existing virtual network subnet, such as *Workloads*. |
     | DNS Label Prefix          | Enter a DNS name to use for the VM, such as *myvm*. |
     | VM size                   | Specify a VM size, such as *Standard_DS2_v2*. |
-    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *contoso.com*. |
-    | Domain Username           | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain. This account must be a member of the *Azure AD DC administrators* group. |
+    | Domain To Join            | The Azure AD DS managed domain DNS name, such as *aaddscontoso.com*. |
+    | Domain Username           | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the Azure AD DS managed domain. |
     | Domain Password           | The password for the user account specified in the previous setting. |
     | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |
     | VM Admin Username         | Specify a local administrator account to create on the VM. |
@@ -100,7 +100,7 @@ To create a Windows Server VM then join it to an Azure AD DS managed domain, com
 
 > [!WARNING]
 > **Handle passwords with caution.**
-> The template parameter file requests the password for a user account that's a member of the *Azure AD DC administrators* group. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
+> The template parameter file requests the password for a user account that's a part of the Azure AD DS managed domain. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
 
 It takes a few minutes for the deployment to complete successfully. When finished, the Windows VM is created and joined to the Azure AD DS managed domain. The VM can be managed or signed into using domain accounts.
 
@@ -119,7 +119,7 @@ To join an existing Windows Server VM to an Azure AD DS managed domain, complete
     | Resource group            | Choose the resource group with your existing VM. |
     | Location                  | Select the location of your existing VM. |
     | VM list                   | Enter the comma-separated list of the existing VM(s) to join to the Azure AD DS managed domain, such as *myVM1,myVM2*. |
-    | Domain Join User Name     | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain. This account must be a member of the *Azure AD DC administrators* group. |
+    | Domain Join User Name     | The user account in the Azure AD DS managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the Azure AD DS managed domain. |
     | Domain Join User Password | The password for the user account specified in the previous setting. |
     | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |
 
@@ -127,7 +127,7 @@ To join an existing Windows Server VM to an Azure AD DS managed domain, complete
 
 > [!WARNING]
 > **Handle passwords with caution.**
-> The template parameter file requests the password for a user account that's a member of the *Azure AD DC administrators* group. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
+> The template parameter file requests the password for a user account that's a part of the Azure AD DS managed domain. Don't manually enter values into this file and leave it accessible on file shares or other shared locations.
 
 It takes a few moments for the deployment to complete successfully. When finished, the specified Windows VMs are joined to the Azure AD DS managed domain and can be managed or signed into using domain accounts.
 
@@ -139,6 +139,6 @@ In this article, you used the Azure portal to configure and deploy resources usi
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/template-deployment-overview.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
+[template-overview]: ../azure-resource-manager/templates/overview.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

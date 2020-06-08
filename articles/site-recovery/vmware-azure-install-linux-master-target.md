@@ -1,5 +1,5 @@
 ---
-title: Install a Linux master target server for failback to an on-premises site | Microsoft Docs
+title: Install a master target server for Linux VM failback with Azure Site Recovery
 description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -23,7 +23,7 @@ If your protected virtual machine is a Windows virtual machine, then you need a 
 ## Overview
 This article provides instructions for how to install a Linux master target.
 
-Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post comments or questions at the end of this article or on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## Prerequisites
 

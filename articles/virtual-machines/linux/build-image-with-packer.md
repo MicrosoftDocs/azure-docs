@@ -1,18 +1,10 @@
 ---
-title: How to create Linux Azure VM Images with Packer | Microsoft Docs
+title: Create Linux Azure VM Images with Packer 
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
@@ -46,7 +38,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 
 An example of the output from the preceding commands is as follows:
 
-```azurecli
+```output
 {
     "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
     "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
@@ -137,7 +129,7 @@ Build the image by specifying your Packer template file as follows:
 
 An example of the output from the preceding commands is as follows:
 
-```bash
+```output
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...

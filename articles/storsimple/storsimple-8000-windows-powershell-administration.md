@@ -1,18 +1,9 @@
 ---
-title: PowerShell for StorSimple device management | Microsoft Docs
+title: PowerShell for StorSimple device management
 description: Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 
@@ -114,11 +105,11 @@ You can choose from the following settings:
      > This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.
 
 4. **Change language**
-   This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.
+   This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Portuguese.
 
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
 
-You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect. Connecting remotely takes you directly to the equivalent of "option 1 – full access” on the serial console.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language.
+You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect. Connecting remotely takes you directly to the equivalent of "option 1 – full access" on the serial console.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language.
 
 The display language is independent of the language that you set by using the **Change Language** option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
 

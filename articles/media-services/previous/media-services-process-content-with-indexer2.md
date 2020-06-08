@@ -12,29 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
-## Overview
+
+> [!NOTE]
+> The **Azure Media Indexer 2** media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+
 The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese (Mandarin, Simplified), Portuguese, Arabic, Russian, and Japanese.
 
 The **Azure Media Indexer 2 Preview** MP is currently in Preview.
 
 This article shows how to create indexing jobs with **Azure Media Indexer 2 Preview**.
 
-> [!NOTE]
-> The following considerations apply:
-> 
-> Indexer 2 is not supported in Azure China and Azure Government.
-> 
-> When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
-> 
-> 
+## Considerations
 
-This article gives details about  **Azure Media Indexer 2 Preview** and shows how to use it with Media Services SDK for .NET
-
+The following considerations apply:
+ 
+* Indexer 2 is not supported in Azure China 21Vianet and Azure Government.
+* When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
+ 
 ## Input and output files
 ### Input files
 Audio or video files
@@ -42,7 +41,6 @@ Audio or video files
 ### Output files
 An indexing job can generate closed caption files in the following formats:  
 
-* **SAMI**
 * **TTML**
 * **WebVTT**
 

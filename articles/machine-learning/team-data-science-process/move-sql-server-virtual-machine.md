@@ -1,14 +1,14 @@
 ---
 title: Move data to a SQL Server virtual machine - Team Data Science Process
-description: Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM.
+description: Move data from flat files or from on-premises SQL Server to SQL Server on Azure VM.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -25,7 +25,7 @@ The following table summarizes the options for moving data to SQL Server on an A
 | <b>Flat File</b> |1. <a href="#insert-tables-bcp">Command-line bulk copy utility (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br> 3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server</a> |
 | <b>On-Premises SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br> 2. <a href="#export-flat-file">Export to a flat File </a><br> 3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br> 4. <a href="#sql-backup">Database back up and restore </a><br> |
 
-Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
+This document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
 > [!TIP]
 > As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../../data-factory/copy-activity-overview.md).
@@ -36,7 +36,7 @@ Note that this document assumes that SQL commands are executed from SQL Server M
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage your storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 * Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
@@ -48,7 +48,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 3. [Graphical Built-in Utilities in SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Command-line bulk copy utility (BCP)
-BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure and SQL Server VM on Azure).
+BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure, and SQL Server VM on Azure).
 
 > [!NOTE]
 > **Where should my data be for BCP?**  
@@ -58,21 +58,21 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
-```sql
-CREATE DATABASE <database_name>
+    ```sql
+    CREATE DATABASE <database_name>
+    
+    CREATE TABLE <tablename>
+    (
+        <columnname1> <datatype> <constraint>,
+        <columnname2> <datatype> <constraint>,
+        <columnname3> <datatype> <constraint>
+    )
+    ```
 
-CREATE TABLE <tablename>
-(
-    <columnname1> <datatype> <constraint>,
-    <columnname2> <datatype> <constraint>,
-    <columnname3> <datatype> <constraint>
-)
-```
-
-1. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
+1. Generate the format file that describes the schema for the table by issuing the following command from the command line of the machine where bcp is installed.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-1. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
+1. Insert the data into the database using the bcp command, which should work from the command line when SQL Server is installed on same machine:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -81,7 +81,7 @@ CREATE TABLE <tablename>
 >
 
 ### <a name="insert-tables-bulkquery-parallel"></a>Parallelizing Inserts for Faster Data Movement
-If the data you are moving is large, you can speed things up by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
+If the data you are moving is large, you can speed up things by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
 
 > [!NOTE]
 > **Big data Ingestion**
@@ -134,25 +134,25 @@ Here are some sample commands for Bulk Insert are as below:
 
 1. Analyze your data and set any custom options before importing to make sure that the SQL Server database assumes the same format for any special fields such as dates. Here is an example of how to set the date format as year-month-day (if your data contains the date in year-month-day format):
 
-```sql
-SET DATEFORMAT ymd;
-```
-1. Import data using bulk import statements:
+    ```sql
+    SET DATEFORMAT ymd;
+    ```
+2. Import data using bulk import statements:
 
-```sql
-BULK INSERT <tablename>
-FROM
-'<datafilename>'
-WITH
-(
-    FirstRow = 2,
-    FIELDTERMINATOR = ',', --this should be column separator in your data
-    ROWTERMINATOR = '\n'   --this should be the row separator in your data
-)
-```
+    ```sql
+    BULK INSERT <tablename>
+    FROM
+    '<datafilename>'
+    WITH
+    (
+        FirstRow = 2,
+        FIELDTERMINATOR = ',', --this should be column separator in your data
+        ROWTERMINATOR = '\n'   --this should be the row separator in your data
+    )
+    ```
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
-You can use SQL Server Integrations Services (SSIS) to import data into SQL Server VM on Azure from a flat file.
+You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file.
 SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](https://technet.microsoft.com/library/ms140028.aspx):
 
 * For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
@@ -166,21 +166,21 @@ You can also use the following migration strategies:
 3. [SQL Database Migration Wizard](#sql-migration)
 4. [Database back up and restore](#sql-backup)
 
-We describe each of these below:
+We describe each of these options below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
 
-1. Export the data from on-premises SQL Server to a File using the bcp utility as follows
+1. Export the data from on-premises SQL Server to a file using the bcp utility as follows
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. Create the database and the table on SQL Server VM on Azure using the `create database` and `create table` for the table schema exported in step 1.
 3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described in [Create a Format File (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
-    Format file generation when running BCP from the SQL Server machine
+    Format file generation when running BCP from the SQL Server computer
 
         bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
 
@@ -198,16 +198,16 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 SQL Server supports:
 
 1. [Database back up and restore functionality](https://msdn.microsoft.com/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (using bacpac).
-2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing SQL Azure database. For more details, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
+2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing database in SQL Database. For more information, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
 
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
 ![SQL Server Import Tool][1]
 
 ## Resources
-[Migrate a Database to SQL Server on an Azure VM](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
+[Migrate a Database to SQL Server on an Azure VM](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
 
-[SQL Server on Azure Virtual Machines overview](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[SQL Server on Azure Virtual Machines overview](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

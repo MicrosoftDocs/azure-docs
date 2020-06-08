@@ -27,6 +27,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -37,8 +40,10 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks
+  - name: Access to Azure virtual networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
+  - name: Business continuity and disaster recovery
+    href: business-continuity-disaster-recovery-guidance.md
 - name: How-to guides
   items:
   - name: Develop
@@ -47,7 +52,7 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
-    - name: Export flows from Microsoft Flow and deploy to Azure Logic Apps
+    - name: Export flows from Power Automate and deploy to Azure Logic Apps
       href: export-from-microsoft-flow-logic-app-template.md
     - name: Control workflow execution
       items:
@@ -74,20 +79,24 @@
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
     - name: Get bulk data with pagination
-      href: logic-apps-exceed-default-page-size-with-pagination.md  
+      href: logic-apps-exceed-default-page-size-with-pagination.md
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
+    - name: Send messages in order - sequential convoy
+      href: send-related-messages-sequential-convoy.md
     - name: Author JSON definitions
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle errors and exceptions
+    - name: Handle exceptions
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
+    - name: Handle throttling problems or 429 errors
+      href: handle-throttling-problems-429-errors.md    
     - name: Secure
       items:
-      - name: Secure your logic apps
+      - name: Improve security for logic apps
         href: logic-apps-securing-a-logic-app.md
       - name: Authenticate with managed identities
         href: create-managed-service-identity.md
@@ -97,12 +106,30 @@
       items:
       - name: Create custom APIs for logic apps
         href: logic-apps-create-api-app.md
-      - name: Secure calls to custom APIs
+      - name: Improve security for calls to custom APIs
         href: logic-apps-custom-api-authentication.md
       - name: Deploy and call custom APIs
         href: logic-apps-custom-api-host-deploy-call.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
+  - name: Access Azure virtual networks
+    items: 
+      - name: Create integration service environment - Azure portal
+        href: connect-virtual-network-vnet-isolated-environment.md
+      - name: Create integration service environment - REST API
+        href: create-integration-service-environment-rest-api.md
+      - name: Set up access for multiple integration service environments
+        href: connect-virtual-network-vnet-set-up-single-ip-address.md
+      - name: Add resources to integration service environments
+        href: add-artifacts-integration-service-environment-ise.md
+      - name: Set up customer-managed encryption keys for integration service environments
+        href: customer-managed-keys-integration-service-environment.md
+  - name: Access on-premises data
+    items: 
+      - name: Install data gateway
+        href: logic-apps-gateway-install.md
+      - name: Connect to on-premises data
+        href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
       - name: Create integration account
@@ -119,7 +146,7 @@
         href: logic-apps-enterprise-integration-certificates.md
       - name: Artifact metadata
         href: logic-apps-enterprise-integration-metadata.md
-      - name: Receive B2B messages
+      - name: Receive and send B2B messages
         href: logic-apps-enterprise-integration-b2b.md
       - name: Exchange AS2 messages
         href: logic-apps-enterprise-integration-as2.md
@@ -159,22 +186,14 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
-  - name: Connect to virtual networks with isolated environments
-    href: connect-virtual-network-vnet-isolated-environment.md
-  - name: Add artifacts to integration service environments
-    href: add-artifacts-integration-service-environment-ise.md  
-  - name: Access on-premises data
-    items: 
-      - name: Install data gateway
-        href: logic-apps-gateway-install.md
-      - name: Connect to on-premises data
-        href: logic-apps-gateway-connection.md
   - name: Connectors - In-depth topics
     items: 
       - name: AS2
         href: logic-apps-enterprise-integration-as2.md
       - name: Azure Blob Storage
         href: ../connectors/connectors-create-api-azureblobstorage.md
+      - name: Azure Container Instances
+        href: ../connectors/connectors-create-api-container-instances.md
       - name: Azure Event Hubs
         href: ../connectors/connectors-create-api-azure-event-hubs.md      
       - name: Azure Functions
@@ -189,15 +208,15 @@
         href: ../connectors/connectors-create-api-bingsearch.md
       - name: Box
         href: ../connectors/connectors-create-api-box.md
+      - name: Common Data Service
+        href: ../connectors/connect-common-data-service.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
-      - name: DB2
-        href: ../connectors/connectors-create-api-db2.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
       - name: Dropbox
         href: ../connectors/connectors-create-api-dropbox.md
-      - name: Dynamics 365 CRM Online
+      - name: Dynamics 365
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
@@ -213,8 +232,8 @@
         href: ../connectors/connectors-create-api-ftp.md
       - name: GitHub
         href: ../connectors/connectors-create-api-github.md
-      - name: Google Drive
-        href: ../connectors/connectors-create-api-googledrive.md
+      - name: Gmail - Google data security & privacy policies
+        href: ../connectors/connectors-google-data-security-privacy-policy.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
@@ -223,8 +242,12 @@
         href: ../connectors/connectors-native-webhook.md
       - name: IBM 3270
         href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
-      - name: Informix
+      - name: IBM DB2
+        href: ../connectors/connectors-create-api-db2.md
+      - name: IBM Informix
         href: ../connectors/connectors-create-api-informix.md
+      - name: IBM MQ
+        href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
       - name: MailChimp
@@ -233,8 +256,6 @@
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
       - name: Microsoft Translator
         href: ../connectors/connectors-create-api-microsofttranslator.md
-      - name: MQ
-        href: ../connectors/connectors-create-api-mq.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
       - name: Office 365 Users
@@ -297,6 +318,8 @@
         href: ../connectors/connectors-create-api-yammer.md
   - name: Manage
     items: 
+    - name: Manage logic apps - Azure portal
+      href: manage-logic-apps-with-azure-portal.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
@@ -322,16 +345,13 @@
   - name: Monitor
     items: 
       - name: Monitor logic apps
-        href: logic-apps-monitor-your-logic-apps.md
+        href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
-        href: logic-apps-monitor-your-logic-apps-oms.md
+        href: monitor-logic-apps-log-analytics.md
       - name: Monitor B2B messages with Azure Monitor logs
-        href: logic-apps-monitor-b2b-message.md
-        items:
-        - name: Track B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Azure Monitor logs
-          href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+        href: monitor-b2b-messages-log-analytics.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 
@@ -359,6 +379,8 @@
     href: logic-apps-limits-and-config.md
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
+  - name: Azure CLI
+    href: /cli/azure/ext/logic/logic?view=azure-cli-latest
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API
@@ -398,8 +420,8 @@
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-logic-apps.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter

@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 12/12/2019
 
 ---
 
@@ -59,12 +59,22 @@ Here are some data movement tools that are available in the DSVM.
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Tool to import data from various sources into Azure Cosmos DB. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections.      |
+| What is it?   | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections.      |
 | Supported DSVM versions      | Windows      |
 | Typical uses      | Importing files from a VM to CosmosDB, importing data from Azure table storage to CosmosDB, and importing data from a Microsoft SQL Server database to CosmosDB.     |
 |  How to use / run it?    |   To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui`.    |
 | Links to samples      | [CosmosDB Import data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Related tools on the DSVM      | AzCopy, AdlCopy      |
+
+## Azure Storage Explorer
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Graphical User Interface for interacting with files stored in the Azure cloud. |
+| Supported DSVM versions      | Windows      |
+| Typical uses      | Importing and exporting data from the DSVM.    |
+|  How to use / run it?    | Search for "Azure Storage Explorer" in the Start menu. |
+| Links to samples      | [Azure Storage Explorer](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
 
 
 ## bcp
@@ -88,15 +98,3 @@ Here are some data movement tools that are available in the DSVM.
 |  How to use and run it?    |   Run _blobfuse_ at a terminal.    |
 | Links to samples      | [blobfuse on GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Related tools on the DSVM      | Azure CLI      |
-
-
-## Microsoft Data Management Gateway
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A tool to connect on-premises data sources to cloud services for consumption.      |
-| Supported DSVM versions      | Windows      |
-| Typical uses      | Connecting a VM to an on-premises data source.      |
-|  How to use / run it?    |   Open Microsoft Data Management Gateway from the Start menu.    |
-| Links to samples      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Related tools on the DSVM      | AzCopy, AdlCopy, bcp    |

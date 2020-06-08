@@ -1,8 +1,8 @@
 ---
-title: Learn about Azure Spatial Anchor support options | Microsoft Docs
-description: Azure Spatial Anchors information on how to open a request with the support team. 
+title: Support options
+description: Information on how to open a request with the Azure Spatial Anchors support team.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
@@ -17,7 +17,7 @@ ms.service: azure-spatial-anchors
 
 To open a technical support ticket within the Azure Portal for Azure Spatial Anchors:
 
-1. With the [Azure portal](https://azure.microsoft.com/account/) open, select the help icon from the top menu bar, then select the **Help + support** button. 
+1. With the [Azure portal](https://azure.microsoft.com/account/) open, select the help icon from the top menu bar, then select the **Help + support** button.
 
 ![Azure portal help and support](./media/spatial-anchor-support.png)
 
@@ -25,7 +25,7 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 ![Azure portal new support request](./media/spatial-anchor-support2.png)
 
-1. When completing the support ticket fields: 
+1. When completing the support ticket fields:
 
 - Issue type: Technical
 - Service: Spatial Anchors
@@ -34,11 +34,11 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 ## Community support
 
-For support from the user community, please see [Azure Spatial Anchors on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
+For support from the user community, please see [Azure Spatial Anchors on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
 
 ## Provide content feedback
 
-On the bottom of each content article, there is an opportunity to open a GitHub issue and provide feedback on the Azure Spatial Anchor documentation content. 
+On the bottom of each content article, there is an opportunity to open a GitHub issue and provide feedback on the Azure Spatial Anchor documentation content.
 
 ## Provide product feedback
 

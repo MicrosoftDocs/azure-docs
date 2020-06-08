@@ -1,10 +1,10 @@
 ---
-title: Azure Notification Hubs Secure Push
+title: Azure Notification Hubs Secure Push for iOS
 description: Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Azure Notification Hubs Secure Push

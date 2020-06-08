@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message expiration | Microsoft Docs
-description: Expiration and time to live of Azure Service Bus messages
+title: Azure Service Bus - message expiration
+description: This article explains about expiration and time to live of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

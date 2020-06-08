@@ -1,13 +1,13 @@
 ---
-title: Send Event Hubs data to data warehouse - Event Grid
-description: Describes how to use Azure Event Grid and Event Hubs to migrate data to a SQL Data Warehouse. It uses an Azure Function to retrieve a Capture file.
+title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
+description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a SQL Data Warehouse. It uses an Azure Function to retrieve a Capture file.'
 services: event-grid
 author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 ---
 # Tutorial: Stream big data into a data warehouse

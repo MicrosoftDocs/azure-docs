@@ -1,20 +1,10 @@
 ---
-title: Getting Started with Cloud Foundry on Microsoft Azure | Microsoft Docs
+title: Getting Started with Cloud Foundry on Microsoft Azure 
 description: Run OSS or Pivotal Cloud Foundry on Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags:
-keywords: ''
-
-ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
 ---
@@ -62,5 +52,5 @@ Cloud Foundry is well suited to agile software development, including the use of
 
 ## Next steps
 
-- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Deploy Pivotal Cloud Foundry from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 - [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md)

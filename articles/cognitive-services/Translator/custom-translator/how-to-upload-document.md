@@ -1,12 +1,12 @@
 ---
 title: How to upload a document - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Using the document upload feature you can upload parallel document for your trainings. Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.  
+description: The document upload feature uploads parallel documents (two documents where one is the origin and the other is the translation) into the service.  
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how to upload document, so that I can start uploading my documents to train my model .
@@ -20,7 +20,7 @@ Before uploading your documents, review the [document formats and naming convent
 
 ## How to upload document?
 
-From [Custom Translator](https://portal.customtranslator.azure.ai) portal, click on “Documents” tab to go to documents page.
+From [Custom Translator](https://portal.customtranslator.azure.ai) portal, click on "Documents" tab to go to documents page.
 
 ![Document upload link](media/how-to/how-to-upload-1.png)
 
@@ -58,13 +58,13 @@ From [Custom Translator](https://portal.customtranslator.azure.ai) portal, click
 
     ![Upload document dialog](media/how-to/how-to-upload-dialog.png)
 
-3.  At this point, we're processing your documents and attempting to extract sentences. You can click “View upload Progress” to check the status of your documents as they process.
+3.  At this point, we're processing your documents and attempting to extract sentences. You can click "View upload Progress" to check the status of your documents as they process.
 
     ![Upload document processing dialog](media/how-to/how-to-upload-processing-dialog.png)
 
 4.  This page will display the status, and any errors for each file within your
     upload. You can view past upload status at any time by clicking on the
-    “Upload history” tab.
+    "Upload history" tab.
 
     ![Upload document history dialog](media/how-to/how-to-upload-document-history.png)
 

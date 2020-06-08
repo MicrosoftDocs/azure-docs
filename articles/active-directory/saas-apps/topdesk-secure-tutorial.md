@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -104,11 +105,11 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.topdesk.net`
 
-    b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. In the **Identifier URL** box, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern:
+    `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<companyname>.topdesk.net/tas/public/login/saml`
+    `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [TOPdesk - Secure Client support team](https://www.topdesk.com/us/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -268,7 +269,7 @@ In the case of TOPdesk - Secure, provisioning is a manual task.
     e. Click **Save**.
 
 > [!NOTE]
-> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision AAD user accounts.
+> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

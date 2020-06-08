@@ -1,16 +1,16 @@
 ---
-title: Copy data from Blob Storage to SQL Database - Azure | Microsoft Docs
+title: Copy data from Blob Storage to SQL Database - Azure
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager:
+editor:
 
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/22/2018
@@ -29,7 +29,7 @@ robots: noindex
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md).
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
@@ -44,7 +44,7 @@ The Copy Activity performs the data movement in Azure Data Factory. It is powere
 Before you begin this tutorial, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
-* **Azure Storage Account**. You use the blob storage as a **source** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
+* **Azure Storage Account**. You use the blob storage as a **source** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
 * **Azure SQL Database**. You use an Azure SQL database as a **destination** data store in this tutorial. If you don't have an Azure SQL database that you can use in the tutorial, See [How to create and configure an Azure SQL Database](../../sql-database/sql-database-get-started.md) to create one.
 * **SQL Server 2012/2014 or Visual Studio 2013**. You use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
@@ -64,7 +64,7 @@ You need the account name and account key of your Azure storage account to do th
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
-You need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
+You need the names of logical SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
 
 1. In the **Azure portal**, click **All services** on the left and select **SQL databases**.
 2. In the **SQL databases blade**, select the **database** that you want to use in this tutorial. Note down the **database name**.  
@@ -73,7 +73,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 5. Close all the blades by clicking **X**.
 
 ## Allow Azure services to access SQL server
-Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following steps:
+Ensure that **Allow access to Azure services** setting turned **ON** for your server so that the Data Factory service can access your server. To verify and turn on this setting, do the following steps:
 
 1. Click **All services** hub on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
@@ -105,9 +105,9 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 	```
 
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. 
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your server and run the SQL script.
 
-    If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
+    If your client is not allowed to access the logical SQL server, you need to configure firewall for your server to allow access from your machine (IP Address). See [this article](../../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your server.
 
 ## Create a data factory
 You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     
@@ -121,5 +121,5 @@ You have completed the prerequisites. You can create a data factory using one of
 
 > [!NOTE]
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
-> 
-> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
+>
+> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information.

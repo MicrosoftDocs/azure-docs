@@ -1,12 +1,12 @@
 ---
 title: Configure lead management for Salesforce | Azure Marketplace
 description: Configure lead management on Salesforce for Azure Marketplace customers.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce
