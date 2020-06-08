@@ -116,7 +116,7 @@ This section describes how to validate that your GPU drivers are properly instal
       > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
 #### Linux images
-Follow the in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
 ## Enable GPU over RDP connection to Windows VMs
 When you're using RDP to connect to a Windows VM that's powered by a *visualization* GPU, you need to do some extra configuration so that the GPU is used for rendering graphics. Otherwise, the CPU will be used to render graphics.
@@ -135,7 +135,7 @@ On the template VM, do the following:
 
 1. You now have the drivers installed and the RDP settings configured to use your GPU.  After you've installed the other software that's required for your class, you can select **Publish** to create your students' VMs.  
 
-When your students connect to their VMs by using RDP, their desktop will be rendered by using their VM's GPU.
+When your students connect to their VMs by using RDP, their desktops will be rendered according to their VM's GPU.
 
 ## Next steps
 See the following articles:
