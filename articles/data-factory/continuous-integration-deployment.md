@@ -687,6 +687,7 @@ Following is the current default parameterization template. If you need to add o
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
                     "environmentUrl": "=",
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
