@@ -6,7 +6,7 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql pool
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
