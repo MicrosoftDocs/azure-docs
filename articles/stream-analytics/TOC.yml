@@ -49,6 +49,10 @@
     href: feature-comparison.md
   - name: Develop locally
     href: develop-locally.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Input types for a job
     items:
     - name: Inputs overview
