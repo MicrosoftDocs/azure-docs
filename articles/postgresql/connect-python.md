@@ -8,6 +8,7 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
+ms.custom: tracking-python
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server

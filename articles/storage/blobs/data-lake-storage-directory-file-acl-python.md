@@ -8,6 +8,7 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: tracking-python
 ---
 
 # Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2

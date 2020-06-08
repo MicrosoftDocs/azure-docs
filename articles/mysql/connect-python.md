@@ -8,6 +8,7 @@ ms.custom: [mvc, seo-python-october2019]
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
+ms.custom: tracking-python
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL
