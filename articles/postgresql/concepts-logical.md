@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/08/2020
 ---
 
 # Logical decoding
@@ -18,12 +18,16 @@ Logical decoding uses an output plugin to convert Postgres’s write ahead log (
 > Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
 
 
-## Set up your server
-To start using logical decoding, enable your server to save and stream the additional WAL information needed. Set the azure replication support parameter to **logical**. Azure replication support has three setting options:
+## Set up your server 
+Logical decoding and [read replicas](concepts-read-replicas.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
 
-* **Logical** - Choose this setting to use Postgres logical decoding. [Read replicas](concepts-read-replicas.md) will also work with this setting. However, **logical** should only be used if you are currently using logical decoding because larger WAL files are generated for this functionality.
-* **Replica** - Choose this setting to use read replicas.
-* **Off** - Choose **Off** if you have no plans to use read replicas. This is not an available setting on all Azure Database for PostgreSQL servers.
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+
+The server needs to be restarted after a change of this parameter.
 
 ### Using Azure CLI
 
@@ -32,14 +36,14 @@ To start using logical decoding, enable your server to save and stream the addit
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
-2. Restart the server to apply the changes.
+2. Restart the server to apply the change.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
 
 ### Using Azure portal
 
-1. Set azure.replication_support to **logical**. Select **Save**.
+1. Set Azure replication support to **logical**. Select **Save**.
 
    ![Azure Database for PostgreSQL - Replication - Azure replication support](./media/concepts-logical/replication-support.png)
 
