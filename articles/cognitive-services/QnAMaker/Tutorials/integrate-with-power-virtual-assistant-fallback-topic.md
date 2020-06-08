@@ -117,7 +117,7 @@ This section creates the fallback topic conversation flow.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/delete-escalate-action-using-option-menu.png" alt-text="Partial screenshot of conversation flow, with delete option highlighted.":::
 
-1. Select the **+** connector flowing from the **Message** box, and then select **Call an action**.
+1. Select the **+** connector flowing to the **Message** box, and then select **Call an action**.
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="Partial Screenshot of Call an action.":::
 
