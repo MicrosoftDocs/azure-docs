@@ -634,8 +634,6 @@
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
       href: data-lake-storage-query-acceleration.md
-    - name: WANdisco LiveData Migrator for Azure
-      href: migrate-gen2-wandisco-live-data-migrator.md
     - name: Architecture
       items:
       - name: Azure Blob File System driver for Hadoop
@@ -660,6 +658,10 @@
         href: data-lake-storage-supported-azure-services.md
       - name: Supported open source platforms
         href: data-lake-storage-supported-open-source-platforms.md
+    - name: Migration
+      items:
+      - name: WANdisco LiveData Migrator for Azure
+        href: migrate-gen2-wandisco-live-data-migrator.md
     - name: Monitoring
       items:
       - name: Monitor a storage account 
