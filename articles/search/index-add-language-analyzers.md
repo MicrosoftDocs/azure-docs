@@ -12,13 +12,15 @@ ms.date: 06/05/2020
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
-A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
+A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
 
 ## When to use a language analyzer
 
-The [default analyzer](search-analyzers.md#default-analyzer) as well as other predefined analyzers (like keyword or whitespace) are language-agnostic, using spaces and special characters like dashes to separate chunks of text without consideration of what the individual chunks of text mean. For Western languages, separating chunks of text based on a space is an outcome that works well most of the time.
+You should consider a language analyzer when awareness of word or sentence structure adds value to text parsing. A common example is the association of irregular verb forms ("bring" and "brought) or plural nouns ("mice" and "mouse"). Without linguistic awareness, these strings are parsed on physical characteristics alone, which fails to catch the connection. Since large chunks of text are more likely to have this content, fields consisting of descriptions, reviews, or summaries are good candidates for a language analyzer.
 
-For Chinese, Japanese, Korean (CJK), or by extension most Asian languages, a space is not necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
+You should also consider language analyzers when content consists of non-Western language strings. While the [default analyzer](search-analyzers.md#default-analyzer) is language-agnostic, the concept of using spaces and special characters (hyphens and slashes) to separate strings tends to work better for Western languages than non-Western ones. 
+
+For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a space is not necessarily a word delimiter. Consider the following Japanese string. Because it has no spaces, a language-agnostic analyzer would likely analyze the entire string as one token, when in fact the string is actually a phrase.
 
 ```
 これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
