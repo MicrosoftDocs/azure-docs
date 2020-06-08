@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Publish a Jekyll site to Azure Static Web Apps Preview
 
-This article demonstrates how to create and deploy a [Jekyll](https://jekyllrb.com/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Jekyll](https://jekyllrb.com/) web application to [Azure Azure Static Web Apps](overview.md).
 
 In this tutorial, you learn how to:
 
@@ -25,6 +25,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+- Install [Jekyll](https://jekyllrb.com/docs/installation/)
+  - You can use the Windows Subsystem for Linux and follow Ubuntu instructions, if necessary.
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 
@@ -32,11 +34,7 @@ In this tutorial, you learn how to:
 
 Create a Jekyll app using the Jekyll Command Line Interface (CLI):
 
-1. Follow the [installation guide](https://jekyllrb.com/docs/installation/) for Jekyll on your OS. You can also use WSL (Windows Subsystem for Linux) and follow Ubuntu instructions and it works just fine.
-
-1. Open a terminal
-
-1. Run the Jekyll CLI to create a new app.
+1. From the terminal, run the Jekyll CLI to create a new app.
 
    ```bash
    jekyll new static-app
@@ -48,7 +46,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a git repo.
+1. Initialize a new git repository.
 
    ```bash
     git init
@@ -63,7 +61,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
 
 ## Push you application to GitHub
 
-You need a repository on GitHub to connect to Azure Static Web Apps. The following steps show you how to create a repository for your site.
+Azure Static Web Apps uses GitHub to publish your website. The following steps show you how to create a GitHub repository.
 
 1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **jekyll-azure-static**.
 
@@ -86,18 +84,20 @@ The following steps show you how to create a new static site app and deploy it t
 ### Create the application
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
-1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
 
-    :::image type="content" source="./media/publish-jekyll/create-in-portal.png" alt-text="Create a Azure Static Web Apps resource in the portal":::
+1. Click **Create a Resource**
+
+1. Search for **Static Web Apps**
+
+1. Click **Static Web Apps (Preview)**
+
+1. Click **Create**
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
 1. In _Resource group_, select **New**. In _New resource group name_, enter **jekyll-static-app** and select **OK**.
 
-1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>....`.
+1. Next, provide a name for your app in the _Name_ box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
 
 1. For _Region_, select an available region close to you.
 
@@ -109,7 +109,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select the **Organization** under which you created the repo.
 
-1. Select the **jekyll-static-app** as the _Repository_ .
+1. Select the **jekyll-static-app** as the _Repository_.
 
 1. For the _Branch_ select **master**.
 
@@ -141,7 +141,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Jekyll application.
+1. Replace the line `- uses: actions/checkout@v1` with the following configuration block.
 
     ```yml
     - uses: actions/checkout@v2
@@ -167,7 +167,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Wait for the GitHub Action to complete.
 
-1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
+1. In the Azure portal's _Overview_ window, click the _URL_ link to open your deployed application.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Deployed application":::
 
