@@ -29,7 +29,22 @@ Before you get started, here's what you need to configure MSIX app attach:
 - The MSIX packaging tool
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 
-## Get the OS image from the Technology Adoption Program (TAP) portal
+## 1a. Get the OS image from the Azure portal
+
+To get the OS image from the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com) and sign in.
+
+2. Go to **Create a virtual machine**.
+
+3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
+      
+4. Follow the rest of the instructions to finish creating the virtual machine.
+
+     >[!NOTE]
+     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
+
+## 1b. Get the OS image from the Technology Adoption Program (TAP) portal
 
 To get the OS image from the Windows Insider Portal:
 
@@ -47,22 +62,7 @@ To get the OS image from the Windows Insider Portal:
     
 4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
-## Get the OS image from the Azure portal
-
-To get the OS image from the Azure portal:
-
-1. Open the [Azure portal](https://portal.azure.com) and sign in.
-
-2. Go to **Create a virtual machine**.
-
-3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
-      
-4. Follow the rest of the instructions to finish creating the virtual machine.
-
-     >[!NOTE]
-     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
-
-## Prepare the VHD image for Azure 
+## 2. Prepare the VHD image for Azure 
 
 Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
@@ -98,11 +98,11 @@ Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. T
 
 Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
-## Prepare the application for MSIX app attach 
+## 3. Prepare the application for MSIX app attach 
 
 If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) to convert the legacy application to an MSIX package.
 
-## Generate a VHD or VHDX package for MSIX
+## 4. Generate a VHD or VHDX package for MSIX
 
 Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
 
@@ -149,7 +149,7 @@ To generate a VHD or VHDX package for MSIX:
 
 9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
 
-### Expand MSIX
+### 5. Expand MSIX
 
 After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
 
@@ -181,14 +181,14 @@ Before you start, make sure your network share meets these requirements:
 - The share is SMB compatible.
 - The VMs that are part of the session host pool have NTFS permissions to the share.
 
-### Set up an MSIX app attach share 
+### 6. Set up an MSIX app attach share 
 
 In your Windows Virtual Desktop environment, create a network share and move the package there.
 
 >[!NOTE]
 > The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
 
-## Install certificates
+## 7. Install certificates
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
@@ -201,7 +201,7 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. Select **Finish**.
 
-## Prepare PowerShell scripts for MSIX app attach
+## 8. Prepare PowerShell scripts for MSIX app attach
 
 MSIX app attach has four distinct phases that must be performed in the following order:
 
@@ -212,7 +212,7 @@ MSIX app attach has four distinct phases that must be performed in the following
 
 Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### Stage the PowerShell script
+### 9. Stage the PowerShell script
 
 Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
@@ -409,7 +409,7 @@ rmdir $packageName -Force -Verbose
 #endregion
 ```
 
-## Set up simulation scripts for the MSIX app attach agent
+## 10. Set up simulation scripts for the MSIX app attach agent
 
 After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
@@ -420,7 +420,7 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
 
-## Use packages offline
+## 11. Use packages offline
 
 If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
 
