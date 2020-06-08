@@ -954,7 +954,7 @@
           href: virtual-machines/windows/performance-guidelines-best-practices.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Business continuity
+        - name: High availability & DR
           href: virtual-machines/windows/hadr-high-availability-disaster-recovery-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
@@ -1041,7 +1041,7 @@
           - name: Prepare VM for FCI 
             href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
           - name: Create FCI with
-              items: 
+            items: 
             - name: Azure Shared Disks (SQL2019+)
               href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
             - name: Storage Spaces Direct (Win2016+)
