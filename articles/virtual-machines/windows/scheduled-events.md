@@ -138,8 +138,13 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 Scheduled events are delivered to:
  - Standalone Virtual Machines.
  - All Virtual Machines in a Cloud Service.		
- - All Virtual Machines in an Availability Set.		
+ - All Virtual Machines in an Availability Set.	
+ - All Virtual Machines in an availability zone.
  - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
+
+> [!NOTE]
+> Specific to VMs in an availability zone, the scheduled events go to single VMs in a zone.
+> For example, if you have 100 VMs in a availability set and there is an update to one of them, the scheduled event will go to all 100, whereas if there are 100 single VMs in a zone, then event will only go to the VM which is getting impacted.
 
 As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
