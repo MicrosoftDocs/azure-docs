@@ -133,7 +133,7 @@
       href: upgrade-cluster.md
     - name: Use Uptime SLA
       href: uptime-sla.md
-    - name: Preview - Upgrade the node image
+    - name: Upgrade the node image (preview)
       href: node-image-upgrade.md
     - name: Process node OS updates
       href: node-updates-kured.md
