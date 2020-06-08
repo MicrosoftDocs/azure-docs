@@ -4,7 +4,7 @@ description: Use query acceleration (preview) to retrieve a subset of data from 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak

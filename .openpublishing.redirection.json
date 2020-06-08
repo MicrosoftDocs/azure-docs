@@ -1,6 +1,136 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/about-digital-twins.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/about-digital-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-device-ingress.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-device-ingress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-events-routing.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-events-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-objectmodel-spatialgraph.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-objectmodel-spatialgraph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-service-limits.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-service-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-add-blobs.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-add-blobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-configure-monitoring.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-configure-postman.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-diagnose-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-diagnose-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-egress-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-multitenant-applications.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-multitenant-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-navigate-apis.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-navigate-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-query-common-apis.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-query-common-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-use-swagger.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-use-swagger",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/quickstart-view-occupancy-dotnet.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/reference-user-defined-functions-client-library.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/reference-user-defined-functions-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-authenticating-apis.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-authenticating-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-best-practices.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-create-manage-role-assignments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-role-based-access-control.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-analyze.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-analyze",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-events.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-setup.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-udf.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-udf",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-async-java-samples.md",
       "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
       "redirect_document_id": false
@@ -43189,6 +43319,11 @@
     {
       "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
       "redirect_url": "/azure/azure-monitor/insights/solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/tutorial-archive-data.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
       "redirect_document_id": false
     },
     {
