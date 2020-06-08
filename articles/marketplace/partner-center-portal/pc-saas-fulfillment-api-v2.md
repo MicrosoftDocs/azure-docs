@@ -1,6 +1,6 @@
 ---
-title: SaaS Fulfillment API v2 | Azure Marketplace 
-description: This article explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace by using the associated fulfillment v2 APIs.
+title: SaaS fulfillment APIs v2 in Microsoft commercial marketplace
+description: Learn how to create and manage a SaaS offer on Microsoft AppSource and Azure Marketplace by using the fulfillment APIs version 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,9 +9,9 @@ ms.date: 10/18/2019
 ms.author: dsindona
 ---
 
-# SaaS fulfillment APIs, version 2 
+# SaaS fulfillment APIs version 2 in Microsoft commercial marketplace
 
-This article details the APIs that enable partners to sell their SaaS applications in the AppSource marketplace and the Azure Marketplace. These APIs are a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
+This article details the fulfillment APIs that enable partners to sell their SaaS applications in Microsoft AppSource and Azure Marketplace. These APIs are required for transactable SaaS offers.
 
 ## Managing the SaaS subscription life cycle
 

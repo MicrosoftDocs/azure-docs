@@ -1,17 +1,17 @@
 ---
-title: Change streams in Azure Cosmos DB's API for MongoDB
-description: Learn how to use change streams in Azure Cosmos DB's API for MongoDB to get the changes made to your data.
-author: timsander1
+title: Change streams in Azure Cosmos DB’s API for MongoDB
+description: Learn how to use change streams n Azure Cosmos DB’s API for MongoDB to get the changes made to your data.
+author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
+ms.date: 06/04/2020
+ms.author: srchi
 ---
 
-# Change streams in Azure Cosmos DB's API for MongoDB
+# Change streams in Azure Cosmos DB’s API for MongoDB
 
-[Change feed](change-feed.md) support in Azure Cosmos DB's API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
+[Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
 > [!NOTE]
 > To use change streams, create the account with version 3.6 of Azure Cosmos DB's API for MongoDB, or a later version. If you run the change stream examples against an earlier version, you might see the `Unrecognized pipeline stage name: $changeStream` error.
@@ -40,7 +40,7 @@ The following error codes and messages are supported when using change streams:
 
 The following example shows how to get change streams on all the items in the collection. This example creates a cursor to watch items when they are inserted, updated, or replaced. The `$match` stage, `$project` stage, and `fullDocument` option are required to get the change streams. Watching for delete operations using change streams is currently not supported. As a workaround, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted." When you'd like to delete the item, you can set "deleted" to `true` and set a TTL on the item. Since updating "deleted" to `true` is an update, this change will be visible in the change stream.
 
-### JavaScript:
+# [JavaScript](#tab/javascript)
 
 ```javascript
 var cursor = db.coll.watch(
@@ -56,8 +56,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-
-### C#:
+# [C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
@@ -85,8 +84,8 @@ The following example shows how to get changes to the items within a single shar
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -98,6 +97,23 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## Current limitations
+
+The following limitations are applicable when using change streams:
+
+* The `operationType` and `updateDescription` properties are not yet supported in the output document.
+* The `insert`, `update`, and `replace` operations types are currently supported. Delete operation or other events are not yet supported.
+
+Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
+
+## Error handling
+
+The following error codes and messages are supported when using change streams:
+
+* **HTTP error code 429** - When the change stream is throttled, it returns an empty page.
+
+* **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 
 ## Next steps
 

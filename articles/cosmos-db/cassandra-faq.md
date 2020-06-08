@@ -7,9 +7,11 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
 ---
-# Frequently asked questions about the Cassandra API for Azure Cosmos DB
+# Frequently asked questions about the Cassandra API in Azure Cosmos DB
 
-## What are some key differences between Apache Cassandra and the Cassandra API?
+This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
+
+## Key differences between Apache Cassandra and the Cassandra API
 
 - Apache Cassandra recommends a 100-MB limit on the size of a partition key. The Cassandra API for Azure Cosmos DB allows up to 20 GB per partition.
 - Apache Cassandra allows you to disable durable commits. You can skip writing to the commit log and go directly to the memtables. This can lead to data loss if the node goes down before memtables are flushed to SSTables on disk. Azure Cosmos DB always does durable commits to help prevent data loss.
@@ -151,7 +153,7 @@ At present, Azure Cosmos DB has an optimized experience for a cloud environment 
 
 Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule. 
 
-If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) article.
+If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
 
 ### How does the Cassandra API account handle failover if a region goes down?
 

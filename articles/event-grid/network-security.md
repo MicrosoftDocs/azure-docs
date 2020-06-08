@@ -57,7 +57,7 @@ When you resolve the topic or domain endpoint URL from outside the VNet with the
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<azure traffic manager profile\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](#ip-firewall). 
 
@@ -88,10 +88,9 @@ The following table describes the various states of the private endpoint connect
 For publishing to be successful, the private endpoint connection state should be **approved**. If a connection is rejected, it can't be approved using the Azure portal. The only possibility is to delete the connection and create a new one instead.
 
 ## Pricing and quotas
-**Private endpoints** are only available with premium tier topics and domains. Event Grid allows up to 64 private endpoint connections to be created per topic or domain. To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article.
+**Private endpoints** is available in both basic and premium tiers of Event Grid. Event Grid allows up to 64 private endpoint connections to be created per topic or domain. 
 
 **IP Firewall** feature is available in both basic and premium tiers of Event Grid. We allow up to 16 IP Firewall rules to be created per topic or domain.
-
 
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall.md).

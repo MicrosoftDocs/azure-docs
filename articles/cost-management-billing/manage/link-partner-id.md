@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
 ---
@@ -154,4 +154,5 @@ Yes, You can link your partner ID for Azure Stack.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access customer resources?**
 
-If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), your MPN ID will automatically be associated. If you [onboard customers by deploying Azure Resource Manager templates](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), you'll need to associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID and granting it Reader access to every customer you onboard.
+If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), your MPN ID will automatically be associated. If you [onboard customers by deploying Azure Resource Manager templates](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), you'll need to associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID and granting it Reader access to every customer you onboard. In this example, the RBAC Reader role is used and it is one of the roles that isn't eligible for Partner Earned Credit. For more information about roles, see [Roles and permissions for partner earned credit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+

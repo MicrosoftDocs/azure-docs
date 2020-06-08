@@ -1,5 +1,5 @@
 ---
-title: Lights
+title: Scene lighting
 description: Light source description and properties
 author: florianborn71
 ms.author: flborn
@@ -7,7 +7,7 @@ ms.date: 02/10/2020
 ms.topic: article
 ---
 
-# Lights
+# Scene lighting
 
 By default the remotely rendered objects are lit using a [sky light](sky.md). For most applications this is already sufficient, but you can add further light sources to the scene.
 

@@ -110,12 +110,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate a cloud-based application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy.
+The simplest way to authenticate a cloud-based application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details.
+
+For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principle requires a unique name in the format "http://&lt;my-unique-service-principle-name&gt;".
 
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 

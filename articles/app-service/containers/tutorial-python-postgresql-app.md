@@ -4,7 +4,7 @@ description: Learn how to create a Python app with a PostgreSQL database and dep
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate]
+ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
 ---
 # Tutorial: Deploy a Python (Django) web app with PostgreSQL in Azure App Service
 
@@ -123,7 +123,7 @@ When the command finishes, find the output lines that being with `Ran Database Q
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> To specify the location for your Postgres server, include the argument `--location <location-name>`, where `<location_name>` is one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command.
+> `--location <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
 
 ## Deploy the App Service app
 
@@ -139,7 +139,7 @@ Make sure you're back in the repository root (`djangoapp`), because the app will
 Create an App Service app with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command, as shown in the following example. Replace *\<app-name>* with a *unique* name (the server endpoint is *https://\<app-name>.azurewebsites.net*). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`.
 
 ```azurecli
-az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
@@ -173,10 +173,10 @@ Once the deployment finishes, you see a JSON output like the following:
 Copy the value of *\<app-resource-group>*. You need it to configure the app later. 
 
 > [!TIP]
-> You can use the same command later to deploy any changes and immediately enable diagnostic logs with:
+> The pertinent settings are saved into a hidden *.azure* directory in your repository. You can use the simple command later to redeploy any changes and immediately enable diagnostic logs with:
 > 
 > ```azurecli
-> az webapp up --name <app-name>
+> az webapp up
 > ```
 
 The sample code is now deployed, but the app doesn't connect to the Postgres database in Azure yet. You'll do this next.
@@ -209,8 +209,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install requirements in environment
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -348,7 +346,7 @@ python manage.py runserver
 To redeploy the changes, run the following command from the repository root:
 
 ```azurecli
-az webapp up --name <app-name>
+az webapp up
 ```
 
 App Service detects that the app exists and just deploys the code.

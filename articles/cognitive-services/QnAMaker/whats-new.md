@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 02/14/2020
+ms.date: 05/19/2020
 ms.author: diberry
 ---
 
@@ -19,6 +19,11 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes
 
 Learn what's new with QnA Maker.
+
+### May 2020
+
+* [Role-based access control (RBAC)](concepts/role-based-access-control.md)
+* [Rich-text editing](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) for answers
 
 ### March 2020
 

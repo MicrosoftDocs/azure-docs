@@ -187,7 +187,7 @@ To deploy to different environments, create more than one parameter file. When n
 
 You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-However, when you use an external parameter file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
+It's possible to use an external parameter file, by providing the URI to the file. When you do this, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
 ## Parameter name conflicts
 

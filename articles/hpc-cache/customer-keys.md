@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: v-erkel
 ---
 
@@ -15,11 +15,7 @@ You can use Azure Key Vault to control ownership of the keys used to encrypt you
 > [!NOTE]
 > All data stored in Azure, including on the cache disks, is encrypted at rest using Microsoft-managed keys by default. You only need to follow the steps in this article if you want to manage the keys used to encrypt your data.
 
-This feature is available only in these Azure regions:
-
-* East US
-* South Central US
-* West US 2
+This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details.
 
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
@@ -66,7 +62,7 @@ At cache creation time you must specify a vault, key, and key version to use for
 Read the [Azure Key Vault documentation](../key-vault/key-vault-overview.md) for details.
 
 > [!NOTE]
-> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Use one of the supported regions listed at the beginning of this article.
+> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports the customer-managed keys feature](hpc-cache-overview.md#region-availability).
 
 ## 2. Create the cache with customer-managed keys enabled
 

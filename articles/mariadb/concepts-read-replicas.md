@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 5/4/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -15,6 +15,12 @@ The read replica feature allows you to replicate data from an Azure Database for
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
 ## When to use a read replica
 
@@ -103,6 +109,9 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
 
+> [!NOTE]
+> The cost of running the replica server is based on the region where the replica server is running.
+
 ### Master server restart
 
 When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
@@ -141,6 +150,8 @@ The following server parameters are locked on both the master and replica server
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parameter is locked on the replica servers.
+
+To update one of the above parameters on the master server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
 ### Other
 

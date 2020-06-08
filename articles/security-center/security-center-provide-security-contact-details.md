@@ -31,12 +31,12 @@ Alert email notifications are sent:
  
 For example, if an email message was already sent to alert you about an RDP attack, you will not receive another email message about an RDP attack on the same day, even if another alert is triggered. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-1. Open the **Email notifications** page:
+1. As a user with the role Security Admin or Subscription Owner, open the **Email notifications** page:
 
     - For alerts, open **Pricing & settings**, select the relevant subscription, and select **Email notifications**.
 

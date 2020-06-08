@@ -7,7 +7,7 @@ ms.date: 04/17/2020
 
 # Update containers in Azure Container Instances
 
-During normal operation of your container instances, you may find it necessary to update the running containers in a [container group](container-instances-container-groups.md). For example, you might wish to update a property such as an image version, a DNS name, or an environment variable, or refresh a property in a container whose application has crashed.
+During normal operation of your container instances, you may find it necessary to update the running containers in a [container group](./container-instances-container-groups.md). For example, you might wish to update a property such as an image version, a DNS name, or an environment variable, or refresh a property in a container whose application has crashed.
 
 Update the containers in a running container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place, usually on the same underlying container host.
 
@@ -23,7 +23,7 @@ To update an existing container group:
 * Set other properties with the values you provided previously. If you don't set a value for a property, it reverts to its default value.
 
 > [!TIP]
-> A [YAML file](/container-instances-container-groups.md#deployment) helps maintain a container group's deployment configuration, and provides a starting point to deploy an updated group. If you used a different method to create the group, you can export the configuration to YAML by using [az container export][az-container-export], 
+> A [YAML file](./container-instances-container-groups.md#deployment) helps maintain a container group's deployment configuration, and provides a starting point to deploy an updated group. If you used a different method to create the group, you can export the configuration to YAML by using [az container export][az-container-export], 
 
 ### Example
 
@@ -75,7 +75,7 @@ When you delete a container group and recreate it, it's not "redeployed," but cr
 
 Mentioned several times in this article is the **container group**. Every container in Azure Container Instances is deployed in a container group, and container groups can contain more than one container.
 
-[Container groups in Azure Container Instances](container-instances-container-groups.md)
+[Container groups in Azure Container Instances](./container-instances-container-groups.md)
 
 [Deploy a multi-container group](container-instances-multi-container-group.md)
 

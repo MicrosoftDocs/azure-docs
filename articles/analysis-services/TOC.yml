@@ -43,6 +43,8 @@
     href: analysis-services-long-operations.md
   - name: Supported data sources
     href: analysis-services-datasource.md
+  - name: Network connectivity FAQ
+    href: analysis-services-network-faq.md
 - name: How-to
   items:
   - name: Server
@@ -119,8 +121,8 @@
     href: analysis-services-samples.md
   - name: Analysis Services team blog
     href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
+  - name: Microsoft Q&A question page for Azure Analysis Services
+    href: https://docs.microsoft.com/answers/topics/azure-analysis-services.html
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Azure status

@@ -5,8 +5,9 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/26/2020
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # Frequently asked questions about Application Gateway
@@ -89,7 +90,7 @@ See [Application Gateway subnet size considerations](https://docs.microsoft.com/
 
 Yes. In addition to multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
 
-A single subnet can't support both Standard_v2 and Standard Application Gateway together.
+A single subnet can't support both v2 and v1 Application Gateway SKUs.
 
 ### Does Application Gateway v2 support user-defined routes (UDR)?
 
@@ -326,42 +327,6 @@ For multiple domain-based (host-based) routing, you can create multisite listene
 
 No, use only alphanumeric characters in your .pfx file password.
 
-## Configuration - web application firewall (WAF)
-
-### Does the WAF SKU offer all the features available in the Standard SKU?
-
-Yes. WAF supports all the features in the Standard SKU.
-
-### How do I monitor WAF?
-
-Monitor WAF through diagnostic logging. For more information, see [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md).
-
-### Does detection mode block traffic?
-
-No. Detection mode only logs traffic that triggers a WAF rule.
-
-### Can I customize WAF rules?
-
-Yes. For more information, see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md).
-
-### What rules are currently available for WAF?
-
-WAF currently supports CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
-
-* SQL injection protection
-* Cross-site scripting protection
-* Protection against common web attacks such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
-* Protection against HTTP protocol violations
-* Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-* Prevention against bots, crawlers, and scanners
-* Detection of common application misconfigurations (that is, Apache, IIS, and so on)
-
-For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
-
-### Does WAF support DDoS protection?
-
-Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
-
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?
@@ -444,9 +409,6 @@ But if you'd like to use Application Gateway V2 with only private IP, you can fo
 Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
 
-### Does Application Gateway affinity cookie support SameSite attribute?
-Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
-To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
 
 ## Next steps
 

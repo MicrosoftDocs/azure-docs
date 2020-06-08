@@ -10,7 +10,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 
 ---
@@ -49,7 +49,7 @@ To resolve this error, store your experiment files on a datastore. If you can't 
 Experiment&nbsp;description|Storage limit solution
 ---|---
 Less than 2000 files & can't use a datastore| Override snapshot size limit with <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> This may take several minutes depending on the number and size of files.
-Must use specific script directory| Make a `.amlignore` file to exclude files from your experiment snapshot that are not part of the source code. Add the filenames to the `.amlignore` file and place it in the same directory as your training script. The `.amlignore` file uses the same [syntax and patterns](https://git-scm.com/docs/gitignore) as a `.gitignore` file.
+Must use specific script directory| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Use a different subdirectory for each step
 Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, empty, subdirectory and run your code again.
 

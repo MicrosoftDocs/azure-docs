@@ -1,18 +1,15 @@
 ---
 title: Azure Service Fabric reverse proxy secure communication 
 description: Configure reverse proxy to enable secure end-to-end communication in an Azure Service Fabric application.
-author: kavyako
-
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
 ---
 # Connect to a secure service with the reverse proxy
 
 This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. To learn more about reverse proxy, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case.
-Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
+> [!IMPORTANT]
+> Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case. Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
 
 ## Secure connection establishment between the reverse proxy and services 
 
@@ -177,10 +174,10 @@ This is the default behavior.
 
 2. When **ForwardClientCertificate** is set to **true**, reverse proxy requests the client's certificate during its TLS handshake with the client.
 It will then forward the client certificate data in a custom HTTP header named **X-Client-Certificate**. The header value is the base64 encoded PEM format string of the client's certificate. The service can succeed/fail the request with appropriate status code after inspecting the certificate data.
-If the client does not present a certificate, reverse proxy forwards an empty header and let the service handle the case.
+If the client does not present a certificate, reverse proxy forwards an empty header and lets the service handle the case.
 
 > [!NOTE]
-> Reverse proxy is a mere forwarder. It will not perform any validation of the client's certificate.
+> Reverse proxy acts only as a forwarding service. It will not perform any validation of the client's certificate.
 
 
 ## Next steps

@@ -14,8 +14,6 @@ ms.date: 04/19/2017
 ---
 # Azure Machine Learning Studio (classic) Web Services: Deployment and consumption
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 You can use Azure Machine Learning Studio (classic) to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
 
 The next sections provide links to walkthroughs, code, and documentation to help get you started.
@@ -77,7 +75,6 @@ Here's an example:
 See the following articles and sample code for additional details:
 
 * [Azure Machine Learning Studio (classic) Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) reference on MSDN
-* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
 
 ## Consume the web services
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/29/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -29,10 +29,6 @@ For example, you can calculate values by using math functions, such as the [add(
 
 To find functions [based on their general purpose](#ordered-by-purpose), review the following tables. Or, for detailed information about each function, see the [alphabetical list](#alphabetical-list).
 
-> [!NOTE]
-> In the syntax for parameter definitions, a question mark (?) that appears after a parameter 
-> means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
-
 ## Functions in expressions
 
 To show how to use a function in an expression, this example shows how you can get the value from the `customerName` parameter and assign that value to the `accountName` property by using the [parameters()](#parameters) function in an expression:
@@ -51,10 +47,7 @@ Here are some other general ways that you can use functions in expressions:
 | 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
 |||
 
-For example, the `concat()` function can take two or more string values
-as parameters. This function combines those strings into one string.
-You can either pass in string literals, for example, "Sophia" and "Owen"
-so that you get a combined string, "SophiaOwen":
+For example, the `concat()` function can take two or more string values as parameters. This function combines those strings into one string. You can either pass in string literals, for example, "Sophia" and "Owen" so that you get a combined string, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
@@ -70,7 +63,13 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are the available functions ordered by their general purpose, or you can browse the functions based on [alphabetical order](#alphabetical-list).
+Here are some other notes about functions in expressions:
+
+* Function parameters are evaluated from left to right.
+
+* In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
+
+The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
@@ -122,6 +121,9 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 ## Logical comparison functions
 
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string). 
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -1624,7 +1626,7 @@ This example returns the number for the day of the week from this timestamp:
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-And returns this result: `3`
+And returns this result: `4`
 
 <a name="dayOfYear"></a>
 
@@ -2350,8 +2352,7 @@ And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 ### if
 
-Check whether an expression is true or false.
-Based on the result, return a specified value.
+Check whether an expression is true or false. Based on the result, return a specified value. Parameters are evaluated from left to right.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -3857,7 +3858,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*updated-timestamp*> | String | The specified timestamp but starting on the first day of the month at the zero-hour mark |
 ||||
 
-*Example*
+*Example 1*
 
 This example returns the start of the month for this timestamp:
 
@@ -3866,6 +3867,16 @@ startOfMonth('2018-03-15T13:30:30Z')
 ```
 
 And returns this result: `"2018-03-01T00:00:00.0000000Z"`
+
+*Example 2*
+
+This example returns the start of the month in the specified format for this timestamp:
+
+```
+startOfMonth('2018-03-15T13:30:30Z', 'yyyy-MM-dd')
+```
+
+And returns this result: `"2018-03-01"`
 
 <a name="startswith"></a>
 
@@ -3924,13 +3935,17 @@ string(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert |
+| <*value*> | Yes | Any | The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. <p><p>For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | The string version for the specified value |
+| <*string-value*> | String | The string version for the specified value. If the *value* parameter is null or evaluates to null, this value is returned as an empty string (`""`) value. |
 ||||
+
+
+
+
 
 *Example 1*
 
@@ -4105,8 +4120,7 @@ And return these results:
 
 ### ticks
 
-Return the `ticks` property value for a specified timestamp.
-A *tick* is a 100-nanosecond interval.
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
 
 ```
 ticks('<timestamp>')

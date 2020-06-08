@@ -5,10 +5,10 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.author: banders
 ---
-# Understand Azure Enterprise Agreement administrative roles in Azure
+# Managing Azure Enterprise roles
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
 
@@ -56,6 +56,19 @@ The following sections describe the limitations and capabilities of each role.
 - <sup>4</sup> Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - <sup>5</sup> Task is limited to accounts in your department.
 
+## Add a new enterprise administrator
+
+Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## Update account owner state from pending to active
+
+When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
+
+## Add a department Admin
+
+After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
+
+For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-administrator).
 
 ## Usage and costs access by role
 
@@ -71,8 +84,7 @@ The following sections describe the limitations and capabilities of each role.
 - <sup>6</sup> Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
 - <sup>7</sup> Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
 
-
-## Pricing in Azure portal
+## See pricing for different user roles
 
 You may see different pricing in the Azure portal depending on your administrative role and how the view charges policies are set by the Enterprise Administrator. The two policies in the Enterprise portal that affect the pricing you see in the Azure portal are:
 
@@ -92,6 +104,8 @@ The following table shows the relationship between the Enterprise Agreement admi
 |None|Not applicable |Owner|Retail pricing|
 
 You set the Enterprise admin role and view charges policies in the Enterprise portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+
 
 ## Next steps
 

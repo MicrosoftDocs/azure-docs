@@ -77,7 +77,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="true":::
 
-1. Click **Import** to auto-fill the Request. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
+1. Click **Import** to auto-fill the Request. Complete setting the parameter metadata by clicking the **...** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="true":::
 

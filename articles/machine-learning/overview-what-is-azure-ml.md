@@ -8,6 +8,7 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
+ms.custom: tracking-python
 ---
 
 # What is Azure Machine Learning?
@@ -18,7 +19,7 @@ Azure Machine Learning can be used for any kind of machine learning, from classi
 
 Start training on your local machine and then scale out to the cloud. 
 
-The service also interoperates with popular open-source tools, such as PyTorch, TensorFlow, and scikit-learn.
+The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -41,11 +42,15 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
++ + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
+
 + [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 + Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
+
++ [Reinforcement learning](how-to-use-reinforcement-learning.md) with Ray RLlib
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 

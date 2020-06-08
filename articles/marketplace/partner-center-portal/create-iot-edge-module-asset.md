@@ -11,9 +11,6 @@ ms.date: 04/03/2020
 
 # Prepare your IoT Edge module technical assets
 
-> [!IMPORTANT]
-> We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Prepare your IoT Edge module technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets) for Cloud Partner Portal to manage your offers.
-
 This article describes the requirements that your Internet of Things (IoT) Edge module technical assets must meet before being published in Azure Marketplace.
 
 ## Get started

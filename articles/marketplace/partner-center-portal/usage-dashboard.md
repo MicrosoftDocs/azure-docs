@@ -1,6 +1,6 @@
 ---
-title: Usage dashboard in commercial marketplace analytics on Partner Center
-description: Learn how to access all VM offers usage and metered billing metrics.
+title: Usage dashboard in Microsoft commercial marketplace analytics
+description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Usage Dashboard in commercial marketplace analytics
+# Usage dashboard in Microsoft commercial marketplace analytics
 
-This article provides information on the Usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
+This article provides information on the usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
 
-To access the Usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under **Commercial Marketplace**.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ## Usage dashboard
 
-The Usage Dashboard represents the metrics for all Virtual Machine (VM) offers usage and metered billing usage. These are found in two separate tabs: VM usage and metered billing usage.
+The usage dashboard represents the metrics for all Virtual Machine (VM) offers usage and metered billing usage. These metrics are found in two separate tabs: VM usage and metered billing usage.
 
 In the VM usage tab, there are graphical representations of the following items:
 
@@ -41,7 +41,7 @@ In the VM usage tab, there are graphical representations of the following items:
 The usage summary table displays the customer usage hours for all offers they have purchased.
 
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- Raw usage hours are defined as the amount of time VMs have been running in terms of hours.
+- Raw usage hours are defined as the number of time VMs have been running in terms of hours.
 - The percentage value represents usage growth change for the selected date range ([last month usage – first month usage])/ first month usage).
 - Green triangles pointing upward indicate a growth change.
 - Red triangle pointing downward indicates a negative growth change relative to the previous month.
@@ -49,17 +49,17 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 ### Usage by geography
 
-The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country. Country color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
+The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
 
 ### Usage by offers
 
-- The **normalized usage by offers** pie chart displays a breakdown of normalized usage hours by offers according to the selected date range. The top 5 offers are displayed in graph, while the rest are grouped in the "rest all" category.
+- The **normalized usage by offers** pie chart displays a breakdown of normalized usage hours by offers according to the selected date range. The top five offers are displayed in graph, while the rest are grouped in the **rest all** category.
 - The bar chart depicts a month-by-month growth trend for the selected date range. The month columns represent usage hours from the offers with the highest usage hours for the respective month. The line chart depicts the growth percentage trend plotted on the secondary Y-axis.
 - Use the slider at the top of the chart to scroll right to left along the x-axis and/or focus on specific data points.
 
 ### Usage trend by offers and SKUs
 
-This chart displays the trend of normalized usage for the selected SKUs of an offer. The offer leaderboard displays the top 50 offers with the highest usage and are sorted by usage hours. The SKU leaderboard displays the top 50 SKUs with the highest usage for the selected offer.
+This chart displays the trend of normalized usage for the selected SKUs of an offer. The offer leaderboard displays the top 50 offers with the highest usage, sorted by usage hours. The SKU leaderboard displays the top 50 SKUs with the highest usage for the selected offer.
 
 ### Usage by offer type
 
@@ -86,17 +86,17 @@ The **usage details table** displays a numbered list of the top 1000 usage recor
 
 - Each column in the grid is sortable.
 - The data can be extracted to a CSV file if the count of the records is less than 1000.
-- If records count is over 1000, export data will be asynchronously placed in a downloads page which will be available for the next 30 days.
-- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+- If records count is over 1000, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
+- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
 > [!NOTE]
 > Select the **Usage type** in the page filter to view charts on the page in either "Normalized view" or "Raw view." The default view for these charts is "Normalized view."
 
-The **Usage page filters** are applied at the page level. You can select multiple filters to render the chart for the criteria you choose to view, and the data you want displayed in the "detailed usage data" grid/export. Filters are applied on the data extracted for the data range you have selected on the top right corner of the orders page.
+The **Usage page filters** are applied at the page level. You can select multiple filters to render the chart for the criteria you choose to view, and the data you want displayed in the "detailed usage data" grid/export. Filters are applied on the data extracted for the data range you have selected on the top-right corner of the orders page.
 
 - **Offer types** and **Offer names** are listed only for the offers you have acquired during the selected date range. Offer names in the list are displayed for offer types that are selected from the list.
 - The default selection is "All" for each of the filter options, except for **Usage type**. The default selection for **Usage type** is normalized usage. To display raw usage in the charts, select "raw usage."
-- Applied filters show the count selections(s) for the filter selections that were made. Applied filters are not displayed for the default selections.
+- Applied filters show the count selection for the filter selections that were made. Applied filters are not displayed for the default selections.
 
 > [!NOTE]
 > A detailed definition of each of the fields in "detailed order data" grid, page filters, and all possible selections are defined in the data dictionary section of the [FAQs and terminology](link needed) article.
@@ -118,5 +118,5 @@ The **Metered billing usage** tab presents usage info for offer types where usag
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
+- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

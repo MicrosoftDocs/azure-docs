@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-sixteen
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Learn the basics of speech synthesis

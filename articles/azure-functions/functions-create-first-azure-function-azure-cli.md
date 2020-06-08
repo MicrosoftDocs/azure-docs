@@ -3,20 +3,39 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Quickstart: Create a function in Azure that responds to HTTP requests
 
-In this article, you use command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+::: zone pivot="programming-language-csharp"  
+In this article, you use command-line tools to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+In this article, you use command-line tools to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+In this article, you use command-line tools to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 There is also a [Visual Studio Code-based version](functions-create-first-function-vs-code.md) of this article.
 ::: zone-end  
-
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> If Maven is not your prefered development tool, check out our similar tutorials for Java developers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> If Maven is not your prefered development tool, check out our similar tutorials for Java developers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -82,7 +101,7 @@ Provide the following values when prompted:
 | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
 | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
 | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-| **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
+| **package** | `com.fabrikam` | A value that is the Java package for the generated function code. Use the default. |
 
 Type `Y` or press Enter to confirm.
 
@@ -122,7 +141,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
 #### Function.java
 *Function.java* contains a `run` method that receives request data in the `request` variable is an [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) that's decorated with the [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) annotation, which defines the trigger behavior. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 The response message is generated by the [HttpResponseMessage.Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) API.
 
@@ -130,7 +149,7 @@ The response message is generated by the [HttpResponseMessage.Builder](/java/api
 
 Settings for the Azure resources created to host your app are defined in the **configuration** element of the plugin with a **groupId** of `com.microsoft.azure` in the generated pom.xml file. For example, the configuration element below instructs a Maven-based deployment to create a function app in the `java-functions-group` resource group in the `westus` region. The function app itself runs on Windows hosted in the `java-functions-app-service-plan` plan, which by default is a serverless Consumption plan.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 You can change these settings to control how resources are created in Azure, such as by changing `runtime.os` from `windows` to `linux` before initial deployment. For a complete list of settings supported by the Maven plug-in, see the [configuration details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
@@ -376,11 +395,22 @@ If you continue to the next step, [Add an Azure Storage queue output binding](fu
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
+::: zone pivot="programming-language-java"
+```azurecli
+az group delete --name java-functions-group
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+To exit the virtual environment, run `deactivate`.
+::: zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
+ 

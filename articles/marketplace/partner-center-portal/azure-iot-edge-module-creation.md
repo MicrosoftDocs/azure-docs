@@ -1,31 +1,25 @@
 ---
-title: Create an Azure IoT Edge module offer with Partner Center - Azure Marketplace
-description: Learn how to create an IoT Edge module offer in Azure Marketplace using Partner Center
+title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 05/19/2020
 ---
 
-# Create an IoT Edge module offer
+# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
 
-> [!IMPORTANT]
-> We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
-
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace.
-
-Before you can create an IoT Edge module offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
-1. Sign in to Partner Center.
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **IoT Edge module**.
 
-    ![Illustrates the left-navigation menu.](./media/cs-menu-overview.png)
-
-3. Select **+ New offer** > **IoT Edge module**. The **New offer** dialog box appears.
+    ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -36,14 +30,14 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select Create.
+- The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used to refer to the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-After you enter these two values, select **Create** before continuing to the next page, Offer overview.
+Select **Create** to generate the offer and continue.
 
 ## Offer overview
 
@@ -60,7 +54,7 @@ This page includes links to perform operations on this offer based on the select
 
 Follow these steps to set up your offer.
 
-### Connect lead management
+### Customer leads
 
 When publishing your offer to the marketplace with Partner Center, you can optionally connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 
@@ -81,10 +75,10 @@ Here are some additional lead management resources:
 
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
-Select **Save draft** before continuing to the next section, Properties.
+Select **Save draft** before continuing.
 
 ### Properties
 
@@ -147,44 +141,15 @@ Provide a more detailed description of your offer. This can be up to 256 charact
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description, such as:
 
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
+- Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage
 
-IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description. For example:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage*
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-    - Description of the offer.
-    - The type of user that benefits from the offer.
-    - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false":::
-
-- To change the format of your content, highlight the text that you want to format and select a text style, as shown in this screenshot:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
-
-- To add a bulleted or numbered list to the text, use the options shown in this screenshot:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
-
-- To add or remove indentation to the text, use the options shown in this screenshot:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy URL
 

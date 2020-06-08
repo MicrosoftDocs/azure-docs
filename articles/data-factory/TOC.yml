@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Security - Enable Customer Managed Key Encryption
+    href: quickstart-enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -39,7 +41,7 @@
         href: tutorial-copy-data-portal.md
       - name: .NET
         href: tutorial-copy-data-dot-net.md
-    - name: From an on-premises SQL Server database to Azure Blob Storage
+    - name: From a SQL Server database to Azure Blob Storage
       items:
       - name: Copy Data tool
         href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
           href: tutorial-incremental-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-powershell.md
-      - name: From multiple on-premises SQL Server tables
+      - name: From multiple SQL Server database tables
         items:
         - name: User interface (UI)
           href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -88,6 +90,10 @@
           href: tutorial-incremental-copy-change-tracking-feature-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      - name: Using CDC in Azure SQL MI
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-change-data-capture-feature-portal.md
       - name: New files by last modified data
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
@@ -156,6 +162,10 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -184,10 +194,32 @@
         href: wrangling-data-flow-overview.md
       - name: Supported functions
         href: wrangling-data-flow-functions.md
+  - name: Data migration for data lake & EDW
+    items:
+    - name: Why Azure Data Factory
+      href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-azure-storage.md
+    - name: Migrate data from on-premises Hadoop cluster to Azure
+      href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
+  - name: Transformation using mapping data flow
+    items:
+    - name: Process fixed-width text files
+      href: how-to-fixed-width.md
+    - name: Error row handling
+      href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
+  - name: SSIS migration from on-premises
+    items:
+    - name: SSIS migration overview
+      href: scenario-ssis-migration-overview.md
+    - name: SSISDB migration to Azure SQL Managed Instance
+      href: scenario-ssis-migration-ssisdb-mi.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
-  - name: Understanding pricing
-    href: pricing-concepts.md
   - name: Naming rules
     href: naming-rules.md
 - name: How-to guides
@@ -196,6 +228,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Management hub
+      href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
@@ -238,8 +272,8 @@
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
-    - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-instance.md
+    - name: Azure SQL Managed Instance
+      href: connector-azure-sql-managed-instance.md
     - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
@@ -248,6 +282,8 @@
       href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
+    - name: Common Data Model format
+      href: format-common-data-model.md
     - name: Common Data Service for Apps
       href: connector-dynamics-crm-office-365.md
     - name: Concur
@@ -270,6 +306,8 @@
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
+    - name: GitHub
+      href: connector-github.md
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
@@ -368,8 +406,12 @@
       href: connector-servicenow.md
     - name: SFTP
       href: connector-sftp.md
+    - name: SharePoint Online List
+      href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
+    - name: Snowflake
+      href: connector-snowflake.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -414,6 +456,8 @@
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Data consistency verification
+      href: copy-activity-data-consistency.md
     - name: Format and compression support (legacy)
       href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
@@ -541,6 +585,8 @@
     items:
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
+    - name: Data access strategies
+      href: data-access-strategies.md        
     - name: Azure Integration Runtime IP addresses
       href: azure-integration-runtime-ip-addresses.md
     - name: Store credentials in Azure Key Vault
@@ -551,8 +597,12 @@
       href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
+    - name: Customer managed key encryption
+      href: quickstart-enable-customer-managed-key.md
   - name: Monitor and manage
     items:
+    - name: Monitor visually
+      href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor with SDKs
@@ -575,6 +625,8 @@
       href: create-azure-ssis-integration-runtime.md
     - name: Shared self-hosted integration runtime
       href: create-shared-self-hosted-integration-runtime-powershell.md
+    - name: Automation scripts of self-hosted integration runtime
+      href: self-hosted-integration-runtime-automation-scripts.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -601,6 +653,8 @@
       href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Built-in and preinstalled components on Azure-SSIS IR
+      href: built-in-preinstalled-components-ssis-integration-runtime.md
     - name: Customize setup for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-custom-setup.md
     - name: Install licensed components for Azure-SSIS IR
@@ -611,8 +665,12 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
+      href: how-to-use-sql-managed-instance-with-ir.md
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
+    - name: Manage packages with Azure-SSIS IR package store
+      href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -643,6 +701,12 @@
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+  - name: Understanding pricing
+    items:
+    - name: Plan and manage costs     
+      href: plan-manage-costs.md 
+    - name: Pricing examples     
+      href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
     - name: Activities
@@ -657,30 +721,6 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
-- name: Scenarios
-  items:
-  - name: Data migration for data lake & EDW
-    items:
-    - name: Why Azure Data Factory
-      href: data-migration-guidance-overview.md
-    - name: Migrate data from AWS S3 to Azure
-      href: data-migration-guidance-s3-azure-storage.md
-    - name: Migrate data from on-premises Hadoop cluster to Azure
-      href: data-migration-guidance-hdfs-azure-storage.md
-    - name: Migrate data from on-premises Netezza server to Azure
-      href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using mapping data flow
-    items:
-    - name: Process fixed-width text files
-      href: how-to-fixed-width.md
-    - name: Error row handling
-      href: how-to-data-flow-error-rows.md
-  - name: SSIS migration from on-premises
-    items:
-    - name: SSIS migration overview
-      href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Database managed instance
-      href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
   - name: Data flow script
@@ -705,8 +745,8 @@
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
-  - name: Ask a question - MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
+  - name: Ask a question - Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
