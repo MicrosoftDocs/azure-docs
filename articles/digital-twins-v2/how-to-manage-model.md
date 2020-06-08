@@ -23,11 +23,11 @@ Management operations include upload, validation, retrieval, and deletion of mod
 
 ## Create models
 
+Models for Azure Digital Twins are written in DTDL, and saved as *.json* files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
+
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
-The first step towards the solution is to create models to represent aspects of the hospital. 
-
-Models for Azure Digital Twins are written in DTDL. A patient room in this scenario might be described like this:
+The first step towards the solution is to create models to represent aspects of the hospital. A patient room in this scenario might be described like this:
 
 ```json
 {
