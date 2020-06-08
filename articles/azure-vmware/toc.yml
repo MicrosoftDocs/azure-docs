@@ -40,7 +40,7 @@
     items:
     - name: Set up Azure Backup Server for AVS
       href: set-up-mabs-for-avs.md
-    - name: Backup AVS VMs with Azure Backup Server
+    - name: Back up AVS VMs with Azure Backup Server
       href: backup-avs-vms-with-mabs.md
 - name: Reference
   items:
