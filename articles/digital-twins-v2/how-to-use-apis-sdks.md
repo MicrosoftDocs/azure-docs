@@ -65,7 +65,7 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 * Using the .NET command-line tool, you can run:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.1
     dotnet add package Azure.identity
     ```
 
