@@ -42,7 +42,7 @@ Prerequisites for this tutorial are:
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
 * Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup), and [set up the environment](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?branch=release-preview-media-services-lva#set-up-the-environment)
 
-At the end of these steps, you'll have these Azure resources deployed in your Azure subscription:
+At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
 
 * Azure IoT Hub
 * Azure Storage account
@@ -69,9 +69,7 @@ The diagram is a pictorial representation of a [media graph](media-graph-concept
 As the diagram shows, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node in the media graph to capture the simulated live video of traffic on a highway and send that video to two paths:
 
 * The first path is to a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node that outputs video frames at the specified (reduced) frame rate. Those video frames are sent to an HTTP extension node. The node then relays the frames, as images, to the AI module YOLO v3, which is an object detector. The node receives the results, which are the objects (vehicles in traffic) detected by the model. The HTTP extension node then publishes the results via the IoT Hub message sink node to the IoT Edge hub.
-* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. 
-
-    When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
+* The objectCounter module is set up to receive messages from the IoT Edge hub, which include the object detection results (vehicles in traffic). The module checks these messages and looks for objects of a certain type, which were configured via a setting. When such an object is found, this module sends a message to the IoT Edge hub. Those "object found" messages are then routed to the IoT Hub source node of the media graph. Upon receiving such a message, the IoT Hub source node in the media graph triggers the [signal gate processor](media-graph-concept.md#signal-gate-processor) node. The signal gate processor node then opens for a configured amount of time. Video flows through the gate to the asset sink node for that duration. That portion of the live stream is then recorded via the [asset sink](media-graph-concept.md#asset-sink) node to an [asset](terminology.md#asset) in your Azure Media Services account.
 
 ## Set up your development environment
 

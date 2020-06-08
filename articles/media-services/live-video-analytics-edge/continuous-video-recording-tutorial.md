@@ -39,7 +39,7 @@ Prerequisites for this tutorial are:
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
 * Complete the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
-At the end of these steps, you'll have these Azure resources deployed in your Azure subscription:
+At the end of these steps, you'll have relevant Azure resources deployed in your Azure subscription:
 
 * Azure IoT Hub
 * Azure Storage account
