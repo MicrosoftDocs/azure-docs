@@ -149,41 +149,40 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EasySSO for BitBucket SSO
 
-Login into your Atlassian BitBucket instance with Administrator privileges and navigate to the **Administration** section. 
+1. Sign into your Atlassian BitBucket instance with Administrator privileges and navigate to the **Administration** section. 
 
-![Manage Apps](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-1.png)
+    ![Manage Apps](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-1.png)
+1. On the page locate **EasySSO** and click it.
 
-On the page locate **EasySSO** and click it.
+    ![Easy SSO](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-2.png)
 
-![Easy SSO](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-2.png)
+1. Select **SAML** option. This will take you to SAML configuration section.
 
-Select **SAML** option. This will take you to SAML configuration section.
+    ![SAML](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-3.png)
 
-![SAML](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-3.png)
+1. Select **Certificates** tab on the top and you will be presented with the following screen:
 
-Select **Certificates** tab on the top and you will be presented with the following screen:
+    ![Metadata URL](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-4.png)
 
-![Metadata URL](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-4.png)
+1. Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
 
-Now, locate **Certificate (Base64)** or **Metadata File** you have saved in the earlier steps of **Azure AD SSO** configuration. You have following options on how to proceed:
+    a. Use the App Federation **Metadata File** you downloaded to local file on your computer. Select **Upload** radio button and follow the upload file dialog specific to your operating system
 
- * Use the App Federation **Metadata File** you downloaded to local file on your computer. Select **Upload** radio button and follow the upload file dialog specific to your operating system
+    **OR**
 
-**OR**
-
- * Open the App Federation **Metadata File** to see the content (in any plain text editor) of the file and copy it into the clipboard. Select **Input** option and paste clipboard content into the text field.
+    b. Open the App Federation **Metadata File** to see the content (in any plain text editor) of the file and copy it into the clipboard. Select **Input** option and paste clipboard content into the text field.
  
-**OR**
+    **OR**
 
- * Fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content (in any plain text editor) of the file and copy it into the clipboard. Paste it into **IdP Token Signing Certificates** text field. Then navigate to **General** tab and fill **POST Binding URL** and **Entity ID** fields with respective values for **Login URL** and **Azure AD Identifier** you saved previously.
+    c. Fully manual configuration. Open the App Federation **Certificate (Base64)** to see the content (in any plain text editor) of the file and copy it into the clipboard. Paste it into **IdP Token Signing Certificates** text field. Then navigate to **General** tab and fill **POST Binding URL** and **Entity ID** fields with respective values for **Login URL** and **Azure AD Identifier** you saved previously.
  
-Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for BitBucket configuration is complete.
+1. Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for BitBucket configuration is complete.
 
-For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the BitBucket login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
+1. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the BitBucket login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
 
-![Look & Feel](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-5.png)
-
-Should you have any issues, please contact [EasySSO support team](mailto:support@techtime.co.nz).
+    ![Look & Feel](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-5.png)
+    > [!NOTE]
+    >Should you have any issues, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 
 ### Create EasySSO for BitBucket test user
 
