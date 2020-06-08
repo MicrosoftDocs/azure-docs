@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
+ms.date: 6/5/2020
 ---
 # Limitations in Azure Database for MariaDB
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
@@ -26,7 +26,7 @@ The minimum and maximum values of several popular server parameters are determin
 |General Purpose|16|2500|10|5000|
 |General Purpose|32|5000|10|10000|
 |General Purpose|64|10000|10|20000|
-|Memory Optimized|2|600|10|800|
+|Memory Optimized|2|625|10|1250|
 |Memory Optimized|4|1250|10|2500|
 |Memory Optimized|8|2500|10|5000|
 |Memory Optimized|16|5000|10|10000|
