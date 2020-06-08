@@ -12,7 +12,7 @@ manager: timlt
 
 # Secure a daemon application
 
-For background processes, timers, and jobs which are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
+The following guide is for background processes, timers, and jobs which are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
 
 > [!Tip]
 > Microsoft recommends implementing Azure Active Directory (Azure AD) and Role based access control (RBAC) for production applications. For an overview of concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
@@ -40,7 +40,7 @@ The following steps outline this process:
 > [!Tip]
 > If the app is hosted in Azure environment, you should implement a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via Managed Identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
-The daemon application is responsible for retrieving the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. We encourage direct Azure AD RBAC with Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
+The daemon application is responsible for retrieving the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. Instead, we encourage direct Azure AD RBAC authentication to Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
 
 > [!IMPORTANT]
 > To simplify key regeneration, we recommend applications use one key at a time. Applications can then regenerate the unused key and deploy the new regenerated key to a secured secret store such as Azure Key Vault.
@@ -61,7 +61,7 @@ See [Overview of Managed Identities](https://docs.microsoft.com/azure/active-dir
 Managed Identity benefits:
 
 * Azure system managed X509 certificate public key cryptography authentication.
-* Azure AD security with X509 certificates instead of client secrets..
+* Azure AD security with X509 certificates instead of client secrets.
 * Azure manages and renews all certificates associated with the Managed Identity resource.
 * Simplified credential operational management by removing any need for a secured secret store service like Azure Key Vault. 
 
