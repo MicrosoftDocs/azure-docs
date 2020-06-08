@@ -579,7 +579,12 @@
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
         "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
-        "articles/cognitive-services/Translator/**/*.md": "translator-text"
+        "articles/cognitive-services/Translator/**/*.md": "translator-text",
+        "articles/media-services/latest/*.md": "rest-v3",
+        "articles/media-services/previous/*.md": "rest-v2",
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/media-services/azure-media-player/*.md": "media-player",
+        "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
