@@ -212,25 +212,16 @@
         if (userInfo == null)
             return;
 
-        NSString actionKey = null;
-        NSString actionValue = null;
-
         try
         {
-            actionValue = userInfo.ObjectForKey(actionKey =
-                new NSString("action")) as NSString;
+            var actionValue = userInfo.ObjectForKey(new NSString("action")) as NSString;
 
             if (!string.IsNullOrWhiteSpace(actionValue?.Description))
                 NotificationActionService.TriggerAction(actionValue.Description);
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine(ex.Message);
-        }
-        finally
-        {
-            actionKey?.Dispose();
-            actionValue?.Dispose();
+            Debug.WriteLine(ex.Message);
         }
     }
     ```
@@ -272,15 +263,12 @@
                 cachedToken.Equals(deviceTokenHash))
                 return;
 
-            NotificationRegistrationService.RefreshRegistrationAsync()
-            .ContinueWith((j) =>
+            NotificationRegistrationService.RefreshRegistrationAsync().ContinueWith((j) =>
             {
                 if (j.IsFaulted) throw j.Exception;
 
-                SecureStorage.SetAsync(
-                    CachedDeviceToken,
-                    deviceTokenHash).ContinueWith((k)
-                        => { if (k.IsFaulted) throw k.Exception; });
+                SecureStorage.SetAsync(CachedDeviceToken, deviceTokenHash).ContinueWith((k)
+                    => { if (k.IsFaulted) throw k.Exception; });
             });
         });
     }
