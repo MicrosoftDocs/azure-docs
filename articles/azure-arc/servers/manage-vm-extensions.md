@@ -52,6 +52,8 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
+Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the . 
+
 ## Prerequisite
 
 This feature depends on the following Azure resource providers in your subscription:
@@ -697,6 +699,19 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
     }
 }
 ```
+
+## Troubleshooting
+
+Data about the state of extension deployments can be retrieved from the Azure portal.
+
+Extension output is logged to a file found under the following folder on the target machine.
+
+```cmd
+%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>
+```
+
+The 
+
 
 ## Next steps
 
