@@ -32,7 +32,7 @@ Similarly [SUPER privilege](https://mariadb.com/kb/en/library/grant/#global-priv
 Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 
 ## Server parameters
-Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters is determined by the pricing tier and vCores of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits. 
+Azure Database for MariaDB supports tuning the values of server parameters. The min and max value of some parameters is determined by the pricing tier and vCores of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits. 
 
 ## Data manipulation statement support
 

@@ -57,7 +57,7 @@
       href: concepts-pricing-tiers.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
-    - name: Limits
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
