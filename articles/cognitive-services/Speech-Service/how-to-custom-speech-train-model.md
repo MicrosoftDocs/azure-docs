@@ -35,7 +35,7 @@ If you're encountering recognition issues with your model, using human-labeled t
 The first step to train a model is to upload training data. Use [Prepare and test your data](how-to-custom-speech-test-data.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you've uploaded training data, follow these instructions to start training your model:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > Training**.
+2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Training**.
 3. Click **Train model**.
 4. Next, give your training a **Name** and **Description**.
 5. From the **Scenario and Baseline model** drop-down menu, select the scenario that best fits your domain. If you're unsure of which scenario to choose, select **General**. The baseline model is the starting point for training. The latest model is usually the best choice.
