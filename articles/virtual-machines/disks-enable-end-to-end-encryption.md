@@ -9,6 +9,8 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
+# Enable end to end encryption
+
 ## Prerequisites
 
 You must enable the feature for your subscription before you use the **EncryptionAtHost** property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:

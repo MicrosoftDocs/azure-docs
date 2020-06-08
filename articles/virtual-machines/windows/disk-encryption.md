@@ -56,7 +56,7 @@ For now, customer-managed keys have the following restrictions:
 
 ## Next steps
 
-- [Enable customer-managed keys for your managed disk - PowerShell](disks-customer-managed-keys-powershell.md)
+- [Enable customer-managed keys for your managed disk - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys - managed disks](disks-enable-customer-managed-keys-portal.md)
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

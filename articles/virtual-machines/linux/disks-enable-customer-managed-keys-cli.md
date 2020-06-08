@@ -10,7 +10,7 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
-### CLI
+# CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
 
 1. Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).

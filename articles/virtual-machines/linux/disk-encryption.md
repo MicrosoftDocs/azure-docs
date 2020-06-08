@@ -21,6 +21,14 @@ Encryption does not impact the performance of managed disks and there is no addi
 > [!NOTE]
 > Temporary disks are not managed disks and are not encrypted by SSE; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
 
+## Encryption at rest
+
+Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption. The Encryption.Type property of managed disks, snapshots and images will be automatically inferred by the system based on the value of DiskEncryptionSet.Type. Customers can query Encryption.Type property of managed disks, snapshots and images to find the encryption status required for auditing to meet compliance needs. Customers are not billed for double encryption at rest for every disk transaction.
+
+## Encryption in transit
+
+Customers can enable the second layer of encryption for data-in-transit for OS and Data Disks by setting a new VM property EncryptionAtHost to True. The data-in-transit is encrypted with either CMK or PMK depending on the encryption type set on OS and Data Disks. For example, if a disk is encrypted with EncryptionAtRestWithCustomerKey then data-in-transit for the disk is encrypted with the Customer Key and if a disk is encrypted with EncryptionAtRestWithPlatformKey then data-in-transit for the disk is encrypted with the Platform Key. 
+
 ## End to end encryption
 
 
