@@ -184,7 +184,9 @@ HTTP actions, but not triggers, have an **Asynchronous Pattern** setting that sp
 
 1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
 
-1. Find the **Asynchronous Pattern** setting, and turn on that setting, if not already enabled.
+1. Find the **Asynchronous Pattern** setting, turn the setting to **On** if not already enabled, and select **Done**.
+
+   ![Check "Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
 For more information about the asynchronous polling pattern, see these topics:
 
