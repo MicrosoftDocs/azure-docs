@@ -4,6 +4,7 @@ description: Learn how to create Azure Functions running on a custom Linux image
 ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
