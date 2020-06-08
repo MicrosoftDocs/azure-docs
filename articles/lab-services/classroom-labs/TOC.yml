@@ -50,6 +50,8 @@
         href: class-type-big-data-analytics.md
       - name: MATLAB
         href: class-type-matlab.md
+      - name: SolidWorks computer-aided design (CAD)
+        href: class-type-solidworks.md
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -112,6 +114,8 @@
         href: how-to-enable-nested-virtualization-template-vm-ui.md 
       - name: Enable nested virtualization on a template VM using a script
         href: how-to-enable-nested-virtualization-template-vm-using-script.md
+    - name: Set up a lab with GPUs
+      href: how-to-setup-lab-gpu.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
     - name: Control Windows shutdown behavior
