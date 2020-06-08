@@ -697,7 +697,9 @@ For example, to log verbose information from the scale controller to Application
 > [!NOTE]
 > If you enable the `AppInsights` destination type, you must ensure you configure [Application Insights for your function app](#enable-application-insights-integration).
 
-If you set the log level to `Verbose`, the scale controller will log a reason for every change in the worker count, as well as information about the triggers that participate in the scale controller's decisions. For example, the logs will include trigger warnings, and the hashes used by the triggers before and after the scale controller runs.
+If you set the destination to `Blob`, the logs will be created in a blob container named `azure-functions-scale-controller` within the storage account set in the `AzureWebJobsStorage` application setting.
+
+If you set the verbosity to `Verbose`, the scale controller will log a reason for every change in the worker count, as well as information about the triggers that participate in the scale controller's decisions. For example, the logs will include trigger warnings, and the hashes used by the triggers before and after the scale controller runs.
 
 To disable scale controller logging, set the value of the `{Verbosity}` to `None` or remove the `SCALE_CONTROLLER_LOGGING_ENABLED` application setting.
 
