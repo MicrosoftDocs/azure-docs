@@ -140,8 +140,8 @@ Example: Using the audit effect.
 
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on resources that match the **if** condition, but doesn't have
-the components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing of resources _related_ to the resource that matches the **if**
+condition, but don't have the properties specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists evaluation
 

@@ -5,7 +5,7 @@ description: Learn how to define a machine learning pipeline using a YAML file. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: larryfr
 ms.author: sanpil
