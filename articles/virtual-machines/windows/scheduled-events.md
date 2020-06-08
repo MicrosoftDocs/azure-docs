@@ -143,10 +143,13 @@ Scheduled events are delivered to:
  - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
 
 > [!NOTE]
-> Specific to VMs in an availability zone, the scheduled events go to single VMs in a zone.
-> For example, if you have 100 VMs in a availability set and there is an update to one of them, the scheduled event will go to all 100, whereas if there are 100 single VMs in a zone, then event will only go to the VM which is getting impacted.
-
-As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+> In an availability zone, scheduled events go only to single, affected VMs in the availability zone.
+> 
+> For example, in an availability set, if you have 100 VMs in the set and there is an update for one of the VMs, the scheduled event goes to all 100 VMs in the availability set.
+>
+> In an availability zone, if you have 100 VMs in the availability zone, the event goes only to the VM that is affected.
+>
+> As a result, you should check the `Resources` field in the event to identify which VMs will be affected. 
 
 ### Starting an event 
 
