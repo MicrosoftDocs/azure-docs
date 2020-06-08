@@ -52,6 +52,14 @@ A successful cluster creation using managed identities contains this service pri
   }
 ```
 
+You'll also have information to indicate what type of managed dentities that your cluster is refering, for instance, an AKS cluster with system-assigned managed identity enabled contains the following information:  
+
+```json
+ "identity": {
+      "type": "SystemAssigned"
+  },
+```
+
 > [!NOTE]
 > For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the MC_* resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 >
