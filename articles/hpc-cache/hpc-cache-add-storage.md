@@ -18,6 +18,10 @@ Remember that the storage exports must be accessible from your cache's virtual n
 
 Add storage targets after creating your cache. The procedure is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
 
+Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target.
+
+[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
 ## Open the storage targets page
 
 From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar. The storage targets page lists all existing targets and gives a link to add a new one.

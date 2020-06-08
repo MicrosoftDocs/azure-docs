@@ -5,8 +5,8 @@ ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
-
 ms.reviewer: mbullwin
+ms.custom: tracking-python
 ---
 
 # Set up Azure Monitor for your Python application

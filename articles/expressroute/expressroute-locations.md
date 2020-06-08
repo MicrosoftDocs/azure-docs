@@ -155,7 +155,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telus](https://www.telus.com)** |Supported |Supported |Montreal, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Supported |Supported |Cape Town, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Supported | Supported | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Supported |Supported |Dallas, Los Angeles|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Supported |Supported |Dallas, Los Angeles, Queretaro|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Supported |Supported |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong SAR, London, Mumbai, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Supported | Supported | Washington DC2 |
