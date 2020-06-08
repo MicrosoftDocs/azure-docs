@@ -23,7 +23,7 @@ Text and audio used to train a custom model need to include samples from a diver
 Consider these factors when gathering data for custom model training:
 
 * Your text and speech audio data need to cover the kinds of verbal statements your users will make when interacting with your model. For example, a model that raises and lowers the temperature needs training on statements people might make to request such changes.
-* Your text and speech audio data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* Your data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
 * You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
 * Audio must be gathered using hardware devices the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data you provide to train your model must also represent these diverse scenarios.
 * You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
