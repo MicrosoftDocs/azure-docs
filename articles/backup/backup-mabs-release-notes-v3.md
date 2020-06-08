@@ -66,7 +66,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 9. Start MSDPM service.
 
-## After the installation of update rollup 1 the MABS reports aren't updated with new RDL files
+## After installing UR1 the MABS reports aren't updated with new RDL files
 
 **Description**: With UR1, the MABS report formatting issue is fixed with updated RDL files. The new RDL files aren't automatically replaced with existing files.
 
