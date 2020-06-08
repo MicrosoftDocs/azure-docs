@@ -1,29 +1,30 @@
 ---
-title: Azure Security Baseline
-description: Azure Security Baseline for Azure SQL Database and Azure SQL Managed Instance
+title: Azure security baseline for Azure SQL Database
+description: Azure security baseline for Azure SQL Database
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 06/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
+
 ---
 
-# Azure Security Baseline for Azure SQL Database & SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# Azure security baseline for Azure SQL Database
 
 The Azure Security Baseline for Azure SQL Database contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
-## Network Security
+## Network security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
+### 1.1: Protect Azure resources within virtual networks
 
 **Guidance**: You can enable Azure Private Link to allow access Azure PaaS Services (for example, SQL Database) and Azure hosted customer/partner services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -31,41 +32,29 @@ To allow traffic to reach Azure SQL Database, use the SQL service tags to allow 
 
 Virtual network rules enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
-How to set up Private Link for Azure SQL Database:
+* [How to set up Private Link for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
-
-How to use virtual network service endpoints and rules for servers:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+* [How to use virtual network service endpoints and rules for database servers](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: Use Azure Security Center and remediate network protection recommendations for the subnet your Azure SQL Database is deployed to.
+**Guidance**: Use Azure Security Center and remediate network protection recommendations for the subnet your Azure SQL Database Server is deployed to.
 
-For Azure Virtual Machines (VM) that will be connecting to your Azure SQL Database, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic auditing.
+For Azure Virtual Machines (VM) that will be connecting to your Azure SQL Database Server instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic auditing.
 
 You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-How to Enable NSG Flow Logs:
+* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+* [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 
-Understand Network Security provided by Azure Security Center:
+* [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
 
-https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
-
-How to Enable and use Traffic Analytics:
-
-https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
-Understand Network Security provided by Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+* [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -81,42 +70,33 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### 1.4: Deny communications with known malicious IP addresses
 
-**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your Azure SQL Database for protections from distributed denial-of-service attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
+**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your SQL Server instances for protections from distributed denial-of-service attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-How to configure DDoS protection:
+* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
-https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
-Understand Azure Security Center Integrated Threat Intelligence:
-
-https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services
+* [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 1.5: Record network packets and flow logs
+### 1.5: Record network packets
 
-**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
-How to Enable NSG Flow Logs:
+* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
-
-How to enable Network Watcher:
-
-https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+* [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Enable Advanced Threat Protection (ATP) for Azure SQL Database.  Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection also integrates alerts with Azure Security Center.
+**Guidance**: Enable Advanced Threat Protection (ATP) for Azure SQL Database. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection also integrates alerts with Azure Security Center.
 
-Understand and using Advanced Threat Protection for Azure SQL Database:
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+* [Understand and using Advanced Threat Protection for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -132,17 +112,13 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: Use virtual network service tags  to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use virtual network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 When using service endpoints for Azure SQL Database, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
-Understand Service Tags with Service Endpoints for Azure SQL Database:
+* [Understand Service Tags with Service Endpoints for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations
-
-Understand and using Service Tags:
-
-https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+* [Understand and using Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -150,13 +126,13 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for your Azure SQL Database with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for server network protection. An example of an applicable built-in network security policy for a server would be: "SQL Database should use a virtual network service endpoint".
+**Guidance**: Define and implement network security configurations for your Azure SQL Database server instances with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
 
-Use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, Role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, Role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -170,9 +146,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
-How to create and use tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -180,31 +154,25 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your server. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
+**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure SQL Database server instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-How to view and retrieve Azure Activity Log events:
+* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
-https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
-How to create alerts in Azure Monitor:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-## Logging and Monitoring
+## Logging and monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
 **Guidance**: Microsoft maintains time sources for Azure resources. You may update time synchronization for your compute deployments.
 
-How to configure time synchronization for Azure compute resources:
-
-https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
+* [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -214,19 +182,13 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 **Guidance**: Enable auditing for Azure SQL Database to track database events and write them to an audit log in your Azure Storage Account, Log Analytics workspace, or Event Hubs.
 
-In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL Database and Azure SQL Managed Instance at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL Databases and Azure SQL Managed Instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
-How to setup auditing for your Azure SQL Database:
+* [How to setup auditing for your Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-auditing
+* [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging)
 
-How to collect platform logs and metrics with Azure Monitor:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
-
-How to stream diagnostics into Azure SQL Analytics:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+* [How to stream diagnostics into Azure SQL Analytics](https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics)
 
 **Azure Security Center monitoring**: Yes
 
@@ -234,11 +196,9 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable auditing on your server and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hub).
+**Guidance**: Enable auditing on your Azure SQL Database server instance and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hub).
 
-How to enable auditing for Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-auditing
+* [How to enable auditing for Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
 
 **Azure Security Center monitoring**: Yes
 
@@ -256,9 +216,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 **Guidance**: When storing your Azure SQL Database logs in an Log Analytics Workspace, set log retention period according to your organization's compliance regulations.
 
-How to set log retention parameters:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+* [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -268,33 +226,23 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 **Guidance**: Analyze and monitor logs for anomalous behaviors and regularly review results. Use Azure Security Center's Advanced Threat Protection to alert on unusual activity related to your Azure SQL Database instance. Alternatively, configure alerts based on Metric Values or Azure Activity Log entries related to your Azure SQL Database instances.
 
-Understand Advanced Threat Protection and alerting for Azure SQL Database:
+* [Understand Advanced Threat Protection and alerting for Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
-
-How to configure custom alerts for Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0
+* [How to configure custom alerts for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 2.7: Enable alerts for anomalous activity
+### 2.7: Enable alerts for anomalous activities
 
-**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
+**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Databases for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
 
-Understand Advanced Threat Protection and alerting for Azure SQL Database:
+* [Understand Advanced Threat Protection and alerting for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+* [How to enable Advanced Data Security for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
-How to enable Advanced Data Security for Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
-
-How to manage alerts in Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
+* [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
 **Azure Security Center monitoring**: Yes
 
@@ -302,7 +250,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; for Azure SQL Database, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable; for Azure SQL Server, the anti-malware solution is managed by Microsoft on the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -310,7 +258,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.9: Enable DNS query logging
 
-**Guidance**: Not applicable; DNS logging is not applicable to Azure SQL Database.
+**Guidance**: Not applicable; DNS logging is not applicable to Azure SQL Server.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -318,27 +266,23 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.10: Enable command-line audit logging
 
-**Guidance**: Not applicable; command-line auditing is not applicable to Azure SQL Database.
+**Guidance**: Not applicable; command-line auditing is not applicable to Azure SQL Server.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
-## Identity and Access Control
+## Identity and access control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure Active Directory (AAD) has built-in roles that must be explicitly assigned and are queryable. Use the AAD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure Active Directory has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
-How to get a directory role in Azure AD with PowerShell:
+* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
-
-How to get members of a directory role in Azure AD with PowerShell:
-
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -348,9 +292,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 **Guidance**: Azure Active Directory does not have the concept of default passwords. When provisioning an Azure SQL Database instance, it is recommended that you choose to integrate authentication with Azure Active Directory.
 
-How to configure and manage Azure Active Directory authentication with Azure SQL:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+* [How to configure and manage Azure Active Directory authentication with Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
 **Azure Security Center monitoring**: Yes
 
@@ -360,9 +302,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-co
 
 **Guidance**: Create policies and procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
-Understand Azure Security Center Identity and Access:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
+* [Understand Azure Security Center Identity and Access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -370,7 +310,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
-**Guidance**: Not applicable; while you can configure Azure Active Directory Authentication to integrate with Azure SQL Database, single sign-on is not supported.
+**Guidance**: Not applicable; while you can configure Azure Active Directory Authentication to integrate with Azure SQL Server, single sign-on is not supported.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -378,15 +318,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
-**Guidance**: Enable Azure Active Directory (AAD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
-How to enable MFA in Azure:
+* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
-How to monitor identity and access within Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
+* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -396,35 +332,25 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication MFA configured to log into and configure Azure resources.
 
-Learn about Privileged Access Workstations:
+* [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
-
-How to enable MFA in Azure:
-
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activity from administrative accounts
+### 3.7: Log and alert on suspicious activities from administrative accounts
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-Use  Advanced Threat Protection for Azure SQL Database to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Use Advanced Threat Protection for Azure SQL Database to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-How to identify Azure AD users flagged for risky activity:
+* [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+* [How to monitor users identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-How to monitor users identity and access activity in Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-Review Advanced Threat Protection and potential alerts:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+* [Review Advanced Threat Protection and potential alerts](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts)
 
 **Azure Security Center monitoring**: Yes
 
@@ -434,7 +360,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 **Guidance**: Use Conditional Access Named Locations to allow Portal and Azure Resource Management access from only specific logical groupings of IP address ranges or countries/regions.
 
-How to configure Named Locations in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -442,15 +368,11 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Create an Azure Active Directory (AAD) administrator for your server.
+**Guidance**: Create an Azure Active Directory administrator for your Azure SQL Database server instances.
 
-How to configure and manage Azure Active Directory authentication with Azure SQL:
+* [How to configure and manage Azure Active Directory authentication with Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
-
-How to create and configure an AAD instance:
-
-https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
 
 **Azure Security Center monitoring**: Yes
 
@@ -458,27 +380,21 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Active Directory (AAD) provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure Active Directory provides logs to help discover stale accounts. In addition, use Azure Identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Users' access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-How to use Azure Identity Access Reviews:
-
-https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 3.11: Monitor attempts to access deactivated accounts
+### 3.11: Monitor attempts to access deactivated credentials
 
-**Guidance**: Configure Azure Active Directory (AAD) authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
+**Guidance**: Configure Azure Active Directory authentication with Azure SQL and create Diagnostic Settings for Azure Active Directory user accounts, sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within Log Analytics workspace.
 
-How to configure and manage Azure Active Directory authentication with Azure SQL:
+* [How to configure and manage Azure Active Directory authentication with Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
-
-How to integrate Azure Activity Logs into Azure Monitor:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -486,15 +402,11 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### 3.12: Alert on account login behavior deviation
 
-**Guidance**: Use Azure Active Directory (AAD) Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory Identity Protection and risk detections to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
 
-How to view Azure AD risk sign-ins:
+* [How to view Azure AD risk sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
-How to configure and enable Identity Protection risk policies:
-
-https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -504,25 +416,21 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 **Guidance**: In support scenarios where Microsoft needs to access customer data, Azure Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests.
 
-Understand Customer Lockbox:
-
-https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
+* [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-## Data Protection
+## Data protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-How to create and use tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -530,23 +438,15 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by Vnet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be isolated. Use Private Link; deploy Azure SQL Database inside your Vnet and connect privately using Private Endpoints.
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by Vnet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be isolated. Use Private Link; deploy Azure SQL Server inside your Vnet and connect privately using Private Endpoints.
 
-How to create additional Azure subscriptions:
+* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-https://docs.microsoft.com/azure/billing/billing-create-subscription
+* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-How to create Management Groups:
+* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-https://docs.microsoft.com/azure/governance/management-groups/create
-
-How to create and use Tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-How to set up Private Link for Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
+* [How to set up Private Link for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -558,13 +458,9 @@ https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-over
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-How to configure Private Link and NSGs to prevent data exfiltration on your Azure SQL Database instances:
+* [How to configure Private Link and NSGs to prevent data exfiltration on your Azure SQL Database instances](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview
-
-Understand customer data protection in Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -572,11 +468,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: Azure SQL Database secures your data by encrypting data in motion with Transport Layer Security. SQL Database enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of Encrypt or TrustServerCertificate in the connection string.
+**Guidance**: Azure SQL Database secures your data by encrypting data in motion with Transport Layer Security. SQL Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of Encrypt or TrustServerCertificate in the connection string.
 
-Understand Azure SQL Encryption in Transit:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption
+* [Understand Azure SQL Encryption in Transit](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -586,25 +480,19 @@ https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#inf
 
 **Guidance**: Use the Azure SQL Database data discovery and classification feature. Data discovery and classification provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling &amp; protecting the sensitive data in your databases.
 
-How to use data discovery and classification for Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification
+* [How to use data discovery and classification for Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 4.6: Use Azure RBAC to control access to resources
+### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure Active Directory (AAD) for authenticating and controlling access to Azure SQL Database instances.
+**Guidance**: Use Azure Active Directory for authenticating and controlling access to Azure SQL Database instances.
 
-How to integrate Azure SQL Database with Azure Active Directory for authentication:
+* [How to integrate Azure SQL Server with Azure Active Directory for authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication
-
-How to control access in Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-control-access
+* [How to control access in Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -614,9 +502,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-control-access
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure SQL Database and has implemented strict controls to prevent the loss or exposure of customer data.
 
-Understand customer data protection in Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -624,11 +510,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.8: Encrypt sensitive information at rest
 
-**Guidance**: Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL Managed Instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed databases in SQL Database and SQL Managed Instance. The TDE encryption key can be managed by either Microsoft or the customer.
+**Guidance**: Transparent data encryption (TDE) helps protect Azure SQL Database, Azure SQL managed instance, and Azure Data Warehouse against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed databases in SQL Database and SQL Managed Instance. The TDE encryption key can be managed by either Microsoft or the customer.
 
-How to manage transparent data encryption and use your own encryption keys:
-
-https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption
+* [How to manage transparent data encryption and use your own encryption keys](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption)
 
 **Azure Security Center monitoring**: Yes
 
@@ -638,33 +522,25 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Azure SQL Databases and other critical or related resources.
 
-How to create alerts for Azure Activity Log events:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-## Vulnerability Management
+## Vulnerability management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
+**Guidance**: Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL Servers.
 
-How to run vulnerability assessments on your Azure SQL Databases:
+* [How to run vulnerability assessments on your Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
+* [How to enable Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
-How to enable Advanced Data Security:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
-
-How to implement Azure Security Center vulnerability assessment recommendations:
-
-https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
+* [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -678,7 +554,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Responsibility**: Not applicable
 
-### 5.3: Deploy automated third-party software patch management solution
+### 5.3: Deploy automated patch management solution for third-party software titles
 
 **Guidance**: Not applicable; this benchmark is intended for compute resources.
 
@@ -690,9 +566,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Guidance**: Enable periodic recurring scans for your Azure SQL Database instances; this will configure a vulnerability assessment to automatically run a scan on your database once per week. A scan result summary will be sent to the email address(es) you provide. Compare the results to verify that vulnerabilities have been remediated.
 
-How to export a vulnerability assessment report in Azure Security Center:
-
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+* [How to export a vulnerability assessment report in Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -702,29 +576,27 @@ https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#imple
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center.
 
-Understand Azure Security Center Secure Score:
-
-https://docs.microsoft.com/azure/security-center/security-center-secure-score
+* [Understand Azure Security Center Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-## Inventory and Asset Management
+## Inventory and asset management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use Azure Asset Discovery
+### 6.1: Use automated Asset Discovery solution
 
-**Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure SQL Database) within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure SQL Server instances) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
+* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -734,9 +606,7 @@ Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-How to create and use Tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -746,23 +616,17 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-How to create additional Azure subscriptions:
+* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-https://docs.microsoft.com/azure/billing/billing-create-subscription
+* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-How to create Management Groups:
-
-https://docs.microsoft.com/azure/governance/management-groups/create
-
-How to create and use Tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 6.4: Maintain an inventory of approved Azure resources and software titles
+### 6.4: Define and Maintain an inventory of approved Azure resources
 
 **Guidance**: Define list of approved Azure resources and approved software for your compute resources
 
@@ -773,16 +637,14 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 ### 6.5: Monitor for unapproved Azure resources
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-
 - Not allowed resource types
-
 - Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -814,24 +676,21 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**:
-Use Azure Policy to place restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-
+**Guidance**: Use Azure Policy to place restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
-
 - Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.10: Implement approved application list
+### 6.10: Maintain an inventory of approved software titles
 
 **Guidance**: Not applicable; this recommendation is intended for applications running on compute resources.
 
@@ -839,11 +698,11 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Not applicable
 
-### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
+### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-How to configure Conditional Access to block access to Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -865,17 +724,15 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Responsibility**: Not applicable
 
-## Secure Configuration
+## Secure configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use Azure Policy or Azure Security Center recommendations for Azure SQL Database to maintain security configurations for all Azure Resources.
+**Guidance**: Use Azure Policy or Azure Security Center recommendations for Azure SQL Servers/Databases to maintain security configurations for all Azure Resources.
 
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Yes
 
@@ -893,13 +750,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-How to configure and manage Azure Policy:
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Understand Azure Policy Effects:
-
-https://docs.microsoft.com/azure/governance/policy/concepts/effects
+* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -917,13 +770,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps:
+* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Azure Repos Documentation:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -937,19 +786,17 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Responsibility**: Not applicable
 
-### 7.7: Deploy system configuration management tools
+### 7.7: Deploy configuration management tools for Azure resources
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.SQL" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 7.8: Deploy system configuration management tools for operating systems
+### 7.8: Deploy configuration management tools for operating systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -957,13 +804,11 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Responsibility**: Not applicable
 
-### 7.9: Implement automated configuration monitoring for Azure services
+### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Leverage Azure Security Center to perform baseline scans for Azure SQL Database.
+**Guidance**: Leverage Azure Security Center to perform baseline scans for your Azure SQL Servers and Databases.
 
-How to remediate recommendations in Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations
+* [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -981,9 +826,7 @@ https://docs.microsoft.com/azure/security-center/security-center-sql-service-rec
 
 **Guidance**: Use Azure Key Vault to store encryption keys for Azure SQL Database Transparent Data Encryption (TDE).
 
-How to protect sensitive data being stored in Azure SQL Database and store the encryption keys in Azure Key Vault:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault
+* [How to protect sensitive data being stored in Azure SQL Server and store the encryption keys in Azure Key Vault](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -991,15 +834,11 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (AAD). Managed Identities allows you to authenticate to any service that supports AAD authentication, including Azure Key Vault, without any credentials in your code.
+**Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
 
-Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL:
+* [Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql)
 
-https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql
-
-How to configure Managed Identities:
-
-https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+* [How to configure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1009,16 +848,15 @@ https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou
 
 **Guidance**: Implement Credential Scanner to identify credentials within your code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-How to setup Credential Scanner:
-https://secdevtools.azurewebsites.net/helpcredscan.html
+* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-## Malware Defense
+## Malware defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1032,9 +870,9 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
 
-Pre-scan any content being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, Azure SQL Database, etc. Microsoft cannot access your data in these instances.
+Pre-scan any content being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, Azure SQL Server, etc. Microsoft cannot access your data in these instances.
 
-Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: https://docs.microsoft.com/azure/security/fundamentals/antimalware
+* [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1048,9 +886,9 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: 
 
 **Responsibility**: Not applicable
 
-## Data Recovery
+## Data recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1058,71 +896,57 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines: 
 
 To meet different compliance requirements, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s).
 
-Understand backups and business continuity with Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
+* [Understand backups and business continuity with Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Shared
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: Azure SQL Database automatically creates the database backups that are kept between 7 and 35 days, and uses Azure read-access geo-redundant storage (RA-GRS) to ensure that they are preserved even if the data center is unavailable. These backups are created automatically. If required, enable long-term geo-redundant backups for your Azure SQL Databases.
 
 If using customer-managed keys for Transparent Data Encryption, ensure your keys are being backed up.
 
-Understand backups in Azure SQL Database:
+* [Understand backups in Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database)
 
-https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database
-
-How to backup key vault keys in Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Ensure ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated VLAN. Test restoration of backed up customer-managed keys.
 
-How to restore key vault keys in Azure:
+* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
-
-How to recover Azure SQL Database backups using point-in-time restore:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore
+* [How to recover Azure SQL Database backups using point-in-time restore](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Enable soft delete in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-How to enable soft delete in Key Vault:
-
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+* [How to enable soft delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-## Incident Response
+## Incident response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Ensure that there are written incident response plans that defines roles of personnel as well as phases of incident handling/management.
 
-How to configure Workflow Automations within Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1132,8 +956,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Guidance**: Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Security alerts in Azure Security Center:
-https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+* [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1143,9 +966,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-You can refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:
-
-https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+* [You can refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1153,11 +974,9 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
-**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that  your data has been accessed by an unlawful or unauthorized party.
+**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party.
 
-How to set the Azure Security Center Security Contact:
-
-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1167,13 +986,9 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Sentinel.
 
-How to configure continuous export:
+* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-https://docs.microsoft.com/azure/security-center/continuous-export
-
-How to stream alerts into Azure Sentinel:
-
-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1183,26 +998,21 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-How to configure Workflow Automation and Logic Apps:
-
-https://docs.microsoft.com/azure/security-center/workflow-automation
+* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-## Penetration Tests and Red Team Exercises
+## Penetration tests and red team exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
+**Guidance**: * [Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
-
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here:
-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1210,5 +1020,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

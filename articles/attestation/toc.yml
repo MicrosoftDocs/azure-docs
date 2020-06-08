@@ -1,0 +1,75 @@
+- name: Azure Attestation Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Attestation overview
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Portal
+    href: quickstart-portal.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: CLI
+    href: quickstart-cli.md
+- name: Tutorials
+- name: Samples
+- name: Concepts
+  items:
+  - name: Basic conceots
+    href: basic-concepts.md
+  - name: Workflow
+    href: workflow.md
+- name: How-to guides
+  items:
+  - name: How to set up Attestation
+    href: howto.md
+  - name: Troubleshooting
+    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: REST API error codes - Azure Key Vault
+    href: rest-error-codes.md
+  - name: Common parameters and headers 
+    href: common-parameters-and-headers.md
+  - name: Azure PowerShell
+    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+  - name: Java
+    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: faq.md
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-key-vault
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: ../general/service-limits.md
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: https://blogs.technet.com/b/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
+
+  
