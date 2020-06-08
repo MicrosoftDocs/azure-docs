@@ -1,9 +1,11 @@
 ---
 title: Upgrade Azure Kubernetes Service (AKS) node images 
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
-services: container-service
+author: laurenhughes
+ms.author: lahugh
+ms.service: container-service
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/08/2020
 ---
 
 # Preview - Azure Kubernetes Service (AKS) node image upgrades
