@@ -11,7 +11,7 @@ ms.author: miparker
 
 # Tutorial: Send push notifications to Xamarin.Forms apps using Azure Notification Hubs via a backend service  
 
-[![Download Sample](~/media/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
+[![Download Sample](./media/notification-hubs-backend-service-xamarin-forms/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
 
 > [!div class="op_single_selector"]
 >
