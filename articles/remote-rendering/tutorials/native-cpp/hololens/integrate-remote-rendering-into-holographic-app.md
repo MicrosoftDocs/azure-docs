@@ -486,16 +486,22 @@ HolographicFrame HolographicAppMain::Update()
 
 ### Rendering
 
-The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
+The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear and setting the viewport. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
 
 ```cpp
         ...
         // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+        
+        // ...
+
+        // Exiting check to test for valid camera:
+        bool cameraActive = pCameraResources->AttachViewProjectionBuffer(m_deviceResources);
+
 
         // Inject remote rendering: as soon as we are connected, start blitting the remote frame.
         // We do the blitting after the Clear, and before cube rendering.
-        if (m_isConnected)
+        if (m_isConnected && cameraActive)
         {
             m_graphicsBinding->BlitRemoteFrame();
         }
