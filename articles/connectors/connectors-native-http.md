@@ -178,9 +178,9 @@ Although Logic Apps won't stop you from saving logic apps that use an HTTP trigg
 
 ### Missing location headers in responses
 
-HTTP requests or calls to some APIs, services, or systems might get responses that are missing the `location` header. This header usually contains a `GET` callback URL and a "refresh" ID for an endpoint that the caller can check and track the status for an asynchronous request refresh. The caller waits for the destination to accept the request for processing, which is indicated by returning a `202 ACCEPTED` response. The caller then continually checks the status endpoint until the destination returns a `200 OK` successful response.
+HTTP requests or calls to some APIs, services, or systems might get responses that are missing the `location` header. This header usually contains a `GET` callback URL and a "refresh" ID for an endpoint that the caller can check and track the status for an asynchronous request refresh. The caller waits for the destination to accept the request for processing, which is indicated by returning a `202 ACCEPTED` response. The caller then continually polls the status endpoint until the destination returns a `200 OK` successful response.
 
-To disable waiting for the `202 ACCEPTED` response, HTTP actions have an **Asynchronous Pattern** setting. This pattern specifies that if the destination accepts requests for processing by returning a `202 ACCEPTED` response, the destination immediately returns the `202` response so that the logic app doesn't have to wait and keeps polling the status endpoint until processing is complete.
+HTTP actions, but not triggers, have an **Asynchronous Pattern** setting that specifies if the destination accepts requests for processing by returning a `202 ACCEPTED` response, the destination immediately returns that response. That way, the logic app doesn't have to wait and can continue polling the status endpoint until processing is complete. By default, the **Asynchronous Pattern** setting is enabled. However, to confirm that the setting is enabled, follow these steps:
 
 1. On the HTTP trigger or action's title bar, select the ellipses (**...**) button.
 
