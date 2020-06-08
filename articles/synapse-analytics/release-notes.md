@@ -11,7 +11,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (preview) release notes
+# Release notes for Azure Synapse Analytics (workspaces preview) 
 
 This article describes limitations and issues with Azure Synapse Analytics (workspaces). For related information, see [What is Azure Synapse Analytics (workspaces)](overview-what-is.md)
 
