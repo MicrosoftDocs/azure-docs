@@ -391,7 +391,9 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-sql/**/*.md": "jroth",
+        "articles/synapse-analytics/**/*.md": "jroth",
+        "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
@@ -405,8 +407,8 @@
         "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
-		"articles/remote-rendering/**/*.md": "jlyons"
-   },
+		  "articles/remote-rendering/**/*.md": "jlyons"
+      },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
         "articles/cdn/*.md": "networking",
