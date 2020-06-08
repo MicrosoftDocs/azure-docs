@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -44,7 +44,7 @@ The following claims transformation demonstrates how to And two boolean ClaimTyp
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of AndClaims
 
 - Input claims:
     - **inputClaim1**: true
@@ -81,6 +81,7 @@ The following claims transformation demonstrates how to check the value of a boo
 
 
 The `login-NonInteractive` validation technical profile calls the `AssertAccountEnabledIsTrue` claims transformation.
+
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -103,7 +104,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 </TechnicalProfile>
 ```
 
-### Example
+### Example of AssertBooleanClaimIsEqualToValue
 
 - Input claims:
     - **inputClaim**: false
@@ -119,7 +120,6 @@ Checks that boolean value of a claim is equal to `true` or `false`, and return t
 | InputClaim | inputClaim | boolean | The ClaimType to be asserted. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
 | OutputClaim | compareResult | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
-
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.
 
@@ -137,7 +137,7 @@ The following claims transformation demonstrates how to check the value of a boo
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of CompareBooleanClaimToValue
 
 - Input claims:
     - **inputClaim**: false
@@ -145,8 +145,6 @@ The following claims transformation demonstrates how to check the value of a boo
     - **valueToCompareTo**: true
 - Output claims:
     - **compareResult**: false
-
-
 
 ## NotClaims
 
@@ -170,7 +168,7 @@ Use this claim transformation to perform logical negation on a claim.
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of NotClaims
 
 - Input claims:
     - **inputClaim**: false
@@ -201,7 +199,7 @@ The following claims transformation demonstrates how to `Or` two boolean ClaimTy
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of OrClaims
 
 - Input claims:
     - **inputClaim1**: true
