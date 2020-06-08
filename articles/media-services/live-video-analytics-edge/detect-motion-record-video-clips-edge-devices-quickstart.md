@@ -23,7 +23,7 @@ This article is based on sample code written in C#. It builds on the [Detect mot
      1. [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
      1. [Set up your development environment](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
      1. [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest)
-     1. [Prepare for monitoring events](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events)
+     1. [Prepare to monitor events](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events)
 
 > [!TIP]
 > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
@@ -86,13 +86,13 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, expand the **lva-sample-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
 
 * The Live Video Analytics module, named **lvaEdge**
-* An **rtspsim** module, which simulates an RTSP server that acts as the source of a live video feed
+* The **rtspsim** module, which simulates an RTSP server that acts as the source of a live video feed
 
   ![Modules](./media/quickstarts/lva-sample-device-node.png)
 
 
 ## Review - Prepare for monitoring events
-Make sure you've completed the steps to [Prepare for monitoring events](detect-motion-emit-events-quickstart.md#prepare-for-monitoring-events).
+Make sure you've completed the steps to [Prepare to monitor events](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
 
 ![Start Monitoring Built-in Event Endpoint](./media/quickstarts/start-monitoring-iothub-events.png)
 

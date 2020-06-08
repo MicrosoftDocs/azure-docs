@@ -7,7 +7,7 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Analyze live video by using your own model
 
-This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed are sent to an inference service. The results are sent to IoT Edge Hub. 
+This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub. 
 
 This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart. 
 
@@ -54,7 +54,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
 
-  The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
+    The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
 
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see your *appsettings.json* file and a few other files:
 

@@ -37,7 +37,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
-  ![Environment selector](./media/quickstarts/env-selector.png)
+    ![Environment selector](./media/quickstarts/env-selector.png)
 
 1. Run the following command.
 
@@ -281,7 +281,6 @@ Try the following next steps:
 Invoke `GraphTopologyGet` by using the following payload.
 
 ```
-
 {
     "@apiVersion" : "1.0",
     "name" : "MotionDetection"
@@ -511,8 +510,8 @@ To observe the results, follow these steps.
 2. Expand the **Devices** node.
 3. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
-![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
-
+    ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+    
 The **OUTPUT** window displays the following message:
 
 ```
