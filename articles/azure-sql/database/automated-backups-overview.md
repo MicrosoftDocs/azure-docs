@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-manager: craigg
 ms.date: 12/13/2019
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
