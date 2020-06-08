@@ -19,7 +19,7 @@ Azure Database for MySQL exposes the ability to change the value of various MySQ
 
 ## Configurable server parameters
 
-The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal view the full list and configure server parameters values.
+The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
 
@@ -27,7 +27,43 @@ Refer to the following sections below to learn more about the limits of the seve
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Max value <br>(servers supporting up to 4 TB storage)**|**Max value <br>(servers supporting up to 16 TB storage)**|
+#### Servers supporting up to 4 TB storage
+
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|---|---|---|---|---|
+|Basic|1|872415232|134217728|872415232|
+|Basic|2|2684354560|134217728|2684354560|
+|General Purpose|2|3758096384|134217728|3758096384|
+|General Purpose|4|8053063680|134217728|8053063680|
+|General Purpose|8|16106127360|134217728|16106127360|
+|General Purpose|16|32749125632|134217728|32749125632|
+|General Purpose|32|66035122176|134217728|66035122176|
+|General Purpose|64|132070244352|134217728|132070244352|
+|Memory Optimized|2|7516192768|134217728|7516192768|
+|Memory Optimized|4|16106127360|134217728|16106127360|
+|Memory Optimized|8|32212254720|134217728|32212254720|
+|Memory Optimized|16|65498251264|134217728|65498251264|
+|Memory Optimized|32|132070244352|134217728|132070244352|
+
+#### Servers support up to 16 TB storage
+
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|---|---|---|---|---|
+|Basic|1|872415232|134217728|872415232|
+|Basic|2|2684354560|134217728|2684354560|
+|General Purpose|2|7516192768|134217728|7516192768|
+|General Purpose|4|16106127360|134217728|16106127360|
+|General Purpose|8|32212254720|134217728|32212254720|
+|General Purpose|16|65498251264|134217728|65498251264|
+|General Purpose|32|132070244352|134217728|132070244352|
+|General Purpose|64|264140488704|134217728|264140488704|
+|Memory Optimized|2|15032385536|134217728|15032385536|
+|Memory Optimized|4|32212254720|134217728|32212254720|
+|Memory Optimized|8|64424509440|134217728|64424509440|
+|Memory Optimized|16|130996502528|134217728|130996502528|
+|Memory Optimized|32|264140488704|134217728|264140488704|
+
+|**Pricing Tier**|**vCore(s)**|**Max value (MB)<br>(servers supporting up to 4 TB storage)**|**Max value (MB)<br>(servers supporting up to 16 TB storage)**|
 |---|---|---|---|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
@@ -56,7 +92,7 @@ Azure Database for MySQL supports at largest, **1 TB**, in a single data file. I
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -102,7 +138,7 @@ Creating new client connections to MySQL takes time and once established, these 
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -127,7 +163,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 > [!NOTE]
 > The query cache is deprecated as of MySQL 5.7.20 and has been removed in MySQL 8.0
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -147,7 +183,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -167,7 +203,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
