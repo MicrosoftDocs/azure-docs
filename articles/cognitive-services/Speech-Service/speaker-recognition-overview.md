@@ -54,4 +54,5 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 ## Next steps
 
 > [!div class="nextstepaction"]
+> * Complete the Speaker Recognition [basics article](speaker-recognition-basics.md) for a run-through of common design patterns you can use in your applications.
 > * See the [video tutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) for text-independent speaker verification.
