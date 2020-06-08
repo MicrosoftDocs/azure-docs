@@ -91,6 +91,22 @@ SQL Database and SQL Managed Instance compute your total used backup storage as 
 > [!IMPORTANT]
 > Backups of a database are retained to enable PITR even if the database has been deleted. While deleting and re-creating a database may save storage and compute costs, it may increase backup storage costs, because the service retains backups for each deleted database, every time it is deleted. 
 
+### Monitor consumption
+
+For vCore databases, the storage consumed by each type of backup (full, differential, and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backup storage consumption for a single database. This feature is currently not available for managed instances.
+
+![Monitor database backup consumption in the Azure portal](./media/automated-backups-overview/backup-metrics.png)
+
+### Fine-tune backup storage consumption
+
+Backup storage consumption up to the maximum data size for a database is not charged. Excess backup storage consumption will depend on the workload and maximum size of the individual databases. Consider some of the following tuning techniques to reduce your backup storage consumption:
+
+- Reduce the [backup retention period](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) to the minimum possible for your needs.
+- Avoid doing large write operations, like index rebuilds, more frequently than you need to.
+- For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) and following related [best practices](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance), and/or reduce the number of non-clustered indexes.
+- In the General Purpose service tier, the provisioned data storage is less expensive than the price of the backup storage. If you have continually high excess backup storage costs, you might consider increasing data storage to save on the backup storage.
+- Use TempDB instead of permanent tables in your application logic for storing temporary results and/or transient data.
+
 ## Backup retention
 
 For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days by default. With the exception of Hyperscale databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period.
@@ -109,22 +125,6 @@ For single and pooled databases and managed instances, you can configure long-te
 Like PITR backups, LTR backups are protected with geo-redundant storage. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
-
-### Monitor consumption
-
-For vCore databases, the storage consumed by each type of backup (full, differential, and log) is reported on the database monitoring blade as a separate metric. The following diagram shows how to monitor the backup storage consumption for a single database. This feature is currently not available for managed instances.
-
-![Monitor database backup consumption in the Azure portal](./media/automated-backups-overview/backup-metrics.png)
-
-### Fine-tune backup storage consumption
-
-Backup storage consumption up to the maximum data size for a database is not charged. Excess backup storage consumption will depend on the workload and maximum size of the individual databases. Consider some of the following tuning techniques to reduce your backup storage consumption:
-
-- Reduce the [backup retention period](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) to the minimum possible for your needs.
-- Avoid doing large write operations, like index rebuilds, more frequently than you need to.
-- For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) and following related [best practices](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance), and/or reduce the number of non-clustered indexes.
-- In the General Purpose service tier, the provisioned data storage is less expensive than the price of the backup storage. If you have continually high excess backup storage costs, you might consider increasing data storage to save on the backup storage.
-- Use TempDB instead of permanent tables in your application logic for storing temporary results and/or transient data.
 
 ## Storage costs
 
