@@ -116,7 +116,7 @@ The following example shows the claims returned by a SAML identity provider:
 - The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
 - The **last_name** claim is mapped to the **surname** claim.
-- The **displayName** claim without name mapping.
+- The **displayName** claim is mapped to the **name** claim.
 - The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:
