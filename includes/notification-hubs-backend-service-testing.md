@@ -16,7 +16,7 @@
     https://<app_name>.azurewebsites.net/api/notifications/requests
     ```
 
-1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section, be sure to configure the request headers to include your **apikey** value.
+1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers to include your **apikey** value.
 
    | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |

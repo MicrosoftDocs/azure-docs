@@ -29,7 +29,7 @@ If you're testing with an **API App**, ensure the key value in the client config
 > [!NOTE]
 > If you had created or changed this setting after you had deployed the backend service then you must restart the service in order for it take effect.
 
-If you chose not to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section, ensure that you didn't apply the **Authorize** attribute to the **NotificationsController** class.
+If you chose not to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, ensure that you didn't apply the **Authorize** attribute to the **NotificationsController** class.
 
 #### Receiving a 404 status code from the backend service
 

@@ -42,9 +42,9 @@ To send push notifications to an iOS app, register your application with Apple, 
 
 A certificate is required to enable the notification hub to work with **APNS** and can be provided in one of two ways:
 
-1. [Creating a p12 push certificate that can be uploaded directly to Notification Hub](#option-1:-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub) (*the original approach*)
+1. [Creating a p12 push certificate that can be uploaded directly to Notification Hub](#option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub) (*the original approach*)
 
-1. [Creating a p8 certificate that can be used for token-based authentication](#option-2:-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
+1. [Creating a p8 certificate that can be used for token-based authentication](#option-2-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
 
 The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches either will work for the purposes of this tutorial.
 

@@ -52,7 +52,7 @@
     > [!NOTE]
     > For production scenarios, you can look at options such as [Azure KeyVault](https://azure.microsoft.com/services/key-vault) to securely store the connection string. For simplicity, the secrets will be added to the [Azure App Service](https://azure.microsoft.com/services/app-service/) application settings.
 
-### [OPTIONAL] Authenticate clients using an API Key
+### Authenticate clients using an API Key (Optional)
 
 API keys aren't as secure as tokens, but will suffice for the purposes of this tutorial. An API key can be configured easily via the [ASP.NET Middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1).
 
@@ -531,7 +531,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     > [!NOTE]
     > The **Controller** base class provides support support for views but this is not needed in this case and so **ControllerBase** can be used instead.
 
-1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section, you should decorate the **NotificationsController** with the **Authorize** attribute as well.
+1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, you should decorate the **NotificationsController** with the **Authorize** attribute as well.
 
     ```cs
     [Authorize]
@@ -561,7 +561,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     https://localhost:5001/api/notifications
     ```
 
-1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section, be sure to configure the request headers  to include your **apikey** value.
+1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers  to include your **apikey** value.
 
    | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |
@@ -681,7 +681,7 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
    | `NotificationHub:ConnectionString` | <hub_connection_string_value>  |
 
    > [!NOTE]
-   > These are the same settings you defined previously in the user settings. You should be able to copy these over. The **Authentication:ApiKey** setting is required only if you chose to to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section. For production scenarios, you can look at options such as [Azure KeyVault](https://azure.microsoft.com/services/key-vault). These have been added as application settings for simplicity in this case.
+   > These are the same settings you defined previously in the user settings. You should be able to copy these over. The **Authentication:ApiKey** setting is required only if you chose to to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section. For production scenarios, you can look at options such as [Azure KeyVault](https://azure.microsoft.com/services/key-vault). These have been added as application settings for simplicity in this case.
 
 1. Once all application settings have been added click **Save**, then **Continue**.
 
@@ -710,7 +710,7 @@ After you've completed the wizard, it publishes the app to Azure and then opens 
     > [!NOTE]
     > The base address should be in the format ``https://<app_name>.azurewebsites.net/``
 
-1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section, be sure to configure the request headers to include your **apikey** value.
+1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers to include your **apikey** value.
 
    | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |

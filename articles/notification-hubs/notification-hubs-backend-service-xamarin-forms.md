@@ -26,8 +26,8 @@ This tutorial takes you through the following steps:
 > [!div class="checklist"]
 >
 > * [Set up Push Notification Services and Azure Notification Hubs.](#set-up-push-notification-services-and-azure-notification-hub)
-> * [Create an ASP.NET Web API backend application.](#create-an-asp.net-web-api-backend-application)
-> * [Create a cross-platform Xamarin.Forms application.](#create-a-cross-platform-xamarin.forms-application)
+> * [Create an ASP.NET Web API backend application.](#create-an-asp.net-core-web-api-backend-application)
+> * [Create a cross-platform Xamarin.Forms application.](#create-a-cross-platform-xamarinforms-application)
 > * [Configure the native Android project for push notifications.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure the native iOS project for push notifications.](#configure-the-native-ios-project-for-push-notifications)
 > * [Test the solution.](#test-the-solution)
@@ -48,7 +48,7 @@ For iOS, you must have:
 
 * An active [Apple Developer Account](https://developer.apple.com).
 * A physical iOS device that is [registered to your developer account](https://help.apple.com/developer-account/#/dev40df0d9fa) *(running iOS 13.0 and above)*.
-* A **.p12** [development certificate](https://help.apple.com/developer-account/#/dev04fd06d56) installed in your **keychain** allowing you to [run an app on a physical device](#https://help.apple.com/xcode/mac/current/#/dev5a825a1ca).
+* A **.p12** [development certificate](https://help.apple.com/developer-account/#/dev04fd06d56) installed in your **keychain** allowing you to [run an app on a physical device](https://help.apple.com/xcode/mac/current/#/dev5a825a1ca).
 
 > [!NOTE]
 > The iOS Simulator does not support remote notifications and so a physical device is required when exploring this sample on iOS. However, you do not need to run the app on both **Android** and **iOS** in order to complete this tutorial.

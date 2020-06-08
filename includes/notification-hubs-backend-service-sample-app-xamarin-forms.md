@@ -292,7 +292,7 @@
     ```
 
     > [!NOTE]
-    > The **apiKey** argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section.
+    > The **apiKey** argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
 1. Add an **Empty Class** to the **Services** folder called *PushDemoNotificationActionService.cs* implementing the *IPushDemoNotificationActionService* with the following implementation.
 
@@ -356,7 +356,7 @@
     > [!NOTE]
     > This is used as a simple way to keep secrets out of source control. You can replace these values as part of an automated build or override them using a local partial class. You will do this in the next step.
     >
-    > The **ApiKey** field is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section.
+    > The **ApiKey** field is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
 1. Add another **Empty Class** to the **PushDemo** project this time called *Config.local_secrets.cs* with the following implementation.  
 
@@ -377,7 +377,7 @@
     > [!NOTE]
     > Replace the placeholder values with your own. You should have made a note of these when you build the backend service. The **API App** URL should be ``https://<api_app_name>.azurewebsites.net/``. Remember to add ``*.local_secrets.*`` to your gitignore file to avoid committing this file.
     >
-    > The **ApiKey** field is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section.
+    > The **ApiKey** field is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
 1. Add an **Empty Class** to the **PushDemo** project called *Bootstrap.cs* with the following implementation.  
 
@@ -408,7 +408,7 @@
     > [!NOTE]
     > The **Begin** method will be called by each platform when the app launches passing in a platform-specific implementation of **IDeviceInstallationService****.
     >
-    > The **NotificationRegistrationService** **apiKey** constructor argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key) section.
+    > The **NotificationRegistrationService** **apiKey** constructor argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
 ### Implement the cross-platform UI
 
