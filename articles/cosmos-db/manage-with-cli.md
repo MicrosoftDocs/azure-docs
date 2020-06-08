@@ -200,7 +200,7 @@ az cosmosdb keys regenerate \
     --key-kind secondary
 ```
 
-## Azure Cosmos DB Database
+## Azure Cosmos DB database
 
 The following sections demonstrate how to manage the Azure Cosmos DB database, including:
 
@@ -298,7 +298,7 @@ lockid=$(az lock show --name $databaseLockName \
 az lock delete --ids $lockid
 ```
 
-## Azure Cosmos DB Container
+## Azure Cosmos DB container
 
 The following sections demonstrate how to manage the Azure Cosmos DB container, including:
 

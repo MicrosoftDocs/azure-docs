@@ -41,13 +41,13 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 > [!WARNING]
 > Enabling this feature can have dangerous impact on your application. Please thoroughly read before enabling this feature.
 
-The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources made from any client connecting using account keys (i.e. applications connecting via Cosmos SDK). This also includes changed made from the Azure Portal. This may be desirable for users who want higher degrees of control and governance for production environments and enable features such as resource locks and also enable diagnostic logs for control plane operations. Clients connecting via Cosmos DB SDK will be prevented from changing any property for Cosmos accounts, databases, containers, and throughput. Operations involving reading and writing data to Cosmos containers themselves are not impacted.
+The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources made from any client connecting using account keys (i.e. applications connecting via Cosmos SDK). This also includes changed made from the Azure portal. This may be desirable for users who want higher degrees of control and governance for production environments and enable features such as resource locks and also enable diagnostic logs for control plane operations. Clients connecting via Cosmos DB SDK will be prevented from changing any property for Cosmos accounts, databases, containers, and throughput. Operations involving reading and writing data to Cosmos containers themselves are not impacted.
 
 When set, changes to any resource can only be made from a user with the proper RBAC role and Azure Active Directory credentials including Managed Service Identities.
 
 ### Check list before enabling
 
-This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys, or from the Azure Portal. To prevent issues or errors from applications after enabling this feature, check if  applications or Azure Portal users perform any of the following actions before enabling this feature, including:
+This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys, or from the Azure portal. To prevent issues or errors from applications after enabling this feature, check if  applications or Azure portal users perform any of the following actions before enabling this feature, including:
 
 - Any change to the Cosmos account including any properties or adding or removing regions.
 
@@ -59,7 +59,7 @@ This setting will prevent any changes to any Cosmos resource from any client con
 
 - Modifying stored procedures, triggers or user-defined functions.
 
-If your applications (or users via Azure Portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
 
 ### Set via ARM Template
 
