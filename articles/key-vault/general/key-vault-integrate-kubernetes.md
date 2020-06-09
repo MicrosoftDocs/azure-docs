@@ -202,19 +202,19 @@ If using managed identities, assign specific roles to the AKS cluster you've cre
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
-1. Install the Azure Active Directory (AAD) Identity into AKS.
+1. Install the Azure Active Directory (Azure AD) Identity into AKS.
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Create an AAD identity. Copy down the **clientId** and **principalId**.
+1. Create an Azure AD identity. Copy down the **clientId** and **principalId**.
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Assign the reader role to the AAD Identity you've just created for your Key Vault. Then give the Identity permission to get secrets from your Key Vault. You're going to use the **clientId** and **principalId** from the Azure Identity you just created.
+1. Assign the reader role to the Azure AD Identity you've just created for your Key Vault. Then give the Identity permission to get secrets from your Key Vault. You're going to use the **clientId** and **principalId** from the Azure Identity you just created.
     ```azurecli
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
