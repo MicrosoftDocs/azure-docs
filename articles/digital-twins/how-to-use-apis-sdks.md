@@ -21,7 +21,7 @@ Azure Digital Twins comes equipped with both **control plane APIs** and **data p
 
 ## Overview: control plane APIs
 
-The control plane APIs are used to manage your Azure Digital Twins instance as a whole, so operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
+The control plane APIs are used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
 
 The most current control plane API version for public preview is _**2020-03-01-preview**_.
 
@@ -48,7 +48,7 @@ To use the data plane APIs:
 * You can use the .NET (C#) SDK. Currently, this is the only published SDK for interacting with these APIs. To use the .NET SDK...
    - you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - you can view the package on NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - You can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
+   - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [How-to: Create custom SDKs for Azure Digital Twins with AutoRest](how-to-create-custom-sdks.md).
 
@@ -75,7 +75,7 @@ For a detailed walk-through of using the APIs in practice, see the [Tutorial: Co
 
 ### .NET SDK usage examples
 
-Here are some code samples illustrating use of the C# SDK.
+Here are some code samples illustrating use of the .NET SDK.
 
 Authenticate against the service:
 
