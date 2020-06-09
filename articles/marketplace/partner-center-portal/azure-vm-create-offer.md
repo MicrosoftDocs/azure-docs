@@ -232,8 +232,8 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
->[!Note]
->If you have an issue uploading files, ensure that your local network doesn't block the *https://upload.xboxlive.com* service that's used by Partner Center.
+>[!NOTE]
+>If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
 #### Azure Marketplace logos
 
@@ -509,32 +509,61 @@ This page also includes links to help you work with the offer, depending on its 
 
 ## Marketplace examples
 
-The following examples illustrate how the offer appears on Azure Marketplace.
+Here's an example of how offer information appears in Azure Marketplace:
 
-### Azure Marketplace offer details
+:::image type="content" source="media/avm-create1.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-![Azure Marketplace offer details page example](media/avm-create1.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Price
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Terms and conditions
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Privacy policy address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Screenshots/videos
 
-### Azure Marketplace search results
+<br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-![Azure Marketplace search details page example](media/avm-create2.png)
+:::image type="content" source="media/avm-create2.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-### Azure Marketplace plan details
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Trial
 
-![Azure Marketplace plan details page example](media/avm-create3.png)
+<br>Here's an example of Azure Marketplace plan details:
 
-### Azure portal offer details
+:::image type="content" source="media/avm-create3.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-![Azure portal offer details page example](media/avm-create4.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name and summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Recommend VM sizes
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan pricing
 
-### Azure portal search results
+ere's an example of how offer information appears in Azure Portal:
 
-![Azure portal search results page example](media/avm-create5.png)
+:::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
 
-### Azure portal plan details
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots/videos
 
-![Azure portal plan details page example](media/avm-create6.png)
+<br>Here's an example of how offer information appears in Azure Portal search results:
 
-## Next steps
+:::image type="content" source="media/avm-create5.png" alt-text="Illustrates how this offer appears in Azure Portal search results.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+
+<br>Here's an example of Azure Portal plan details:
+
+:::image type="content" source="media/avm-create6.png" alt-text="Illustrates Azure Portal plan details.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan description
+
+## Next step
 
 - [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
