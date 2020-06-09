@@ -43,7 +43,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Select a location for your storage account, or use the default location.
 1. For **Performance** select **Premium**.
 
-    You must select **Premium** in order for **FileStorage** to be an available option in the **Account kind** dropdown.
+    You must select **Premium** for **FileStorage** to be an available option in the **Account kind** dropdown.
 
 1. Select **Account kind** and choose **FileStorage**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
