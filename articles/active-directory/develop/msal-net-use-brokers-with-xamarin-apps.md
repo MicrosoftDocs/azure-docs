@@ -72,12 +72,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
     }
     
     else if (!AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url))
-    {	            
-         return false;	              
+    {                
+         return false;                  
     }
-	
-    return true;	 
-}	        
+    
+    return true;     
+}            
 ```
 
 This method is invoked every time the application is started. It's used as an opportunity to process the response from the broker and complete the authentication process that MSAL.NET started.
@@ -93,20 +93,20 @@ To set up the object window:
 1. On the `AcquireTokenInteractive` call, use `.WithParentActivityOrWindow(App.RootViewController)` and then pass in the reference to the object window you'll use.
 
     In `App.cs`:
-    
+
     ```csharp
        public static object RootViewController { get; set; }
     ```
-    
+
     In `AppDelegate.cs`:
-    
+
     ```csharp
        LoadApplication(new App());
        App.RootViewController = new UIViewController();
     ```
-    
+
     In the `AcquireToken` call:
-    
+
     ```csharp
     result = await app.AcquireTokenInteractive(scopes)
                  .WithParentActivityOrWindow(App.RootViewController)
@@ -114,7 +114,7 @@ To set up the object window:
     ```
 
 ### Step 5: Register a URL scheme
-MSAL.NET uses URLs to invoke the broker and then return the broker response to your app. To finish the round trip, register a URL scheme for your app in the `Info.plist` file.
+MSAL.NET uses URLs to invoke the broker and then return the broker response to your app. To complete the round trip, register a URL scheme for your app in the `Info.plist` file.
 
 The `CFBundleURLSchemes` name must include `msauth.` as a prefix. Follow the prefix with `CFBundleURLName`. 
 
@@ -140,11 +140,12 @@ In the URL scheme, `BundleId` uniquely identifies the app: `$"msauth.(BundleId)"
 ```
 
 ### Step 6: Add the broker identifier to the LSApplicationQueriesSchemes section
+
 MSAL uses `–canOpenURL:` to check whether the broker is installed on the device. In iOS 9, Apple locked down the schemes that an application can query for. 
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file, as in the following example:
 
-```XML 
+```XML
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -153,16 +154,19 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` 
 ```
 
 ### Step 7: Register your redirect URI in the application portal
+
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
+
 ```csharp
 $"msauth.{BundleId}://auth"
 ```
 
-Here's an example: 
+Here's an example:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
+
 Notice that the redirect URI matches the `CFBundleURLSchemes` name that you included in the `Info.plist` file.
 
 ### Step 8: Make sure the redirect URI is registered with your app
@@ -189,15 +193,114 @@ To compute the redirect URI:
 
    ![Enter the bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-When you finish the steps, the redirect URI is computed for you.
+When you're done with the steps, the redirect URI is computed for you.
 
 ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 ## Brokered authentication for Android
 
-MSAL.NET supports only the Xamarin.iOS platform. It doesn't yet support brokers for the Xamarin.Android platform.
+### Step 1: Enable broker support
 
-The MSAL Android native library already supports brokered authentication. For more information, see [Brokered authentication in Android](brokered-auth.md).
+Broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. Use the `WithBroker()` parameter (set to true by default) when creating the `IPublicClientApplication` through the `PublicClientApplicationBuilder`.
+
+```CSharp
+var app = PublicClientApplicationBuilder
+                .Create(ClientId)
+                .WithBroker()
+                .WithRedirectUri(redirectUriOnAndroid) //(see step 4 below)
+                .Build();
+```
+
+### Step 2: Update AppDelegate to handle the callback
+
+When MSAL.NET calls the broker, the broker will, in turn, call back to your application with the OnActivityResult() method. Since MSAL will wait for the response from the broker, your application needs to route the result to MSAL.NET.
+This can be achieved by routing the result to the `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` by overriding the OnActivityResult() method as shown below
+
+```CSharp
+protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+{
+   base.OnActivityResult(requestCode, resultCode, data);
+   AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+}
+```
+
+This method is invoked every time the broker application is launched and is used as an opportunity to process the response from the broker and complete the authentication process started by MSAL.NET.
+
+### Step 3: Set an Activity
+
+For brokered authentication to work you'll need to set an activity so that MSAL can send and receive the response from broker.
+
+To do this, you'll need to provide the activity(usually the MainActivity) to the `WithParentActivityOrWindow(object parent)` as the parent object. 
+
+**For example:**
+
+In the Acquire Token call:
+
+```CSharp
+result = await app.AcquireTokenInteractive(scopes)
+             .WithParentActivityOrWindow((Activity)context))
+             .ExecuteAsync();
+```
+
+### Step 4: Register your RedirectUri in the application portal
+
+MSAL uses URLs to invoke the broker and then return back to your app. To complete that round trip, you need to register a URL scheme for your app. This Redirect URI needs to be registered on the Azure AD app registration portal as a valid redirect URI for your application.
+
+
+The redirect URI needed for your application is dependent on the certificate used to sign the APK.
+
+```
+Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
+```
+
+The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the signature that the APK is signed with, base64 encoded.
+However, during the development phase of your application using Visual Studio, if you're debugging your code without signing the apk with a specific certificate, Visual Studio will sign the apk for you for debugging purposes, giving the APK a unique signature for the machine that it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the Azure portal in order to authenticate with MSAL. 
+
+While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **This exception will also provide you with the redirect URI that you should be using** with the current machine you are debugging on. You can use this redirect URI to continue developing for the time being.
+
+Once you are ready to finalize your code, be sure to update the redirect URI in the code and on the application's registration in the Azure portal to use the signature of the certificate you will be signing the APK with.
+
+In practice, this means that you have to register a redirect URI for each member of the team, plus a redirect URI for the production signed version of the APK.
+
+You can also compute this signature yourself, similar to how MSAL does it: 
+
+```CSharp
+   private string GetRedirectUriForBroker()
+   {
+      string packageName = Application.Context.PackageName;
+      string signatureDigest = this.GetCurrentSignatureForPackage(packageName);
+      if (!string.IsNullOrEmpty(signatureDigest))
+      {
+            return string.Format(CultureInfo.InvariantCulture, "{0}://{1}/{2}", RedirectUriScheme,
+               packageName.ToLowerInvariant(), signatureDigest);
+      }
+
+      return string.Empty;
+   }
+
+   private string GetCurrentSignatureForPackage(string packageName)
+   {
+            PackageInfo info = Application.Context.PackageManager.GetPackageInfo(packageName,
+               PackageInfoFlags.Signatures);
+            if (info != null && info.Signatures != null && info.Signatures.Count > 0)
+            {
+               // First available signature. Applications can be signed with multiple signatures.
+               // The order of Signatures is not guaranteed.
+               Signature signature = info.Signatures[0];
+               MessageDigest md = MessageDigest.GetInstance("SHA");
+               md.Update(signature.ToByteArray());
+               return Convert.ToBase64String(md.Digest(), Base64FormattingOptions.None);
+               // Server side needs to register all other tags. ADAL will
+               // send one of them.
+            }
+   }
+```
+
+You also have the option of acquiring the signature for your package by using the keytool with the following commands:
+
+For Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+
+For Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
 
 ## Next steps
 

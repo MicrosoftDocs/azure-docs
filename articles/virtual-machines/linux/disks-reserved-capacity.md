@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/30/2020
 ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 

@@ -5,7 +5,7 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
 manager: twooley
-editor: tysonn
+
 tags: azure-infrastructure
 
 ms.assetid:

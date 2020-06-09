@@ -36,15 +36,15 @@ landingContent:
         links:
           - text: Protect your containers
             url: container-security.md
-          - text: Add dynamic compliance packages
-            url: update-regulatory-compliance-packages.md
-          - text: Integrate with Windows Admin Center
-            url: windows-admin-center-integration.md
+          - text: Integrated vulnerability assessment for VMs
+            url: built-in-vulnerability-assessment.md
+          - text: Review the schemas for security alerts 
+            url: alerts-schemas.md
           - text: Automate responses to alerts and recommendations
             url: workflow-automation.md
           - text: Export security alerts and recommendations
             url: continuous-export.md
-          - text: Set up advanced threat protection for Azure Key Vault 
+          - text: Set up threat protection for Azure Key Vault 
             url: advanced-threat-protection-key-vault.md
  
   # Card
@@ -64,8 +64,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a Secure Score?
-            url: security-center-secure-score.md
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
           - text: Customize your security recommendations

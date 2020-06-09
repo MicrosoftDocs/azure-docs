@@ -4,20 +4,36 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.author: rohogue
+ms.date: 06/01/2020
+ms.author: v-erkel
 ---
 
 # Prerequisites for Azure HPC Cache
 
 Before using the Azure portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
 
+## Video overviews
+
+Watch these videos for a quick overview of the system's components and what they need to work together.
+
+(Click the video image or the link to watch.)
+
+* [How it works](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) - Explains how Azure HPC Cache interacts with storage and clients
+
+  [![video thumbnail image: Azure HPC Cache: How it works (click to visit video page)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Prerequisites](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) - Describes requirements for NAS storage, Azure Blob storage, network access, and client access
+
+  [![video thumbnail image: Azure HPC Cache: Prerequisites (click to visit video page)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Read the rest of this article for specific recommendations.
+
 ## Azure subscription
 
 A paid subscription is recommended.
 
 > [!NOTE]
-> During the first several months of the GA release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
@@ -79,11 +95,11 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ### NFS storage requirements
+<!-- linked from configuration.md -->
 
 If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
 
@@ -108,7 +124,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
 
-  * In addition to the ports returned by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
+  * If you can't use the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
@@ -117,6 +133,8 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | mountd   |
     | TCP/UDP  | 4047  | status   |
+
+    Some systems use different port numbers for these services - consult your storage system's documentation to be sure.
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
@@ -127,7 +145,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   Learn more about directory listing access in the NFS storage target [troubleshooting article](troubleshoot-nas.md#enable-export-listing).
 
-* **Root access:** The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
+* **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
 

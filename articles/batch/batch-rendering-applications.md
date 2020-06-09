@@ -1,12 +1,8 @@
 ---
-title: Rendering applications - Azure Batch
+title: Rendering applications
 description: It's possible to use any rendering applications with Azure Batch. However, Azure Marketplace VM images are available with common applications pre-installed.
-services: batch
-ms.service: batch
-author: LauraBrenner
-ms.author: labrenne
 ms.date: 09/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Pre-installed applications on rendering VM images

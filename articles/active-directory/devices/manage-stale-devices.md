@@ -56,7 +56,7 @@ You have two options to retrieve the value of the activity timestamp:
 
     ![Activity timestamp](./media/manage-stale-devices/01.png)
 
-- The [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- The [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
 
     ![Activity timestamp](./media/manage-stale-devices/02.png)
 
@@ -128,11 +128,11 @@ While you can cleanup stale devices in the Azure portal, it is more efficient, t
 
 A typical routine consists of the following steps:
 
-1. Connect to Azure Active Directory using the [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
+1. Connect to Azure Active Directory using the [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
 1. Get the list of devices
-1. Disable the device using the [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
+1. Disable the device using the [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
 1. Wait for the grace period of however many days you choose before deleting the device.
-1. Remove the device using the [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
+1. Remove the device using the [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
 
 ### Get the list of devices
 
@@ -175,7 +175,7 @@ To learn more about the different types, see the [device management overview](ov
 
 Any authentication where a device is being used to authenticate to Azure AD are denied. Common examples are:
 
-- **Hybrid Azure AD joined device** - Users might be to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
+- **Hybrid Azure AD joined device** - Users might be able to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
 - **Azure AD joined device** - Users can't use the device to sign in. 
 - **Mobile devices** - User can't access Azure AD resources such as Office 365. 
 

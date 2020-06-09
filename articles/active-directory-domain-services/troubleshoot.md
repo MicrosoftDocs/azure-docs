@@ -9,7 +9,7 @@ ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
 
@@ -26,7 +26,7 @@ If you have problems enabling Azure AD DS, review the following common errors an
 
 | **Sample error Message** | **Resolution** |
 | --- |:--- |
-| *The name addscontoso.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](troubleshoot.md#domain-name-conflict) |
+| *The name aaddscontoso.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](troubleshoot.md#domain-name-conflict) |
 | *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* |[Domain Services doesn't have adequate permissions to the Azure AD Domain Services Sync application](troubleshoot.md#inadequate-permissions) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application isn't configured properly in your Azure AD tenant](troubleshoot.md#invalid-configuration) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](troubleshoot.md#microsoft-graph-disabled) |
@@ -134,7 +134,7 @@ If one or more users in your Azure AD tenant can't sign in to the Azure AD DS ma
       * You've deployed, or updated to, the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Azure AD Connect to [perform a full synchronization][hybrid-phs].
       * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD DS. Make sure you wait long enough before trying to authenticate against the managed domain.
-      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your [management VM][management-vm], open a command prompt and run the following commands:
+      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your Azure AD Connect server, open a command prompt and run the following commands:
     
         ```console
         net stop 'Microsoft Azure AD Sync'

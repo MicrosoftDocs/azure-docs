@@ -195,7 +195,7 @@ Use the list command to find the job id, and then use cancel to cancel the job.
 
 Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -203,7 +203,7 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"

@@ -19,6 +19,14 @@ Planning and execution of migration greatly depends on the complexity of the arc
 
 Customers who did not have IaaS VMs (classic) in their subscriptions in the month of Febrauary 2020 (a month before deprecation started) are considered as new customers. 
 
+## What is the definition of an existing customer on IaaS Virtual Machines (classic)?
+
+Customer who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered as an existing customer. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+
+## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
+
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support for subscription whitelisting.
+
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
 Not until March 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On March 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated. 
@@ -82,7 +90,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A question page for VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 

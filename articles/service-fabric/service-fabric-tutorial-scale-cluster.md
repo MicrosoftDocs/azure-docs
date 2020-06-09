@@ -33,7 +33,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Important considerations and guidelines
@@ -79,7 +79,7 @@ Scaling in and out, or horizontal scaling, changes the number of nodes in the cl
 
 So, by updating the value of the *nt1InstanceCount* you change the number of nodes in the second node type.  Remember, you cannot scale a node type out to more than 100 nodes.  Non-primary node types running stateful production workloads should always have five or more nodes. Non-primary node types running stateless production workloads should always have two or more nodes.
 
-If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
+If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
 
 ### Deploy the updated template
 Save any changes to the *template.json* and *parameters.json* files.  To deploy the updated template, run the following command:
@@ -88,7 +88,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -794,7 +794,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -853,7 +853,7 @@ Save any changes to the *template.json* and *parameters.json* files.  To deploy 
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Or the following Azure CLI command:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 

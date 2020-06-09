@@ -22,7 +22,7 @@ This article describes the details of onboarding and using Service Map. For info
 * The Dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms-preview).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## Sign in to Azure
 
@@ -51,7 +51,7 @@ By using Service Map, you can effectively plan, accelerate, and validate Azure m
 
 ### Business continuity
 
-If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers’ back-end dependencies, you can identify which systems to recover before your focus systems are restored.
+If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers' back-end dependencies, you can identify which systems to recover before your focus systems are restored.
 
 ### Patch management
 
@@ -59,7 +59,7 @@ Service Map enhances your use of the System Update Assessment by showing you whi
 
 ## Mapping overview
 
-Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process.
+Service Map agents gather information about all TCP-connected processes on the server where they're installed and details about the inbound and outbound connections for each process.
 
 From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
 
@@ -104,7 +104,7 @@ There, you can choose **Create new** and give the group a name.
 
 ### Viewing a Group
 
-Once you’ve created some groups, you can view them by choosing the Groups tab.
+Once you've created some groups, you can view them by choosing the Groups tab.
 
 ![Groups tab](media/service-map/machine-groups-tab.png)
 
@@ -216,7 +216,7 @@ You can gather process details from operating-system metadata about running proc
 
 ![Process Properties pane](media/service-map/process-properties.png)
 
-The **Process Summary** pane provides additional information about the process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections.
+The **Process Summary** pane provides additional information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
 ![Process Summary pane](media/service-map/process-summary.png)
 

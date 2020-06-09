@@ -39,7 +39,7 @@ There are four main types of applications that you can add to your **Enterprise 
 
 ## Manage risk with Conditional Access policies
 
-Coupling Azure AD single sign-on (SSO) with [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and Conditional Access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
+Coupling Azure AD single sign-on (SSO) with [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and Conditional Access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
 
 ## Improve productivity with single sign-on
 

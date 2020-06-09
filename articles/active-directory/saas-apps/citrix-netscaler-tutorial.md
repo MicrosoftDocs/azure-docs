@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -28,7 +27,7 @@ In this tutorial, you'll learn how to integrate Citrix NetScaler with Azure Acti
 * Enable your users to be automatically signed in to Citrix NetScaler with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -48,6 +47,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. The
 * [Kerberos-based authentication for Citrix NetScaler](#publish-the-web-server)
 
 * [Header-based authentication for Citrix NetScaler](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+
+* Once you configure Citrix NetScaler you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Citrix NetScaler from the gallery
 
@@ -101,7 +102,7 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
     `https://<Your FQDN>`
 
     1. In the **Reply URL** text box, enter a URL that has the following pattern:
-    `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`
+    `http(s)://<Your FQDN>.of.vserver/cgi/samlauth`
 
 1. To configure the application in **SP-initiated** mode, select **Set additional URLs** and complete the following step:
 
@@ -218,7 +219,7 @@ To bind the load balancer with the virtual server:
 
 ### Bind the certificate
 
-To publish this service as SSL, bind the server certificate, and then test your application:
+To publish this service as TLS, bind the server certificate, and then test your application:
 
 1. Under **Certificate**, select **No Server Certificate**.
 
@@ -456,10 +457,14 @@ When you select the Citrix NetScaler tile in the Access Panel, you should be aut
 
 - [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Citrix NetScaler with Azure AD](https://aad.portal.azure.com/)
 
 - [Configure Citrix NetScaler single sign-on for header-based authentication](header-citrix-netscaler-tutorial.md)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Citrix NetScaler with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

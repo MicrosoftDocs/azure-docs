@@ -6,21 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/24/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/20/2020
 ---
 
 # Use Apache Spark to read and write Apache HBase data
 
-Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Apache Phoenix. Apache also provides the Apache Spark HBase Connector, which is a convenient and performant alternative to query and modify data stored by HBase.
+Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Apache Phoenix. Apache also provides the Apache Spark HBase Connector. The Connector is a convenient and performant alternative to query and modify data stored by HBase.
 
 ## Prerequisites
 
 * Two separate HDInsight clusters deployed in the same [virtual network](./hdinsight-plan-virtual-network-deployment.md). One HBase, and one Spark with at least Spark 2.1 (HDInsight 3.6) installed. For more information, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* The [URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This scheme would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your clusters primary storage. This scheme would be wasb:// for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## Overall process
 
@@ -147,7 +145,7 @@ In this step, you define a catalog object that maps the schema from Apache Spark
     |}""".stripMargin
     ```
 
-    The code does the following:  
+    The code does the following acts:  
 
      a. Define a catalog schema for the HBase table named `Contacts`.  
      b. Identify the rowkey as `key`, and map the column names used in Spark to the column family, column name, and column type as used in HBase.  

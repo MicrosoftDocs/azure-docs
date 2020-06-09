@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
 
 ---
@@ -33,9 +33,9 @@ In this tutorial, you set up a lab with virtual machines for your class. To set 
 
 Here is the typical workflow when using Azure Lab Services:
 
-1. A lab account creator adds other users to the **Lab Creator** role. For example, the lab account creator/admin adds professors to the **Lab Creator** role so that they can create labs for their classes. 
-2. Then, the professors create labs with VMs for their classes and send registration links to students in the class. 
-3. Students use the registration link that they receive from professors to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. 
+1. A lab account creator adds other users to the **Lab Creator** role. For example, the lab account creator/admin adds educators to the **Lab Creator** role so that they can create labs for their classes. 
+2. Then, the educators create labs with VMs for their classes and send registration links to students in the class. 
+3. Students use the registration link that they receive from educators to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. 
 
 ## Create a classroom lab
 In this step, you create a lab for your class in Azure. 
@@ -66,6 +66,9 @@ In this step, you create a lab for your class in Azure.
     1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     3. Install and configure software required for your class on the template VM. 
     4. **Stop** the template VM.  
+
+    > [!NOTE]
+    > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running. 
 
 ## Publish the template VM
 In this step, you publish the template VM. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.

@@ -9,6 +9,8 @@
      href: generate-soil-moisture-map-in-azure-farmbeats.md
    - name: Ingest historical telemetry data
      href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+   - name: Query ingested telemetry data
+     href: query-telemetry-data-from-azure-farmbeats.md
 - name: Concepts
   items:
    - name: Integration patterns
@@ -33,6 +35,8 @@
      href: configure-rules-alerts-in-azure-farmbeats.md
    - name: Get drone imagery
      href: get-drone-imagery-in-azure-farmbeats.md
+   - name: Disaster recovery
+     href: disaster-recovery-for-farmbeats.md
 - name: Troubleshoot
   items:
    - name: Troubleshoot Azure FarmBeats

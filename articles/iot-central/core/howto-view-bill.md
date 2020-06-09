@@ -4,7 +4,7 @@ description: As an administrator, learn how to manage your bill and move from th
 author: v-krghan
 ms.author: v-krghan
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea

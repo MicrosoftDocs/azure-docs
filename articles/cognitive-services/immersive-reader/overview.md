@@ -16,6 +16,8 @@ ms.author: metan
 
 # What is Immersive Reader?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences such as dyslexia.
 
 You can use Immersive Reader in your web application by using the Immersive Reader SDK.
@@ -56,6 +58,6 @@ The Immersive Reader is a standalone web app that, when invoked using the Immers
 
 Get started with Immersive Reader:
 
-* Jump into the [quickstart](./quickstart.md)
+* Jump into the [quickstarts](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Read the [Immersive Reader SDK Reference](./reference.md)

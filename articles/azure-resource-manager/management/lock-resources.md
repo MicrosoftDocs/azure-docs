@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/19/2020
 ---
 
 # Lock resources to prevent unexpected changes
@@ -20,13 +20,19 @@ Unlike role-based access control, you use management locks to apply a restrictio
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database. It doesn't prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
-Applying **ReadOnly** can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. The **ReadOnly** lock can be applied to the resource or to the resource group containing the resource. Some common examples of the operations that are blocked by a **ReadOnly** lock are:
+## Considerations before applying locks
 
-* A **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
+Applying locks can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. Some common examples of the operations that are blocked by locks are:
 
-* A **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+* A read-only lock on a **storage account** prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
 
-* A **ReadOnly** lock on a resource group that contains a virtual machine prevents all users from starting or restarting the virtual machine. These operations require a POST request.
+* A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+
+* A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting the virtual machine. These operations require a POST request.
+
+* A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+
+* A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
 
 ## Who can create or delete locks
 
@@ -51,10 +57,6 @@ Notice the service includes a link for a **Managed Resource Group**. That resour
 To delete everything for the service, including the locked infrastructure resource group, select **Delete** for the service.
 
 ![Delete service](./media/lock-resources/delete-service.png)
-
-## Azure Backups and locks
-
-If you lock the resource group created by Azure Backup Service, backups will start to fail. The service supports a maximum of 18 restore points. With a **CanNotDelete** lock, the backup service is unable to clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
 
 ## Portal
 
@@ -131,7 +133,7 @@ The following example shows a template that creates an app service plan, a web s
 }
 ```
 
-For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ## PowerShell
 You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.
@@ -233,7 +235,7 @@ In the request, include a JSON object that specifies the properties for the lock
     } 
 
 ## Next steps
-* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md)
+* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md).
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

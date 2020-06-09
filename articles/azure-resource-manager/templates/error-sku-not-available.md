@@ -36,7 +36,7 @@ Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 
 The results include a list of SKUs for the location and any restrictions for that SKU. Notice that a SKU might be listed as `NotAvailableForSubscription`.
 
-```powershell
+```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
 ------------          ----           ---------   ----      -----------                      ----------           -----
 virtualMachines       Standard_A0    centralus             NotAvailableForSubscription      MaxResourceVolumeMB   20480
@@ -64,7 +64,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 The command returns results like:
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None

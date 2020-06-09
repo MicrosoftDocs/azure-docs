@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -148,7 +148,7 @@ Use the following steps to add approvers after selecting how many stages you req
 
     The justification is visible to other approvers and the requestor.
 
-### 2-stage approval (Preview)
+### 2-stage approval
 
 If you selected a 2-stage approval, you'll need to add a second approver.
 

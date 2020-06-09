@@ -3,14 +3,14 @@ title: "Quickstart Build an object detector - Custom Vision Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: anroth
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
 
 # Quickstart: How to build an object detector with Custom Vision

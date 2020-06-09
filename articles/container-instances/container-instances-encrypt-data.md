@@ -36,6 +36,10 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 The first step is to ensure that your [Azure tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) has a service principal assigned for granting permissions to the Azure Container Instances service. 
 
+> [!IMPORTANT]
+> In order to run the following command and create a service principal successfully, confirm that you have permissions to create service principals in your tenant.
+>
+
 The following CLI command will set up the ACI SP in your Azure environment:
 
 ```azurecli-interactive
@@ -43,6 +47,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 The output from running this command should show you a service principal that has been set up with "displayName": "Azure Container Instance Service."
+
+In case you are unable to successfully create the service principal:
+* confirm that you have permissions to do so in your tenant
+* check to see if a service principal already exists in your tenant for deploying to ACI. You can do that by running `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` and use that service principal instead
 
 ### Create a Key Vault resource
 

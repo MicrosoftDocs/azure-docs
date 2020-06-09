@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
-ms.custom: mvc
+ms.custom: mvc,subject-armqs
+
 ---
 
 # Quickstart: Create a Load Balancer to load balance VMs by using Azure Resource Manager template
@@ -33,7 +34,7 @@ Load Balancer and Public IP SKUs must match. When you create a Standard Load Bal
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-150" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="58-122":::
 
 Multiple Azure resources have been defined in the template:
 

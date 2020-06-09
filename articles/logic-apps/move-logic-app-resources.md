@@ -5,20 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 04/06/2020
 ---
 
-# Move logic app resources to other Azure subscriptions, resource groups, or regions
+# Move logic app resources to other Azure resource groups, regions, or subscriptions
 
-To migrate your logic app or related resources to another Azure subscription, resource group, or region, you have various ways to complete these tasks, such as the Azure portal, Azure PowerShell, Azure CLI, and REST API. Before you move resources, review these considerations: 
+To migrate your logic app or related resources to another Azure resource group, region, or subscription, you have various ways to complete these tasks, such as the Azure portal, Azure PowerShell, Azure CLI, and REST API. Before you move resources, review these considerations: 
 
 * You can move only [specific logic app resource types](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) between Azure resource groups or subscriptions.
 
 * Check the [limits](../logic-apps/logic-apps-limits-and-config.md) on the number of logic app resources that you can have in your Azure subscription and in each Azure region. These limits affect whether you can move specific resource types when the region stays the same across subscriptions or resource groups. For example, you can have only one Free tier integration account for each Azure region in each Azure subscription.
 
+* When you move resources, Azure creates new resource IDs. So, make sure that you use the new IDs instead and update any scripts or tools that are associated with the moved resources.
+
 * After you migrate logic apps between subscriptions, resource groups, or regions, you must recreate or reauthorize any connections that require Open Authentication (OAuth).
 
-* Whenever you move resources, Azure creates new resource IDs. So, make sure that you use the new IDs instead and update any scripts or tools that are associated with the moved resources.
+* You can move an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) only to another resource group that exists in the same Azure region or Azure subscription. You can't move an ISE to a resource group that exists in a different Azure region or Azure subscription. Also, after such a move, you must update all references to the ISE in your logic app workflows, integration accounts, connections, and so on.
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 ## Move resources between resource groups
 
-To move a resource, such as a logic app or integration account, to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+To move a resource, such as a logic app, integration account, or [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 

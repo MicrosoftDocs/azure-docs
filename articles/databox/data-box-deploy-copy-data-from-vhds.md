@@ -18,10 +18,10 @@ This tutorial describes how to use the Azure Data Box to migrate you on-premises
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Review prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-
 
 ## Prerequisites
 
@@ -34,6 +34,8 @@ Before you begin, make sure that:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
     - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+
+5. You've maintained a copy of the source data until you've confirmed that the Data Box transferred your data into Azure Storage.
 
 ## Connect to Data Box
 
@@ -88,7 +90,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     ```
     C:\>net use \\169.254.250.200\mydbmdrgl_MDisk /u:mdisk
-    Enter the password for ‘mdisk’ to connect to '169.254.250.200':
+    Enter the password for 'mdisk' to connect to '169.254.250.200':
     The command completed successfully.
     C: \>
     ```

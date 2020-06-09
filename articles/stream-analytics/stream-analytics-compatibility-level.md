@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/10/2020
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -20,11 +20,9 @@ Compatibility level controls the runtime behavior of a stream analytics job.
 
 Azure Stream Analytics currently supports three compatibility levels:
 
-* 1.0 - Previous behavior
-* 1.1 - Default behavior
+* 1.0 - Original compatibility level, introduced during general availability of Azure Stream Analytics several years ago.
+* 1.1 - Previous behavior
 * 1.2 - Newest behavior with most recent improvements
-
-The original 1.0 compatibility level was introduced during general availability of Azure Stream Analytics several years ago.
 
 When you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level. Start your job design relying upon the latest behaviors, to avoid added change and complexity later on.
 
