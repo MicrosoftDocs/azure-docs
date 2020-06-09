@@ -1,11 +1,11 @@
 ---
 title: Manage consistency in Azure Cosmos DB
 description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.author: mjbrown
+ms.date: 06/09/2020
+ms.author: anfeldma
 ---
 
 # Manage consistency levels in Azure Cosmos DB
@@ -89,7 +89,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a id="override-default-consistency-java"></a>Java SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/javaasyncv2)
 
 ```java
 // Override consistency at the client level
@@ -103,7 +103,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# [Java sync SDK](#tab/javasync)
+# [Java sync SDK](#tab/javasyncv2)
 
 ```java
 // Override consistency at the client level
