@@ -212,6 +212,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Digital Twins limits
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## Event Grid limits
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
