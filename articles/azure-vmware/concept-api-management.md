@@ -27,9 +27,7 @@ The traffic flow goes through API Management instance, which abstracts the backe
 
 API Management has an Azure Public API and activating Azure DDOS Protection Service is recommended. 
 
-:::image type="complex" source="media/api-management/external-deployment.png" alt-text="External deployment":::
-
-:::image-end:::
+:::image type="content" source="media/api-management/external-deployment.png" alt-text="External deployment - API Management for AVS":::
 
 
 ## Internal deployment
@@ -52,6 +50,5 @@ In an internal deployment, APIs get exposed to the same API Management instance.
 
 * External traffic enters Azure through Application Gateway, which uses the external protection layer for API Management.
 
-:::image type="complex" source="media/api-management/internal-deployment.png" alt-text="Internal deployment":::
 
-:::image-end:::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Internal deployment - API Management for AVS":::
