@@ -161,7 +161,7 @@ By default, all HTTP-based actions in Azure Logic Apps follow the standard [asyn
 
 * In the Logic App Designer, the HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
 
-To find this setting, follow these steps:
+  To find this setting, follow these steps:
 
   1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
@@ -180,7 +180,9 @@ Sometimes, you might want to the HTTP action's asynchronous behavior in specific
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)
 
-### Disable **Asynchronous Pattern** setting
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+### Turn off **Asynchronous Pattern** setting
 
 1. In the Logic App Designer, on the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
@@ -188,9 +190,11 @@ Sometimes, you might want to the HTTP action's asynchronous behavior in specific
 
    ![Disable the "Asynchronous Pattern" setting](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
 
-### Disable through code
+<a name="add-disable-async-pattern-option"></a>
 
-In the HTTP action's underlying JSON definition, [add the `"DisableAsyncPattern"` operation option](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the action's definition so that the action follows the synchronous operation pattern instead. For more information, see also [Run actions synchronously](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+### Disable asynchronous pattern in action's JSON definition
+
+In the HTTP action's underlying JSON definition, [add the `"DisableAsyncPattern"` operation option](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the action's definition so that the action follows the synchronous operation pattern instead. For more information, see also [Run actions in a synchronous operation pattern](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
 
 <a name="avoid-http-timeouts"></a>
 
