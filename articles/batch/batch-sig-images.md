@@ -3,6 +3,7 @@ title: Use the Shared Image Gallery to create a custom pool
 description: Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
 ms.date: 05/22/2020
+ms.custom: tracking-python
 ---
 
 # Use the Shared Image Gallery to create a custom pool
