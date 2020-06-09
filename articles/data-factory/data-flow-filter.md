@@ -16,7 +16,7 @@ ms.date: 05/26/2020
 
 The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
 
-[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## Configuration
 

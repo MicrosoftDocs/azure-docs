@@ -15,8 +15,6 @@ ms.date: 06/15/2017
 ---
 # Enable logging for Azure Machine Learning Studio (classic) web services
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 This document provides information on the logging capability of Machine Learning Studio (classic) web services. Logging provides additional information, beyond just an error number and a message, that can help you troubleshoot your calls to the Machine Learning Studio (classic) APIs.  
 
 ## How to enable logging for a Web service

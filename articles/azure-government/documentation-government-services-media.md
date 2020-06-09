@@ -35,10 +35,6 @@ For information on how to connect to AMS v2, see [connecting to AMS](../media-se
 ## Variations
 
 The following AMS v2 features are currently not available in Azure Government:
-
-### Analyzing
-
-The "Azure Media Indexer 2 Preview" Azure Media Analytics media processor is not available in Azure Government.
  
 ### CDN integration
 

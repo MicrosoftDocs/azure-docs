@@ -13,8 +13,6 @@ ms.date: 03/01/2019
 ---
 # Get started with Azure Machine Learning Studio (classic) in R
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 <!-- Stephen F Elston, Ph.D. -->
 In this tutorial, you learn how to use ML Studio (classic) to create, test and execute R code. In the end, you will have a complete forecasting solution.  
 
