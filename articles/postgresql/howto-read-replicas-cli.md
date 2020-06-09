@@ -60,7 +60,7 @@ The [az postgres server replica create](/cli/azure/postgres/server/replica?view=
 | --- | --- | --- |
 | resource-group | myresourcegroup |  The resource group where the replica server will be created.  |
 | name | mydemoserver-replica | The name of the new replica server that is created. |
-| source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. |
+| source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. Use the resource ID if you want the replica and master's resource groups to be different. |
 
 In the CLI example below, the replica is created in the same region as the master.
 
