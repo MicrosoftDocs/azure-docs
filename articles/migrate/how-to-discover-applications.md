@@ -21,9 +21,9 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing is in
 
 1. Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 2. Make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool to a project.
-4. Check the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
+4. Check the [VMware requirements](migrate-support-matrix-vmware.md#assessment-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
 5. Check the [requirements](migrate-appliance.md) for deploying the Azure Migrate appliance.
-6. [Verify support and requirements](migrate-support-matrix-vmware.md#application-discovery) for application discovery.
+6. [Verify support and requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) for application discovery.
 
 
 
@@ -32,7 +32,7 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing is in
 1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
 2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
-4. [Note](migrate-support-matrix-vmware.md#port-access) port access requirements for the appliance.
+4. [Note](migrate-support-matrix-vmware.md#port-access-requirements) port access requirements for the appliance.
 5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create the appliance as a VMware VM. You configure the appliance and then register it with Azure Migrate.
 6. As you deploy the appliance, to start continuous discovery you specify the following:
     - The name of the vCenter Server to which you want to connect.
@@ -47,7 +47,7 @@ Create an account to use for discovery, and add it to the appliance.
 
 ### Create a user account for discovery
 
-Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#application-discovery) about account requirements.
+Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#application-discovery-requirements) about account requirements.
 
 
 ### Add the user account to the appliance

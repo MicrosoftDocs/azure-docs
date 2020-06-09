@@ -83,7 +83,7 @@ Appliance | Outbound connections on port 443 to upload replicated data to Azure,
 vCenter server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots
 vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots.
 
-## Agent-based migration requirements
+## Agent-based migration 
 
 
 This section summarizes requirements for agent-based migration.

@@ -1,33 +1,31 @@
----
+-vmware-permission---
 title: Set the scope for VMware VM discovery with Azure Migrate
 description: Describes how to set the discovery scope for VMware VM assessment and migration with Azure Migrate.
 ms.topic: how-to
-ms.date: 03/23/2020
+ms.date: 06/09/2020
 
 ---
 
 # Set discovery scope for VMware VMs
 
-This article describes how to limit the scope of discovery for VMware VMs that are discovered by the [Azure Migrate appliance](migrate-appliance-architecture.md).
+This article describes how to limit the scope of discovery for VMware VMs that are discovered by the [Azure Migrate appliance](migrate-appliance-architecture.md), using the Azure Migrate:Server Assessment tool.
 
+The Azure Migrate appliance is used when you discover and assess VMware VMs, and when you migrate VMware VMs to Azure using [agentless migration](tutorial-migrate-vmware.md). After you set up the appliance, it connects to vCenter Server and starts discovering VMs. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.
 
-The Azure Migrate appliance is used when you assess VMware VMs, and when you migrate VMware VMs using [agentless migration](tutorial-migrate-vmware.md). After you set up the appliance, it connects to vCenter Server, starts discovering VMs, and sends VM metadata to Azure. Before you connect the appliance to vCenter Server for discovery, you can limit discovery to  vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.
-
-To set the scope, you assign permissions on the account that Azure Migrate is using to access the vCenter Server.
+To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
 
 ## Before you start
 
-If you haven't already set up a vCenter user account that the Azure Migrate appliance uses to discover, and assess/migrate VMware VMs, [do that first](tutorial-prepare-vmware.md#set-up-vmware-permissions).
-
+If you haven't already set up a vCenter user account do that now for[assessment](tutorial-prepare-vmware.md##set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
 
 
 ## Assign roles
 
-You can assign permissions on inventory objects using one of two methods:
+You can assign permissions on VMware inventory objects using one of two methods:
 
-- For the appliance vCenter user account, assign it a role with the required permissions (for assessment or agentless migration) on the inventory objects you want to scope.
-- Alternatively, assign role to the user account at the datacenter level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want to in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
-- Note that you can't scope inventory discovery at the vCenter VM folder level. If you need to scope discover to VMs in a VM folder, create a user and grant access individually to each required VM. Host and cluster folders are supported.
+- On the account that the appliance uses, you can assign a role with the required permissions on the inventory objects you want to scope.
+- Alternatively, you can assign a role to the account at the datacenter level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want to in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
+- You can't scope inventory discovery at the vCenter VM folder level. If you need to scope discover to VMs in a VM folder, create a user and grant access individually to each required VM. Host and cluster folders are supported.
 
 
 ### Assign a role for assessment

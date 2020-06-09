@@ -2,7 +2,7 @@
 title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
 description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 06/09/2020
 ms.custom: MVC
 ---
 
@@ -168,8 +168,8 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-1. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements.
-2. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VM support requirements for migration.
+1. [Verify](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agent-based) VMware server requirements.
+2. [Verify](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VM support requirements for migration.
 3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
@@ -322,7 +322,7 @@ Now, select VMs for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
+12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 

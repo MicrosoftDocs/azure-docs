@@ -2,7 +2,7 @@
 title: Select a VMware migration option with Azure Migrate Server Migration | Microsoft Docs
 description: Provides an overview of options for migrating VMware VMs to Azure with Azure Migrate Server Migration
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ---
 
 
@@ -14,11 +14,9 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 - Migration with an agent for replication. Install an agent on the VM for replication.
 
 
-
-
 ## Compare migration methods
 
-Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) and [agent-based](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) migration.
+Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware-migration.md#agentless-migration) and [agent-based](migrate-support-matrix-vmware-migration.md#agent-based-migration) migration.
 
 **Setting** | **Agentless** | **Agent-based**
 --- | --- | ---

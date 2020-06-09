@@ -13,7 +13,7 @@ This article helps you to prepare for assessment and migration of on-premises VM
 This tutorial is the first in a series that shows you how to assess and migrate VMware VMs. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare Azure to work with Azure Migrate.
+> * Prepare Azure to work with Azure Migrate for assessment and migration.
 > * Prepare to assess VMware VMs with the Azure Migrate:Server Assessment tool.
 > * Prepare to migrate VMware VMs with the Azure Migrate:Server Migration tool. 
 
@@ -26,12 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prepare Azure
 
 The table summarizes the tasks you need to complete in Azure, and the permissions you need.
+
 **Task** | **Details** | **Permissions**
 --- | --- | ---
 **Create an Azure Migrate project** | An Azure Migrate project provides a central location for orchestrating and managing assessments and migrations with Azure Migrate tools, Microsoft tools, and third-party offerings. | To create a project, your Azure account needs Contributor or Owner permissions in the resource group in which the project resides.
 **Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover VMs, to assess them with the Server Assessment tool, and to migrate them using agentless migration with the Server Migration tool. During appliance registration, resource providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration). | To register the appliance, you need a Contributor or Owner role on the Azure subscription.
-**Create Azure AD apps** | When registering the appliance, Azure Migrate creates Azure Active Directory (Azure AD) apps. <br/><br/> - The first app is used for communication between the agents running on the appliance and Azure Migrate. It doesn't have permissions to make Azure resource management calls, or RBAC access for resources.<br/><br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless VMware VM migration. [Learn more](migrate-appliance-architecture.md#appliance-registration).  It has RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance. | Your Azure account needs permissions to create Azure AD apps.
-**Create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. | To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides.
+**Create Azure AD apps** | When registering the appliance, Azure Migrate creates Azure Active Directory (Azure AD) apps. <br/><br/> - The first app is used for communication between the agents running on the appliance and Azure Migrate. <br/><br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless VMware VM migration. [Learn more](migrate-appliance-architecture.md#appliance-registration).   | Your Azure account needs permissions to create Azure AD apps. | The first app doesn't have permissions to make Azure resource management calls, or RBAC access for resources.<br/><br/> The second app has RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.
+**Create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication  account in your subscription. | To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides.
 
 
 ### Assign permissions to create project
@@ -58,7 +59,7 @@ To register the appliance, your Azure account needs permissions to create Azure 
 Grant permissions to the account as follows:
 
 1. Make sure you're a tenant or global admin. Then, in Azure AD, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-2. Set**App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Set **App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD permissions](./media/tutorial-prepare-vmware/aad.png)
 
@@ -90,9 +91,9 @@ To prepare for VMware VM assessment, you need to:
 
 ### Verify VMware settings
 
-1. [Check VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for assessment.
-2. [Make sure](migrate-support-matrix-vmware.md#port-access) that the  ports you need are open on vCenter Server.
-3. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file. You deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
+1. [Check VMware requirements](migrate-support-matrix-vmware.md#assessment-requirements) for assessment.
+2. [Make sure](migrate-support-matrix-vmware.md#port-access-requirements) that the  ports you need are open on vCenter Server.
+3. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file. This is needed when you deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
 
 
 ### Set up permissions for assessment
@@ -116,11 +117,11 @@ Azure Migrate needs to access the vCenter Server so that the Azure Migrate appli
 
 ### Verify appliance settings for assessment
 
-In the [next tutorial](tutorial-assess-vmware) you set up the Azure Migrate appliance, and begin assessment. Before you do that, reivew the appliance requirements as follows: 
+In the [next tutorial](tutorial-assess-vmware.md) you set up the Azure Migrate appliance, and begin assessment. Before you do that, review the appliance requirements as follows: 
 
 1. [Verify](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
 2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-3. [Note](migrate-support-matrix-vmware.md#port-access) the ports that the appliance uses.
+3. [Note](migrate-support-matrix-vmware.md#port-access-requirements) the ports that the appliance uses.
 4. [Review the data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
 
 ## Prepare for agentless VMware migration
@@ -128,9 +129,9 @@ In the [next tutorial](tutorial-assess-vmware) you set up the Azure Migrate appl
 You can migrate VMware VMs using [agentless or agent-based migration](server-migrate-overview.md). This section summarizes the requirements for agentless migration.
 
 1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agentless migration.
-2. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) hypervisor requirements for machines you want to migrate.
-3. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) VMware VMs requirements for agentless migration.
-4. [Review](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) the Azure Migrate appliance requirements.
+2. [Review](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless) hypervisor requirements for machines you want to migrate.
+3. [Review](migrate-support-matrix-vmware-migration.md#avm-requirements-agentless) VMware VMs requirements for agentless migration.
+4. [Review](migrate-support-matrix-vmware-migration.md#appliance-requirements-agentless) the Azure Migrate appliance requirements.
 5. Note the URL access required for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 6. Review [port access](migrate-support-matrix-vmware-migration.md#agentless-ports) requirements.
 
@@ -149,7 +150,7 @@ Alternatively, you can create an account. Then create a role, and assign it to t
 
 1. Sign into the Sphere Web Client as the vCenter Server administrator
 2. Select the vCenter Server instance >  **Create role**.
-3. Specify a role name, for example <em>Azure_Migrate</em>, and assign the [required permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-(agentless)) to the role.
+3. Specify a role name, for example <em>Azure_Migrate</em>, and assign the [required permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless) to the role.
 
     ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
 
@@ -162,9 +163,9 @@ Alternatively, you can create an account. Then create a role, and assign it to t
 
 You can migrate VMware VMs using [agentless or agent-based migration](server-migrate-overview.md). This section summarizes the requirements for agent-based migration.
 
-1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agentless migration.
-1. [Review](migrate-support-matrix-vmware-migration.md#hypervisor-agent-based)) hypervisor requirements for machines you want to migrate.
-2. [Review](migrate-support-matrix-vmware-migration.md#vms-agent-based) VMware VMs requirements, including installation of the Mobility service on each VM you want to migrate.
+1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agent-based migration.
+1. [Review](migrate-support-matrix-vmware-migration.md#hhypervisor-requirements-agent-based) hypervisor requirements for machines you want to migrate.
+2. [Review](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VMware VMs requirements, including installation of the Mobility service on each VM you want to migrate.
 3. Agent-based migration uses a replication appliance:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance.
     - [Review the options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
