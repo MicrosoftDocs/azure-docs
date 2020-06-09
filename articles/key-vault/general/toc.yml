@@ -55,6 +55,8 @@
   items:
   - name: Authenticate
     items:
+    - name: Authenticate to Key Vault
+      href: keyvaultauth.md
     - name: Use an App Service managed identity
       href: managed-identity.md
     - name: Use an access control policy
