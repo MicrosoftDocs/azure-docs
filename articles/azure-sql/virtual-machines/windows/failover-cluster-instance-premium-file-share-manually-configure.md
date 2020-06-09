@@ -22,7 +22,7 @@ This article explains how to create a failover cluster instance (FCI) with SQL S
 
 Premium File Shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
-See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
 
 ## Prerequisites
 
@@ -33,7 +33,6 @@ Before you complete the steps in this article, you should already have:
 - [Two or more prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md).
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
-
 
 ## Mount the Premium File Share
 
@@ -58,7 +57,7 @@ Before you complete the steps in this article, you should already have:
   > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
 
 
-## Add Windows Server Failover Clustering
+## Add Windows cluster feature
 
 1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
@@ -76,6 +75,34 @@ Before you complete the steps in this article, you should already have:
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
+
+## Validate the cluster
+
+Validate the cluster in the UI or by using PowerShell.
+
+To validate the cluster by using the UI, take the following steps on one of the virtual machines:
+
+1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
+1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
+1. Select **Next**.
+1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
+1. Under **Testing options**, select **Run only tests I select**. Select **Next**.
+1. Under **Test Selection**, select all tests except for **Storage** and **Storage Spaces Direct**, as shown here:
+
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Select cluster validation tests":::
+
+1. Select **Next**.
+1. Under **Confirmation**, select **Next**.
+
+The **Validate a Configuration Wizard** runs the validation tests.
+
+To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
+After you validate the cluster, create the failover cluster.
 
 
 ## Create the failover cluster
@@ -108,34 +135,6 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-best-practices.md#quorum). 
 
 
-## Validate the cluster
-
-Validate the cluster in the UI or by using PowerShell.
-
-To validate the cluster by using the UI, take the following steps on one of the virtual machines:
-
-1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
-1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
-1. Select **Next**.
-1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
-1. Under **Testing options**, select **Run only tests I select**. Select **Next**.
-1. Under **Test Selection**, select all tests except for **Storage** and **Storage Spaces Direct**, as shown here:
-
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Select cluster validation tests":::
-
-1. Select **Next**.
-1. Under **Confirmation**, select **Next**.
-
-The **Validate a Configuration Wizard** runs the validation tests.
-
-To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
-
-After you validate the cluster, create the failover cluster.
-
 
 ## Test cluster failover
 
@@ -143,7 +142,8 @@ Test failover of your cluster. In **Failover Cluster Manager**, right-click your
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
-## Create the SQL Server FCI
+
+## Create SQL Server FCI
 
 Once you've configured the failover cluster, you can create the SQL Server FCI.
 
@@ -174,9 +174,9 @@ Once you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Repeat these steps on any other nodes you want to add to the SQL Server failover cluster instance. 
 
-## Register with the SQL VM resource provider
+## Register with the SQL VM RP
 
-To manage your SQL Server VM from the portal, register it with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode), currently the only mode supported with FCI and SQL Server on Azure VMs. 
+To manage your SQL Server VM from the portal, register it with the SQL VM resource provider (RP) in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode), currently the only mode supported with FCI and SQL Server on Azure VMs. 
 
 Register a SQL Server VM in lightweight mode with PowerShell (-LicenseType can be `PAYG` or `AHUB`):
 
@@ -197,16 +197,16 @@ To route traffic appropriately to the current primary node, configure the connec
 
 - MSDTC is not supported on Windows Server 2016 and earlier. 
 - Filestream isn't supported for a failover cluster with a premium file share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
-- Currently, only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported with FCI and SQL Server on Azure VMs. 
+- Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported. 
 
 
 ## Next steps
 
-If you haven't already, configure connectivity to your cluster with an [Azure Load  Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name](hadr-distributed-network-name-dnn-configure.md). Be sure to also register your SQL Server FCI with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode). 
+If you haven't already, configure connectivity to your FCI with an [Azure Load  Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name](hadr-distributed-network-name-dnn-configure.md). 
 
 If Premium File Shares are not the appropriate FCI storage solution for you, consider creating your FCI using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

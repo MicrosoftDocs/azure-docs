@@ -1,6 +1,6 @@
 ---
-title: High availability and disaster recovery for SQL Server | Microsoft Docs
-description: A discussion of the various types of HADR strategies for SQL Server running in Azure virtual machines.
+title: High availability, disaster recovery, business continuity
+description: Learn about the high availability, disaster recovery (HADR), and business continuity options available for SQL Server on Azure VMs, such as Always On availability groups, failover cluster instance, database mirroring, log shipping, and backup & restore to Azure Storage.  
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -18,26 +18,27 @@ ms.date: 06/27/2017
 ms.author: mikeray
 
 ---
-# High availability and disaster recovery for SQL Server on Azure Virtual Machines
+# Business continuity & HADR for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-SQL Server on Azure Virtual Machines can help lower the cost of a high-availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported on virtual machines (VMs), both as Azure-only and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
+Business continuity means continuing your business in the event of a disaster, planning for recovery, and ensuring your data is highly available. SQL Server on Azure Virtual Machines can help lower the cost of a high-availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported on virtual machines (VMs), both as Azure-only and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+This topic compares and contrasts different business continuity solutions available for SQL Server on Azure VMs. 
 
-## Understanding the need for an HADR solution
-It is up to you to ensure that your database system possesses the HADR capabilities that the service-level agreement (SLA) requires. The fact that Azure provides high-availability mechanisms, such as service healing for cloud services and failure recovery detection for virtual machines, does not itself guarantee you can meet the desired SLA. These mechanisms protect the high availability of the VMs but not the high availability of SQL Server running inside the VMs. It is possible for the SQL Server instance to fail while the VM is online and healthy. Moreover, even the high-availability mechanisms provided by Azure allow for downtime of the VMs due to events such as recovery from software or hardware failures and operating system upgrades.
+## Overview
+
+It is up to you to ensure that your database system possesses the HADR capabilities that the service-level agreement (SLA) requires. The fact that Azure provides high-availability mechanisms, such as service healing for cloud services and failure recovery detection for virtual machines, does not itself guarantee you can meet the desired SLA. While these mechanisms protect the high availability of the virtual machine, they do not protect the availability of SQL Server running inside the VM. It is possible for the SQL Server instance to fail while the VM is online and healthy. Moreover, even the high-availability mechanisms provided by Azure allow for downtime of the VMs due to events such as recovery from software or hardware failures and operating system upgrades.
 
 In addition, geo-redundant storage (GRS) in Azure, which is implemented with a feature called geo-replication, may not be an adequate disaster recovery solution for your databases. Because geo-replication sends data asynchronously, recent updates can be lost in the event of disaster. More information regarding geo-replication limitations are covered in the [Geo-replication not supported for data and log files on separate disks](#geo-replication-support) section.
 
-## HADR deployment architectures
-SQL Server HADR technologies that are supported in Azure include:
+## Deployment architectures
+SQL Server business continuity technologies that are supported in Azure include:
 
-* [Always On availability groups](https://technet.microsoft.com/library/hh510230.aspx)
-* [Always On failover cluster instances](https://technet.microsoft.com/library/ms189134.aspx)
-* [Log Shipping](https://technet.microsoft.com/library/ms187103.aspx)
-* [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx)
-* [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx) - Deprecated in SQL Server 2016
+* [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Always On failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+* [Log Shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
+* [SQL Server Backup and Restore with Azure Blob Storage Service](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+* [Database Mirroring](/sql/database-engine/database-mirroring/database-mirroring-sql-server) - Deprecated in SQL Server 2016
 
 It is possible to combine the technologies together to implement a SQL Server solution that has both high-availability and disaster recovery capabilities. Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
@@ -119,10 +120,8 @@ Availability group listeners are supported on Azure VMs running Windows Server 2
 
 There are two main options for setting up your listener: external (public) or internal. The external (public) listener uses an internet facing load balancer and is associated with a public Virtual IP (VIP) that is accessible over the internet. An internal listener uses an internal load balancer and only supports clients within the same Virtual Network. For either load balancer type, you must enable Direct Server Return. 
 
-If the availability group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
+If the availability group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include `MultisubnetFailover=True`. This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see[Configure an ILB listener for availability groups in Azure](availability-group-listener-powershell-configure.md).
 
-* [Configure an ILB listener for availability groups in Azure](availability-group-listener-powershell-configure.md).
-* [Configure an external listener for availability groups in Azure](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, since availability groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:
 
@@ -149,7 +148,7 @@ Geo-replication in Azure disks does not support the data file and log file of th
 
 ## Next steps
 
-Decide if an [availability group](availability-group-overview.md) or a [failover cluster instance](failover-cluster-instance-overview.md) is the best solution for your business, and then review the [best practices](hadr-high-availability-disaster-recovery-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+Decide if an [availability group](availability-group-overview.md) or a [failover cluster instance](failover-cluster-instance-overview.md) is the best business continuity solution for your business, and then review the [best practices](hadr-high-availability-disaster-recovery-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
 
 

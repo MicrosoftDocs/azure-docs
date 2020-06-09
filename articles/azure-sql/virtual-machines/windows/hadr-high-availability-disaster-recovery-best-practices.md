@@ -81,7 +81,7 @@ One thing to be aware of is that on an Azure virtual machine guest failover clus
 
 In a traditional on-premises network environment, a SQL Server failover cluster instance (FCI) appears to be a single instance of SQL Server running on a single computer.  Since the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application connecting to SQL Server and this minimizes the downtime the application or clients experience during a failure. 
 
-Use an Azure load balancer or a distributed network name (DNN) to route traffic to the virtual network name of the failover cluster instance with a SQL Server on Azure VM. The distributed network name feature is currently only available for SQL Server 2019 on a Windows Server 2019 virtual machine. 
+Use an **Azure Load Balancer** or a **distributed network name (DNN)** to route traffic to the virtual network name of the failover cluster instance with a SQL Server on Azure VM. The distributed network name feature is currently only available for SQL Server 2019 on a Windows Server 2019 virtual machine. 
 
 ### Azure Load Balancer
 
@@ -89,7 +89,7 @@ Since the virtual network name IP does not work in Azure, you can configure an [
 
 There is a slight failover delay when using the load balancer as the health probe conducts alive checks every 10 seconds by default. 
 
-To get started, learn how to [configure an Azure load balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
+To get started, learn how to [configure an Azure Load Balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
 
 **Supported OS**: Windows Server 2012 and greater   
 **Supported SQL version**: SQL Server 2012 and greater   
@@ -128,9 +128,9 @@ To get started, learn how to [configure a distributed network name (DNN) resourc
 
 1. Is there any version requirement for SQL Clients to support DNN with OLEDB and ODBC?
 
-   `MultiSubnetFailover=True` connection string support is necessary for DNN, and is available starting with SQL Server 2012 (11.x). 
+   `MultiSubnetFailover=True` connection string support is necessary for DNN, and is available starting with SQL Server 2012 (11.x).
 
-1.  Are there any configuration changes required to SQL Server to use DNN?
+1. Are there any SQL Server configuration changes required for to  use DNN? 
 
    SQL Server does not require any configuration change to use DNN, but there are some SQL Server features that may require additional consideration. 
 

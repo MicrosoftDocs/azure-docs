@@ -142,7 +142,7 @@ The following list describes the values that you need to update:
 
    - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
 
-   - `<SQL Server FCI IP Address Resource Name>`: The SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
+   - `<SQL Server FCI IP Address Resource Name>`: The SQL Server IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
 
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
@@ -186,7 +186,9 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 ## Next steps
 
-For more information, see the following articles: 
+If you haven't already, register your SQL Server FCI with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode). Alternatively, unregistered SQL Server VMs participating in an availability group can register in [full mode][lightweight management mode](sql-vm-resource-provider-register.md#full-management-mode). 
+
+To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-high-availability-disaster-recovery-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
 
 

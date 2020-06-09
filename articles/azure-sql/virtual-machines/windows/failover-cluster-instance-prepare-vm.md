@@ -20,7 +20,7 @@ ms.author: mathoma
 
 This article describes how to prepare two Azure Virtual Machines (VMs) to use with a SQL Server failover cluster instance (FCI). Configuration settings vary depending on the FCI storage solution so validate you're choosing the correct configuration to suit your environment and business. 
 
-See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
 
 ## Prerequisites 
 
@@ -52,7 +52,7 @@ Carefully select the VM availability option that matches your intended cluster c
 
 ## Create the virtual machine
 
-Once you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or does not have SQL Server already installed on it. However, if you choose a SQL Server on Azure VM, you will need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
+Once you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or does not have SQL Server already installed on it. However, if you choose a SQL Server on Azure VM image, you will need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
 If you're deploying a virtual machine with storage already attached, be sure to select at least 2 premium SSDs. We recommend at least P30 (1-TB) disks.
 
@@ -63,16 +63,16 @@ If you're deploying a virtual machine with storage already attached, be sure to 
    - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
    - In the Azure availability set or availability zone.
 
-You can create an Azure Virtual Machine using an image with [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server pre-installed to it, but you will need manually uninstall the SQL Server instance before installing the failover cluster instance. 
+You can create an Azure Virtual Machine using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server pre-installed to it, but if you choose the SQL Server image you will need manually uninstall the SQL Server instance before installing the failover cluster instance. 
 
 
 ## Uninstall SQL Server
 
-As part of the FCI creation process, you will install SQL Server as a clustered instance to the failover cluster. If you deployed a virtual machine with an Azure marketplace image without SQL Server, you can skip this step. If you deployed an image with SQL Server pre-installed, you will need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
+As part of the FCI creation process, you will install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server pre-installed, you will need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
 
 ### Unregister from the SQL VM resource provider
 
-SQL Server VM images from the Azure marketplace are automatically registered with the SQL VM resource provider. Before uninstalling the pre-installed SQL Server instance, you must first unregister each SQL Server VM from the SQL VM resource provider. See [unregister from SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-vm-from-rp) to learn more. 
+SQL Server VM images from the Azure marketplace are automatically registered with the SQL VM resource provider. Before uninstalling the pre-installed SQL Server instance, you must first unregister each SQL Server VM from the SQL VM resource provider. See [unregister from SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-from-the-rp) to learn more. 
 
 ### Uninstall SQL Server
 
@@ -101,6 +101,8 @@ To uninstall SQL Server, follow these steps on each virtual machine:
 On each virtual machine, open the Windows Firewall TCP port used by SQL Server. By default, this is port 1433, but you have the option to change the port SQL Server on Azure VM deployment so open the port SQL Server uses in your environment. This port is automatically open on SQL Server images deployed from the marketplace. 
 
 Additionally, if you use a [load balancer](failover-cluster-instance-connectivity-configure.md#azure-load-balancer), you will also need to open the port used by the health probe. By default, this is port 59999, but it can be any TCP port that you specify at the time of load balancer creation. 
+
+This table details the ports you may need to open depending on your FCI configuration: 
 
    | Purpose | Port | Notes
    | ------ | ------ | ------
@@ -139,4 +141,4 @@ See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

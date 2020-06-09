@@ -72,7 +72,7 @@ To get started, see [SQL Server failover cluster instance storage spaces direct]
 **Supported OS**:    
 **Supported SQL version**:    
 
-## Premium file share
+### Premium file share
 
 [Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
@@ -108,7 +108,7 @@ For third-party shared storage and data replication solutions, you should contac
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [dynamic network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
+Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
 
 To learn more, see [Route HADR connections with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-best-practices.md#route-connections). 
 
@@ -160,6 +160,8 @@ Using a linked server with an FCI DNN is supported. Either use the DNN directly 
 
 
 ## Limitations
+
+Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines: 
 
 ### Lightweight resource provider
 
