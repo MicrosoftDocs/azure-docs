@@ -36,7 +36,7 @@ You can rely on platform-managed keys for the encryption of your managed disk, o
 
 ### End to end encryption
 
-When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the ABC cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
+When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the disk cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
 
 
 The following sections describe each of the options for key management in greater detail.
