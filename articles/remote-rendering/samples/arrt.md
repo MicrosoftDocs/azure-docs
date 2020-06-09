@@ -9,9 +9,11 @@ ms.topic: sample
 
 # Azure Remote Rendering Asset Tool (ARRT)
 
+Azure Remote Rendering Asset Tool (ARRT) is an open-source desktop application developed in C++/Qt.
+
 ![ARRT](./media/arrt.png "ARRT screenshot")
 
-Azure Remote Rendering Asset Tool (ARRT) is an open-source desktop application developed in C++/Qt.
+## Features
 
 The application can be used to:
 
