@@ -77,7 +77,7 @@ Azure Migrate Server Migration runs a lightweight VMware VM appliance. The appli
 - If you followed the [tutorial to assess VMware VMs](tutorial-assess-vmware.md), you already set up the appliance during that tutorial.
 - If you didn't follow that tutorial, you can set up the appliance now, using one of these methods:
     - [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
-    - Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
+    - Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
@@ -86,7 +86,7 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 
 Azure Migrate requires some VM changes to ensure that VMs can be migrated to Azure.
 
-- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)
+- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless)
 - If you're migrating a VM that doesn't have one of these operating systems, follow the instructions to prepare the VM.
 - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 - Configuration changes you make on on-premises VMs are replicated to Azure after replication for the VM is enabled. To ensure that changes are replicated, make sure that the recovery point you migrate to is later than the time at which the configuration changes were made on-premises.

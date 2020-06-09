@@ -73,7 +73,7 @@ For other operating systems, you must manually prepare machines before migration
 
 ### Prepare Windows machines for migration
 
-Some Windows machines require changes so that they can run in Azure. Azure Migrate:Server Migration makes these changes automatically for some operatng systems, as summarized in the table. 
+Some Windows machines require changes so that they can run in Azure. Azure Migrate:Server Migration makes these changes automatically for some operating systems, as summarized in the table. 
 
 **Action** | **Windows on VMware** | **Windows on Hyper-V** | **Windows on physical machines**
 --- | --- | --- | ---

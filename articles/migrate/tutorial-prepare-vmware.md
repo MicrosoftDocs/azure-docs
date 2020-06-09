@@ -130,10 +130,10 @@ You can migrate VMware VMs using [agentless or agent-based migration](server-mig
 
 1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agentless migration.
 2. [Review](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless) hypervisor requirements for machines you want to migrate.
-3. [Review](migrate-support-matrix-vmware-migration.md#avm-requirements-agentless) VMware VMs requirements for agentless migration.
+3. [Review](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless) VMware VMs requirements for agentless migration.
 4. [Review](migrate-support-matrix-vmware-migration.md#appliance-requirements-agentless) the Azure Migrate appliance requirements.
 5. Note the URL access required for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-6. Review [port access](migrate-support-matrix-vmware-migration.md#agentless-ports) requirements.
+6. Review [port access](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) requirements.
 
 ### Set up permissions for agentless migration
 
@@ -164,7 +164,7 @@ Alternatively, you can create an account. Then create a role, and assign it to t
 You can migrate VMware VMs using [agentless or agent-based migration](server-migrate-overview.md). This section summarizes the requirements for agent-based migration.
 
 1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agent-based migration.
-1. [Review](migrate-support-matrix-vmware-migration.md#hhypervisor-requirements-agent-based) hypervisor requirements for machines you want to migrate.
+1. [Review](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agent-based) hypervisor requirements for machines you want to migrate.
 2. [Review](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VMware VMs requirements, including installation of the Mobility service on each VM you want to migrate.
 3. Agent-based migration uses a replication appliance:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance.
