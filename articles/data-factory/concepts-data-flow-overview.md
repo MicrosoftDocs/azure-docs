@@ -18,7 +18,7 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 
 Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on your execution cluster for scaled-out data processing. Azure Data Factory handles all the code translation, path optimization, and execution of your data flow jobs.
 
-![Architecture](media/data-flow/adfdataflows.png "Architecture")
+![Architecture](media/data-flow/adf-data-flows.png "Architecture")
 
 ## Getting started
 
