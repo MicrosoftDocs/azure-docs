@@ -39,7 +39,7 @@ The template used in this quickstart is from [Azure Quickstart Templates]().
 
 The syntax for the code fence is: -->
 
-:::code language="json" source="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json" range="000-000" highlight="000-000":::
+:::code language="json" source="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json":::
 
 <!-- For visibility, use highlight for the template's "resources": section. -->
 
