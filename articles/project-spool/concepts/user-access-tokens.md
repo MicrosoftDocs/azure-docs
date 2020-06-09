@@ -139,7 +139,7 @@ const chatClient = new ChatClient(resourceUrl, userCredential);
 const callingClient = await CallingFactory.create(userCredential);
 ```
 
-## Lazy loading user access tokens
+## Caching user access tokens
 
 By default, the Azure Communication Services SDKs cache user access tokens in memory. This works well for long-running client applications but is not optimized for implementing communication functionality in a stateless web service (e.g. a chatbot).
 
@@ -159,7 +159,7 @@ var userCredential = new CommunicationUserCredential(async () => {
 
     // set the token in the cache for the next request
     await CacheAccessToken(
-        key: username, 
+        key: userName, 
         value: tokenResult.token, 
         ttl: tokenResult.ttl
     );
