@@ -80,7 +80,7 @@ Remember to replace the placeholder values in the example with your own values:
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $keyVaultName = "<key-vault>"
-$keyVaultUri = "<key-vault-uri-with-version>"
+$keyUri = "<key-uri-with-version>"
 $scopeName2 = "customer2scope"
 
 
@@ -102,7 +102,7 @@ Next, call the **New-AzStorageEncryptionScope** command with the `-KeyvaultEncry
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -AccountName $accountName `
     -EncryptionScopeName $scopeName2 `
-    -KeyUri $keyVaultUri `
+    -KeyUri $keyUri `
     -KeyvaultEncryption
 ```
 
@@ -180,14 +180,14 @@ To view the encryption scopes for a storage account in the Azure portal, navigat
 To list the encryption scopes available for a storage account with PowerShell, call the Get-AzStorageEncryptionScope command. Remember to replace the placeholder values in the example with your own values:
 
 ```powershell
-Get-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
-    -StorageAccountName <storage-account>
+Get-AzStorageEncryptionScope -ResourceGroupName $rgName `
+    -StorageAccountName $accountName
 ```
 
 To list all encryption scopes in a resource group by storage account, use the pipeline syntax as follows:
 
 ```powershell
-Get-AzStorageAccount -ResourceGroupName <resource_group> | Get-AzStorageEncryptionScope
+Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 ```
 
 # [Azure CLI](#tab/cli)
@@ -329,7 +329,7 @@ To change the key that protects an encryption scope from a Microsoft-managed key
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
-    -KeyUri $keyVaultUri `
+    -KeyUri $keyUri `
     -KeyvaultEncryption
 ```
 
