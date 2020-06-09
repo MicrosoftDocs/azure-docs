@@ -201,6 +201,7 @@ Microsoft then prepares and dispatches your device through a regional carrier. Y
 If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter.
 
 <!-- Anusha 06/04/20: Insert screenshot for export order in ready for pick up state -->
+<!-- priestlg 06/08/20: Alpa says that might have an existing picture for MMS, that I can use. The only ones I've been able to find is from FIGMA, which has the older UI and shouldn't be used. -->
 
 ## Cancel the order
 
