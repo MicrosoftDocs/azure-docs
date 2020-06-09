@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
+ms.date: 06/09/2020
 ---
 
 # What are mapping data flows?
@@ -25,6 +25,8 @@ To create a data flow, select the plus sign under **Factory Resources**, and the
 ![New data flow](media/data-flow/newdataflow2.png "new data flow")
 
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
+
+![Architecture](media/data-flow/adfdataflows.png "Canvas")
 
 ## Data flow canvas
 
