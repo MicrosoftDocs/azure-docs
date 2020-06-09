@@ -751,10 +751,10 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
-
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+
+The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
 
 > [!NOTE]
 > The certificate for Public cloud and sovereign cloud will be different.

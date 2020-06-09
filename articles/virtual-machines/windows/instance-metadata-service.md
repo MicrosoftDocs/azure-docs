@@ -723,10 +723,10 @@ $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```
 
-The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
-
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+
+The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
 
 > [!NOTE]
 > The certificate for Public cloud and each sovereign cloud will be different.
