@@ -15,7 +15,7 @@ You learn how to:
 > * Upload an ISO to the content library
 > * Deploy a VM using an ISO in the Content Library
 
-## Prerequisties
+## Prerequisites
 
 An NSX-T logical switch segment created in a [previous tutorial](tutorials-create-t1-ls.md) is required to complete this tutorial.
 
@@ -51,7 +51,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. From the on-premises vSphere Client, select **Menu > Content Libraries**.
 
-1. Right-click the content library you will use for a new ISO and select **Import Item**.
+1. Right-click the content library you want to use for a new ISO and select **Import Item**.
 
 1. Import a library item by doing one of the following for the Source, and then click **Import**:
    1. Select URL and provide a URL to download an ISO.
@@ -77,13 +77,13 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Select the ISO uploaded in the previous section and then click **OK**.
 
-1. Select the **Connect** check box so the ISO is mounted at power on time.
+1. Select the **Connect** check box so the ISO is mounted at power-on time.
 
 1. Select **New Network > Select dropdown > Browse**.
 
 1. Select the **logical switch (segment)** and click **OK**.
 
-1. Modify any other hardware settings as desired and click **Next**.
+1. Modify any other hardware settings and click **Next**.
 
 1. Verify the settings and click **Finish**.
 
