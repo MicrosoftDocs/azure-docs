@@ -1,6 +1,6 @@
 ---
-title: Overview of availability groups
-description: "This article introduces SQL Server Availability Groups on Azure Virtual Machines."
+title: Overview of SQL Server Always On availability groups
+description: This article introduces SQL Server Always On availability groups on Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -20,7 +20,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Introducing SQL Server availability groups on Azure Virtual Machines
+# Introducing SQL Server Always On availability groups on Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
