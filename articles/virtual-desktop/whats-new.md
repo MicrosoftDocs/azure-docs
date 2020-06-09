@@ -27,7 +27,7 @@ Last month, we introduced the Windows Virtual Desktop Spring 2020 release. This 
 
 ### Windows Virtual Desktop is now an Azure Resource Manager service
 
-Windows Virtual Desktop is now an Azure Resource Manager service. In the Spring 2020 release, all Windows Virtual Desktop objects are now Azure Resource Manager resources. Since the Windows Virtual Desktop Spring 2020 release has integrated with the Azure portal, users can use Azure Resource Manager to interact the Azure service fabric. See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
+Windows Virtual Desktop is now an Azure Resource Manager service. In the Spring 2020 release, all Windows Virtual Desktop objects are now Azure Resource Manager resources. Since the Windows Virtual Desktop Spring 2020 release is integrated with the Azure portal, users can use Azure Resource Manager to interact the Azure service fabric. See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
 Here's what this change does for you:
 
