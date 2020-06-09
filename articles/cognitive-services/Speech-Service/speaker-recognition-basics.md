@@ -330,5 +330,7 @@ public static async Task DeleteProfile(SpeechConfig config, string profileId)
 
 ## Next steps
 
-See the Speaker Recognition [reference documentation](https://docs.microsoft.com/rest/api/speakerrecognition/) for detail on classes and functions.
+* See the Speaker Recognition [reference documentation](https://docs.microsoft.com/rest/api/speakerrecognition/) for detail on classes and functions.
+
+* See [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) and [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) samples on GitHub.
 
