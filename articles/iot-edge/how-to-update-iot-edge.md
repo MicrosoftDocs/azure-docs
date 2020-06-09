@@ -27,7 +27,7 @@ Check the version of the security daemon running on your device by using the com
 
 ### Linux devices
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
+On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version. 
 
 Get the latest package list from Microsoft:
 
@@ -74,16 +74,16 @@ Check to see which versions of IoT Edge are available.
    apt list -a iotedge
    ```
 
-If you want to install the most recent version of the security daemon, use the following command:
+If you want to update to the most recent version of the security daemon, use the following command which also updates **libiothsm-std** to the latest version:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-If you want to install a specific version of the security daemon, specify the version from the apt list output. For example, the following command installs the most recent version of the 1.0.9 release:
+If you want to update to a specific version of the security daemon, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.0.9 release:
 
    ```bash
-   sudo apt-get install iotedge=1.0.9*
+   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
    ```
 
 If the version that you want to install is not available through apt-get, you can use curl to target any version from the [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) repository. For whichever version you want to install, locate the appropriate **libiothsm-std** and **iotedge** files for your device. For each file, right-click the file link and copy the link address. Use the link address to install the specific versions of those components:
@@ -200,9 +200,9 @@ Two components are used to update an IoT Edge device:
 
 Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through testing and validation. If you want to test a new feature early, you can install an RC version and provide feedback through GitHub.
 
-Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.7-rc1** and **1.0.7-rc2**, the two release candidates that came before **1.0.7**. You can also see that RC versions are marked with **pre-release** labels.
+Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.9-rc5** and **1.0.9-rc6**, two of the release candidates that came before **1.0.9**. You can also see that RC versions are marked with **pre-release** labels.
 
-The IoT Edge agent and hub modules have RC versions that are tagged with the same convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.0.7-rc2**.
+The IoT Edge agent and hub modules have RC versions that are tagged with the same convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6**.
 
 As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. For the most part, installing or updating to an RC version is the same as targeting any other specific version of IoT Edge.
 
@@ -210,11 +210,11 @@ Use the sections in this article to learn how to update an IoT Edge device to a 
 
 If you're installing IoT Edge on a new machine, use the following links to learn how to install a specific version depending on your device operating system:
 
-* [Linux](how-to-install-iot-edge-linux.md#install-a-specific-runtime-version)
+* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
 * [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
 
 ## Next steps
 
 View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-Stay up-to-date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/)
+Stay up-to-date with recent updates and announcements in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/)

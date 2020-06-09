@@ -92,8 +92,6 @@ If you get errors when installing the Moby container runtime, follow the steps t
 
 The **IoT Edge security daemon** provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The installation command also installs the appropriate version of the **libiothsm-std** package if not already present.
-
 Update package lists on your device.
 
    ```bash
@@ -106,16 +104,16 @@ Check to see which versions of IoT Edge are available.
    apt list -a iotedge
    ```
 
-If you want to install the most recent version of the security daemon, use the following command:
+If you want to install the most recent version of the security daemon, use the following command which also installs the latest version of the **libiothsm-std** package:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-If you want to install a specific version of the security daemon, specify the version from the apt list output. For example, the following command installs the most recent version of the 1.0.9 release:
+If you want to install a specific version of the security daemon, specify the version from the apt list output. Also specify the same version for the **libiothsm-std** package, which otherwise would install its latest version. For example, the following command installs the most recent version of the 1.0.8 release:
 
    ```bash
-   sudo apt-get install iotedge=1.0.9*
+   sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
    ```
 
 If the version that you want to install isn't listed, follow the steps in [Install runtime using release assets](#install-runtime-using-release-assets). That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
