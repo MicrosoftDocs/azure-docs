@@ -207,7 +207,7 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
 
-To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
+To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 ## Locate and copy your connection string
 A connection string is required to configure storage. Keep this connection string for the next steps.
