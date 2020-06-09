@@ -179,7 +179,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<guid>_CustomAttribute": "custom attribute value",
+ "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -270,7 +270,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<guid>_CustomAttribute": "custom attribute value",
+ "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -295,7 +295,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<guid>_CustomAttribute": "custom attribute value"
+ "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value"
 }
 ```
 
@@ -307,7 +307,7 @@ Content-type: application/json
 | userType | Yes | Must be `Guest`. Designates this user as a guest user. |
 | identities  | Yes  | The federated identity information. |
 | \<otherBuiltInAttribute>  | No  | Other built-in attributes like `displayName`, `city`, and others. Parameter names are the same as the parameters sent by the API connector.|
-| \<extension_\<guid>\_CustomAttribute> | No | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector. |
+| \<extension_\<aad-extensions-app-id>\_CustomAttribute> | No | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector. |
 
 ### For a federated Azure Active Directory user
 
@@ -323,7 +323,7 @@ Content-type: application/json
  "email_address": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<guid>_CustomAttribute": "custom attribute value",
+ "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -363,7 +363,7 @@ Content-type: application/json
 {
     "displayName": "John Smith",
     "city": "Redmond",
-    "extension_<guid>_AttributeName": "custom attribute value"
+    "extension_<aad-extensions-app-id>_AttributeName": "custom attribute value"
 }
 ```
 

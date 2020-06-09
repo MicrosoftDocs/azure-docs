@@ -80,8 +80,8 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "postalCode": "33971",
- "extension_<guid>_CustomAttribute1": "custom attribute value",
- "extension_<guid>_CustomAttribute2": "custom attribute value",
+ "extension_<aad-extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<aad-extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -90,7 +90,7 @@ The **UI Locales ('ui_locales')** claim is sent by default in all requests. It p
 
 If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
 
-Custom attributes can be created for the user using the **extension_\<guid>_\<AttributeName>** format. Your API should expect to receive and return claims in this same serialized format. For more information regarding custom attributes, see [Define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md)..
+Custom attributes can be created for the user using the **extension_\<aad-extensions-app-id>_\<AttributeName>** format. Your API should expect to receive claims in this same serialized format. Your API can return claims in that same format but without the `<aad-extensions-app-id>`. <!--TODO: update once fix is rolled out--> For more information about custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 > [!TIP]
 > [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
@@ -108,9 +108,9 @@ When the Web API receives an HTTP request from Azure AD during a user flow, it c
 
 A continuation response indicates that the user flow should continue to the next step. In a continuation response, the API can return claims.
 
-If a claim is returned by the API and selected in the expected response configuration, the claim does the following:
+If a claim is returned by the API and selected as a **Claim to receive**, the claim does the following:
 
-- Pre-fills input fields in the attribute collection page if the API connector is invoked before the page is presented. The claim must be selected in the **User attributes** for the user flow.
+- Pre-fills input fields in the attribute collection page if the API connector is invoked before the page is presented.
 - Overrides any value that has already been assigned to the claim.
 - Assigns a value to the claim if it was previously null.
 
@@ -123,7 +123,7 @@ Content-type: application/json
     "version": "1.0.0", 
     "action": "Continue",  
     "postalCode": "12349", // return claim 
-    "external_CustomAttribute": "value" // return claim 
+    "extension_CustomAttribute": "value" // return claim 
 }
 ```
 
@@ -132,7 +132,7 @@ Content-type: application/json
 | version | String | Yes | The version of the API. |
 | action  | String | Yes | Value must be `Continue`. |
 | \<builtInUserAttribute> | \<attribute-type> | No  | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**. |
-| \<external_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have the `_<guid>_`. Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow.  Custom attributes cannot sent back in the token. |
+| \<extension_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have `_<aad-extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow.  Custom attributes cannot sent back in the token. |
 
 ### Blocking Response
 
