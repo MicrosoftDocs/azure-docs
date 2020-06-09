@@ -19667,6 +19667,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-azure-backup-server-import-export-.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-server-import-export",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/tutorial-backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
       "redirect_document_id": false

@@ -1,11 +1,13 @@
 ---
-title: Offline backup for DPM and Azure Backup Server
+title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS) - previous versions
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
-ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 06/08/2020
 ---
-# Offline backup workflow for DPM and Azure Backup Server
+# Offline backup workflow for DPM and Azure Backup Server (previous versions)
+
+>[!IMPORTANT]
+>These steps are applicable for DPM 2019 RTM and earlier versions and MABS v3 RTM and earlier versions.
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
 
@@ -52,7 +54,7 @@ Ensure that the following prerequisites are met before you start the offline bac
 
 * An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file.
 
-  ![Create a storage account with Resource Manager development](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
+  ![Create a storage account with Resource Manager development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you want to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * For disks sent to Azure, ensure that only 2.5-inch SSD or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
@@ -92,7 +94,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
 1. Go to **Azure Active Directory** > **App registrations**.
 1. On the **Owned applications** tab, locate an application with the display name format `AzureOfflineBackup _<Azure User Id`.
 
-    ![Locate application on Owned applications tab](./media/backup-azure-backup-import-export/owned-applications.png)
+    ![Locate application on Owned applications tab](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Select the application. Under **Manage** on the left pane, go to **Certificates & secrets**.
 1. Check for preexisting certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
@@ -101,7 +103,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
 1. Go to the Azure offline backup application in the Azure portal.
 1. Select **Manage** > **Certificates & secrets** > **Upload certificate**. Upload the certificate exported in the previous step.
 
-    ![Upload the certificate](./media/backup-azure-backup-import-export/upload-certificate.png)
+    ![Upload the certificate](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. On the server, open the registry by entering **regedit** in the run window.
 1. Go to the registry entry *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
@@ -110,13 +112,13 @@ Follow these steps to manually upload the offline backup certificate to a previo
     >[!NOTE]
     > To find the Azure user ID, do one of the following steps:
     >
-    >* From the Azure-connected PowerShell, run the `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` command.
+    >* From the Azure-connected PowerShell, run the `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` command.
     >* Go to the registry path `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`.
 
 1. Right-click the string added in the previous step, and select **Modify**. In the value, provide the thumbprint of the certificate you exported in step 7. Then select **OK**.
 1. To get the value of the thumbprint, double-click the certificate. Select the **Details** tab, and scroll down until you see the thumbprint field. Select **Thumbprint**, and copy the value.
 
-    ![Copy value from the thumbprint field](./media/backup-azure-backup-import-export/thumbprint-field.png)
+    ![Copy value from the thumbprint field](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
 
 1. Continue to the [Workflow](#workflow) section to proceed with the offline backup process.
 
@@ -128,11 +130,11 @@ The information in this section helps you finish the offline backup workflow so 
 
 1. When you schedule a backup, you see the following page in Windows Server, a Windows client, or DPM.
 
-    ![Import page](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
+    ![Import page](./media/offline-backup-dpm-mabs-previous-versions/offline-backup-screen-inputs.png)
 
     Here's the corresponding page in DPM. <br/>
 
-    ![DPM and Azure Backup Server import page](./media/backup-azure-backup-import-export/dpmoffline.png)
+    ![DPM and Azure Backup Server import page](./media/offline-backup-dpm-mabs-previous-versions/dpm-offline.png)
 
     The boxes that you fill in are:
 
@@ -147,15 +149,15 @@ The information in this section helps you finish the offline backup workflow so 
 
 1. Finish the workflow. To initiate the offline backup copy, select **Back Up Now** on the Azure Backup Agent management console. The initial backup is written to the staging area as part of this step.
 
-    ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Backup now](./media/offline-backup-dpm-mabs-previous-versions/backup-now.png)
 
     To finish the corresponding workflow in DPM or Azure Backup Server, right-click the **Protection Group**. Select the **Create recovery point** option. Then select the **Online Protection** option.
 
-    ![DPM and MABS Back Up Now](./media/backup-azure-backup-import-export/dpmbackupnow.png)
+    ![DPM and MABS Back Up Now](./media/offline-backup-dpm-mabs-previous-versions/dpm-backup-now.png)
 
     After the operation finishes, the staging location is ready to be used for disk preparation.
 
-    ![Backup progress](./media/backup-azure-backup-import-export/opbackupnow.png)
+    ![Backup progress](./media/offline-backup-dpm-mabs-previous-versions/op-backup-now.png)
 
 ### Prepare SATA drives and ship to Azure
 
@@ -188,7 +190,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
-    ![Azure disk preparation tool input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
+    ![Azure disk preparation tool input](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 
@@ -196,11 +198,11 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     After the tool finishes successfully, one or more disks that you provided are prepared for shipping to Azure. An import job with the name you provided during the workflow in the "Initiate offline backup" section also is created in Azure. Finally, the tool displays the shipping address to the Azure datacenter where the disks need to be shipped.
 
-    ![Azure disk preparation finished](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
+    ![Azure disk preparation finished](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-success.png)<br/>
 
 1. At the end of the command execution, you also see the option to update shipping information.
 
-    ![Update shipping information option](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
+    ![Update shipping information option](./media/offline-backup-dpm-mabs-previous-versions/update-shipping-utility.png)<br/>
 
 1. You can enter the details right away. The tool guides you through the process that involves a series of inputs. If you don't have information like the tracking number or other details related to shipping, you can end the session. The steps to update shipping details later are provided in this article.
 
@@ -225,15 +227,15 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     The utility automatically detects the import job that the source computer is waiting on or the import jobs associated with the staging location when the command is run on a different computer. It then provides the option to update shipping information through a series of inputs.
 
-    ![Enter shipping information](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
+    ![Enter shipping information](./media/offline-backup-dpm-mabs-previous-versions/shipping-inputs.png)<br/>
 
 1. After all the inputs are provided, review the details carefully and commit the shipping information you provided by entering **yes**.
 
-    ![Review shipping information](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
+    ![Review shipping information](./media/offline-backup-dpm-mabs-previous-versions/review-shipping-information.png)<br/>
 
 1. After the shipping information is successfully updated, the utility provides a local location where the shipping details you entered are stored.
 
-    ![Store shipping information](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
+    ![Store shipping information](./media/offline-backup-dpm-mabs-previous-versions/storing-shipping-information.png)<br/>
 
    > [!IMPORTANT]
    > Ensure that the drives reach the Azure datacenter within two weeks of providing the shipping information by using the *AzureOfflineBackupDiskPrep* utility. Failure to do so can result in the drives not being processed.
@@ -258,7 +260,7 @@ To check the import job status:
 
 1. The output shows the current status of the import job.
 
-    ![Check import job status](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
+    ![Check import job status](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
 For more information on the various states of the Azure import job, see [View the status of Azure Import/Export jobs](../storage/common/storage-import-export-view-drive-status.md).
 
@@ -266,7 +268,7 @@ For more information on the various states of the Azure import job, see [View th
 
 After the import job finishes, initial backup data is available in your storage account. At the time of the next scheduled backup, Azure Backup copies the contents of the data from the storage account to the Recovery Services vault.
 
-   ![Copy data to Recovery Services vault](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
+   ![Copy data to Recovery Services vault](./media/offline-backup-dpm-mabs-previous-versions/copying-from-storage-account-to-azure-backup.png)<br/>
 
 At the time of the next scheduled backup, Azure Backup performs incremental backup over the initial backup copy.
 
