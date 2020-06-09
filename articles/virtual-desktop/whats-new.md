@@ -23,7 +23,7 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 ## June 2020
 
-Last month, we released the Windows Virtual Desktop Spring 2020 release. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 release as well as the updates we've made in the month since.
+Last month, we released the Windows Virtual Desktop Spring 2020 release. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 release, along with the updates we've made over the past month.
 
 ### Windows Virtual Desktop is now an Azure Resource Manager service
 
@@ -41,7 +41,7 @@ Here's what this change does for you:
 
 - Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
-- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You can now either run Kusto queries and use Workbooks to create visual reports, or integrate with Power BI to use enhanced visualizations.
+- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and usw Workboosk to create visual reports. You can also integrate with Power BI to use enhanced visualizations.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 release, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
