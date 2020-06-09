@@ -91,13 +91,13 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ## Java V4 SDK
 
-#### [Async](#tab/javav4-api-async)
+#### [Async](#tab/asyncjava)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
 
-#### [Sync](#tab/javav4-api-sync)
+#### [Sync](#tab/syncjava)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
@@ -107,7 +107,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a id="override-default-consistency-javav2"></a>Java V2 SDKs
 
-# [Java Async SDK](#tab/asyncjavav2)
+# [Java Async SDK](#tab/asyncjava)
 
 [Async Java V2 SDK](sql-api-sdk-async-java.md) (Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
@@ -123,7 +123,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# [Java Sync SDK](#tab/syncjavav2)
+# [Java Sync SDK](#tab/syncjava)
 
 [Sync Java V2 SDK](sql-api-sdk-java.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
