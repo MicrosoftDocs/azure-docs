@@ -70,12 +70,12 @@ Creating and deploying the inference cluster can take up to 30 minutes. Testing 
 
 Section 4 in the notebook has four cells that update the skillset and indexer. Alternatively, you can use the portal to select and apply the new skill to the skillset and then run the indexer to update the search service.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s/03/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s:paused/03/player]
 
 In the portal, go to Skillset and select the Skillset Definition (JSON) link. The portal will display the JSON of your skillset that was created in the first cells of the notebook. To the right of the display there is a dropdown menu where you can select the skill definition template. Select the Azure Machine Learning (AML) template. provide the name of the Azure ML workspace and the endpoint for the model deployed to the inference cluster. The template will be updated with the endpoint uri and key.
 
 > [!div class="mx-imgBorder"]
-> ![Skill definition template](media/cognitive-search-aml-skill/portal-skillset-definition.png)
+> ![Skill definition template](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
 
 Copy the skillset template from the window and paste it into the skillset definition on the left. Edit the template to provide the missing values for name, description, context, 'inputs' name and source, and the 'outputs' name and targetName. Save the skillset.
 
