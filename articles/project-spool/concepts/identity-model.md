@@ -15,62 +15,49 @@ ms.service: azure-project-spool
 
 # Identity model
 
-Every entitiy in ACS world, a user, bot or pstn number is represented by an Identity type.
+Every entitiy in ACS world, a user, bot or pstn number is represented by special type.
 Depending on the type, for:
-* user, Identity represents an object in ACS world that maps to a user entity in your system, identified by a unique userId provided for that user at the time when he was created using ACS management SDK
-* pstn numbers, Identity represents an object in ACS world that maps to a phone number.
-* bot, Identity represents an object in ACS world that maps to a particular bot, identified by bot APP Id
+* user, UserIdentity represents an object in ACS world that maps AcsID to a to an entity in your system
+* pstn numbers, PhoneNumberIdentity represents an entity in ACS world that maps to a phone number.
+* bot, BotIdentity represents an entity in ACS world that maps to a particular bot, identified by bot APP ID
 
-When your application interacts with other entities in the ACS system through ACS client SDKs you'll use Identity objects.
-Identity defines set of properties:
+When your application interacts with other entities in the ACS system through ACS client SDKs you'll use corresponding Identity objects.
+Identity types defines set of properties:
 * type - user | bot | pstn
 * identity:
-  * APP ID for a bot type
-  * phone number for a pstn type
-  * user identity in your system that is resolved asynchronously using ACS Mapping Service or via custom resolver
+  * APP ID - representing id of a 1p or 3p bot provisioned through ACS
+  * phone number
+  * ACS ID - a GUID generated for a userId provided when user is created using ACS Management SDK
 
 Identity interface:
 ```cs
+public enum IdentityType
+{
+  User,
+  Bot,
+  Pstn
+}
 interface IIdentity
     {
         IdentityType Type { get; }
-        Task<string> Identity { get; }
+        string AcsId { get; }
     }
+ interface IUserIdentity: IIdentity {}
+ interface IBotIdentity: IIdentity {}
+ interface IPstnIdentity: IIdentity {}
+
 ```
-
-> akania Simplifying interface to type/Identity that is always resolved async - is it better? it's noop for pstn and bot since there's nothing to resolve, it makes sense only for a user
-
-> akania Skipping custom properties that can be set only if contoso uses custom resolver - [check this PR](https://skype.visualstudio.com/SCC/_git/async_spool_core/pullrequest/350021)
-
-> akania Would it be ok to have separate Identity classes for all the types, ie UserIdentity, PstnIdentity, BotIdentity?
-For contoso, difference between creating a UserIdentity vs Identity(type: user) is negligible
-When contoso is given an Identity from SDK,ie participants in roster represented by Identities - contoso still has to perform some checks to learn what type of identity it is dealing with, it can check type property, or check if object is an instace of.. - again small difference - using type property is better
-Only real difference in semantics is for user type - when contoso want's to resolve identity to get userId from their system
-Separate types for user|bot|pstn - can better represent real behavior - there's no async step to resolve pstn/bot but interfaces won't be aligned for all types.
-
-> akania An alternative - if we don't want to have Identity type, all interfaces/types in ACS SDK would need to clearly define 'type' of entity, ie
-```js
-call({bots: [appid1, appid2...], users: ['bob', 'alice'...], pstn: ['+1123', '+2345'...]);
-```
-> and when represeting lists of participants
-```js
-call.participants.bots = [appid1, appid2...]
-call.participants.users = .. // here's the trick we still need container for async resolution
-call.participants.pstns = [+123,+234];
-```
-> I don't think this is cleaner.
 
 ## Create Identity instance
-To create Identity object you have to use a IdentityMap provided by every client
-Identity map accepts an identifier and a type of identity ( user | pstn | bot )
+To create Identity object you have to create an instance of one of the class for corresponding identity type:
 
 ```javascript
-const { ChatClient } = require('@azure/communicationservices-chat');
+const { ChatClient, UserIdentity, BotIdentity, PstnIdentity } = require('@azure/communicationservices-chat');
 const client = new ChatClient(endpoint, userAccessToken);
 
-const userIdentity = client.identityMap.fromIdentity('bob@contoso.com', IdentityType.User); 
-const pstnIdentity = client.identityMap.fromIdentity('+14259871234', IdentityType.Pstn); 
-const botIdentity = client.identityMap.fromIdentity('APP_ID', IdentityType.Bot); 
+const userIdentity = new UserIdentity('acs_id_for_bob'); 
+const pstnIdentity = new PstnIdentity('pstn_number_e_164'); 
+const botIdentity = new BotIdentity('app_id'); 
 ```
 
 ## Use Identity with ACS SDK
@@ -82,25 +69,16 @@ const { CallClient } = require('@azure/communicationservices-calling');
 const chatClient = new ChatClient(endpoint, userAccessToken);
 const callingClient = new CallClient(endpoint, userAccessToken);
 
-// create Identity for bob@contoso.com
-const bobIdentity = client.identityMap.fromIdentity('bob@contoso.com', IdentityType.User);
+// create Identity for acs_id_for_bob which maps to bob@contoso.com
+const bobIdentity = new UserIdentity('acs_id_for_bob'); 
 
 // send message from alice to bob
 chatClient.send('message', /* to */ bobIdentity );
 
+const bobPhoneIdentity = new PstnIdentity('bob_phone_number_e_164'); 
 // alice starts call with bob
-callingClient.call(/* callee */ [bobIdentity]);
+callingClient.call([bobIdentity, bobPhoneIdentity]);
 ```
 
 ## Identity resolution 
-> akania
 
->> **[TODO Short term we'll need custom resolver, Describe how resolution works using Contoso's mapping, how contoso can set custom resolver](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/EQhr_nKkinVKtHeg41SMKS4BJyEogRGfn5c_PxflSpdLZw?e=bHA14u)**
-
->> TODO Describe how we map contoso userIds on ACS side
-
->> TODO Describe how resolution works using ACS Mapping service
-
->> If contoso chooses to - it doesn't have to resolve identity
-
->> [Custom properties & expiry date for Identities when contoso uses custom resolver](https://skype.visualstudio.com/SCC/_git/async_spool_core/pullrequest/350021)
