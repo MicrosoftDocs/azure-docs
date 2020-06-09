@@ -169,6 +169,8 @@ additionalContent:
           links:
             - text: Blueprint functions
               url: ./blueprints/reference/blueprint-functions.md
+            - text: Azure CLI
+              url: /cli/azure/ext/blueprint/blueprint
             - text: Azure PowerShell
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell
