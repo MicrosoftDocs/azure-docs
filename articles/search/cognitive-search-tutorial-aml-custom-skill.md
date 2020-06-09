@@ -1,16 +1,18 @@
 ---
 title: "Tutorial: Create and deploy a custom skill with Azure Machine Learning"
+titleSuffix: Azure Cognitive Search
 description: This tutorial demonstrates how to use Azure Machine Learning to build and deploy a custom skill for Azure Cognitive Search's AI enrichment pipeline.
+manager: nitinme
 author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/XX/2020
+ms.date: 06/08/2020
 ---
 
 # Tutorial: Build and deploy a custom skill with Azure Machine Learning 
 
-In this tutorial, you will use the (hotel reviews dataset)[https://www.kaggle.com/datafiniti/hotel-reviews] (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a custom skill using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
+In this tutorial, you will use the (hotel reviews dataset)[https://www.kaggle.com/datafiniti/hotel-reviews] (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a [custom skill](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
 
 To train the aspect-based sentiment model, you will be using the [nlp recipes repository](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). The model will then be deployed as an endpoint on an Azure Kubernetes cluster. Once deployed, the model is added to the enrichment pipeline as a custom skill for use by the Cognitive Search service.
 
@@ -44,84 +46,51 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 
 ## Open notebook and connect to Azure services
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
+1. Put all of the required information for the variables that will allow access to the Azure services inside the first cell and run the cell.
+1. Running the second cell will confirm that you have connected to the search service for your subscription.
+1. Sections 1.1 - 1.5 will create the search service datastore, skillset, index, and indexer.
 
-## Procedure 2
+At this point you can choose to skip the steps to create the training data set and experiment in Azure Machine Learning and skip directly to registering the two models that are provided in the models folder of the GitHub repo. If you skip these steps, in the notebook you will then skip to section 3.5, Write scoring script. This will save time; the data download and upload steps can take up to 30 minutes to complete.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+## Creating and training the models
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+Section 2 has six cells that download the glove embeddings file from the nlp recipes repository. After downloading, the file is then uploaded to the Azure Machine Learning data store. The .zip file is about 2G and it will take some time to perform these tasks. Once uploaded, training data is then extracted and now you are ready to move on to section 3.
 
-## Procedure 3
+## Train the aspect based sentiment model and deploy your endpoint
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
+Section 3 of the notebook will train the models that were created in section 2, register those models and deploy them as an endpoint in an Azure Kubernetes cluster. If you are unfamiliar with Azure Kubernetes, it is highly recommended that you review the following articles before attempting to create an inference cluster:
 
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+* [Azure Kubernetes service overview](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* [Kubernetes core concepts for Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
+* [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
 
-Here is an example of a code block for Java:
+Creating and deploying the inference cluster can take up to 30 minutes. Testing the web service before moving on to the final steps, updating your skillset and running the indexer, is recommended.
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
+## Update the skillset
 
-or a code block for Azure CLI:
+Section 4 in the notebook has four cells that update the skillset and indexer. Alternatively, you can use the portal to select and apply the new skill to the skillset and then run the indexer to update the search service.
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s/03/player]
 
-or a code block for Azure PowerShell:
+In the portal, go to Skillset and select the Skillset Definition (JSON) link. The portal will display the JSON of your skillset that was created in the first cells of the notebook. To the right of the display there is a dropdown menu where you can select the skill definition template. Select the Azure Machine Learning (AML) template. provide the name of the Azure ML workspace and the endpoint for the model deployed to the inference cluster. The template will be updated with the endpoint uri and key.
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+> [!div class="mx-imgBorder"]
+> ![Skill definition template](media/cognitive-search-aml-skill/portal-skillset-definition.png)
 
+Copy the skillset template from the window and paste it into the skillset definition on the left. Edit the template to provide the missing values for name, description, context, 'inputs' name and source, and the 'outputs' name and targetName. Save the skillset.
+
+After saving the skillset, go to the indexer and select the Indexer Definition (JSON) link. The portal will display the JSON of the indexer that was created in the first cells of the notebook. The output field mappings will need to be updated with additional field mappings to ensure that the indexer can handle and pass them correctly. Save the changes and then select Run. 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+> [Review the custom skill web api](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api)
+> [Learn more about adding custom skills to the enrichment pipeline](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
