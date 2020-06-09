@@ -1221,7 +1221,7 @@ This check makes sure that all performance metrics that appear inside your SAP a
 
 The XML file that you can access at http://127.0.0.1:11812/azure4sap/metrics contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
 
-Check the value of the **Provider Health Description** element. If the value value is not **OK**, follow the instructions in [Health check for new Azure Extension for SAP configuration][deployment-guide-5.2-new].
+Check the value of the **Provider Health Description** element. If the value is not **OK**, follow the instructions in [Health check for new Azure Extension for SAP configuration][deployment-guide-5.2-new].
 
 #### Run the readiness check on a Linux VM
 
@@ -1233,7 +1233,7 @@ Check the value of the **Provider Health Description** element. If the value val
     curl http://127.0.0.1:11812/azure4sap/metrics
     ```
     
-   **Expected result**: Returns an XML document that contains the monitoring informaton of the virtual machine, its disks and network interfaces.
+   **Expected result**: Returns an XML document that contains the monitoring information of the virtual machine, its disks and network interfaces.
 
 If the preceding check was not successful, run these additional checks:
 
