@@ -49,13 +49,13 @@ conceptualContent:
         - url: concepts/serverless-compute.md
           itemType: concept
           text: Build a serverless mobile application back end with Azure Functions and other services
-        - url: https://docs.microsoft.com/en-us/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions?tabs=windows
+        - url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-functions?tabs=windows
           itemType: quickstart
-          text: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
-        - url: https://docs.microsoft.com/en-us/learn/modules/consume-rest-services/
+          text: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions
+        - url: https://docs.microsoft.com/learn/modules/consume-rest-services/
           itemType: learn
           text: Consume a RESTful Web Service with Xamarin
-        - url: https://docs.microsoft.com/en-us/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
+        - url: https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr
           itemType: concept
           text: Azure SignalR Service with Xamarin.Forms
         - url: ../api-management/api-management-key-concepts.md
@@ -128,13 +128,13 @@ conceptualContent:
         - url: concepts/continuous-integration.md
           itemType: concept
           text: Automate the lifecycle of your apps with continuous build and integration
-        - url: https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+        - url: https://docs.microsoft.com/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
           itemType: concept
           text: Key concepts for new Azure Pipelines users
-        - url: https://docs.microsoft.com/en-us/appcenter/distribution/uploading
+        - url: https://docs.microsoft.com/appcenter/distribution/uploading
           itemType: how-to-guide
           text: Release a build with App Center
-        - url: https://docs.microsoft.com/en-us/appcenter/distribution/codepush/
+        - url: https://docs.microsoft.com/appcenter/distribution/codepush/
           itemType: overview
           text: App Center CodePush      
     - title: Analytics and crash reporting
@@ -142,16 +142,16 @@ conceptualContent:
         - url: concepts/analytics.md
           itemType: concept
           text: Analyze and understand mobile application use
-        - url: https://docs.microsoft.com/en-in/appcenter/analytics/overview
+        - url: https://docs.microsoft.com/appcenter/analytics/overview
           itemType: overview
           text: App Center Analytics
-        - url: https://docs.microsoft.com/en-us/appcenter/diagnostics/enabling-diagnostics
+        - url: https://docs.microsoft.com/appcenter/diagnostics/enabling-diagnostics
           itemType: how-to-guide
           text: Enabling diagnostics in an app
         - url: concepts/diagnostics.md
           itemType: concept
           text: Monitor failures and errors in real time for your mobile application        
-        - url: https://docs.microsoft.com/en-us/appcenter/analytics/log-flow
+        - url: https://docs.microsoft.com/appcenter/analytics/log-flow
           itemType: tutorial
           text: Receive real time analytics
         
