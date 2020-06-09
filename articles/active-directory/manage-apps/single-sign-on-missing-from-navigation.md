@@ -25,16 +25,16 @@ The navigational components in Azure AD are displayed, or hidden, based on many 
 
 If using an Application Proxy (except SAML SSO using Application Proxy) then the **Single sign-on** option will be missing because...
 
-## Single tenant application registered using App Registration
+## Single tenant application registered using App registrations
 
-When the application is registered using App Registration, then the **Single sign-on** option will be missing because... 
+When the application is registered using **App registrations**, then the **Single sign-on** option will be missing because... 
 
 QUESTION - is there a way to use SSO with app that is registered through App Registration?
 
 
 ## Multi-tenant application hosted in another tenant
 
-When the application is hosted in another tenant and the customers consent to that application (From gallery or directly from the application website) then the Single sign-on option will be missing because....
+When the application is hosted in another tenant and the customers consent to that application (From gallery or directly from the application website) then the **Single sign-on** option will be missing because....
 
 ## Application was created with PowerShell using `New-AzureRmADApplication` cmdlet
 
