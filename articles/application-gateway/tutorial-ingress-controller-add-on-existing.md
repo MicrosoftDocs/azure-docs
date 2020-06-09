@@ -87,6 +87,21 @@ Once you have the credentials to the cluster you created, run the following comm
 kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml 
 ```
 
+## Peer the Application Gateway virtual network with the AKS cluster virtual network
+
+Since we deployed the AKS cluster in its own Virtual Network and the Application Gateway it another Virtual Network, you'll need to peer the two Virtual Networks together in order for AGIC to communicate with the Application Gateway. Peering two 
+
+```azurecli-interactive
+nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
+aksVnetName=$(az network vnet list -g $nodeResourceGroup -o tsv --query "[0].name")
+
+vnetId=$(az network vnet show -n $aksVnetName -g MC_$nodeResourceGroup -o tsv --query "id")
+az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vnet-name myVnet --remote-vnet $vnetId --enable-vnet-access
+
+vnetId2=$(az network vnet show -n myVnet -g myResourceGroup3 -o tsv --query "id")
+az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $vnetId2 --enable-vnet-access
+```
+
 ## Check status of Application Gateway connection to AKS cluster 
 
 Now that the Application Gateway is set up to serve traffic to the AKS cluster, let's verify that it's actually connected. You'll first get the IP address of the Ingress. 

@@ -88,6 +88,9 @@ az group delete --name myResourceGroup --location canadacentral
 ```
 
 ## Next steps
+* [Learn more about disabling the AGIC add-on]()
+* [Enable end-to-end SSL]()
+* [How to add a WAF policy]()
 * [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
 * [Enable multiple namespace support](./ingress-controller-multiple-namespace-support.md)
 * [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
