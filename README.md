@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/abc52090241/c9a7d462-e637-4e6b-b76f-4ddad42b0db5/07e5bdd2-826a-4ed2-8aab-69cf9a93aa3d/_apis/work/boardbadge/9d2a1583-dcac-4be2-a11a-02b60f71b1dd)](https://dev.azure.com/abc52090241/c9a7d462-e637-4e6b-b76f-4ddad42b0db5/_boards/board/t/07e5bdd2-826a-4ed2-8aab-69cf9a93aa3d/Microsoft.RequirementCategory)
 
 # Microsoft Azure Documentation
 
