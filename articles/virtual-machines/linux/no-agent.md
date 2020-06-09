@@ -20,7 +20,7 @@ You should only consider this if:
 1. You Linux OS will not meet the cloud-init prerequisites.
 2. You require some of properties to be set, like hostname, userName, CustomData to be set during VM deployment.
 >> ANH - Are these properties reasonable?
-    * If you do not require any VM Create properties to be set, then you should create a [specialized VM Linux Image](<tbd>).
+    * If you do not require any VM Create properties to be set, then you should create a [specialized VM Linux Image](../vm-specialized-image-version-cli.md).
 
 Irrespective of which properties you set, you need to configure instance networking, and the Azure Platform expects a 'VM Ready' signal (self-report a successful provisioning event) to be sent from the VM to the Azure platform, to indicate the VM configuration has applied and is ready for use. Failure to 
 
@@ -45,7 +45,7 @@ When you create the VM from the image with no Linux Agent, you need to ensure th
 
 >Note! If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
-To deploy the VM with extensions disabled, you can use `az vm create` with [--enable-agent](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+To deploy the VM with extensions disabled, you can use `az vm create` with [--enable-agent](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
 ```bash
 az vm create \
     --resource-group $resourceGroup \

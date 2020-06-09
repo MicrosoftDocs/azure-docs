@@ -18,15 +18,15 @@ When you create a VM from a generalized image (Shared Image Gallery or Managed I
 
 A provisioning agent baked inside the image will interface with the platform, connecting up to multiple independent provisioning interfaces), set the properties and signal to the platform it has completed. 
 
-The provisioning agents can be the [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux), or [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). These are [prerequisites](<LINK>) of creating generalized images.
+The provisioning agents can be the [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux), or [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). These are [prerequisites](create-upload-generic.md) of creating generalized images.
 
 The provisioning agents, provide support for all endorsed [Azure Linux distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), and you will find the endorsed distro images in many cases will ship with cloud-init and the Linux Agent, this allows for cloud-init to handle the provisioning, then the Linux Agent will provide support to handle [Azure Extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Providing support for extensions means the VM will then be eligible to support additional Azure services, such as VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk encryption etc.
 
 After provisioning completes, cloud-init will run on each boot. Cloud-init will monitor for changes to the VM, like networking changes, mounting and formatting the ephemeral disk, and starting the Linux Agent. The Linux Agent continually runs on the server, seeking a 'goal state' (new configuration) from the Azure platform, so whenever you install extensions, the agent will be able to process them.
 
-Whilst there are currently two provisioning agents, cloud-init should be the provisioning agent you choose, and the Linux Agent should be installed for extension support. This allows you to take advantage of platform optimizations, and allows you to disable/remove the Linux Agent, for more details on how to create images without the agent, and how to remove it, please review this [documentation](./2a_ProvisioningWithoutTheLinuxAgent.md).
+Whilst there are currently two provisioning agents, cloud-init should be the provisioning agent you choose, and the Linux Agent should be installed for extension support. This allows you to take advantage of platform optimizations, and allows you to disable/remove the Linux Agent, for more details on how to create images without the agent, and how to remove it, please review this [documentation](disable-provisioning.md).
 
-If you have a Linux flavor or kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](./2b_ProvisioningWithNoProvAgent.md), and meet platform requirements.
+If you have a Linux flavor or kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](no-agent.md), and meet platform requirements.
 
 
 
