@@ -116,7 +116,7 @@ To learn more about this scenario and configuration steps for Database Migration
 
 ### Native RESTORE from URL
 
-RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
+RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
 
 The following diagram provides a high-level overview of the process:
 
