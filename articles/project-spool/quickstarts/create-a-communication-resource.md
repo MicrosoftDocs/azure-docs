@@ -11,6 +11,11 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
+# to do
+- which regions are we deployed in
+- python example
+- more pictures for portal
+
 
 # Create an Azure Communication Resource
 This page walks through different ways you can create a communication resource and 
@@ -21,8 +26,6 @@ In the Azure Marketplace, search for "Communication" and locate the Azure Commun
 
 ## ARM Client
 This guide uses [ArmClient](https://github.com/projectkudu/ARMClient) for interacting with the Azure Resource Manager APIs, and it is the recommended approach.
-
-Alternatively the provisioning steps below can also be performed using [ProvisionSpoolResource.ps1](ProvisionSpoolResource.ps1) script.
 
  **ARM (Azure Resource Manager)** is a service that sits between the developer and the resources behind the scenes. ARM provides an API service that allows you to interact with your resources however you'd like. This allows you to control, deploy, and organize resources in your resource groups in a consistent manner. 
 
@@ -35,13 +38,13 @@ $ armclient login
 This should get the response in the format
 
 ```
-Welcome shahen@microsoft.com (Tenant: YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY)
-User: shahen@microsoft.com, Tenant: YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY (MSFT.ccsctp.net)
+Welcome user@example.com (Tenant: YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY)
+User: user@microsoft.com, Tenant: YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY (MSFT.ccsctp.net)
         There are 1 subscriptions
         Subscription XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX
 ```
 
-Take note of your **Subscription** ID above, you'll need it in subsequent steps.
+Take note of your **Subscription** ID you want to use above, you'll need it in subsequent steps.
 
 2. Register the subscription with the resource Provider:
 
