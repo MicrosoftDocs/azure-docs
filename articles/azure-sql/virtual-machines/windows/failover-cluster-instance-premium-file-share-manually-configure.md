@@ -204,6 +204,8 @@ To route traffic appropriately to the current primary node, configure the connec
 
 If you haven't already, configure connectivity to your cluster with an [Azure Load  Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name](hadr-distributed-network-name-dnn-configure.md). Be sure to also register your SQL Server FCI with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode). 
 
+If Premium File Shares are not the appropriate FCI storage solution for you, consider creating your FCI using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
+
 See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
 
 For additional information see: 

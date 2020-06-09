@@ -106,7 +106,7 @@ Using a distributed network name rather than a load balancer has the following b
 - Minimized failover duration by eliminating the load balancer probes. 
 - Simplified provisioning and management of the failover cluster instance with SQL Server on Azure VM. 
 
-Most SQL Server features work transparently with FCI and you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN name value with the existing VNN DNS name. However, some server side components require a network alias that maps the VNN Name to the DNN name. Additionally, there may be specific cases that require the explicit use of the DNN DNS name, such as when defining certain URLs in a server-side configuration. 
+Most SQL Server features work transparently with FCI and you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN value with the existing VNN DNS name. However, some server side components require a network alias that maps the VNN Name to the DNN name. Additionally, there may be specific cases that require the explicit use of the DNN DNS name, such as when defining certain URLs in a server-side configuration. 
 
 To get started, learn how to [configure a distributed network name (DNN) resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
 
@@ -114,8 +114,35 @@ To get started, learn how to [configure a distributed network name (DNN) resourc
 **Supported SQL version**: SQL Server 2019   
 **Supported FCI storage**:  Azure Shared Disks Managed Disks   
 
+
+### Frequently asked questions
+
+
+1. Which SQL Server version brings DNN support? 
+
+   SQL Server 19 CU2 and above.
+
+1. What is the expected failover time when DNN is used?
+
+   For DNN, the failover time will be just the FCI failover time, without any additional time added (like probe time when using an Azure Load Balancer case).
+
+1. Is there any version requirement for SQL Clients to support DNN with OLEDB and ODBC?
+
+   `MultiSubnetFailover=True` connection string support is necessary for DNN, and is available starting with SQL Server 2012 (11.x). 
+
+1.  Are there any configuration changes required to SQL Server to use DNN?
+
+   SQL Server does not require any configuration change to use DNN, but there are some SQL Server features that may require additional consideration. 
+
+1. Does DNN support multi-subnet clusters?
+
+   Yes. WSFC binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of subnet. 
+
+
+
 ## Limitations
 
+Consider the below limitations when working with FCI or availability groups and SQL Server on Azure Virtual Machines. 
 
 ### MS DTC 
 Azure Virtual Machines supports Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).

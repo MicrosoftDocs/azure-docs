@@ -25,9 +25,9 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Distributed network name** | SQL Server 2019 on Windows Server 2019 now supports routing traffic to your failover cluster instance using a [distributed network name](failover-cluster-instance-connectivity-configure.md#dynamic-network-name) rather than an Azure Load Balancer, simplifying and streamlining connecting to your failover cluster instance in Azure. | 
-| **FCI with Azure Shared Disks** | It is now possible to deploy your [failover cluster instance](failover-cluster-instance-overview.md) using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) with SQL Server 2019 on a Windows Server 2019 virtual machine. |
-| **Reorganized FCI docs** | The documentation around [failover cluster instances with SQL Server on Azure VM](failover-cluster-instance-overview.md) has been rewritten for clarity. We've separated some of the configuration content, like how to prepare the [virtual machine for a SQL Server FCI](failover-cluster-instance-prepare-vm.md), and how to configure the [Azure Load Balancer](failover-cluster-instance-azure-load-balancer-configure.md). | 
+| **Distributed network name** | SQL Server 2019 on Windows Server 2019 now supports routing traffic to your failover cluster instance (FCI) using a [distributed network name](failover-cluster-instance-connectivity-configure.md#dynamic-network-name) rather than an Azure Load Balancer, simplifying and streamlining connecting to your failover cluster instance in Azure. | 
+| **FCI with Azure Shared Disks** | It is now possible to deploy your [failover cluster instance (FCI)](failover-cluster-instance-overview.md) using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) with SQL Server 2019 on a Windows Server 2019 virtual machine. |
+| **Reorganized FCI docs** | The documentation around [failover cluster instances with SQL Server on Azure VM](failover-cluster-instance-overview.md) has been rewritten and reorganized for clarity. We've separated some of the configuration content, like how to prepare the [virtual machine for a SQL Server FCI](failover-cluster-instance-prepare-vm.md), and how to configure the [Azure Load Balancer](failover-cluster-instance-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
 

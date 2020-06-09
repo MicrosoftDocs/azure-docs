@@ -45,26 +45,31 @@ Add-ClusterResource -Name <dnnResourceName> `
 This command adds a DNN resource to the cluster with the resource name as `<dnnResourceName>`. The resource name is used by the cluster to uniquely identify a cluster resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
 
 
--------------------------
+---------------------------------------------------
+---------------------------------------------------
 
-i need clarity here. Are there two separate groups? Is this saying that the DNN is being added to the same cluster group as the FCI, or it needs to be in a separate group,  but have the same name as the fci group??  Also we need to figure out if it's dynamic netmwork name or distributed netowrk name cuz this is in the powershell haha
+to discuss: i need clarity here. Are there two separate groups? Is this saying that the DNN is being added to the same cluster group as the FCI, or it needs to be in a separate group,  but have the same name as the fci group??  Also we need to figure out if it's dynamic netmwork name or distributed netowrk name cuz this is in the powershell haha
 
 The name of the group this DNN resource belongs to must be the cluster resource group (role) corresponding to the FCI you want to add the DNN resource to. 
 The typical format of this group name is “SQL Server (instance name)”, therefore for default instance, the name will be “SQL Server (MSSQLSERVER)". You can check the name of the group in Failover Cluster Manager console.
 
-------------------
+---------------------------------------------------
+---------------------------------------------------
 
 
 
 
 ## Set DNN name in DNS
 
--------------------------------------
 
-i need clarity here, do we have two options here? we can either use the existing VNN or not? i'm guessing it's the latter and hoping for it cuz that's how i wrote it :D 
+---------------------------------------------------
+---------------------------------------------------
+
+to discuss: i need clarity here, do we have two options here? we can either use the existing VNN or not? i'm guessing it's the latter and hoping for it cuz that's how i wrote it :D 
 
 
----------------------------------------
+---------------------------------------------------
+---------------------------------------------------
 
 
 Clients connect to the DNN, and the DNS server routes traffic from the client to the DNN, which is the virtual endpoint on the network for your failover cluster instance. You can set the DNS name to the name of the DNN, and clients can connect to the failover cluster instance using the new DNN. However, to prevent needing to update a connection string, you can also update the DNN to the name of your currently active virtual network name (VNN). SQL Server will shut down in the process so proceed with caution.
@@ -73,12 +78,14 @@ Clients connect to the DNN, and the DNS server routes traffic from the client to
    > Once the DNS name is set to the current DNN, connections to the currently active VNN will fail. Update the connection string to the current DNN to connect to the failover cluster instance. To mitigate this requirement, replace the name of the currently active VNN with a placeholder VNN and then [replace the name of the current DNN](#replace-dnn-name-with-vnn-name) with the currently active VNN. Doing so will take SQL Server offline so proceed with caution.     
    
 
+
+---------------------------------------------------
 ---------------------------------------------------
 
-i'm basically guessing here about what's gana happen with the whole swap so this needs a fact check please
+to discuss: i'm basically guessing here about what's gana happen with the whole swap so this needs a fact check please
 
 ----------------------------------------------------
-
+---------------------------------------------------
 
 Use PowerShell to set the name of your distributed network name (DNN) in DNS. If you want clients to continue using the current virtual network name (VNN) to connect to the failover cluster instance, before proceeding, make sure you have [replaced your DNN name with your VNN name](replace-dnn-name-with-vnn-name) prior to setting the name in DNS or you will need to repeat this step again. The DNN name in DNS is the name clients use to connect to your failover cluster instance.  
 
@@ -110,9 +117,6 @@ Next, replace the name of the DNN with the active VNN (active_VNN) following the
 1. Replace the DNN name (placeholder_DNN) with the current active VNN name (active_VNN). 
 1. **If you haven't done so already, set [the DNN name in DNS](set-dnn-name-in-dns) before setting the DNN resource online. **
 
-
-
-
 ## Set DNN resource online
 
 Once your DNN resource is appropriately named, use PowerShell to to set the DNN resource online in the cluster. 
@@ -127,43 +131,27 @@ Start-ClusterResource -Name <dnnResourceName>
 
 ## Configure possible nodes
 
-By default, the DNN name is bound to all the nodes in the cluster. Configure the possible owner of the DNN resource to only include the nodes of the failover cluster instance, if not all nodes in the cluster are part of the failover cluster instance. 
+By default, the dynamic network name (DNN) is bound to all the nodes in the cluster. Configure the possible owner of the DNN resource to only include the nodes of the SQL Server failover cluster instance, if not all nodes in the cluster are part of the failover cluster instance. 
 
-## Update SQL cllient connection string
+## Create network alias
 
+There are some server-side components that rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN to function properly. 
 
-2.	Replace the Virtual Network Name (VNN) in SQL client connection string with the DNN DNS name, and set the "MultiSubnetFailover" property to true. You can skip setting this property if the SQL client version is after 4.6.1. if sql restarts during this process you do not need to restart it a second time and can skip the next step 
+Follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) to create an alias that maps the VNN to the DNN. 
 
-## restart sql server instance
+For a default instance, you can map the VNN to the DNN directly, such that VNN = DNN.   
+For example, if VNN name is `FCI1`, instance name is `MSSQLSERVER`, and the DNN is `FCI1DNN` (clients previously connected to `FCI`, and now they connect to `FCI1DNN`) then map the VNN `FCI1` to the DNN `FCI1DNN`. 
 
-## Feature specific considerations
+For a named instance the network alias mapping should be done for the full instance, such that `VNN\Instance` = `DNN\Instance`. 
+For example, if VNN name is `FCI1`, instance name is `instA`, and the DNN is `FCI1DNN` (clients previously connected to `FCI1\instA`, and now they connect to `FCI1DNN\instaA`) then map the VNN `FCI1\instaA` to the DNN `FCI1DNN\instaA`. 
 
+## Restart SQL Server
 
-The following table details feature interoperability when using a distributed network name with FCI and SQL Server on Azure VMs. 
+Restart SQL Server from the Failover Cluster Manager. If the SQL Server service is already offline, bring it online. If the service is currently online, take it offline, and bring it online again. 
 
+## Update SQL client connection string
 
-## faq 
-
-
-1-	Which SQL Server version brings the support? 
-SQL Server 19 CU2 and above.
-2-	What is the expected failover time when DNN is used?
-
-For DNN, the failover time will be just the FCI failover time, there is no additional time added (like probe time in load balancer case).
-
-3-	Which scenarios requires mapping DNS names of VNN to DNN?
-
-For regular client access, simply modify the connection string to use the DNN DNS name. For FCI DNN to integrate with other SQL server features, the configuration of these features sometimes needs to reference the FCI. The features require a network alias mapping can be found in the DNN interoperability article replication section.
-4-	Is there any version requirement for SQL Clients to support DNN with OLEDB and ODBC?
-
-The only client support needed for DNN is the MultiSubnetFailover flag  and it starts from SQL Server 2012 (11.x)  . 
-5-	Is there any changes required in SQL Server configuration to use DNN?
-
-There is no SQL server configuration change.  For other SQL server features to work with DNN, reference the corresponding interop work around.
-
-6-	Does DNN support multi-subnet clusters?
-Yes. WSFC binds DNN DNS name with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client try all IP addresses of the DNS name regardless of the subnet. Whether there are multiple subnets does not matter in this scheme. 
-
+If the DNN name was not replaced with the existing VNN name, clients still connecting to the VNN will need to update their connection string to connect to the DNN instead. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string as well if the SQL client version is lower than 4.6.1. 
 
 
 ## Test failover
@@ -181,7 +169,8 @@ Test failover of the FCI to validate cluster functionality. Take the following s
 
 **Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
 
-### Test connectivity
+
+## Test connectivity
 
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
 

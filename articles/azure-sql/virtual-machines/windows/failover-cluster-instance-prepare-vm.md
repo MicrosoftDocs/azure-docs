@@ -1,6 +1,6 @@
 ---
-title: Prepare a virtual machine for FCI  
-description: "Learn the different configurations required to prepare your SQL Server on Azure Virtual Machines to use with the different failover cluster instance (FCI) features." 
+title: Prepare virtual machines for FCI  
+description: "Create and prepare your Azure Virtual Machines to use with the a failover cluster instance (FCI) and SQL Server on Azure Virtual Machines." 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,12 +15,12 @@ ms.author: mathoma
 
 ---
 
-# Prepare a virtual machine for FCI (SQL Server on Azure VMs)
+# Prepare virtual machines for FCI (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to prepare two Azure Virtual Machines (VMs) to use with a SQL Server failover cluster instance (FCI). Configuration settings vary depending on the FCI storage solution so validate you're choosing the correct configuration to suit your environment and business. 
 
-See [an overview of FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
 
 ## Prerequisites 
 
@@ -35,7 +35,7 @@ See [an overview of FCI with SQL Server on Azure VMs](failover-cluster-instance-
 
 ## Choose FCI storage option
 
-The configuration settings for your virtual machine vary depending on the storage option you're planning to use for your SQL Server failover cluster instance. Before preparing the virtual machine, review the [available FCI storage options](failover-cluster-instance-overview.md) and select the option that best suits your environment and business need. Then carefully choose the appropriate VM configuration options throughout this article based on your intended storage selection. 
+The configuration settings for your virtual machine vary depending on the storage option you're planning to use for your SQL Server failover cluster instance. Before preparing the virtual machine, review the [available FCI storage options](failover-cluster-instance-overview.md#storage) and choose the option that best suits your environment and business need. Then carefully select the appropriate VM configuration options throughout this article based on your intended storage selection. 
 
 ## Configure VM availability 
 
@@ -115,11 +115,13 @@ You will also need to join your virtual machines to the domain. You can do so us
 ## Attach storage 
 
 -----------------------------
+-----------------------------
 to discuss: do we even need this section?? do we care about storage for any VMs other than SSD FCI? if so, maybe we can keep this stuff in the s2d tutorial?
 
 -----------------------------
+-----------------------------
 
-If you deployed a non-SQL Server image from Azure Marketplace, you may need to attach storage. For detailed information, see [add storage](../../../virtual-machines/linux/disks-types.md). SQL Server images come with storage already attached, but you can modify the tier of disk to suit your business need during depoloyment. 
+If you deployed a non-SQL Server image from Azure Marketplace, you may need to attach storage. For detailed information, see [add storage](../../../virtual-machines/linux/disks-types.md). SQL Server images come with storage already attached, but you can modify the tier of disk to suit your business need during deployment. 
 
 Both virtual machines need at least two premium SSD raw (not NTFS-formatted) disks. We recommend at least P30 (1-TB) disks. Set host caching to **Read-only**.
 
@@ -133,4 +135,8 @@ Choose one of the following guides to configure the FCI environment appropriate 
 - [Configure FCI with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
-For an overview, see [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md).
+See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+
+For additional information see: 
+- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
+- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

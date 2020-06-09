@@ -33,7 +33,6 @@ Before you complete the steps in this article, you should already have:
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-
 ## Create the load balancer
 
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
@@ -61,7 +60,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    ![Set up the load balancer](./media/failover-cluster-instance-premium-file-share-manually-configure/30-load-balancer-create.png)
    
 
-## Configure the load balancer backend pool
+## Configure the backend pool
 
 1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
 
@@ -98,8 +97,8 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
-   - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
-   - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
+   - **Frontend IP address**: The IP address for the SQL Server FCI or AG listener cluster network resource.
+   - **Port**: The SQL Server TCP port. The default instance port is 1433.
    - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: The backend pool name that you configured earlier.
    - **Health probe**: The health probe that you configured earlier.
@@ -109,22 +108,35 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK**.
 
-## Configure the cluster for the probe
+## Configure the probe
 
 Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
 
-   ```powershell
-   $ClusterNetworkName = "<Cluster Network Name>"
-   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
-   $ILBIP = "<n.n.n.n>" 
-   [int]$ProbePort = <nnnnn>
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+$ILBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
 
-   Import-Module FailoverClusters
+Import-Module FailoverClusters
 
-   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   ```
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+The following table describes the values that you need to update:
+
+
+|**Value**|**Description**|
+|---------|---------|
+|`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`SQL Server FCI IP Address Resource Name`|The SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`ILBIP`|The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.|
+|`nnnnn`|The probe port you configured in the load balancer health probe. Any unused TCP port is valid.|
+|"SubnetMask"| The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.| 
+
+
 
 The following list describes the values that you need to update:
 
@@ -139,11 +151,12 @@ The following list describes the values that you need to update:
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
+
 After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
 
-   ```powershell
-   Get-ClusterResource $IPResourceName | Get-ClusterParameter
-  ```
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
 
 
 ## Test failover
@@ -161,7 +174,8 @@ Test failover of the FCI to validate cluster functionality. Take the following s
 
 **Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
 
-### Test connectivity
+
+## Test connectivity
 
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
 
