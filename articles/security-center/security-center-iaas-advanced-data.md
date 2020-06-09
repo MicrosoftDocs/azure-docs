@@ -63,7 +63,7 @@ Advanced data security for SQL machines by Azure Security Center requires the SQ
     >[!NOTE]
     > The solution will be fully active after the first restart of the SQL Server. 
 
-    >[!TIP]
+    >[!TIP] 
     > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 
