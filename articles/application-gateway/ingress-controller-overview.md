@@ -67,7 +67,7 @@ The following tables sort which scenarios are currently supported with the Helm 
 |**1 AGIC**|N/A |N/A |
 |**2+ AGICs**|Must use shared ProhibitedTarget functionality or watch separate namespaces |N/A |
 
-## Next Steps
+## Next steps
 - [**AKS Add-On Greenfield Deployment**](tutorial-ingress-controller-add-on-new.md): Instructions on installing AGIC, AKS, and Application Gateway on blank-slate infrastructure.
 - [**AKS Add-On Brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): Install AGIC on an existing AKS and Application Gateway.
 - [**Helm Greenfield Deployment**](ingress-controller-install-new.md): Instructions on installing AGIC, AKS, and Application Gateway on blank-slate infrastructure.
