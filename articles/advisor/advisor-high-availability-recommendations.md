@@ -107,9 +107,10 @@ Virtual machines that do not have replication enabled to another region are not 
 ## Next steps
 
 For more information about Advisor recommendations, see:
-* [Introduction to Azure Advisor](advisor-overview.md)
+* [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor Operational excellence recommendations](advisor-operational-excellence-recommendations.md)
 
