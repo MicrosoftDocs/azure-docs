@@ -34,7 +34,7 @@ The following diagram shows the complete solution using hyper-converged Storage 
 
 This diagram shows the following resources in the same resource group:
 
-- Two Azure virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
+- Two virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
 - Each virtual machine has two or more data disks.
 - Storage Spaces Direct synchronizes the data on the data disks and presents the synchronized storage as a storage pool.
 - The storage pool presents a Cluster Shared Volume (CSV) to the failover cluster.
@@ -63,6 +63,7 @@ Before you complete the steps in this article, you should already have:
 1. [Add Failover Clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    To install Failover Clustering from the UI, take these steps on both virtual machines:
+
    1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
    1. In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
    1. In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. Select **Add Features**.
@@ -110,9 +111,11 @@ After you validate the cluster, create the failover cluster.
 ## Create the failover cluster
 
 To create the failover cluster, you need:
-- The names of the virtual machines that will become the cluster nodes.
+
+- The names of the virtual machines that will become the cluster nodes
 - A name for the failover cluster
-- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
+- An IP address for the failover cluster <br/>
+  You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
 #### Windows Server 2008 through Windows Server 2016
 
@@ -200,6 +203,7 @@ After you've configured the failover cluster and all cluster components, includi
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 
 ## Register with the SQL VM RP

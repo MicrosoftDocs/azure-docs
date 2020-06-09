@@ -3,7 +3,7 @@ title: Use Creator to create indoor maps
 description: Use Azure Maps Creator to create indoor maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -33,6 +33,9 @@ To create indoor maps:
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+
+>[!IMPORTANT]
+> The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 ## Upload a Drawing package
 

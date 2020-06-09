@@ -55,6 +55,7 @@ Before you complete the steps in this article, you should already have:
   > [!IMPORTANT]
   > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
   > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
+  > 
 
 
 ## Add Windows cluster feature
@@ -108,8 +109,9 @@ After you validate the cluster, create the failover cluster.
 ## Create the failover cluster
 
 To create the failover cluster, you need:
+
 - The names of the virtual machines that will become the cluster nodes.
-- A name for the failover cluster
+- A name for the failover cluster.
 - An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
 ### Windows Server 2012 through Windows Server 2016
@@ -134,8 +136,6 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
 
-
-
 ## Test cluster failover
 
 Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
@@ -149,7 +149,7 @@ Once you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In **Failover Cluster Manager**, make sure all the Core Cluster Resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
+1. In **Failover Cluster Manager**, make sure all the Core Cluster Resources are on the first virtual machine. If necessary, move all resources to this virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
@@ -157,7 +157,7 @@ Once you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you RDP'd into the VM with when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you used to access the VM via RDP when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
@@ -198,7 +198,6 @@ To route traffic appropriately to the current primary node, configure the connec
 - MSDTC is not supported on Windows Server 2016 and earlier. 
 - Filestream isn't supported for a failover cluster with a premium file share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
 - Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported. 
-
 
 ## Next steps
 
