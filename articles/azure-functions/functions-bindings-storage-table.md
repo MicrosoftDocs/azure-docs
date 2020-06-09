@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 # Azure Table storage bindings for Azure Functions
 
