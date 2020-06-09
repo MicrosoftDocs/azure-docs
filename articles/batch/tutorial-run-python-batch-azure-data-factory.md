@@ -6,7 +6,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Run Python scripts through Azure Data Factory using Azure Batch
