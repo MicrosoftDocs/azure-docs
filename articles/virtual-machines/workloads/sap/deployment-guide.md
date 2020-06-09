@@ -1455,7 +1455,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, insta
 
 | Error ID | Error description | Solution |
 |---|---|---|
-| <a name="cfg_018"></a>cfg/018 | App configuration is missing. | [run setup script][f] |
+| <a name="cfg_018"></a>cfg/018 | App configuration is missing. | [run setup script][deployment-guide-run-the-script] |
 | <a name="cfg_019"></a>cfg/019 | No deployment ID in app config. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_020"></a>cfg/020 | No RoleInstanceId in app config. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_022"></a>cfg/022 | No RoleInstanceId in app config. | [contact support][deployment-guide-contact-support] |
