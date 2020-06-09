@@ -23,8 +23,8 @@ Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center 
 ## Availability
 
 - Release state: **Generally Available**
-- Required roles: **Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](https://docs.microsoft.com/en-us/services-hub/health/azure-roles#azure-roles)). **Reader** can view results.
-- Clouds: 
+- Required roles: **Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Reader** can view results.
+- Clouds:
     - ✔ Commercial clouds
     - ✔ US Gov cloud
     - ✘ China Gov / Other Gov
