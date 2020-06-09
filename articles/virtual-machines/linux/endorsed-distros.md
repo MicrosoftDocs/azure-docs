@@ -30,13 +30,13 @@ The Azure Linux Agent is already pre-installed on the Azure Marketplace images a
 | Distribution | Version | Drivers | Agent |
 | --- | --- | --- | --- |
 | CentOS by Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS is scheduled to be [end of life](https://coreos.com/os/eol/) by May 26, 2020. |No Longer Available | | |
+| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS is now [end of life](https://coreos.com/os/eol/) as of May 26, 2020. |No Longer Available | | |
 | Debian by Credativ |8.x, 9.x |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar Container Linux by Kinvolk| Stable, Edge| | |
 | Oracle Linux by Oracle |6.x, 7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux by Red Hat |6.x, 7.x, 8.x |In kernel |Package: In repo under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES for SAP 11.x, 12.x, 15.x <br/> [SUSE Public Cloud Image Lifecycle](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |In kernel |Package:<p> for 11 in [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>for 12 included in "Public Cloud" Module under "python-azure-agent"<br/>Source code: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE Leap 15.x |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE by SUSE |openSUSE Leap 15.x |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu by Canonical |Ubuntu Server and Pro. 16.x, 18.x, 20.x<p>Information about extended support for Ubuntu 12.04 and 14.04 can be found here: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## Image update cadence
