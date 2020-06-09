@@ -27,9 +27,9 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question on Microsoft Q&A
 
-For immediate answers from the Community, Most Valuable Professionals (MVPs) and Microsoft Engineers ask your question on Microsoft Q&A. This is Microsoft’s preferable community support option.
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://aka.ms/azureqa), Azure’s preferred destination for community support. 
 
-If you can't find an answer to your problem via search, submit a new question to Microsoft Q&A. Use one of the following tags when you formulate the question:
+If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
 - [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
 - [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
@@ -49,9 +49,9 @@ If you can't find an answer to your problem via search, submit a new question to
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-If you need to leverage other tags not related with Azure, ask your question on Stack Overflow. Members of the community and Microsoft team members are directly involved in helping you solve your problems.
+For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
 
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow. Use one of the following tags when you formulate the question:
+If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
 
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
