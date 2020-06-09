@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 06/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -137,7 +137,7 @@ Follow these steps to assign a role to a system-assigned managed identity by sta
 
 1. To change the subscription, click the **Subscription** list.
 
-1. Click **Add role assignment**.
+1. Click **Add role assignment (Preview)**.
 
 1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
 
@@ -165,7 +165,7 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 
 1. To change the subscription, click the **Subscription** list.
 
-1. Click **Add role assignment**.
+1. Click **Add role assignment (Preview)**.
 
 1. Use the drop-down lists to select the set of resources that the role assignment applies to such as **Subscription**, **Resource group**, or resource.
 

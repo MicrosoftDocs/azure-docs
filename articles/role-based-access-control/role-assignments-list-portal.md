@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 06/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
