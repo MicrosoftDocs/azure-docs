@@ -1,6 +1,6 @@
 ---
 title: Authenticate to Azure Key Vault
-description: Learn how to integrate Azure Key Vault with Azure Private Link Service
+description: Learn how to authenticate to Azure Key Vault
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 06/08/2020
@@ -62,8 +62,8 @@ This document will cover:
 ## Understand the Key Vault authentication flow
 
 1. A service principal makes a call to authenticate to AAD this can happen in several ways:
-    * A user can log into the Azure Portal using a username and password.
-    * An application uses a client id and presents a client secret or client certificate to AAD
+    * A user can log into the Azure portal using a username and password.
+    * An application uses a client ID and presents a client secret or client certificate to AAD
     * An Azure resource such as a virtual machine has an assigned MSI and contacts the IMDS REST endpoint to get an access token.
 
 2. If authentication to AAD is successful, the service principal will be granted an OAuth token.
@@ -83,19 +83,17 @@ This document will cover:
 ## Grant a service principal access to Key Vault
 
 1. Create a service principal if you don't already have one. [Create a Service Principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-2. Add a role assignment to your service principal in the Azure Key Vault IAM settings. You can add pre-assigned roles of Owner, Contributor, or Reader. You can also create custom roles for your service principal. You should follow the principal of least privilage and only provide the minimum access neccessary for your service principal. 
+2. Add a role assignment to your service principal in the Azure Key Vault IAM settings. You can add pre-assigned roles of Owner, Contributor, or Reader. You can also create custom roles for your service principal. You should follow the principal of least privilege and only provide the minimum access necessary for your service principal. 
 3.	Configure the key vault firewall. You can keep the key vault firewall disabled and allow access from the public internet (less secure, easier to configure). You can also restrict access to specific IP ranges, service endpoints, virtual networks, or private endpoints (more secure).
 4.	Add an access policy for your service principal, this is a list of operations that your service principal can perform on the key vault. You should use the principal of least-privilege and limit the operations that the service principal can perform. However, if you do not provide sufficient permissions, your service principal will be denied access.
 
 ## Tutorial
 
-In this tutorial you will learn how to set up a service principal to authenticate to key vault and retrieve a secret. In the first part of this tutorial you will create a service principal to allow an application running on your local Windows machine to retrieve a secret from key vault using client ID and client certificate authentication. Your local machine will connect to key vault over the public endpoint with the firewall disabled.
+In this tutorial you will learn how to set up a service principal to authenticate to key vault and retrieve a secret. 
 
-In the second part of the tutorial, you will authenticate to key vault running the same code from a virtual machine inside of Azure. You will use the virtual machine’s MSI to authenticate to key vault. You will also have the key vault firewall enabled and whitelist the virtual network that contains your virtual machine.
+### Part 1:  Create a Service Principal in the Azure portal
 
-### Part 1:  Create a Service Principal in the Azure Portal
-
-1. Log in to the Azure Portal
+1. Log in to the Azure portal
 1. Search for Azure Active Directory
 1. Click the “App Registrations” Tab
 1. Click “+ New Registration”
@@ -117,7 +115,7 @@ At this point you have a registered service principal. You can view it by select
     * Option 2: Create a certificate using key vault. [Create a certificate in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
 1. Download the certificate in the PEM format
-1. Log in to the Azure Portal and navigate to Azure Active Directory
+1. Log in to the Azure portal and navigate to Azure Active Directory
 1. Click "App Registrations"
 1. Select the service principal you created in Part 1.
 1. Click on the “Certificates and Secrets” tab of your service principal
@@ -140,7 +138,7 @@ At this point you have a registered service principal. You can view it by select
     1. Select the “Access Policies” tab under “Settings”
     1. Select the “+ Add Access Policy” link
     1. Under the Secret Permissions dropdown check “Get” and “List” permissions.
-    1. Select your service principal by name or client id.
+    1. Select your service principal by name or client ID.
     1. Select “Add”
     1. Select “Save”
 
@@ -151,7 +149,7 @@ At this point you have a registered service principal. You can view it by select
     1. Create a name for the secret, in this example, I will name the secret “test”
     1. Create a value for the secret, in this example, I will set a value of “password123”
 
-Now, when you run code from your local machine, your can authenticate to key vault by getting an access token by presenting the client id and a path to the certificate.
+Now, when you run code from your local machine, your can authenticate to key vault by getting an access token by presenting the client ID and a path to the certificate.
 
 ### Part 4: Retrieve the secret from your Azure Key Vault in an application (Python)
 
