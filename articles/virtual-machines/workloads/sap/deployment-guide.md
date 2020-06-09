@@ -126,6 +126,10 @@ ms.author: sedusch
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Health check for the new Azure Extension for SAP configuration)
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure Extension for SAP)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Troubleshooting the new Azure Extension for SAP)
+[deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Troubleshooting Azure Extension for SAP - Contact Support)
+[deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Troubleshooting Azure Extension for SAP - Run the setup script)
+[deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Troubleshooting Azure Extension for SAP - Redeploy after sysprep)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Troubleshooting Azure Extension for SAP - Fix internet connection)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure VM Extension)
@@ -1451,7 +1455,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, insta
 
 | Error ID | Error description | Solution |
 |---|---|---|
-| <a name="cfg_018"></a>cfg/018 | App configuration is missing. | [run setup script][deployment-guide-run-the-script] |
+| <a name="cfg_018"></a>cfg/018 | App configuration is missing. | [run setup script][f] |
 | <a name="cfg_019"></a>cfg/019 | No deployment ID in app config. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_020"></a>cfg/020 | No RoleInstanceId in app config. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_022"></a>cfg/022 | No RoleInstanceId in app config. | [contact support][deployment-guide-contact-support] |
