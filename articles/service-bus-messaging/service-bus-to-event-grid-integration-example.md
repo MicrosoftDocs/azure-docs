@@ -57,6 +57,7 @@ You can use any method to send a message to your Service Bus topic. The sample c
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
+5. Update the `numberOfMessages` value to **5**. 
 5. Build and run the program to send test messages to the Service Bus topic. 
 
 ## Set up a test function on Azure 
