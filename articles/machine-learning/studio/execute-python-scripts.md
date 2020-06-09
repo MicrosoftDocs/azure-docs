@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio (classic)
