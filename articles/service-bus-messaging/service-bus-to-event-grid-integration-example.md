@@ -96,9 +96,10 @@ Then, do the following steps:
             var validationHeaderValue = headerValues.FirstOrDefault();
             if(validationHeaderValue == "SubscriptionValidation")
             {
+                log.LogInformation("Validating the subscription");            
                 var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
                 var code = events[0].Data["validationCode"];
-                log.LogInformation("Validation code: {code}");
+                log.LogInformation($"Validation code: {code}");
                 return (ActionResult) new OkObjectResult(new { validationResponse = code });
             }
         }
@@ -116,18 +117,36 @@ Then, do the following steps:
         public DateTime EventTime { get; set; }
         public Dictionary<string, string> Data { get; set; }
         public string Topic { get; set; }
-    }
-    
+    }    
     ```
 2. Select **Save** on the toolbar to save the code for the function.
 
     ![Save function code](./media/service-bus-to-event-grid-integration-example/save-function-code.png)
-3. Select **Test/Run** on the toolbar, enter a name in the body, and select **Run**. 
+3. Select **Test/Run** on the toolbar, and do the following steps: 
+    1. Enter the following JSON in the **body**.
 
-    ![Test run](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
-4. Confirm that you see the output and logs as shown in the following image. 
+        ```json
+        [{
+          "id": "64ba80ae-9f8e-425f-8bd7-d88d2c0ba3e3",
+          "topic": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/spegridsbusrg/providers/Microsoft.ServiceBus/namespaces/spegridsbusns",
+          "subject": "",
+          "data": {
+            "validationCode": "D7D825D4-BD04-4F73-BDE3-70666B149857",
+            "validationUrl": "https://rp-eastus.eventgrid.azure.net:553/eventsubscriptions/spsbusegridsubscription/validate?id=D7D825D4-BD04-4F73-BDE3-70666B149857&t=2020-06-09T18:28:51.5724615Z&apiVersion=2020-04-01-preview&[Hidden Credential]"
+          },
+          "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+          "eventTime": "2020-06-09T18:28:51.5724615Z",
+          "metadataVersion": "1",
+          "dataVersion": "2"
+        }]
+        ```    
+    2. Click **Add header**, and add a header with name `aeg-event-type` and value `SubscriptionValidation`. 
+    3. Select **Run**. 
 
-    ![Test run - output](./media/service-bus-to-event-grid-integration-example/test-run-output.png)
+        ![Test run](./media/service-bus-to-event-grid-integration-example/test-run-function.png)
+    4. Confirm that you see the return status code of **OK** and the validation code in the response body. Also, see the information logged by the function. 
+
+        ![Test run - response](./media/service-bus-to-event-grid-integration-example/test-function-response.png)        
 3. Select **Get function URL** and note down the URL. 
 
     ![Get function URL](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -227,9 +246,11 @@ To create an Azure Event Grid subscription, follow these steps:
 1. Run the .NET C# application, which sends messages to the Service Bus topic. 
 
     ![Console app output](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. On the page for your Azure function app, expand **Functions**, expand your **function**, and select **Monitor**. 
+1. On the page for your Azure function app, switch to the **Monitor** tab from the **Code + Test** tab. You should see an entry for each message posted to the Service Bus topic. If you don't see them, refresh the page after waiting for a few minutes. 
 
     ![Monitor function](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
+
+    You can also use the **Logs** tab of the **Monitor** page to see the logging information as the messages are sent. There could some delay, so give it a few minutes to see the logged messages. 
 
 ## Receive messages by using Azure Functions
 In the preceding section, you observed a simple test and debugging scenario and ensured that events are flowing. 
@@ -272,8 +293,12 @@ In this section, you'll learn how to receive and process messages after you rece
 
 1. Delete the existing Event Grid subscription:
     1. On the **Service Bus Namespace** page, select **Events** on the left menu. 
+    2. Switch to the **Event Subscriptions** tab. 
     2. Select the existing event subscription. 
-    3. On the **Event Subscription** page, select **Delete**.
+
+        ![Select event subscription](./media/service-bus-to-event-grid-integration-example/select-event-subscription.png)
+    3. On the **Event Subscription** page, select **Delete**. Select **Yes** to confirm deletion. 
+        ![Delete event subscripton button](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
 2. Follow instructions in the [Connect the function and namespace via Event Grid](#connect-the-function-and-namespace-via-event-grid) section to create an Event Grid subscription using the new function URL.
 3. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic and monitor the function. 
 
