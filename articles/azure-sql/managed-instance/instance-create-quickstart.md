@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a managed instance (portal)"
+title: "Quickstart: Create a managed instance of SQL Managed Instance (portal)"
 description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart. 
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
 ---
-# Quickstart: Create a managed instance
+# Quickstart: Create a managed instance of SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 This quickstart teaches you to create a managed instance of [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) in the Azure portal.

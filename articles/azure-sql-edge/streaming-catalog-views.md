@@ -2,8 +2,8 @@
 title: Streaming catalog views (Transact-SQL) - Azure SQL Edge (Preview)
 description: Learn about the available streaming catalog views and dynamic management views in Azure SQL Edge (Preview)
 keywords: sys.external_streams, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha

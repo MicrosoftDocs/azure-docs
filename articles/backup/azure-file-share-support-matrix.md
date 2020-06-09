@@ -3,6 +3,7 @@ title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
 ms.date: 5/07/2020
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure file share backup
@@ -17,7 +18,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 
 ### Supported regions for accidental delete protection
 
-West Central US
+West Central US, Australia South East , Canada Central
 
 ## Supported storage accounts
 
@@ -47,7 +48,7 @@ West Central US
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 4     |
+| Maximum  number of on-demand backups per day | 10   |
 | Maximum  number of scheduled backups per day | 1     |
 
 ## Restore limits

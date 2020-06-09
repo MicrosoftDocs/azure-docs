@@ -5,9 +5,9 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/06/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ---
 
 # Autoscaling and Zone-redundant Application Gateway v2 
@@ -27,7 +27,7 @@ The new v2 SKU includes the following enhancements:
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
-![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## Supported regions
 

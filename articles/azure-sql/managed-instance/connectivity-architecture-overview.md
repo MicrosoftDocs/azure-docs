@@ -1,7 +1,7 @@
 ---
 title: Connectivity architecture
 titleSuffix: Azure SQL Managed Instance 
-description: Learn about Azure SQL Managed Instance communication and connectivity architecture as well as how the components direct traffic to SQL Managed Instance.
+description: Learn about Azure SQL Managed Instance communication and connectivity architecture as well as how the components direct traffic to a managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -17,7 +17,7 @@ ms.date: 03/17/2020
 # Connectivity architecture for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains communication in Azure SQL Managed Instance. It also describes connectivity architecture and how the components direct traffic to SQL Managed Instance.  
+This article explains communication in Azure SQL Managed Instance. It also describes connectivity architecture and how the components direct traffic to a managed instance.  
 
 SQL Managed Instance is placed inside the Azure virtual network and the subnet that's dedicated to managed instances. This deployment provides:
 
@@ -28,7 +28,7 @@ SQL Managed Instance is placed inside the Azure virtual network and the subnet t
 
 ## Communication overview
 
-The following diagram shows entities that connect to SQL Managed Instance. It also shows the resources that need to communicate with SQL Managed Instance. The communication process at the bottom of the diagram represents customer applications and tools that connect to SQL Managed Instance as data sources.  
+The following diagram shows entities that connect to SQL Managed Instance. It also shows the resources that need to communicate with a managed instance. The communication process at the bottom of the diagram represents customer applications and tools that connect to SQL Managed Instance as data sources.  
 
 ![Entities in connectivity architecture](./media/connectivity-architecture-overview/connectivityarch001.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Management API reference for managed instances
+title: Management API reference for Azure SQL Managed Instance
 description: Learn about creating and configuring managed instances of Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
-# Managed API reference for managed instances
+# Managed API reference for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 You can create and configure managed instances of Azure SQL Managed Instance using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL. In this article, you can find an overview of the functions and the API that you can use to create and configure managed instances.
@@ -74,8 +74,8 @@ To create and configure instance databases after the managed instance is created
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Creates a new SQL Managed Instance database. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies a SQL Managed Instance database.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Creates a new instance database in SQL Managed Instance. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies an instance database in SQL Managed Instance.|
 
 ## REST API: Create and configure managed instances
 

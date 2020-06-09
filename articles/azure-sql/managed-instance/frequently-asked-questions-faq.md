@@ -24,7 +24,7 @@ This article contains the most common questions about [Azure SQL Managed Instanc
 
 For a list of supported features in SQL Managed Instance, see [Azure SQL Managed Instance features](../database/features-comparison.md).
 
-For differences in syntax and behavior between Azure SQL Managed Instance and SQL Server on-premises, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
+For differences in syntax and behavior between Azure SQL Managed Instance and SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
 ## Tech spec & resource limits
@@ -235,3 +235,41 @@ Once you make the encryption protector available to SQL Managed Instance, you ca
 **How can I migrate from Azure SQL Database to SQL Managed Instance?**
 
 SQL Managed Instance offers the same performance levels per compute and storage size as Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in SQL Managed Instance, you can migrate your data by using export/import (BACPAC) functionality.
+
+## Password policy 
+
+**What password policies are applied for SQL Managed Instance SQL logins?**
+
+SQL Managed Instance password policy for SQL logins inherits Azure platform policies that are applied to the VMs forming virtual cluster holding the managed instance. At the moment it is not possible to change any of these settings as these settings are defined by Azure and inherited by managed instance.
+
+ > [!IMPORTANT]
+ > Azure platform can change policy requirements without notifying services relying on that policies.
+
+**What are current Azure platform policies?**
+
+Each login must set its password upon login and change its password after it reaches maximum age.
+
+| **Policy** | **Security Setting** |
+| --- | --- |
+| Maximum password age | 42 days |
+| Minimum password age | 1 day |
+| Minimum password length | 10 characters |
+| Password must meet complexity requirements | Enabled |
+
+**Is it possible to disable password complexity and expiration in SQL Managed Instance on login level?**
+
+Yes, it is possible to control CHECK_POLICY and CHECK_EXPIRATION fields on login level. You can check current settings by executing following T-SQL command:
+
+```sql
+SELECT *
+FROM sys.sql_logins
+```
+
+After that, you can modify specified login settings by executing :
+
+```sql
+ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
+```
+
+(replace 'test' with desired login name and adjust policy and expiration values)

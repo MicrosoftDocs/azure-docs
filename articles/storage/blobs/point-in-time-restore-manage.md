@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -95,14 +95,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## Perform a restore operation
 
-To initiate a restore operation, call the Restore-AzStorageBlobRange command, specifying the restore point as a UTC **DateTime** value. You can specify one or more lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. The restore operation may take several minutes to complete.
+To initiate a restore operation, call the Restore-AzStorageBlobRange command, specifying the restore point as a UTC **DateTime** value. You can specify lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. Up to 10 lexicographical ranges are supported per restore operation. The restore operation may take several minutes to complete.
 
 Keep in mind the following rules when specifying a range of blobs to restore:
 
 - The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
-- Only one range can be specified per restore operation.
+- Up to 10 ranges can be specified per restore operation.
 - Wildcard characters are not supported. They are treated as standard characters.
 - You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range passed to a restore operation. The `$root` and `$web` containers are restored only if they are explicitly specified. Other system containers cannot restored.
+
+> [!IMPORTANT]
+> When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
+>
+> Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 
 ### Restore all containers in the account
 
@@ -143,7 +148,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### Restore multiple ranges of block blobs
 
-To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. The following example restores the complete contents of *container1* and *container4*:
+To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter. Up to 10 ranges are supported per restore operation. The following example specifies two ranges to restore the complete contents of *container1* and *container4*:
 
 ```powershell
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
