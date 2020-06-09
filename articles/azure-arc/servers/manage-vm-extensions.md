@@ -43,12 +43,16 @@ Ensure you onboard your machine in one of these regions.
 
 In this preview, we are supporting the following VM extensions on Windows and Linux machines.
 
-|Extension |Publisher |Additional information |
-|----------|----------|-----------------------|
-|CustomScriptExtension |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)<br> [Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|DSC |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)<br> [PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
-|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)<br> [Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
-|Microsoft Dependency agent | Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)<br> [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Extension |OS |Publisher |Additional information |
+|----------|---|----------|-----------------------|
+|CustomScriptExtension |Windows |Microsoft.Compute |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
+|DSC |Windows |Microsoft.PowerShell|[Windows PowerShell DSC Extension](../../virtual-machines/extensions/dsc-windows.md)|
+|Log Analytics agent |Windows |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
+|Microsoft Dependency agent | Windows |Microsoft.Compute | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|CustomScript|Linux |Microsoft.Azure.Extension |[Linux Custom Script Extension Version 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|DSC |Linux |Microsoft.OSTCExtensions |[PowerShell DSC Extension for Linux](../../virtual-machines/extensions/dsc-linux.md) |
+|Log Analytics agent |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Microsoft Dependency agent | Linux |Microsoft.Compute | [Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
@@ -82,21 +86,7 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 ## How do agents and extensions get updated?
 
-When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the Guest Config agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with `autoUpgradeMinorVersion": true,'`:
-
-```json
-"publisher": "Microsoft.Azure.Extensions",
-    "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
-    "autoUpgradeMinorVersion": true,
-    "settings": {
-        "fileUris": [
-        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
-        ]
-    },
-```
-
-To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
+When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the Guest Config agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. Support to opt in or opt out of extensions *Minor* updates when you provision the extension is not supported during public preview.
 
 ## Enable extensions from the portal
 
