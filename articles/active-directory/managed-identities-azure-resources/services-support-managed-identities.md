@@ -90,6 +90,19 @@ Refer to the following list to configure managed identity for Azure Container Re
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### Azure Data Explorer
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following list to configure managed identity for Azure Data Explorer (in regions where available):
+
+- [Azure portal](~/articles/data-explorer/managed-identities?tabs=portal)
+- [ARM](~/articles/data-explorer/managed-identities?tabs=arm)
+- [C#](~/articles/data-explorer/managed-identities?tabs=c-sharp)
+
 
 ### Azure Data Factory V2
 
