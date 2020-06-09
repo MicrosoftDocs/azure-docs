@@ -107,7 +107,7 @@ const client = new ChatClient(endpoint, userCredential);
 User access tokens are valid for 24 hours by default. If your application isn't running long-running sessions, you can decide to not use the built-in refresh callback and just pass the token string to the client that you want to instantiate. You won't get notified before the token expires.
 
 
-```typescript
+```javascript
 import { ChatClient } from '@azure/communicationservices-chat';
 
 // Your unique Azure Communication service endpoint
