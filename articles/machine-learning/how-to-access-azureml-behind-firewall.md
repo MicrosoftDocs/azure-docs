@@ -10,6 +10,7 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
+ms.custom: tracking-python
 ---
 
 # Use workspace behind Azure Firewall for Azure Machine Learning

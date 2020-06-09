@@ -42,6 +42,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 [!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
+* Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
 
 ### For device
 
@@ -50,26 +51,6 @@ Before you begin, make sure that:
 * You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
-### Supported storage accounts
-
-[!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
-
-> [!NOTE]
->
-> * Azure Data Lake Storage (ADLS) Gen2 storage accounts are not supported for Export.
-> * Append blob storage is also not supported for export.
-> * A maximum of 80 TB can be exported.
-> * File history and incremental snapshots are not exported.
-
-### Export order limits
-
-* Maximum of 500 containers are supported for export.
-* Maximum of 500 million files are supported for export.
-* Azure Data Box usage capacity may be less than 80 TB because of ReFS metadata space consumption.
-* There is a 1:1 mapping from prefix to container.
-* Maximum filename size is 1024 characters files, filenames that exceed this length will not export.
-* Duplicate prefixes in the xml file are exported (duplicates are not ignored).
-* Page Blobs and container names are case sensitive, so if casing is mismatched, the blob and/or container will not be found.
 
 ## Order Data Box for export
 
