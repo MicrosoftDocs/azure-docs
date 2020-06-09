@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/08/2020
+ms.date: 06/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -29,12 +29,64 @@ Check the version of the security daemon running on your device by using the com
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
-```bash
-apt-get update
-apt-get install libiothsm iotedge
-```
+Get the latest package list from Microsoft:
 
-If you want to update to a specific version of the security daemon, find the version you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, locate the appropriate **libiothsm-std** and **iotedge** files for your device. For each file, right-click the file link and copy the link address. Use the link address to install the specific versions of those components:
+* **Ubuntu Server 16.04**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+* **Ubuntu Server 18.04**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+* **Raspbian Stretch**:
+
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
+Copy the generated package list so that `apt` commands can access it.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+Install Microsoft GPG public key.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+Update apt.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Check to see which versions of IoT Edge are available.
+
+   ```bash
+   apt list -a iotedge
+   ```
+
+If you want to install the most recent version of the security daemon, use the following command:
+
+   ```bash
+   sudo apt-get install iotedge
+   ```
+
+If you want to install a specific version of the security daemon, specify the version from the apt list output. For example, the following command installs the most recent version of the 1.0.9 release:
+
+   ```bash
+   sudo apt-get install iotedge=1.0.9*
+   ```
+
+If the version that you want to install is not available through apt-get, you can use curl to target any version from the [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) repository. For whichever version you want to install, locate the appropriate **libiothsm-std** and **iotedge** files for your device. For each file, right-click the file link and copy the link address. Use the link address to install the specific versions of those components:
 
 ```bash
 curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
