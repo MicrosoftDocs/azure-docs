@@ -43,7 +43,7 @@ The **Azure development** workload is required for developing WebJobs with Visua
 
 1. In Visual Studio, select **File** > **New** > **Project**.
 
-2. Under **Create a new project** page, select **Console App (.NET Core)**, and then select **Next**.
+2. Under **Create a new project**, select **Console App (.NET Core)**, and then select **Next**.
 
 3. Under **Configure your new project**, name the project *WebJobsSDKSample*, and then select **Create**.
 
@@ -208,6 +208,14 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
 
 To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
+
+## Locate and copy your connection string
+A connection string is required to configure storage. Keep this connection string for the next steps.
+1. In your storage account, select **Settings**.
+1. In **Settings**, select **Access keys**.
+1. For the **Connection string** under **key1**, select the **Copy to clipboard** icon.
+
+ ![key](./media/webjobs-sdk-get-started/connectionkey.png)
 
 ## Configure storage to run locally
 
