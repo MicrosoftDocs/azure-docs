@@ -106,7 +106,7 @@ Update the newly renamed *app_config.py* with values for your Azure AD B2C tenan
     resetpassword_user_flow = "b2c_1_passwordreset1"
     authority_template = "https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{user_flow}"
 
-    CLIENT_SECRET = "22222222-2222-2222-2222-222222222222"
+    CLIENT_SECRET = "11111111-1111-1111-1111-111111111111"
     # In your production app, we recommend you to use other ways to store your secret,
     # such as KeyVault, or environment variable as described in Flask's documentation here
     # https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
@@ -121,7 +121,7 @@ Update the newly renamed *app_config.py* with values for your Azure AD B2C tenan
 1. Update the `CLIENT_ID` value with the **Application (client) ID** of the web application you registered as part of the prerequisites.
 
     ```python
-    CLIENT_ID = "11111111-1111-1111-1111-111111111111"
+    CLIENT_ID = "22222222-2222-2222-2222-222222222222"
     ```
 1. Update the `SCOPE` value to an empty array (`[]`) since you've not yet registered a web API in the Azure portal:
 
@@ -176,7 +176,7 @@ When you select **Create**, the application shows the name of the signed in user
 
 :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Web browser showing Python Flask web application with logged in user":::
 
-If you'd like to test sign-in, select the **Sign Out** button, then select **Sign In** and sign in with the email address and password you entered when you signed up.
+If you'd like to test sign-in, select the **Logout** link, then select **Sign In** and sign in with the email address and password you entered when you signed up.
 
 ## Next steps
 
