@@ -14,13 +14,13 @@ ms.reviewer: cynthn
 
 
 # Azure Linux VM provisioning
-When you create a VM from a generalized image (Shared Image Gallery or Managed Image), the control plane will allow you to create a VM, and pass parameters and settings to the VM. This is called *VM provisioning*. During provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
+When you create a VM from a generalized image (Shared Image Gallery or Managed Image), the control plane will allow you to create a VM, and pass parameters and settings to the VM. This is called VM *provisioning*. During provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
 
 A provisioning agent baked inside the image will interface with the platform, connecting up to multiple independent provisioning interfaces), set the properties and signal to the platform it has completed. 
 
 The provisioning agents can be the [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux), or [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). These are [prerequisites](create-upload-generic.md) of creating generalized images.
 
-The provisioning agents, provide support for all endorsed [Azure Linux distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), and you will find the endorsed distro images in many cases will ship with cloud-init and the Linux Agent, this allows for cloud-init to handle the provisioning, then the Linux Agent will provide support to handle [Azure Extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Providing support for extensions means the VM will then be eligible to support additional Azure services, such as VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk encryption etc.
+The provisioning agents, provide support for all endorsed [Azure Linux distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), and you will find the endorsed distro images in many cases will ship with both cloud-init and the Linux Agent. This gives you the option to have cloud-init to handle the provisioning, then the Linux Agent will provide support to handle [Azure Extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Providing support for extensions means the VM will then be eligible to support additional Azure services, such as VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk encryption etc.
 
 After provisioning completes, cloud-init will run on each boot. Cloud-init will monitor for changes to the VM, like networking changes, mounting, and formatting the ephemeral disk, and starting the Linux Agent. The Linux Agent continually runs on the server, seeking a 'goal state' (new configuration) from the Azure platform, so whenever you install extensions, the agent will be able to process them.
 
@@ -36,13 +36,13 @@ If you have a Linux flavor or kernel that cannot support running either agent, b
   
 - Creation of a user account
 - Configuring SSH authentication types
-- Deployment of SSH public keys, and key pairs
+- Deployment of SSH public keys and key pairs
 - Setting the host name
 - Publishing the host name to the platform DNS
 - Reporting SSH host key fingerprint to the platform
 - Resource Disk Management
-- Formatting, and mounting the resource disk
-- Consuming, and processing `customData`
+- Formatting and mounting the resource disk
+- Consuming and processing `customData`
  
 **Networking**
   
@@ -62,9 +62,9 @@ If you have a Linux flavor or kernel that cannot support running either agent, b
 ## Communication
 The information flow from the platform to the agent occurs via two channels:
 
-- A boot-time attached DVD for IaaS deployments. This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.
+- A boot-time attached DVD for IaaS deployments. The DVD includes an OVF-compliant configuration file that includes all provisioning information, other than the actual SSH keypairs.
 - A TCP endpoint exposing a REST API used to obtain deployment, and topology configuration.
-- IMDS >>> Do we want to mention this?
+- IMDS <!-- Do we want to mention this? -->
 
 ## Azure Provisioning Agent Requirements
 The Linux Agent, and cloud-init, depend on some system packages in order to function properly:
