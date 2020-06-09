@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/4/2019
+ms.date: 06/10/20
 ms.author: caya
 ---
 
