@@ -140,10 +140,12 @@
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Ingress for AKS 
     items:
-    - name: Set up with existing Application Gateway 
+    - name: Ingress for AKS via Helm (Brownfield)
       href: ingress-controller-install-existing.md
-    - name: Set up with new Application Gateway 
+    - name: Ingress for AKS via Helm (Greenfield)
       href: ingress-controller-install-new.md
+    - name: Disable and re-enable AKS Ingress Controller add-on
+      href: ingress-controller-disable-addon.md
     - name: Enable cookie affinity 
       href: ingress-controller-cookie-affinity.md
     - name: Enable multiple namespace support 

@@ -42,6 +42,7 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
     - `reconcilePeriodSeconds` is not supported on add-on
     - `armAuth.type` is not supported on add-on
   - AGIC deployed via Helm supports ProhibitedTargets, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. AGIC add-on doesn't currently support this. 
+  - Since AGIC add-on is a managed service, customers will automatically be updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where the customer must manually update AGIC. 
 
 > [!NOTE]
 > The AGIC AKS add-on method of deployment is currently in preview. We don't recommend running production workloads on features still in preview, so if you're curious to try it out, we'd recommend setting up a new cluster to test it out with. 
