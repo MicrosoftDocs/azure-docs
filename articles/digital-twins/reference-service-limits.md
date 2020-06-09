@@ -19,6 +19,11 @@ ms.service: digital-twins
 
 These are the service limits of Azure Digital Twins during public preview.
 
+> [!NOTE]
+> Some areas of this service have adjustable limits. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+>
+> If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
 ## Next steps

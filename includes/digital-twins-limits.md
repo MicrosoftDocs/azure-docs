@@ -7,16 +7,11 @@ ms.date: 6/9/2020
 ms.author: baanders
 ---
 
-> [!NOTE]
-> Some areas of this service have adjustable limits, represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
->
-> If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
 ### Functional limits
 
 The table below lists the functional limits of Azure Digital Twins in the current preview.
 
-| Area | Capability | Limit | Adjustable? |
+| Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
 | Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
@@ -35,7 +30,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 
 This table reflects the rate limits of different APIs.
 
-| API | Capability | Limit | Adjustable? |
+| API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 1,000 | Yes |
