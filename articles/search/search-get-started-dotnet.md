@@ -18,7 +18,7 @@ Create a .NET Core C# console application that connects to an Azure Cognitive Se
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart.
+Before you begin, you must have the following:
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition.
 
