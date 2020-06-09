@@ -924,9 +924,8 @@ We are in the process of releasing a new version of the Azure Extension for SAP.
 1. You want to use Azure Ultra Disk or Standard Managed Disks
 
 For these scenarios, follow the steps in chapter [Configure the new Azure Extension for SAP with Azure PowerShell][deployment-guide-configure-new-extension-ps] for Azure PowerShell or [Configure the new Azure Extension for SAP with Azure CLI][deployment-guide-configure-new-extension-cli] for Azure CLI.
-There is currently no support for installing the new extension with Azure CLI. Please use Azure Powershell until Azure CLI supports installing the new Azure Extension for SAP.
 
-You can use [Azure PowerShell][deployment-guide-4.5.1] or [Azure CLI][deployment-guide-4.5.2] to install and configure the standard version of the Azure Extension for SAP.
+Follow [Azure PowerShell][deployment-guide-4.5.1] or [Azure CLI][deployment-guide-4.5.2] to install and configure the standard version of the Azure Extension for SAP.
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell for Linux and Windows VMs
 
