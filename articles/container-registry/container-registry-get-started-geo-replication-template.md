@@ -26,7 +26,7 @@ None.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
 :::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
 
