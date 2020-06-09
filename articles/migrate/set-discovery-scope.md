@@ -16,7 +16,7 @@ To set the scope, you assign permissions on the account that the appliance uses 
 
 ## Before you start
 
-If you haven't already set up a vCenter user account do that now for[assessment](tutorial-prepare-vmware.md##set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
+If you haven't already set up a vCenter user account do that now for [assessment](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
 
 
 ## Assign roles
