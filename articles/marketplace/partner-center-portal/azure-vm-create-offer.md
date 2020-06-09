@@ -540,7 +540,7 @@ Here's an example of how offer information appears in Azure Marketplace:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Recommend VM sizes
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan pricing
 
-ere's an example of how offer information appears in Azure Portal:
+<br>Here's an example of how offer information appears in Azure Portal:
 
 :::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
 
