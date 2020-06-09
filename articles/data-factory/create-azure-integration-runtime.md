@@ -5,9 +5,8 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
@@ -43,14 +42,13 @@ You can configure an existing Azure IR to change its location using the Set-AzDa
 ### Create an Azure IR via Azure Data Factory UI
 Use the following steps to create an Azure IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the **Author** tab on the left pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the leftmost pane.
 
-   ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
+   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Select **Connections** at the bottom of the left pane, and then choose **Open management hub**.
 1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/doc-common-process/new-integration-runtime.png)
+   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
