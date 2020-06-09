@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Getting started with Azure Synapse Analytics' 
-description: Steps by steps to quickly understand basic concepts in Azure Synapse
+description: Steps  to quickly understand basic concepts in Azure Synapse
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/19/2020 
 ---
 
-# Getting Started with Azure Synapse Analytics
+# Getting Started with Azure Synapse Analytics (workspaces preview)
 
 This document guides you through all the basic steps needed to setup and use Azure Synapse Analytics.
 
@@ -29,8 +29,8 @@ This document guides you through all the basic steps needed to setup and use Azu
 
 1. Once the storage account is created, select **Access control (IAM)** from the left navigation. Then assign the following roles or ensure they are already assigned. 
 
-    a. * Assign yourself to the **Owner** role on the storage account
-    b. * Assign yourself to the **Storage Blob Data Owner** role on the Storage Account
+    * Assign yourself to the **Owner** role on the storage account
+    * Assign yourself to the **Storage Blob Data Owner** role on the storage sccount
 
 1. From the left navigation, select **Containers** and create a container. You can give it any name. Accept the default **Public access level**. In this document, we will call the container `users`. Select **Create**. 
 
