@@ -14,7 +14,7 @@ ms.reviewer: cynthn
 
 
 # Azure Linux VM provisioning
-When you create a VM from a generalized image (Shared Image Gallery or Managed Image), the control plane will allow you to create a VM and pass parameters and an setting them in the VM, is called VM ‘provisioning’. In provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
+When you create a VM from a generalized image (Shared Image Gallery or Managed Image), the control plane will allow you to create a VM and pass parameters and settings to the VM. This is called *VM provisioning*. During provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
 
 A provisioning agent baked inside the image will interface with the platform, connecting up to multiple independent provisioning interfaces), set the properties and signal to the platform it has completed. 
 
