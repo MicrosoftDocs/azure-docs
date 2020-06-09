@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a Service Bus namespace
 > * Prepare a sample application to send messages
+> * Send messages to the Service Bus topic
+> * Receive messages by using Logic Apps
 > * Set up a test function on Azure
 > * Connect the function and namespace via Event Grid
-> * Send messages to the Service Bus topic
 > * Receive messages by using Azure Functions
-> * Receive messages by using Logic Apps
 
 ## Prerequisites
 
@@ -59,6 +59,60 @@ You can use any method to send a message to your Service Bus topic. The sample c
     ```
 5. Update the `numberOfMessages` value to **5**. 
 5. Build and run the program to send test messages to the Service Bus topic. 
+
+## Receive messages by using Logic Apps
+Connect a logic app with Azure Service Bus and Azure Event Grid by following these steps:
+
+1. Create a logic app in the Azure portal.
+    1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
+    2. On the **Logic App - Create** page, enter a **name** for the logic app.
+    3. Select your Azure **subscription**. 
+    4. Select **Use existing** for the **Resource group**, and select the resource group that you used for other resources (like Azure function, Service Bus namespace) that you created earlier. 
+    5. Select the **Location** for the logic app. 
+    6. Select **Create** to create the logic app. 
+2. On the **Logic Apps Designer** page, select **Blank Logic App** under **Templates**. 
+3. On the designer, do the following steps:
+    1. Search for **Event Grid**. 
+    2. Select **When a resource event occurs (preview) - Azure Event Grid**. 
+
+        ![Logic Apps Designer - select Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. Select **Sign in**, enter your Azure credentials, and select **Allow Access**. 
+5. On the **When a resource event occurs** page, do the following steps:
+    1. Select your Azure subscription. 
+    2. For **Resource Type**, select **Microsoft.ServiceBus.Namespaces**. 
+    3. For **Resource Name**, select your Service Bus namespace. 
+    4. Select **Add new parameter**, and select **Suffix Filter**. 
+    5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
+        ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+6. Select **+ New Step** in the designer, and do the following steps:
+    1. Search for **Service Bus**.
+    2. Select **Service Bus** in the list. 
+    3. Select for **Get messages** in the **Actions** list. 
+    4. Select **Get messages from a topic subscription (peek-lock)**. 
+
+        ![Logic Apps Designer - get messages action](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
+    5. Enter a **name for the connection**. For example: **Get messages from the topic subscription**, and select the Service Bus namespace. 
+
+        ![Logic Apps Designer - select the Service Bus namespace](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
+    6. Select **RootManageSharedAccessKey**, and then select **Create**.
+
+        ![Logic Apps Designer - select the shared access key](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
+    8. Select your **topic** and **subscription**. 
+    
+        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+7. Select **+ New step**, and do the following steps: 
+    1. Select **Service Bus**.
+    2. Select **Complete the message in a topic subscription** from the list of actions. 
+    3. Select your Service Bus **topic**.
+    4. Select the second **subscription** to the topic.
+    5. For **Lock token of the message**, select **Lock Token** from the **Dynamic content**. 
+
+        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+8. Select **Save** on the toolbar on the Logic Apps Designer to save the logic app. 
+9. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic. 
+10. Switch to the **Overview** page of your logic app. You see the logic app runs in the **Runs history** for the messages sent.
+
+    ![Logic Apps Designer - logic app runs](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## Set up a test function on Azure 
 Before you work through the entire scenario, set up at least a small test function, which you can use to debug and observe the events that are flowing. Follow instructions in the [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md) article to do the following tasks: 
@@ -302,60 +356,6 @@ In this section, you'll learn how to receive and process messages after you rece
 2. Follow instructions in the [Connect the function and namespace via Event Grid](#connect-the-function-and-namespace-via-event-grid) section to create an Event Grid subscription using the new function URL.
 3. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic and monitor the function. 
 
-## Receive messages by using Logic Apps
-Connect a logic app with Azure Service Bus and Azure Event Grid by following these steps:
-
-1. Create a logic app in the Azure portal.
-    1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
-    2. On the **Logic App - Create** page, enter a **name** for the logic app.
-    3. Select your Azure **subscription**. 
-    4. Select **Use existing** for the **Resource group**, and select the resource group that you used for other resources (like Azure function, Service Bus namespace) that you created earlier. 
-    5. Select the **Location** for the logic app. 
-    6. Select **Create** to create the logic app. 
-2. On the **Logic Apps Designer** page, select **Blank Logic App** under **Templates**. 
-3. On the designer, do the following steps:
-    1. Search for **Event Grid**. 
-    2. Select **When a resource event occurs (preview) - Azure Event Grid**. 
-
-        ![Logic Apps Designer - select Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
-4. Select **Sign in**, enter your Azure credentials, and select **Allow Access**. 
-5. On the **When a resource event occurs** page, do the following steps:
-    1. Select your Azure subscription. 
-    2. For **Resource Type**, select **Microsoft.ServiceBus.Namespaces**. 
-    3. For **Resource Name**, select your Service Bus namespace. 
-    4. Select **Add new parameter**, and select **Suffix Filter**. 
-    5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
-        ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. Select **+ New Step** in the designer, and do the following steps:
-    1. Search for **Service Bus**.
-    2. Select **Service Bus** in the list. 
-    3. Select for **Get messages** in the **Actions** list. 
-    4. Select **Get messages from a topic subscription (peek-lock)**. 
-
-        ![Logic Apps Designer - get messages action](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Enter a **name for the connection**. For example: **Get messages from the topic subscription**, and select the Service Bus namespace. 
-
-        ![Logic Apps Designer - select the Service Bus namespace](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
-    6. Select **RootManageSharedAccessKey**.
-
-        ![Logic Apps Designer - select the shared access key](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. Select **Create**. 
-    8. Select your topic and subscription. 
-    
-        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. Select **+ New step**, and do the following steps: 
-    1. Select **Service Bus**.
-    2. Select **Complete the message in a topic subscription** from the list of actions. 
-    3. Select your Service Bus **topic**.
-    4. Select the second **subscription** to the topic.
-    5. For **Lock token of the message**, select **Lock Token** from the **Dynamic content**. 
-
-        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
-8. Select **Save** on the toolbar on the Logic Apps Designer to save the logic app. 
-9. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic. 
-10. Switch to the **Overview** page of your logic app. You see the logic app runs in the **Runs history** for the messages sent.
-
-    ![Logic Apps Designer - logic app runs](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## Next steps
 
