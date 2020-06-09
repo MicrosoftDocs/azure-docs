@@ -9,6 +9,7 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
+ms.custom: tracking-python
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
 
