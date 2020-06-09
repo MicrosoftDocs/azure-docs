@@ -22,7 +22,6 @@ Speaker Verification streamlines the process of verifying an enrolled speaker id
 
 ### How does Speaker Verification work?
 
-![How does speaker verification work](media/speaker-recognition/speaker-rec.png)
 :::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Speaker Verification flowchart.":::
 
 Speaker verification can be either text-dependent or text-independent. **Text-dependent** verification means speakers need to choose the same passphrase to use during both enrollment and verification phases. **Text-independent** verification means speakers can speak in everyday language in the enrollment and verification phrases.
