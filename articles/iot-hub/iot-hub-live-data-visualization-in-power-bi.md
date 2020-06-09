@@ -65,13 +65,13 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 1. Open the Stream Analytics job.
 
-2. Under **Job Topology**, select **Inputs**.
+2. Under **Job topology**, select **Inputs**.
 
 3. In the **Inputs** pane, select **Add stream input**, then select **IoT Hub** from the drop-down list. On the new input pane, enter the following information:
 
    **Input alias**: Enter a unique alias for the input.
 
-   **Provide IoT Hub from your subscription**: Select this radio button.
+   **Select IoT Hub from your subscription**: Select this radio button.
 
    **Subscription**: Select the Azure subscription you're using for this tutorial.
 
@@ -93,7 +93,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 ### Add an output to the Stream Analytics job
 
-1. Under **Job Topology**, select **Outputs**.
+1. Under **Job topology**, select **Outputs**.
 
 2. In the **Outputs** pane, select **Add** and **Power BI**.
 
@@ -103,11 +103,13 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Output alias**: A unique alias for the output.
 
-   **Group Workspace**: Select your target group workspace.
+   **Group workspace**: Select your target group workspace.
 
-   **Dataset Name**: Enter a dataset name.
+   **Dataset name**: Enter a dataset name.
 
-   **Table Name**: Enter a table name.
+   **Table name**: Enter a table name.
+
+   **Authentication mode**: Leave at the default.
 
    ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
 
@@ -115,7 +117,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 ### Configure the query of the Stream Analytics job
 
-1. Under **Job Topology**, select **Query**.
+1. Under **Job topology**, select **Query**.
 
 2. Replace `[YourInputAlias]` with the input alias of the job.
 
