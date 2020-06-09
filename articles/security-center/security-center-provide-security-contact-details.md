@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/03/2020
+ms.date: 06/11/2020
 ms.author: memildin
 
 ---
@@ -19,9 +19,7 @@ ms.author: memildin
 
 To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
 
-When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific RBAC role for a subscription. You can also choose the severity levels for the alerts to be emailed.
-
-By default, if no security contacts are defined, Azure Security Center sends notifications about high-severity alerts to the resource owner.  
+When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific RBAC role for a subscription. 
 
 To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
@@ -43,7 +41,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-You can send email notifications to subscription owners (classic Service Administrator and Co-Administrators, plus RBAC Owner role at the subscription scope).
+You can send email notifications to individuals or to all users with specific RBAC roles.
 
 1. From Security Center's **Pricing & settings** area, the relevant subscription, and select **Email notifications**.
 
@@ -52,17 +50,11 @@ You can send email notifications to subscription owners (classic Service Adminis
     - From the dropdown list, select from the available roles.
     - And/or enter specific email addresses separated by commas. There is no limit to the number of email addresses that you can enter.
 
-1. By default, Security Center will send emails about high severity alerts only. To receive mails about:
-
-    - medium and high severity alerts, change the **Send emails on alert from severity** option to **Medium**
-    - all alerts, change the **Send emails on alert from severity** option to **Low**
-    
 1. To apply the security contact information to your subscription, select **Save**.
 
 
-
 ## See also
-To learn more about Security Center, see the following:
+To learn more about security alerts, see the following:
 
-* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+* [Security alerts - a reference guide](alerts-reference.md) -- Learn about the security alerts you might see in Azure Security Center's Threat Protection module
+* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts
