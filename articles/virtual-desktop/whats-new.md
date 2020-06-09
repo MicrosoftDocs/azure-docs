@@ -23,7 +23,7 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 ## June 2020
 
-Last month, we released the Windows Virtual Desktop Spring 2020 release. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 release, along with the updates we've made over the past month.
+Last month, we introduced the Windows Virtual Desktop Spring 2020 release. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 release. We've also included some information about the updates we've made over the past month.
 
 ### Windows Virtual Desktop is now an Azure Resource Manager service
 
@@ -41,7 +41,7 @@ Here's what this change does for you:
 
 - Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
-- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and usw Workboosk to create visual reports. You can also integrate with Power BI to use enhanced visualizations.
+- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports. You can also integrate with Power BI to use enhanced visualizations.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 release, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
@@ -53,7 +53,7 @@ Learn more about data locations at [Data locations](data-locations.md).
 
 ### PowerShell support
 
-The Spring 2020 release features the new AzWvd PowerShell module. This new module is supported in PowerShell Core, which runs on .NET Core.
+We've also created the AzWvd PowerShell module to use with the Spring 2020 release. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, run the following cmdlet:
 
@@ -71,7 +71,7 @@ For more information about the new features, check out [our blog post](https://t
 
 ### Microsoft Teams on Windows Virtual Desktop
 
-We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, we now support audio and visual redirection for calls. Redirection improves latency by creating a direct path between users when they use audio and video. Less distance means fewer hops, which makes calls look and sound smoother.
+We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
