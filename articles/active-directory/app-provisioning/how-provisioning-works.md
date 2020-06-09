@@ -169,7 +169,7 @@ All operations run by the user provisioning service are recorded in the Azure AD
 
 The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
 
-The Azure AD provisioning service will soft delete a user in an application when the application suupports soft deletes (update request with active = false) and any of the following events occur:
+The Azure AD provisioning service will soft delete a user in an application when the application supports soft deletes (update request with active = false) and any of the following events occur:
 
 * The user account is deleted in Azure AD
 *	The user is unassigned from the application
