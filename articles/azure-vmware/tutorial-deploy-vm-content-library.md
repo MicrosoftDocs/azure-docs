@@ -17,7 +17,7 @@ You learn how to:
 
 ## Prerequisites
 
-An NSX-T logical switch segment created in a [previous tutorial](tutorials-create-t1-ls.md) is required to complete this tutorial.
+An NSX-T logical switch segment created in a [previous tutorial]() is required to complete this tutorial.
 
 ## Create Content Library
 
