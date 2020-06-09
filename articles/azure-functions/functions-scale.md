@@ -218,7 +218,7 @@ The following comparison table shows all important aspects to help the decision 
 
 |    |    | 
 | -- | -- |
-| **[Consumption&nbsp;plan](#consumption-plan)** | Instead of starting from scratch every time, we’ve implemented a way to keep a pool of servers warm and draw workers from that pool. What this means is that at any point in time there are idle workers that have been preconfigured with the Functions runtime up and running. Making these “pre-warmed sites” happen has given us measurable  improvements on our cold start times. |
+| **[Consumption&nbsp;plan](#consumption-plan)** | Apps may scale to zero if idle for a period of time, meaning some requests may have additional latency at startup.  The consumption plan does have some optimizations to help decrease cold start time, including pulling from pre-warmed placeholder functions that already have the function host and language processes running. |
 | **[Premium plan](#premium-plan)** | Perpetually warm instances to avoid any cold start. |
 | **[Dedicated plan](#app-service-plan)**<sup>1</sup> | When running in a Dedicated plan, the Functions host can run continuously, which means that cold start isn’t really an issue. |
 | **[ASE](#app-service-plan)**<sup>1</sup> | When running in a Dedicated plan, the Functions host can run continuously, which means that cold start isn’t really an issue. |
