@@ -26,12 +26,12 @@ In this guide, you'll learn:
 
 This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
 
-- For a code-first experience: [Configure automated machine-learning experiments with the Python SDK](how-to-configure-auto-train.md).
-- For a low-code or no-code experience: [Create, review, and deploy automated machine-learning models with Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+- For a code-first experience: [Configure automated machine-learning experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
+- For a low-code or no-code experience: [Create, review, and deploy automated machine-learning models by using Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Configure featurization
 
-In every automated machine-learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help certain algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
+In every automated machine-learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
 
 > [!NOTE]
 > Steps for automated machine-learning featurization (such as feature normalization, handling missing data,
@@ -39,7 +39,7 @@ In every automated machine-learning experiment, [automatic scaling and normaliza
 > predictions, the same featurization steps that are applied during training are applied to
 > your input data automatically.
 
-For experiments that you configure by using the SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+For experiments that you configure by using the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
@@ -76,12 +76,12 @@ The following table summarizes techniques that are automatically applied to your
 
 Data guardrails are applied:
 
-- **For SDK experiments**, when the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object.
-- **For Machine Learning Studio experiments**, when Automatic featurization is enabled.  
+- **For SDK experiments**: When the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object.
+- **For Machine Learning Studio experiments**: When automatic featurization is enabled.  
 
 You can review the data guardrails for your experiment:
 
-- By setting `show_output=True` when you submit an experiment by using the Python SDK.
+- By setting `show_output=True` when you submit an experiment by using the SDK.
 
 - In Machine Learning Studio, on the **Data guardrails** tab of your automated machine-learning run.
 
@@ -101,21 +101,12 @@ The following table describes the data guardrails that are currently supported a
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
-**Missing feature values imputation** |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
-**High cardinality feature handling** |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high-cardinality feature detection.](#automatic-featurization) <br><br> High-cardinality features were detected in your inputs and were handled.
-**Validation split handling** |*Done*| The validation configuration was set to 'auto' and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> The validation configuration was set to 'auto', and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
-**Class balancing detection** |*Passed* <br><br><br><br><br> *Alerted* | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
-**Memory issues detection** |*Passed* <br><br><br><br> *Done* |<br> The selected {horizon, lag, rolling window} values were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
-**Frequency detection** |*Passed* <br><br><br><br> *Done* |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
-
-**Missing feature values imputation**
- |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
-**High cardinality feature handling**
- |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high-cardinality feature detection.](#automatic-featurization) <br><br> High-cardinality features were detected in your inputs and were handled.
-**Validation split handling** |*Done*| The validation configuration was set to 'auto' and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> The validation configuration was set to 'auto', and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
-**Class balancing detection** |*Passed* <br><br><br><br><br> *Alerted* | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
-**Memory issues detection** |*Passed* <br><br><br><br> *Done* |<br> The selected {horizon, lag, rolling window} values were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.
-**Frequency detection** |*Passed* <br><br><br><br> *Done* |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that do not align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Missing feature values imputation** |Passed <br><br><br> Done| No missing feature values were detected in your training data. Learn more about [missing-value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
+**High cardinality feature handling** |Passed <br><br><br> Done| Your inputs were analyzed, and no high-cardinality features were detected. Learn more about [high-cardinality feature detection](#automatic-featurization). <br><br> High-cardinality features were detected in your inputs and were handled.
+**Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
+**Class balancing detection** |Passed <br><br><br><br><br> Alerted | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
+**Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, or rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
+**Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 
 ## Customize featurization
 
@@ -151,7 +142,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 * Learn how to set up your automated machine-learning experiments,
 
-    * For a code-first experience: [Configure automated ML experiments with the Azure Machine Learning SDK](how-to-configure-auto-train.md).
+    * For a code-first experience: [Configure automated machine-learning experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For low-code or no-code experience: [Create your automated machine-learning experiments in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
