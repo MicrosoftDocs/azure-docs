@@ -52795,6 +52795,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
@@ -54642,6 +54647,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
       "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-health/service-health-rest.md",
+      "redirect_url": "/azure/service-health/index",
       "redirect_document_id": false
     },
     {
