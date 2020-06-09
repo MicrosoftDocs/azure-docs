@@ -35,7 +35,7 @@ There are two datasets provided. If you wish to train the model yourself, the ho
 
 ## Setup
 
-* Clone or download the contents of [the sample repository](this is a placeholder).
+* Clone or download the contents of [the sample repository](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 * Extract contents if the download is a zip file. Make sure the files are read-write.
 * While setting up the Azure accounts and services, copy the names and keys to an easily accessed text file. The names and keys will be added to the first cell in the notebook where variables for accessing the Azure services are defined.
 * If you are unfamiliar with Azure Machine Learning and its requirements, you will want to review these documents before getting started:
