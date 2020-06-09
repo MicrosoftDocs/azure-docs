@@ -140,7 +140,7 @@ Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-varia
 
 ### query_cache_size
 
-The query cache is turned off by default. To enable the query cache, configure the `query_cache_type` parameter. 
+The query cache is enabled by default in MariaDB with the `have_query_cache` parameter. 
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
 
