@@ -70,7 +70,7 @@ Example raw event:
 
 In the Azure portal, you can then enter the composite key as follows:
 
-[![Configure Time Series ID for the environment.](media/v2-how-to-tsid/tsid.png)](media/v2-how-to-tsid/tsid.png#lightbox)
+[![Configure Time Series ID for the environment.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## Next steps
 
