@@ -13,6 +13,9 @@ The [ARM template test toolkit](https://aka.ms/arm-ttk) checks whether your temp
 
 The toolkit is a set of PowerShell scripts that can be run from a command in PowerShell or CLI.
 
+> [!IMPORTANT]
+> The test toolkit provides a standard set of tests. These tests are recommendations but not requirements. You can decide which tests are relevant to your goals. For example, if you want to use a preview version, you can ignore the test that warns against using a preview version.
+
 ## Download test toolkit
 
 To use the test toolkit, you can either fork the [repository](https://aka.ms/arm-ttk) containing the scripts or [download the latest .zip file](https://aka.ms/arm-ttk-latest).
@@ -64,6 +67,10 @@ Test-AzTemplate.sh -TemplatePath $TemplateFolder
 Tests that pass are displayed in **green** and prefaced with **[+]**.
 
 Tests that fail are displayed in **red** and prefaced with **[-]**.
+
+:::image type="content" source="./media/template-test-toolkit/view-results.png" alt-text="view test results":::
+
+The text results are:
 
 ```powershell
 [+] adminUsername Should Not Be A Literal (24 ms)
@@ -340,25 +347,97 @@ Test name: **Outputs Must Not Contain Secrets**
 
 Don't include any values in the outputs section that potentially expose secrets. The output from a template is stored in the deployment history, so a malicious user could find that information.
 
-This test **fails** when you include a secure parameter in an output value. It also **fails** when you use a [list*](template-functions-resource.md#list) function in the outputs.
+The following example **fails** the test because it includes a secure parameter in an output value.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "secureParam": {
+            "type": "securestring"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "badResult": {
+            "type": "string",
+            "value": "[concat('this is the value ', parameters('secureParam'))]"
+        }
+    }
+}
+```
+
+The following example **fails** because it uses a [list*](template-functions-resource.md#list) function in the outputs.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageName": {
+            "type": "string"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "badResult": {
+            "type": "object",
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2019-06-01')]"
+        }
+    }
+}
+```
 
 ## Properties can't be empty
 
 Test name: **Template Should Not Contain Blanks**
 
-Don't hardcode properties to an empty value. Empty values include null and empty strings, objects, or arrays. If you've set a property to an empty value, remove that property from your template. However, it is fine to set a property to an empty value during deployment, such as through a parameter.
+Don't hardcode properties to an empty value. Empty values include null and empty strings, objects, or arrays. If you've set a property to an empty value, remove that property from your template. However, it's okay to set a property to an empty value during deployment, such as through a parameter.
 
-## VM Image should use latest version
+## Use latest image
 
 Test name: **VM Images Should Use Latest Version**
 
-If your template includes a virtual machine with an image, make sure it is using the latest version of the image.
+If your template includes a virtual machine with an image, make sure it's using the latest version of the image.
+
+## Use stable images
+
+Test name: **Virtual-Machines-Should-Not-Be-Preview**
+
+Virtual machines shouldn't use preview images.
+
+The following example **fails** this test.
+
+```json
+"imageReference": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "16.04-LTS",
+    "version": "latest-preview"
+}
+```
+
+The following example **passes** this test.
+
+```json
+"imageReference": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "16.04-LTS",
+    "version": "latest"
+},
+```
 
 ## Use parameter for VM size
 
 Test name: **VM Size Should Be A Parameter**
 
-Don't hardcode the virtual machine size. Instead, provide a parameter so users of your template can modify the deployed virtual machine.
+Don't hardcode the virtual machine size. Provide a parameter so users of your template can modify the size of the deployed virtual machine.
 
 The following example **fails** this test.
 
@@ -372,16 +451,50 @@ Instead, provide a parameter.
 
 ```json
 "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_A2_v2",
-      "metadata": {
+    "type": "string",
+    "defaultValue": "Standard_A2_v2",
+    "metadata": {
         "description": "Size for the Virtual Machine."
-      }
-    },
+    }
+},
+```
+
+Then, set the VM size to that parameter.
+
+```json
+"hardwareProfile": {
+    "vmSize": "[parameters('vmSize')]"
+},
+```
+
+## Use recent API version
+
+The API version for each resource should use a recent version. The test evaluates the version you use against the versions available for that resource type.
+
+## Use hardcoded API version
+
+The API version for a resource type determines which properties are available for the resource. Provide a hardcoded API version in your template. Don't retrieve an API version that is determined during deployment. You won't know which properties are available.
+
+The following example **fails** this test.
+
+```json
+"resources": [
+    {
+        "type": "Microsoft.Compute/virtualMachines",
+        "apiVersion": "[providers('Microsoft.Compute', 'virtualMachines').apiVersions[0]]",
+        ...
+    }
+]
 ```
 
 The following example **passes** this test.
 
 ```json
-
+"resources": [
+    {
+       "type": "Microsoft.Compute/virtualMachines",
+       "apiVersion": "2019-12-01",
+       ...
+    }
+]
 ```
