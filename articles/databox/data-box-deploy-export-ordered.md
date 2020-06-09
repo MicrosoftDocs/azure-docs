@@ -198,10 +198,9 @@ Microsoft then prepares and dispatches your device through a regional carrier. Y
 
 ![Data Box export order dispatched](media/data-box-deploy-export-ordered/azure-data-box-export-16.png)
 
-If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter.
+If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter. For more information relating to self-managed shipping, see [Self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-<!-- Anusha 06/04/20: Insert screenshot for export order in ready for pick up state -->
-<!-- priestlg 06/08/20: Alpa says that might have an existing picture for MMS, that I can use. The only ones I've been able to find is from FIGMA, which has the older UI and shouldn't be used. -->
+![Self-managed shipping ready for pickup](media/data-box-deploy-export-ordered/azure-data-box-export-17.png)
 
 ## Cancel the order
 
