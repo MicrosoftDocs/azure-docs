@@ -10,7 +10,7 @@ ms.author: sngun
 ---
 
 # Azure Cosmos DB Gremlin compatibility
-Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. To see our list of supported Gremlin steps, please read the following article: [Gremlin API Wire Protocol Support](gremlin-support.md).
+Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) traversal steps specification but there are differences in the implementation that are specific for Azure Cosmos DB. To learn the list of supported Gremlin steps, see the [Gremlin API Wire Protocol Support](gremlin-support.md) article.
 
 ## Behavior differences
 
