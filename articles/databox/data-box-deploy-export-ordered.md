@@ -51,12 +51,9 @@ Before you begin, make sure that:
 * You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
-
 ## Order Data Box for export
 
 Perform the following steps in the Azure portal to order a device.
-
-<!-- Anusha 06/04/20: Can we use a different screenshot for create (Step 3)? Maybe the one with the +Add button, similar to import? This is because the gallery package with the updated description for Data Box has not yet been pushed to the marketplace so the info in this screenshot will be inaccurate-->
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 
