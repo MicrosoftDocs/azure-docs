@@ -787,11 +787,7 @@ You can obtain the status of the scheduled events via metadata service, then use
 
 ## Regional Availability
 
-The service is **generally available** in all Azure regions: 
-1. [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)
-2. [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  
-3. [Azure China 21Vianet](https://www.azure.cn/) 
-4. [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) 
+The service is **generally available** in all Azure Clouds.
 
 ## Sample Code in Different Languages
 
