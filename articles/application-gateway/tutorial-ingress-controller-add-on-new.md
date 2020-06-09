@@ -11,7 +11,7 @@ ms.author: caya
 
 # Tutorial: Enable Application Gateway Ingress Controller Add-On for a new AKS Cluster with a new Application Gateway Through Azure CLI (Preview)
 
-You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on, which is currently in preview, for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster with the  AGIC add-on enabled which will automatically create an Application Gateway to use. You'll then deploy a sample application which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm and also offers a fully managed experience.  
+You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on, which is currently in preview, for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster with the  AGIC add-on enabled which will automatically create an Application Gateway to use. You'll then deploy a sample application, which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm and also offers a fully managed experience.  
 
 In this tutorial, you learn how to:
 
@@ -52,7 +52,7 @@ You will now deploy a new AKS cluster with the AGIC add-on enabled. When you dep
 > [!NOTE]
 > Application Gateway Ingress Controller (AGIC) add-on **only** supports Application Gateway v2 SKUs (Standard and WAF), and **not** the Application Gateway v1 SKUs. When deploying a new Application Gateway through the AGIC add-on, you can only deploy an Application Gateway Standard_v2 SKU; if you want to enable the AGIC add-on for an Application Gateway WAF_v2 SKU, please create the WAF_v2 Application Gateway first and then follow instructions on how to set enable AGIC add-on with an existing AKS cluster and existing Application Gateway. 
 
-In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) with the AGIC add-on enabled in the resource group we just created, *myResourceGroup*. Since deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway will mean an automatic creation of a Standard_v2 SKU Application Gateway, you'll also be specifying the name and subnet address space of the Application Gateway. The name of the Application Gateway will be *myApplicationGateway* and the subnet address space we're using is 10.2.0.0/16. Make sure you've added/updated the aks-preview extension at the beginning of this tutorial. 
+In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) with the AGIC add-on enabled in the resource group you created, *myResourceGroup*. Since deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway will mean an automatic creation of a Standard_v2 SKU Application Gateway, you'll also be specifying the name and subnet address space of the Application Gateway. The name of the Application Gateway will be *myApplicationGateway* and the subnet address space we're using is 10.2.0.0/16. Make sure you've added/updated the aks-preview extension at the beginning of this tutorial. 
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
@@ -79,7 +79,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kub
 
 ## Check the Application Gateway connection to AKS cluster 
 
-Now that the Application Gateway is set up to serve traffic to the AKS cluster, let's verify that it's actually connected. You'll first get the IP address of the Ingress. 
+Now that the Application Gateway is set up to serve traffic to the AKS cluster, let's verify that it's connected. You'll first get the IP address of the Ingress. 
 
 ```azurecli-interactive
 kubectl get ingress
@@ -97,7 +97,7 @@ az group delete --name myResourceGroup --location canadacentral
 
 ## Next steps
 * [Learn more about disabling the AGIC add-on]()
-* [Enable end-to-end SSL]()
+* [Enable end-to-end TLS]()
 * [How to add a WAF policy]()
 * [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
 * [Enable multiple namespace support](./ingress-controller-multiple-namespace-support.md)
