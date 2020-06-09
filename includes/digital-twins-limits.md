@@ -12,7 +12,7 @@ ms.author: baanders
 >
 > If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Functional limits
+### Functional limits
 
 The table below lists the functional limits of Azure Digital Twins in the current preview.
 
@@ -31,7 +31,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of characters in a query | 8,000 | Yes |
 | Query | Number of `JOINS` in a query | 1 | Yes |
 
-## Rate limits
+### Rate limits
 
 This table reflects the rate limits of different APIs.
 
@@ -43,7 +43,7 @@ This table reflects the rate limits of different APIs.
 | Query API | Query units per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
 
-## Other limits
+### Other limits
 
 Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
