@@ -18,6 +18,8 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 
 Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on your execution cluster for scaled-out data processing. Azure Data Factory handles all the code translation, path optimization, and execution of your data flow jobs.
 
+![Architecture](media/data-flow/adfdataflows.png "Architecture")
+
 ## Getting started
 
 To create a data flow, select the plus sign under **Factory Resources**, and then select **Data Flow**. 
@@ -25,8 +27,6 @@ To create a data flow, select the plus sign under **Factory Resources**, and the
 ![New data flow](media/data-flow/newdataflow2.png "new data flow")
 
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
-
-![Architecture](media/data-flow/adfdataflows.png "Canvas")
 
 ## Data flow canvas
 
