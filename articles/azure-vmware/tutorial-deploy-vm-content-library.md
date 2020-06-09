@@ -75,7 +75,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Select **New CD/DVD Drive > Client Device > Content Library ISO File**.
 
-1. Select the ISO uploaded in the previous section and click **OK**.
+1. Select the ISO uploaded in the previous section and then click **OK**.
 
 1. Select the **Connect** check box so the ISO is mounted at power on time.
 
