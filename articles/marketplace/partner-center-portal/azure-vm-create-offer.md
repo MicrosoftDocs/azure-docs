@@ -513,7 +513,7 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 :::image type="content" source="media/avm-create1.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Large logo
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Price
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Terms and conditions
@@ -544,7 +544,7 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 :::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots/videos

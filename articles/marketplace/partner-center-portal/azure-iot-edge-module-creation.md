@@ -106,7 +106,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
 
-![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
+![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](media//iot-edge-module-standard-contract-checkbox.png)
 
 ##### Your own terms and conditions
 
@@ -206,27 +206,49 @@ Add up to five screenshots that show how your offer works. Each must be 1280 x 7
 
 Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail .png image of the video at 1280 x 720 pixels in size.
 
-#### Offer examples
+#### Marketplace  examples
 
-The following examples show how the offer listing fields appear in different places of the offer.
+Here's an example of how offer information appears in Azure Marketplace:
 
-This screenshot shows the **Offer listing** page in Azure Marketplace.
+:::image type="content" source="media/example-iot-1.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Illustrates the Offer listing page in Azure Marketplace.":::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Large logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Categories
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Support address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Terms and conditions
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Privacy policy address (link)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Summary
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Screenshots/videos
 
-This screenshot shows the search results in Azure Marketplace:
+<br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Illustrates the search results in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-2.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-This screenshot shows the **Offer listing** page in the Azure portal.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+<br>Here's an example of how offer information appears in Azure Portal:
 
-This screenshot shows search results in the Azure portal.
+:::image type="content" source="media/example-iot-3.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots
 
-Select **Save draft** before proceeding to the next section, Preview.
+<br>Here's an example of how offer information appears in Azure Portal search results:
+
+:::image type="content" source="media/example-iot-4.png" alt-text="Illustrates how this offer appears in Azure Portal search results.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+
+<br>Select **Save draft** before proceeding to the next section, Preview.
 
 ## Preview
 
@@ -318,15 +340,21 @@ Select **Save draft** after completing these fields.
 
 #### Plan examples
 
-The following examples show how the plan listing fields appear in different views.
+Here's an example of Azure Marketplace plan details:
 
-These are the fields in Azure Marketplace when viewing plan details:
+:::image type="content" source="media/example-iot-5.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan description
 
-These are plan details on the Azure portal:
+<br>Here's an example of Azure Portal plan details:
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Illustrates plan details on the Azure portal.":::
+:::image type="content" source="media/example-iot-6.png" alt-text="Illustrates Azure Portal plan details.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Offer name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan description
 
 ## Availability
 
@@ -361,11 +389,17 @@ You'll provide the following information on the **Image repository details** tab
 
 **Admin username for the Azure Container Registry**: Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustrates the Update container registry dialog box.":::
+:::image type="content" source="media/example-iot-7.png" alt-text="Illustrates the Update container registry dialog box.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Admin user
 
 **Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustrates the access key screen in Azure portal.":::
+:::image type="content" source="media/example-iot-8.png" alt-text="Illustrates the access key screen in Azure portal.":::
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Access keys
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Username
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Password
 
 **Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
 
