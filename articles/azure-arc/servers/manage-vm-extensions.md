@@ -52,7 +52,7 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
-Installed alongside the Connected Machine agent is the Guest Config agent, which is very similar to the [Azure Virtual Machine agent for Windows](../../virtual-machines/extensions/features-windows.md) and [Azure Virtual Machine agent for Linux](virtual-machines/extensions/features-linux.md). The Guest agent is installed in `%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC` for Windows, and for Linux it's `/opt/GC_Ext`.
+Installed alongside the Connected Machine agent is the Guest Config agent, which is very similar to the [Azure Virtual Machine agent for Windows](../../virtual-machines/extensions/features-windows.md) and [Azure Virtual Machine agent for Linux](../../virtual-machines/extensions/features-linux.md). The Guest agent is installed in `%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC` for Windows, and for Linux it's `/opt/GC_Ext`.
 
 Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to the `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
