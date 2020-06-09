@@ -1,5 +1,5 @@
 ---
-title: Security Overview for Azure Data Share
+title: Security overview for Azure Data Share
 description: Security overview for Azure Data Share
 author: jifems
 ms.author: jife
@@ -7,7 +7,7 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 06/05/2020
 ---
-# Security Overview for Azure Data Share
+# Security overview for Azure Data Share
 
 This article provides a security overview of the Azure Data Share service.
 
