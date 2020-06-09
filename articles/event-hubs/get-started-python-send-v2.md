@@ -9,6 +9,7 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
+ms.custom: tracking-python
 
 ---
 

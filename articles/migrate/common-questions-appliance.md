@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ---
 
 # Azure Migrate appliance: Common questions
