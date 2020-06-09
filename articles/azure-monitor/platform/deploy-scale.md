@@ -96,7 +96,7 @@ Rather than create an assignment for each policy definition, a common strategy i
 See [Create and assign an initiative definition](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition) for details on creating an initiative. Consider the following recommendations:
 
 - Set the **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
-- Instead of specifying the details for the Log Analytics workspace and the Event Hub for policy definition included in the intiative, use a common initiative parameter. This allows you to easily specify a common value for all policy definitions and change that value if necessary.
+- Instead of specifying the details for the Log Analytics workspace and the Event Hub for policy definition included in the initiative, use a common initiative parameter. This allows you to easily specify a common value for all policy definitions and change that value if necessary.
 
 ![Initiative definition](media/deploy-scale/initiative-definition.png)
 
