@@ -104,7 +104,7 @@ This is useful in datasets like Avro and CosmosDB that support complex data stru
 
 The **Optimize** tab allows for editing of partition information at each transformation step. In most cases, **Use current partitioning** will optimize for the ideal partitioning structure for a source.
 
-If you are reading from  an Azure SQL Database source, custom **Source** partitioning will likely read data the fastest. ADF will read large querys by making connections to your database in parallel. This source partitioning can be done on a column or using a query.
+If you are reading from  an Azure SQL Database source, custom **Source** partitioning will likely read data the fastest. ADF will read large queries by making connections to your database in parallel. This source partitioning can be done on a column or using a query.
 
 ![Source partition settings](media/data-flow/sourcepart3.png "partitioning")
 
