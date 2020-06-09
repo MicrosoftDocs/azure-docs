@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/03/2020
 ---
 # Autoscale Stream Analytics jobs using Azure Automation
 
@@ -28,8 +28,10 @@ Add the following variables inside the Azure Automation account. These variables
 | **jobName** | String | Name of your Stream Analytics job that you want to autoscale. |
 | **resourceGroupName** | String | Name of the resource group in which your job is present. |
 | **subId** | String | Subscription ID in which your job is present. |
-| **increasedSU** | Integer | The higher SU value you want your job to scale to. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
-| **decreasedSU** | Integer | The lower SU value you want your job to scale to. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **increasedSU** | Integer | The higher SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **decreasedSU** | Integer | The lower SU value you want your job to scale to in a schedule. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **maxSU** | Integer | The maximum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
+| **minSU** | Integer | The minimum SU value you want your job to scale to in steps when autoscaling by load. This value must be one of the valid SU options you see in the **Scale** settings of your job while it is running. |
 
 ![Add variables in Azure Automation](./media/autoscale/variables.png)
 
@@ -59,8 +61,8 @@ Azure Automation allows you to configure a schedule to trigger your runbooks.
 ## Autoscale based on load
 There might be cases where you cannot predict input load. In such cases, it is more optimal to scale up/down in steps within a minimum and maximum bound. You can configure alert rules in your Stream Analytics jobs to trigger runbooks when job metrics go above or below a threshold.
 1. In your Azure Automation account, create two more Integer variables called **minSU** and **maxSU**. This sets the bounds within which your job will scale in steps.
-2. Create two new runbooks. You can use the [StepScaleUp PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/Autoscaleup.ps1) that 
- increases the SUs of your job in increments until **maxSU** value. You can also use the [StepScaleDown PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/autoscaledown.ps1) that decreases the SUs of your job in steps until **minSU** value is reached. Alternatively, you can use the runbooks from the previous section if you have specific SU values you want to scale to.
+2. Create two new runbooks. You can use the [StepScaleUp PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) that 
+ increases the SUs of your job in increments until **maxSU** value. You can also use the [StepScaleDown PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) that decreases the SUs of your job in steps until **minSU** value is reached. Alternatively, you can use the runbooks from the previous section if you have specific SU values you want to scale to.
 3. In your Stream Analytics job, select **Alert rules** under **Monitoring**. 
 4. Create two action groups. One to be used for scale up operation and another for scale down operation. Select **Manage Actions** and then click on **Add action group**. 
 5. Fill out the required fields. Choose **Automation Runbook** when you select the **Action Type**. Select the runbook you want to trigger when the alert fires. Then, create the action group.

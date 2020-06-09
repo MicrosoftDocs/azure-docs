@@ -1,0 +1,55 @@
+- name: Mobile apps with Azure documentation
+  href: index.md
+- name: Overview
+  expanded: true
+  items:
+  - name: Choose a mobile development framework
+    href: front-end-development-platform.md
+  - name: Stages in mobile app cloud development
+    href: stages-overview.md
+- name: Concepts
+  items:
+  - name: Authentication
+    href: authentication.md
+  - name: Data
+    items:    
+    - name: Data storage
+      href: data-storage.md
+    - name: Azure Storage
+      href: azure-storage.md
+    - name: Azure Content Delivery Network
+      href: azure-cdn.md
+  - name: Compute
+    items:
+      - name: Serverless compute
+        href: serverless-compute.md
+      - name: Real-time apps
+        href: real-time.md
+  - name: Source control
+    href: code-hosting-services.md
+  - name: DevOps
+    items:
+    - name: What is DevOps?
+      href: devops.md
+    - name: Continuous build and integration
+      href: continuous-integration.md
+    - name: Test on real devices
+      href: test.md
+    - name: Continuous delivery
+      href: continuous-delivery.md
+  - name: Telemetry
+    items:
+      - name: Analyze usage and user behavior 
+        href: analytics.md
+      - name: Real-time failure reporting
+        href: diagnostics.md
+  - name: Push notifications
+    href: push-notifications.md
+  - name: Machine learning
+    items:
+    - name: Azure Cognitive Services 
+      href: cognitive-services.md
+    - name: Azure Maps 
+      href: azure-maps.md        
+    - name: Azure Cognitive Search
+      href: azure-search.md
