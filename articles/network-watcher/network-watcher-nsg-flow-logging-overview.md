@@ -64,7 +64,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 Flow logs include the following properties:
 
 * **time** - Time when the event was logged
-* **systemId** - Network Security Group resource ID.
+* **systemId** - Network Security Group system ID.
 * **category** - The category of the event. The category is always **NetworkSecurityGroupFlowEvent**
 * **resourceid** - The resource ID of the NSG
 * **operationName** - Always NetworkSecurityGroupFlowEvents

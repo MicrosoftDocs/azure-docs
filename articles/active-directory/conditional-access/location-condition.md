@@ -32,7 +32,7 @@ Organizations can use this network location for common tasks like:
 The network location is determined by the public IP address a client provides to Azure Active Directory. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. 
 
 > [!TIP]
-> IPV6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
+> IPv6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
 
 ## Named locations
 
@@ -48,7 +48,7 @@ The number of named locations you can configure is constrained by the size of th
 - A maximum of 90 named locations with one IP range assigned to each of them.
 
 > [!TIP]
-> IPV6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
+> IPv6 ranges are only supported in the **[Named location (preview)](#preview-features)** interface. 
 
 ### Trusted locations
 
@@ -63,7 +63,7 @@ This option can factor in to Conditional Access policies where you may, for exam
 Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these locations when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These mappings of IP address to country are updated periodically. 
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges.
+> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
 
 ![Create a new country or region-based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -100,7 +100,7 @@ With the named location preview, you are able to
 
 - Configure up to 195 named locations
 - Configure up to 2000 IP Ranges per named location
-- Configure up to IPv6 addresses
+- Configure IPv6 addresses alongside IPv4 addresses
 
 We’ve also added some additional checks to help reduce the change of misconfiguration.
 
@@ -113,7 +113,7 @@ With the preview, there are now two create options:
 - **IP ranges location**
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges.
+> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
 
 ![Named locations preview interface](./media/location-condition/named-location-preview.png)
 
