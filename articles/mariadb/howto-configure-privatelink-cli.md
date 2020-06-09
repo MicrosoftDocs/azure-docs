@@ -44,7 +44,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -77,8 +77,9 @@ az mariadb server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the MariaDB Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` 
-You will use the MariaDB Server ID in the next step. 
+> [!NOTE]
+> In some cases the Azure Database for MariaDB and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMariaDB** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Create the Private Endpoint 
 Create a private endpoint for the MariaDB server in your Virtual Network: 
@@ -88,8 +89,8 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MariaDB Server ID>" \  
-    --group-ids mariadbServer \  
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
+    --group-id mariadbServer \  
     --connection-name myConnection  
  ```
 
@@ -187,3 +188,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

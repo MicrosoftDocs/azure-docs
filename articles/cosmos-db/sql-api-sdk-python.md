@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
+ms.custom: tracking-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
 

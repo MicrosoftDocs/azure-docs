@@ -462,11 +462,13 @@
       items:
         - name: What is Speaker Recognition?
           href: speaker-recognition-overview.md
+        - name: Speaker Recognition basics
+          href: speaker-recognition-basics.md 
     - name: Reference
       items:
         - name: REST APIs
           items:
-            - name: Speech Recognition REST API
+            - name: Speaker Recognition REST API
               href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
