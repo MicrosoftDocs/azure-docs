@@ -157,29 +157,60 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 
 ## Asynchronous request-response behavior
 
-By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](../architecture/patterns/async-request-reply.md). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](../architecture/microservices/design/interservice-communication.md#synchronous-versus-asynchronous-messaging).
+By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
-In the Logic App Designer, HTTP actions, but not triggers, have an **Asynchronous Pattern** setting, which is enabled by default and specifies that the action doesn't wait and can start checking the request status until processing stops.
+* In the Logic App Designer, the HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
 
-!["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
+To find this setting, follow these steps:
 
-## Avoid HTTP timeouts for long-running tasks
+  1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
-HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits). HTTP actions, but not triggers, have an [**Asynchronous Pattern**](#asynchronous-pattern) setting, which is enabled by default. For long-running HTTP actions, you can disable the [**Asynchronous Pattern**](#asynchronous-pattern) setting so that the action follows the synchronous operation pattern instead. The HTTP action's underlying JavaScript Object Notation (JSON) definition also has the [`"DisableAsyncPattern"`](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) operation option, which specifies that the HTTP action follow the synchronous operation pattern instead. For more information, see [Run actions synchronously](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+  1. Find the **Asynchronous Pattern** setting.
 
-<a name="disable-location-header-check"></a>
+     !["Asynchronous Pattern" setting](./media/connectors-native-http/asynchronous-pattern-setting.png)
 
-## Disable location header check
+* The HTTP action's underlying JavaScript Object Notation (JSON) definition implicitly follows the asynchronous operation pattern.
 
-Some receivers return the "202 ACCEPTED" response without a `location` header. HTTP actions, but not triggers, have an [**Asynchronous Pattern**](#asynchronous-pattern) setting, which is enabled by default. To disable having the HTTP action continually check the request status by using the `location` header when the header doesn't exist, you can turn off the action's **Asynchronous Pattern** setting in the Logic App Designer. However, disabling this setting also has the action follow the synchronous pattern instead.
+<a name="disable-asynchronous-operations"></a>
 
-1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+## Disable asynchronous operations
+
+Sometimes, you might want to the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
+
+* [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
+* [Disable checking location headers](#disable-location-header-check)
+
+### Disable **Asynchronous Pattern** setting
+
+1. In the Logic App Designer, on the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
 
 1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if enabled, and select **Done**.
 
    ![Disable the "Asynchronous Pattern" setting](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
 
-To disable this `location` header check in the HTTP action's underlying JavaScript Object Notation (JSON) definition and have the action follow the synchronous operation pattern, you can use the [`"DisableAsyncPattern"`](..//logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) operation option.
+### Disable through code
+
+In the HTTP action's underlying JSON definition, [add the `"DisableAsyncPattern"` operation option](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the action's definition so that the action follows the synchronous operation pattern instead. For more information, see also [Run actions synchronously](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
+
+<a name="avoid-http-timeouts"></a>
+
+## Avoid HTTP timeouts for long-running tasks
+
+HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits). If you have a long-running HTTP action that times out due to this limit, you have these options:
+
+* [Disable the HTTP action's asynchronous operation pattern](#disable-asynchronous-operations) so that the action doesn't continually poll or check the request's status. Instead, the action waits for the receiver to respond with the status and results after the request finishes processing.
+
+* Replace the HTTP action with the [HTTP Webhook action](../connectors/connectors-native-webhook.md), which waits for the receiver to respond with the status and results after the request finishes processing.
+
+<a name="disable-location-header-check"></a>
+
+## Disable checking location headers
+
+Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that don't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
+
+* [Disable the HTTP action's asynchronous operation pattern](#disable-asynchronous-operations) so that the action doesn't continually poll or check the request's status. Instead, the action waits for the receiver to respond with the status and results after the request finishes processing.
+
+* Replace the HTTP action with the [HTTP Webhook action](../connectors/connectors-native-webhook.md), which waits for the receiver to respond with the status and results after the request finishes processing.
 
 ## Known issues
 
