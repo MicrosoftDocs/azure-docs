@@ -15,9 +15,9 @@ Before you enable Active Directory Domain Services (AD DS) authentication, make 
 
 This article describes the process required for enabling Active Directory Domain Services (AD DS) authentication on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
-## Option one (recommended): Use AzFilesHybrid PSH module
+## Option one (recommended): Use AzFilesHybrid PowerShell module
 
-The cmdlets in the AzFilesHybrid PSH module makes the necessary modifications and enables the feature for you. Since some parts of the cmdlets will be interacting with your on-premises AD DS, we explain what the cmdlet do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Though we recommend using AzFilesHybrid module, if you are unable to do so, we provide the steps so that you may perform them manually.
+The cmdlets in the AzFilesHybrid PowerShell module makes the necessary modifications and enables the feature for you. Since some parts of the cmdlets will be interacting with your on-premises AD DS, we explain what the cmdlet do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Though we recommend using AzFilesHybrid module, if you are unable to do so, we provide the steps so that you may perform them manually.
 
 ### Download AzFilesHybrid module
 
