@@ -4,7 +4,7 @@ description: Learn how to create a Python app with a PostgreSQL database and dep
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate]
+ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
 ---
 # Tutorial: Deploy a Python (Django) web app with PostgreSQL in Azure App Service
 

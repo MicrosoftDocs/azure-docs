@@ -4,7 +4,7 @@ description: Learn how to configure a pre-built Python container for your app. T
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
 
 # Configure a Linux Python app for Azure App Service

@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
+ms.custom: tracking-python
 ---
 
 # Develop for Azure Files with Python
