@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
+ms.custom: cc996988-fb4f-47, tracking-python
 ---
 
 # Azure Queue storage output bindings for Azure Functions
