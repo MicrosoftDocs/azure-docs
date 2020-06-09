@@ -106,7 +106,7 @@ To add more images to your project, use [Azure Storage Explorer](https://azure.m
 
 Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
 
-Uncheck this box if you do not want new images that appears in the datastore to be added to your project.
+Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
 
 You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
 
