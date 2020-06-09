@@ -109,7 +109,7 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
    - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-AzWVDRegistrationInfo** cmdlet.
+   - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Get-AzWvdRegistrationInfo** cmdlet.
 3. Download and install the Windows Virtual Desktop Agent Bootloader.
    - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Run the installer.

@@ -13,8 +13,6 @@ ms.author: rogarana
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with RBAC, you must assign proper Windows ACLs (also known as NTFS permissions) at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs act at a more granular level to determine what operations the user can do at the directory or file level.
-
 After you assign share-level permissions with RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 ## Supported permissions
