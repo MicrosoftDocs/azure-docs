@@ -852,7 +852,7 @@ HTTP Status Code | Reason
 1. I am not seeing all data populated for new version
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
-   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure Portal for the VM.
+   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure portal for the VM.
 1. Would this work for Virtual Machine Scale Set instances?
    * Yes Metadata service is available for Scale Set instances.
 1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
@@ -864,7 +864,7 @@ HTTP Status Code | Reason
 
 Submit your feedback and comments on https://feedback.azure.com.
 
-To get support for the service, create a support issue in Azure Portal for the VM where you are not able to get metadata response after long retries.
+To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
 Use the Problem Type of `Management` and select `Instance Metadata Service` as the Category.
 
 ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png "Screenshot: Opening a support case when having issues with Instance Metadata Service")
