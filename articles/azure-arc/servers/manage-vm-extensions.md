@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 06/04/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -52,7 +52,11 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
-Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\Extension\downloads` folder on Windows, and for Linux to the `/var/azure/<extensionName>`  **NEED TO VERIFY DESTINATION FOLDER**.
+Installed alongside the Connected Machine agent is the Guest Config agent, which is very similar to the [Azure Virtual Machine agent for Windows](../../virtual-machines/extensions/features-windows.md) and [Azure Virtual Machine agent for Linux](virtual-machines/extensions/features-linux.md). The Guest agent is installed in `%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC` for Windows, and for Linux it's `/opt/GC_Ext`.
+
+Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to the `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
+
+While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
 
 ## Prerequisite
 
@@ -78,7 +82,7 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 ## How do agents and extensions get updated?
 
-When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the **WHAT SPECIFICALLY** downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with `autoUpgradeMinorVersion": true,'`:
+When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the Guest Config agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with `autoUpgradeMinorVersion": true,'`:
 
 ```json
 "publisher": "Microsoft.Azure.Extensions",
@@ -98,7 +102,7 @@ To get the latest minor release bug fixes, it is highly recommended that you alw
 
 VM extensions can be applied your Arc for server (preview) managed machine through the Azure portal.
 
-1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview). 
+1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview).
 
 2. In the portal, browse to **Machines - Azure Arc** and select your hybrid machine from the list.
 
@@ -724,19 +728,15 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 
 Data about the state of extension deployments can be retrieved from the Azure portal.
 
-Extension output is logged to a file found under the following folder on the target Windows machine.
+The following troubleshooting steps apply to all VM extensions.
 
-```cmd
-%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>
-```
+1. To check the Guest agent log, look at the activity when your extension was being provisioned in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` for Windows, and for Linux under `/var/lib/GuestConfig/ext_mgr_logs`.
 
-Extension output is logged to a file found under the following folder on the target Linux machine.
+2. Check the actual extension logs for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/log/GuestConfig/extension_logs`.
 
-```bash
- /var/log/GuestConfig/extension_logs/<extensionName> **NEED TO VERIFY WHAT THE PATH IS**
-```
+3. Check extension specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](#extensions) found earlier in this article.
 
-The meaning of error codes logged are provided in the troubleshooting and support section of the respective extension article that are linked in the [extensions table](#extensions) found earlier in this article. 
+4. Look at the system logs. Check for other operations that may have interfered with the extension, such as a long running installation of another application that required exclusive package manager access.
 
 ## Next steps
 
