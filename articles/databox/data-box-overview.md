@@ -74,7 +74,7 @@ The Data Box device has the following features in this release.
 | Storage capacity                                        | 100 TB device has 80 TB usable capacity after RAID 5 protection|
 | Power rating                                            | The power supply unit is rated for 700 W. <br> Typically, the unit draws 375 W.|
 | Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
-| Data transfer                                      | Both import and export are suppported.  |
+| Data transfer                                      | Both import and export are supported.  |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
 | Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface        |
