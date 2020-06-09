@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure SQL Server Always On availability group"
+title: "Tutorial: Configure a SQL Server Always On availability group"
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Tutorial: Configure SQL Server availability group on Azure Virtual Machines manually
+# Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
