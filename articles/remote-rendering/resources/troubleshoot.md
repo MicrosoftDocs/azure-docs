@@ -157,6 +157,10 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### Arm64 Builds for Unity Projects Fail because AudioPluginMsHRTF.dll is missing
+
+The _AudioPluginMsHRTF.dll_ for Arm64 was added to the _Windows Mixed Reality_ package _(com.unity.xr.windowsmr.metro)_ in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to _Window > Package Manager_ and look for the _Windows Mixed Reality_ package.
+
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
