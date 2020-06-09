@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-To install/update the aks-preview extension for this tutorial, use the following Azure CLI commands
+Be sure to install/update the aks-preview extension for this tutorial; use the following Azure CLI commands
 ```azurecli-interactive
 az extension add --name aks-preview
 az extension list

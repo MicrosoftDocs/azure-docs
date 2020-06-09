@@ -11,7 +11,7 @@ ms.author: caya
 
 # Tutorial: Enable Application Gateway Ingress Controller Add-On for an existing AKS Cluster with an existing Application Gateway Through Azure CLI (Preview)
 
-You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on, which is currently in preview, for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster in one Virtual Network, create an Application Gateway in a separate Virtual Network, enable the AGIC add-on and peer the two Virtual Networks together. You'll then deploy a sample application which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. If you're enabling the AGIC add-on for an Application Gateway and AKS cluster in the same Virtual Network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm and also offers a fully managed experience.  
+You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on, which is currently in preview, for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster in one virtual network, create an Application Gateway in a separate virtualnNetwork, enable the AGIC add-on and peer the two virtual networks together. You'll then deploy a sample application which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. If you're enabling the AGIC add-on for an existing Application Gateway and existing AKS cluster in the same virtual network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm and also offers a fully managed experience.  
 
 In this tutorial, you learn how to:
 
@@ -24,14 +24,13 @@ In this tutorial, you learn how to:
 > * Deploy a sample application using AGIC for Ingress on the AKS cluster
 > * Check the Application Gateway connection to AKS cluster 
 
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-To install/update the aks-preview extension for this tutorial, use the following Azure CLI commands
+Be sure to install/update the aks-preview extension for this tutorial; use the following Azure CLI commands
 ```azurecli-interactive
 az extension add --name aks-preview
 az extension list
@@ -51,7 +50,7 @@ az group create --name myResourceGroup --location canadacentral
 
 ## Deploy a new AKS cluster
 
-You will now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on on.  
+You will now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on for.  
 
 In the following example, you'll be deploying a new AKS cluster named *myCluster* using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [Managed Identities](https://docs.microsoft.com/azure/aks/use-managed-identity) in the resource group we just created, *myResourceGroup*.    
 
@@ -63,7 +62,7 @@ To configure additional parameters for the `az aks create` command, visit refere
 
 ## Deploy a new Application Gateway 
 
-You will now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the Application Gateway will be *myApplicationGateway*, but you will need to first create a public IP resource, named *myPublicIp*, and a new Virtual Network called *myVnet* with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called *mySubnet*, and deploy your Application Gateway in *mySubnet* using *myPublicIp*. 
+You will now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the Application Gateway will be *myApplicationGateway*, but you will need to first create a public IP resource, named *myPublicIp*, and a new virtual network called *myVnet* with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called *mySubnet*, and deploy your Application Gateway in *mySubnet* using *myPublicIp*. 
 
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
@@ -85,7 +84,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 ## Peer the Application Gateway virtual network with the AKS cluster virtual network
 
-Since we deployed the AKS cluster in its own Virtual Network and the Application Gateway it another Virtual Network, you'll need to peer the two Virtual Networks together in order for AGIC to communicate with the Application Gateway. Peering two 
+Since we deployed the AKS cluster in its own virtual network and the Application Gateway it another virtual network, you'll need to peer the two virtual networks together in order for AGIC to communicate with the Application Gateway. Peering the two virtual networks requires running the Azure CLI command two different times, to ensure that the connection is bi-directional. The first command will create a peering connection from the Application Gateway virtual network to the AKS virtual network; the second command will create a peering connection in the opposite direction. 
 
 ```azurecli-interactive
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
