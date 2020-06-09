@@ -628,13 +628,13 @@ from os import listdir
 
 We recommend that you maintain your tests in a folder separate from the project folder. This keeps you from deploying test code with your app.
 
-## Preinstalled Libraries
+## Preinstalled libraries
 
 There are a few libraries come with the Python Functions runtime.
 
 ### Python Standard Library
 
-The Python Standard Library contain a list of built-in Python modules which will be shipped with each Python distribution. Most of these libraries help the Python developer to access the system functionality, like File I/O. On Windows platform, these libraries are shipped with the Python installer. On the Unix-like platform, they are provided by a list of collection.
+The Python Standard Library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like File I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
 
 To view the full details of the list of these libraries, please visit the links below:
 
@@ -642,44 +642,29 @@ To view the full details of the list of these libraries, please visit the links 
 * [Python 3.7 Standard Library](https://docs.python.org/3.7/library/)
 * [Python 3.8 Standard Library](https://docs.python.org/3.8/library/)
 
-### Azure Functions Python Worker Dependencies
+### Azure Functions Python worker dependencies
 
-Our Python Worker requires a certain number of libraries for it to fully operate. These libraries can be used by Azure Functions Python developers, but they are not a part of the Python standard. Be cautious when moving function app from Azure to other platforms if the project relies on any of them. Details of a list of dependencies can be found in **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282).
+The Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they may not be available to your code when running outside of Azure Functions. You can find a detailed list of dependencies in the **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
-Dependencies are listed below:
+### Azure Functions Python library
 
-```
-grpcio [1.26.0]
-grpcio-tools [1.26.0]
-six [1.14.0]
-protobuf [3.11.3]
-setuptools [40.6.2]
-```
-
-### Azure Functions Python Library
-
-Every Python Worker update includes a new version of [Azure Functions Python Library (azure.functions)](https://github.com/Azure/azure-functions-python-library). The runtime library version is fixed by Azure, and it cannot be controlled by requirements.txt (the azure-functions definition in requirements.txt is for linting and customer awareness only).
+Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness.
 
 The reason of making this decision is for the ease of continuous update in Azure Functions Python apps. The update of Python Library should not be customer aware since each update is backward compatible. A list of release of the library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-You can track the actual version of Python Functions Library in your runtime with following line:
+You can track the actual version of Python Functions library in your runtime with following line:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
 ```
 
-### Runtime System Libraries
+### Runtime system libraries
 
-The v2 Azure Functions are running on Debian Stretch.
-
-The v3 Azure Functions are running on Debian Buster.
-
-For a list of preinstalled system libraries in Python Worker Docker images, please follow the links below:
-
-|    | Python 3.6 | Python 3.7 | Python 3.8 |
-|----|------------|------------|------------|
-| v2 | [v2 Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile) | [v2 Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |                                                                                                                                     |
-| v3 | [v3 Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)  | [v3 Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)  | [v3 Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+For a list of preinstalled system libraries in Python worker Docker images, please follow the links below:
+|  Functions runtime  | Debian version | Python versions |
+|------------|------------|------------|
+| Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## Cross-origin resource sharing
 
