@@ -51,12 +51,9 @@ Before you begin, make sure that:
 * You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
-
 ## Order Data Box for export
 
 Perform the following steps in the Azure portal to order a device.
-
-<!-- Anusha 06/04/20: Can we use a different screenshot for create (Step 3)? Maybe the one with the +Add button, similar to import? This is because the gallery package with the updated description for Data Box has not yet been pushed to the marketplace so the info in this screenshot will be inaccurate-->
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 
@@ -193,9 +190,7 @@ If the device is not available, you will receive a notification. If the device i
 
 When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
 
-<!-- Anusha 06/04/20: This screenshot needs to be updated. As soon as processing is done, data copy will begin so the user will never see the processed state -->
-
-![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15.png)
+![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
 
 Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked.
 
@@ -206,6 +201,7 @@ Microsoft then prepares and dispatches your device through a regional carrier. Y
 If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter.
 
 <!-- Anusha 06/04/20: Insert screenshot for export order in ready for pick up state -->
+<!-- priestlg 06/08/20: Alpa says that might have an existing picture for MMS, that I can use. The only ones I've been able to find is from FIGMA, which has the older UI and shouldn't be used. -->
 
 ## Cancel the order
 
