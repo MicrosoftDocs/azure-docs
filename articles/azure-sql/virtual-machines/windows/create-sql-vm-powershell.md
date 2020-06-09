@@ -92,10 +92,10 @@ $DomainName = $ResourceGroupName
 
 Define the following properties:
 
-- virtual machine name
-- computer name
-- virtual machine size
-- the operating system disk name for the virtual machine
+- Virtual machine name
+- Computer name
+- Virtual machine size
+- Operating system disk name for the virtual machine
 
 Modify as you want and then run this cmdlet to initialize these variables.
 
