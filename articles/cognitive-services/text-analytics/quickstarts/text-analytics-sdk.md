@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/25/2020
 ms.author: aahi
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
