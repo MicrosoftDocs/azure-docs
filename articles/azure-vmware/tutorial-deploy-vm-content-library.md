@@ -90,7 +90,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 ## Next steps
 
-The next step is to [create additional NSX-T networks](tutorials-create-t1-ls.md).
+The next step is to [create additional NSX-T networks]().
 
 <!-- LINKS - external-->
 
