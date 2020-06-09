@@ -67,9 +67,6 @@ the managed identity and assign it permissions must be done manually:
 - When a resource outside the assignment scope is modified by the template
 - When a resource outside the assignment scope is read by the template
 
-> [!NOTE]
-> Azure PowerShell and .NET are the only SDKs that currently support this capability.
-
 ### Create managed identity with PowerShell
 
 To create a managed identity during the assignment of the policy, **Location** must be defined and
