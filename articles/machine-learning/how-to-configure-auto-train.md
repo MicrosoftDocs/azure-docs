@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 
 # Configure automated ML experiments in Python

@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
 ---
 # How to consume an Azure Machine Learning Studio (classic) web service

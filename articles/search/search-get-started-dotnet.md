@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a search index in C# using .NET'
+title: 'Create a search index in .NET'
 titleSuffix: Azure Cognitive Search
 description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search .NET SDK.
 
@@ -9,10 +9,10 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/07/2020
 
 ---
-# Quickstart: Create an Azure Cognitive Search index in C# using the .NET SDK
+# Quickstart: Create a search index in .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
@@ -21,20 +21,22 @@ ms.date: 02/10/2020
 > * [Postman](search-get-started-postman.md)
 >*
 
-Create a .NET Core C# console application that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Create a .NET Core console application in C# that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article explains how to create the application step by step. You could also [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) if you want to jump ahead to the code.
 
 > [!NOTE]
 > The demo code in this article uses the synchronous methods of the Azure Cognitive Search .NET SDK for simplicity. However, for production scenarios, we recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart.
+Before you begin, you must have the following:
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
-
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 
