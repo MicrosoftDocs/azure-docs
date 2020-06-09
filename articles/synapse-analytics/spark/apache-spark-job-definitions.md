@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ---
 
-# Tutorial: Use Azure Synapse Analytics to create Apache Spark job definitions for Synapse Spark pools
+# Tutorial: Creatre Apache Spark applications using Spark Job definitions
 
 This tutorial demonstrates how to use the Azure Synapse Analytics to create Spark job definitions, and then submit them to a Synapse Spark pool. You can use the plug-in in a few ways:
 
