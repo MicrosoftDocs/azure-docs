@@ -1,6 +1,6 @@
 ---
-title: High availability & disaster recovery best practices
-description: "Learn the high availability and disaster recovery best practices for working with SQL Server on Azure Virtual Machines." 
+title: Supported HADR configurations
+description: "Learn the high availability and disaster recovery features supported on SQL Server on Azure Virtual Machines, such as options for Quorum, or appropriately routing traffic in Azure." 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,13 +15,17 @@ ms.author: mathoma
 
 ---
 
-# High availability & disaster recovery best practices
+# Supported high availability & disaster recovery configurations
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides best practices when working with the high availability and disaster options for SQL Server on Azure Virtual Machines. 
+This article provides details about which options to use with which high availability and disaster option for SQL Server on Azure Virtual Machines. 
 
 For greater detail about specific options, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md). 
 
+
+## Networking
+
+One thing to be aware of is that on an Azure virtual machine guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
 ## Quorum
 
@@ -73,13 +77,11 @@ To get started, see [Configure File Share Witness need link? or should we create
 **Supported SQL version**:    
 **Supported FCI storage**:    
 
-## Networking
 
-One thing to be aware of is that on an Azure virtual machine guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
-## Route connections 
+## Connectivity
 
-In a traditional on-premises network environment, a SQL Server failover cluster instance (FCI) appears to be a single instance of SQL Server running on a single computer.  Since the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application connecting to SQL Server and this minimizes the downtime the application or clients experience during a failure. 
+In a traditional on-premises network environment, a SQL Server failover cluster instance (FCI) appears to be a single instance of SQL Server running on a single computer. Since the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application connecting to SQL Server and this minimizes the downtime the application or clients experience during a failure. 
 
 Use an **Azure Load Balancer** or a **distributed network name (DNN)** to route traffic to the virtual network name of the failover cluster instance with a SQL Server on Azure VM. The distributed network name feature is currently only available for SQL Server 2019 on a Windows Server 2019 virtual machine. 
 
@@ -155,5 +157,5 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Once you've determined the appropriate best practices for your solution, get started by creating your availability group (using [Azure SQL VM CLI](availability-group-az-cli-configure), or [Azure Quickstart templates](availability-group-quickstart-template-configure.md)), or [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md).
+Once you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or creating your availability group  using [Azure SQL VM CLI](availability-group-az-cli-configure), or [Azure Quickstart templates](availability-group-quickstart-template-configure.md)). 
 

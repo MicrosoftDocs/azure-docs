@@ -21,8 +21,7 @@ ms.author: mathoma
 
 This article explains how to create a failover cluster instance (FCI) using [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) with SQL Server on Azure Virtual Machines (VMs). Storage Spaces Direct act as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. 
 
-
-See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md) to learn more. 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported configurations](hadr-high-availability-disaster-recovery-supported-configurations.md). 
 
 
 ## Overview 
@@ -134,7 +133,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-best-practices.md#quorum). 
+Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
 
 
 ## Add storage
@@ -227,15 +226,15 @@ To route traffic appropriately to the current primary node, configure the connec
 
 - Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
 - Disks that have been attached as NTFS-formatted disks can only be used with Storage Spaces Direct if the disk eligibility option is unchecked when storage is being added to the cluster. 
--  At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). is reinstalled in lightweight management mode.
+- Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported.
 
 ## Next steps
 
-If you haven't already, configure connectivity to your FCI with an [Azure Load  Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name](hadr-distributed-network-name-dnn-configure.md). 
+If you haven't already, configure connectivity to your FCI with an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name](hadr-distributed-network-name-dnn-configure.md). 
 
 If Storage Spaces Direct are not the appropriate FCI storage solution for you, consider creating your FCI using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Premium File Shares](failover-cluster-instance-premium-file-share-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported configurations](hadr-high-availability-disaster-recovery-supported-configurations.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

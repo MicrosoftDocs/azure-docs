@@ -18,7 +18,7 @@ ms.author: mathoma
 # Failover cluster instances with SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article introduces failover cluster instances for SQL Server on Azure Virtual Machines (VMs). 
+This article introduces feature differences when working with failover cluster instances for SQL Server on Azure Virtual Machines (VMs). 
 
 ## Overview
 
@@ -33,7 +33,7 @@ The rest of the article focuses on the differences for failover cluster instance
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using a disk witness, a cloud witness, or a file share witness for cluster quorum.
 
-To learn more, see [Quorum with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-best-practices.md#quorum). 
+To learn more, see [Quorum with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
 
 
 ## Storage
@@ -42,16 +42,16 @@ In a traditional on-premises SQL Server clustered environment, the Windows Failo
 
 ### Azure Shared Disks
 
-[Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Virtual Machines](../../../virtual-machines/windows/index.yml), and Windows Server 2019 supports using shared managed disks with a failover cluster instance. 
+[Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Virtual Machines](../../../virtual-machines/windows/index.yml), and Windows Server 2019 supports using Azure Shared Disks with a failover cluster instance. 
 
 Benefits: 
 
 Limitations: 
-- Only available for Windows Server 2019. 
-- Proximity placement group (PPG)
+- Currently only available for SQL Server 2019 and Windows Server 2019. 
+- Virtual machines must be placed in a [Proximity placement group (PPG)]
 - Has to be in an availability set. 
  
-To get started, see [SQL Server failover cluster instance with shared managed disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
 **Supported OS**:    
 **Supported SQL version**:    
@@ -67,7 +67,7 @@ Limitations:
 - Filestream is supported. 
  
 
-To get started, see [SQL Server failover cluster instance storage spaces direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
 **Supported OS**:    
 **Supported SQL version**:    
@@ -84,7 +84,7 @@ Limitations:
 - Filestream is not supported 
 
 
-To get started, see [SQL Server failover cluster instance with premium file share](failover-cluster-instance-premium-file-share-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md). 
 
 ### Third party
 
@@ -110,7 +110,7 @@ For third-party shared storage and data replication solutions, you should contac
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
 
-To learn more, see [Route HADR connections with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-best-practices.md#route-connections). 
+To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-high-availability-disaster-recovery-supported-configurations.md#route-connections). 
 
 ### DNN Feature interoperability 
 
@@ -130,14 +130,25 @@ Always On availability groups can be configured with a failover cluster instance
 
 #### Replication
 
-Replication have three components: publisher, distributor, subscriber. Any of these three components can be a failover cluster instance (FCI). Since the FCI VNN is  used heavily in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN may be necessary for replication to work. 
+Replication has three components: Publisher, Distributor, Subscriber. Any of these three components can be a failover cluster instance (FCI). Since the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN may be necessary for replication to work. 
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-- If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to publisher's DNN name on the distributor SQL server.
-- If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL server.
+|Replication component FCI with DNN | Remote component | Network alias map| Server with network map| 
+|---------|---------|---------|-------- | 
+|Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
+|Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
+|Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
+|Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
+
+For example, if you have an FCI using a DNN as a Distributor, and the Publisher is remote, create a network alias map from the Distributor VNN to the Distributor VNN on the Publisher server. 
+
+This is text to present the same information as the table, not sure which is better, leave in both for now: 
+
+- If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to the publisher's DNN name on the distributor SQL Server.
+- If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL Server.
 - If subscriber is an FCI using DNN and the distributor is remote, define a network alias to map the subscriber's VNN to subscriber's DNN name on the distributor SQL server.
-- If distributor is an FCI using DNN and the subscriber is remote, define a network alias to map the distributor's VNN name to distributor's DNN name in the subscriber SQL server.
+- If distributor is an FCI using DNN and the subscriber is remote, define a network alias to map the distributor's VNN name to distributor's DNN name in the subscriber SQL Server.
 
 #### Database mirroring
 
@@ -152,12 +163,11 @@ The FCI can participate in distributed transactions coordinated by MS DTC. Thoug
 
 #### Filestream 
 
-Though Filestream is supported for a database in an FCI, accessing the FileStream or FileTable using File System API with DNN is not supported. 
+Though Filestream is supported for a database in an FCI, accessing the FileStream or FileTable using File System APIs with DNN is not supported. 
 
 #### Linked servers
 
 Using a linked server with an FCI DNN is supported. Either use the DNN directly to configure a linked server, or use a network alias to map the VNN to the DNN. 
-
 
 ## Limitations
 
@@ -178,7 +188,7 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Be sure to review the [high availability and disaster recover best practices](hadr-high-availability-disaster-recovery-best-practices.md), and then [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review the [high availability and disaster recover best practices](hadr-high-availability-disaster-recovery-supported-configurations.md), and then [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

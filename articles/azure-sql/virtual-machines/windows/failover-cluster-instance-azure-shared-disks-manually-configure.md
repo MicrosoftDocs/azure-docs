@@ -22,7 +22,8 @@ ms.author: mathoma
 
 This article explains how to create a failover cluster instance (FCI) using Azure Shared Disks with SQL Server on Azure Virtual Machines. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported configurations](hadr-high-availability-disaster-recovery-supported-configurations.md). 
+
 
 ## Prerequisites 
 
@@ -71,7 +72,7 @@ To validate the cluster by using PowerShell, run the following script from an ad
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-best-practices.md#quorum). 
+Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
 
 ## Test cluster failover
 
@@ -116,7 +117,7 @@ If you haven't already, configure connectivity to your FCI with an [Azure Load  
 
 If Azure Shared Disks are not the appropriate FCI storage solution for you, consider creating your FCI using [Premium File Shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-supported-configurations.md). 
 
 
 For additional information see: 

@@ -22,7 +22,7 @@ This article explains how to create a failover cluster instance (FCI) with SQL S
 
 Premium File Shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported configurations](hadr-high-availability-disaster-recovery-supported-configurations.md). 
 
 ## Prerequisites
 
@@ -132,7 +132,7 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-best-practices.md#quorum). 
+Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
 
 
 
@@ -206,7 +206,7 @@ If you haven't already, configure connectivity to your FCI with an [Azure Load  
 
 If Premium File Shares are not the appropriate FCI storage solution for you, consider creating your FCI using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-high-availability-disaster-recovery-supported-configurations.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

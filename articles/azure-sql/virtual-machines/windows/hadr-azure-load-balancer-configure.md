@@ -188,7 +188,7 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 If you haven't already, register your SQL Server FCI with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode). Alternatively, unregistered SQL Server VMs participating in an availability group can register in [full mode][lightweight management mode](sql-vm-resource-provider-register.md#full-management-mode). 
 
-To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-high-availability-disaster-recovery-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-high-availability-disaster-recovery-supported-configurations.md) for configuring your environment for high availability and disaster recovery. 
 
 
 
