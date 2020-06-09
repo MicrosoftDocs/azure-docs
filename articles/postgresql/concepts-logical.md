@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/09/2020
 ---
 
 # Logical decoding
@@ -27,7 +27,7 @@ To configure the right level of logging, use the Azure replication support param
 * **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
 * **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
 
-The server needs to be restarted after a change of this parameter.
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
 ### Using Azure CLI
 
