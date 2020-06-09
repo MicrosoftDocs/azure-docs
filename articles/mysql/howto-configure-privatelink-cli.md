@@ -86,7 +86,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMySQL/servers/$Servername" \    
-    --group-ids mysqlServer \  
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
 
