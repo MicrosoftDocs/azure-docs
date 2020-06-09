@@ -1,5 +1,5 @@
 ---
-title: Cheat sheet - Azure Synapse Analytics 
+title: Cheat sheet - Azure Synapse Analytics (workpaces preview)
 description: Reference guide walking user through Azure Synapse Analytics 
 services: synapse-analytics 
 author: ArnoMicrosoft 
