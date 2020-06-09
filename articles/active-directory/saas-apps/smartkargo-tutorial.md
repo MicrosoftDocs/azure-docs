@@ -83,11 +83,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.smartkargo.com/`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
+
+    c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.smartkargo.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SmartKargo Client support team](mailto:itsupport@smartkargo.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL,Reply URL and Identifier. Contact [SmartKargo Client support team](mailto:itsupport@smartkargo.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
