@@ -54,7 +54,7 @@ Advanced data security for SQL machines by Azure Security Center requires the SQ
  
     1. From Security Center's sidebar, open the **Pricing & settings** page and select the subscription or workspace for which you want to enable Advanced Data Security for SQL on Azure VMs.
 
-    1. Toggle the option for **SQL machines (Preview)** to enabled.
+    1. Toggle the option for **SQL machines (Preview)** to enabled. 
 
         [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
