@@ -1,6 +1,6 @@
 ---
 title: Advanced Data Security for IaaS in Azure Security Center | Microsoft Docs
-description: " Learn how to enable advanced data security for IaaS in Azure Security Center. "
+description: Learn how to enable advanced data security for SQL Servers in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,26 +12,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 06/11/2020
 ms.author: memildin
 ---
 
-# Advanced data security for SQL servers on Azure Virtual Machines (Preview)
-Advanced data security for SQL Servers on Azure Virtual Machines is a unified package for advanced SQL security capabilities. This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database. 
+# Advanced data security for SQL servers (Preview)
+Advanced data security for SQL Servers is a unified package for advanced SQL security capabilities. This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database. 
 
-This security offering for Azure VMs SQL servers is based on the same fundamental technology used in the [Azure SQL Database Advanced Data Security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+This offering is an extension of the [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse and SQL Managed Instance, all powered by Azure Security Center.  
 
 
 ## Overview
 
-Advanced data security provides a set of advanced SQL security capabilities,  consisting of Vulnerability assessment and Advanced Threat Protection.
+Advanced data security provides a set of advanced SQL security capabilities, consisting of Vulnerability assessment and Advanced Threat Protection.
 
-* [Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes the steps to resolve security issues and enhance your database fortifications.
+* [Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL servers' security state, and details of any security findings. 
+
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
+
+
 
 ## Get started with Advanced data security for SQL on Azure VMs
 
-The following steps get you started with Advanced Data Security for SQL on Azure VMs Public Preview.
+The following steps get you started with Advanced Data Security for SQL Servers.
+
+### Connecting your SQL Server's host to your Azure account
+
+Advanced Data Security for SQL servers by Azure Security Center requires the SQL server host to be Azure connected through the Log Analytics agent.  
+
+
+### [SQL Server on Azure VMs](#tab/sql-on-azurevm)
+can be easily connected through ___ and auto provisioned to automatically connect with ASC. From here
+
+### [SQL Server on Azure ARC](#tab/sql-on-azurearc)
+SQL Server on  connected machines are supported as well but still required to connect also with the Log Analytics agent.
+
+### [SQL Server on-prem](#tab/sql-on-prem)
+Any Windows server can be connected to ASC, but If you want your security alerts from advanced data security to appear in the security tab in Azure's SQL Server - Azure Arc page, we recommend setting up Azure Arc and following the instructions in that tab.
+In addition to the integration with the security tab, it brings deeper integration across all of your Azure environment. 
+SQL Server on any other Windows server host machine. 
+To connect the SQL Server’s host to a workspace in general situation, follow the instructions in Connect Windows computers to Azure Monitor. 
+
+--- 
+
+
+
+
 
 ### Set up advanced data security for SQL on Azure VMs
 
@@ -41,9 +67,7 @@ Enable Advanced Data Security for SQL Servers on Virtual Machines at the subscri
 
 1. Select the subscription or workspace for which you want to enable Advanced Data Security for SQL on Azure VMs.
 
-1. Toggle the option for **SQL servers on VM (Preview)** to enabled. 
-
-    (Click the screenshot to expand)
+1. Toggle the option for **SQL servers (Preview)** to enabled. 
 
     [![Security Center recommendations and alerts as seen in Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
@@ -54,12 +78,14 @@ Enable Advanced Data Security for SQL Servers on Virtual Machines at the subscri
 
 To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-To connect the SQL Server’s host to a workspace, follow the instructions in [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
 
 
 ## Set up email notification for security alerts 
 
 You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
+
+For more information, see 
 
 1. Go to **Security Center** > **Pricing & settings** and click on the relevant subscription
 
