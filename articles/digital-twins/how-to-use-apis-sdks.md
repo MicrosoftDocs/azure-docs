@@ -48,7 +48,7 @@ To use the data plane APIs:
 * You can use the .NET (C#) SDK. Currently, this is the only published SDK for interacting with these APIs. To use the .NET SDK...
    - you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - you can view the package on NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - You can view the [SDK reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
+   - You can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [How-to: Create custom SDKs for Azure Digital Twins with AutoRest](how-to-create-custom-sdks.md).
 
