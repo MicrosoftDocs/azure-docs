@@ -48,7 +48,7 @@ Common     |July    |July  |September| July| July| July |TBD
 Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|TBD
 Chat   |September | TBD  |September |September    |September    |July    |TBD
 SMS     |September | TBD  |September |September    |September    |July    |TBD
-Calling   |September | TBD  |September |September    |July    |July    |iOS Objective C in July
+Calling   |September | TBD  |TBD |September    |July    |July    |iOS Objective C in July
 Network Traversal | TBD |TBD|TBD|TBD|TBD|TBD|TBD|
 
 ## Details of .NET Support
