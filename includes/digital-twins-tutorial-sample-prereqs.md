@@ -13,6 +13,6 @@ If you don't have an Azure subscription, **create a [free account](https://azure
 
 Also before you start, **install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), version 16.5 or later** on your development machine. If you have an older version installed already, you can open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
 
-The tutorial is driven by a sample project written in C#. **Get the sample project** on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
+The tutorial is driven by a sample project written in C#. **Get the sample project** on your machine by [downloading the Azure Digital Twins sample as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/releases/download/155633/Azure_Digital_Twins_samples.zip). You can also view the sample in your browser [here](https://review.docs.microsoft.com/en-us/samples/azure-samples/digital-twins-samples/digital-twins-samples/?branch=master).
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
