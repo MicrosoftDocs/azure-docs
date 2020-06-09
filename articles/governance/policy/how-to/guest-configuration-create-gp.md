@@ -40,7 +40,6 @@ To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and rel
    # Download the 2019 Baseline files from https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10
    mkdir 'C:\git\policyfiles\downloads'
    Invoke-WebRequest -Uri 'https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201909%20and%20Windows%20Server%20Version%201909%20Security%20Baseline.zip' -Out C:\git\policyfiles\downloads\Server2019Baseline.zip
-   Get-Command -Module 'GuestConfiguration'
    ```
 
 3. Unblock and expand the downloaded Server 2019 Baseline:
@@ -70,6 +69,7 @@ Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration 
 2. Rename and reformat the converted scripts to create a policy content package:
 
    ```azurepowershell-interactive
+   Rename-Item -Path C:\git\policyfiles\DSCFromGPO.ps1 -NewName C:\git\policyfiles\Server2019Baseline.ps1
    (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('DSCFromGPO', 'Server2019Baseline') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
    (Get-Content -Path C:\git\policyfiles\Server2019Baseline.ps1).Replace('PSDesiredStateConfiguration', 'PSDscResources') | Set-Content -Path C:\git\policyfiles\Server2019Baseline.ps1
    C:\git\policyfiles\Server2019Baseline.ps1
@@ -78,7 +78,7 @@ Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration 
 3. Create a Guest Configuration policy content package:
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -DestinationPath C:\git\policyfiles\ -Verbose
+   New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -Verbose
    ```
 
 ## Publish Guest Configuration Policy
@@ -156,13 +156,11 @@ The next step is to publish the file to blob storage.
 
 	```azurepowershell-interactive
 	New-GuestConfigurationPolicy `
-		-ContentUri $Uri 
-	    -DisplayName 'Server 2019 Configuration Baseline'
-	    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
-	    -Version 1.0.0.0 
-	    -DestinationPath C:\git\policyfiles\policy 
+	    -ContentUri $Uri ` 
+	    -DisplayName 'Server 2019 Configuration Baseline' ` 
+	    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' `  
+	    -Path C:\git\policyfiles\policy ` 
 	    -Platform Windows 
-	    -Verbose
 	```
 	
 5. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet only has the **Path** parameter that points to the location of the JSON files created by `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policies in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md) page. The best built-in role is **Resource Policy Contributor**.
