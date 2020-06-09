@@ -52,11 +52,12 @@ To configure additional parameters for the `az aks create` command, visit refere
 
 ## Deploy a new Application Gateway 
 
-You will now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the Application Gateway will be *myApplicationGateway*, but you will need to first create a public IP resource, named *myPublicIp*, and use that to create your Application Gateway. 
+You will now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, *myCluster*. The name of the Application Gateway will be *myApplicationGateway*, but you will need to first create a public IP resource, named *myPublicIp*, and a new Virtual Network called *myVnet* with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called *mySubnet*, and deploy your Application Gateway in *mySubnet* using *myPublicIp*. 
 
 ```azurecli-interactive
 az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
-az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp
+az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
+az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```
 
 > [!NOTE]
@@ -68,7 +69,8 @@ Now, you'll enable the AGIC add-on in the AKS cluster you created, *myCluster*, 
 
 ```azurecli-interactive
 az extension add -n aks-preview
-az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.0.0.0/24"
+appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
+az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
 ## Deploy a sample application using AGIC for Ingress on the AKS cluster
@@ -104,6 +106,7 @@ az group delete --name myResourceGroup --location canadacentral
 ```
 
 ## Next steps
+* [Learn more about disabling the AGIC add-on]()
 * [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
 * [Enable multiple namespace support](./ingress-controller-multiple-namespace-support.md)
 * [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)

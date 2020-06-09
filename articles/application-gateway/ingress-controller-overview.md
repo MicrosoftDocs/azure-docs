@@ -33,6 +33,10 @@ AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/d
 
 AGIC is able to handle multiple namespaces and has ProhibitedTargets, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. 
 
+## Difference between Helm deployment and AKS Add-On
+There are two ways to deploy AGIC for your AKS cluster. The first way is through Helm, as per the instructions [here](ingress-controller-install-new.md) and [here](ingress-controller-install-existing.md) 
+
+
 ## Next Steps
 
 - [**Greenfield Deployment**](ingress-controller-install-new.md): Instructions on installing AGIC, AKS, and Application Gateway on
