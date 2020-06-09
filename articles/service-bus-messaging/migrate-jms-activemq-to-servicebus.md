@@ -44,22 +44,7 @@ TODO - more to add.
 
 ### Current supported and unsupported features
 
-TODO - create a table separately and link here
-
-| Features | Status |
-|---|---|
-| Queues   | Supported |
-| Topics   | Supported |
-| Temporary Queues | Supported |
-| Temporary Topics | Supported |
-| Message Selectors | Supported |
-| Queue Browsers | Supported |
-| Shared Durable Subscriptions | Supported|
-| Unshared Durable Subscriptions | Supported |
-| Shared Non-durable Subscriptions | Supported |
-| Unshared Non-durable Subscriptions | Supported |
-| Distributed Transactions | Not supported|
-| Durable Terminus | Not supported|
+[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
 
 ### Caveats
 
