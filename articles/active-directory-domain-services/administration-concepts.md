@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 06/05/2020
 ms.author: iainfou
 
 ---
@@ -22,7 +22,7 @@ This conceptual article details how to administer a managed domain and the diffe
 
 ## Domain management
 
-In Azure AD DS, the domain controllers (DCs) that contain all the resources like users and groups, credentials, and policies are part of the managed service. For redundancy, two DCs are created as part of a managed domain. You can't sign in to these DCs to perform management tasks. Instead, you create a management VM that's joined to the managed domain, then install your regular AD DS management tools. You can use the Active Directory Administrative Center or Microsoft Management Console (MMC) snap-ins like DNS or Group Policy objects, for example.
+A managed domain is a DNS namespace and matching directory. In a managed domain, the domain controllers (DCs) that contain all the resources like users and groups, credentials, and policies are part of the managed service. For redundancy, two DCs are created as part of a managed domain. You can't sign in to these DCs to perform management tasks. Instead, you create a management VM that's joined to the managed domain, then install your regular AD DS management tools. You can use the Active Directory Administrative Center or Microsoft Management Console (MMC) snap-ins like DNS or Group Policy objects, for example.
 
 ## User account creation
 
@@ -97,7 +97,7 @@ The backup frequency determines how often a snapshot of the managed domain is ta
 
 As the SKU level increases, the frequency of those backup snapshots increases. Review your business requirements and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application requirements change and you need more frequent backups, you can switch to a different SKU.
 
-### Outbound forests
+### Outbound forest trusts
 
 The previous section detailed one-way outbound forest trusts from a managed domain to an on-premises AD DS environment (currently in preview). The SKU determines the maximum number of forest trusts you can create for a managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
