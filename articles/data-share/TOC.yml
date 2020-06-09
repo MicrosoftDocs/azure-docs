@@ -25,7 +25,7 @@
   items:
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/?service=data-share/
-  - name: Azure Powershell
+  - name: Azure PowerShell
     href: samples-powershell.md
 - name: How-to guides
   items:
@@ -47,10 +47,12 @@
   items:
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
-  - name: Azure Powershell
+  - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0
   - name: REST API
     href: /rest/api/datashare
+  - name: Azure CLI
+    href: azure-cli-references-for-data-share.md 
 - name: Resources
   items:
   - name: Microsoft Q&A question page

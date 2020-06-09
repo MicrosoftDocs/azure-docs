@@ -10,7 +10,7 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.custom: contperfq4 
+ms.custom: contperfq4, tracking-python
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring

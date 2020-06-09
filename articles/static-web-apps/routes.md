@@ -209,6 +209,7 @@ The following example shows how to build route rules for static content and APIs
     },
     {
       "errorType": "Unauthenticated",
+      "statusCode": "301",
       "serve": "/login"
     }
   ]
