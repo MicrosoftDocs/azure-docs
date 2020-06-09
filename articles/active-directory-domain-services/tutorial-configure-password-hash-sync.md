@@ -95,7 +95,7 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
+    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the managed domain after they've synchronized to Azure AD.
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
-# Disable weak ciphers and password hash synchronization to secure an Azure AD Domain Services managed domain
+# Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain
 
 By default, Azure Active Directory Domain Services (Azure AD DS) enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Azure AD Connect, you can also disable the synchronization of NTLM password hashes.
 
@@ -63,17 +63,17 @@ Next, define *DomainSecuritySettings* to configure the following security option
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Finally, apply the defined security settings to the Azure AD DS managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
+Finally, apply the defined security settings to the managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-It takes a few moments for the security settings to be applied to the Azure AD DS managed domain.
+It takes a few moments for the security settings to be applied to the managed domain.
 
 ## Next steps
 
-To learn more about the synchronization process, see [How objects and credentials are synchronized in an Azure AD DS managed domain][synchronization].
+To learn more about the synchronization process, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

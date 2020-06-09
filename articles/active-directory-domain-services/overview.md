@@ -61,7 +61,7 @@ Azure AD DS offers alternatives to the need to create VPN connections back to an
 
 To provide identity services, Azure creates an AD DS managed domain on a virtual network of your choice. Behind the scenes, a pair of Windows Server domain controllers is created that run on Azure VMs. You don't need to manage, configure, or update these domain controllers. The Azure platform manages the domain controllers as part of the Azure AD DS service.
 
-The Azure AD DS managed domain is configured to perform a one-way synchronization from Azure AD to provide access to a central set of users, groups, and credentials. You can create resources directly in the Azure AD DS managed domain, but they aren't synchronized back to Azure AD. Applications, services, and VMs in Azure that connect to this virtual network can then use common AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
+The managed domain is configured to perform a one-way synchronization from Azure AD to provide access to a central set of users, groups, and credentials. You can create resources directly in the managed domain, but they aren't synchronized back to Azure AD. Applications, services, and VMs in Azure that connect to this virtual network can then use common AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
 
 In a hybrid environment with an on-premises AD DS environment, [Azure AD Connect][azure-ad-connect] synchronizes identity information with Azure AD, which is then synchronized to Azure AD DS.
 
@@ -88,7 +88,7 @@ Let's look at an example for Litware Corporation, a hybrid organization that run
 * Applications and VMs deployed in the Azure virtual network can then use Azure AD DS features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
 
 > [!IMPORTANT]
-> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in a managed domain to synchronize objects back to Azure AD.
 
 ### Azure AD DS for cloud-only organizations
 
@@ -134,7 +134,7 @@ To learn more about Azure AD DS compares with other identity solutions and how s
 * [Compare Azure AD DS with Azure AD, Active Directory Domain Services on Azure VMs, and Active Directory Domain Services on-premises][compare]
 * [Learn how Azure AD Domain Services synchronizes with your Azure AD directory][synchronization]
 
-To get started, [create an Azure AD DS managed domain using the Azure portal][tutorial-create].
+To get started, [create a managed domain using the Azure portal][tutorial-create].
 
 <!-- INTERNAL LINKS -->
 [compare]: compare-identity-solutions.md
