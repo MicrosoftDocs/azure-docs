@@ -79,7 +79,7 @@ To troubleshoot custom data execution, review the troubleshooting [documentation
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (not applicable for PS or AZ CLI clients). When you update custom data in the VMSS model:
+For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (not applicable for PS or AZ CLI clients). When you update custom data in the VMSS model:
 * Existing instances in the VMSS will not get the updated custom data, only until they are reimaged.
 * Existing instances in the VMSS that are upgraded will not get the updated custom data.
 * New instances will receive the new custom data.

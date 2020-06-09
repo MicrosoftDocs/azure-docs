@@ -7,7 +7,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -96,6 +96,8 @@ If your nodes are located in a private network, the following port and URLs are 
 If you are using DSC resources that communicate between nodes,
 such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource),
 you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
+
+To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### Proxy support
 

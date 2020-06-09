@@ -18,7 +18,8 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
+# Move data to and from SQL Server using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-sqlserver-connector.md)
 > * [Version 2 (current version)](../connector-sql-server.md)

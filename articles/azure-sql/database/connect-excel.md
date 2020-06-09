@@ -1,25 +1,25 @@
 ---
 title: Connect with Excel
-description: Learn how to connect Microsoft Excel to a database in Azure SQL Database. Import data into Excel for reporting and data exploration.
+description: Learn how to connect Microsoft Excel to a database in Azure SQL Database or Azure SQL Managed Instance. Import data into Excel for reporting and data exploration.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
-author: joseidz
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
-ms.date: 02/12/2019
+ms.date: 05/29/2020
 ---
 
-# Connect Excel to a database in Azure SQL Database and create a report
+# Connect Excel to a database in Azure SQL Database or Azure SQL Managed Instance, and create a report
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+You can connect Excel to a database and then import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 
-You can connect Excel to a database in Azure SQL Database and then import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
-
-You'll need to create a database in SQL Database before you get started. If you don't have one, see [Create a database in Azure SQL Database](single-database-create-quickstart.md) and [Create server-level IP firewall](firewall-create-server-level-portal-quickstart.md) to get a database with sample data up and running in a few minutes.
+You'll need to create a database before you get started. If you don't have one, see [Create a database in Azure SQL Database](single-database-create-quickstart.md) and [Create server-level IP firewall](firewall-create-server-level-portal-quickstart.md) to get a database with sample data up and running in a few minutes.
 
 In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
 
@@ -96,6 +96,6 @@ To save the connection details permanently, you can create an .odc file and make
 
 ## Next steps
 
-* Learn how to [Connect to SQL Database with SQL Server Management Studio](connect-query-ssms.md) for advanced querying and analysis.
+* Learn how to [Connect and query with SQL Server Management Studio](connect-query-ssms.md) for advanced querying and analysis.
 * Learn about the benefits of [elastic pools](elastic-pool-overview.md).
-* Learn how to [create a web application that connects to SQL Database on the back-end](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Learn how to [create a web application that connects to Azure SQL Database on the back-end](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

@@ -8,9 +8,9 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 
 # Configure automated ML experiments in Python
@@ -342,6 +342,8 @@ There are a few options you can define to end your experiment.
 ### Explore model metrics
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
+
+For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
 
 ## Understand automated ML models
 

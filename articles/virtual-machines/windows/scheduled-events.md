@@ -5,7 +5,7 @@ author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
+ms.date: 06/01/2020
 ms.author: mimckitt
 
 ---
@@ -44,7 +44,7 @@ Azure Metadata service exposes information about running Virtual Machines using 
 ### Endpoint Discovery
 For VNET enabled VMs, the metadata service is available from a static non-routable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
@@ -54,6 +54,8 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
+| 2019-08-01 | General Availability | All | <li> Added support for EventSource |
+| 2019-04-01 | General Availability | All | <li> Added support for Event Description |
 | 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
@@ -82,7 +84,7 @@ You can query for Scheduled Events simply by making the following call:
 
 #### PowerShell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01 -H @{"Metadata"="true"}
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -98,6 +100,8 @@ In the case where there are scheduled events, the response contains an array of 
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
             "NotBefore": {timeInUTC},
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -113,6 +117,8 @@ The DocumentIncarnation is an ETag and provides an easy way to inspect if the Ev
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
+| Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
+| EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platfrom. <li>`User`: This event is initiated by user. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
@@ -132,10 +138,18 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 Scheduled events are delivered to:
  - Standalone Virtual Machines.
  - All Virtual Machines in a Cloud Service.		
- - All Virtual Machines in an Availability Set.		
+ - All Virtual Machines in an Availability Set.	
+ - All Virtual Machines in an Availability Zone.
  - All Virtual Machines in a Scale Set Placement Group (Including Batch).		
 
-As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+> [!NOTE]
+> In an availability zone, scheduled events go only to single, affected VMs in the availability zone.
+> 
+> For example, in an availability set, if you have 100 VMs in the set and there is an update for one of the VMs, the scheduled event goes to all 100 VMs in the availability set.
+>
+> In an availability zone, if you have 100 VMs in the availability zone, the event goes only to the VM that is affected.
+>
+> As a result, you should check the `Resources` field in the event to identify which VMs will be affected. 
 
 ### Starting an event 
 

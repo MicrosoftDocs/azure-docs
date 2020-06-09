@@ -3,6 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -404,8 +405,12 @@ az group delete --name AzureFunctionsQuickstart-rg
 az group delete --name java-functions-group
 ```
 ::: zone-end
+::: zone pivot="programming-language-python"
+To exit the virtual environment, run `deactivate`.
+::: zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
+ 

@@ -3,7 +3,7 @@ title: Set up high availability for Azure Resource Manager virtual machines | Mi
 description: This tutorial shows you how to create an Always On availability group with Azure Virtual Machines in Azure Resource Manager mode.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -64,10 +64,10 @@ Azure provides a gallery image for the entire solution. To locate the template:
 1. Sign in to the Azure portal by using your account.
 2. In the Azure portal, select **Create a resource** to open the **New** pane.
 3. On the **New** pane, search for **AlwaysOn**.
-   ![Find AlwaysOn Template](./media/availability-group-azure-marketplace-template-configure/16-findalwayson.png)
-4. In the search results, locate **SQL Server AlwaysOn Cluster**.
-   ![AlwaysOn Template](./media/availability-group-azure-marketplace-template-configure/17-alwaysontemplate.png)
-5. On **Select a deployment model**, choose **Resource Manager**.
+  Azure Marketplace shows search results that include the SQL Server cluster. This feature is in preview.
+4. In the search results, locate and click **SQL Server AlwaysOn Cluster (preview)**. Follow the instructions to create the solution.
+
+The following sections explain the input for the solution. 
 
 ### Basics
 

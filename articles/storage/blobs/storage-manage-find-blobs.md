@@ -204,7 +204,7 @@ Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted th
 
 |   Blob operations   |  RBAC action   |
 |---------------------|----------------|
-| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Get Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 
