@@ -45,6 +45,7 @@ You should also have a general understanding of these technologies:
 > At this time, SQL Server failover cluster instances on Azure Virtual Machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features won't work for SQL VMs after the agent is reinstalled in lightweight management mode.
 > 
 
+
 Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md), based on managed premium disks or ultra disks.  
 
 Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before you start a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (Disk Transfers/second) and throughput (Disk Bytes/second) required for SQL Server Data, Log, and Temp DB files.
@@ -61,7 +62,7 @@ With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on
 
 If you have Enterprise Agreement with Software Assurance, you can use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images, and use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-To compare pay-as-you-go and BYOL licensing for SQL Server on Azure Virtual Machines, see [Get started with SQL VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
+To compare pay-as-you-go and BYOL licensing for SQL Server on Azure VM, see [Get started with SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -382,15 +383,15 @@ To create the load balancer:
 
 1. Select **OK**.
 
-### Set load balancing rules
+### Set load-balancing rules
 
 1. On the load balancer blade, select **Load balancing rules**.
 
 1. Select **Add**.
 
-1. Set the load balancing rule parameters:
+1. Set the load-balancing rule parameters:
 
-   - **Name**: A name for the load balancing rules.
+   - **Name**: A name for the load-balancing rules.
    - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
    - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
@@ -464,6 +465,7 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 ## Limitations
 
 Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
 
 On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/11/2020
+ms.date: 06/05/2020
 ---
 # Latent Dirichlet Allocation
 
@@ -111,7 +111,8 @@ The module has two outputs:
 
 This module also outputs the *LDA transformation* that applies LDA to the dataset.
 
-You can save this transformation by register dataset under **Outputs+logs** tab in the right pane of the module and reuse it for other datasets. This might be useful if you have trained on a large corpus and want to reuse the coefficients or categories.
+You can save this transformation reuse it for other datasets. This might be useful if you have trained on a large corpus and want to reuse the coefficients or categories.
+To reuse this transformation, click the **Register dataset** icon in the right panel of the LDA module to keep it as a module under **Datasets** category in the module list. Then you can connect this module to [Apply Transformation](apply-transformation.md) module to reuse this transformation.
 
 ### Refining an LDA model or results
 

@@ -18,14 +18,14 @@ ms.author: mikeray
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure a load balancer for an availability group on Azure SQL Server virtual machines
+# Configure a load balancer for a SQL Server Always On availability group in Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-This article explains how to create a load balancer for a SQL Server Always On availability group in Azure virtual machines (VMs) that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
+This article explains how to create a load balancer for a SQL Server Always On availability group in Azure Virtual Machines that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
-To complete this task, you need to have a SQL Server availability group deployed on Azure Virtual Machines that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](availability-group-azure-marketplace-template-configure.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
+To complete this task, you need to have a SQL Server Always On availability group deployed in Azure VMs that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](availability-group-azure-marketplace-template-configure.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
 
 If you prefer, you can [manually configure an availability group](availability-group-manually-configure-tutorial.md).
 

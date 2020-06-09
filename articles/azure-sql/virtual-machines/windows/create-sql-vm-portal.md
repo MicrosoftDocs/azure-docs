@@ -239,7 +239,7 @@ For more information, see [Automated Backup for SQL Server in Azure Virtual Mach
 
 ### Machine Learning Services
 
-You have the option to enable [Machine Learning Services](/sql/advanced-analytics/). This option lets you to use machine learning with Python and R in SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
+You have the option to enable [Machine Learning Services](/sql/advanced-analytics/). This option lets you use machine learning with Python and R in SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
 
 
 ## 4. Review + create
