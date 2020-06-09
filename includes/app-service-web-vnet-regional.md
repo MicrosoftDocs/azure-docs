@@ -2,7 +2,7 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ---
 Using regional VNet Integration enables your app to access:
@@ -50,11 +50,7 @@ One address is used for each plan instance. If you scale your app to five instan
 
 If you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting VNet Integration.
 
-The feature is in preview for Linux. The Linux form of the feature only supports making calls to RFC 1918 addresses (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### Web or Function App for Containers
-
-If you host your app on Linux with the built-in images, regional VNet Integration works without additional changes. If you use Web or Function App for Containers, you must modify your docker image to use VNet Integration. In your docker image, use the PORT environment variable as the main web server's listening port, instead of using a hardcoded port number. The PORT environment variable is automatically set by the platform at the container startup time. If you use SSH, the SSH daemon must be configured to listen on the port number specified by the SSH_PORT environment variable when you use regional VNet Integration. There's no support for gateway-required VNet Integration on Linux.
+The feature is fully supported for both Windows and Linux web apps. All of the behaviors act the same between Windows apps and Linux apps.
 
 ### Service endpoints
 

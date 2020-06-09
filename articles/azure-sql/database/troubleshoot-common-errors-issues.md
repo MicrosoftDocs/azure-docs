@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common connection issues to Azure SQL Database
-description: Provides steps to troubleshoot Azure SQL Database connection issues and resolve other Azure SQL Database or SQL Managed Instance specific issues
+description: Provides steps to troubleshoot Azure SQL Database connection issues and resolve other Azure SQL Database or Azure SQL Managed Instance specific issues
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -11,10 +11,10 @@ ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
 ---
 
-# Troubleshooting connectivity issues and other errors with SQL Database and SQL Managed Instance
+# Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-You receive error messages when the connection to Azure SQL Database or SQL Managed Instance fails. These connection problems can be caused by reconfiguration, firewall settings, a connection timeout, incorrect login information or failure to apply best practices and design guidelines during the [application design](develop-overview.md) process. Additionally, if the maximum limit on some Azure SQL Database or SQL Managed Instance resources is reached, you can no longer connect.
+You receive error messages when the connection to Azure SQL Database or Azure SQL Managed Instance fails. These connection problems can be caused by reconfiguration, firewall settings, a connection timeout, incorrect login information or failure to apply best practices and design guidelines during the [application design](develop-overview.md) process. Additionally, if the maximum limit on some Azure SQL Database or SQL Managed Instance resources is reached, you can no longer connect.
 
 ## Transient fault error messages (40197, 40613 and others)
 
@@ -25,7 +25,7 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. For more information, see [Errors 4000 to 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197] provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).|
 | 40613 |17 |Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'.<br/><br/> This error may occur if there is already an existing dedicated administrator connection (DAC) established to the database. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
@@ -385,4 +385,4 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 ## Next steps
 
 - [Azure SQL Database connectivity architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Azure SQL Database and Data Warehouse network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Azure SQL Database and Azure Synapse Analytics network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
