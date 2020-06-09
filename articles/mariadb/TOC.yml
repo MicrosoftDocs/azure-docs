@@ -144,6 +144,8 @@
       href: howto-configure-ssl.md
     - name: Configure TLS
       href: howto-tls-configurations.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
