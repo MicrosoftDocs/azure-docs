@@ -32,63 +32,44 @@ Advanced data security provides a set of advanced SQL security capabilities, con
 
 
 
-## Connecting your SQL Server's host to your Azure account
+## Set up advanced data security for SQL Servers 
 
-Advanced data security for SQL servers by Azure Security Center requires the SQL server host to be connected to Azure through the Log Analytics agent.  
+Advanced data security for SQL servers by Azure Security Center requires the SQL server host to be connected to Azure through the Log Analytics agent, and the optional bundle to be enabled in Azure Security Center's pricing and settings page.
 
-The procedure to set that up depends on the type of host machine. Select the relevant tab below.
+1. Connect your SQL Server's host to your Azure account according to the type of host:
 
-### [SQL Server on Azure VMs](#tab/sql-on-azurevm)
-If your SQL Server is hosted on an Azure VM, the procedure is the same one you'd use to [add any Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines) and it can even be auto-provisioned.
-
-### [SQL Server on Azure Arc](#tab/sql-on-azurearc)
-If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, connect it with the Log Analytics agent as described in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows).
-
-### [SQL Server on-prem](#tab/sql-on-prem)
-If your SQL Server is hosted on an on-premises Windows machine, you have two options for connecting it to Azure. 
-
-* **Set up Azure Arc** - Any Windows machine can be connected to Azure Security Center. However, for alerts from advanced data security to appear in the security tab in the **SQL Server - Azure Arc** page, set up Azure Arc on the host and then follow the instructions for an Azure Arc hosted SQL Server.
-
-    In addition to the alerts appearing in the security tab, Azure Arc provides deeper integration across *all* of your Azure environment. 
-
-* **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
-
---- 
+    |Host type  |Instructions  |
+    |---------|---------|
+    |**SQL Server on Azure VMs**|If your SQL Server is hosted on an Azure VM, the procedure is the same one you'd use to [add any Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines) and it can even be auto-provisioned.|
+    |**SQL Server on Azure Arc**|If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, connect it with the Log Analytics agent as described in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows).|
+    |**SQL Server on-prem**|If your SQL Server is hosted on an on-premises Windows machine, you have two options for connecting it to Azure:<br/>- **Deploy Azure Arc** - Any Windows machine can be connected to Azure Security Center. However, for alerts from advanced data security to appear in the security tab in the **SQL Server - Azure Arc** page, set up Azure Arc on the host and then follow the instructions for an Azure Arc hosted SQL Server above.<br/>In addition to the alerts appearing in the security tab, Azure Arc provides deeper integration across *all* of your Azure environment.<br/>- **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).|
 
 
-### Enable advanced data security for SQL
-
-Enable Advanced Data Security for SQL Servers on Virtual Machines at the subscription/workspace level:
+1. Enable advanced data security for SQL Servers at the subscription/workspace level:
  
-1. From Security Center's sidebar, open the **Pricing & settings** page.
+    1. From Security Center's sidebar, open the **Pricing & settings** page and select the subscription or workspace for which you want to enable Advanced Data Security for SQL on Azure VMs.
 
-1. Select the subscription or workspace for which you want to enable Advanced Data Security for SQL on Azure VMs.
+    1. Toggle the option for **SQL servers (Preview)** to enabled. 
 
-1. Toggle the option for **SQL servers (Preview)** to enabled. 
-
-    [![Security Center recommendations and alerts as seen in Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
+        [![Security Center recommendations and alerts as seen in Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
     Advanced Data Security for SQL Servers will be enabled on all SQL Servers connected to the selected workspace or the default workspace of the selected subscription.
 
     >[!NOTE]
     > The solution will be fully active after the first restart of the SQL Server. 
 
-To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+    >[!TIP]
+    > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 
-
-
-## Set up email notification for security alerts 
-
-You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
-
-For more information, see [Set up email notifications for security alerts](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+1. Optionally, configure email notification for security alerts. 
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 
 
 
 ## Explore vulnerability assessment reports
 
-The Vulnerability assessment dashboard provides an overview of your assessment results across all your databases. You can view the distribution of databases according to SQL Server version, along with a summary of failing versus passing databases and an overall summary of failing checks according to risk distribution.
+The vulnerability assessment dashboard provides an overview of your assessment results across all your databases. You can view the distribution of databases according to SQL Server version, along with a summary of failing versus passing databases and an overall summary of failing checks according to risk distribution.
 
 You can view the vulnerability assessment results directly from Security Center.
 
@@ -102,7 +83,7 @@ You can view the vulnerability assessment results directly from Security Center.
 
     [![Detailed view for the **Vulnerabilities on your SQL databases in VMs should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-1. To drill down for more details:
+1. For more details, drill down:
 
     * For an overview of scanned resources (databases) and the list of security checks that were tested, click the server of interest.
     [![Vulnerabilities grouped by SQL server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
