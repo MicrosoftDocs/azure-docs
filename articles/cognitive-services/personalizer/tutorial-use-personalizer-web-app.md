@@ -2,7 +2,7 @@
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 ms.topic: troubleshooting
-ms.date: 05/19/2020
+ms.date: 06/09/2020
 ms.author: diberry
 ---
 # Add Personalizer to a .NET web app
@@ -15,7 +15,7 @@ Customize a C# .NET web app with a Personalizer loop to provide the correct cont
 > [!div class="checklist"]
 > * Set up Personalizer key and endpoint
 > * Collect features
-> * Call Rank API
+> * Call Rank and Reward APIs
 > * Display top action, designated as _rewardActionId_
 
 
@@ -24,7 +24,7 @@ Customize a C# .NET web app with a Personalizer loop to provide the correct cont
 
 A web app should use Personalizer when there is a list of _actions_ (some type of content) on the web page that needs to be personalized to a single top item (rewardActionId) to display. Examples of action lists include news articles, button placement locations, and word choices for product names.
 
-You send the list of actions, along with context feature, to the Personalizer loop. Personalizer selects the single best action, then your web app displays that action.
+You send the list of actions, along with context features, to the Personalizer loop. Personalizer selects the single best action, then your web app displays that action.
 
 In this tutorial, the actions are types of food:
 
@@ -115,7 +115,7 @@ The features aren't configured as part of the loop configuration in the Azure po
 Context features help Personalizer understand the context of the actions. The context for this sample application includes:
 
 * time of day - morning, afternoon, evening, night
-* user's preference for taste - salty or sweet
+* user's preference for taste - salty, sweet, bitter, sour, or savory
 * browser's context - user agent, geographical location, referrer
 
 ```csharp
@@ -154,7 +154,7 @@ The web app uses Personalizer to select the best action from the list of food ch
 
 ## Personalizer model features in a web app
 
-Personalizer needs features about the actions (content) and the context (user and environment). Features are used to align actions and context in the model.
+Personalizer needs features for the actions (content) and the context (user and environment). Features are used to align actions and context in the model. The model is a representation of Personalizer's past knowledge about actions, context, and their features that allows it to make educated decisions.
 
 The model, including features, is updated on a schedule based on your **Model update frequency** setting in the Azure portal.
 
@@ -244,7 +244,9 @@ Build and run HttpRequestFeaturesExample. Press **F5** if using Visual Studio, o
 1. Select the **Generate new Rank Request** button to create a new JSON object for the Rank API call. This creates the actions (with features) and context features) and displays the values so you can see what the JSON looks like.
 
     For your own application, generation of actions and features may happen on the client, on the server, a mix of the two, or with calls to other services.
-1. Select **Send Rank Request** to send the JSON object to the server. The server calls the Personalizer Rank API. The server receives the response and returns the top action to the client to display.
+
+1. Select **Send Rank Request** to send the JSON object to the server. The server calls the Personalizer Rank API. The server receives the response and returns the top ranked action to the client to display.
+
 1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
@@ -317,10 +319,10 @@ namespace HttpRequestFeaturesExample
 
 ### Server uses Personalizer to select best action
 
-In the **PersonalizerController.cs**, the **GenerateRank** server API summarizes the preparation to call the Rank API:
+In the **PersonalizerController.cs**, the **PostRank** server API summarizes the preparation to call the Rank API
 
 * Create new `eventId` for the Rank call
-* Get the list of action
+* Get the list of actions
 * Get the list of features from the user and create context features
 * Optionally, set any excluded actions
 * Call Rank API, return results to client
@@ -537,7 +539,7 @@ In this tutorial, the `rewardActionId` value is displayed. In your own applicati
 
 ## Reward API: collect information to determine reward
 
-The [reward score](concept-rewards.md) should be carefully planned, just as the features are planned. The reward score is a value from 0 to 1. The value _can_ be calculated partially in the client application, based on user behaviors, and partially on the server, based on business logic and goals.
+The [reward score](concept-rewards.md) should be carefully planned, just as the features are planned. The reward score typically should be a value from 0 to 1. The value _can_ be calculated partially in the client application, based on user behaviors, and partially on the server, based on business logic and goals.
 
 If the server doesn't call the Reward API within the **Reward wait time** configured in the Azure portal for your Personalizer resource, then the **Default reward** (also configured in the Azure portal) is used for that event.
 
