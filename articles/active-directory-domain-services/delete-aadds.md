@@ -16,7 +16,7 @@ ms.author: iainfou
 ---
 # Delete an Azure Active Directory Domain Services managed domain using the Azure portal
 
-If you no longer need a managed domain, you can delete an Azure Active Directory Domain Services (Azure AD DS) instance. There's no option to turn off or temporarily disable an Azure AD DS managed domain. Deleting the Azure AD DS managed domain doesn't delete or otherwise adversely impact the Azure AD tenant. This article shows you how to use the Azure portal to delete an Azure AD DS managed domain.
+If you no longer need a managed domain, you can delete an Azure Active Directory Domain Services (Azure AD DS) managed domain. There's no option to turn off or temporarily disable an Azure AD DS managed domain. Deleting the Azure AD DS managed domain doesn't delete or otherwise adversely impact the Azure AD tenant. This article shows you how to use the Azure portal to delete an Azure AD DS managed domain.
 
 > [!WARNING]
 > **Deletion is permanent and can't be reversed.**
@@ -40,7 +40,7 @@ It can take 15-20 minutes or more to delete the Azure AD DS managed domain.
 
 Consider [sharing feedback][feedback] for the features that you would like to see in Azure AD DS.
 
-If you want to get started with Azure AD DS again, see [Create and configure an Azure Active Directory Domain Services instance][create-instance].
+If you want to get started with Azure AD DS again, see [Create and configure an Azure Active Directory Domain Services managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
 [feedback]: contact-us.md

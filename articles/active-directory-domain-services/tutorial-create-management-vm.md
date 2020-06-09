@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a management VM for Azure Active Directory Domain Services | Microsoft Docs
-description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Azure Active Directory Domain Services instance.
+description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Azure Active Directory Domain Services managed domain.
 author: iainfoulds
 manager: daveba
 
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
 
-#Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
+#Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services managed domain.
 ---
 
 # Tutorial: Create a management VM to configure and administer an Azure Active Directory Domain Services managed domain
@@ -38,7 +38,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, see the first tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, see the first tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A Windows Server VM that is joined to the Azure AD DS managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.

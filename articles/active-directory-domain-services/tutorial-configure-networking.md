@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure virtual networking for Azure AD Domain Services | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services instance using the Azure portal.
+description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: iainfoulds
 manager: daveba
 
@@ -14,7 +14,7 @@ ms.author: iainfou
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
 ---
 
-# Tutorial: Configure virtual networking for an Azure Active Directory Domain Services instance
+# Tutorial: Configure virtual networking for an Azure Active Directory Domain Services managed domain
 
 To provide connectivity to users and applications, an Azure Active Directory Domain Services (Azure AD DS) managed domain is deployed into an Azure virtual network subnet. This virtual network subnet should only be used for the managed domain resources provided by the Azure platform. As you create your own VMs and applications, they shouldn't be deployed into the same virtual network subnet. Instead, you should create and deploy your applications into a separate virtual network subnet, or in a separate virtual network that's peered to the Azure AD DS virtual network.
 
@@ -40,11 +40,11 @@ To complete this tutorial, you need the following resources and privileges:
 * You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
 * You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
 ## Sign in to the Azure portal
 
-In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the Azure AD DS managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
 ## Application workload connectivity options
 
@@ -97,7 +97,7 @@ With Azure virtual network peering, two virtual networks are connected together,
 
 To peer a virtual network to the Azure AD DS managed domain virtual network, complete the followings steps:
 
-1. Choose the default virtual network created for your Azure AD DS instance named *aadds-vnet*.
+1. Choose the default virtual network created for your Azure AD DS managed domain named *aadds-vnet*.
 1. In the left-hand menu of the virtual network window, select **Peerings**.
 1. To create a peering, select **+ Add**. In the following example, the default *aadds-vnet* is peered to a virtual network named *myVnet*. Configure the following settings with your own values:
 

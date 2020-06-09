@@ -35,7 +35,7 @@ To complete this tutorial, you need the following resources:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the Azure AD DS managed domain.
     * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to Azure AD DS managed domain.
 * An Azure Bastion host deployed in your Azure AD DS virtual network.
@@ -84,7 +84,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     * Create a, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
     * Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
     
-    If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
+    If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS managed domain, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
 
     In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *aaads-vnet*
 1. In this example, the existing *aaads-subnet* is shown that the Azure AD DS managed domain is connected to. Don't connect your VM to this subnet. To create a subnet for the VM, select **Manage subnet configuration**.

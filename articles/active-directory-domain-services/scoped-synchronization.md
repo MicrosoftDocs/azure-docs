@@ -53,8 +53,8 @@ You use the Azure portal or PowerShell to configure the scoped synchronization s
 
 To enable scoped synchronization in the Azure portal, complete the the following steps:
 
-1. Follow the [tutorial to create and configure an Azure AD DS instance](tutorial-create-instance-advanced.md). Complete all prerequisites and deployment steps other than for synchronization scope.
-1. Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS instance.
+1. Follow the [tutorial to create and configure an Azure AD DS managed domain](tutorial-create-instance-advanced.md). Complete all prerequisites and deployment steps other than for synchronization scope.
+1. Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS managed domain.
 
 The Azure AD DS managed domain can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your Azure AD DS managed domain shows the current status throughout this deployment stage.
 
@@ -68,7 +68,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 To modify the list of groups whose users should be synchronized to the Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aaddscontoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. To add a group, choose **+ Select groups** at the top, then choose the groups to add.
 1. To remove a group from the synchronization scope, select it from the list of currently synchronized groups and choose **Remove groups**.
@@ -80,7 +80,7 @@ Changing the scope of synchronization causes the Azure AD DS managed domain to r
 
 To disable group-based scoped synchronization for an Azure AD DS managed domain, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your instance, such as *aaddscontoso.com*.
+1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. Set the synchronization scope from **Scoped** to **All**, then select **Save synchronization scope**.
 

@@ -26,7 +26,7 @@ This article outlines the benefits for migration. To get started, see [Migrate A
 
 ## Migration benefits
 
-The migration process takes an existing Azure AD DS instance that uses the Classic deployment model and moves to use the Resource Manager deployment model. When you migrate an Azure AD DS managed domain from the Classic to Resource Manager deployment model, you avoid the need to rejoin machines to the managed domain or delete the Azure AD DS instance and create one from scratch. VMs continue to be joined to the Azure AD DS managed domain at the end of the migration process.
+The migration process takes an existing Azure AD DS managed domain that uses the Classic deployment model and moves to use the Resource Manager deployment model. When you migrate an Azure AD DS managed domain from the Classic to Resource Manager deployment model, you avoid the need to rejoin machines to the managed domain or delete the Azure AD DS managed domain and create one from scratch. VMs continue to be joined to the Azure AD DS managed domain at the end of the migration process.
 
 After migration, Azure AD DS provides many features that are only available for domains using Resource Manager deployment model, such as the following:
 

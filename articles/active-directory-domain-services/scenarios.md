@@ -101,7 +101,7 @@ For more information about this deployment scenario, see [how to configure domai
 
 ## Next steps
 
-To get started, [Create and configure an Azure Active Directory Domain Services instance][tutorial-create-instance]
+To get started, [Create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance]
 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md

@@ -29,7 +29,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the Azure AD DS managed domain.
 
 ## Create and connect to a CoreOS Linux VM
@@ -45,7 +45,7 @@ If you need to create a CoreOS Linux VM, or want to create a test VM for use wit
 When you create the VM, pay attention to the virtual network settings to make sure that the VM can communicate with the Azure AD DS managed domain:
 
 * Deploy the VM into the same, or a peered, virtual network in which you have enabled Azure AD Domain Services.
-* Deploy the VM into a different subnet than your Azure AD Domain Services instance.
+* Deploy the VM into a different subnet than your Azure AD Domain Services managed domain.
 
 Once the VM is deployed, follow the steps to connect to the VM using SSH.
 

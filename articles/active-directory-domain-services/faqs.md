@@ -72,7 +72,7 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You don
 No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users aren't stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
 
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
-No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS managed domain.
 
 ### Does Azure AD Domain Services include high availability options?
 
@@ -156,4 +156,4 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 
 To learn more about Azure AD Domain Services, see [What is Azure Active Directory Domain Services?](overview.md).
 
-To get started, see [Create and configure an Azure Active Directory Domain Services instance](tutorial-create-instance.md).
+To get started, see [Create and configure an Azure Active Directory Domain Services managed domain](tutorial-create-instance.md).

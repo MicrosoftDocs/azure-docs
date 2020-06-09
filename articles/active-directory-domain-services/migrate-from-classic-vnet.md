@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure AD Domain Services from a Classic virtual network | Microsoft Docs
-description: Learn how to migrate an existing Azure AD Domain Services managed domain instance from the Classic virtual network model to a Resource Manager-based virtual network.
+description: Learn how to migrate an existing Azure AD Domain Services managed domain from the Classic virtual network model to a Resource Manager-based virtual network.
 author: iainfoulds
 manager: daveba
 
@@ -17,7 +17,7 @@ ms.author: iainfou
 
 Azure Active Directory Domain Services (AD DS) supports a one-time move for customers currently using the Classic virtual network model to the Resource Manager virtual network model. Azure AD DS managed domains that use the Resource Manager deployment model provide additional features such as fine-grained password policy, audit logs, and account lockout protection.
 
-This article outlines considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance. For some of the benefits, see [Benefits of migration from the Classic to Resource Manager deployment model in Azure AD DS][migration-benefits].
+This article outlines considerations for migration, then the required steps to successfully migrate an existing Azure AD DS managed domain. For some of the benefits, see [Benefits of migration from the Classic to Resource Manager deployment model in Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
@@ -26,7 +26,7 @@ This article outlines considerations for migration, then the required steps to s
 
 ## Overview of the migration process
 
-The migration process takes an existing Azure AD DS instance that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution: *preparation* and *migration*.
+The migration process takes an existing Azure AD DS managed domain that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution: *preparation* and *migration*.
 
 ![Overview of the migration process for Azure AD DS](media/migrate-from-classic-vnet/migration-overview.png)
 

@@ -37,7 +37,7 @@ To complete this article, you need the following resources:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A *workloads* subnet created in your Azure Active Directory Domain Services virtual network.
     * If needed, [Configure virtual networking for an Azure Active Directory Domain Services managed domain][configure-azureadds-vnet].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.

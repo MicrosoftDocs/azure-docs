@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create an Azure Active Directory Domain Services instance | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services instance using the Azure portal.
+title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
+description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: iainfoulds
 manager: daveba
 
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
 
-#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
+#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
 
-# Tutorial: Create and configure an Azure Active Directory Domain Services instance
+# Tutorial: Create and configure an Azure Active Directory Domain Services managed domain
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
-You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS instance using the Azure portal.
+You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS managed domain using the Azure portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Understand DNS requirements for a managed domain
-> * Create an Azure AD DS instance
+> * Create an Azure AD DS managed domain
 > * Enable password hash synchronization
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -43,13 +43,13 @@ To complete this tutorial, you need the following resources and privileges:
 Although not required for Azure AD DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Azure AD tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
 > [!IMPORTANT]
-> After you create an Azure AD DS managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+> After you create an Azure AD DS managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS managed domain.
 
 ## Sign in to the Azure portal
 
-In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the Azure AD DS managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an instance
+## Create a managed domain
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
@@ -59,7 +59,7 @@ To launch the **Enable Azure AD Domain Services** wizard, complete the following
 1. Select the Azure **Subscription** in which you would like to create the managed domain.
 1. Select the **Resource group** to which the managed domain should belong. Choose to **Create new** or select an existing resource group.
 
-When you create an Azure AD DS instance, you specify a DNS name. There are some considerations when you choose this DNS name:
+When you create an Azure AD DS managed domain, you specify a DNS name. There are some considerations when you choose this DNS name:
 
 * **Built-in domain name:** By default, the built-in domain name of the directory is used (a *.onmicrosoft.com* suffix). If you wish to enable secure LDAP access to the managed domain over the internet, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a Certificate Authority (CA) won't issue a certificate.
 * **Custom domain names:** The most common approach is to specify a custom domain name, typically one that you already own and is routable. When you use a routable, custom domain, traffic can correctly flow as needed to support your applications.
@@ -82,7 +82,7 @@ The following DNS name restrictions also apply:
     * If the virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
     * If you have an existing Azure cloud service with that name on the Azure virtual network.
 
-Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS instance:
+Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS managed domain:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
 1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
@@ -98,7 +98,7 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 
     For this tutorial, choose to create a *User* forest.
 
-    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
+    ![Configure basic settings for an Azure AD Domain Services managed domain](./media/tutorial-create-instance/basics-window.png)
 
 To quickly create an Azure AD DS managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
 
@@ -118,7 +118,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
-1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
+1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS managed domain from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -178,7 +178,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Understand DNS requirements for a managed domain
-> * Create an Azure AD DS instance
+> * Create an Azure AD DS managed domain
 > * Add administrative users to domain management
 > * Enable user accounts for Azure AD DS and generate password hashes
 
