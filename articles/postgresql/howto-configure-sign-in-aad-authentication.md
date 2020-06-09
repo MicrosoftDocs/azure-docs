@@ -120,7 +120,7 @@ Linux/macOS Example:
 export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 ```
 
-Now you can initiate a connection with Azure Database for PostgreSQL like you normally would:
+Now you can initiate a connection with Azure Database for PostgreSQL like you normally would. Make sure to use the exact way the Azure AD user or group name is spelled. Names are case sensitive.
 
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
