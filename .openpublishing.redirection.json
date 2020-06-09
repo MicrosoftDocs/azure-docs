@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/digital-twins/about-digital-twins.md",
-      "redirect_url": "articles/digital-twins/overview",
+      "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": false
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-events-routing.md",
-      "redirect_url": "articles/digital-twins/concepts-route-events",
+      "redirect_url": "/azure/digital-twins/concepts-route-events",
       "redirect_document_id": false
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-service-limits.md",
-      "redirect_url": "articles/digital-twins/reference-service-limits",
+      "redirect_url": "/azure/digital-twins/reference-service-limits",
       "redirect_document_id": false
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
-      "redirect_url": "articles/digital-twins/how-to-manage-routes",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
       "redirect_document_id": false
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-navigate-apis.md",
-      "redirect_url": "articles/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-query-common-apis.md",
-      "redirect_url": "articles/digital-twins/how-to-query-graph",
+      "redirect_url": "/azure/digital-twins/how-to-query-graph",
       "redirect_document_id": false
     },
     {
@@ -97,17 +97,17 @@
     },
     {
       "source_path": "articles/digital-twins/security-best-practices.md",
-      "redirect_url": "articles/digital-twins/concepts-security",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
-      "redirect_url": "articles/digital-twins/concepts-security",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-role-based-access-control.md",
-      "redirect_url": "articles/digital-twins/concepts-security",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
@@ -52795,6 +52795,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
@@ -54642,6 +54647,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-outbound-rules-overview.md",
       "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-health/service-health-rest.md",
+      "redirect_url": "/azure/service-health/index",
       "redirect_document_id": false
     },
     {
