@@ -3,7 +3,7 @@ title: Configure software RAID on a Linux VM
 description: Learn how to use mdadm to configure RAID on Linux in Azure.
 author: rickstercdn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
