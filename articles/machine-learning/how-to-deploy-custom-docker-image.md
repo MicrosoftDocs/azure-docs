@@ -10,6 +10,7 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/16/2020
+ms.custom: tracking-python
 ---
 
 # Deploy a model using a custom Docker base image
