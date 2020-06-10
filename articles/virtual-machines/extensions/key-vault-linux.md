@@ -75,7 +75,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
-| certificateStoreName | It is ingored on Linux | string |
+| certificateStoreName | It is ignored on Linux | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | boolean |
