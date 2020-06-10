@@ -1,6 +1,6 @@
 ---
-title: Use API connectors for approval in self-service sign-up - Azure AD
-description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
+title: API connectors for custom approval workflows in External Identities self-service sign-up - Azure AD
+description: Add API connectors for custom approval workflows in External Identities self-service sign-up - Azure Active Directory (Azure AD)
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
  
-# Add a custom approval system to self-service sign-up
+# Add a custom approval workflow to self-service sign-up
 
 With [API connectors](api-connectors-overview.md), you can integrate with your own custom approval workflows with self-service sign-up so you can manage which guest user accounts are created in your tenant.
 
