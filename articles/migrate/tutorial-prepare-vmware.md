@@ -94,6 +94,11 @@ To prepare for VMware VM assessment, you need to:
 1. [Check VMware requirements](migrate-support-matrix-vmware.md#assessment-requirements) for assessment.
 2. [Make sure](migrate-support-matrix-vmware.md#port-access-requirements) that the  ports you need are open on vCenter Server.
 3. On vCenter Server, check that your account has permissions to create a VM using an OVA file. This is needed when you deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
+4. There are some changes needed on VMs before you migrate them to Azure.
+
+    - For some operating systems, Azure Migrate makes these changes automatically. 
+    - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+    - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 
 ### Set up permissions for assessment
@@ -160,14 +165,6 @@ Alternatively, you can create an account. Then create a role, and assign it to t
 > [!NOTE]
 > If you want to limit VM discovery for agentless migration to a specific scope, review [this article](set-discovery-scope.md#assign-a-role-for-agentless-migration).
 
-# Prepare VMs for migration
-
-There are some changes needed on VMs before you migrate them to Azure.
-
-- For some operating systems, Azure Migrate makes these changes automatically. 
-- It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
-
-Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 
 ## Prepare for agent-based VMware migration
