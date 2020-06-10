@@ -11,29 +11,92 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 ---
 
-# Skillset concepts and composition in Azure Cognitive Search
+# Skillset concepts in Azure Cognitive Search
 
-This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with:
-+ [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
-+ [Knowledge store (preview)](knowledge-store-concept-intro.md)
+This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
 
 ## Introducing skillsets
 
-A skillset is a reusable resource in Azure Cognitive Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
+A skillset is a reusable resource in Azure Cognitive Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures that flow into a search index or a knowledge store.
 
-A skillset has three properties:
+A skillset has three main properties:
 
-+ ```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill
-+ ```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
-+ ```knowledgeStore```, the storage account where your enriched documents will be projected
++ ```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill.
++ ```cognitiveServices```, a Cognitive Services resource that performs image and text processing.
++ ```knowledgeStore```, (optional) an Azure Storage account where your enriched documents will be projected. Enriched documents are also consumed by search indexes.
 
-Skillsets are authored in JSON. You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. Later in this article, we'll use an example to illustrate the syntax. 
+Skillsets are authored in JSON. The following example is an abbreviated version of a skillset created in a tutorial. Two skills are shown: 
+
++ Skill #1 is a Split skill that accepts a reviews_text field as input, and splits the content into pages of 5000 characters as output.
++ Skill #2 is a Key Phrase Extraction skill accepts pages as input, and produces a new field called "keyPhrases" as output.
+
+
+```json
+{
+  "name": "hotel-reviews-ss",
+  "description": "Skillset created from the portal",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document/reviews_text",
+      "defaultLanguageCode": "en",
+      "textSplitMode": "pages",
+      "maximumPageLength": 5000,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/reviews_text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+      "name": "#2",
+      "description": null,
+      "context": "/document/reviews_text/pages/*",
+      "defaultLanguageCode": "en",
+      "maxKeyPhraseCount": null,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/reviews_text/pages/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "keyPhrases",
+          "targetName": "keyphrases"
+        }
+      ]
+    }
+  ],
+  "cognitiveServices": null,
+  "knowledgeStore": {  }
+}
+```
+You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. Later in this article, we'll use an example to illustrate the syntax. 
+
+> [!TIP]
+> For the rest of this document, we'll reference the [hotel reviews sample](knowledge-store-create-portal.md) skillset to explain key concepts. You can view the skillset in the portal:
+>
+> 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the Azure portal. Select the service. 
+> 
+> 1. On the overview page, click the **Skillsets** link in the middle of the page. If you used the suggested naming conventions, you should see the `hotel-reviews-ss` skillset. Select the skillset. If you don't see it, follow the steps in [this quickstart](knowledge-store-create-portal.md) to create it.
+> 
 
 ### Enrichment tree
 
 To envision how a skillset progressively enriches your document, let's start with unenriched source data. The source data is raw content in Azure Blob storage or another [supported Azure data source](search-indexer-overview.md#supported-data-sources) that an Azure Cognitive Search indexer can process.
 
-After the indexer connects to the source, the first step in enrichment is *document cracking*, or opening a document to extract content. The output of document cracking depends on the data source and the specific parsing mode selected. If you specified [field mappings](search-indexer-field-mappings.md) in an indexer to map source fields to a destination in an index or knowledge store, those mappings are read from the indexer definition at this stage.
+After the indexer connects to the source, the first step in the pipeline is *document cracking*, or opening a document to extract content. The output of document cracking depends on the content. For example, if a document contains images and text, document cracking extracts text for text analysis and images for image analysis. Furthermore, for text content, the parsing mode you specify on an indexer can affect output, such as segmenting large bodies of text into smaller chunks for more optimal processing. Another action that occurs at this stage is [field mappings](search-indexer-field-mappings.md). If the indexer maps source fields to destination fields in an index or knowledge store, those mappings are read from the indexer definition at this stage.
 
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
@@ -48,12 +111,6 @@ Once a document is in the enrichment pipeline, it is represented as a tree of co
  As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. 
 
 You can selectively persist only a subset of the enrichments to the index or the knowledge store.
-
-For the rest of this document, we'll reference the [hotel reviews sample](knowledge-store-create-portal.md) skillset to explain key concepts. You can view the skillset in the portal:
-
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the Azure portal. Select the service. 
-
-1. On the overview page, click the **Skillsets** link in the middle of the page. If you used the suggested naming conventions, you should see the `hotel-reviews-ss` skillset. Select the skillset. If you don't see it, follow the steps in [this quickstart](knowledge-store-create-portal.md) to create it.
 
 ### Context
 
