@@ -185,7 +185,7 @@ Create a new method to send a message into the queue.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_SendMessage":::
 
-   By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
 
    # [\.NET v12](#tab/dotnet)
 
