@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
 ---
 

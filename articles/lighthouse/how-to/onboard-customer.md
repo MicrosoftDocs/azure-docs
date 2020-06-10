@@ -2,7 +2,7 @@
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
 ms.date: 05/26/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Onboard a customer to Azure delegated resource management
