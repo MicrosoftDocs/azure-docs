@@ -24,6 +24,15 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
+# [Windows](#tab/windows)
+
+This displays Windows content.
+
+# [Azure CLI](#tab/azure-cli)
+
+This displays Azure CLI content.
+
+---
 ## Prerequisites
 
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
@@ -100,6 +109,10 @@ Perform the following steps in the Azure portal to order a device.
 
 11. Click **Order**. The order takes a few minutes to be created.
 
+
+# [Azure CLI](#tab/cli)
+
+---
 ## Track the order
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
