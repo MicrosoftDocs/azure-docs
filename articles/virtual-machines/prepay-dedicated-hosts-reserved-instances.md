@@ -4,7 +4,6 @@ description: Learn how to buy Azure Dedicated Hosts Reserved Instances to save o
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
-
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
