@@ -106,7 +106,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <ingnored on linux>,
-          "certificateStoreLocation": <disk path location, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
+          "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
         }      
       }
