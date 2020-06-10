@@ -1,11 +1,11 @@
 ---
-title: Limit network access to Azure Batch accounts
-description: Learn how to limit access to an Azure Batch account over private IP addresses. 
+title: Use private endpoints with Azure Batch accounts
+description: Learn how to connect privately to an Azure Batch account by using private endpoints. 
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 06/12/2020
 ---
 
-# Limit network access to Azure Batch accounts
+# Use private endpoints with Azure Batch accounts
 
 By default, [Azure Batch accounts](accounts.md) have a public endpoint and are publicly accessible. The Batch service offers the ability to create private Batch accounts, disabling the public network access.
 
@@ -18,8 +18,8 @@ You can connect to an Azure Batch account configured with Private Link by using 
 This article describes the steps to create a private Batch account and access it using a private endpoint.
 
 > [!IMPORTANT]
-> Support for private connectivity in Azure Batch is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Support for private connectivity in Azure Batch is currently in public preview in limited regions only.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Azure portal
@@ -87,6 +87,10 @@ When [creating a Batch account by using Azure Resource Manager template](quick-c
 Use a [private DNS zone](../dns/private-dns-privatednszone.md) within the subnet where you've created the private endpoint. Configure the endpoints so that each private IP address is mapped to a DNS entry.
 
 When you're creating the private endpoint, you can integrate it with a [private DNS zone](../dns/private-dns-privatednszone.md) in Azure. If you choose to instead use a [custom domain](../dns/dns-custom-domain.md), you must configure it to add DNS records for all private IP addresses reserved for the private endpoint.
+
+## Pricing
+
+For details on costs related to private endpoints, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 ## Current limitations and best practices
 

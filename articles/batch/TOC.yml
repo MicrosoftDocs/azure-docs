@@ -95,7 +95,7 @@
       href: batch-management-dotnet.md
     - name: Cost analysis and budgets
       href: budget.md
-    - name: Limit network access to Batch accounts
+    - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
   - name: Authenticate with Azure AD
     items:
