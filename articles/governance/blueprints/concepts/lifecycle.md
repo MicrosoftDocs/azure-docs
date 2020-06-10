@@ -1,13 +1,13 @@
 ---
 title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
-ms.date: 07/30/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
 ---
 # Understand the lifecycle of an Azure Blueprint
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
-lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant.
+lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant. Azure
 Blueprints supports standard lifecycle operations. It then builds upon them to provide additional
 levels of status that support common continuous integration and continuous deployment pipelines for
 organizations that manage their Infrastructure as Code – a key element in DevOps.

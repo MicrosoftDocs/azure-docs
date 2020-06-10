@@ -15,7 +15,7 @@ ms.author: sharadag
 
 # ​​How Front Door matches requests to a routing rule
 
-After establishing a connection and doing an SSL handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
+After establishing a connection and doing a TLS handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
 
 ## Structure of a Front Door route configuration
 A Front Door routing rule configuration is composed of two major parts: a "left-hand side" and a "right-hand side". We match the incoming request to the left-hand side of the route while the right-hand side defines how we process the request.

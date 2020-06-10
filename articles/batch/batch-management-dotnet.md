@@ -1,22 +1,9 @@
 ---
 title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 04/24/2017
-ms.author: labrenne
-ms.custom: seodec18
-
+ms.custom: seodec18, has-adal-ref
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 

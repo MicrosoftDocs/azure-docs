@@ -4,7 +4,7 @@ description: How to manage your personal application preferences such as changin
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr

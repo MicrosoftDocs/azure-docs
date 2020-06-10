@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 02/07/2020
+ms.date: 04/27/2020
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment

@@ -157,7 +157,7 @@ Because the Internal URL uses HTTPS protocol (`https://SharePoint/`), a certific
 1. Open the Internet Information Services Manager console.
 1. Expand the server in the tree view, expand **Sites**, select the **SharePoint - AAD Proxy** site, and select **Bindings**.
 1. Select **https binding** and then select **Edit**.
-1. In the SSL certificate field, choose **SharePoint** certificate and then select **OK**.
+1. In the TLS/SSL certificate field, choose **SharePoint** certificate and then select **OK**.
 
 You can now access the SharePoint site externally through Azure AD Application Proxy.
 

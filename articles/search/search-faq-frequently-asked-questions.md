@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/10/2020
 ---
 
 # Azure Cognitive Search - frequently asked questions (FAQ)
@@ -20,16 +20,6 @@ ms.date: 11/04/2019
 ### How is Azure Cognitive Search different from full text search in my DBMS?
 
 Azure Cognitive Search supports multiple data sources, [linguistic analysis for many languages](https://docs.microsoft.com/rest/api/searchservice/language-support), [custom analysis for interesting and unusual data inputs](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), search rank controls through [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and user-experience features such as typeahead, hit highlighting, and faceted navigation. It also includes other features, such as synonyms and rich query syntax, but those are generally not differentiating features.
-
-### What is the difference between Azure Cognitive Search and Elasticsearch?
-
-When comparing search technologies, customers frequently ask for specifics on how Azure Cognitive Search compares with Elasticsearch. Customers who choose Azure Cognitive Search over Elasticsearch for their search application projects typically do so because we've made a key task easier or they need the built-in integration with other Microsoft technologies:
-
-+ Azure Cognitive Search is a fully managed cloud service with 99.9% service level agreements (SLA) when provisioned with sufficient redundancy (2 replicas for read access, three replicas for read-write).
-+ Microsoft's [Natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) offer leading edge linguistic analysis.  
-+ [Azure Cognitive Search indexers](search-indexer-overview.md) can crawl a variety of Azure data sources for initial and incremental indexing.
-+ If you need rapid response to fluctuations in query or indexing volumes, you can use [slider controls](search-manage.md#scale-up-or-down) in the Azure portal, or run a [PowerShell script](search-manage-powershell.md), bypassing shard management directly.  
-+ [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide.
 
 ### Can I pause Azure Cognitive Search service and stop billing?
 
@@ -87,7 +77,15 @@ Most wildcard search queries, like prefix, fuzzy and regex, are rewritten intern
 
 By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Cognitive Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking.
 
-For example, suppose an input of "tour*" in a wildcard search produces matches on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
+For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
+
+## Skillset Operations
+
+### Are there any tips or tricks to reduce cognitive services charges on ingestion?
+
+It is understandable that you don't want to execute built-in skills or custom skills more than is absolutely necessary, especially if you are dealing with millions of documents to process. With that in mind, we have added "incremental enrichment" capabilities to skillset execution. In essence, you can provide a cache location (a blob storage connection string) that will be used to store the output of "intermediate" enrichment steps.  That allows the enrichment pipeline to be smart and apply only enrichments that are necessary when you modify your skillset. This will naturally also save indexing time as the pipeline will be more efficient.
+
+Learn more about [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)
 
 ## Design patterns
 

@@ -5,7 +5,7 @@ author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: jaserano
 ---

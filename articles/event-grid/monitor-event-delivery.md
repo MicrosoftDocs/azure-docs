@@ -23,18 +23,21 @@ For information about event delivery and retries, [Event Grid message delivery a
 
 The portal displays metrics for the status of delivering event messages.
 
-For topics, the metrics are:
+For topics, here are some of the metrics:
 
 * **Publish Succeeded**: Event successfully sent to the topic, and processed with a 2xx response.
 * **Publish Failed**: Event sent to the topic but rejected with an error code.
 * **Unmatched**: Event successfully published to the topic, but not matched to an event subscription. The event was dropped.
 
-For subscriptions, the metrics are:
+For subscriptions, here are some of the metrics:
 
 * **Delivery Succeeded**: Event successfully delivered to the subscription's endpoint, and received a 2xx response.
-* **Delivery Failed**: Event sent to subscription's endpoint, but received a 4xx or 5xx response.
+* **Delivery Failed**: Every time the service tries to deliver and the event handler doesn't return a success 2xx code, the **Delivery Failed** counter is incremented. If we attempt to deliver the same event multiple times and fail, the **Delivery Failed** counter is incremented for each failure.
 * **Expired Events**: Event was not delivered and all retry attempts were sent. The event was dropped.
 * **Matched Events**: Event in the topic was matched by the event subscription.
+
+    > [!NOTE]
+    > For the full list of metrics, see [Metrics supported by Azure Event Grid](metrics.md).
 
 ## Event subscription status
 

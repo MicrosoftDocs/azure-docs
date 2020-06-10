@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 ---
 
 # Create resources at the management group level
@@ -40,13 +40,24 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 The commands for management group deployments are different than the commands for resource group deployments.
 
-For Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+
+```azurecli-interactive
+az deployment mg create \
+  --name demoMGDeployment \
+  --location WestUS \
+  --management-group-id myMG \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
+```
+
+For Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
 New-AzManagementGroupDeployment `
-  -ManagementGroupId "myMG" `
+  -Name demoMGDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+  -ManagementGroupId "myMG" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
 For REST API, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).

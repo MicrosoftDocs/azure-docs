@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # Caching with Azure Front Door
-The following document specifies behavior for Front Door with routing rules that have enabled caching.
+The following document specifies behavior for Front Door with routing rules that have enabled caching. Front Door is a modern Content Delivery Network (CDN) and so along with dynamic site acceleration and load balancing, it also supports caching behaviors just like any other CDN.
 
 ## Delivery of large files
 Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, a Front Door environment requests the file from the backend in chunks of 8 MB.
@@ -99,7 +99,7 @@ The following order of headers is used in order to determine how long an item wi
 2. Cache-Control: max-age=\<seconds>
 3. Expires: \<http-date>
 
-Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
+Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
 
 ## Request headers
 

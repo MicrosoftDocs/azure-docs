@@ -34,6 +34,7 @@ Memory Preserving Updates: Not Supported
 1 GPU = one P40 card.
 
 *RDMA capable
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Supported operating systems and drivers

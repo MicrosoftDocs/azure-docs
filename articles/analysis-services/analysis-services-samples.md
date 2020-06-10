@@ -29,7 +29,7 @@ Azure Synapse Analytics (SQL Data Warehouse) provides a sample AdventureWorksDW 
 
 These sample databases on GitHub can be used for creating and testing your own models. 
 
-[Adventure Works sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Adventure Works sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
 
 [Wide World Importers sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 

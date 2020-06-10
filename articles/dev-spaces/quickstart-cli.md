@@ -78,7 +78,7 @@ azds prep --enable-ingress
 You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
 
 > [!TIP]
-> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 ## Build and run code in Kubernetes
 
@@ -101,12 +101,12 @@ Step 7/8 : COPY . .
 Step 8/8 : CMD ["npm", "start"]
 Built container image in 6m 17s
 Waiting for container...13s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is *`http://webfrontend.1234567890abcdef1234.eus.azds.io/`*.
 
 > [!NOTE]
 > When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.

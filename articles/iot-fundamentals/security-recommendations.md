@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: dkshir
-ms.custom: security-recommendations
+ms.custom: [security-recommendations, amqp, mqtt]
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment

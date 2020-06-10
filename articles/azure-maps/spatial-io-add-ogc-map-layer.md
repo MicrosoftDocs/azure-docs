@@ -1,8 +1,8 @@
 ---
 title:  Add an Open Geospatial Consortium (OGC) map layer | Microsoft Azure Maps
 description: Learn how to overlay an OGC map layer on the map, and how to use the different options in the OgcMapLayer class.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,14 +12,14 @@ manager: philmea
 
 # Add a map layer from the Open Geospatial Consortium (OGC)
 
-The `atlas.layer.OgcMapLayer` class can overlay Web Mapping Services (WMS) imagery and Web Mapping Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving pre-rendered and georeferenced map tiles.
+The `atlas.layer.OgcMapLayer` class can overlay Web Map Services (WMS) imagery and Web Map Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving pre-rendered and georeferenced map tiles.
 
-The following sections outline the Web Mapping Service features that are supported by the `OgcMapLayer` class.
+The following sections outline the web map service features that are supported by the `OgcMapLayer` class.
 
-**Web Mapping Service (WMS)**
+**Web Map Service (WMS)**
 
 - Supported versions: `1.0.0`, `1.1.0`, `1.1.1`, and `1.3.0`
-- The service must support the `EPSG:3857` projection system, or the service must be able to handle reprojections.
+- The service must support the `EPSG:3857` projection system, or handle reprojections.
 - GetFeatureInfo requires the service to support `EPSG:4326` or handle reprojections. 
 - Supported operations:
 
@@ -29,7 +29,7 @@ The following sections outline the Web Mapping Service features that are support
     | GetMap | Retrieves a map image for a specified region |
     | GetFeatureInfo | Retrieves `feature_info`, which contains underlying data about the feature |
 
-**Web Mapping Tile Service (WMTS)**
+**Web Map Tile Service (WMTS)**
 
 - Supported versions: `1.0.0`
 - Tiles must be square, such that `TileWidth == TileHeight`.
@@ -71,7 +71,7 @@ The following tool overlays imagery from the Web Map Services (WMS) and Web Map 
 <iframe height='750' style='width: 100%;' scrolling='no' title='OGC Web Map Service explorer' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-You may also specify the map settings to use a proxy service. The proxy service lets you load resources that are hosted on domains that don't have CORs enabled.
+You may also specify the map settings to use a proxy service. The proxy service lets you load resources that are hosted on domains that don't have CORS enabled.
 
 ## Next steps
 

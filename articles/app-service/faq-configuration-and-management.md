@@ -31,14 +31,14 @@ For answers to common questions about using a custom domain name with your Azure
 To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](manage-custom-dns-buy-domain.md).
 
 
-## How do I upload and configure an existing SSL certificate for my web app?
+## How do I upload and configure an existing TLS/SSL certificate for my web app?
 
-To learn how to upload and set up an existing custom SSL certificate, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to upload and set up an existing custom TLS/SSL certificate, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
-## How do I purchase and configure a new SSL certificate in Azure for my web app?
+## How do I purchase and configure a new TLS/SSL certificate in Azure for my web app?
 
-To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
+To learn how to purchase and set up a TLS/SSL certificate for your App Service web app, see [Add a TLS/SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I move Application Insights resources?
@@ -80,7 +80,7 @@ To learn how to get the outbound IP address if your website is hosted in an App 
 
 ## How do I get a reserved or dedicated inbound IP address for my web app?
 
-To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based SSL certificate.
+To set up a dedicated or reserved IP address for inbound calls made to your Azure app website, install and configure an IP-based TLS/SSL certificate.
 
 Note that to use a dedicated or reserved IP address for inbound calls, your App Service plan must be in a Basic or higher service plan.
 
@@ -121,7 +121,7 @@ For more information about using deployment slots, see [Set up a staging environ
 
 To review WebJob logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the WebJob.
 3. Select the **Toggle Output** button.
 4. To download the output file, select the **Download** link.
@@ -183,7 +183,7 @@ You have two options for capturing an F12 trace:
 3. Right-click in the message area of the pane, and then select **Copy all**.
 4. Paste the copied text in a file, and then save the file.
 
-To view an HAR file, you can use the [HAR viewer](https://www.softwareishard.com/har/viewer/).
+To view an HAR file, you can use the [HAR viewer](http://www.softwareishard.com/har/viewer/).
 
 ## Why do I get an error when I try to connect an App Service web app to a virtual network that is connected to ExpressRoute?
 

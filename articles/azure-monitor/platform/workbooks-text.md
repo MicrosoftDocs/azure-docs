@@ -55,6 +55,8 @@ This is how the workbook will look like in read-mode.
 
     ![Image showing a text parameter referenced in KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> In the example above, `{SlowRequestThreshold}` represents an integer value. If you were querying for a string like `{ComputerName}` you would need to modify your Kusto query to add quotes `"{ComputerName}"` in order for the parameter field to an accept input without quotes.
 
 ## Setting default values
 1. Start with an empty workbook in edit mode.

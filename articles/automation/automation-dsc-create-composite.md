@@ -1,6 +1,6 @@
 ---
-title: Convert configurations to composite resources for state configuration - Azure Automation
-description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
+title: Convert configurations to composite resources for Azure Automation State Configuration
+description: This article tells how to convert configurations to composite resources for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -69,8 +69,8 @@ to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
+or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
 to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)
@@ -85,6 +85,6 @@ to view the
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).

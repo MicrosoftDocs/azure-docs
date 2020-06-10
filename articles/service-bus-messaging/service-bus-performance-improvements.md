@@ -131,7 +131,7 @@ receiver.RegisterMessageHandler(
     new MessageHandlerOptions(e => LogErrorAsync(e.Exception))
     {
         AutoComplete = false,
-        MaxConcurrentCalls = 1
+        MaxConcurrentCalls = 20
     });
 ```
 
@@ -155,7 +155,7 @@ receiver.OnMessageAsync(
     new OnMessageOptions
     {
         AutoComplete = false,
-        MaxConcurrentCalls = 1
+        MaxConcurrentCalls = 20
     });
 ```
 

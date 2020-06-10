@@ -8,6 +8,7 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -19,6 +20,8 @@ ms.author: allensu
 # Tutorial: Create a NAT Gateway using the Azure portal and test the NAT service
 
 In this tutorial, you'll create a NAT gateway to provide outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine. You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
+
+If you prefer, you can do these steps using the [Azure CLI](tutorial-create-validate-nat-gateway-cli.md) or [Azure PowerShell](tutorial-create-validate-nat-gateway-powershell.md) instead of the portal.
 
 ## Sign in to Azure
 
@@ -39,9 +42,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetsource          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
 | **\<subnet-name>**          | mySubnetsource        |
-| **\<subnet-address-range>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -162,9 +165,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

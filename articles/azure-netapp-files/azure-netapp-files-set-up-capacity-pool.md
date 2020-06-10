@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/02/2020
 ms.author: b-juche
 ---
 # Set up a capacity pool
@@ -42,7 +42,7 @@ You must have already created a NetApp account.
 
    * **Service level**   
      This field shows the target performance for the capacity pool.  
-     Specify the service level for the capacity pool: [**Premium**](azure-netapp-files-service-levels.md#Premium) or [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), or [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
    * **Size**     
      Specify the size of the capacity pool that you are purchasing.        

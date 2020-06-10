@@ -8,6 +8,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
+ms.custom: mqtt
 ---
 
 # Get started with device twins (Node.js)

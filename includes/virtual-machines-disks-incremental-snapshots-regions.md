@@ -10,13 +10,4 @@
  ms.custom: include file
 ---
 
-Only the following regions currently support incremental snapshots as a GA offering:
-
-- West Central US
-- Central US
-- East US
-- East US 2
-- Canada East
-- Canada Central
-- North Europe
-- South East Asia
+Incremental snapshots is now available in all the public regions in GA.

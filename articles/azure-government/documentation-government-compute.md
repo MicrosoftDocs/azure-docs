@@ -24,6 +24,17 @@ For details on this service and how to use it, see [Azure Virtual Machines Sizes
 ### Variations
 For available virtual machine sizes in Azure Government, see <a href="https://azure.microsoft.com/regions/services/">Products Available by Region</a>
 
+The following Virtual Machines features are not currently available in Azure Government:
+
+- Settings
+  - Continuous delivery
+- Operations
+  - Auto-Shutdown
+- Monitoring
+  - Application Insights
+- Support + Troubleshooting
+  - Ubuntu Advantage support plan
+
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
 
@@ -61,10 +72,9 @@ The DNS for the Cloud Services is different:
 The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
 ### Variations
-The following Functions features are not currently available in Azure Government:
 
-- The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. The Consumption plan is available in USGov Virginia region. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
-- [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) is not available yet.
+-  Azure Functions feature [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) for Azure Government enviorment is only available for Azure Functions V2/V3 and not for Azure Functions V1.
+
 
 The URLs for Function are different:
 

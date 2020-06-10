@@ -1,15 +1,9 @@
 ---
-title: "Quickstart: Speech SDK for Python platform setup - Speech service"
-titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for using Python with the Speech service SDK.
-services: cognitive-services
-author: markamos
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/09/2019
-ms.author: erhopf
+ms.date: 04/04/2020
+ms.author: trbye
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Python. If you just want the package name to get started on your own, run `pip install azure-cognitiveservices-speech`.
@@ -21,7 +15,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Python Speech SDK package is available for these operating systems:
   - Windows: x64 and x86
   - Mac: macOS X version 10.12 or later
-  - Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 on x64
+  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 on x64
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - On RHEL/CentOS 8, run the following commands to install the required packages:
+  - On RHEL/CentOS, run the following commands to install the required packages:
 
         ```sh
         sudo yum update
@@ -49,7 +43,8 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
         ```
 
 > [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
 - And finally, you'll need [Python 3.5 to 3.8](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.

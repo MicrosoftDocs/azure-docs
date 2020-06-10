@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -37,9 +37,8 @@ For any given use case, there can be a few ways to solve the problem.  The right
 | Support IP-based SSL needs for your app | app assigned address |
 | Not shared, dedicated inbound address for your app | app assigned address |
 | Restrict access to your app from a set of well-defined addresses | Access Restrictions |
-| Expose my app on private IPs in my VNet | ILB ASE </br> Application Gateway with service endpoints |
-| Restrict access to my app from resources in a VNet | Service Endpoints </br> ILB ASE |
-| Expose my app on a private IP in my VNet | ILB ASE </br> private IP for inbound on an Application Gateway with service endpoints |
+| Restrict access to my app from resources in a VNet | Service Endpoints </br> ILB ASE </br> Private endpoint (Preview) |
+| Expose my app on a private IP in my VNet | ILB ASE </br> private IP for inbound on an Application Gateway with service endpoints </br> Service Endpoint (Preview) |
 | Protect my app with a WAF | Application Gateway + ILB ASE </br> Application Gateway with service endpoints </br> Azure Front Door with Access Restrictions |
 | Load balance traffic to my apps in different regions | Azure Front Door with Access Restrictions | 
 | Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
@@ -78,7 +77,7 @@ When you use an app assigned address, your traffic still goes through the same f
 * Support IP-based SSL needs for your app
 * Set a dedicated address for your app that is not shared with anything else
 
-You can learn how to set an address on your app with the tutorial on [Configuring IP based SSL][appassignedaddress]. 
+You can learn how to set an address on your app with the tutorial on [Add a TLS/SSL certificate in Azure App Service][appassignedaddress]. 
 
 ### Access Restrictions 
 
@@ -107,6 +106,11 @@ Service endpoints allows you to lock down **inbound** access to your app such th
 ![service endpoints with application gateway](media/networking-features/service-endpoints-appgw.png)
 
 You can learn more about configuring service endpoints with your app in the tutorial on [Configuring Service Endpoint Access Restrictions][serviceendpoints]
+
+### Private Endpoint (Preview)
+
+Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Web App into your VNet. This feature is only for **inbound** flows to your Web App.
+[Using Private Endpoints for Azure Web App (Preview)][privateendpoints]
  
 ### Hybrid Connections
 
@@ -223,3 +227,4 @@ You can have multiple front-end apps use the same API app by using VNet Integrat
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
 [appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

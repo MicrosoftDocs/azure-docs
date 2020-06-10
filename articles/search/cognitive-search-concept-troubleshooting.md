@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/08/2020
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 
@@ -71,6 +71,10 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
   ]
 }
 ```
+
+### Debug sessions
+
+Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and push changes to a production skillset in the AI enrichment pipeline. This is a preview feature and access is granted on a case-by-case basis. [Read the documentation](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) and find out how to apply for access.
 
 ## Tip 5: Expected content fails to appear
 
