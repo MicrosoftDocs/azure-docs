@@ -134,7 +134,7 @@ The traffic that goes to the interconnected branches or from them to the locatio
 
 ![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
 
-Currently ExpressRoute Global Reach is not available in every country, but you can configure a solution using Azure Virtual WAN.
+Currently ExpressRoute Global Reach is not available in every country/region, but you can configure a solution using Azure Virtual WAN.
 
 You can, for example, configure an ExpressRoute with Microsoft Peering and connect a VPN tunnel through that peering to Azure Virtual WAN. Now you have enabled, again, the transit between VPN and ExpressRoute without Global Reach and 3rd party provider and service, such as Megaport Cloud.
 

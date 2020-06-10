@@ -31,7 +31,9 @@ You can customize the way different fields are ranked by defining a custom *scor
 
 A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 
-## Scoring statistics
+<a name="scoring-statistics"></a>
+
+## Scoring statistics and sticky sessions (preview)
 
 For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that portions of an index are physically separate.
 
@@ -40,13 +42,21 @@ By default, the score of a document is calculated based on statistical propertie
 If you prefer to compute the score based on the statistical properties across all shards, you can do so by adding *scoringStatistics=global* as a [query parameter](https://docs.microsoft.com/rest/api/searchservice/search-documents) (or add *"scoringStatistics": "global"* as a body parameter of the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
   Content-Type: application/json
-  api-key: [admin key]  
+  api-key: [admin or query key]  
 ```
+Using scoringStatistics will ensure that all shards in the same replica provide the same results. That said, different replicas may be slightly different from one another as they are always getting updated with the latest changes to your index. In some scenarios, you may want your users to get more consistent results during a "query session". In such scenarios, you can provide a `sessionId` as part of your queries. The `sessionId` is a unique string that you create to refer to a unique user session.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+  Content-Type: application/json
+  api-key: [admin or query key]  
+```
+As long as the same `sessionId` is used, a best-effort attempt will be made to target the same replica, increasing the consistency of results your users will see. 
 
 > [!NOTE]
-> An admin api-key is required for the `scoringStatistics` parameter.
+> Reusing the same `sessionId` values repeatedly can interfere with the load balancing of the requests across replicas and adversely affect the performance of the search service. The value used as sessionId cannot start with a '_' character.
 
 ## Similarity ranking algorithms
 
@@ -54,16 +64,9 @@ Azure Cognitive Search supports two different similarity ranking algorithms: A *
 
 For now, you can specify which similarity ranking algorithm you would like to use. For more information, see [Ranking algorithm](index-ranking-similarity.md).
 
-## Watch this video
+The following video segment fast-forwards to an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
-In this 16-minute video, software engineer Raouf Merouche explains the process of indexing, querying, and how to create scoring profiles. It gives you a good idea of what is going on under the hood as your documents are being indexed and retrieved.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2 - 3 minutes cover indexing: text processing and lexical analysis.
-+ 3 - 4 minutes cover indexing: inverted indexes.
-+ 4 - 6 minutes cover querying: retrieval and ranking.
-+ 7 - 16 minutes covers scoring profiles.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## See also
 

@@ -172,7 +172,7 @@ change with the inclusion of management groups. Use the full path to define the 
 **/providers/Microsoft.Management/managementgroups/{groupId}**.
 
 Use the management group's ID and not the management group's display name. This common error happens
-since both are custom defined fields when creating a management group.
+since both are custom-defined fields when creating a management group.
 
 ```json
 ...
@@ -209,14 +209,14 @@ since both are custom defined fields when creating a management group.
 
 Role definitions are assignable scope anywhere within the management group hierarchy. A role
 definition can be defined on a parent management group while the actual role assignment exists on
-the child subscription. Since there is a relationship between the two items, you will receive an
-error when trying to separate the assignment from its definition.
+the child subscription. Since there's a relationship between the two items, you'll receive an error
+when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
 :::image type="content" source="./media/subtree.png" alt-text="sub-tree" border="false":::
 
-Let's say there is a custom role defined on the Marketing management group. That custom role is then
+Let's say there's a custom role defined on the Marketing management group. That custom role is then
 assigned on the two free trial subscriptions.  
 
 If we try to move one of those subscriptions to be a child of the Production management group, this
@@ -225,7 +225,7 @@ definition. In this scenario, you'll receive an error saying the move isn't allo
 break this relationship.  
 
 There are a couple different options to fix this scenario:
-- Remove the role assignment from the subscription prior to moving the subscription to a new parent
+- Remove the role assignment from the subscription before moving the subscription to a new parent
   MG.
 - Add the subscription to the Role Definition's assignable scope.
 - Change the assignable scope within the role definition. In the above example, you can update the
@@ -240,19 +240,19 @@ There are limitations that exist when using custom roles on management groups.
 
  - You can only define one management group in the assignable scopes of a new role. This limitation
    is in place to reduce the number of situations where role definitions and role assignments are
-   disconnected. This happens when a subscription or management group with a role assignment is
-   moved to a different parent that doesn't have the role definition.  
- - RBAC Data Plane actions aren't allowed to be defined in management group custom roles. This
-   restriction is in place as there is a latency issue with RBAC actions updating the data plane
-   resource providers. This latency issue is being worked on and these actions will be disabled from
-   the role definition to reduce any risks.
+   disconnected. This situation happens when a subscription or management group with a role
+   assignment is moved to a different parent that doesn't have the role definition.  
+ - RBAC Data Plane actions can't be defined in management group custom roles. This restriction is in
+   place as there's a latency issue with RBAC actions updating the data plane resource providers.
+   This latency issue is being worked on and these actions will be disabled from the role definition
+   to reduce any risks.
  - The Azure Resource Manager doesn't validate the management group's existence in the role
-   definition's assignable scope. If there is a typo or a incorrect management group ID listed, the
+   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
    role definition will still be created.  
 
 ## Moving management groups and subscriptions 
 
-To a management group or subscription to be a child of another management group, three rules need to
+To move a management group or subscription to be a child of another management group, three rules need to
 be evaluated as true.
 
 If you're doing the move action, you need: 

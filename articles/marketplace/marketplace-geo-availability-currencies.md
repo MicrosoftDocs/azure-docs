@@ -1,6 +1,6 @@
 ---
-title: Geographic availability and currency support for the commercial marketplace | Azure Marketplace
-description: Geographic availability in the commercial marketplace
+title: Geographic availability and currency support for Microsoft commercial marketplace
+description: The geographic availability and currency support for transactions in the commercial marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

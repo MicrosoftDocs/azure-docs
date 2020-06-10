@@ -14,6 +14,7 @@ As your organization matures, you may need to define and assign [policies](../..
 You can deploy the following resource types at the tenant level:
 
 * [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to management groups or subscriptions.
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -66,7 +67,7 @@ For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant?vi
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -75,7 +76,7 @@ For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resourc
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -98,20 +99,20 @@ For tenant deployments, there are some important considerations when using templ
 * Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the resource ID for resources that are deployed at tenant level.
 
   For example, to get the resource ID for a policy definition, use:
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   The returned resource ID has the following format:
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
 ## Create management group
 
-The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) creates a management group.
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) creates a management group.
 
 ```json
 {
@@ -137,7 +138,7 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## Assign role
 
-The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) assigns a role at the tenant scope.
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) assigns a role at the tenant scope.
 
 ```json
 {

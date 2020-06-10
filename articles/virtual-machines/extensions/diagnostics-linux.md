@@ -44,13 +44,28 @@ These installation instructions and a [downloadable sample configuration](https:
 
 The downloadable configuration is just an example; modify it to suit your own needs.
 
+### Supported Linux distributions
+
+The Linux Diagnostic Extension supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. Third-party BYOL and BYOS images, like appliances, are generally not supported for the Linux Diagnostic Extension.
+
+A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than the specified version are supported.
+
+Supported distributions and versions:
+
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5+
+- Oracle Linux 7, 6.4+
+- OpenSUSE 13.1+
+- SUSE Linux Enterprise Server 12
+- Debian 9, 8, 7
+- RHEL 7, 6.7+
+
 ### Prerequisites
 
 * **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to update it.
 * **Azure CLI**. [Set up the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing storage account within it to store the data.
-* List of supported Linux distributions is on https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### Sample installation
 

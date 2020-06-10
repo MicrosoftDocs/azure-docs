@@ -63,6 +63,11 @@ Use the following procedure.
      **Add criteria screen**
 
      ![Add criteria](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  In order to have a high quality and effective rules, we ask to add at least one more condition to rules with the signal "All Administrative". 
+     > As a part of the definition of the alert you must fill one of the drop downs: "Event level", "Status" or "Initiated by" and by that the rule will be more specific.
 
      - **History time**: Events available for the selected operation can be plotted over the last 6, 12, or 24 hours or over the last week.
 

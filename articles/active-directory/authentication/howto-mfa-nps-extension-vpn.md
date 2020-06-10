@@ -242,9 +242,9 @@ In this section, you configure your VPN server to use RADIUS authentication. The
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
     c. In the **Time-out (seconds)** box, enter a value of **30**.  
-    The timeout value is necessary to allow enough time to complete the second authentication factor.
+    The timeout value is necessary to allow enough time to complete the second authentication factor. Some VPNs or regions require time-out settings greater than 30 seconds to prevent users from receiving multiple phone calls. If users do experience this issue, increase the **Time-out (seconds)** value in increments of 30 seconds until the issue doesn't reoccur.
 
-    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Select **OK**.
 

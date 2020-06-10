@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
 
 ---
@@ -129,7 +129,7 @@ For more information on naming other Azure resources, see [Naming conventions fo
 
 ## Regions\locations
 
-When setting up your Azure Lab Services' resources, you're required to provide a region (or location) of the data center that will host the resource. Here are more details on how region impacts each of the resourced involved with setting up a lab.
+When setting up your Azure Lab Services' resources, you're required to provide a region (or location) of the data center that will host the resource. Here are more details on how region impacts each of the resources involved with setting up a lab.
 
 ### Resource group
 
@@ -175,11 +175,12 @@ When administrators or lab creators create a classroom lab, they can choose from
 | ---- | ----- | ------ | ------------- |
 | Small| <ul><li>2 Cores</li><li>3.5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
 | Medium | <ul><li>4 Cores</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for relational databases, in-memory caching, and analytics. |
-| Medium (Nested virtualization) | <ul><li>4 Cores</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | This size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization. |
-| Large | <ul><li>8 Cores</li><li>32 GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
+| Medium (Nested virtualization) | <ul><li>4 Cores</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | This size is best suited for relational databases, in-memory caching, and analytics.
+| Large | <ul><li>8 Cores</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
+| Large (Nested Virtualization) | <ul><li>8 Cores</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
 | Small GPU (Visualization) | <ul><li>6 Cores</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. |
 | Small GPU (Compute) | <ul><li>6 Cores</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications like Artificial Intelligence and Deep Learning. |
-| Medium GPU (Visualization) | <ul><li>12 Cores</li><li>112 GB RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. |
+| Medium GPU (Visualization) | <ul><li>12 Cores</li><li>112 GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. |
 
 ## Manage identity
 

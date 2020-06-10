@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 04/24/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
@@ -108,6 +108,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage Azure Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
 - [Track attacks and view security alerts across multiple customer tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Sentinel workspaces spread across customer tenants
 
 [Azure Service Health](../../service-health/index.yml):
 

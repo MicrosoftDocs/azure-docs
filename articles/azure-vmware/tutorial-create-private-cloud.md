@@ -25,10 +25,10 @@ In this tutorial, you learn how to:
 
 ## Register the resource provider
 
-In order to use the Azure VMWare Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
+In order to use the Azure VMware Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
 
 ```azurecli-interactive
-az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
@@ -54,7 +54,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 | **Resource group** | The resource group for your private cloud resources. |
 | **Location** | Select a location, such as **east us**.|
 | **Resource name** | The name of your AVS private cloud. |
-| **SKU** | Select the appropriate SKU, available values are: |
+| **SKU** | Select the followng SKU value: AV36 |
 | **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
 | **vCenter admin password** | Enter a cloud administrator password. |
 | **NSX-T manager password** | Enter a NSX-T administrator password. |

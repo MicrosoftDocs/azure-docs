@@ -59,7 +59,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.1.2</version>
     </dependency>
     <dependency>
@@ -78,7 +78,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.2.2</version>
     </dependency>
     <dependency>
@@ -175,7 +175,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }

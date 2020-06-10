@@ -16,7 +16,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 >[!NOTE]
 >
->- Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. 
+>- Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery via portal. Please use PowerShell or REST API to leverage Recovery Plans for Zone to Zone Disaster Recovery. 
 >- Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South.  
 
 Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. It is the recommended Disaster Recovery option to keep your applications up and running if there are regional outages.
@@ -102,17 +102,20 @@ Login to the Azure portal.
 
 ## FAQs
 
-1. How does pricing work for Zone to Zone Disaster Recovery?
+**1. How does pricing work for Zone to Zone Disaster Recovery?**
 Pricing for Zone to Zone Disaster Recovery is identical to the pricing of Azure to Azure Disaster Recovery. You can find more details on the pricing page [here](https://azure.microsoft.com/pricing/details/site-recovery/) and [here](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Note that the egress charges that you would see in zone to zone disaster recovery would be lower than region to region disaster recovery.
 
-2. What is the SLA for RTO and RPO?
-The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 hours. There is no defined SLA for RPO.
+**2. What is the SLA for RTO and RPO?**
+The RTO SLA is the same as that for Site Recovery overall. We promise RTO of up to 2 hours. There is no defined SLA for RPO.
 
-3. Is capacity guaranteed in the secondary zone?
+**3. Is capacity guaranteed in the secondary zone?**
 The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone.
 
-4. Which operating systems are supported?
+**4. Which operating systems are supported?**
 Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+
+**5. Can the source and target resource groups be the same?**
+No, you must failover to a different resource group.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -77,4 +77,4 @@ Service updates happen monthly. If there are major issues, critical updates will
 Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment. 
 
 > [!div class="nextstepaction"]
-> [Set up service alerts](../set-up-service-alerts.md)
+> [Set up service alerts](set-up-service-alerts-2019.md)

@@ -26,8 +26,6 @@ For more information, see the [Key Vault event schema](../../event-grid/event-sc
 
 > [!WARNING]
 > Notification events are triggered only on new versions of secrets, keys and certificates, and you must first subscribe to the event on your key vault in order to receive these notifications.
-> 
-> You will receive notification events on certificates only when the certificate is automatically renewed according to the policy you have specified for your certificate.
 
 ## Practices for consuming events
 

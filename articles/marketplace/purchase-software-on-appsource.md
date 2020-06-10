@@ -24,11 +24,11 @@ To purchase SaaS offers, you need:
 - A valid credit card in the country/region where you are purchasing the offer.
 
     > [!Note]
-    > The credit card billing country may be locked to the location of your Azure Active Directory instance.
+    > The credit card billing country/region may be locked to the location of your Azure Active Directory instance.
 
 ## Steps for making purchases on AppSource
 
-1. Select your billing/country region on [AppSource](https://appsource.microsoft.com/).
+1. Select your billing country/region on [AppSource](https://appsource.microsoft.com/).
 1. Find the application you wish to purchase.
 1. Select **Get it now**.
 1. Choose the plan:

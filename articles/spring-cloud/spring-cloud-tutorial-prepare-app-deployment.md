@@ -124,11 +124,24 @@ For Spring Boot version 2.2 add the following dependency to the application POM 
 </dependency>
 ```
 
-## Other required dependencies
+## Other recommended dependencies to enable Azure Spring Cloud features
 
-To enable the built-in features of Azure Spring Cloud, your application must include the following dependencies. This inclusion ensures that your application configures itself correctly with each component.
+To enable the built-in features of Azure Spring Cloud from service registry to distributed tracing, you need to also include the following dependencies in your application. You can drop some of these dependencies if you don't need corresponding features for the specific apps.
 
-### EnableDiscoveryClient annotation
+### Service Registry
+
+To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the pom.xml file as shown here:
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
+
+#### EnableDiscoveryClient annotation
 
 Add the following annotation to the application source code.
 ```java
@@ -154,20 +167,7 @@ public class GatewayApplication {
 }
 ```
 
-### Service Registry dependency
-
-To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the pom.xml file as shown here:
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
-
-### Distributed Configuration dependency
+### Distributed Configuration
 
 To enable Distributed Configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your pom.xml file:
 
@@ -181,7 +181,7 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
-### Metrics dependency
+### Metrics
 
 Include the `spring-boot-starter-actuator` dependency in the dependencies section of your pom.xml file as shown here:
 
@@ -194,7 +194,7 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
  Metrics are periodically pulled from the JMX endpoints. You can visualize the metrics by using the Azure portal.
 
-### Distributed Tracing dependency
+### Distributed Tracing
 
 Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies in the dependencies section of your pom.xml file:
 

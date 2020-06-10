@@ -38,11 +38,6 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-In order to successfully deploy and configure the management tool, you first need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and save them to the same folder on your local machine.
-
-  - createWvdMgmtUxAppRegistration.ps1
-  - updateWvdMgmtUxApiUrl.ps1
-
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 
 ## Set up PowerShell
@@ -68,11 +63,23 @@ Keep the PowerShell window you used to sign in open to run additional PowerShell
 
 ## Create an Azure Active Directory app registration
 
+In order to successfully deploy and configure the management tool, you first need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts)
+
+```powershell
+Set-Location -Path "c:\temp"
+$uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-management-ux/deploy/scripts/createWvdMgmtUxAppRegistration.ps1"
+Invoke-WebRequest -Uri $uri -OutFile ".\createWvdMgmtUxAppRegistration.ps1"
+$uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-management-ux/deploy/scripts/updateWvdMgmtUxApiUrl.ps1"
+Invoke-WebRequest -Uri $uri -OutFile ".\updateWvdMgmtUxApiUrl.ps1"
+```
+
 Run the following commands to create the app registration with required API permissions:
 
 ```powershell
 $appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration. The name can't contain spaces or special characters."
-$subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool."
+$azureSubscription = Get-AzSubscription | Out-GridView -PassThru
+$subscriptionId = $azureSubscription.Id
+Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
 
 .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```

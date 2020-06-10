@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Azure Stack Edge technical specifications
 
-The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
+The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
 ## Compute, memory specifications
 
@@ -23,15 +23,13 @@ The Azure Stack Edge device has the following specifications for compute and mem
 | CPU    | 2 X 10 core CPU                     |
 | Memory              | 128 GB RAM                  |
 
-
 ## FPGA specifications
 
-A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios. 
+A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
 
 ## Power supply unit specifications
 
@@ -43,6 +41,11 @@ The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with hig
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
+
+### Azure Stack Edge power cord specifications by region
+
+Your Azure Stack Edge device needs a power cord that varies depending on your Azure region.
+For technical specifications of all the supported power cords, see [Azure Stack Edge power cord specifications by region](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
@@ -128,7 +131,6 @@ This section lists the specifications related to the enclosure environment such 
 |    Energy             |    Commission Regulation (EU) No. 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### Operating temperature de-rating specifications
 
 |     Operating    temperature de-rating     |     Ambient    temperature range                                                         |
@@ -136,7 +138,6 @@ This section lists the specifications related to the enclosure environment such 
 |    Up to 35°C (95°F)                       |    Maximum temperature is reduced by   1°C/300 m (1°F/547 ft) above 950 m (3,117 ft).    |
 |    35°C to 40°C (95°F to 104°F)            |    Maximum temperature is reduced by   1°C/175 m (1°F/319 ft) above 950 m (3,117 ft).    |
 |    40°C to 45°C (104°F to 113°F)           |    Maximum temperature is reduced by   1°C/125 m (1°F/228 ft) above 950 m (3,117 ft).    |
-
 
 ## Next steps
 

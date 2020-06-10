@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -53,6 +53,10 @@ First, you should not expect the automatic upgrade to be attempted the first day
 
 If you think something is not right, then first run `Get-ADSyncAutoUpgrade` to ensure automatic upgrade is enabled.
 
+If the state is suspended, you can use the `Get-ADSyncAutoUpgrade -Detail` to view the reason.  The suspension reason can contain any string value but will usually contain the string value of the UpgradeResult, that is, `UpgradeNotSupportedNonLocalDbInstall` or `UpgradeAbortedAdSyncExeInUse`.  A compound value may also be returned, such as `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`.
+
+It is also possible to get a result that is not an UpgradeResult i.e. 'AADHealthEndpointNotDefined' or 'DirSyncInPlaceUpgradeNonLocalDb'.
+
 Then, make sure you have opened the required URLs in your proxy or firewall. Automatic update is using Azure AD Connect Health as described in the [overview](#overview). If you use a proxy, make sure Health has been configured to use a [proxy server](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Also test the [Health connectivity](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to Azure AD.
 
 With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event id range **300-399**.  
@@ -85,19 +89,11 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](how-to-connect-sync-service-manager-ui.md) is open on the server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
-| UpgradeNotSupportedDeviceWritebackEnabled |You have enabled the [device writeback](how-to-connect-device-writeback.md) feature. |
-| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](how-to-connect-preview.md#group-writeback) feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
-| UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
-| UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. |
-| UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
-| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
+|UpgradeNotSupportedLocalDbSizeExceeded|Local DB size is greater than or equal to 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Health data uploads have been disabled from the portal|
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

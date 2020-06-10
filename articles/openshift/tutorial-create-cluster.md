@@ -20,6 +20,15 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+### Verify your permissions
+
+To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure account and user:
+
+|Permissions|Resource Group which contains the VNet|User executing `az aro create`|Service Principal passed as `–client-id`|
+|----|:----:|:----:|:----:|
+|**User Access Administrator**|X|X| |
+|**Contributor**|X|X|X|
+
 ### Install the `az aro` extension
 The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
 

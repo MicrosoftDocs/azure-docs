@@ -13,7 +13,8 @@ Azure Stream Analytics support processing events in CSV, JSON, and Avro data for
 
 >[!NOTE]
 >AVRO files created by Event Hub Capture use a specific format that requires you to use the *custom deserializer* feature. For more information, see [Read input in any format using .NET custom deserializers](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>Stream Analytics AVRO deserialization does not support Map type. Stream Analytics can't read EventHub capture blobs because EventHub capture uses map.
 
 
 ## Record data types

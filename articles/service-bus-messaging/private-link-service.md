@@ -10,7 +10,7 @@ ms.topic: article
 
 ---
 
-# Integrate Azure Service Bus with Azure Private Link (Preview)
+# Integrate Azure Service Bus with Azure Private Link
 
 Azure Private Link Service enables you to access Azure services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
@@ -34,8 +34,6 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 > [!IMPORTANT]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
->
-> This feature is currently in **preview**. 
 
 
 ## Add a private endpoint using Azure portal
@@ -59,7 +57,7 @@ If you already have an existing namespace, you can create a private endpoint by 
 2. In the search bar, type in **Service Bus**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections (preview)** tab at the top of the page
+5. Select the **Private endpoint connections** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
@@ -227,46 +225,33 @@ You should validate that the resources within the same subnet of the private end
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-In the **Networking** tab:
+In the **Networking** tab: 
 
-1. Specify **Virtual network** and **Subnet**. You can create a new virtual network or select an existing one. If selecting an existing one, make sure the region matches.
-1. Specify a **public IP** resource.
-1. For **NIC network security group**, select **None**.
-1. For **Load balancing**, select **No**.
+1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
+2. Specify a **public IP** resource.
+3. For **NIC network security group**, select **None**.
+4. For **Load balancing**, select **No**.
 
-Open the command line and run the following command:
+Connect to the VM, open the command line, and run the following command:
 
 ```console
-nslookup <your-service-bus-namespace-name>.servicebus.windows.net
+nslookup <service-bus-namespace-name>.servicebus.windows.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a public endpoint, you will see a result that looks like this:
+You should see a result that looks like the following. 
 
 ```console
-c:\ >nslookup <your-service-bus-namespace-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
-```
-
-If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a private endpoint, you will see a result that looks like this:
-
-```console
-c:\ >nslookup your_service-bus-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
+Name:    <service-bus-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
+**Limitations**:  This feature is available in all Azure public regions.
 
 **Maximum number of private endpoints per Service Bus namespace**: 120.
 
